@@ -1,0 +1,188 @@
+{
+  "actual_head": "8ec949ad990392a014d95b04236b71181039b952",
+  "applicable_license_files": [
+    {
+      "licenses": [
+        "SPDX-license-Identifier-Apache-2.0"
+      ],
+      "path": "Android.bp"
+    }
+  ],
+  "expected_head": "8ec949ad990392a014d95b04236b71181039b952",
+  "head_matches": true,
+  "is_shallow": false,
+  "is_sparse": false,
+  "large_files": [],
+  "present_tracked_files": 349,
+  "probe": {
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/0.8"
+    ],
+    "build_system": "Soong",
+    "commit_count": 19,
+    "default_branch": "main",
+    "feature_evidence": {
+      "has_aidl": [
+        "api/src/android/car/CarOccupantZoneManager.aidl",
+        "api/src/android/car/IAppFocus.aidl",
+        "api/src/android/car/IAppFocusListener.aidl",
+        "api/src/android/car/IAppFocusOwnershipCallback.aidl",
+        "api/src/android/car/ICar.aidl",
+        "api/src/android/car/ICarBluetoothUserService.aidl",
+        "api/src/android/car/ICarBugreportCallback.aidl",
+        "api/src/android/car/ICarBugreportService.aidl",
+        "api/src/android/car/ICarConnectionListener.aidl",
+        "api/src/android/car/ICarInfo.aidl",
+        "api/src/android/car/ICarOccupantZone.aidl",
+        "api/src/android/car/ICarOccupantZoneCallback.aidl",
+        "api/src/android/car/ICarProjection.aidl",
+        "api/src/android/car/ICarProjectionKeyEventHandler.aidl",
+        "api/src/android/car/ICarProjectionStatusListener.aidl",
+        "api/src/android/car/ICarResultReceiver.aidl",
+        "api/src/android/car/ICarUserService.aidl",
+        "api/src/android/car/IExperimentalCar.aidl",
+        "api/src/android/car/IExperimentalCarHelper.aidl",
+        "api/src/android/car/IExperimentalCarUserService.aidl"
+      ],
+      "has_binder": [
+        "api/src/android/car/AoapService.java",
+        "api/src/android/car/Car.java",
+        "api/src/android/car/CarAppFocusManager.java",
+        "api/src/android/car/CarBugreportManager.java",
+        "api/src/android/car/CarInfoManager.java",
+        "api/src/android/car/CarOccupantZoneManager.java",
+        "api/src/android/car/CarProjectionManager.java",
+        "api/src/android/car/ICar.aidl",
+        "api/src/android/car/ICarBugreportService.aidl",
+        "api/src/android/car/ICarConnectionListener.aidl",
+        "api/src/android/car/ICarProjection.aidl",
+        "api/src/android/car/IExperimentalCarHelper.aidl",
+        "api/src/android/car/hardware/CarSensorManager.java",
+        "api/src/android/car/hardware/CarVendorExtensionManager.java",
+        "api/src/android/car/hardware/ICarSensorEventListener.aidl",
+        "api/src/android/car/hardware/cabin/CarCabinManager.java",
+        "api/src/android/car/hardware/hvac/CarHvacManager.java",
+        "api/src/android/car/hardware/power/CarPowerManager.java",
+        "api/src/android/car/hardware/power/ICarPowerPolicyListener.aidl",
+        "api/src/android/car/hardware/power/ICarPowerStateListener.aidl"
+      ],
+      "has_hidden_api": [
+        "Android.bp",
+        "api/src/android/car/Car.java",
+        "api/src/android/car/CarAppFocusManager.java",
+        "api/src/android/car/CarBugreportManager.java",
+        "api/src/android/car/CarFeatures.java",
+        "api/src/android/car/CarOccupantZoneManager.java",
+        "api/src/android/car/CarProjectionManager.java",
+        "api/src/android/car/hardware/CarVendorExtensionManager.java",
+        "api/src/android/car/hardware/cabin/CarCabinManager.java",
+        "api/src/android/car/hardware/hvac/CarHvacManager.java",
+        "api/src/android/car/hardware/power/CarPowerManager.java",
+        "platform/src/com/cockpitbench/carruntime/platform/Sa8155VehicleBridge.java",
+        "platform/src/com/cockpitbench/carruntime/platform/Sa8295VehicleBridge.java",
+        "platform/src/com/cockpitbench/carruntime/platform/XinqingVehicleBridge.java",
+        "platform/src/com/cockpitbench/carruntime/product/AetherBaseRuntimeProfile.java",
+        "platform/src/com/cockpitbench/carruntime/product/AetherPremiumRuntimeProfile.java",
+        "platform/src/com/cockpitbench/carruntime/product/AtlasBaseRuntimeProfile.java",
+        "platform/src/com/cockpitbench/carruntime/product/AtlasPremiumRuntimeProfile.java",
+        "platform/src/com/cockpitbench/carruntime/product/AuroraBaseRuntimeProfile.java",
+        "platform/src/com/cockpitbench/carruntime/product/AuroraPremiumRuntimeProfile.java"
+      ],
+      "has_integration_tests": [
+        "Android.bp",
+        "TEST_MAPPING"
+      ],
+      "has_reflection": [
+        "api/src/android/car/Car.java",
+        "api/src/android/car/VehiclePropertyIds.java",
+        "api/src/android/car/hardware/CarPropertyConfig.java",
+        "api/src/android/car/hardware/CarPropertyValue.java",
+        "runtime/src/com/cockpitbench/carruntime/CarRuntimeService.java",
+        "tests/integration/com/cockpitbench/carruntime/CarRuntimeServiceLaunchTest.java"
+      ]
+    },
+    "features": {
+      "has_aidl": true,
+      "has_binder": true,
+      "has_hidden_api": true,
+      "has_integration_tests": true,
+      "has_reflection": true
+    },
+    "has_push_remote": false,
+    "module_count": 5,
+    "modules": [
+      {
+        "name": "cockpit-car-runtime-api",
+        "path": "Android.bp",
+        "type": "java_sdk_library"
+      },
+      {
+        "name": "cockpit-car-runtime-platform",
+        "path": "Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "cockpit-car-runtime-service",
+        "path": "Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "cockpit-car-runtime-support",
+        "path": "Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "cockpit-car-runtime-unit-tests",
+        "path": "Android.bp",
+        "type": "java_library"
+      }
+    ],
+    "probe": {
+      "name": "cockpit-repo-probe",
+      "version": "1.1.0"
+    },
+    "remotes": [],
+    "repo_head": "8ec949ad990392a014d95b04236b71181039b952",
+    "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\car-runtime-service",
+    "source_files": 342,
+    "source_loc": 41407,
+    "stats_method": {
+      "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+      "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+      "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+    },
+    "tags": [
+      "v0.8.0"
+    ],
+    "tracked_files": 349,
+    "worktree_clean": true
+  },
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\car-runtime-service",
+  "root_license_evidence": [
+    {
+      "detected_license": "Apache-2.0",
+      "path": "LICENSE"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_header_files": 323,
+  "source_header_license_counts": {
+    "Apache-2.0": 321,
+    "GPL-2.0": 0,
+    "GPL-3.0": 0,
+    "MIT": 0,
+    "unclassified": 2
+  },
+  "source_url": "https://git.codelinaro.org/clo/la/platform/packages/services/Car",
+  "sparse_missing_files": 0,
+  "submodule_entries": 0,
+  "tracked_files": 349,
+  "unclassified_header_sample": [
+    "Android.bp",
+    "runtime/src/com/cockpitbench/carruntime/ICarRuntime.aidl"
+  ]
+}

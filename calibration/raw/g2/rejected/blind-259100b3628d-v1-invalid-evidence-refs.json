@@ -1,0 +1,278 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-259100b3628d",
+  "repository_head": "19e6001dbee5ac108aba19941231f53e80f6d578",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04c2e-c76e-7822-be91-d2992d67a7ed",
+    "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v1;sha256=8b2f3106d677",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T06:22:09.110Z",
+    "finished_at": "2026-08-29T06:28:14.837Z",
+    "wall_clock_seconds": 365.727,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 165,
+    "directories_visited": 123,
+    "tool_calls": 22,
+    "notes": "HEAD 与预期 SHA 一致。只读检查覆盖全部 146 个 Kotlin/Java/AIDL 文件的规模清单，并深入检查 30 个生产文件和 17 个测试文件，横跨全部模块；另核验构建入口、清单、AIDL、平台依赖、重复家族及 4 个分支专属文件。比较了 main 与 platform/8155、platform/8295、release/1.0、develop。两次早期清单命令因 PowerShell glob/受限语言报错，已计入工具调用并由后续只读命令补足。未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 22 (evaluator self-report: 22); prompt=g2-code-health-v1; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 1,
+      "reason": "domain、vehicle-api 与 app 形成了可辨识的依赖方向和组合根，但大量 comfort/diagnostics/telemetry 类型没有进入应用行为路径，旧 HVAC 核心仍由超大 Service 同时承担平台连接、状态、回调、读写和线程协调，模块化更多是名义上的而非完整运行时边界。",
+      "evidence": [
+        {
+          "path": "domain/src/main/java/com/cockpitbench/climatix/domain/ClimateRepository.kt",
+          "symbol_or_line": "ClimateRepository，21-24 行",
+          "observation": "领域层以 Flow、命令执行和重连组成窄仓储端口，避免直接依赖 Binder。"
+        },
+        {
+          "path": "app/src/main/java/com/cockpitbench/climatix/presentation/ClimateCompositionRoot.kt",
+          "symbol_or_line": "ClimateCompositionRoot.viewModel，22-25 行",
+          "observation": "组合根显式装配 BinderClimateGateway、用例和策略，依赖方向清楚。"
+        },
+        {
+          "path": "hvac-core/src/main/java/com/android/car/hvac/HvacController.java",
+          "symbol_or_line": "HvacController，41-813 行；onCreate/onDestroy 117-134 行；硬件回调 191-228 行",
+          "observation": "单个 813 行 Service 集中平台生命周期、缓存、回调分发、刷新及所有 HVAC 读写职责。"
+        },
+        {
+          "path": "app/build.gradle.kts",
+          "symbol_or_line": "dependencies，19-25 行",
+          "observation": "app 声明依赖 comfort、diagnostics、telemetry，但应用生产源码未引用这些模块的功能类型，缺少实际组合。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 1,
+      "reason": "仓储端口和构造注入提供了 DIP 的真实证据，用例也较单一；但 HvacController 的多重职责、直接具体平台依赖以及成批复制的特性专属端口/模型造成跨项目的 SRP、OCP 和复用问题。",
+      "evidence": [
+        {
+          "path": "domain/src/main/java/com/cockpitbench/climatix/domain/UpdateClimate.kt",
+          "symbol_or_line": "UpdateClimate，19-24 行",
+          "observation": "用例通过注入 ClimateRepository 和 ClimatePolicy 完成校验与执行，具备清晰的 DIP/SRP。"
+        },
+        {
+          "path": "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/BinderClimateGateway.kt",
+          "symbol_or_line": "BinderClimateGateway，25-28 行",
+          "observation": "Binder 适配器实现领域接口，并注入 locator 与 mapper，平台实现可替换。"
+        },
+        {
+          "path": "hvac-core/src/main/java/com/android/car/hvac/HvacController.java",
+          "symbol_or_line": "HvacController 公共读写接口，400-808 行",
+          "observation": "刷新、等待、温度、风速、除霜、座椅、循环和电源策略均堆积在同一具体 Service 中，扩展通常需要修改该类。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 1,
+      "reason": "新 Binder 路径把 ServiceManager 查找包在可替换接口后，也用 Result 表达部分失败；但 legacy HVAC 核心广泛直接依赖 android.car，失败大多只记录日志，服务名和属性 ID 硬编码，权限只在清单/广播入口体现，隔离与错误语义不一致。",
+      "evidence": [
+        {
+          "path": "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/ClimateServiceLocator.kt",
+          "symbol_or_line": "ClimateServiceLocator 与 PlatformClimateServiceLocator，22-27 行",
+          "observation": "隐藏的 ServiceManager 调用被限制在一个实现中，但服务名 cockpit.climate 直接硬编码。"
+        },
+        {
+          "path": "hvac-core/src/main/java/com/android/car/hvac/HvacController.java",
+          "symbol_or_line": "imports 19-25 行；initHvacManager 158-167 行；写操作 489-808 行",
+          "observation": "核心直接使用 Car、CarHvacManager 和 CarPropertyValue；多处 CarNotConnectedException 仅记录日志，调用者得不到结构化失败。"
+        },
+        {
+          "path": "app/src/main/AndroidManifest.xml",
+          "symbol_or_line": "2 行",
+          "observation": "应用声明 CONTROL_CAR_CLIMATE，但 Binder 接口自身未呈现调用方权限检查。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "scored",
+      "score": 2,
+      "reason": "未发现反射；唯一明确的隐藏 API 是 ServiceManager，已封装在可注入的 locator 后并以 nullable Binder 提供失败路径。局部缺口是硬编码服务名、没有显式 allowlist/兼容后备方案，也没有针对该隐藏 API 适配器的测试。",
+      "evidence": [
+        {
+          "path": "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/ClimateServiceLocator.kt",
+          "symbol_or_line": "19-27 行",
+          "observation": "android.os.ServiceManager 仅由 PlatformClimateServiceLocator 使用，调用方依赖 ClimateServiceLocator 接口。"
+        },
+        {
+          "path": "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/BinderClimateGateway.kt",
+          "symbol_or_line": "connect，51-55 行",
+          "observation": "找不到服务时转换为 Result 失败，但没有替代发现机制或版本化回退。"
+        }
+      ]
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 1,
+      "reason": "AIDL 提供双向注册、oneway 回调和基本死亡监听，客户端也在 Flow 关闭时注销监听；但契约是原始 propertyId/areaId/float 粒度，没有权限、版本、结构化错误或能力协商。更严重的是生产 listener 丢弃所有事件，死亡接收者不 unlink，且测试只覆盖本地 Stub。",
+      "evidence": [
+        {
+          "path": "vehicle-api/src/main/aidl/com/cockpitbench/climatix/vehicle/IClimateControl.aidl",
+          "symbol_or_line": "IClimateControl，5-10 行",
+          "observation": "跨进程接口暴露通用读写原语和监听注册，没有 typed parcelable、状态码、权限或版本方法。"
+        },
+        {
+          "path": "vehicle-api/src/main/aidl/com/cockpitbench/climatix/vehicle/IClimateListener.aidl",
+          "symbol_or_line": "IClimateListener，3-5 行",
+          "observation": "回调使用 oneway 并携带时间戳和连接状态，具备基本异步契约。"
+        },
+        {
+          "path": "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/BinderClimateGateway.kt",
+          "symbol_or_line": "observe/connect，31-40 行、51-54 行",
+          "observation": "注册/注销和 linkToDeath 已实现，但两个回调不产生任何 Flow 元素，死亡处理仅清空缓存且未 unlink。"
+        },
+        {
+          "path": "app/src/androidTest/java/com/cockpitbench/climatix/ClimateServiceContractTest.kt",
+          "symbol_or_line": "localBinderRoundTripPreservesPropertyAreaAndValue，29-46 行",
+          "observation": "测试通过同进程 Stub.asInterface 往返，未覆盖真实跨进程调度、死亡、权限或远程异常。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "仓库依赖当前受控环境未提供的 AOSP/AAOS platform APIs、android.car 和平台签名能力，且 Gradle 模块没有声明可替代的 android.car 编译输入；按照 rubric 无法据此验证可信的独立编译边界。评审约束也禁止运行构建，故不猜测分数。",
+      "evidence": [
+        {
+          "path": "provenance/Android.bp.upstream",
+          "symbol_or_line": "android_app，21-32 行",
+          "observation": "原始边界要求 platform_apis、平台证书、privileged 和 android.car 库。"
+        },
+        {
+          "path": "hvac-core/build.gradle.kts",
+          "symbol_or_line": "android/dependencies，6-18 行",
+          "observation": "Gradle 模块声明 compileSdk 和内部模块，却没有提供源码所导入的 android.car 平台库。"
+        },
+        {
+          "path": "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/ClimateServiceLocator.kt",
+          "symbol_or_line": "19-27 行",
+          "observation": "生产代码直接编译引用公共 SDK 通常不暴露的 android.os.ServiceManager。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 1,
+      "reason": "领域边界、映射和 AIDL 字段往返有实际断言，且检查了 17 个测试文件；但测试主要是小型单元/模板契约。两个 androidTest 仍调用本地 Stub，3981 行的 hvac-core 没有测试，未覆盖服务发现、真实进程边界、权限拒绝、Binder death、重连或平台生命周期。",
+      "evidence": [
+        {
+          "path": "app/src/androidTest/java/com/cockpitbench/climatix/ClimateListenerContractTest.kt",
+          "symbol_or_line": "oneWayCallbackPreservesSignalMetadata，17-39 行",
+          "observation": "验证回调字段，但直接调用本地 listener 方法，没有 Binder 线程或远程进程参与。"
+        },
+        {
+          "path": "domain/src/test/java/com/cockpitbench/climatix/domain/ClimatePolicySynchronizationTest.kt",
+          "symbol_or_line": "synchronizesDriverSetpointToOtherZones，12-23 行",
+          "observation": "对多区同步行为有明确集合和值断言，属于有效领域测试。"
+        },
+        {
+          "path": "diagnostics/src/test/java/com/cockpitbench/climatix/diagnostics/hal_reconnect/HalReconnectContractTest.kt",
+          "symbol_or_line": "featureBehaviorIsExecutable，31-40 行",
+          "observation": "所谓重连测试只用始终成功的内存端口执行 Refresh，没有失败、断连或重试行为。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 0,
+      "reason": "重复是大规模且贯穿三个生产模块的手写结构：comfort、diagnostics、telemetry 各有 25 个生产文件和完全相同的 2150 行规模，大量文件仅替换特性名称和属性 ID。未发现 generated/do-not-edit 标记；测试也按同一模板复制，任何通用行为修改都需要跨数十份实现同步。",
+      "evidence": [
+        {
+          "path": "comfort/src/main/java/com/cockpitbench/climatix/comfort/seat_heat/SeatHeatFeature.kt",
+          "symbol_or_line": "PropertySpec、SeatHeatPort、Catalog、Reducer、ObserveSeatHeat，23-83 行",
+          "observation": "定义快照、命令、端口、24 项目录、reducer 和观察器整套模板。"
+        },
+        {
+          "path": "telemetry/src/main/java/com/cockpitbench/climatix/telemetry/property_write/PropertyWriteFeature.kt",
+          "symbol_or_line": "PropertySpec、PropertyWritePort、Catalog、Reducer、ObservePropertyWrite，23-83 行",
+          "observation": "与 SeatHeatFeature 的实现逐段相同，差异基本仅为类型名称。"
+        },
+        {
+          "path": "diagnostics/src/main/java/com/cockpitbench/climatix/diagnostics/binder_latency/BinderLatencyFeature.kt",
+          "symbol_or_line": "PropertySpec、BinderLatencyPort、Catalog、Reducer、ObserveBinderLatency，23-83 行",
+          "observation": "第三个模块再次复制相同模型、目录和 reducer 结构，证明并非单一局部重复。"
+        },
+        {
+          "path": "telemetry/src/test/java/com/cockpitbench/climatix/telemetry/property_write/PropertyWriteContractTest.kt",
+          "symbol_or_line": "25-38 行",
+          "observation": "测试模板同样重复目录检查和单次 reduce 断言，未形成共享契约测试套件。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 3,
+      "reason": "实际差异而非名称显示出受控分支策略：release 仅增加两行发布通道配置，两个平台分支各只增加一个 23 行信号 profile，develop 仅增加开发文档；各分支历史均包含多次从 main 合并，当前 main 已被各分支纳入。未观察到大规模产品代码分叉。",
+      "evidence": [
+        {
+          "path": "app/src/main/res/xml/release_channel.xml",
+          "symbol_or_line": "release/1.0 分支，1-2 行",
+          "observation": "main...release/1.0 的唯一文件差异是 schemaVersion=1 的 SOP 发布通道配置。"
+        },
+        {
+          "path": "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/platform/Sa8155SignalProfile.kt",
+          "symbol_or_line": "platform/8155 分支，19-22 行",
+          "observation": "main...platform/8155 仅新增服务名、风量上限和支持区域 profile；分支历史随后反复合入 main。"
+        },
+        {
+          "path": "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/platform/Sa8295SignalProfile.kt",
+          "symbol_or_line": "platform/8295 分支，19-22 行",
+          "observation": "第二个平台分支同样保持单文件、常量级差异，而非复制公共实现。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 2,
+      "reason": "平台分支复用同一 main，只把芯片差异限制在小型 profile；主线映射也集中在 ClimateSignalMapper/ClimatePropertyIds。局部但重要的缺口是两个 profile 复制相同对象结构且没有接入主线 mapper/locator，后者仍硬编码 cockpit.climate，因此这些平台策略的运行时生效与扩展机制并不完整。",
+      "evidence": [
+        {
+          "path": "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/ClimateSignalMapper.kt",
+          "symbol_or_line": "command，21-28 行",
+          "observation": "领域命令到车辆属性的映射集中于单一 mapper，而非散落在 UI 或各平台实现。"
+        },
+        {
+          "path": "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/platform/Sa8155SignalProfile.kt",
+          "symbol_or_line": "platform/8155 分支，19-22 行",
+          "observation": "8155 差异被压缩为服务名、最大风量和区域常量。"
+        },
+        {
+          "path": "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/platform/Sa8295SignalProfile.kt",
+          "symbol_or_line": "platform/8295 分支，19-22 行",
+          "observation": "8295 复用主线但复制 profile 对象结构；其 v2 服务名未被主线 locator 消费。"
+        },
+        {
+          "path": "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/ClimateServiceLocator.kt",
+          "symbol_or_line": "PlatformClimateServiceLocator.find，26-27 行",
+          "observation": "主线仍固定查询 cockpit.climate，没有注入或选择平台 profile。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 1.333333,
+    "scored_dimension_count": 9,
+    "failed_dimension_count": 1,
+    "narrative": "主要优势是领域端口、Binder 适配器和组合根提供了清楚的依赖方向，AIDL 至少具备异步监听与基本死亡感知；实际分支比较也显示发布和平台变化被控制在很小的配置/profile 范围，并持续复用 main。主要风险来自两处：其一，legacy HVAC 核心是直接耦合 android.car 的大型多职责 Service，错误与断连处理多为日志；其二，comfort、diagnostics、telemetry 中存在覆盖数十个生产文件及其测试的手写模板复制，而且这些模块没有进入应用组合。Binder 观察流当前丢弃全部回调，真实跨进程、权限、死亡和重连行为也没有集成测试。独立编译因缺少所需 AOSP/AAOS 平台输入而无法验证。22 次调用预算足以完成规定的模块、源码、测试、AIDL、依赖、重复和分支静态检查；不确定性主要限于禁止构建及无法在真实 AAOS/Binder 环境运行。"
+  }
+}

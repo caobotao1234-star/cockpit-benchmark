@@ -1,0 +1,299 @@
+{
+  "schema_version": "1.0.0",
+  "document_type": "cockpit_benchmark_private_transport_audit",
+  "generated_at": "2026-08-30T12:50:09.178353Z",
+  "valid": true,
+  "repository_count": 40,
+  "shallow_repository_count": 14,
+  "archive_count": 40,
+  "total_archive_bytes": 825149440,
+  "largest_archive_bytes": 58583040,
+  "outer_file_count": 1371,
+  "outer_nonarchive_bytes": 86865676,
+  "largest_outer_nonarchive_file_bytes": 1888061,
+  "history_blob_count": 87572,
+  "history_blob_bytes": 2366491699,
+  "history": [
+    {
+      "id": "APP-01",
+      "blob_count": 1629,
+      "blob_bytes": 16495350,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-02",
+      "blob_count": 884,
+      "blob_bytes": 3128759,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-03",
+      "blob_count": 481,
+      "blob_bytes": 2125624,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-04",
+      "blob_count": 285,
+      "blob_bytes": 885452,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-05",
+      "blob_count": 501,
+      "blob_bytes": 2840793,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-06",
+      "blob_count": 1994,
+      "blob_bytes": 13783448,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-07",
+      "blob_count": 260,
+      "blob_bytes": 858870,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-08",
+      "blob_count": 536,
+      "blob_bytes": 3067708,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-09",
+      "blob_count": 688,
+      "blob_bytes": 3346351,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-10",
+      "blob_count": 490,
+      "blob_bytes": 7119249,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-11",
+      "blob_count": 423,
+      "blob_bytes": 4634597,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-12",
+      "blob_count": 1032,
+      "blob_bytes": 13443079,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-13",
+      "blob_count": 276,
+      "blob_bytes": 2147160,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-14",
+      "blob_count": 1891,
+      "blob_bytes": 9853325,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-15",
+      "blob_count": 1471,
+      "blob_bytes": 13074723,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-16",
+      "blob_count": 845,
+      "blob_bytes": 2628150,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-17",
+      "blob_count": 175,
+      "blob_bytes": 743801,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-18",
+      "blob_count": 265,
+      "blob_bytes": 846790,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-19",
+      "blob_count": 466,
+      "blob_bytes": 4039053,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "APP-20",
+      "blob_count": 6346,
+      "blob_bytes": 174192773,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-01",
+      "blob_count": 5100,
+      "blob_bytes": 169055216,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-02",
+      "blob_count": 308,
+      "blob_bytes": 3354298,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-03",
+      "blob_count": 5100,
+      "blob_bytes": 169057721,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-04",
+      "blob_count": 5102,
+      "blob_bytes": 169060784,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-05",
+      "blob_count": 5102,
+      "blob_bytes": 169055874,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-06",
+      "blob_count": 5102,
+      "blob_bytes": 169056048,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-07",
+      "blob_count": 5102,
+      "blob_bytes": 169056361,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-08",
+      "blob_count": 5107,
+      "blob_bytes": 169056497,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-09",
+      "blob_count": 5108,
+      "blob_bytes": 169064127,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-10",
+      "blob_count": 308,
+      "blob_bytes": 3346303,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-11",
+      "blob_count": 705,
+      "blob_bytes": 7133565,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-12",
+      "blob_count": 707,
+      "blob_bytes": 7425595,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-13",
+      "blob_count": 759,
+      "blob_bytes": 7860599,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-14",
+      "blob_count": 5210,
+      "blob_bytes": 169345398,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-15",
+      "blob_count": 353,
+      "blob_bytes": 2546180,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-16",
+      "blob_count": 5116,
+      "blob_bytes": 169079633,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-17",
+      "blob_count": 5124,
+      "blob_bytes": 169151132,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-18",
+      "blob_count": 1226,
+      "blob_bytes": 18671377,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-19",
+      "blob_count": 865,
+      "blob_bytes": 7722110,
+      "issue_count": 0,
+      "issues": []
+    },
+    {
+      "id": "FW-20",
+      "blob_count": 5130,
+      "blob_bytes": 169137826,
+      "issue_count": 0,
+      "issues": []
+    }
+  ],
+  "issues": []
+}

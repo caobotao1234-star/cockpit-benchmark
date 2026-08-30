@@ -1,0 +1,305 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-e13e93358b13",
+  "repository_head": "75743bb11957ac8d69ed010618dded632061f50d",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04fda-c06e-7f10-af1f-d63040bdf297",
+    "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T23:28:41.542Z",
+    "finished_at": "2026-08-29T23:33:06.890Z",
+    "wall_clock_seconds": 265.347,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 508,
+    "directories_visited": 31,
+    "tool_calls": 23,
+    "notes": "HEAD 已匹配预期值。508 包含为最大文件清单读取行数的 484 个生产源文件；其中进一步逐行检查了 55 个生产、测试、构建、配置及分支文件。覆盖 20 个以上生产文件、8 个有意义测试、142 个 AIDL 文件的清单，以及 develop、两个 platform 分支和 release 分支的有界比较。未运行构建、脚本或网络操作，工作树保持未修改。 Runner normalized tool_calls from Codex JSONL to 23 (evaluator self-report: 23); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 2,
+      "reason": "API、系统隐藏能力、服务实现、HAL 适配和原生守护进程之间有明确模块边界及依赖方向；但核心电源服务和总装配类规模过大，集中承担状态机、策略、监听器、系统控制和守护进程连接等多项职责。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 3-30, CarPowerApiBoundary / CarPowerServiceBoundary / CarPowerBoundaryTests",
+          "observation": "顶层构建明确区分 API、服务和测试边界，服务静态依赖 API。"
+        },
+        {
+          "path": "service/src/com/android/car/systeminterface/SystemInterface.java",
+          "ref": null,
+          "symbol_or_line": "SystemInterface, lines 35-64 and Builder at line 218",
+          "observation": "Android 系统操作被拆成多个小接口并通过组合及 Builder 注入。"
+        },
+        {
+          "path": "service/src/com/android/car/power/CarPowerManagementService.java",
+          "ref": null,
+          "symbol_or_line": "CarPowerManagementService, lines 120-259 and doHandlePowerStateChange() at 469",
+          "observation": "单个约 2230 行类同时持有状态机、策略、监听器、Wi-Fi、用户服务、HAL 和 daemon 生命周期，形成局部架构热点。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 2,
+      "reason": "DIP、ISP 和可替换实现有可信实例，尤其系统接口和 AIDL/HIDL 适配层；但 CarPowerManagementService 与 ICarImpl 的职责和依赖数量显著偏高，SRP 与可扩展组合仍不均衡。",
+      "evidence": [
+        {
+          "path": "service/src/com/android/car/VehicleStub.java",
+          "ref": null,
+          "symbol_or_line": "VehicleStub and SubscriptionClient, lines 33-181",
+          "observation": "以窄的统一接口隔离 AIDL/HIDL VHAL，并声明明确的失败语义。"
+        },
+        {
+          "path": "service/src/com/android/car/systeminterface/SystemStateInterface.java",
+          "ref": null,
+          "symbol_or_line": "SystemStateInterface.DefaultImpl, lines 40-177",
+          "observation": "系统状态能力可由接口替换，默认实现封装平台调用并供测试注入。"
+        },
+        {
+          "path": "service/src/com/android/car/ICarImpl.java",
+          "ref": null,
+          "symbol_or_line": "fields and constructors, lines 101-198; service construction, lines 204-430",
+          "observation": "总装配类直接持有并构造大量服务，修改或新增服务需要改动集中式构造流程。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 3,
+      "reason": "平台与隐藏系统依赖主要集中在 car-builtin-lib、SystemInterface 和 HAL 适配层，调用具有类型边界、权限检查和失败处理；硬编码 sysfs/property 位于专门处理器内，没有散落到业务状态机。",
+      "evidence": [
+        {
+          "path": "car-builtin-lib/src/android/car/builtin/power/PowerManagerHelper.java",
+          "ref": null,
+          "symbol_or_line": "PowerManagerHelper",
+          "observation": "隐藏 PowerManager 能力由模块级 typed helper 集中暴露。"
+        },
+        {
+          "path": "service/src/com/android/car/systeminterface/SystemStateInterface.java",
+          "ref": null,
+          "symbol_or_line": "DefaultImpl.shutdown/enterDeepSleep/enterHibernation, lines 120-149",
+          "observation": "关机和休眠平台调用被隔离，并将异常转换为记录明确的失败结果。"
+        },
+        {
+          "path": "service/src/com/android/car/power/CarPowerManagementService.java",
+          "ref": null,
+          "symbol_or_line": "Binder API methods, lines 1271-1395",
+          "observation": "电源、关机处理和策略读写入口逐项执行对应 Car 权限校验。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "scored",
+      "score": 2,
+      "reason": "反射集中在少数工具或跨包装载点，失败会转为明确异常或安全回退，并有跨进程大 Parcelable 测试；但 LargeParcelable 依赖字段名、公共无参构造和方法名约定，使用宽泛异常捕获及已废弃的 newInstance，类型约束仍较脆弱。",
+      "evidence": [
+        {
+          "path": "car-lib/src/com/android/car/internal/LargeParcelable.java",
+          "ref": null,
+          "symbol_or_line": "toLargeParcelable() and reconstructStableAIDLParcelable(), lines 174-304",
+          "observation": "仅反射固定 sharedMemoryFd/readFromParcel 协议并对失败抛出带原因的 IllegalArgumentException，但协议是运行时字符串约定。"
+        },
+        {
+          "path": "service/src/com/android/car/BuiltinPackageDependency.java",
+          "ref": null,
+          "symbol_or_line": "createNotificationHelper(), lines 82-91",
+          "observation": "动态类名被单点常量化并强制转换到 NotificationHelperBase；加载或构造失败统一转为 IllegalStateException。"
+        },
+        {
+          "path": "tests/android_car_api_test/src/com/android/car/internal/test/LargeParcelableJavaStableAIDLTest.java",
+          "ref": null,
+          "symbol_or_line": "setUp and echo tests, lines 70-218",
+          "observation": "通过实际绑定服务覆盖小/大载荷、回调、多参数和共享内存重建路径。"
+        }
+      ]
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 3,
+      "reason": "跨进程边界具有细分方法、oneway 回调、服务端权限校验、客户端执行器、超时与结构化错误，以及 Java/C++ 两侧的 Binder death 清理和重连；相关失败路径也有直接测试。",
+      "evidence": [
+        {
+          "path": "car-lib/src/android/car/hardware/power/ICarPower.aidl",
+          "ref": null,
+          "symbol_or_line": "ICarPower, lines 24-50",
+          "observation": "合同分离监听器注册、完成确认、状态查询、策略应用及过滤回调，没有暴露无类型命令通道。"
+        },
+        {
+          "path": "car-lib/src/android/car/hardware/power/ICarPowerStateListener.aidl",
+          "ref": null,
+          "symbol_or_line": "oneway ICarPowerStateListener, lines 19-28",
+          "observation": "状态回调为 oneway，并携带完成截止时间供生命周期协调。"
+        },
+        {
+          "path": "cpp/powerpolicy/server/src/CarPowerPolicyServer.cpp",
+          "ref": null,
+          "symbol_or_line": "registerPowerPolicyChangeCallback(), lines 279-344; checkSystemPermission(), lines 109-116",
+          "observation": "服务记录调用 PID/UID、拒绝重复注册、检查系统 UID并为回调建立和清理 death recipient。"
+        },
+        {
+          "path": "cpp/powerpolicy/server/tests/CarPowerPolicyServerTest.cpp",
+          "ref": null,
+          "symbol_or_line": "TestRegisterCallback_BinderDied and TestOnBinderDied, lines 182-210",
+          "observation": "验证 linkToDeath 失败返回错误，以及 Binder 死亡后回调和上下文被清理。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "仓库只声明 Soong/Android 平台模块，所需 AAOS/AOSP framework、HAL AIDL/HIDL、模块库和产品树输入不在当前仓库；受控评审又禁止运行构建，因此无法建立可信的独立编译边界。",
+      "evidence": [
+        {
+          "path": "README.md",
+          "ref": null,
+          "symbol_or_line": "line 5",
+          "observation": "仓库明确说明完整构建需要 AAOS/AOSP product tree 和 Soong 依赖。"
+        },
+        {
+          "path": "service/Android.bp",
+          "ref": null,
+          "symbol_or_line": "carservice-updatable-min-java-defaults, lines 31-106",
+          "observation": "服务依赖多个仓库外 framework、automotive AIDL/HIDL、Bluetooth、connectivity 和 modules-utils 目标。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 3,
+      "reason": "测试不只计数或验证构造：覆盖模拟 AIDL VHAL 到服务状态机、显示与策略联动、权限拒绝、监听器完成/超时、Binder death，以及真实绑定服务的大载荷跨进程传输。局限是 C++ 服务测试仍标注 VHAL 集成待扩展，且本次未执行测试。",
+      "evidence": [
+        {
+          "path": "tests/carservice_test/src/com/android/car/power/CarPowerManagementTest.java",
+          "ref": null,
+          "symbol_or_line": "testImmediateShutdownFromWaitForVhal_ErrorCodeFromVhal(), lines 119-150; testSleepEntry(), lines 303-337",
+          "observation": "中型测试通过 AIDL mocked VHAL 注入错误与状态，断言状态响应、显示变化和策略回调。"
+        },
+        {
+          "path": "tests/carservice_unit_test/src/com/android/car/power/CarPowerManagementServiceUnitTest.java",
+          "ref": null,
+          "symbol_or_line": "testRegisterListenerWithCompletion() and timeout test, lines 468-553",
+          "observation": "验证完整关机生命周期的逐状态回调、取消注册和监听器超时后继续推进。"
+        },
+        {
+          "path": "tests/android_car_api_test/src/com/android/car/internal/test/LargeParcelableJavaStableAIDLTest.java",
+          "ref": null,
+          "symbol_or_line": "setUp/tearDown and echo paths, lines 70-218",
+          "observation": "绑定独立服务并验证同步、回调、大小载荷和共享内存的真实 Binder 行为。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 2,
+      "reason": "平台版本差异通常被公共抽象和工厂吸收，未观察到成片的精确生产文件复制；但 Java/原生电源状态枚举需要人工保持一致，AIDL/HIDL 适配实现也保留了相似的订阅、转换和错误路径，形成有限的同步维护负担。",
+      "evidence": [
+        {
+          "path": "car-lib/native/include/CarPowerManager.h",
+          "ref": null,
+          "symbol_or_line": "CarPowerManager::State, lines 34-55",
+          "observation": "原生状态值手工复制 Java API 数值，并由注释要求保持一致，缺少单一生成源。"
+        },
+        {
+          "path": "service/src/com/android/car/VehicleStub.java",
+          "ref": null,
+          "symbol_or_line": "VehicleStub, lines 33-181",
+          "observation": "公共接口集中 AIDL/HIDL 共同语义，限制了版本实现之间的重复外溢。"
+        },
+        {
+          "path": "service/src/com/android/car/HidlVehicleStub.java",
+          "ref": null,
+          "symbol_or_line": "HidlSubscriptionClient, lines 238-288",
+          "observation": "与 AidlVehicleStub 保留相似的事件转换和订阅骨架，但差异主要来自两种 HAL 合同。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 2,
+      "reason": "四个分支都从当前 main 仅前进一个提交；实际差异分别限制为开发开关、单个发布 schema 配置或单个平台传输配置，release 提交另有本地标签。该隔离方式清晰，但历史过浅，尚无合并、回灌或长期修复复用证据。",
+      "evidence": [
+        {
+          "path": "product/release.properties",
+          "ref": "release/2026.1",
+          "symbol_or_line": "lines 1-2",
+          "observation": "release 分支仅增加 sop-2026.1 渠道和 schema 4，main...release/2026.1 为 0/1 提交、单文件差异。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8155 分支仅选择 sa8155 与 HIDL transport。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8295 分支在相同配置点仅选择 sa8295 与 AIDL transport，未复制生产实现。"
+        },
+        {
+          "path": "product/development.properties",
+          "ref": "develop",
+          "symbol_or_line": "lines 1-2",
+          "observation": "develop 分支只启用 tracing 和 policy reload 两个开发开关。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 3,
+      "reason": "平台选择通过公共核心、明确适配器和集中工厂完成；两个实际平台分支仅改变两行配置，没有平台代码分叉。AIDL/HIDL 实现仍各自存在，但公共调用方不感知传输版本。",
+      "evidence": [
+        {
+          "path": "service/src/com/android/car/VehicleStub.java",
+          "ref": null,
+          "symbol_or_line": "newVehicleStub(), lines 62-90; abstract API, lines 93-181",
+          "observation": "优先 AIDL、回退 HIDL 的选择集中在一处，服务其余部分复用同一 typed 接口。"
+        },
+        {
+          "path": "service/src/com/android/car/audio/hal/AudioControlFactory.java",
+          "ref": null,
+          "symbol_or_line": "newAudioControl(), lines 36-66",
+          "observation": "AudioControl 同样在单一工厂中按 AIDL、HIDL V2、HIDL V1 顺序选择版本化 wrapper。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8155 的平台差异仅为平台标识和 transport 配置。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8295 复用相同主干代码，仅将 transport 切换为 AIDL。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 2.444444,
+    "scored_dimension_count": 9,
+    "failed_dimension_count": 1,
+    "narrative": "主要优势是清楚的 API/服务/平台适配分层、系统能力封装、细粒度权限检查，以及对 Binder 死亡、回调生命周期、超时和 HAL 错误的系统处理；测试覆盖状态机、跨进程大载荷、权限与失败路径。主要风险集中在 CarPowerManagementService 和 ICarImpl 等超大协调类、部分基于字符串约定的反射，以及 Java/原生常量的人工同步。分支差异实际很小且配置化，但只有一层提交历史，无法验证长期合并与回灌行为。独立编译因缺少 AAOS/AOSP 平台输入而无法验证。23 次工具调用低于预算，静态探索对其余九项评分充分，但没有执行构建或测试，因此运行时与编译结论仍受此限制。"
+  }
+}

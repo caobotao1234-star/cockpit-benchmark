@@ -1,0 +1,207 @@
+{
+  "actual_head": "74db57addbc12585ca258f0e054efa07492078a4",
+  "applicable_license_files": [
+    {
+      "licenses": [
+        "SPDX-license-identifier-Apache-2.0"
+      ],
+      "path": "Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "migration/aidl/tests/vehiclehal/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "migration/aidl/vehicle-hal-support-lib/Android.bp"
+    }
+  ],
+  "expected_head": "74db57addbc12585ca258f0e054efa07492078a4",
+  "head_matches": true,
+  "is_shallow": true,
+  "is_sparse": false,
+  "large_files": [],
+  "present_tracked_files": 943,
+  "probe": {
+    "branches": [
+      "aosp/pie-release",
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "platform/xinqing",
+      "release/sop-2019"
+    ],
+    "build_system": "Soong",
+    "commit_count": 13,
+    "default_branch": "main",
+    "feature_evidence": {
+      "has_aidl": [
+        "car-lib/src/android/car/IAppFocus.aidl",
+        "car-lib/src/android/car/IAppFocusListener.aidl",
+        "car-lib/src/android/car/IAppFocusOwnershipCallback.aidl",
+        "car-lib/src/android/car/ICar.aidl",
+        "car-lib/src/android/car/ICarBluetooth.aidl",
+        "car-lib/src/android/car/ICarBluetoothUserService.aidl",
+        "car-lib/src/android/car/ICarConnectionListener.aidl",
+        "car-lib/src/android/car/ICarInfo.aidl",
+        "car-lib/src/android/car/ICarProjection.aidl",
+        "car-lib/src/android/car/ICarProjectionCallback.aidl",
+        "car-lib/src/android/car/ICarUserService.aidl",
+        "car-lib/src/android/car/IUsbAoapSupportCheckService.aidl",
+        "car-lib/src/android/car/cluster/IInstrumentClusterManagerCallback.aidl",
+        "car-lib/src/android/car/cluster/IInstrumentClusterManagerService.aidl",
+        "car-lib/src/android/car/cluster/renderer/IInstrumentCluster.aidl",
+        "car-lib/src/android/car/cluster/renderer/IInstrumentClusterCallback.aidl",
+        "car-lib/src/android/car/cluster/renderer/IInstrumentClusterNavigation.aidl",
+        "car-lib/src/android/car/content/pm/CarAppBlockingPolicy.aidl",
+        "car-lib/src/android/car/content/pm/ICarAppBlockingPolicy.aidl",
+        "car-lib/src/android/car/content/pm/ICarAppBlockingPolicySetter.aidl"
+      ],
+      "has_binder": [
+        "car-lib/native/CarPowerManager/CarPowerManager.cpp",
+        "car-lib/src/android/car/Car.java",
+        "car-lib/src/android/car/CarAppFocusManager.java",
+        "car-lib/src/android/car/CarBluetoothManager.java",
+        "car-lib/src/android/car/CarInfoManager.java",
+        "car-lib/src/android/car/CarProjectionManager.java",
+        "car-lib/src/android/car/ICar.aidl",
+        "car-lib/src/android/car/ICarConnectionListener.aidl",
+        "car-lib/src/android/car/ICarProjection.aidl",
+        "car-lib/src/android/car/IUsbAoapSupportCheckService.aidl",
+        "car-lib/src/android/car/cluster/CarInstrumentClusterManager.java",
+        "car-lib/src/android/car/cluster/renderer/IInstrumentCluster.aidl",
+        "car-lib/src/android/car/cluster/renderer/IInstrumentClusterNavigation.aidl",
+        "car-lib/src/android/car/cluster/renderer/InstrumentClusterRenderingService.java",
+        "car-lib/src/android/car/content/pm/CarAppBlockingPolicyService.java",
+        "car-lib/src/android/car/content/pm/CarPackageManager.java",
+        "car-lib/src/android/car/diagnostic/CarDiagnosticManager.java",
+        "car-lib/src/android/car/drivingstate/CarDrivingStateManager.java",
+        "car-lib/src/android/car/drivingstate/CarUxRestrictionsManager.java",
+        "car-lib/src/android/car/drivingstate/ICarDrivingState.aidl"
+      ],
+      "has_hidden_api": [
+        "Android.bp",
+        "car-lib/src/android/car/Car.java",
+        "car-lib/src/android/car/cluster/renderer/InstrumentClusterRenderingService.java",
+        "car-lib/src/android/car/hardware/CarVendorExtensionManager.java",
+        "car-lib/src/android/car/hardware/power/CarPowerManager.java",
+        "car-lib/src/android/car/media/CarAudioPatchHandle.java",
+        "car-lib/src/android/car/user/CarUserManagerHelper.java",
+        "car-lib/src/android/car/vms/VmsOperationRecorder.java",
+        "car-lib/src/android/car/vms/VmsPublisherClientService.java",
+        "car-lib/src/android/car/vms/VmsSubscriberManager.java",
+        "migration/aidl/car-drivingstate/CarUxRestrictionsManager.java",
+        "migration/aidl/car-hardware/CarVendorExtensionManager.java",
+        "migration/aidl/car-hardware/cabin/CarCabinManager.java",
+        "migration/aidl/car-hardware/hvac/CarHvacManager.java",
+        "migration/aidl/car-hardware/power/CarPowerManager.java",
+        "migration/aidl/car-media/CarAudioPatchHandle.java",
+        "migration/aidl/car-media/CarMediaManager.java",
+        "migration/aidl/car-vms/VmsClient.java",
+        "migration/aidl/car-vms/VmsClientManager.java",
+        "migration/aidl/car-vms/VmsOperationRecorder.java"
+      ],
+      "has_integration_tests": [
+        "Android.bp",
+        "migration/aidl/tests/vehiclehal/AndroidManifest.xml",
+        "tests/carservice_test/AndroidManifest.xml",
+        "tests/carservice_unit_test/AndroidManifest.xml",
+        "tests/obd2_test/AndroidManifest.xml",
+        "tests/vehiclehal_test/AndroidManifest.xml"
+      ],
+      "has_reflection": [
+        "car-lib/src/android/car/content/pm/CarAppBlockingPolicy.java",
+        "car-lib/src/android/car/hardware/CarPropertyConfig.java",
+        "car-lib/src/android/car/hardware/CarPropertyValue.java",
+        "migration/aidl/car-hardware/CarPropertyConfig.java",
+        "migration/aidl/car-hardware/CarPropertyValue.java",
+        "migration/aidl/service-hal/DiagnosticHalService.java",
+        "migration/aidl/service-hal/PropertyHalServiceIds.java",
+        "migration/aidl/vehicle-hal-support-lib/src/com/android/car/hal/test/DiagnosticEventBuilder.java",
+        "platform/src/com/cockpitbench/vehicleplatform/LegacyPlatformRouter.java",
+        "tests/DirectRenderingClusterSample/src/android/car/cluster/sample/MainClusterActivity.java",
+        "tests/android_support_car_api_test/src/com/android/support/car/apitest/CarSensorManagerTest.java",
+        "tests/android_support_car_api_test/src/com/android/support/car/apitest/TestUtil.java",
+        "tests/carservice_test/src/com/android/car/CarDiagnosticConstantsTest.java"
+      ]
+    },
+    "features": {
+      "has_aidl": true,
+      "has_binder": true,
+      "has_hidden_api": true,
+      "has_integration_tests": true,
+      "has_reflection": true
+    },
+    "has_push_remote": false,
+    "module_count": 3,
+    "modules": [
+      {
+        "name": "VehiclePlatformAidlMigration",
+        "path": "Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "VehiclePlatformLegacyCore",
+        "path": "Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "VehiclePlatformRuntime",
+        "path": "Android.bp",
+        "type": "java_library"
+      }
+    ],
+    "probe": {
+      "name": "cockpit-repo-probe",
+      "version": "1.1.0"
+    },
+    "remotes": [],
+    "repo_head": "74db57addbc12585ca258f0e054efa07492078a4",
+    "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-platform-service",
+    "source_files": 836,
+    "source_loc": 88725,
+    "stats_method": {
+      "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+      "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+      "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+    },
+    "tags": [
+      "local-sop-2019.4"
+    ],
+    "tracked_files": 943,
+    "worktree_clean": true
+  },
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-platform-service",
+  "root_license_evidence": [
+    {
+      "detected_license": "Apache-2.0",
+      "path": "LICENSE"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_header_files": 682,
+  "source_header_license_counts": {
+    "Apache-2.0": 676,
+    "GPL-2.0": 0,
+    "GPL-3.0": 0,
+    "MIT": 0,
+    "unclassified": 6
+  },
+  "source_url": "https://github.com/nxp-imx-android/aosp_platform_packages_services_Car",
+  "sparse_missing_files": 0,
+  "submodule_entries": 0,
+  "tracked_files": 943,
+  "unclassified_header_sample": [
+    "Android.bp",
+    "car-lib/src/android/car/vms/VmsOperationRecorder.java",
+    "platform/aidl/com/cockpitbench/vehicleplatform/IVehiclePlatform.aidl",
+    "service/src/com/android/car/Utils.java",
+    "tests/DefaultStorageMonitoringCompanionApp/src/com/google/android/car/defaultstoragemonitoringcompanionapp/ExcessiveIoIntentReceiver.java",
+    "tests/EmbeddedKitchenSinkApp/src/com/google/android/car/kitchensink/notification/NotificationFragment.java"
+  ]
+}

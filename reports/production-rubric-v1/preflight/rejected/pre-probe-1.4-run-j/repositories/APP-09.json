@@ -1,0 +1,552 @@
+{
+  "build_inventory": {
+    "build_system": "Soong",
+    "dependency_probe_errors": [],
+    "internal_dependency_edges": [
+      {
+        "from": "CarSystemUI@system-shell/Android.bp",
+        "line": 146,
+        "path": "system-shell/Android.bp",
+        "to": "CarSystemUI-core@system-shell/Android.bp",
+        "token": "CarSystemUI-core"
+      },
+      {
+        "from": "DirectRenderingCluster@DirectRenderingCluster/Android.bp",
+        "line": 46,
+        "path": "DirectRenderingCluster/Android.bp",
+        "to": "PrismClusterRuntime@cluster-runtime/Android.bp",
+        "token": "PrismClusterRuntime"
+      },
+      {
+        "from": "PrismClusterRuntimeTests@cluster-runtime/Android.bp",
+        "line": 12,
+        "path": "cluster-runtime/Android.bp",
+        "to": "PrismClusterRuntime@cluster-runtime/Android.bp",
+        "token": "PrismClusterRuntime"
+      }
+    ],
+    "manifest_consistent": true,
+    "module_count": 11,
+    "modules": [
+      {
+        "name": "CarSystemUI",
+        "path": "system-shell/Android.bp",
+        "type": "android_app"
+      },
+      {
+        "name": "CarSystemUI-core",
+        "path": "system-shell/Android.bp",
+        "type": "android_library"
+      },
+      {
+        "name": "CarSystemUI-tests",
+        "path": "system-shell/Android.bp",
+        "type": "android_library"
+      },
+      {
+        "name": "CarSystemUISampleOneRRO",
+        "path": "system-shell/samples/sample1/rro/Android.bp",
+        "type": "android_app"
+      },
+      {
+        "name": "CarSystemUISampleThreeRRO",
+        "path": "system-shell/samples/sample3/rro/Android.bp",
+        "type": "android_app"
+      },
+      {
+        "name": "CarSystemUISampleTwoRRO",
+        "path": "system-shell/samples/sample2/rro/Android.bp",
+        "type": "android_app"
+      },
+      {
+        "name": "ClusterHomeSample",
+        "path": "ClusterHomeSample/Android.bp",
+        "type": "android_app"
+      },
+      {
+        "name": "ClusterOsDouble",
+        "path": "ClusterOsDouble/Android.bp",
+        "type": "android_app"
+      },
+      {
+        "name": "DirectRenderingCluster",
+        "path": "DirectRenderingCluster/Android.bp",
+        "type": "android_app"
+      },
+      {
+        "name": "PrismClusterRuntime",
+        "path": "cluster-runtime/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "PrismClusterRuntimeTests",
+        "path": "cluster-runtime/Android.bp",
+        "type": "java_library"
+      }
+    ],
+    "standard_named_module_count": 1
+  },
+  "document_type": "repository_preflight",
+  "facts_sha256": "2383a938a5732fc995d58dc5b23504bb8a0def0ff5ebc589ca639fa78d29bd67",
+  "generation": {
+    "extractor_name": "production_preflight_facts",
+    "extractor_version": "1.1.0",
+    "generator_name": "prepare_production_preflight",
+    "generator_version": "1.1.0",
+    "probe_name": "cockpit-repo-probe",
+    "probe_version": "1.3.0"
+  },
+  "git_inventory": {
+    "branch_classifications": {
+      "develop": {
+        "category": "development",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "main": {
+        "category": "mainline",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8155": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8295": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "release/2026.1": {
+        "category": "release",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": true,
+        "is_sop": false
+      }
+    },
+    "branches": {
+      "develop": "b062dfdbc8f73a5a35e627d24d77c19b5db74038",
+      "main": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "platform/8155": "74c9baaf818c931da5120b57fddf4b033634c3dd",
+      "platform/8295": "0fb2cae8b921c470525da6be0133915e1d856e44",
+      "release/2026.1": "9494ba5c59cadf1ba7865d3a572a8fcbebca2607"
+    },
+    "default_branch": "main",
+    "tags": {
+      "prism-cluster-2026.1": "9494ba5c59cadf1ba7865d3a572a8fcbebca2607"
+    }
+  },
+  "kind": "APP",
+  "manifest_binding": {
+    "head_matches": true,
+    "manifest_repo_head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+    "path_within_delivery_root": true,
+    "working_tree_clean": true
+  },
+  "missing_contract_leaf_count": 14,
+  "missing_contract_leaves": [
+    {
+      "category": "quality",
+      "leaf": "code_duplication",
+      "method": "deterministic",
+      "reason": "Production duplication-rate detector, denominator, and exclusion contract are absent; only the threshold table is known.",
+      "rule_id": "quality.duplication.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "integration_test",
+      "method": "external_data",
+      "reason": "GBOP APP and FRAMEWORK/embedded response schemas and status mappings are absent.",
+      "rule_id": "quality.integration_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "code_quality",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.code_quality.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "unit_test",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.unit_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "system_api_dependency",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production symbol list, scan scope, and deduplication rules are absent.",
+      "rule_id": "android_framework.system_api_dependency.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "hidden_api_reflection",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production matcher and scan/exclusion rules are absent.",
+      "rule_id": "android_framework.hidden_api_reflection.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "aidl_sdk_call",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but AIDL/SDK call-site identification and deduplication rules are absent.",
+      "rule_id": "android_framework.aidl_sdk_call.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "single_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.single_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "cross_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.cross_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "platform_upgrade",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.platform_upgrade.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "device_specificity",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.device_specificity.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_independence",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.independence.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_strategy",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.strategy.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "release_rollback",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.rollback.v1",
+      "score": null,
+      "status": "failed"
+    }
+  ],
+  "platform_reuse": {
+    "comparisons": [
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 788,
+        "base_head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "development",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.001267427,
+        "changed_files": 1,
+        "common_path_files": 788,
+        "compare_branch": "develop",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 789,
+        "compare_head": "b062dfdbc8f73a5a35e627d24d77c19b5db74038",
+        "deleted_lines": 0,
+        "identical_blob_files": 788,
+        "identical_blob_ratio": 0.998733,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 789
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 788,
+        "base_head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "release",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": true,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.001267427,
+        "changed_files": 1,
+        "common_path_files": 788,
+        "compare_branch": "release/2026.1",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 789,
+        "compare_head": "9494ba5c59cadf1ba7865d3a572a8fcbebca2607",
+        "deleted_lines": 0,
+        "identical_blob_files": 788,
+        "identical_blob_ratio": 0.998733,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 789
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 788,
+        "base_head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.001267427,
+        "changed_files": 1,
+        "common_path_files": 788,
+        "compare_branch": "platform/8155",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 789,
+        "compare_head": "74c9baaf818c931da5120b57fddf4b033634c3dd",
+        "deleted_lines": 0,
+        "identical_blob_files": 788,
+        "identical_blob_ratio": 0.998733,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 789
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 788,
+        "base_head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.001267427,
+        "changed_files": 1,
+        "common_path_files": 788,
+        "compare_branch": "platform/8295",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 789,
+        "compare_head": "0fb2cae8b921c470525da6be0133915e1d856e44",
+        "deleted_lines": 0,
+        "identical_blob_files": 788,
+        "identical_blob_ratio": 0.998733,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 789
+      }
+    ],
+    "manifest_comparison_count": 4,
+    "status": "consistent"
+  },
+  "quality_signal_candidate": {
+    "artifact_head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+    "artifact_sha256": null,
+    "current_head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+    "metrics": {
+      "broad_catches": 16,
+      "broad_catches_per_kloc": 0.59453,
+      "code_source_files": 219,
+      "global_state_sites": 8,
+      "global_state_sites_per_kloc": 0.297265,
+      "hidden_api_sites": 54,
+      "hidden_api_sites_per_kloc": 2.00654,
+      "logical_lines": 26912,
+      "method_declarations": 2180,
+      "metric_schema_version": "1.1.0",
+      "near_duplicate_file_ratio": 0.054795,
+      "near_duplicate_pair_count_at_0_80": 6,
+      "placeholder_test_sites": 5,
+      "production_files_over_500_lines": 4,
+      "production_logical_lines": 18901,
+      "production_source_files": 170,
+      "reflection_sites": 7,
+      "reflection_sites_per_kloc": 0.260107,
+      "test_logical_lines": 8011,
+      "test_source_files": 49,
+      "test_to_production_file_ratio": 0.288235,
+      "tracked_files": 788
+    },
+    "non_scoring": true,
+    "reason": "Fresh candidate-only quality_signals metrics bound to current HEAD; not a production score.",
+    "source_path": null,
+    "status": "refreshed"
+  },
+  "relative_path": "repos/app/prism-cluster",
+  "repo_id": "APP-09",
+  "repository_head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+  "rubric_version": "production-code-health-v1",
+  "schema_version": "1.0.0",
+  "source_inventory": {
+    "aidl_paths": [],
+    "ci": {
+      "standard_ci_paths": [],
+      "test_mapping_paths": [
+        "system-shell/TEST_MAPPING"
+      ]
+    },
+    "rollback_candidates": [],
+    "test_paths": [
+      "DirectRenderingCluster/tests/robotests/Android.bp",
+      "DirectRenderingCluster/tests/robotests/AndroidManifest.xml",
+      "DirectRenderingCluster/tests/robotests/config/robolectric.properties",
+      "DirectRenderingCluster/tests/robotests/readme.md",
+      "DirectRenderingCluster/tests/robotests/src/android/car/cluster/ImageResolverTest.java",
+      "cluster-runtime/tests/com/cockpitbench/cluster/ClusterRuntimeSelfTest.java",
+      "system-shell/src/com/android/systemui/car/CarSystemUiTest.java",
+      "system-shell/tests/Android.mk",
+      "system-shell/tests/AndroidManifest.xml",
+      "system-shell/tests/AndroidTest.xml",
+      "system-shell/tests/res/layout/background_adjusting_temperature_control_view_test.xml",
+      "system-shell/tests/res/layout/button_role_holder_controller_test.xml",
+      "system-shell/tests/res/layout/car_button_selection_state_controller_test.xml",
+      "system-shell/tests/res/layout/car_system_bar_button_test.xml",
+      "system-shell/tests/res/layout/car_system_bar_view_test.xml",
+      "system-shell/tests/res/layout/car_top_system_bar.xml",
+      "system-shell/tests/res/layout/fan_direction_buttons_test.xml",
+      "system-shell/tests/res/layout/fan_speed_bar_test.xml",
+      "system-shell/tests/res/layout/hvac_toggle_button_view.xml",
+      "system-shell/tests/res/layout/overlay_view_controller_stub.xml",
+      "system-shell/tests/res/layout/overlay_view_controller_test.xml",
+      "system-shell/tests/res/layout/overlay_view_global_state_controller_test.xml",
+      "system-shell/tests/res/layout/seat_heat_level_button_test.xml",
+      "system-shell/tests/res/layout/temperature_control_view.xml",
+      "system-shell/tests/res/values/config.xml",
+      "system-shell/tests/src/com/android/AAAPlusPlusVerifySysuiRequiredTestPropertiesTest.java",
+      "system-shell/tests/src/com/android/systemui/CarSystemUITestAppComponentFactory.java",
+      "system-shell/tests/src/com/android/systemui/CarSystemUITestInitializer.java",
+      "system-shell/tests/src/com/android/systemui/car/hvac/FanDirectionButtonTest.java",
+      "system-shell/tests/src/com/android/systemui/car/hvac/FanSpeedBarTest.java",
+      "system-shell/tests/src/com/android/systemui/car/hvac/HvacControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/hvac/HvacPanelOverlayViewControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/hvac/HvacPanelOverlayViewMediatorTest.java",
+      "system-shell/tests/src/com/android/systemui/car/hvac/SeatTemperatureLevelButtonTest.java",
+      "system-shell/tests/src/com/android/systemui/car/hvac/TemperatureControlViewTest.java",
+      "system-shell/tests/src/com/android/systemui/car/hvac/referenceui/BackgroundAdjustingTemperatureControlViewTest.java",
+      "system-shell/tests/src/com/android/systemui/car/hvac/toggle/HvacBooleanToggleButtonTest.java",
+      "system-shell/tests/src/com/android/systemui/car/hvac/toggle/HvacIntegerToggleButtonTest.java",
+      "system-shell/tests/src/com/android/systemui/car/keyguard/CarKeyguardViewControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/notification/CarHeadsUpNotificationSystemContainerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/notification/NotificationVisibilityLoggerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/privacy/CameraQcPanelTest.java",
+      "system-shell/tests/src/com/android/systemui/car/privacy/MicQcPanelTest.java",
+      "system-shell/tests/src/com/android/systemui/car/qc/ProfileSwitcherTest.java",
+      "system-shell/tests/src/com/android/systemui/car/sideloaded/SideLoadedAppDetectorTest.java",
+      "system-shell/tests/src/com/android/systemui/car/sideloaded/SideLoadedAppListenerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/statusbar/UserNameViewControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/statusicon/StatusIconControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/statusicon/StatusIconPanelControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/statusicon/ui/BluetoothStatusIconControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/statusicon/ui/QuickControlsEntryPointsControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/statusicon/ui/SignalStatusIconControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/systembar/ButtonRoleHolderControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/systembar/ButtonSelectionStateControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/systembar/CameraPrivacyChipViewControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/systembar/CarSystemBarButtonTest.java",
+      "system-shell/tests/src/com/android/systemui/car/systembar/CarSystemBarControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/systembar/CarSystemBarTest.java",
+      "system-shell/tests/src/com/android/systemui/car/systembar/CarSystemBarViewFactoryTest.java",
+      "system-shell/tests/src/com/android/systemui/car/systembar/CarSystemBarViewTest.java",
+      "system-shell/tests/src/com/android/systemui/car/systembar/MicPrivacyChipViewControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/systembar/SystemBarConfigsTest.java",
+      "system-shell/tests/src/com/android/systemui/car/toast/CarToastUITest.java",
+      "system-shell/tests/src/com/android/systemui/car/userswitcher/UserSwitchTransitionViewControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/userswitcher/UserSwitchTransitionViewMediatorTest.java",
+      "system-shell/tests/src/com/android/systemui/car/voicerecognition/ConnectedDeviceVoiceRecognitionNotifierTest.java",
+      "system-shell/tests/src/com/android/systemui/car/window/OverlayPanelViewControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/window/OverlayViewControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/car/window/OverlayViewGlobalStateControllerTest.java",
+      "system-shell/tests/src/com/android/systemui/wm/BarControlPolicyTest.java",
+      "system-shell/tests/src/com/android/systemui/wm/DisplaySystemBarsControllerTest.java"
+    ],
+    "version": {
+      "api_version_candidates": [],
+      "semantic_version_tags": [],
+      "version_file_candidates": [
+        "ClusterHomeSample/Android.bp",
+        "ClusterOsDouble/Android.bp",
+        "DirectRenderingCluster/Android.bp",
+        "DirectRenderingCluster/tests/robotests/Android.bp",
+        "cluster-runtime/Android.bp",
+        "system-shell/Android.bp",
+        "system-shell/samples/sample1/rro/Android.bp",
+        "system-shell/samples/sample2/rro/Android.bp",
+        "system-shell/samples/sample3/rro/Android.bp",
+        "system-shell/tests/Android.mk"
+      ]
+    }
+  }
+}

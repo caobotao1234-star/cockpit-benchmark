@@ -1,0 +1,544 @@
+{
+  "aidl_interfaces": [
+    {
+      "method_count": 24,
+      "path": "car-lib/src/android/car/media/ICarAudio.aidl"
+    },
+    {
+      "method_count": 12,
+      "path": "car-lib/src/android/car/hardware/power/ICarPower.aidl"
+    },
+    {
+      "method_count": 10,
+      "path": "car-lib/src/android/car/content/pm/ICarPackageManager.aidl"
+    },
+    {
+      "method_count": 7,
+      "path": "car-lib/src/android/car/media/ICarMedia.aidl"
+    },
+    {
+      "method_count": 6,
+      "path": "car-lib/src/android/car/app/ICarActivityService.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "car-lib/src/android/car/media/ICarVolumeCallback.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "car-lib/src/android/car/os/ICarPerformanceService.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/content/pm/ICarAppBlockingPolicy.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/content/pm/ICarAppBlockingPolicySetter.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/hardware/power/ICarPowerPolicyListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/hardware/power/ICarPowerStateListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/media/ICarMediaSourceListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/os/ICpuAvailabilityChangeListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/user/IUserNotice.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/user/IUserNoticeUI.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/util/concurrent/IAndroidFuture.aidl"
+    }
+  ],
+  "broad_catches": 30,
+  "broad_catches_per_kloc": 0.837872,
+  "code_source_files": 217,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 11,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 498,
+      "methods": 36,
+      "path": "car-lib/src/android/car/util/concurrent/AndroidFuture.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 1
+    },
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 1960,
+      "methods": 120,
+      "path": "service/src/com/android/car/power/CarPowerManagementService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 4,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 1775,
+      "methods": 96,
+      "path": "service/src/com/android/car/user/CarUserService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 578,
+      "methods": 35,
+      "path": "service/src/com/android/car/user/InitialUserSetter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 1204,
+      "methods": 94,
+      "path": "service/src/com/android/car/audio/CarAudioService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 519,
+      "methods": 23,
+      "path": "service/src/com/android/car/am/FixedActivityService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 224,
+      "methods": 14,
+      "path": "service/src/com/android/car/power/SilentModeHandler.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 737,
+      "methods": 40,
+      "path": "car-lib/src/android/car/user/CarUserManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 337,
+      "methods": 33,
+      "path": "service/src/com/android/car/audio/CarVolumeGroup.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 207,
+      "methods": 16,
+      "path": "car-lib/src/android/car/user/UserLifecycleEventFilter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 134,
+      "methods": 11,
+      "path": "service/src/com/android/car/audio/CarVolumeGroupMuting.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 12,
+      "path": "service/src/com/android/car/systeminterface/SystemStateInterface.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 1103,
+      "methods": 65,
+      "path": "service/src/com/android/car/CarOccupantZoneService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": true,
+      "logical_lines": 606,
+      "methods": 42,
+      "path": "tests/carservice_unit_test/src/com/android/car/audio/CarAudioServiceUnitTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 466,
+      "methods": 42,
+      "path": "service/src/com/android/car/AppFocusService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 439,
+      "methods": 29,
+      "path": "service/src/com/android/car/user/ExperimentalCarUserService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 406,
+      "methods": 29,
+      "path": "service/src/com/android/car/power/PowerComponentHandler.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 367,
+      "methods": 17,
+      "path": "service/src/com/android/car/user/CarUserNoticeService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 336,
+      "methods": 9,
+      "path": "service/src/com/android/car/audio/FocusInteraction.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 299,
+      "methods": 24,
+      "path": "service/src/com/android/car/am/CarActivityService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [],
+  "global_state_sites": 1,
+  "global_state_sites_per_kloc": 0.027929,
+  "hidden_api_sites": 104,
+  "hidden_api_sites_per_kloc": 2.904622,
+  "largest_code_files": [
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 1960,
+      "methods": 120,
+      "path": "service/src/com/android/car/power/CarPowerManagementService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 4,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 1775,
+      "methods": 96,
+      "path": "service/src/com/android/car/user/CarUserService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 1204,
+      "methods": 94,
+      "path": "service/src/com/android/car/audio/CarAudioService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 1103,
+      "methods": 65,
+      "path": "service/src/com/android/car/CarOccupantZoneService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 828,
+      "methods": 52,
+      "path": "tests/EmbeddedKitchenSinkApp/src/com/google/android/car/kitchensink/audio/AudioTestFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 737,
+      "methods": 40,
+      "path": "car-lib/src/android/car/user/CarUserManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 663,
+      "methods": 33,
+      "path": "service/src/com/android/car/power/PolicyReader.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 659,
+      "methods": 63,
+      "path": "tests/carservice_unit_test/src/com/android/car/audio/CarAudioFocusUnitTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 608,
+      "methods": 26,
+      "path": "tests/carservice_test/src/com/android/car/audio/CarAudioFocusTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": true,
+      "logical_lines": 606,
+      "methods": 42,
+      "path": "tests/carservice_unit_test/src/com/android/car/audio/CarAudioServiceUnitTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 578,
+      "methods": 35,
+      "path": "service/src/com/android/car/user/InitialUserSetter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 535,
+      "methods": 59,
+      "path": "tests/carservice_unit_test/src/com/android/car/audio/CarVolumeGroupUnitTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 519,
+      "methods": 23,
+      "path": "service/src/com/android/car/am/FixedActivityService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 504,
+      "methods": 27,
+      "path": "car-lib/src/android/car/hardware/power/CarPowerManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 498,
+      "methods": 46,
+      "path": "car-lib/src/android/car/media/CarAudioManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 11,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 498,
+      "methods": 36,
+      "path": "car-lib/src/android/car/util/concurrent/AndroidFuture.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 1
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 498,
+      "methods": 38,
+      "path": "tests/carservice_test/src/com/android/car/audio/CarAudioZonesHelperTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 497,
+      "methods": 30,
+      "path": "service/src/com/android/car/audio/CarAudioFocus.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 466,
+      "methods": 42,
+      "path": "service/src/com/android/car/AppFocusService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 439,
+      "methods": 29,
+      "path": "service/src/com/android/car/user/ExperimentalCarUserService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 35805,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 2679,
+  "near_duplicate_file_ratio": 0.0,
+  "near_duplicate_files_at_0_80": [],
+  "near_duplicate_pair_count_at_0_80": 0,
+  "near_duplicate_pairs": [],
+  "placeholder_test_sites": 2,
+  "production_files_over_500_lines": 9,
+  "production_logical_lines": 23540,
+  "production_source_files": 155,
+  "reflection_sites": 1,
+  "reflection_sites_per_kloc": 0.027929,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\cockpit-audio-service",
+  "repository_head": "be95188ed46871d0f4a7352de12745d24498b3d2",
+  "schema_version": "1.0.0",
+  "test_logical_lines": 12265,
+  "test_source_files": 62,
+  "test_to_production_file_ratio": 0.4,
+  "tracked_files": 275
+}

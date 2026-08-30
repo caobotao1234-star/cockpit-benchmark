@@ -1,0 +1,198 @@
+{
+  "actual_head": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+  "applicable_license_files": [],
+  "expected_head": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+  "head_matches": true,
+  "is_shallow": true,
+  "is_sparse": false,
+  "large_files": [],
+  "present_tracked_files": 488,
+  "probe": {
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/2026.1"
+    ],
+    "build_system": "Gradle",
+    "commit_count": 9,
+    "default_branch": "main",
+    "feature_evidence": {
+      "has_aidl": [
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/CarPropertyConfig.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/CarPropertyValue.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/CarSensorConfig.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/CarSensorEvent.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/ICarSensor.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/ICarSensorEventListener.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/power/CarPowerPolicy.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/power/CarPowerPolicyFilter.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/power/ICarPower.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/power/ICarPowerPolicyListener.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/power/ICarPowerStateListener.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/property/CarPropertyEvent.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/property/ICarProperty.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/property/ICarPropertyEventListener.aidl"
+      ],
+      "has_binder": [
+        "car-ui-lib/src/main/java/com/android/car/ui/imewidescreen/CarUiImeWideScreenController.java",
+        "car-ui-lib/src/main/java/com/android/car/ui/toolbar/CarUiEditText.java",
+        "car-ui-lib/src/main/java/com/android/car/ui/toolbar/PrivateImeCommandCallback.java",
+        "car-ui-lib/src/main/java/com/android/car/ui/toolbar/SearchView.java",
+        "lint-baseline.xml",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/CarSensorManager.java",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/CarVendorExtensionManager.java",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/ICarSensorEventListener.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/cabin/CarCabinManager.java",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/hvac/CarHvacManager.java",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/power/CarPowerManager.java",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/power/ICarPowerPolicyListener.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/power/ICarPowerStateListener.aidl",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/property/ICarPropertyEventListener.aidl",
+        "vehicle-platform/upstream/service/src/com/android/car/CarPropertyService.java",
+        "vehicle-platform/upstream/tests/carservice_unit_test/src/com/android/car/CarPropertyServiceUnitTest.java"
+      ],
+      "has_hidden_api": [
+        "car-ui-lib/src/main/java/com/android/car/ui/utils/CarUiUtils.java",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/CarVendorExtensionManager.java",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/cabin/CarCabinManager.java",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/hvac/CarHvacManager.java",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/power/CarPowerManager.java",
+        "vehicle-platform/upstream/service/src/com/android/car/CarPropertyService.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/ClusterHalService.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/DiagnosticHalService.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/EvsHalService.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/HalClient.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/InputHalService.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/PowerHalService.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/PropertyHalService.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/TimeHalService.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/UserHalHelper.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/UserHalService.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/VehicleHal.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/VmsHalService.java"
+      ],
+      "has_integration_tests": [
+        "automotive/build.gradle",
+        "automotive/src/androidTest/java/dz/islem/automotive/ExampleInstrumentedTest.kt",
+        "car-ui-lib/build.gradle",
+        "car-ui-lib/src/androidTest/AndroidManifest.xml",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/AlertDialogBuilderTest.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/FakeCursor.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/FocusAreaTest.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/FocusAreaTestActivity.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/FocusAreaTouchModeTest.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/FocusParkingViewTest.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/FocusParkingViewTestActivity.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/FocusParkingViewTouchModeTest.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/RotaryCacheTest.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/TestActivity.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/TestFocusArea.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/actions/LowLevelActions.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/actions/ViewActions.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/actions/WaitForViewAction.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/imewidescreen/CarUiImeWideScreenControllerTest.java",
+        "car-ui-lib/src/androidTest/java/com/android/car/ui/imewidescreen/CarUiImeWideScreenTestActivity.java"
+      ],
+      "has_reflection": [
+        "car-ui-lib/src/main/java/com/android/car/ui/core/CarUi.java",
+        "car-ui-lib/src/main/java/com/android/car/ui/core/CarUiInstaller.java",
+        "car-ui-lib/src/main/java/com/android/car/ui/preference/PreferenceFragment.java",
+        "car-ui-lib/src/main/java/com/android/car/ui/recyclerview/CarUiRecyclerView.java",
+        "car-ui-lib/src/main/java/com/android/car/ui/toolbar/MenuItemRenderer.java",
+        "car-ui-lib/src/main/java/com/android/car/ui/utils/CarUiUtils.java",
+        "vehicle-platform/upstream/car-lib/src/android/car/VehiclePropertyIds.java",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/CarPropertyConfig.java",
+        "vehicle-platform/upstream/car-lib/src/android/car/hardware/CarPropertyValue.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/DiagnosticHalService.java",
+        "vehicle-platform/upstream/service/src/com/android/car/hal/PropertyHalServiceIds.java",
+        "vehicle-platform/upstream/tests/android_car_api_test/src/android/car/apitest/VehiclePropertyIdsTest.java"
+      ]
+    },
+    "features": {
+      "has_aidl": true,
+      "has_binder": true,
+      "has_hidden_api": true,
+      "has_integration_tests": true,
+      "has_reflection": true
+    },
+    "has_push_remote": false,
+    "module_count": 3,
+    "modules": [
+      {
+        "name": ":automotive",
+        "path": "automotive/build.gradle",
+        "type": "android_app"
+      },
+      {
+        "name": ":car-ui-lib",
+        "path": "car-ui-lib/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":vehicle-platform",
+        "path": "vehicle-platform/build.gradle",
+        "type": "android_library"
+      }
+    ],
+    "probe": {
+      "name": "cockpit-repo-probe",
+      "version": "1.2.0"
+    },
+    "remotes": [],
+    "repo_head": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+    "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\vehicle-insight",
+    "source_files": 379,
+    "source_loc": 43032,
+    "stats_method": {
+      "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+      "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+      "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+    },
+    "tags": [
+      "vehicle-insight-2026.1"
+    ],
+    "tracked_files": 404,
+    "worktree_clean": true
+  },
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\vehicle-insight",
+  "root_license_evidence": [
+    {
+      "detected_license": "GPL-3.0",
+      "path": "LICENSE"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_header_files": 246,
+  "source_header_license_counts": {
+    "Apache-2.0": 229,
+    "GPL-2.0": 0,
+    "GPL-3.0": 0,
+    "MIT": 0,
+    "unclassified": 17
+  },
+  "source_url": "https://github.com/marianosalvetti/Android-Automotive-Info-App",
+  "sparse_missing_files": 0,
+  "submodule_entries": 0,
+  "tracked_files": 488,
+  "unclassified_header_sample": [
+    "automotive/src/androidTest/java/dz/islem/automotive/ExampleInstrumentedTest.kt",
+    "automotive/src/main/java/dz/islem/automotive/data/CarManager.kt",
+    "automotive/src/main/java/dz/islem/automotive/ui/base/BaseActivity.kt",
+    "automotive/src/main/java/dz/islem/automotive/ui/base/BasePreferenceFragment.kt",
+    "automotive/src/main/java/dz/islem/automotive/ui/base/BaseViewModel.kt",
+    "automotive/src/main/java/dz/islem/automotive/ui/main/MainActivity.kt",
+    "automotive/src/main/java/dz/islem/automotive/ui/main/MainViewModel.kt",
+    "automotive/src/main/java/dz/islem/automotive/ui/main/MainViewModelFactory.kt",
+    "automotive/src/main/java/dz/islem/automotive/ui/setting/SettingsActivity.kt",
+    "automotive/src/main/java/dz/islem/automotive/ui/setting/SettingsFragment.kt",
+    "automotive/src/main/java/dz/islem/automotive/ui/setting/SettingsViewModel.kt",
+    "automotive/src/main/java/dz/islem/automotive/ui/setting/SettingsViewModelFactory.kt",
+    "automotive/src/main/java/dz/islem/automotive/util/FuelType.kt",
+    "automotive/src/main/java/dz/islem/automotive/util/GearType.kt",
+    "automotive/src/main/java/dz/islem/automotive/util/Path.kt",
+    "automotive/src/test/java/dz/islem/automotive/ExampleUnitTest.kt",
+    "car-ui-lib/src/main/java/com/android/car/ui/recyclerview/CarUiListItem.java"
+  ]
+}

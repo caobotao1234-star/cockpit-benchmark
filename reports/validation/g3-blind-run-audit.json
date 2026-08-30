@@ -1,0 +1,321 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g3",
+  "expected_runs": 20,
+  "audited_runs": 20,
+  "totals": {
+    "command_execution": 391,
+    "mcp_tool_call": 0,
+    "web_search": 0,
+    "file_change": 0,
+    "files_opened": 3354,
+    "directories_visited": 696,
+    "tool_calls": 391,
+    "wall_clock_seconds": 6605.434,
+    "evidence_anchors": 641
+  },
+  "runs": [
+    {
+      "repo_id": "APP-01",
+      "blind_id": "blind-3f544ea3efd4",
+      "files_opened": 49,
+      "tool_calls": 22,
+      "wall_clock_seconds": 372.131,
+      "truncated": false,
+      "evidence_anchors": 33,
+      "event_item_counts": {
+        "command_execution": 22,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "APP-02",
+      "blind_id": "blind-bcc8acfa07b8",
+      "files_opened": 56,
+      "tool_calls": 19,
+      "wall_clock_seconds": 317.511,
+      "truncated": false,
+      "evidence_anchors": 32,
+      "event_item_counts": {
+        "command_execution": 19,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "APP-03",
+      "blind_id": "blind-27a7a19bd9e6",
+      "files_opened": 77,
+      "tool_calls": 19,
+      "wall_clock_seconds": 329.945,
+      "truncated": false,
+      "evidence_anchors": 30,
+      "event_item_counts": {
+        "command_execution": 19,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "APP-04",
+      "blind_id": "blind-2b9f2b0b4244",
+      "files_opened": 40,
+      "tool_calls": 17,
+      "wall_clock_seconds": 281.898,
+      "truncated": false,
+      "evidence_anchors": 30,
+      "event_item_counts": {
+        "command_execution": 17,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "APP-08",
+      "blind_id": "blind-a082461d66e4",
+      "files_opened": 57,
+      "tool_calls": 21,
+      "wall_clock_seconds": 362.691,
+      "truncated": false,
+      "evidence_anchors": 30,
+      "event_item_counts": {
+        "command_execution": 21,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "APP-09",
+      "blind_id": "blind-6e087540b475",
+      "files_opened": 50,
+      "tool_calls": 17,
+      "wall_clock_seconds": 294.814,
+      "truncated": false,
+      "evidence_anchors": 36,
+      "event_item_counts": {
+        "command_execution": 17,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "APP-15",
+      "blind_id": "blind-af733aac52fc",
+      "files_opened": 1055,
+      "tool_calls": 19,
+      "wall_clock_seconds": 389.555,
+      "truncated": false,
+      "evidence_anchors": 30,
+      "event_item_counts": {
+        "command_execution": 19,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "APP-16",
+      "blind_id": "blind-c199615f0c53",
+      "files_opened": 61,
+      "tool_calls": 18,
+      "wall_clock_seconds": 370.833,
+      "truncated": false,
+      "evidence_anchors": 32,
+      "event_item_counts": {
+        "command_execution": 18,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "APP-17",
+      "blind_id": "blind-d4d90a7ebecf",
+      "files_opened": 35,
+      "tool_calls": 19,
+      "wall_clock_seconds": 274.089,
+      "truncated": false,
+      "evidence_anchors": 30,
+      "event_item_counts": {
+        "command_execution": 19,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "APP-18",
+      "blind_id": "blind-23cabcca60c3",
+      "files_opened": 59,
+      "tool_calls": 18,
+      "wall_clock_seconds": 272.295,
+      "truncated": false,
+      "evidence_anchors": 31,
+      "event_item_counts": {
+        "command_execution": 18,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "FW-01",
+      "blind_id": "blind-5d41ad31c1bc",
+      "files_opened": 47,
+      "tool_calls": 20,
+      "wall_clock_seconds": 310.221,
+      "truncated": false,
+      "evidence_anchors": 34,
+      "event_item_counts": {
+        "command_execution": 20,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "FW-02",
+      "blind_id": "blind-7fa7c1f510a7",
+      "files_opened": 56,
+      "tool_calls": 19,
+      "wall_clock_seconds": 322.663,
+      "truncated": false,
+      "evidence_anchors": 27,
+      "event_item_counts": {
+        "command_execution": 19,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "FW-03",
+      "blind_id": "blind-627291ab9722",
+      "files_opened": 51,
+      "tool_calls": 22,
+      "wall_clock_seconds": 335.221,
+      "truncated": false,
+      "evidence_anchors": 33,
+      "event_item_counts": {
+        "command_execution": 22,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "FW-04",
+      "blind_id": "blind-ee507aff68d9",
+      "files_opened": 220,
+      "tool_calls": 19,
+      "wall_clock_seconds": 272.922,
+      "truncated": false,
+      "evidence_anchors": 32,
+      "event_item_counts": {
+        "command_execution": 19,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "FW-09",
+      "blind_id": "blind-3e3daf67c2f9",
+      "files_opened": 53,
+      "tool_calls": 17,
+      "wall_clock_seconds": 334.779,
+      "truncated": false,
+      "evidence_anchors": 33,
+      "event_item_counts": {
+        "command_execution": 17,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "FW-10",
+      "blind_id": "blind-6e5ec6f5d251",
+      "files_opened": 41,
+      "tool_calls": 15,
+      "wall_clock_seconds": 311.151,
+      "truncated": false,
+      "evidence_anchors": 32,
+      "event_item_counts": {
+        "command_execution": 15,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "FW-15",
+      "blind_id": "blind-00727545d250",
+      "files_opened": 49,
+      "tool_calls": 25,
+      "wall_clock_seconds": 352.25,
+      "truncated": false,
+      "evidence_anchors": 33,
+      "event_item_counts": {
+        "command_execution": 25,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "FW-16",
+      "blind_id": "blind-72caa63dd88d",
+      "files_opened": 986,
+      "tool_calls": 21,
+      "wall_clock_seconds": 406.831,
+      "truncated": false,
+      "evidence_anchors": 36,
+      "event_item_counts": {
+        "command_execution": 21,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "FW-17",
+      "blind_id": "blind-2167d60d323e",
+      "files_opened": 265,
+      "tool_calls": 19,
+      "wall_clock_seconds": 340.655,
+      "truncated": false,
+      "evidence_anchors": 32,
+      "event_item_counts": {
+        "command_execution": 19,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    },
+    {
+      "repo_id": "FW-18",
+      "blind_id": "blind-3f168d5d3871",
+      "files_opened": 47,
+      "tool_calls": 25,
+      "wall_clock_seconds": 352.979,
+      "truncated": false,
+      "evidence_anchors": 35,
+      "event_item_counts": {
+        "command_execution": 25,
+        "mcp_tool_call": 0,
+        "web_search": 0,
+        "file_change": 0
+      }
+    }
+  ],
+  "issues": [],
+  "valid": true
+}

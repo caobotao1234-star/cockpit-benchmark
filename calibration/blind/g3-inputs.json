@@ -1,0 +1,269 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g3",
+  "generated_at": "2026-08-29T11:29:19.508052Z",
+  "status": "ready_for_external_evaluator",
+  "instructions": "Submit each repository independently. Do not expose the delivery parent, manifest, coordinator key, quality labels, or oracle to the evaluation Agent.",
+  "repositories": [
+    {
+      "blind_id": "blind-00727545d250",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\car-runtime-service",
+      "repository_head": "8ec949ad990392a014d95b04236b71181039b952",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-2167d60d323e",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\binder-hub-service",
+      "repository_head": "7a2bc2cbb17a2e9c407958a38dd1d1884ec0a0c8",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-23cabcca60c3",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\stream-media",
+      "repository_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-27a7a19bd9e6",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\climatix-hvac",
+      "repository_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-2b9f2b0b4244",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\wave-media",
+      "repository_head": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-3e3daf67c2f9",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vendor-signal-service",
+      "repository_head": "a8745e64918984feeda68b7a26e39f193a11e523",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-3f168d5d3871",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-platform-service",
+      "repository_head": "74db57addbc12585ca258f0e054efa07492078a4",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-3f544ea3efd4",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\aurora-settings",
+      "repository_head": "7d347803ae70eb01fdeafaff3094404909377c59",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-5d41ad31c1bc",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\car-api-core",
+      "repository_head": "83c5c24261f986c7b8586eb7093ac9124712f7ab",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-627291ab9722",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-hal-adapter",
+      "repository_head": "6f29358f3951a2efd68ac93515be97231cbab325",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-6e087540b475",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\prism-cluster",
+      "repository_head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-6e5ec6f5d251",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\cockpit-manager-kit",
+      "repository_head": "0a844e957b1269cd0e1faa61c40e1e0b9f778434",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-72caa63dd88d",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\platform-compat-service",
+      "repository_head": "e5ef0b5ba39ed54205d427ace5f4bba24458f151",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-7fa7c1f510a7",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-property-service",
+      "repository_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-a082461d66e4",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\echo-voice",
+      "repository_head": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-af733aac52fc",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\atlas-settings",
+      "repository_head": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-bcc8acfa07b8",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\horizon-launcher",
+      "repository_head": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-c199615f0c53",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\nova-launcher",
+      "repository_head": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-d4d90a7ebecf",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\thermo-control",
+      "repository_head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-ee507aff68d9",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\cockpit-audio-service",
+      "repository_head": "be95188ed46871d0f4a7352de12745d24498b3d2",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    }
+  ]
+}

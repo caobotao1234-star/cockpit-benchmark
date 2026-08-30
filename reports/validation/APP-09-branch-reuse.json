@@ -1,0 +1,70 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 788,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 788,
+      "compare_branch": "develop",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 789,
+      "deleted_lines": 0,
+      "identical_blob_files": 788,
+      "identical_blob_ratio": 0.998733,
+      "merge_base": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "union_files": 789
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 788,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 788,
+      "compare_branch": "release/2026.1",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 789,
+      "deleted_lines": 0,
+      "identical_blob_files": 788,
+      "identical_blob_ratio": 0.998733,
+      "merge_base": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "union_files": 789
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 788,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 788,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 789,
+      "deleted_lines": 0,
+      "identical_blob_files": 788,
+      "identical_blob_ratio": 0.998733,
+      "merge_base": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "union_files": 789
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 788,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 788,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 789,
+      "deleted_lines": 0,
+      "identical_blob_files": 788,
+      "identical_blob_ratio": 0.998733,
+      "merge_base": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "union_files": 789
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\prism-cluster",
+  "schema_version": "1.0.0"
+}

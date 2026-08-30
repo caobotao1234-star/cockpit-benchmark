@@ -1,0 +1,221 @@
+{
+  "document_type": "manifest_probe_refresh",
+  "schema_version": "1.0.0",
+  "probe_name": "cockpit-repo-probe",
+  "probe_version": "1.5.0",
+  "repository_count": 40,
+  "changed_repository_count": 13,
+  "changes": [
+    {
+      "repo_id": "APP-20",
+      "fields": {
+        "repo_head": {
+          "before": "db73b7b03fbb0cd07e7b469fdf0d85fb5d1803c5",
+          "after": "4259f591ee7b80f541a55ee2a2c0bbc39cf06941"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        }
+      }
+    },
+    {
+      "repo_id": "FW-01",
+      "fields": {
+        "repo_head": {
+          "before": "83c5c24261f986c7b8586eb7093ac9124712f7ab",
+          "after": "985cc498d8c52c2e5ba558e079ea2d670806e43a"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    },
+    {
+      "repo_id": "FW-03",
+      "fields": {
+        "repo_head": {
+          "before": "6f29358f3951a2efd68ac93515be97231cbab325",
+          "after": "85517b3ecba303d7acc5e49a3f4780d685f75500"
+        },
+        "platform_reuse": {
+          "before_count": 3,
+          "after_count": 3
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    },
+    {
+      "repo_id": "FW-04",
+      "fields": {
+        "repo_head": {
+          "before": "be95188ed46871d0f4a7352de12745d24498b3d2",
+          "after": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    },
+    {
+      "repo_id": "FW-05",
+      "fields": {
+        "repo_head": {
+          "before": "75743bb11957ac8d69ed010618dded632061f50d",
+          "after": "2bf5074a6a50dd19635b67ea5d9f9d556e389682"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    },
+    {
+      "repo_id": "FW-06",
+      "fields": {
+        "repo_head": {
+          "before": "54d2aa88b2a105feee961ace11be504fca8a08df",
+          "after": "ce733dcb460cdccecb5e5c65eb4d78b7629f9b61"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    },
+    {
+      "repo_id": "FW-07",
+      "fields": {
+        "repo_head": {
+          "before": "a0897a82ce7b27bfcfe28f07242669fd513ca9eb",
+          "after": "8bb2a496bbe8ab7be5ee348973a921b016702251"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    },
+    {
+      "repo_id": "FW-08",
+      "fields": {
+        "repo_head": {
+          "before": "76312786d19840207982edc7bbda8a99a7c4fca0",
+          "after": "58d1f6eda9c6b053ff62351a69b258489154acdf"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        }
+      }
+    },
+    {
+      "repo_id": "FW-09",
+      "fields": {
+        "repo_head": {
+          "before": "a8745e64918984feeda68b7a26e39f193a11e523",
+          "after": "d5cd34d3c5a1cef3f79794d5a435d047c10073be"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    },
+    {
+      "repo_id": "FW-14",
+      "fields": {
+        "repo_head": {
+          "before": "61df54de49560c6ab56df4310a9883997731d24d",
+          "after": "a6518960f6185ed55dd06342f5224d23a12b611e"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    },
+    {
+      "repo_id": "FW-16",
+      "fields": {
+        "repo_head": {
+          "before": "c155f1b2c481c9ca2a4062441f7022fd809fb338",
+          "after": "611df2d26b42e2b79d9063d6226378a81e090982"
+        },
+        "platform_reuse": {
+          "before_count": 5,
+          "after_count": 5
+        }
+      }
+    },
+    {
+      "repo_id": "FW-17",
+      "fields": {
+        "repo_head": {
+          "before": "7a2bc2cbb17a2e9c407958a38dd1d1884ec0a0c8",
+          "after": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1"
+        },
+        "platform_reuse": {
+          "before_count": 5,
+          "after_count": 5
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    },
+    {
+      "repo_id": "FW-20",
+      "fields": {
+        "repo_head": {
+          "before": "0171c05a0e48eabd0bf83b073809a6f28b1f2172",
+          "after": "069d0685270ac591ede24b37507016505f1f7645"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    }
+  ],
+  "oracle_update_count": 13,
+  "applied": true
+}

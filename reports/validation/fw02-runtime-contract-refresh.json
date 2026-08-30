@@ -1,0 +1,45 @@
+{
+  "document_type": "manifest_probe_refresh",
+  "schema_version": "1.0.0",
+  "probe_name": "cockpit-repo-probe",
+  "probe_version": "1.5.0",
+  "repository_count": 40,
+  "changed_repository_count": 1,
+  "changes": [
+    {
+      "repo_id": "FW-02",
+      "fields": {
+        "tracked_files": {
+          "before": 282,
+          "after": 283
+        },
+        "source_files": {
+          "before": 270,
+          "after": 271
+        },
+        "source_loc": {
+          "before": 51726,
+          "after": 51791
+        },
+        "commit_count": {
+          "before": 19,
+          "after": 32
+        },
+        "repo_head": {
+          "before": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+          "after": "08201c6278d25198577f2428c92dd2483032bf20"
+        },
+        "platform_reuse": {
+          "before_count": 3,
+          "after_count": 3
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    }
+  ],
+  "oracle_update_count": 1,
+  "applied": true
+}

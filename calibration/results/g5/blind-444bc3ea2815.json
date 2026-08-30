@@ -1,0 +1,305 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-444bc3ea2815",
+  "repository_head": "c6f4a1efa1836f9181742740e6e8b32caf962eb2",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04fad-89d3-7c63-8b61-a3883f05a41c",
+    "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T22:39:24.530Z",
+    "finished_at": "2026-08-29T22:46:10.283Z",
+    "wall_clock_seconds": 405.753,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 64,
+    "directories_visited": 34,
+    "tool_calls": 23,
+    "notes": "HEAD 与预期 SHA 一致。只读检查了 33 个代表性生产源文件、8 个有实质断言的测试文件、构建入口、10 个声明模块、31 个 AIDL 文件清单、Binder/反射/系统 API 站点、最大源文件、24 个平台适配器及全部本地分支；完成了 main 与 release/2026.1、develop、platform/8155、platform/8295 的有界比较。未运行构建、脚本、包管理器或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 23 (evaluator self-report: 23); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 1,
+      "reason": "仓库具有 facade、协调器、平台适配器和系统接口等可辨识分层，但实际组合边界薄弱：Gradle 模块仅重定向源码目录且没有声明模块依赖，应用同时纳入两个平台实现；核心协调器还直接承载跨域策略并依赖全局可变状态。成熟 CarService 代码中的接口封装只能部分缓解新集成层的结构风险。",
+      "evidence": [
+        {
+          "path": "app/build.gradle",
+          "ref": null,
+          "symbol_or_line": "lines 1-6, android.sourceSets.main",
+          "observation": "应用模块把整个 drive-runtime Java 树作为主源码，未声明对 platform-api、platform-service 或平台模块的依赖，因而声明模块没有形成可验证的依赖方向。"
+        },
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/CrossDomainCoordinator.java",
+          "ref": null,
+          "symbol_or_line": "CrossDomainCoordinator.dispatch(), snapshot(), mirrorLegacySideEffects(), lines 7-48",
+          "observation": "单个协调器负责域校验、适配器查找、异常转换、状态记录以及 climate/user/power 的跨域副作用，职责和策略集中。"
+        },
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/DriveCenterGlobal.java",
+          "ref": null,
+          "symbol_or_line": "LAST_STATE, EVENT_JOURNAL, WORKER, coordinator, lines 10-18",
+          "observation": "进程级可变 Map、List 和 coordinator 暴露为静态字段，且状态容器没有并发保护，削弱生命周期和组合边界。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 1,
+      "reason": "SystemInterface 的可替换接口与 Builder 展示了有效 DIP，但主 facade 的 DomainAdapter 是仅含两个 Bundle 方法的粗粒度接口，协调器基于字符串分支并集中跨域副作用，24 个实现又重复承担反射、映射、状态和错误处理；这些是贯穿新运行时层的 SRP、ISP 和 OCP 弱点。",
+      "evidence": [
+        {
+          "path": "service/src/com/android/car/systeminterface/SystemInterface.java",
+          "ref": null,
+          "symbol_or_line": "SystemInterface.Builder, lines 218-301",
+          "observation": "Builder 可注入 ActivityManager、Display、IO、Storage、SystemState、Time 和 WakeLock 接口，并对必需依赖做非空校验，是明确的依赖倒置与测试接缝。"
+        },
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/DomainAdapter.java",
+          "ref": null,
+          "symbol_or_line": "DomainAdapter, lines 3-5",
+          "observation": "所有领域共享 invoke(String, Bundle) 和 snapshot()，没有领域类型、能力拆分或可验证的操作契约。"
+        },
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/CrossDomainCoordinator.java",
+          "ref": null,
+          "symbol_or_line": "mirrorLegacySideEffects(), lines 32-47",
+          "observation": "新增领域或副作用需要修改中央字符串条件和列表，跨域编排、错误吞噬及业务策略耦合在同一类中。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 1,
+      "reason": "CarService 的 SystemInterface、HAL wrapper 和带权限注解的 manager 提供了较好的隔离与类型化访问；但新平台层在每个适配器中硬编码 vendor 类名、方法名和信号 ID，并把所有失败伪装为正常 Bundle，系统属性选择也直接写在 Service 中。依赖虽然位于平台包内，却没有形成可替换、可诊断的统一边界。",
+      "evidence": [
+        {
+          "path": "service/src/com/android/car/systeminterface/SystemInterface.java",
+          "ref": null,
+          "symbol_or_line": "Builder.defaultSystemInterface() and with* methods, lines 233-301",
+          "observation": "Android 系统操作通过七组接口及可注入默认实现集中封装。"
+        },
+        {
+          "path": "service/src/com/android/car/audio/hal/AudioControlFactory.java",
+          "ref": null,
+          "symbol_or_line": "newAudioControl(), lines 36-65",
+          "observation": "Audio HAL 依赖采用类型化 AIDL→HIDL V2→HIDL V1 回退，记录降级并在完全不可用时抛出明确异常。"
+        },
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8295/PowerAdapter.java",
+          "ref": null,
+          "symbol_or_line": "PowerAdapter.invoke(), lines 10-32",
+          "observation": "适配器硬编码 vendor 类、setPowerPolicy 方法和信号 ID；任何异常都被忽略并返回看似成功的平台状态。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "scored",
+      "score": 0,
+      "reason": "关键平台适配层的 24 个实现全部使用反射，另有反射式注册表；没有集中 allowlist、类型化代理、能力探测结果、异常分类或可注入反射入口。异常被普遍吞掉并产生成功外形的回退数据，且测试树未引用 facade、注册表或任一平台实现，属于贯穿核心边界且缺乏可信缓解的失败模式。",
+      "evidence": [
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/PlatformAdapterRegistry.java",
+          "ref": null,
+          "symbol_or_line": "PlatformAdapterRegistry.get(), lines 8-20",
+          "observation": "类名由平台和未验证的 domain 字符串拼接后通过 Class.forName 实例化，所有异常静默转换为 null。"
+        },
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/AudioAdapter.java",
+          "ref": null,
+          "symbol_or_line": "AudioAdapter.invoke(), lines 10-32",
+          "observation": "反射加载 legacy vendor manager 并调用方法；catch(Exception ignored) 不记录原因，而是写入请求值和平台字段作为回退结果。"
+        },
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8295/DiagnosticsAdapter.java",
+          "ref": null,
+          "symbol_or_line": "DiagnosticsAdapter.invoke(), lines 10-32",
+          "observation": "现代平台同样采用硬编码反射和无诊断成功外形回退，表明问题跨平台、跨领域重复。"
+        }
+      ]
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 1,
+      "reason": "成熟 car-lib 边界具有类型化方法、权限注解、RemoteException 处理和部分 Binder death 测试；新导出的 DriveCenter facade 虽由 manifest 权限保护并用 RemoteCallbackList 管理监听器，但其主调用是同步的字符串/Bundle 万能入口，没有操作级权限、线程调度、类型化错误或请求生命周期，回调异常也被静默忽略。中央跨进程契约因此仍使演进和故障判定高风险。",
+      "evidence": [
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/IDriveCenterFacade.aidl",
+          "ref": null,
+          "symbol_or_line": "IDriveCenterFacade, lines 4-8",
+          "observation": "跨进程 API 仅提供 invoke(String,String,Bundle)、snapshot(String) 和监听器注册，领域、操作、参数及返回错误均无类型约束。"
+        },
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/DriveCenterFacadeService.java",
+          "ref": null,
+          "symbol_or_line": "binder and publish(), lines 9-34",
+          "observation": "Binder 线程直接执行协调器与跨域副作用；RemoteCallbackList 提供基本监听器死亡管理，但 RemoteException 被忽略且无调用级身份检查。"
+        },
+        {
+          "path": "car-lib/src/android/car/hardware/power/CarPowerManager.java",
+          "ref": null,
+          "symbol_or_line": "public power APIs and assertPermission(), lines 389-655 and 832-835",
+          "observation": "成熟 SDK manager 对操作标注具体权限、校验参数和调用权限，并把 RemoteException 交给统一处理逻辑，形成明显但未被新 facade 复用的更强范式。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "仓库声明了 Android Gradle 边界，但所有模块仅设置 compileSdk 和外部源码目录，没有任何 dependencies 声明；platform-service、platform-api、SystemUI、Launcher 和测试源码直接引用大量仓库外 AOSP/AAOS 隐藏类、资源、测试框架及 HAL 接口。受控审查禁止运行构建，且仓库未提供所需平台输入，因此无法建立可信的独立编译边界，按 rubric 记为 failed。",
+      "evidence": [
+        {
+          "path": "platform-service/build.gradle",
+          "ref": null,
+          "symbol_or_line": "android block, lines 1-6",
+          "observation": "模块仅把 ../service/src 暴露为源码；没有声明 Android car builtin、internal、HAL 或其他所需平台依赖。"
+        },
+        {
+          "path": "integration-tests/build.gradle",
+          "ref": null,
+          "symbol_or_line": "android.sourceSets.main, lines 1-6",
+          "observation": "将多个测试树作为 library 的 main 源码输入，既无 test/androidTest source set，也无测试框架和被测模块依赖。"
+        },
+        {
+          "path": "settings.gradle",
+          "ref": null,
+          "symbol_or_line": "lines 1-11",
+          "observation": "列出十个模块，但对应构建文件没有形成模块间依赖图。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 2,
+      "reason": "测试内容本身有较强的行为深度：电源测试驱动模拟 HAL 状态机并验证休眠、关机、取消和用户回调；Audio AIDL 测试覆盖 Binder death、重新获取及重新 link；Launcher 使用 ActivityScenario 验证生命周期和设置变化。主要缺口是新的 DriveCenter facade、跨域协调器和两套平台适配器完全无测试引用，而且 integration-tests 模块没有把这些文件配置成真正的测试源集。",
+      "evidence": [
+        {
+          "path": "tests/carservice_unit_test/src/com/android/car/power/CarPowerManagementServiceUnitTest.java",
+          "ref": null,
+          "symbol_or_line": "setUp()/setService() and tests at lines 153-373",
+          "observation": "使用模拟 Power HAL、可替换 SystemInterface 与等待式断言覆盖开机、关机、休眠、立即执行和取消等跨组件状态迁移。"
+        },
+        {
+          "path": "tests/carservice_unit_test/src/com/android/car/audio/hal/AudioControlWrapperAidlTest.java",
+          "ref": null,
+          "symbol_or_line": "linkToDeath and binderDied tests, lines 273-318",
+          "observation": "明确断言 Binder death 后重新获取服务、重新注册 death recipient 并通知上层。"
+        },
+        {
+          "path": "components/launcher/app/tests/src/com/android/car/carlauncher/CarLauncherTest.java",
+          "ref": null,
+          "symbol_or_line": "ActivityScenario and TOS lifecycle tests, lines 108-365",
+          "observation": "在 Android instrumentation 场景中验证真实 Activity 可见性、设置变化、observer 生命周期及 TaskView 重建。"
+        },
+        {
+          "path": "integration-tests/build.gradle",
+          "ref": null,
+          "symbol_or_line": "line 5",
+          "observation": "聚合模块把既有测试目录放进 main 源集，且没有纳入 drive-runtime 测试或声明测试依赖，削弱仓库级可执行集成保障。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 0,
+      "reason": "平台层的 24 个手写适配器构成系统性近复制：每个平台有相同 12 个领域文件，每个 8155/8295 对仅约 5 行增删差异，而每个平台内部也重复 manager 初始化、反射调用、Bundle 填充、异常回退和 snapshot。该重复覆盖几乎整个新平台实现层，且没有模板生成标记、共享基类或映射表。",
+      "evidence": [
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/ClimateAdapter.java",
+          "ref": null,
+          "symbol_or_line": "entire ClimateAdapter, lines 1-36",
+          "observation": "包含与同平台其他 11 个适配器相同的 36 行控制流，仅领域、信号 ID 和方法名变化。"
+        },
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8295/ClimateAdapter.java",
+          "ref": null,
+          "symbol_or_line": "entire ClimateAdapter, lines 1-36",
+          "observation": "与 8155 对应文件仅 vendor 类、信号 ID 和平台字符串等约 5 行不同，异常和状态逻辑完整复制。"
+        },
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8295/AudioAdapter.java",
+          "ref": null,
+          "symbol_or_line": "entire AudioAdapter, lines 1-36",
+          "observation": "同一平台跨领域仍复制全部反射、结果构建、回退和 snapshot 代码，说明重复不只是两个平台间的必要差异。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 2,
+      "reason": "有界比较显示 release、develop 和两个 platform 分支都直接基于 main，各自只增加一个两行配置文件；release 还落有本地 tag。这体现了受控、低差异的分支用途，而非代码分叉。但历史只有每分支一个提交，没有可观察的回合式合并、补丁回灌或多版本维护记录，因此不能评为系统性成熟。",
+      "evidence": [
+        {
+          "path": "product/release.properties",
+          "ref": "release/2026.1",
+          "symbol_or_line": "lines 1-2",
+          "observation": "release/2026.1 相对 main 的唯一差异是 channel 与 facade contract 两项发布配置。"
+        },
+        {
+          "path": "product/development.properties",
+          "ref": "develop",
+          "symbol_or_line": "lines 1-2",
+          "observation": "develop 相对 main 仅增加 debug 和全域 trace 开关，没有复制生产代码。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8155 分支仅声明 SoC 与 legacy adapter generation。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8295 分支同样仅声明 SoC 与 modern adapter generation，平台分支差异保持在配置层。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 1,
+      "reason": "两个平台共享 CrossDomainCoordinator、DomainAdapter 和分支配置形态，这是有限的 common-core 复用；但平台政策、vendor 类、信号 ID、调用方法、结果映射及失败策略都散落在 24 个近复制类中。平台分支本身很薄，却没有把当前 main 中的实现差异集中为映射或策略对象，导致修复必须跨领域、跨平台重复传播。",
+      "evidence": [
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/CrossDomainCoordinator.java",
+          "ref": null,
+          "symbol_or_line": "registry-backed common flow, lines 10-30",
+          "observation": "两个平台确实复用统一注册表、dispatch 和 snapshot 流程。"
+        },
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/PowerAdapter.java",
+          "ref": null,
+          "symbol_or_line": "lines 6-35",
+          "observation": "8155 的 power 映射与通用反射/回退策略封装在领域类内，而非集中平台配置。"
+        },
+        {
+          "path": "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8295/PowerAdapter.java",
+          "ref": null,
+          "symbol_or_line": "lines 6-35",
+          "observation": "8295 文件复制同一策略，仅替换 vendor 类、信号 ID 和平台值；跨平台修复需要同步修改两份实现。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 1.0,
+    "scored_dimension_count": 9,
+    "failed_dimension_count": 1,
+    "narrative": "主要优势是保留的 CarService/SDK 代码具有可注入 SystemInterface、类型化 HAL 版本回退、细粒度权限、RemoteException/Binder death 处理，以及覆盖电源状态机、HAL death 和 Activity 生命周期的实质测试；本地发布与平台分支的实际差异也保持在两行配置内。主要风险集中在新增 DriveCenter 集成层：字符串/Bundle 万能契约、静态全局状态、同步 Binder 调度、24 个反射式近复制适配器，以及把反射失败伪装为成功状态；声明的 Gradle 模块又没有依赖图或可信测试源集。由于缺少 AOSP/AAOS/BSP 输入且本次禁止构建，独立编译性无法验证；短分支历史也限制了对长期发布策略的判断。23/28 的命令预算足以完成规定清单、33 个生产文件和 8 个测试文件的代表性审阅及四组分支比较。"
+  }
+}

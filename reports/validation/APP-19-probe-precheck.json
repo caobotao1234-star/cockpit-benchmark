@@ -1,0 +1,126 @@
+{
+  "branches": [
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "release/2026.1"
+  ],
+  "build_system": "Gradle",
+  "commit_count": 30,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [
+      "foundation-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitEventListener.aidl",
+      "foundation-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitGateway.aidl",
+      "voice-api/src/main/aidl/com/cockpitbench/voice/IVoiceAssistant.aidl",
+      "voice-api/src/main/aidl/com/cockpitbench/voice/IVoiceCallback.aidl"
+    ],
+    "has_binder": [
+      "foundation-core/src/main/java/com/cockpitbench/foundation/core/CrossUserAccessBoundary.java",
+      "foundation-platform/src/main/java/com/cockpitbench/foundation/platform/BinderConnectionSupervisor.java",
+      "voice-core/src/main/java/com/cockpitbench/voice/core/ReflectionServiceBridge.java"
+    ],
+    "has_hidden_api": [
+      "voice-core/src/main/java/com/cockpitbench/voice/core/ReflectionServiceBridge.java"
+    ],
+    "has_integration_tests": [
+      "TEST_MAPPING"
+    ],
+    "has_reflection": [
+      "voice-core/src/main/java/com/cockpitbench/voice/core/ReflectionServiceBridge.java",
+      "voice-core/src/main/java/com/cockpitbench/voice/core/VoiceSessionHub.java"
+    ]
+  },
+  "features": {
+    "has_aidl": true,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": true
+  },
+  "has_push_remote": false,
+  "module_count": 12,
+  "modules": [
+    {
+      "name": ":foundation-api",
+      "path": "foundation-api/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":foundation-core",
+      "path": "foundation-core/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":foundation-observability",
+      "path": "foundation-observability/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":foundation-platform",
+      "path": "foundation-platform/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":foundation-storage",
+      "path": "foundation-storage/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":foundation-testkit",
+      "path": "foundation-testkit/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":voice-api",
+      "path": "voice-api/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":voice-app",
+      "path": "voice-app/build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":voice-core",
+      "path": "voice-core/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":voice-platform-8155",
+      "path": "voice-platform-8155/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":voice-platform-8295",
+      "path": "voice-platform-8295/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":voice-tests",
+      "path": "voice-tests/build.gradle",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [],
+  "repo_head": "aef84544e4964cecdb2b10c626dfde622a29f78f",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\companion-voice",
+  "source_files": 421,
+  "source_loc": 42357,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "app-foundation-1.0.0",
+    "companion-voice-2026.1"
+  ],
+  "tracked_files": 427,
+  "worktree_clean": true
+}

@@ -1,0 +1,475 @@
+{
+  "schema_version": "1.0.0",
+  "document_type": "public_lineage_sensitive_history_rewrite",
+  "generated_at": "2026-08-30T12:38:42.098806Z",
+  "scope": [
+    "APP-20",
+    "FW-01",
+    "FW-03",
+    "FW-04",
+    "FW-05",
+    "FW-06",
+    "FW-07",
+    "FW-08",
+    "FW-09",
+    "FW-14",
+    "FW-16",
+    "FW-17",
+    "FW-20"
+  ],
+  "backup_required": true,
+  "repositories": [
+    {
+      "id": "APP-20",
+      "relative_path": "repos/app/drive-center",
+      "old_head": "db73b7b03fbb0cd07e7b469fdf0d85fb5d1803c5",
+      "new_head": "4259f591ee7b80f541a55ee2a2c0bbc39cf06941",
+      "commit_count": 17,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 0,
+      "current_tree_changed_paths": [],
+      "refs_before": {
+        "refs/heads/aosp-new/aosp-new/master": "0be103dc50a93e57ff6e0e8064f35f30df8c9e79",
+        "refs/heads/develop": "58534c9b2bccf23bec6451f21b66fbec354787e0",
+        "refs/heads/main": "db73b7b03fbb0cd07e7b469fdf0d85fb5d1803c5",
+        "refs/heads/platform/8155": "5dadbe998dd6da9963bf7e14ba453940775dd31f",
+        "refs/heads/platform/8295": "f7edf668b078b2336c613d3b30a09bf0fb384d7e",
+        "refs/heads/release/2026.1": "7ba48ba0aa4798b2759f6988ef8c2f9b1be18587",
+        "refs/tags/drive-center-2026.1": "7ba48ba0aa4798b2759f6988ef8c2f9b1be18587"
+      },
+      "refs_after": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "d3d65f89bd9c865e36068fda239c8af76d94827b",
+        "refs/heads/main": "4259f591ee7b80f541a55ee2a2c0bbc39cf06941",
+        "refs/heads/platform/8155": "170947ca03a20adb89c6a3c0a139d33c5924ce41",
+        "refs/heads/platform/8295": "2ff09a7586c59d17506dbf10935c54f213758fc1",
+        "refs/heads/release/2026.1": "0392b9e29ad81c28d9c1a65681ec2541006da554",
+        "refs/tags/drive-center-2026.1": "0392b9e29ad81c28d9c1a65681ec2541006da554"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    },
+    {
+      "id": "FW-01",
+      "relative_path": "repos/framework/car-api-core",
+      "old_head": "83c5c24261f986c7b8586eb7093ac9124712f7ab",
+      "new_head": "985cc498d8c52c2e5ba558e079ea2d670806e43a",
+      "commit_count": 8,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 3,
+      "current_tree_changed_paths": [
+        "tests/SampleCustomInputService/res/values/strings.xml"
+      ],
+      "refs_before": {
+        "refs/heads/develop": "b2ecaf97127451a116b8fb316720db563fff3505",
+        "refs/heads/main": "83c5c24261f986c7b8586eb7093ac9124712f7ab",
+        "refs/heads/platform/8155": "9b87747fb8d60a5cfc20e38d477d5882bd8b120a",
+        "refs/heads/platform/8295": "76c8aa6173c4fb524a6e8f0c3a4b30e7862828ba",
+        "refs/heads/release/2026.1": "61ac03249076013f80dd72fc0db8329e4e480fc8",
+        "refs/tags/local-sop-2026.1": "61ac03249076013f80dd72fc0db8329e4e480fc8"
+      },
+      "refs_after": {
+        "refs/heads/develop": "e99b504bec425d6f1adb8f6d594cdb03a381d1c6",
+        "refs/heads/main": "985cc498d8c52c2e5ba558e079ea2d670806e43a",
+        "refs/heads/platform/8155": "00862035b7e1384a9e3e5d5c83be9529e3e91845",
+        "refs/heads/platform/8295": "e06b7f2b354b8eb0bf6b5e383cd383395272a4a3",
+        "refs/heads/release/2026.1": "8135028142b98adb9c3559c06c7b863ba7ec8126",
+        "refs/tags/local-sop-2026.1": "8135028142b98adb9c3559c06c7b863ba7ec8126"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    },
+    {
+      "id": "FW-03",
+      "relative_path": "repos/framework/vehicle-hal-adapter",
+      "old_head": "6f29358f3951a2efd68ac93515be97231cbab325",
+      "new_head": "85517b3ecba303d7acc5e49a3f4780d685f75500",
+      "commit_count": 8,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 3,
+      "current_tree_changed_paths": [],
+      "refs_before": {
+        "refs/heads/aosp-new/aosp-new/master": "0be103dc50a93e57ff6e0e8064f35f30df8c9e79",
+        "refs/heads/develop": "a6275d0179ab7654a643a8f6b78a3ac4fd4eb26b",
+        "refs/heads/main": "6f29358f3951a2efd68ac93515be97231cbab325",
+        "refs/heads/platform/8155": "b18f705cb3d5942891f4f368de44ea0c1f4ab963",
+        "refs/heads/platform/8295": "5a7da5774c1467a90fe86d57f0f693f6e9b2c978",
+        "refs/heads/release/2026.1": "3e1f15de56518f2128b7f75c5c08743166155ac4",
+        "refs/tags/local-sop-2026.1": "3e1f15de56518f2128b7f75c5c08743166155ac4"
+      },
+      "refs_after": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "3ec304a4adc4acff7f90638f505cedf4823906dc",
+        "refs/heads/main": "85517b3ecba303d7acc5e49a3f4780d685f75500",
+        "refs/heads/platform/8155": "45e3a735a9fba1262f91c8b569dc648f957d2128",
+        "refs/heads/platform/8295": "04fa82d9a7210dad2a63a44f2478cdc27965bb0f",
+        "refs/heads/release/2026.1": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098",
+        "refs/tags/local-sop-2026.1": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    },
+    {
+      "id": "FW-04",
+      "relative_path": "repos/framework/cockpit-audio-service",
+      "old_head": "be95188ed46871d0f4a7352de12745d24498b3d2",
+      "new_head": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
+      "commit_count": 9,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 3,
+      "current_tree_changed_paths": [],
+      "refs_before": {
+        "refs/heads/develop": "a610b39548b81690a05cf4064c3cf77aded8669d",
+        "refs/heads/main": "be95188ed46871d0f4a7352de12745d24498b3d2",
+        "refs/heads/platform/8155": "67df835db6ae9981e72e1a593653f81780d90f1a",
+        "refs/heads/platform/8295": "39aaeed6d5e4297af2203ba947665bbc52808684",
+        "refs/heads/release/2026.1": "84a7f839ca75869a5168f9f2837d2b58909b3fe5",
+        "refs/tags/local-sop-2026.1": "84a7f839ca75869a5168f9f2837d2b58909b3fe5"
+      },
+      "refs_after": {
+        "refs/heads/develop": "356ac7ee1005f373921731183fdf6f910e6d42b4",
+        "refs/heads/main": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
+        "refs/heads/platform/8155": "872c2c736467b05740a7cac588b2ae777de1c126",
+        "refs/heads/platform/8295": "8de47ac36548c055c393d03587d5e75039861ec4",
+        "refs/heads/release/2026.1": "d463ea588d438395dd55dfadc193c285809df688",
+        "refs/tags/local-sop-2026.1": "d463ea588d438395dd55dfadc193c285809df688"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    },
+    {
+      "id": "FW-05",
+      "relative_path": "repos/framework/car-power-service",
+      "old_head": "75743bb11957ac8d69ed010618dded632061f50d",
+      "new_head": "2bf5074a6a50dd19635b67ea5d9f9d556e389682",
+      "commit_count": 8,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 0,
+      "current_tree_changed_paths": [
+        "tests/SampleCustomInputService/res/values/strings.xml"
+      ],
+      "refs_before": {
+        "refs/heads/aosp-new/aosp-new/master": "0be103dc50a93e57ff6e0e8064f35f30df8c9e79",
+        "refs/heads/develop": "f94cf9fb35f82d374ec7185072f2a1f4cfe5cbc9",
+        "refs/heads/main": "75743bb11957ac8d69ed010618dded632061f50d",
+        "refs/heads/platform/8155": "cc009a883ac924e08c1f348f4edb24a60abd2223",
+        "refs/heads/platform/8295": "bcfb8cb8a6dbd76813f5cea07b22f1c623626937",
+        "refs/heads/release/2026.1": "e2c43a3ec84a1a735e7e94c475580d5dd12f4005",
+        "refs/tags/car-power-2026.1": "e2c43a3ec84a1a735e7e94c475580d5dd12f4005"
+      },
+      "refs_after": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "9adb9e1713ed4547fca25395a50fe84695a7f30f",
+        "refs/heads/main": "2bf5074a6a50dd19635b67ea5d9f9d556e389682",
+        "refs/heads/platform/8155": "88a6ab3d2f5e2700eae0c64e2aa0aa2d01f4b56c",
+        "refs/heads/platform/8295": "d880fdbebb78d9cde78fb88910f02ee594a9f661",
+        "refs/heads/release/2026.1": "55768fd6c4603ec0932536fbc87e13c409d2216a",
+        "refs/tags/car-power-2026.1": "55768fd6c4603ec0932536fbc87e13c409d2216a"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    },
+    {
+      "id": "FW-06",
+      "relative_path": "repos/framework/occupant-zone-service",
+      "old_head": "54d2aa88b2a105feee961ace11be504fca8a08df",
+      "new_head": "ce733dcb460cdccecb5e5c65eb4d78b7629f9b61",
+      "commit_count": 8,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 0,
+      "current_tree_changed_paths": [],
+      "refs_before": {
+        "refs/heads/aosp-new/aosp-new/master": "0be103dc50a93e57ff6e0e8064f35f30df8c9e79",
+        "refs/heads/develop": "4816a1d793c940f31d0eb319b8ff166548be6cc9",
+        "refs/heads/main": "54d2aa88b2a105feee961ace11be504fca8a08df",
+        "refs/heads/platform/8155": "db0dafc38b69d27e29fab09204bcdc0c54e69c58",
+        "refs/heads/platform/8295": "48b9922a920ad4dc7b713bccef1394e221257072",
+        "refs/heads/release/2026.1": "76438778c51e69f394495d33f053b3e993ce6bcd",
+        "refs/tags/occupant-zone-2026.1": "76438778c51e69f394495d33f053b3e993ce6bcd"
+      },
+      "refs_after": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "73ccd1647186b250dbb32f255833423640fcdaf4",
+        "refs/heads/main": "ce733dcb460cdccecb5e5c65eb4d78b7629f9b61",
+        "refs/heads/platform/8155": "c6846725ac0d302c2c1e54156a3b6372ccb44b18",
+        "refs/heads/platform/8295": "28218ddbeba65045d5945b3608f8f79f0fdb56cc",
+        "refs/heads/release/2026.1": "6120e69bb6b881c14fa806ce8fadfe0acb906833",
+        "refs/tags/occupant-zone-2026.1": "6120e69bb6b881c14fa806ce8fadfe0acb906833"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    },
+    {
+      "id": "FW-07",
+      "relative_path": "repos/framework/vehicle-diagnostics",
+      "old_head": "a0897a82ce7b27bfcfe28f07242669fd513ca9eb",
+      "new_head": "8bb2a496bbe8ab7be5ee348973a921b016702251",
+      "commit_count": 8,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 0,
+      "current_tree_changed_paths": [
+        "tests/SampleCustomInputService/res/values/strings.xml"
+      ],
+      "refs_before": {
+        "refs/heads/aosp-new/aosp-new/master": "0be103dc50a93e57ff6e0e8064f35f30df8c9e79",
+        "refs/heads/develop": "9d3580a8a651244ae6348dfe820af35524c7ed8b",
+        "refs/heads/main": "a0897a82ce7b27bfcfe28f07242669fd513ca9eb",
+        "refs/heads/platform/8155": "3b1814ffc01536e3d969721c09e60d08177e5567",
+        "refs/heads/platform/8295": "6a5077f91e3dcaa797022d958a53fd947864fe3b",
+        "refs/heads/release/2026.1": "6874b5c9c7426c37e96324fcefb026b9e19c03d5",
+        "refs/tags/vehicle-diagnostics-2026.1": "6874b5c9c7426c37e96324fcefb026b9e19c03d5"
+      },
+      "refs_after": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "20db2e9e2398ad2f34d281cdcb26a78a1dfd4fac",
+        "refs/heads/main": "8bb2a496bbe8ab7be5ee348973a921b016702251",
+        "refs/heads/platform/8155": "85f0ccfb542ae84b40d3314c9de2d6d9fab195b0",
+        "refs/heads/platform/8295": "87130476985f8886d380d9198c80c1edb826f1c8",
+        "refs/heads/release/2026.1": "7898b482b3dbad5ace4c354cdd8a4e039059e681",
+        "refs/tags/vehicle-diagnostics-2026.1": "7898b482b3dbad5ace4c354cdd8a4e039059e681"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    },
+    {
+      "id": "FW-08",
+      "relative_path": "repos/framework/soa-gateway",
+      "old_head": "76312786d19840207982edc7bbda8a99a7c4fca0",
+      "new_head": "58d1f6eda9c6b053ff62351a69b258489154acdf",
+      "commit_count": 9,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 0,
+      "current_tree_changed_paths": [],
+      "refs_before": {
+        "refs/heads/aosp-new/aosp-new/master": "0be103dc50a93e57ff6e0e8064f35f30df8c9e79",
+        "refs/heads/develop": "e8d13cd6838c394ba255b4d03cdb517602f7ffa2",
+        "refs/heads/main": "76312786d19840207982edc7bbda8a99a7c4fca0",
+        "refs/heads/platform/8155": "46f64e7c21a61f5cf8f30746ebf06decb4e3a772",
+        "refs/heads/platform/8295": "515a67f1f40623dc240f78974bfb06eb6c9b28af",
+        "refs/heads/release/2026.1": "b8eb187e6139ed7833643dc2aac8f1af0c0e3853",
+        "refs/tags/soa-gateway-2026.1": "b8eb187e6139ed7833643dc2aac8f1af0c0e3853"
+      },
+      "refs_after": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "8c12e40c1a67b3387cde26ff1810205bcfc0cc98",
+        "refs/heads/main": "58d1f6eda9c6b053ff62351a69b258489154acdf",
+        "refs/heads/platform/8155": "9f1058453589715d6ae60a21f8d0601f4d258793",
+        "refs/heads/platform/8295": "dfb6fde79a368da471256c6fd83457e0ee4ee09f",
+        "refs/heads/release/2026.1": "1e7dabf4b9630a7da0dc1ba490eb3dee42b077a6",
+        "refs/tags/soa-gateway-2026.1": "1e7dabf4b9630a7da0dc1ba490eb3dee42b077a6"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    },
+    {
+      "id": "FW-09",
+      "relative_path": "repos/framework/vendor-signal-service",
+      "old_head": "a8745e64918984feeda68b7a26e39f193a11e523",
+      "new_head": "d5cd34d3c5a1cef3f79794d5a435d047c10073be",
+      "commit_count": 10,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 0,
+      "current_tree_changed_paths": [],
+      "refs_before": {
+        "refs/heads/develop": "b5363aa8da00c9dd3811e807d2019891bca771fc",
+        "refs/heads/main": "a8745e64918984feeda68b7a26e39f193a11e523",
+        "refs/heads/platform/8155": "f3fd4e482e7dd3935ded0fcaa974b8d996e9b586",
+        "refs/heads/platform/8295": "76fb440da3c4f9da29f661c41d2e180c1f1b70a1",
+        "refs/heads/release/2026.1": "858cc9932b48a2b5c5ded12e4e52a7887374dbf8",
+        "refs/tags/local-sop-2026.1": "3e1f15de56518f2128b7f75c5c08743166155ac4",
+        "refs/tags/vendor-signal-2026.1": "858cc9932b48a2b5c5ded12e4e52a7887374dbf8"
+      },
+      "refs_after": {
+        "refs/heads/develop": "995d58712011f99f4090b5786d16bb3b11c4be83",
+        "refs/heads/main": "d5cd34d3c5a1cef3f79794d5a435d047c10073be",
+        "refs/heads/platform/8155": "81227ff036b1e5a0987d945bace5ac0ee11cc276",
+        "refs/heads/platform/8295": "a9fb39a35ea1e865d1e6be75ace8c0a3565ad623",
+        "refs/heads/release/2026.1": "8cf05bfe07672ae4c681c31fff094f87a6139b97",
+        "refs/tags/local-sop-2026.1": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098",
+        "refs/tags/vendor-signal-2026.1": "8cf05bfe07672ae4c681c31fff094f87a6139b97"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    },
+    {
+      "id": "FW-14",
+      "relative_path": "repos/framework/update-manager-service",
+      "old_head": "61df54de49560c6ab56df4310a9883997731d24d",
+      "new_head": "a6518960f6185ed55dd06342f5224d23a12b611e",
+      "commit_count": 9,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 0,
+      "current_tree_changed_paths": [
+        "tests/SampleCustomInputService/res/values/strings.xml"
+      ],
+      "refs_before": {
+        "refs/heads/aosp-new/aosp-new/master": "0be103dc50a93e57ff6e0e8064f35f30df8c9e79",
+        "refs/heads/develop": "a54503518975eb5c8e92da1ed2bafd43c12fdb2e",
+        "refs/heads/main": "61df54de49560c6ab56df4310a9883997731d24d",
+        "refs/heads/platform/8155": "1390294f5846891f94946f53304c92a75dd5a8f9",
+        "refs/heads/platform/8295": "a37b013f618fb95de5d2c82261eedc10cd5efc20",
+        "refs/heads/release/2026.1": "4c79ea268543240bd1d7620a28c3c9e2b5d60bae",
+        "refs/tags/update-manager-2026.1": "4c79ea268543240bd1d7620a28c3c9e2b5d60bae"
+      },
+      "refs_after": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "507115a4592f0bf5410319bf2736355869ad4ccd",
+        "refs/heads/main": "a6518960f6185ed55dd06342f5224d23a12b611e",
+        "refs/heads/platform/8155": "a7bea930370a84ef6ed661b0f1994af4f65e7a20",
+        "refs/heads/platform/8295": "f4b18929661fa3a498975db35c88ebd50200a36a",
+        "refs/heads/release/2026.1": "0143874da344319474944761dfd576983a83d7c8",
+        "refs/tags/update-manager-2026.1": "0143874da344319474944761dfd576983a83d7c8"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    },
+    {
+      "id": "FW-16",
+      "relative_path": "repos/framework/platform-compat-service",
+      "old_head": "c155f1b2c481c9ca2a4062441f7022fd809fb338",
+      "new_head": "611df2d26b42e2b79d9063d6226378a81e090982",
+      "commit_count": 13,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 3,
+      "current_tree_changed_paths": [
+        "tests/SampleCustomInputService/res/values/strings.xml"
+      ],
+      "refs_before": {
+        "refs/heads/develop": "2c03ade962c954c494671c416d10d7f49e05bbe3",
+        "refs/heads/main": "c155f1b2c481c9ca2a4062441f7022fd809fb338",
+        "refs/heads/platform/8155": "60c8bb1d2856aba2cae5b58d508f9eab1fce02eb",
+        "refs/heads/platform/8295": "014a0a4567009857c3e1fee66a7e9bbde6c4a6b3",
+        "refs/heads/platform/xinqing": "110963488d0bcae63c5e67196685284513d49cbd",
+        "refs/heads/release/sop-2025": "9d8e0bb5cc8af786fe6374f80475f41882f6ada1",
+        "refs/tags/local-sop-2025.4": "9d8e0bb5cc8af786fe6374f80475f41882f6ada1"
+      },
+      "refs_after": {
+        "refs/heads/develop": "997aec1802b976e2d628247a38c100c39bbe6046",
+        "refs/heads/main": "611df2d26b42e2b79d9063d6226378a81e090982",
+        "refs/heads/platform/8155": "93ccc6f808390533175a71aca35192f1a1f704bb",
+        "refs/heads/platform/8295": "068b6972dc4b5f3ded6b55d1800746b914243f3b",
+        "refs/heads/platform/xinqing": "a79b428ffc3e3bd90003ef628ff4c1323b2f8243",
+        "refs/heads/release/sop-2025": "2234a82e84b34d2d36c5a4bc220313238e5daf13",
+        "refs/tags/local-sop-2025.4": "2234a82e84b34d2d36c5a4bc220313238e5daf13"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    },
+    {
+      "id": "FW-17",
+      "relative_path": "repos/framework/binder-hub-service",
+      "old_head": "7a2bc2cbb17a2e9c407958a38dd1d1884ec0a0c8",
+      "new_head": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
+      "commit_count": 14,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 3,
+      "current_tree_changed_paths": [],
+      "refs_before": {
+        "refs/heads/develop": "4ef9962bc7be69c91b9adccc2ac31b88dc822e2d",
+        "refs/heads/main": "7a2bc2cbb17a2e9c407958a38dd1d1884ec0a0c8",
+        "refs/heads/platform/8155": "56bb0f605bc19cd5d5de02f5345b7e45c4200689",
+        "refs/heads/platform/8295": "8233d4620943079b068dcb05c6321a5132c2f7c1",
+        "refs/heads/platform/xinqing": "4a7737c03f836ae6b58e0f6168df7855bc498ec3",
+        "refs/heads/release/sop-2025": "1e9e2430a76b5347cb1417fbd774ff10f1e81cad",
+        "refs/tags/local-sop-2025.4": "1e9e2430a76b5347cb1417fbd774ff10f1e81cad"
+      },
+      "refs_after": {
+        "refs/heads/develop": "5c2cc6dc792bd9644d20b70f99bc798eaa4f815a",
+        "refs/heads/main": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
+        "refs/heads/platform/8155": "37fd2fb80b5dd397ee130ac324ff1c58a4be3fc9",
+        "refs/heads/platform/8295": "4d7f2a39ab74763e56722541a547c6f62d659863",
+        "refs/heads/platform/xinqing": "b25998afb97bf35b9f7ec919e7ff6c7b24563bfe",
+        "refs/heads/release/sop-2025": "ab196893249deebdb6d0bf252dfd5a0f3be726ba",
+        "refs/tags/local-sop-2025.4": "ab196893249deebdb6d0bf252dfd5a0f3be726ba"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    },
+    {
+      "id": "FW-20",
+      "relative_path": "repos/framework/system-service-facade",
+      "old_head": "0171c05a0e48eabd0bf83b073809a6f28b1f2172",
+      "new_head": "069d0685270ac591ede24b37507016505f1f7645",
+      "commit_count": 11,
+      "shallow_before": true,
+      "shallow_after": false,
+      "promisor_marker_count_removed": 0,
+      "current_tree_changed_paths": [
+        "tests/SampleCustomInputService/res/values/strings.xml"
+      ],
+      "refs_before": {
+        "refs/heads/aosp-new/aosp-new/master": "0be103dc50a93e57ff6e0e8064f35f30df8c9e79",
+        "refs/heads/develop": "5407e6342889f50d6274b5458e94777bcf3f56fb",
+        "refs/heads/main": "0171c05a0e48eabd0bf83b073809a6f28b1f2172",
+        "refs/heads/platform/8155": "e5640c3931db813a0bf9727ae71165d93a42a6a0",
+        "refs/heads/platform/8295": "bf2192a06ab57cd62df6381f776fadfbd9d64552",
+        "refs/heads/release/2026.1": "76f894e3034b17664dd28927e7ccc93cbfea2084",
+        "refs/tags/system-facade-2026.1": "76f894e3034b17664dd28927e7ccc93cbfea2084"
+      },
+      "refs_after": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "6b258ff2c6448d1cf4b7ed7725412a9625c20f3d",
+        "refs/heads/main": "069d0685270ac591ede24b37507016505f1f7645",
+        "refs/heads/platform/8155": "0e41b4a0059705574f75efaa6c13e750ec7075e0",
+        "refs/heads/platform/8295": "cf67fa1f565c7c9838f5b874200ebafe715efe6a",
+        "refs/heads/release/2026.1": "564c76d3147a6032ad8a504f96d7c4c9ec369ba6",
+        "refs/tags/system-facade-2026.1": "564c76d3147a6032ad8a504f96d7c4c9ec369ba6"
+      },
+      "forbidden_objects_removed": [
+        "06afeb49878ac137523d0c1ce815dba7eb49597c",
+        "fd465e9b3f869822efffcda460b18ce745997c08"
+      ],
+      "status": "rewritten_and_verified"
+    }
+  ],
+  "complete": true,
+  "completed_at": "2026-08-30T12:44:39.255543Z"
+}

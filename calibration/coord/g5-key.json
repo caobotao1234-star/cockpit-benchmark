@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g5",
+  "generated_at": "2026-08-29T23:51:09.123761Z",
+  "warning": "COORDINATOR ONLY - NEVER SEND TO THE EVALUATION AGENT",
+  "repositories": [
+    {
+      "blind_id": "blind-1db9772e8714",
+      "repo_id": "FW-11",
+      "quality_tier": "medium",
+      "oracle_path": "oracle/FW-11.json"
+    },
+    {
+      "blind_id": "blind-3d6aa9fca710",
+      "repo_id": "FW-20",
+      "quality_tier": "low",
+      "oracle_path": "oracle/FW-20.json"
+    },
+    {
+      "blind_id": "blind-419fa87cbf67",
+      "repo_id": "FW-12",
+      "quality_tier": "medium",
+      "oracle_path": "oracle/FW-12.json"
+    },
+    {
+      "blind_id": "blind-444bc3ea2815",
+      "repo_id": "APP-20",
+      "quality_tier": "low",
+      "oracle_path": "oracle/APP-20.json"
+    },
+    {
+      "blind_id": "blind-4ae028ec439b",
+      "repo_id": "FW-14",
+      "quality_tier": "medium",
+      "oracle_path": "oracle/FW-14.json"
+    },
+    {
+      "blind_id": "blind-54da785c4fb2",
+      "repo_id": "APP-10",
+      "quality_tier": "medium",
+      "oracle_path": "oracle/APP-10.json"
+    },
+    {
+      "blind_id": "blind-62fcf0e17219",
+      "repo_id": "APP-13",
+      "quality_tier": "medium",
+      "oracle_path": "oracle/APP-13.json"
+    },
+    {
+      "blind_id": "blind-64c0fd8fd870",
+      "repo_id": "APP-05",
+      "quality_tier": "high",
+      "oracle_path": "oracle/APP-05.json"
+    },
+    {
+      "blind_id": "blind-6a96cb943408",
+      "repo_id": "FW-08",
+      "quality_tier": "medium",
+      "oracle_path": "oracle/FW-08.json"
+    },
+    {
+      "blind_id": "blind-782b96660b4f",
+      "repo_id": "FW-06",
+      "quality_tier": "high",
+      "oracle_path": "oracle/FW-06.json"
+    },
+    {
+      "blind_id": "blind-78bb4145b9bf",
+      "repo_id": "APP-19",
+      "quality_tier": "low",
+      "oracle_path": "oracle/APP-19.json"
+    },
+    {
+      "blind_id": "blind-7abeaf0eb14f",
+      "repo_id": "FW-13",
+      "quality_tier": "medium",
+      "oracle_path": "oracle/FW-13.json"
+    },
+    {
+      "blind_id": "blind-807c81bf2180",
+      "repo_id": "FW-19",
+      "quality_tier": "low",
+      "oracle_path": "oracle/FW-19.json"
+    },
+    {
+      "blind_id": "blind-897981a4cf01",
+      "repo_id": "APP-06",
+      "quality_tier": "high",
+      "oracle_path": "oracle/APP-06.json"
+    },
+    {
+      "blind_id": "blind-9a8df941e552",
+      "repo_id": "APP-07",
+      "quality_tier": "high",
+      "oracle_path": "oracle/APP-07.json"
+    },
+    {
+      "blind_id": "blind-b321d769a45e",
+      "repo_id": "APP-12",
+      "quality_tier": "medium",
+      "oracle_path": "oracle/APP-12.json"
+    },
+    {
+      "blind_id": "blind-d87ab577ddcb",
+      "repo_id": "FW-07",
+      "quality_tier": "high",
+      "oracle_path": "oracle/FW-07.json"
+    },
+    {
+      "blind_id": "blind-e13e93358b13",
+      "repo_id": "FW-05",
+      "quality_tier": "high",
+      "oracle_path": "oracle/FW-05.json"
+    },
+    {
+      "blind_id": "blind-e8f750fa009b",
+      "repo_id": "APP-11",
+      "quality_tier": "medium",
+      "oracle_path": "oracle/APP-11.json"
+    },
+    {
+      "blind_id": "blind-fd7c14d2f1c0",
+      "repo_id": "APP-14",
+      "quality_tier": "medium",
+      "oracle_path": "oracle/APP-14.json"
+    }
+  ]
+}

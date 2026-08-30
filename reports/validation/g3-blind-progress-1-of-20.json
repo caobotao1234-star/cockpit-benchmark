@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g3",
+  "result_count": 1,
+  "expected_count": 20,
+  "comparisons": [],
+  "issues": [
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-00727545d250.json",
+      "blind_id": "blind-00727545d250"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-2167d60d323e.json",
+      "blind_id": "blind-2167d60d323e"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-23cabcca60c3.json",
+      "blind_id": "blind-23cabcca60c3"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-27a7a19bd9e6.json",
+      "blind_id": "blind-27a7a19bd9e6"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-2b9f2b0b4244.json",
+      "blind_id": "blind-2b9f2b0b4244"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-3e3daf67c2f9.json",
+      "blind_id": "blind-3e3daf67c2f9"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-3f168d5d3871.json",
+      "blind_id": "blind-3f168d5d3871"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-3f544ea3efd4.json",
+      "blind_id": "blind-3f544ea3efd4"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-5d41ad31c1bc.json",
+      "blind_id": "blind-5d41ad31c1bc"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-627291ab9722.json",
+      "blind_id": "blind-627291ab9722"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-6e087540b475.json",
+      "blind_id": "blind-6e087540b475"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-72caa63dd88d.json",
+      "blind_id": "blind-72caa63dd88d"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-7fa7c1f510a7.json",
+      "blind_id": "blind-7fa7c1f510a7"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-af733aac52fc.json",
+      "blind_id": "blind-af733aac52fc"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-bcc8acfa07b8.json",
+      "blind_id": "blind-bcc8acfa07b8"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-c199615f0c53.json",
+      "blind_id": "blind-c199615f0c53"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-d4d90a7ebecf.json",
+      "blind_id": "blind-d4d90a7ebecf"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-e283d41f1714.json",
+      "blind_id": "blind-e283d41f1714"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g3\\blind-ee507aff68d9.json",
+      "blind_id": "blind-ee507aff68d9"
+    },
+    {
+      "code": "family_comparison_missing",
+      "message": "missing high/low comparison for app-launcher-medium"
+    },
+    {
+      "code": "family_comparison_missing",
+      "message": "missing high/low comparison for app-media-small"
+    },
+    {
+      "code": "family_comparison_missing",
+      "message": "missing high/low comparison for app-settings-large"
+    },
+    {
+      "code": "family_comparison_missing",
+      "message": "missing high/low comparison for fw-audio-binder-small"
+    },
+    {
+      "code": "family_comparison_missing",
+      "message": "missing high/low comparison for fw-car-api-compat-large"
+    },
+    {
+      "code": "family_comparison_missing",
+      "message": "missing high/low comparison for fw-vehicle-hal-medium"
+    },
+    {
+      "code": "family_comparison_missing",
+      "message": "missing high/low comparison for hvac-controlled-pair"
+    },
+    {
+      "code": "family_comparison_missing",
+      "message": "missing high/low comparison for vehicle-property-controlled-pair"
+    }
+  ],
+  "valid": false
+}

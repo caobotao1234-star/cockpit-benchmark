@@ -1,0 +1,70 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 280,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 280,
+      "compare_branch": "develop",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 281,
+      "deleted_lines": 0,
+      "identical_blob_files": 280,
+      "identical_blob_ratio": 0.996441,
+      "merge_base": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
+      "union_files": 281
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 280,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 280,
+      "compare_branch": "release/2026.1",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 281,
+      "deleted_lines": 0,
+      "identical_blob_files": 280,
+      "identical_blob_ratio": 0.996441,
+      "merge_base": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
+      "union_files": 281
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 280,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 280,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 281,
+      "deleted_lines": 0,
+      "identical_blob_files": 280,
+      "identical_blob_ratio": 0.996441,
+      "merge_base": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
+      "union_files": 281
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 280,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 280,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 281,
+      "deleted_lines": 0,
+      "identical_blob_files": 280,
+      "identical_blob_ratio": 0.996441,
+      "merge_base": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
+      "union_files": 281
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\wave-media",
+  "schema_version": "1.0.0"
+}

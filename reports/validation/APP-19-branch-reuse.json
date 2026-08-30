@@ -1,0 +1,70 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 427,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 427,
+      "compare_branch": "develop",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 428,
+      "deleted_lines": 0,
+      "identical_blob_files": 427,
+      "identical_blob_ratio": 0.997664,
+      "merge_base": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "union_files": 428
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 427,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 427,
+      "compare_branch": "release/2026.1",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 428,
+      "deleted_lines": 0,
+      "identical_blob_files": 427,
+      "identical_blob_ratio": 0.997664,
+      "merge_base": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "union_files": 428
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 427,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 427,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 428,
+      "deleted_lines": 0,
+      "identical_blob_files": 427,
+      "identical_blob_ratio": 0.997664,
+      "merge_base": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "union_files": 428
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 427,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 427,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 428,
+      "deleted_lines": 0,
+      "identical_blob_files": 427,
+      "identical_blob_ratio": 0.997664,
+      "merge_base": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "union_files": 428
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\companion-voice",
+  "schema_version": "1.0.0"
+}

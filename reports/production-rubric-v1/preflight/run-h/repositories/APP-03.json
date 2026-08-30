@@ -1,0 +1,436 @@
+{
+  "build_inventory": {
+    "build_system": "Gradle",
+    "manifest_consistent": true,
+    "module_count": 7,
+    "modules": [
+      {
+        "name": ":app",
+        "path": "app/build.gradle.kts",
+        "type": "android_app"
+      },
+      {
+        "name": ":comfort",
+        "path": "comfort/build.gradle.kts",
+        "type": "android_library"
+      },
+      {
+        "name": ":diagnostics",
+        "path": "diagnostics/build.gradle.kts",
+        "type": "android_library"
+      },
+      {
+        "name": ":domain",
+        "path": "domain/build.gradle.kts",
+        "type": "android_library"
+      },
+      {
+        "name": ":hvac-core",
+        "path": "hvac-core/build.gradle.kts",
+        "type": "android_library"
+      },
+      {
+        "name": ":telemetry",
+        "path": "telemetry/build.gradle.kts",
+        "type": "android_library"
+      },
+      {
+        "name": ":vehicle-api",
+        "path": "vehicle-api/build.gradle.kts",
+        "type": "android_library"
+      }
+    ],
+    "standard_named_module_count": 2
+  },
+  "document_type": "repository_preflight",
+  "facts_sha256": "b3acde4571ef0ab57d389154ff51d99d9225a16369d7e9ad5c66306dceb331ac",
+  "git_inventory": {
+    "branch_classifications": {
+      "develop": {
+        "category": "development",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "main": {
+        "category": "mainline",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8155": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8295": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "release/1.0": {
+        "category": "release",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": true,
+        "is_sop": false
+      }
+    },
+    "branches": {
+      "develop": "7fc67a915ef594c8ba573fae90053e286b790713",
+      "main": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "platform/8155": "b313db00f552d9dac3ba3e20a5fc0df0e873d646",
+      "platform/8295": "f6df3cc885c4ba3c6e229800781a78c873665db2",
+      "release/1.0": "85770d2ca3b6038c90a3a3b989b1bbb8c6acadc2"
+    },
+    "default_branch": "main",
+    "tags": {
+      "v1.0.0": "37956a5a947e545b8beba372a55116baf54273e9"
+    }
+  },
+  "kind": "APP",
+  "manifest_binding": {
+    "head_matches": true,
+    "manifest_repo_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+    "path_within_delivery_root": true,
+    "working_tree_clean": true
+  },
+  "missing_contract_leaf_count": 14,
+  "missing_contract_leaves": [
+    {
+      "category": "quality",
+      "leaf": "code_duplication",
+      "method": "deterministic",
+      "reason": "Production duplication-rate detector, denominator, and exclusion contract are absent; only the threshold table is known.",
+      "rule_id": "quality.duplication.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "integration_test",
+      "method": "external_data",
+      "reason": "GBOP APP and FRAMEWORK/embedded response schemas and status mappings are absent.",
+      "rule_id": "quality.integration_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "code_quality",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.code_quality.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "unit_test",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.unit_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "system_api_dependency",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production symbol list, scan scope, and deduplication rules are absent.",
+      "rule_id": "android_framework.system_api_dependency.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "hidden_api_reflection",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production matcher and scan/exclusion rules are absent.",
+      "rule_id": "android_framework.hidden_api_reflection.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "aidl_sdk_call",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but AIDL/SDK call-site identification and deduplication rules are absent.",
+      "rule_id": "android_framework.aidl_sdk_call.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "single_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.single_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "cross_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.cross_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "platform_upgrade",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.platform_upgrade.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "device_specificity",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.device_specificity.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_independence",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.independence.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_strategy",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.strategy.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "release_rollback",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.rollback.v1",
+      "score": null,
+      "status": "failed"
+    }
+  ],
+  "platform_reuse": {
+    "comparisons": [
+      {
+        "added_lines": 29,
+        "base_branch": "main",
+        "base_files": 236,
+        "base_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.008438819,
+        "changed_files": 2,
+        "common_path_files": 236,
+        "compare_branch": "platform/8155",
+        "compare_commits_since_merge_base": 6,
+        "compare_files": 237,
+        "compare_head": "b313db00f552d9dac3ba3e20a5fc0df0e873d646",
+        "deleted_lines": 1,
+        "identical_blob_files": 235,
+        "identical_blob_ratio": 0.991561,
+        "line_delta": 30,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 237
+      },
+      {
+        "added_lines": 29,
+        "base_branch": "main",
+        "base_files": 236,
+        "base_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.008438819,
+        "changed_files": 2,
+        "common_path_files": 236,
+        "compare_branch": "platform/8295",
+        "compare_commits_since_merge_base": 6,
+        "compare_files": 237,
+        "compare_head": "f6df3cc885c4ba3c6e229800781a78c873665db2",
+        "deleted_lines": 1,
+        "identical_blob_files": 235,
+        "identical_blob_ratio": 0.991561,
+        "line_delta": 30,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 237
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 236,
+        "base_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "release",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": true,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.004219409,
+        "changed_files": 1,
+        "common_path_files": 236,
+        "compare_branch": "release/1.0",
+        "compare_commits_since_merge_base": 5,
+        "compare_files": 237,
+        "compare_head": "85770d2ca3b6038c90a3a3b989b1bbb8c6acadc2",
+        "deleted_lines": 0,
+        "identical_blob_files": 236,
+        "identical_blob_ratio": 0.995781,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 237
+      }
+    ],
+    "manifest_comparison_count": 3,
+    "status": "consistent"
+  },
+  "quality_signal_candidate": {
+    "artifact_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+    "artifact_sha256": null,
+    "current_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+    "metrics": {
+      "broad_catches": 4,
+      "broad_catches_per_kloc": 0.718649,
+      "code_source_files": 144,
+      "global_state_sites": 10,
+      "global_state_sites_per_kloc": 1.796622,
+      "hidden_api_sites": 1,
+      "hidden_api_sites_per_kloc": 0.179662,
+      "logical_lines": 5566,
+      "method_declarations": 415,
+      "metric_schema_version": "1.1.0",
+      "near_duplicate_file_ratio": 0.0,
+      "near_duplicate_pair_count_at_0_80": 0,
+      "placeholder_test_sites": 0,
+      "production_files_over_500_lines": 1,
+      "production_logical_lines": 5024,
+      "production_source_files": 111,
+      "reflection_sites": 2,
+      "reflection_sites_per_kloc": 0.359324,
+      "test_logical_lines": 542,
+      "test_source_files": 33,
+      "test_to_production_file_ratio": 0.297297,
+      "tracked_files": 236
+    },
+    "non_scoring": true,
+    "reason": "Fresh candidate-only quality_signals metrics bound to current HEAD; not a production score.",
+    "source_path": null,
+    "status": "refreshed"
+  },
+  "relative_path": "repos/app/climatix-hvac",
+  "repo_id": "APP-03",
+  "repository_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+  "rubric_version": "production-code-health-v1",
+  "schema_version": "1.0.0",
+  "source_inventory": {
+    "aidl_paths": [
+      "vehicle-api/src/main/aidl/com/cockpitbench/climatix/vehicle/ClimateSignal.aidl",
+      "vehicle-api/src/main/aidl/com/cockpitbench/climatix/vehicle/ClimateWriteRequest.aidl",
+      "vehicle-api/src/main/aidl/com/cockpitbench/climatix/vehicle/ClimateWriteResult.aidl",
+      "vehicle-api/src/main/aidl/com/cockpitbench/climatix/vehicle/IClimateControl.aidl",
+      "vehicle-api/src/main/aidl/com/cockpitbench/climatix/vehicle/IClimateListener.aidl"
+    ],
+    "ci": {
+      "standard_ci_paths": [],
+      "test_mapping_paths": []
+    },
+    "rollback_candidates": [],
+    "test_paths": [
+      "app/src/androidTest/java/com/cockpitbench/climatix/ClimateListenerContractTest.kt",
+      "app/src/androidTest/java/com/cockpitbench/climatix/ClimateServiceContractTest.kt",
+      "comfort/src/test/java/com/cockpitbench/climatix/comfort/ChildOccupantPolicyTest.kt",
+      "comfort/src/test/java/com/cockpitbench/climatix/comfort/ComfortAuditTest.kt",
+      "comfort/src/test/java/com/cockpitbench/climatix/comfort/ComfortConflictResolverTest.kt",
+      "comfort/src/test/java/com/cockpitbench/climatix/comfort/ComfortFixtures.kt",
+      "comfort/src/test/java/com/cockpitbench/climatix/comfort/ComfortPlannerTest.kt",
+      "comfort/src/test/java/com/cockpitbench/climatix/comfort/ComfortScheduleTest.kt",
+      "comfort/src/test/java/com/cockpitbench/climatix/comfort/DefogPolicyTest.kt",
+      "comfort/src/test/java/com/cockpitbench/climatix/comfort/EnergyAwarePolicyTest.kt",
+      "diagnostics/src/test/java/com/cockpitbench/climatix/diagnostics/DiagnosticPipelineTest.kt",
+      "diagnostics/src/test/java/com/cockpitbench/climatix/diagnostics/EnergyEfficiencyDetectorTest.kt",
+      "diagnostics/src/test/java/com/cockpitbench/climatix/diagnostics/IncidentLedgerTest.kt",
+      "diagnostics/src/test/java/com/cockpitbench/climatix/diagnostics/ReconnectStormDetectorTest.kt",
+      "diagnostics/src/test/java/com/cockpitbench/climatix/diagnostics/SignalWindowTest.kt",
+      "diagnostics/src/test/java/com/cockpitbench/climatix/diagnostics/ZoneDivergenceDetectorTest.kt",
+      "domain/src/test/java/com/cockpitbench/climatix/domain/CabinZoneTest.kt",
+      "domain/src/test/java/com/cockpitbench/climatix/domain/ClimatePolicyBoundaryTest.kt",
+      "domain/src/test/java/com/cockpitbench/climatix/domain/ClimatePolicySynchronizationTest.kt",
+      "domain/src/test/java/com/cockpitbench/climatix/domain/ClimatePolicyTest.kt",
+      "domain/src/test/java/com/cockpitbench/climatix/domain/TemperatureCelsiusTest.kt",
+      "telemetry/src/test/java/com/cockpitbench/climatix/telemetry/ConsentPolicyTest.kt",
+      "telemetry/src/test/java/com/cockpitbench/climatix/telemetry/RetryBackoffTest.kt",
+      "telemetry/src/test/java/com/cockpitbench/climatix/telemetry/TelemetryBatcherTest.kt",
+      "telemetry/src/test/java/com/cockpitbench/climatix/telemetry/TelemetryPipelineTest.kt",
+      "telemetry/src/test/java/com/cockpitbench/climatix/telemetry/TelemetryRedactorTest.kt",
+      "telemetry/src/test/java/com/cockpitbench/climatix/telemetry/TelemetryRingBufferTest.kt",
+      "telemetry/src/test/java/com/cockpitbench/climatix/telemetry/UploadStateMachineTest.kt",
+      "vehicle-api/src/test/java/com/cockpitbench/climatix/vehicle/ClimateSignalMapperComfortTest.kt",
+      "vehicle-api/src/test/java/com/cockpitbench/climatix/vehicle/ClimateSignalMapperFanTest.kt",
+      "vehicle-api/src/test/java/com/cockpitbench/climatix/vehicle/ClimateSignalMapperModeTest.kt",
+      "vehicle-api/src/test/java/com/cockpitbench/climatix/vehicle/ClimateSignalMapperTest.kt",
+      "vehicle-api/src/test/java/com/cockpitbench/climatix/vehicle/ClimateSignalReducerTest.kt"
+    ],
+    "version": {
+      "api_version_candidates": [],
+      "semantic_version_tags": [
+        "v1.0.0"
+      ],
+      "version_file_candidates": [
+        "app/build.gradle.kts",
+        "build.gradle.kts",
+        "comfort/build.gradle.kts",
+        "diagnostics/build.gradle.kts",
+        "domain/build.gradle.kts",
+        "gradle.properties",
+        "hvac-core/build.gradle.kts",
+        "telemetry/build.gradle.kts",
+        "vehicle-api/build.gradle.kts"
+      ]
+    }
+  }
+}

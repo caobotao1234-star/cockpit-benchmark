@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g3",
+  "blind_id": "blind-5d41ad31c1bc",
+  "repository_head": "83c5c24261f986c7b8586eb7093ac9124712f7ab",
+  "prompt_version": "g2-code-health-v2",
+  "prompt_sha256": "78f40d3089fbf8736e64cd266281a6dbb7b5d9e958730e2c1b87b256e1ba3a04",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "sandbox": "workspace-write-single-root",
+  "approval_policy": "never",
+  "network_requested": false,
+  "ephemeral": true,
+  "ignore_user_config": false,
+  "ignore_rules": true,
+  "disabled_features": [
+    "apps",
+    "browser_use",
+    "browser_use_external",
+    "computer_use",
+    "goals",
+    "hooks",
+    "image_generation",
+    "in_app_browser",
+    "memories",
+    "multi_agent",
+    "plugins",
+    "remote_plugin",
+    "skill_search",
+    "tool_suggest",
+    "view_image",
+    "workspace_dependencies"
+  ],
+  "disabled_mcp_servers": [
+    "atlassian",
+    "cua_repl",
+    "node_repl"
+  ],
+  "wall_clock_budget_seconds": 900,
+  "started_at": "2026-08-29T11:05:40.406Z",
+  "finished_at": "2026-08-29T11:10:50.628Z",
+  "wall_clock_seconds": 310.218,
+  "timed_out": false,
+  "exit_code": 0,
+  "clone": {
+    "head": "83c5c24261f986c7b8586eb7093ac9124712f7ab",
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/2026.1"
+    ],
+    "branch_heads": {
+      "develop": "b2ecaf97127451a116b8fb316720db563fff3505",
+      "main": "83c5c24261f986c7b8586eb7093ac9124712f7ab",
+      "platform/8155": "9b87747fb8d60a5cfc20e38d477d5882bd8b120a",
+      "platform/8295": "76c8aa6173c4fb524a6e8f0c3a4b30e7862828ba",
+      "release/2026.1": "61ac03249076013f80dd72fc0db8329e4e480fc8"
+    },
+    "remotes": [],
+    "remote_count": 0,
+    "status": [],
+    "clean": true
+  },
+  "post_run_clone": {
+    "head": "83c5c24261f986c7b8586eb7093ac9124712f7ab",
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/2026.1"
+    ],
+    "branch_heads": {
+      "develop": "b2ecaf97127451a116b8fb316720db563fff3505",
+      "main": "83c5c24261f986c7b8586eb7093ac9124712f7ab",
+      "platform/8155": "9b87747fb8d60a5cfc20e38d477d5882bd8b120a",
+      "platform/8295": "76c8aa6173c4fb524a6e8f0c3a4b30e7862828ba",
+      "release/2026.1": "61ac03249076013f80dd72fc0db8329e4e480fc8"
+    },
+    "remotes": [],
+    "remote_count": 0,
+    "status": [],
+    "clean": true
+  },
+  "immutability_errors": [],
+  "job_repo": "C:\\Users\\benchmark-user\\AppData\\Local\\Temp\\cockpit-evaluator-jobs\\g3\\20260829T110535Z-blind-5d41ad31c1bc\\repo",
+  "raw_events": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\raw\\g3\\20260829T110535Z-blind-5d41ad31c1bc.events.jsonl",
+  "raw_stderr": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\raw\\g3\\20260829T110535Z-blind-5d41ad31c1bc.stderr.log",
+  "raw_judgment": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\raw\\g3\\20260829T110535Z-blind-5d41ad31c1bc.judgment.json"
+}

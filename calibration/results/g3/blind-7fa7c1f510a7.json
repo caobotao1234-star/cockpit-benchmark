@@ -1,0 +1,275 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-7fa7c1f510a7",
+  "repository_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04d27-b5f3-7101-8c4c-a77a43d68e99",
+    "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T10:54:03.076Z",
+    "finished_at": "2026-08-29T10:59:25.739Z",
+    "wall_clock_seconds": 322.663,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 56,
+    "directories_visited": 18,
+    "tool_calls": 19,
+    "notes": "HEAD 与预期 SHA 一致。静态检查覆盖 38 个生产 Java/AIDL 文件、11 个测试文件、构建入口及三个分支的有界比较；未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 2,
+      "reason": "API、服务、平台兼容层和测试支持层有明确 Soong 模块与单向依赖，Vehicle HAL 也按传输、客户端和领域服务分层；但 ICarImpl 集中装配大量服务，且仓库切片包含多项树外依赖，模块声明与实际闭包之间存在明显缺口。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 11-55",
+          "observation": "声明 api、service、platform、support、unit-test 和 integration-test 模块，依赖方向主要从平台/服务指向 API。"
+        },
+        {
+          "path": "runtime/src/com/android/car/hal/VehicleHal.java",
+          "ref": null,
+          "symbol_or_line": "VehicleHal, lines 65-112",
+          "observation": "将传输客户端、属性路由和各 HalService 分开，并以受锁映射维护属性所有权与订阅状态。"
+        },
+        {
+          "path": "runtime/src/com/android/car/ICarImpl.java",
+          "ref": null,
+          "symbol_or_line": "ICarImpl fields and constructor, lines 101-182",
+          "observation": "同一组合根持有并构造大量服务，职责面和变更影响范围较大。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 2,
+      "reason": "VehicleStub/HalServiceBase 提供真实的 AIDL/HIDL 替换点，依赖可通过构造器注入，属性服务也将 HAL 访问委托给 PropertyHalService；不过 CarPropertyService 同时承担 Binder、权限、订阅聚合、死亡处理和错误归属，SRP 边界并不均匀。",
+      "evidence": [
+        {
+          "path": "runtime/src/com/android/car/VehicleStub.java",
+          "ref": null,
+          "symbol_or_line": "VehicleStub and SubscriptionClient, lines 38-168",
+          "observation": "稳定抽象覆盖查询、设置、订阅和死亡监听，AIDL/HIDL 实现可在调用方不感知的情况下替换。"
+        },
+        {
+          "path": "runtime/src/com/android/car/CarPropertyService.java",
+          "ref": null,
+          "symbol_or_line": "CarPropertyService, Client, lines 58-186",
+          "observation": "类同时实现 Binder 服务、维护多类客户端状态、处理 Binder death，并承担权限与订阅协调。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 2,
+      "reason": "车辆系统依赖大多被 VehicleStub/HAL 或专门的平台兼容类包住，并有权限和异常处理；但所有主要模块均启用 platform_apis，HIDL 实现仍直接读取系统属性，系统依赖并未形成完全可替换的单一边界。",
+      "evidence": [
+        {
+          "path": "platform/src/com/cockpitbench/vehicleproperty/PlatformVehicleAccess.java",
+          "ref": null,
+          "symbol_or_line": "PlatformVehicleAccess.waitFor, lines 24-38",
+          "observation": "系统服务访问被窄接口、服务名 allowlist 和明确失败语义约束。"
+        },
+        {
+          "path": "runtime/src/com/android/car/HidlVehicleStub.java",
+          "ref": null,
+          "symbol_or_line": "getHidlVehicle, lines 225-235",
+          "observation": "直接依赖 SystemProperties 和 HIDL IVehicle，但分别处理 RemoteException 与服务不存在。"
+        },
+        {
+          "path": "runtime/src/com/android/car/CarPropertyService.java",
+          "ref": null,
+          "symbol_or_line": "getProperty/setProperty, lines 470-583",
+          "observation": "跨系统属性访问前检查读写权限，并将 HAL 状态异常保留为类型化错误。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "scored",
+      "score": 2,
+      "reason": "最敏感的隐藏服务查询被独立兼容缝和 allowlist 包含，其他反射点也捕获并转换失败；但反射仍分散在管理器构造、Parcelable 类型恢复和内置包加载中，平台兼容缝没有直接失败路径测试，Car 的动态类名路径以 null 作为降级。",
+      "evidence": [
+        {
+          "path": "platform/src/com/cockpitbench/vehicleproperty/PlatformVehicleAccess.java",
+          "ref": null,
+          "symbol_or_line": "PlatformVehicleAccess.waitFor, lines 24-38",
+          "observation": "仅允许固定 IVehicle 服务，反射异常被包装为 IllegalStateException。"
+        },
+        {
+          "path": "api/src/android/car/Car.java",
+          "ref": null,
+          "symbol_or_line": "constructCarManager, lines 2269-2282",
+          "observation": "从服务返回的类名动态加载构造器；多种反射失败被记录后统一降级为 null。"
+        },
+        {
+          "path": "api/src/android/car/hardware/CarPropertyValue.java",
+          "ref": null,
+          "symbol_or_line": "CarPropertyValue(Parcel), lines 143-162",
+          "observation": "Parcelable 解码通过 Class.forName 恢复类型，只对 ClassNotFoundException 提供 IllegalArgumentException 语义。"
+        }
+      ]
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 2,
+      "reason": "属性 AIDL 粒度清晰，回调使用 oneway，服务端具备逐属性权限检查、Binder death 清理、线程转发以及 AIDL VHAL 超时处理；但契约本身没有显式稳定性/版本策略，释放时仅清空客户端表而未逐个 unlink，且 AIDL 请求在中断或 ExecutionException 路径没有像超时路径一样显式移除 pending 项。",
+      "evidence": [
+        {
+          "path": "api/src/android/car/hardware/property/ICarProperty.aidl",
+          "ref": null,
+          "symbol_or_line": "ICarProperty, lines 26-42",
+          "observation": "查询、设置、配置、权限和监听注册被拆成类型化方法；监听契约另设 oneway 回调。"
+        },
+        {
+          "path": "runtime/src/com/android/car/CarPropertyService.java",
+          "ref": null,
+          "symbol_or_line": "Client.binderDied and permission checks, lines 99-186, 470-583",
+          "observation": "监听 Binder 连接 death recipient，死亡后撤销订阅；读写操作在进入 HAL 前执行属性级权限检查。"
+        },
+        {
+          "path": "runtime/src/com/android/car/AidlVehicleStub.java",
+          "ref": null,
+          "symbol_or_line": "get/set timeout handling, lines 223-321",
+          "observation": "异步请求有唯一 ID、锁保护的 pending 表、10 秒默认超时及类型化 ServiceSpecificException；仅超时路径明确移除 pending 项。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "仓库只提供依赖 AOSP/AAOS platform_apis 的 Soong 切片，所需平台输入在当前工作区不可用；此外 ICarImpl 等源文件引用的多个服务类型不在仓库内，因此无法建立或验证可信的独立编译边界。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 11-55",
+          "observation": "所有核心及测试模块使用 platform_apis，未提供 Gradle/独立 SDK 边界或完整外部依赖声明。"
+        },
+        {
+          "path": "runtime/src/com/android/car/ICarImpl.java",
+          "ref": null,
+          "symbol_or_line": "imports and service fields, lines 62-159",
+          "observation": "引用 CarAudioService、CarPowerManagementService、CarUserService 等当前树中不存在的生产类型。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 1,
+      "reason": "测试源码包含真实的属性往返、回调注销、错误状态、权限和 VHAL 事件序列断言，单元测试也覆盖超时、远程异常与死亡监听；但集成模块只声明 androidx runner，未链接仓库中的 API/service/support 模块，而专用 VehicleHALTest 模块整体被注释，因而这些有深度的测试缺少可信的可执行接线。",
+      "evidence": [
+        {
+          "path": "tests/integration/com/android/car/CarPropertyManagerTest.java",
+          "ref": null,
+          "symbol_or_line": "testReceiveOnErrorEvent/testNotReceiveOnErrorEventAfterUnregister, lines 454-490",
+          "observation": "验证跨 Manager、Binder 服务和 HAL 注入的错误回调归属及注销后的生命周期行为。"
+        },
+        {
+          "path": "tests/unit/com/android/car/VehicleStubTest.java",
+          "ref": null,
+          "symbol_or_line": "testLinkToDeathRemoteException/testGetAidlTimeout, lines 157-163, 499-536",
+          "observation": "覆盖 Binder death 注册失败和异步 AIDL 超时的具体错误语义。"
+        },
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "integration module, lines 49-55",
+          "observation": "集成测试 glob 覆盖全部 tests/integration Java，但仅声明 androidx.test.runner，未声明本仓库 API、服务或支持库依赖。"
+        },
+        {
+          "path": "tests/integration/vehiclehal/Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 21-48",
+          "observation": "具备所需平台、HIDL、android.car 和测试库依赖的 VehicleHALTest 定义被整体注释。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 2,
+      "reason": "公共 VehicleStub、HalPropConfig 和 HalAreaConfig 抽象限制了双传输重复的扩散；但 AIDL/HIDL 配置及区域适配器仍是近复制实现，测试支持中的两套配置/值 builder 也重复维护相同操作，增加双栈演进成本。",
+      "evidence": [
+        {
+          "path": "runtime/src/com/android/car/hal/AidlHalPropConfig.java",
+          "ref": null,
+          "symbol_or_line": "AidlHalPropConfig",
+          "observation": "与 HidlHalPropConfig 的方法结构基本相同，差异主要是数组/集合及底层类型转换。"
+        },
+        {
+          "path": "runtime/src/com/android/car/hal/HidlHalPropConfig.java",
+          "ref": null,
+          "symbol_or_line": "HidlHalPropConfig",
+          "observation": "逐方法镜像 AIDL 配置适配器，属于局部但实质性的传输栈重复。"
+        },
+        {
+          "path": "runtime/src/com/android/car/hal/AidlHalAreaConfig.java",
+          "ref": null,
+          "symbol_or_line": "AidlHalAreaConfig",
+          "observation": "与 HidlHalAreaConfig 除底层 VehicleAreaConfig 类型外几乎完全一致。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 3,
+      "reason": "release/2.0 相对 main 仅增加单行发布通道配置，并通过合并 main 吸收共同代码；有界比较未发现生产源码分叉，发布差异保持窄且可审查。",
+      "evidence": [
+        {
+          "path": "config/release-channel.xml",
+          "ref": "release/2.0",
+          "symbol_or_line": "line 1",
+          "observation": "main..release/2.0 的唯一文件差异是 `<release-channel name=\"sop-2.0\" api=\"stable\" />`；本地历史显示该分支随后合并 main。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 3,
+      "reason": "两个平台分支均复用 main 的完整实现，只以同一路径的一行配置选择平台和传输；运行时又通过 VehicleStub 统一 AIDL/HIDL 接口，平台变化被限制在配置和适配器层。局部双栈适配器重复是主要限制。",
+      "evidence": [
+        {
+          "path": "config/platform.xml",
+          "ref": "platform/8155",
+          "symbol_or_line": "line 1",
+          "observation": "相对 main 唯一差异选择 sa8155、hidl 和订阅上限；无平台专属生产源码副本。"
+        },
+        {
+          "path": "config/platform.xml",
+          "ref": "platform/8295",
+          "symbol_or_line": "line 1",
+          "observation": "相对 main 唯一差异选择 sa8295、aidl 和订阅上限；无平台专属生产源码副本。"
+        },
+        {
+          "path": "runtime/src/com/android/car/VehicleStub.java",
+          "ref": null,
+          "symbol_or_line": "newVehicleStub and abstract contract, lines 34-168",
+          "observation": "公共核心先选择 AIDL、再回退 HIDL，并向上层暴露统一的查询、设置、订阅和死亡处理接口。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 2.111111,
+    "scored_dimension_count": 9,
+    "failed_dimension_count": 1,
+    "narrative": "主要优势是 API—Binder 服务—HAL—AIDL/HIDL 适配的层次清楚，属性级权限、回调线程、Binder death、重试和超时均有实际实现；平台与发布分支的有界差异也保持为单行配置并持续合并 main。主要风险是该仓库并非自足编译闭包，集成测试虽有较深行为断言但构建接线不足，双传输适配存在近复制，且大型组合根与多处分散反射扩大了维护面。由于按要求未运行构建，独立编译能力无法验证并标记为 failed；其他结论均来自当前 HEAD 和本地分支的静态证据。19/28 次工具调用覆盖了超过最低要求的生产与测试样本，探索预算对本次静态评审充足。未修改文件，未使用 skill。"
+  }
+}

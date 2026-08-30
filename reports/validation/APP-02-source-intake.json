@@ -1,0 +1,263 @@
+{
+  "actual_head": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+  "applicable_license_files": [
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "app/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "app/tests/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "docklib-util/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "docklib-util/tests/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "docklib/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "docklib/tests/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "libs/appgrid/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "libs/appgrid/keys/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "libs/appgrid/lib/robotests/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "libs/appgrid/lib/tests/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "libs/car-launcher-common/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "libs/car-launcher-common/tests/Android.bp"
+    },
+    {
+      "licenses": [
+        "Android-Apache-2.0"
+      ],
+      "path": "systemui-shell/Android.bp"
+    }
+  ],
+  "expected_head": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+  "head_matches": true,
+  "is_shallow": true,
+  "is_sparse": false,
+  "large_files": [],
+  "present_tracked_files": 1026,
+  "probe": {
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "presubmit/launcher-contracts",
+      "release/2026.1"
+    ],
+    "build_system": "Soong",
+    "commit_count": 11,
+    "default_branch": "main",
+    "feature_evidence": {
+      "has_aidl": [],
+      "has_binder": [
+        "app/src/com/android/car/carlauncher/homescreen/audio/telecom/InCallServiceImpl.java",
+        "app/src/com/android/car/carlauncher/recents/CarQuickStepService.java",
+        "app/tests/src/com/android/car/carlauncher/homescreen/audio/telecom/InCallServiceImplTest.java",
+        "libs/appgrid/lib/src/com/android/car/carlauncher/datasources/ControlCenterMirroringDataSource.kt",
+        "systemui-shell/src/com/android/systemui/car/notification/NotificationPanelViewController.java",
+        "systemui-shell/src/com/android/systemui/car/systembar/CarSystemBar.java",
+        "systemui-shell/src/com/android/systemui/car/window/SystemUIOverlayWindowController.java"
+      ],
+      "has_hidden_api": [
+        "app/Android.bp",
+        "app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+        "app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+        "app/src/com/android/car/carlauncher/homescreen/audio/InCallModel.java",
+        "app/src/com/android/car/carlauncher/homescreen/audio/MediaViewModel.java",
+        "app/src/com/android/car/carlauncher/recents/CarQuickStepService.java",
+        "app/src/com/android/car/carlauncher/recents/view/RecentsRecyclerView.java",
+        "app/src/com/android/car/carlauncher/taskstack/TaskStackChangeListeners.java",
+        "app/tests/Android.bp",
+        "app/tests/src/com/android/car/carlauncher/homescreen/audio/InCallModelTest.java",
+        "docklib/Android.bp",
+        "docklib/src/com/android/car/docklib/data/DockAppItem.kt",
+        "docklib/tests/Android.bp",
+        "libs/appgrid/Android.bp",
+        "libs/appgrid/lib/tests/Android.bp",
+        "systemui-shell/Android.bp",
+        "systemui-shell/src/com/android/systemui/car/notification/CarNotificationModule.java",
+        "systemui-shell/src/com/android/systemui/car/notification/NotificationPanelViewController.java",
+        "systemui-shell/src/com/android/systemui/car/notification/NotificationVisibilityLogger.java",
+        "systemui-shell/src/com/android/systemui/car/systembar/AssitantButton.java"
+      ],
+      "has_integration_tests": [
+        "TEST_MAPPING",
+        "app/tests/Android.bp",
+        "app/tests/AndroidManifest.xml",
+        "app/tests/AndroidTest.xml",
+        "docklib-util/tests/Android.bp",
+        "docklib-util/tests/AndroidManifest.xml",
+        "docklib/tests/Android.bp",
+        "docklib/tests/AndroidManifest.xml",
+        "libs/appgrid/lib/tests/Android.bp",
+        "libs/appgrid/lib/tests/AndroidManifest.xml",
+        "libs/car-launcher-common/tests/Android.bp",
+        "libs/car-launcher-common/tests/AndroidManifest.xml",
+        "systemui-shell/Android.bp"
+      ],
+      "has_reflection": [
+        "app/src/com/android/car/carlauncher/CarLauncher.java",
+        "app/src/com/android/car/carlauncher/ControlBarActivity.java",
+        "docklib/tests/src/com/android/car/docklib/data/DockProtoDataControllerTest.kt",
+        "libs/appgrid/lib/robotests/src/com/android/car/carlauncher/datasources/UXRestrictionsDataSourceImplTest.kt",
+        "systemui-shell/src/com/android/systemui/car/systembar/SystemBarConfigs.java",
+        "systemui-shell/src/com/android/systemui/car/window/SystemUIOverlayWindowManager.java"
+      ]
+    },
+    "features": {
+      "has_aidl": false,
+      "has_binder": true,
+      "has_hidden_api": true,
+      "has_integration_tests": true,
+      "has_reflection": true
+    },
+    "has_push_remote": false,
+    "module_count": 8,
+    "modules": [
+      {
+        "name": "CarLauncher",
+        "path": "app/Android.bp",
+        "type": "android_app"
+      },
+      {
+        "name": "CarLauncher-core",
+        "path": "app/Android.bp",
+        "type": "android_library"
+      },
+      {
+        "name": "CarDockUtilLib",
+        "path": "docklib-util/Android.bp",
+        "type": "android_library"
+      },
+      {
+        "name": "CarDockLib",
+        "path": "docklib/Android.bp",
+        "type": "android_library"
+      },
+      {
+        "name": "CarAppGrid-lib",
+        "path": "libs/appgrid/Android.bp",
+        "type": "android_library"
+      },
+      {
+        "name": "CarAppGridTestApp",
+        "path": "libs/appgrid/Android.bp",
+        "type": "android_app"
+      },
+      {
+        "name": "CarLauncherCommon",
+        "path": "libs/car-launcher-common/Android.bp",
+        "type": "android_library"
+      },
+      {
+        "name": "LauncherSystemUiShell",
+        "path": "systemui-shell/Android.bp",
+        "type": "android_library"
+      }
+    ],
+    "probe": {
+      "name": "cockpit-repo-probe",
+      "version": "1.1.0"
+    },
+    "remotes": [],
+    "repo_head": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+    "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\horizon-launcher",
+    "source_files": 413,
+    "source_loc": 36269,
+    "stats_method": {
+      "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+      "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+      "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+    },
+    "tags": [
+      "local-sop-2026.1"
+    ],
+    "tracked_files": 439,
+    "worktree_clean": true
+  },
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\horizon-launcher",
+  "root_license_evidence": [
+    {
+      "detected_license": "Apache-2.0",
+      "path": "LICENSE"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_header_files": 269,
+  "source_header_license_counts": {
+    "Apache-2.0": 257,
+    "GPL-2.0": 0,
+    "GPL-3.0": 0,
+    "MIT": 0,
+    "unclassified": 12
+  },
+  "source_url": "https://git.codelinaro.org/clo/la/platform/packages/apps/Car/Launcher",
+  "sparse_missing_files": 0,
+  "submodule_entries": 0,
+  "tracked_files": 1026,
+  "unclassified_header_sample": [
+    "Android.bp",
+    "docklib/src/com/android/car/docklib/data/proto/dock_item.proto",
+    "docklib/tests/src/com/android/car/docklib/TestUtils.kt",
+    "docklib/tests/src/com/android/car/docklib/events/DockPackageChangeReceiverTest.kt",
+    "docklib/tests/src/com/android/car/docklib/view/DockAdapterTest.kt",
+    "docklib/tests/src/com/android/car/docklib/view/DockDragListenerTest.kt",
+    "docklib/tests/src/com/android/car/docklib/view/DockItemLongClickListenerTest.kt",
+    "docklib/tests/src/com/android/car/docklib/view/animation/ExcitementAnimationHelperTest.kt",
+    "libs/aconfig-platform-compat/java/android/compat/annotation/UnsupportedAppUsage.java",
+    "libs/appgrid/keys/Android.bp",
+    "libs/appgrid/lib/src/com/android/car/carlauncher/proto/launcher_item.proto",
+    "systemui-shell/Android.bp"
+  ]
+}

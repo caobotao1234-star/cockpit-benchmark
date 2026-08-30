@@ -1,0 +1,118 @@
+{
+  "branches": [
+    "aosp-new/aosp-new/master"
+  ],
+  "build_system": "Soong",
+  "commit_count": 1,
+  "default_branch": "aosp-new/aosp-new/master",
+  "feature_evidence": {
+    "has_aidl": [],
+    "has_binder": [
+      "src/com/android/car/settings/applications/managedomainurls/ClearDefaultsPreferenceController.java",
+      "src/com/android/car/settings/bluetooth/BluetoothDevicePickerPreferenceController.java",
+      "src/com/android/car/settings/bluetooth/BluetoothPairingService.java",
+      "src/com/android/car/settings/datausage/DataUsageSummaryPreferenceController.java",
+      "src/com/android/car/settings/enterprise/DeviceAdminAddHeaderPreferenceController.java",
+      "src/com/android/car/settings/notifications/BaseNotificationsPreferenceController.java",
+      "src/com/android/car/settings/notifications/RecentNotificationsAppsPreferenceController.java",
+      "src/com/android/car/settings/setupservice/InitialLockSetupService.java",
+      "src/com/android/car/settings/system/ResetAppPrefFragment.java",
+      "tests/robotests/src/com/android/car/settings/security/InitialLockSetupServiceTest.java",
+      "tests/robotests/src/com/android/car/settings/testutils/ShadowIUsbManager.java",
+      "tests/unit/src/com/android/car/settings/bluetooth/BluetoothDevicePickerPreferenceControllerTest.java",
+      "tests/unit/src/com/android/car/settings/enterprise/BaseEnterpriseTestCase.java",
+      "tests/unit/src/com/android/car/settings/system/ResetAppPrefFragmentTest.java"
+    ],
+    "has_hidden_api": [
+      "Android.bp",
+      "src/com/android/car/settings/accessibility/ScreenReaderUtils.java",
+      "src/com/android/car/settings/accounts/AccountListPreferenceController.java",
+      "src/com/android/car/settings/accounts/SyncPreference.java",
+      "src/com/android/car/settings/applications/ApplicationsUtils.java",
+      "src/com/android/car/settings/applications/PrioritizeAppPerformancePreferenceController.java",
+      "src/com/android/car/settings/applications/assist/AssistConfigBasePreferenceController.java",
+      "src/com/android/car/settings/applications/assist/AssistantAndVoiceEntryPreferenceController.java",
+      "src/com/android/car/settings/applications/assist/DefaultVoiceInputPickerEntryPreferenceController.java",
+      "src/com/android/car/settings/applications/assist/DefaultVoiceInputPickerPreferenceController.java",
+      "src/com/android/car/settings/applications/assist/VoiceInputInfoProvider.java",
+      "src/com/android/car/settings/applications/defaultapps/DefaultAssistantPickerEntryPreferenceController.java",
+      "src/com/android/car/settings/applications/managedomainurls/ClearDefaultsPreferenceController.java",
+      "src/com/android/car/settings/applications/specialaccess/AppStateAppOpsBridge.java",
+      "src/com/android/car/settings/applications/specialaccess/WifiControlPreferenceController.java",
+      "src/com/android/car/settings/bluetooth/BluetoothDevicePreference.java",
+      "src/com/android/car/settings/bluetooth/BluetoothPairingDialogFragment.java",
+      "src/com/android/car/settings/bluetooth/BluetoothPairingService.java",
+      "src/com/android/car/settings/bluetooth/BluetoothUnbondedDevicesPreferenceController.java",
+      "src/com/android/car/settings/bluetooth/BluetoothUtils.java"
+    ],
+    "has_integration_tests": [
+      "TEST_MAPPING",
+      "src/com/android/car/settings/TEST_MAPPING",
+      "tests/unit/Android.bp",
+      "tests/unit/AndroidManifest.xml"
+    ],
+    "has_reflection": [
+      "src/com/android/car/settings/common/PreferenceControllerListHelper.java",
+      "src/com/android/car/settings/qc/SettingsQCBackgroundWorker.java",
+      "src/com/android/car/settings/qc/SettingsQCItem.java"
+    ]
+  },
+  "features": {
+    "has_aidl": false,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": true
+  },
+  "has_push_remote": true,
+  "module_count": 4,
+  "modules": [
+    {
+      "name": "CarSettings",
+      "path": "Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarSettings-core",
+      "path": "Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarSettingsForTesting",
+      "path": "Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarSettingsForUnitTesting",
+      "path": "Android.bp",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [
+    {
+      "fetch_urls": [
+        "https://git.codelinaro.org/clo/la/platform/packages/apps/Car/Settings.git"
+      ],
+      "name": "origin",
+      "push_urls": [
+        "https://git.codelinaro.org/clo/la/platform/packages/apps/Car/Settings.git"
+      ]
+    }
+  ],
+  "repo_head": "be0b09bf5dcc537209918d018359a8b6d851bc23",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark-staging\\codelinaro-car-settings",
+  "source_files": 1441,
+  "source_loc": 106318,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [],
+  "tracked_files": 1453,
+  "worktree_clean": true
+}

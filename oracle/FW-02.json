@@ -1,0 +1,365 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "FW-02",
+  "quality_tier": "high",
+  "comparison_family": "vehicle-property-controlled-pair",
+  "review_status": "reviewed",
+  "evidence": [
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "08201c6278d25198577f2428c92dd2483032bf20",
+      "path": "api/src/android/car/hardware/property/ICarProperty.aidl",
+      "symbol_or_line": "ICarProperty",
+      "observation": "车辆属性跨进程合同使用类型化 AIDL，并将监听、配置、读写与错误协议显式建模。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "08201c6278d25198577f2428c92dd2483032bf20",
+      "path": "runtime/src/com/android/car/CarPropertyService.java",
+      "symbol_or_line": "CarPropertyService",
+      "observation": "Binder 服务负责权限、订阅和客户端边界，车辆硬件访问委托给 PropertyHalService。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "solid",
+      "branch": "main",
+      "commit": "08201c6278d25198577f2428c92dd2483032bf20",
+      "path": "runtime/src/com/android/car/hal/PropertyHalService.java",
+      "symbol_or_line": "PropertyHalService",
+      "observation": "HAL 服务集中车辆属性映射与事件分发，没有把 HMI 或产品配置职责带入 Binder API。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "hidden_api_reflection",
+      "branch": "main",
+      "commit": "08201c6278d25198577f2428c92dd2483032bf20",
+      "path": "platform/src/com/cockpitbench/vehicleproperty/PlatformVehicleAccess.java",
+      "symbol_or_line": "PlatformVehicleAccess.waitFor",
+      "observation": "反射兼容仅允许一个已声明车辆服务名，并把异常转换成明确的平台不可用错误。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "08201c6278d25198577f2428c92dd2483032bf20",
+      "path": "tests/unit/com/android/car/CarPropertyServiceUnitTest.java",
+      "symbol_or_line": "CarPropertyServiceUnitTest",
+      "observation": "服务单元测试覆盖权限、监听与属性操作，并与 HAL 和设备集成测试组成多层验证。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "release_branch_strategy",
+      "branch": "main",
+      "commit": "08201c6278d25198577f2428c92dd2483032bf20",
+      "path": "runtime/src/com/android/car/VehicleStub.java",
+      "symbol_or_line": "VehicleStub.newVehicleStub",
+      "observation": "共同主线在真实车辆服务启动路径读取产品传输、订阅上限、发布通道与回滚合同，并据此选择 AIDL/HIDL 后端；产品分支差异不是未消费配置。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "platform_reuse",
+      "branch": "platform/8155",
+      "commit": "fab2b54427e9a46b5f096d464ccafafc899c8c35",
+      "path": "platform/src/com/cockpitbench/vehicleproperty/PlatformVehicleAccess.java",
+      "symbol_or_line": "transportMode/validateRuntimeProfile",
+      "observation": "SA8155 分支只在单一平台 seam 选择 HIDL、限制订阅并校验随模块打包的 8155 配置；共同 VehicleStub、服务与 HAL 实现继续来自 main。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "platform_reuse",
+      "branch": "platform/8295",
+      "commit": "1c687eb3c8523279f6f62465b1fdf366dc108994",
+      "path": "platform/src/com/cockpitbench/vehicleproperty/PlatformVehicleAccess.java",
+      "symbol_or_line": "transportMode/validateRuntimeProfile",
+      "observation": "SA8295 分支在同一 seam 选择 AIDL、设置独立订阅上限并校验 8295 配置，没有复制车辆服务或 HAL 栈。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "release_branch_strategy",
+      "branch": "release/2.0",
+      "commit": "e76509ba3527e842a6a3b2f201b68e2078cd016b",
+      "path": "platform/src/com/cockpitbench/vehicleproperty/PlatformVehicleAccess.java",
+      "symbol_or_line": "releaseChannel/rollbackSupported/validateRuntimeProfile",
+      "observation": "SOP 2.0 分支声明稳定发布通道、可回滚能力并在启动路径校验发布资源，差异集中在版本兼容合同而非复制共同服务代码。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_high",
+      "reason": "API、Binder 服务、HAL、平台适配、支持库与测试均为独立 Soong 边界。"
+    },
+    {
+      "name": "solid",
+      "status": "expected_high",
+      "reason": "服务/HAL 职责分离且产品策略经独立对象注入。"
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "expected_medium",
+      "reason": "框架仓必然依赖隐藏平台能力，但使用点集中且可定位。"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "expected_medium",
+      "reason": "存在兼容反射，使用白名单和明确失败语义限制风险。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_high",
+      "reason": "类型化 ICarProperty 与监听接口覆盖完整 Binder 协议。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "需要完整 AAOS/Soong 与车辆 HAL，当前未执行产品树构建。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_high",
+      "reason": "包含大量服务/HAL 单测、Binder 设备测试和 TEST_MAPPING。"
+    },
+    {
+      "name": "code_duplication",
+      "status": "expected_high",
+      "reason": "平台差异集中在配置和单一兼容边界。"
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "expected_high",
+      "reason": "main、develop、release 和两平台分支用途明确。"
+    },
+    {
+      "name": "platform_reuse",
+      "status": "expected_high",
+      "reason": "三个产品分支相同 blob 比例均约 0.989，差异集中在单一运行时 seam、打包资源和构建绑定。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g2",
+      "blind_id": "blind-ab52d4fbc4a5",
+      "repository_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+      "result_path": "calibration/results/g2/blind-ab52d4fbc4a5.json",
+      "validation_report": "reports/validation/g2-blind-results-final.json",
+      "human_review_report": "reports/validation/g2-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-29T07:34:32.723926Z",
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T07:26:13.277Z",
+      "finished_at": "2026-08-29T07:31:22.960Z",
+      "wall_clock_seconds": 309.683,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 273,
+        "directories_visited": 24,
+        "tool_calls": 20,
+        "notes": "HEAD 与预期 SHA 一致。文件数按唯一仓库相对路径计；为生成最大文件清单读取了全部 215 个 Java 与 50 个 AIDL 文件，并详细检查了 28 个代表性生产文件和 8 个测试文件。比较了 release/2.0、platform/8155、platform/8295、develop 与 main。全程只读，未运行构建、脚本、包管理器、网络、skill 或额外 agent。 Runner normalized tool_calls from Codex JSONL to 20 (evaluator self-report: 20); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 2.222222,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 32,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "API、运行时、平台适配和测试在构建定义中有明确依赖方向，运行时也按 Binder 服务、HAL 分派与传输适配分层；但组合根和核心类规模较大，新增的 platform 策略及兼容类没有生产调用点，边界落地不完整。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "双传输实现共享窄接口，HAL 服务可通过测试构造器注入，体现了 DIP、ISP 和一定的 OCP；但后端选择仍硬编码在静态工厂中，VehicleHal 同时承担大量组合与路由职责。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "VHAL 的 AIDL/HIDL 系统依赖大体封装在 VehicleStub 家族内，权限映射和异常转换也有专门层；但系统属性和 builtin API 仍出现在多个运行时类中，新增的反射兼容缝未被实际消费。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "最显式的隐藏 API 兼容调用具有固定 allowlist、类型化返回值和保留原因的失败异常；其他反射多被集中在依赖或映射辅助类中。不过 Car 对服务端返回的类名动态加载没有本地 allowlist，且未捕获类型转换异常。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "属性 Binder 契约粒度清楚且使用类型化 parcelable/oneway 回调，服务实现具备权限检查、Handler 分派、死亡清理，VHAL AIDL 适配器具备请求 ID、超时和状态码映射；不足是契约本身没有声明权限或稳定性元数据，且远端调用在 future 登记后立即失败时存在残留请求风险。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 2,
+          "reason": "仓库只提供依赖 platform_apis 和 AAOS/AOSP 模块名的 Soong 定义；所需 Android 平台源码、生成的 automotive AIDL/HIDL 类型及内部库不在仓库中。按受控评审要求未运行构建，无法验证可信的独立编译边界。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "测试覆盖双传输、大 parcel、超时、死亡连接、订阅生命周期、死锁、权限、状态码和真实 VHAL 事件流，行为深度较好；但独立 vehiclehal 模块被整段注释，顶层 integration 模块的宽泛 glob 和极少依赖不足以解释这些测试的完整编译环境。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "AIDL/HIDL 差异被统一抽象包住，重复主要位于必要的协议转换层；但两个测试 builder 和若干 AIDL/HIDL config/value 适配器仍保存近似的 clone、setter 和构建流程，修改同一语义常需双处同步。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 3,
+          "reason": "四个有差异的本地分支均与 main 做了有界比较：release 仅增加单行发布通道配置，两个平台分支各仅增加单行平台配置，develop 仅含 backlog；三个发布/平台分支历史均显示随后合并 main，没有观察到长期代码分叉。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 3,
+          "reason": "平台差异被压缩为分支中的单行声明式配置，AIDL/HIDL 传输在 main 的共同 VehicleStub/HAL 核心内复用；两次平台比较均未发现复制生产代码或平台策略分叉。"
+        }
+      ]
+    },
+    {
+      "batch": "g3",
+      "blind_id": "blind-7fa7c1f510a7",
+      "repository_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+      "result_path": "calibration/results/g3/blind-7fa7c1f510a7.json",
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T10:54:03.076Z",
+      "finished_at": "2026-08-29T10:59:25.739Z",
+      "wall_clock_seconds": 322.663,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 56,
+        "directories_visited": 18,
+        "tool_calls": 19,
+        "notes": "HEAD 与预期 SHA 一致。静态检查覆盖 38 个生产 Java/AIDL 文件、11 个测试文件、构建入口及三个分支的有界比较；未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 2.111111,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 27,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "API、服务、平台兼容层和测试支持层有明确 Soong 模块与单向依赖，Vehicle HAL 也按传输、客户端和领域服务分层；但 ICarImpl 集中装配大量服务，且仓库切片包含多项树外依赖，模块声明与实际闭包之间存在明显缺口。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 2,
+          "reason": "VehicleStub/HalServiceBase 提供真实的 AIDL/HIDL 替换点，依赖可通过构造器注入，属性服务也将 HAL 访问委托给 PropertyHalService；不过 CarPropertyService 同时承担 Binder、权限、订阅聚合、死亡处理和错误归属，SRP 边界并不均匀。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "车辆系统依赖大多被 VehicleStub/HAL 或专门的平台兼容类包住，并有权限和异常处理；但所有主要模块均启用 platform_apis，HIDL 实现仍直接读取系统属性，系统依赖并未形成完全可替换的单一边界。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "最敏感的隐藏服务查询被独立兼容缝和 allowlist 包含，其他反射点也捕获并转换失败；但反射仍分散在管理器构造、Parcelable 类型恢复和内置包加载中，平台兼容缝没有直接失败路径测试，Car 的动态类名路径以 null 作为降级。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "属性 AIDL 粒度清晰，回调使用 oneway，服务端具备逐属性权限检查、Binder death 清理、线程转发以及 AIDL VHAL 超时处理；但契约本身没有显式稳定性/版本策略，释放时仅清空客户端表而未逐个 unlink，且 AIDL 请求在中断或 ExecutionException 路径没有像超时路径一样显式移除 pending 项。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 2,
+          "reason": "仓库只提供依赖 AOSP/AAOS platform_apis 的 Soong 切片，所需平台输入在当前工作区不可用；此外 ICarImpl 等源文件引用的多个服务类型不在仓库内，因此无法建立或验证可信的独立编译边界。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "测试源码包含真实的属性往返、回调注销、错误状态、权限和 VHAL 事件序列断言，单元测试也覆盖超时、远程异常与死亡监听；但集成模块只声明 androidx runner，未链接仓库中的 API/service/support 模块，而专用 VehicleHALTest 模块整体被注释，因而这些有深度的测试缺少可信的可执行接线。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "公共 VehicleStub、HalPropConfig 和 HalAreaConfig 抽象限制了双传输重复的扩散；但 AIDL/HIDL 配置及区域适配器仍是近复制实现，测试支持中的两套配置/值 builder 也重复维护相同操作，增加双栈演进成本。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 1,
+          "reason": "release/2.0 相对 main 仅增加单行发布通道配置，并通过合并 main 吸收共同代码；有界比较未发现生产源码分叉，发布差异保持窄且可审查。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 3,
+          "reason": "两个平台分支均复用 main 的完整实现，只以同一路径的一行配置选择平台和传输；运行时又通过 VehicleStub 统一 AIDL/HIDL 接口，平台变化被限制在配置和适配器层。局部双栈适配器重复是主要限制。"
+        }
+      ]
+    }
+  ]
+}

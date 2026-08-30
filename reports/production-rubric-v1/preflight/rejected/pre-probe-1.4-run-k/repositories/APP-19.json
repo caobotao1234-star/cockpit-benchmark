@@ -1,0 +1,698 @@
+{
+  "build_inventory": {
+    "build_system": "Gradle",
+    "dependency_probe_errors": [],
+    "internal_dependency_edges": [
+      {
+        "from": ":foundation-core@foundation-core/build.gradle",
+        "line": 5,
+        "path": "foundation-core/build.gradle",
+        "to": ":foundation-api@foundation-api/build.gradle",
+        "token": ":foundation-api"
+      },
+      {
+        "from": ":foundation-observability@foundation-observability/build.gradle",
+        "line": 5,
+        "path": "foundation-observability/build.gradle",
+        "to": ":foundation-api@foundation-api/build.gradle",
+        "token": ":foundation-api"
+      },
+      {
+        "from": ":foundation-observability@foundation-observability/build.gradle",
+        "line": 5,
+        "path": "foundation-observability/build.gradle",
+        "to": ":foundation-core@foundation-core/build.gradle",
+        "token": ":foundation-core"
+      },
+      {
+        "from": ":foundation-platform@foundation-platform/build.gradle",
+        "line": 5,
+        "path": "foundation-platform/build.gradle",
+        "to": ":foundation-api@foundation-api/build.gradle",
+        "token": ":foundation-api"
+      },
+      {
+        "from": ":foundation-platform@foundation-platform/build.gradle",
+        "line": 5,
+        "path": "foundation-platform/build.gradle",
+        "to": ":foundation-core@foundation-core/build.gradle",
+        "token": ":foundation-core"
+      },
+      {
+        "from": ":foundation-storage@foundation-storage/build.gradle",
+        "line": 5,
+        "path": "foundation-storage/build.gradle",
+        "to": ":foundation-api@foundation-api/build.gradle",
+        "token": ":foundation-api"
+      },
+      {
+        "from": ":foundation-storage@foundation-storage/build.gradle",
+        "line": 5,
+        "path": "foundation-storage/build.gradle",
+        "to": ":foundation-core@foundation-core/build.gradle",
+        "token": ":foundation-core"
+      },
+      {
+        "from": ":foundation-testkit@foundation-testkit/build.gradle",
+        "line": 5,
+        "path": "foundation-testkit/build.gradle",
+        "to": ":foundation-api@foundation-api/build.gradle",
+        "token": ":foundation-api"
+      },
+      {
+        "from": ":foundation-testkit@foundation-testkit/build.gradle",
+        "line": 5,
+        "path": "foundation-testkit/build.gradle",
+        "to": ":foundation-core@foundation-core/build.gradle",
+        "token": ":foundation-core"
+      },
+      {
+        "from": ":voice-app@voice-app/build.gradle",
+        "line": 5,
+        "path": "voice-app/build.gradle",
+        "to": ":foundation-core@foundation-core/build.gradle",
+        "token": ":foundation-core"
+      },
+      {
+        "from": ":voice-app@voice-app/build.gradle",
+        "line": 5,
+        "path": "voice-app/build.gradle",
+        "to": ":voice-api@voice-api/build.gradle",
+        "token": ":voice-api"
+      },
+      {
+        "from": ":voice-app@voice-app/build.gradle",
+        "line": 5,
+        "path": "voice-app/build.gradle",
+        "to": ":voice-core@voice-core/build.gradle",
+        "token": ":voice-core"
+      },
+      {
+        "from": ":voice-app@voice-app/build.gradle",
+        "line": 5,
+        "path": "voice-app/build.gradle",
+        "to": ":voice-platform-8155@voice-platform-8155/build.gradle",
+        "token": ":voice-platform-8155"
+      },
+      {
+        "from": ":voice-app@voice-app/build.gradle",
+        "line": 5,
+        "path": "voice-app/build.gradle",
+        "to": ":voice-platform-8295@voice-platform-8295/build.gradle",
+        "token": ":voice-platform-8295"
+      },
+      {
+        "from": ":voice-core@voice-core/build.gradle",
+        "line": 5,
+        "path": "voice-core/build.gradle",
+        "to": ":foundation-core@foundation-core/build.gradle",
+        "token": ":foundation-core"
+      },
+      {
+        "from": ":voice-core@voice-core/build.gradle",
+        "line": 5,
+        "path": "voice-core/build.gradle",
+        "to": ":voice-api@voice-api/build.gradle",
+        "token": ":voice-api"
+      },
+      {
+        "from": ":voice-platform-8155@voice-platform-8155/build.gradle",
+        "line": 5,
+        "path": "voice-platform-8155/build.gradle",
+        "to": ":foundation-core@foundation-core/build.gradle",
+        "token": ":foundation-core"
+      },
+      {
+        "from": ":voice-platform-8155@voice-platform-8155/build.gradle",
+        "line": 5,
+        "path": "voice-platform-8155/build.gradle",
+        "to": ":voice-api@voice-api/build.gradle",
+        "token": ":voice-api"
+      },
+      {
+        "from": ":voice-platform-8155@voice-platform-8155/build.gradle",
+        "line": 5,
+        "path": "voice-platform-8155/build.gradle",
+        "to": ":voice-core@voice-core/build.gradle",
+        "token": ":voice-core"
+      },
+      {
+        "from": ":voice-platform-8295@voice-platform-8295/build.gradle",
+        "line": 5,
+        "path": "voice-platform-8295/build.gradle",
+        "to": ":foundation-core@foundation-core/build.gradle",
+        "token": ":foundation-core"
+      },
+      {
+        "from": ":voice-platform-8295@voice-platform-8295/build.gradle",
+        "line": 5,
+        "path": "voice-platform-8295/build.gradle",
+        "to": ":voice-api@voice-api/build.gradle",
+        "token": ":voice-api"
+      },
+      {
+        "from": ":voice-platform-8295@voice-platform-8295/build.gradle",
+        "line": 5,
+        "path": "voice-platform-8295/build.gradle",
+        "to": ":voice-core@voice-core/build.gradle",
+        "token": ":voice-core"
+      },
+      {
+        "from": ":voice-tests@voice-tests/build.gradle",
+        "line": 5,
+        "path": "voice-tests/build.gradle",
+        "to": ":foundation-core@foundation-core/build.gradle",
+        "token": ":foundation-core"
+      },
+      {
+        "from": ":voice-tests@voice-tests/build.gradle",
+        "line": 5,
+        "path": "voice-tests/build.gradle",
+        "to": ":voice-api@voice-api/build.gradle",
+        "token": ":voice-api"
+      },
+      {
+        "from": ":voice-tests@voice-tests/build.gradle",
+        "line": 5,
+        "path": "voice-tests/build.gradle",
+        "to": ":voice-core@voice-core/build.gradle",
+        "token": ":voice-core"
+      }
+    ],
+    "manifest_consistent": true,
+    "module_count": 12,
+    "modules": [
+      {
+        "name": ":foundation-api",
+        "path": "foundation-api/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":foundation-core",
+        "path": "foundation-core/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":foundation-observability",
+        "path": "foundation-observability/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":foundation-platform",
+        "path": "foundation-platform/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":foundation-storage",
+        "path": "foundation-storage/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":foundation-testkit",
+        "path": "foundation-testkit/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":voice-api",
+        "path": "voice-api/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":voice-app",
+        "path": "voice-app/build.gradle",
+        "type": "android_app"
+      },
+      {
+        "name": ":voice-core",
+        "path": "voice-core/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":voice-platform-8155",
+        "path": "voice-platform-8155/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":voice-platform-8295",
+        "path": "voice-platform-8295/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":voice-tests",
+        "path": "voice-tests/build.gradle",
+        "type": "android_library"
+      }
+    ],
+    "standard_named_module_count": 3
+  },
+  "document_type": "repository_preflight",
+  "facts_sha256": "72f56009c904556a7294528f211dab74399290a1e9eefbbae8bfaabc122d54ef",
+  "generation": {
+    "extractor_name": "production_preflight_facts",
+    "extractor_version": "1.1.0",
+    "generator_name": "prepare_production_preflight",
+    "generator_version": "1.1.0",
+    "probe_name": "cockpit-repo-probe",
+    "probe_version": "1.3.0"
+  },
+  "git_inventory": {
+    "branch_classifications": {
+      "develop": {
+        "category": "development",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "main": {
+        "category": "mainline",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8155": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8295": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "release/2026.1": {
+        "category": "release",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": true,
+        "is_sop": false
+      }
+    },
+    "branches": {
+      "develop": "eff13aa6a3546b4b9d01287cbb13bcf7fcfe20b5",
+      "main": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "platform/8155": "273a02a7338e42d4dadf3d06c0011c552e37a470",
+      "platform/8295": "fddc2e53f0c90a3b5e257d58aa1beca9b8fe66c4",
+      "release/2026.1": "7ccce2f49b11f347ddb528a8c1077da6e0511535"
+    },
+    "default_branch": "main",
+    "tags": {
+      "app-foundation-1.0.0": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
+      "companion-voice-2026.1": "7ccce2f49b11f347ddb528a8c1077da6e0511535"
+    }
+  },
+  "kind": "APP",
+  "manifest_binding": {
+    "head_matches": true,
+    "manifest_repo_head": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+    "path_within_delivery_root": true,
+    "working_tree_clean": true
+  },
+  "missing_contract_leaf_count": 14,
+  "missing_contract_leaves": [
+    {
+      "category": "quality",
+      "leaf": "code_duplication",
+      "method": "deterministic",
+      "reason": "Production duplication-rate detector, denominator, and exclusion contract are absent; only the threshold table is known.",
+      "rule_id": "quality.duplication.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "integration_test",
+      "method": "external_data",
+      "reason": "GBOP APP and FRAMEWORK/embedded response schemas and status mappings are absent.",
+      "rule_id": "quality.integration_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "code_quality",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.code_quality.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "unit_test",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.unit_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "system_api_dependency",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production symbol list, scan scope, and deduplication rules are absent.",
+      "rule_id": "android_framework.system_api_dependency.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "hidden_api_reflection",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production matcher and scan/exclusion rules are absent.",
+      "rule_id": "android_framework.hidden_api_reflection.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "aidl_sdk_call",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but AIDL/SDK call-site identification and deduplication rules are absent.",
+      "rule_id": "android_framework.aidl_sdk_call.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "single_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.single_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "cross_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.cross_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "platform_upgrade",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.platform_upgrade.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "device_specificity",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.device_specificity.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_independence",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.independence.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_strategy",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.strategy.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "release_rollback",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.rollback.v1",
+      "score": null,
+      "status": "failed"
+    }
+  ],
+  "platform_reuse": {
+    "comparisons": [
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 427,
+        "base_head": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "development",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.002336449,
+        "changed_files": 1,
+        "common_path_files": 427,
+        "compare_branch": "develop",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 428,
+        "compare_head": "eff13aa6a3546b4b9d01287cbb13bcf7fcfe20b5",
+        "deleted_lines": 0,
+        "identical_blob_files": 427,
+        "identical_blob_ratio": 0.997664,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 428
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 427,
+        "base_head": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "release",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": true,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.002336449,
+        "changed_files": 1,
+        "common_path_files": 427,
+        "compare_branch": "release/2026.1",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 428,
+        "compare_head": "7ccce2f49b11f347ddb528a8c1077da6e0511535",
+        "deleted_lines": 0,
+        "identical_blob_files": 427,
+        "identical_blob_ratio": 0.997664,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 428
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 427,
+        "base_head": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.002336449,
+        "changed_files": 1,
+        "common_path_files": 427,
+        "compare_branch": "platform/8155",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 428,
+        "compare_head": "273a02a7338e42d4dadf3d06c0011c552e37a470",
+        "deleted_lines": 0,
+        "identical_blob_files": 427,
+        "identical_blob_ratio": 0.997664,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 428
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 427,
+        "base_head": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.002336449,
+        "changed_files": 1,
+        "common_path_files": 427,
+        "compare_branch": "platform/8295",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 428,
+        "compare_head": "fddc2e53f0c90a3b5e257d58aa1beca9b8fe66c4",
+        "deleted_lines": 0,
+        "identical_blob_files": 427,
+        "identical_blob_ratio": 0.997664,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 428
+      }
+    ],
+    "manifest_comparison_count": 4,
+    "status": "consistent"
+  },
+  "quality_signal_candidate": {
+    "artifact_head": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+    "artifact_sha256": "c0c663d59e583aef97a94035be7e867c3ba57483ced5f5338e8e55150fd57d15",
+    "current_head": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+    "metrics": {
+      "broad_catches": 6,
+      "broad_catches_per_kloc": 1.427891,
+      "code_source_files": 71,
+      "global_state_sites": 5,
+      "global_state_sites_per_kloc": 1.18991,
+      "hidden_api_sites": 1,
+      "hidden_api_sites_per_kloc": 0.237982,
+      "logical_lines": 4202,
+      "method_declarations": 400,
+      "metric_schema_version": "1.1.0",
+      "near_duplicate_file_ratio": 0.450704,
+      "near_duplicate_pair_count_at_0_80": 496,
+      "placeholder_test_sites": 0,
+      "production_files_over_500_lines": 0,
+      "production_logical_lines": 3506,
+      "production_source_files": 62,
+      "reflection_sites": 6,
+      "reflection_sites_per_kloc": 1.427891,
+      "test_logical_lines": 696,
+      "test_source_files": 9,
+      "test_to_production_file_ratio": 0.145161,
+      "tracked_files": 427
+    },
+    "non_scoring": true,
+    "reason": "Candidate-only quality_signals metrics match current HEAD; not a production score.",
+    "source_path": "reports/validation/APP-19-quality.json",
+    "status": "current"
+  },
+  "relative_path": "repos/app/companion-voice",
+  "repo_id": "APP-19",
+  "repository_head": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+  "rubric_version": "production-code-health-v1",
+  "schema_version": "1.0.0",
+  "source_inventory": {
+    "aidl_paths": [
+      "foundation-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitEventListener.aidl",
+      "foundation-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitGateway.aidl",
+      "voice-api/src/main/aidl/com/cockpitbench/voice/IVoiceAssistant.aidl",
+      "voice-api/src/main/aidl/com/cockpitbench/voice/IVoiceCallback.aidl"
+    ],
+    "ci": {
+      "standard_ci_paths": [],
+      "test_mapping_paths": [
+        "TEST_MAPPING"
+      ]
+    },
+    "rollback_candidates": [],
+    "test_paths": [
+      "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/DeviceTrustEngineTest.java",
+      "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/PolicyRuntimeTest.java",
+      "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/ProviderHealthMonitorTest.java",
+      "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/RecordReconcilerTest.java",
+      "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/RoleAuthorizationGraphTest.java",
+      "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/SessionSupervisorTest.java",
+      "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/WorkflowEngineTest.java",
+      "voice-tests/src/test/java/com/cockpitbench/voice/tests/IntentRouterTest.java",
+      "voice-tests/src/test/java/com/cockpitbench/voice/tests/SessionHubTest.java",
+      "voice-tests/src/test/resources/fixture_00.xml",
+      "voice-tests/src/test/resources/fixture_01.xml",
+      "voice-tests/src/test/resources/fixture_02.xml",
+      "voice-tests/src/test/resources/fixture_03.xml",
+      "voice-tests/src/test/resources/fixture_04.xml",
+      "voice-tests/src/test/resources/fixture_05.xml",
+      "voice-tests/src/test/resources/fixture_06.xml",
+      "voice-tests/src/test/resources/fixture_07.xml",
+      "voice-tests/src/test/resources/fixture_08.xml",
+      "voice-tests/src/test/resources/fixture_09.xml",
+      "voice-tests/src/test/resources/fixture_10.xml",
+      "voice-tests/src/test/resources/fixture_11.xml",
+      "voice-tests/src/test/resources/fixture_12.xml",
+      "voice-tests/src/test/resources/fixture_13.xml",
+      "voice-tests/src/test/resources/fixture_14.xml",
+      "voice-tests/src/test/resources/fixture_15.xml",
+      "voice-tests/src/test/resources/fixture_16.xml",
+      "voice-tests/src/test/resources/fixture_17.xml",
+      "voice-tests/src/test/resources/fixture_18.xml",
+      "voice-tests/src/test/resources/fixture_19.xml",
+      "voice-tests/src/test/resources/fixture_20.xml",
+      "voice-tests/src/test/resources/fixture_21.xml",
+      "voice-tests/src/test/resources/fixture_22.xml",
+      "voice-tests/src/test/resources/fixture_23.xml",
+      "voice-tests/src/test/resources/fixture_24.xml",
+      "voice-tests/src/test/resources/fixture_25.xml",
+      "voice-tests/src/test/resources/fixture_26.xml",
+      "voice-tests/src/test/resources/fixture_27.xml",
+      "voice-tests/src/test/resources/fixture_28.xml",
+      "voice-tests/src/test/resources/fixture_29.xml",
+      "voice-tests/src/test/resources/fixture_30.xml",
+      "voice-tests/src/test/resources/fixture_31.xml",
+      "voice-tests/src/test/resources/fixture_32.xml",
+      "voice-tests/src/test/resources/fixture_33.xml",
+      "voice-tests/src/test/resources/fixture_34.xml",
+      "voice-tests/src/test/resources/fixture_35.xml",
+      "voice-tests/src/test/resources/fixture_36.xml",
+      "voice-tests/src/test/resources/fixture_37.xml",
+      "voice-tests/src/test/resources/fixture_38.xml",
+      "voice-tests/src/test/resources/fixture_39.xml"
+    ],
+    "version": {
+      "api_version_candidates": [],
+      "semantic_version_tags": [],
+      "version_file_candidates": [
+        "build.gradle",
+        "foundation-api/build.gradle",
+        "foundation-core/build.gradle",
+        "foundation-observability/build.gradle",
+        "foundation-platform/build.gradle",
+        "foundation-storage/build.gradle",
+        "foundation-testkit/build.gradle",
+        "voice-api/build.gradle",
+        "voice-app/build.gradle",
+        "voice-core/build.gradle",
+        "voice-platform-8155/build.gradle",
+        "voice-platform-8295/build.gradle",
+        "voice-tests/build.gradle"
+      ]
+    }
+  }
+}

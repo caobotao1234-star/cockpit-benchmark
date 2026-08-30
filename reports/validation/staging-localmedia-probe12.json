@@ -1,0 +1,65 @@
+{
+  "branches": [
+    "aosp-new/aosp-new/master"
+  ],
+  "build_system": "Soong",
+  "commit_count": 1,
+  "default_branch": "aosp-new/aosp-new/master",
+  "feature_evidence": {
+    "has_aidl": [],
+    "has_binder": [],
+    "has_hidden_api": [
+      "Android.bp"
+    ],
+    "has_integration_tests": [],
+    "has_reflection": []
+  },
+  "features": {
+    "has_aidl": false,
+    "has_binder": false,
+    "has_hidden_api": true,
+    "has_integration_tests": false,
+    "has_reflection": false
+  },
+  "has_push_remote": true,
+  "module_count": 2,
+  "modules": [
+    {
+      "name": "LocalMediaPlayer",
+      "path": "Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "LocalMediaPlayer-proto",
+      "path": "Android.bp",
+      "type": "java_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [
+    {
+      "fetch_urls": [
+        "https://git.codelinaro.org/clo/la/platform/packages/apps/Car/LocalMediaPlayer.git"
+      ],
+      "name": "origin",
+      "push_urls": [
+        "https://git.codelinaro.org/clo/la/platform/packages/apps/Car/LocalMediaPlayer.git"
+      ]
+    }
+  ],
+  "repo_head": "e154cff25a803a24a673c24b862ee23ce9973b5a",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark-staging\\codelinaro-car-localmediaplayer",
+  "source_files": 25,
+  "source_loc": 1400,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [],
+  "tracked_files": 41,
+  "worktree_clean": true
+}

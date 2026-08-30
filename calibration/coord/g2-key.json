@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g2",
+  "generated_at": "2026-08-29T07:19:22.203413Z",
+  "warning": "COORDINATOR ONLY - NEVER SEND TO THE EVALUATION AGENT",
+  "repositories": [
+    {
+      "blind_id": "blind-5ce21b8b7a91",
+      "repo_id": "FW-15",
+      "quality_tier": "low",
+      "oracle_path": "oracle/FW-15.json"
+    },
+    {
+      "blind_id": "blind-a67e29070d18",
+      "repo_id": "APP-03",
+      "quality_tier": "high",
+      "oracle_path": "oracle/APP-03.json"
+    },
+    {
+      "blind_id": "blind-ab52d4fbc4a5",
+      "repo_id": "FW-02",
+      "quality_tier": "high",
+      "oracle_path": "oracle/FW-02.json"
+    },
+    {
+      "blind_id": "blind-d90d8f90078a",
+      "repo_id": "APP-17",
+      "quality_tier": "low",
+      "oracle_path": "oracle/APP-17.json"
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "document_type": "repository_preflight",
+  "facts_sha256": "37a4301dbf71251d253c43294c139f748aaaf30d6fc44c890bf10e8d6cb1eead",
+  "git_inventory": {
+    "branch_classifications": {
+      "develop": {
+        "category": "development",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "main": {
+        "category": "mainline",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8155": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8295": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/xinqing": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "release/sop-2024": {
+        "category": "sop",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": true,
+        "is_sop": true
+      }
+    },
+    "branches": {
+      "develop": "e890eaa1bd728059219dbe533b8e689a16fd7946",
+      "main": "a88e94b024b5a13653d20034e3db753640371c0e",
+      "platform/8155": "99b06adcd7e81d2361279a1149cbf643d2e95651",
+      "platform/8295": "4a41343c848f09811cbc154152023a7b0c19d8bd",
+      "platform/xinqing": "8809a628265aef4453450372324fd2e2b7cf0e17",
+      "release/sop-2024": "dbf996e8614b3506b8bfef856f6cc56ca943404b"
+    },
+    "default_branch": "main",
+    "tags": {
+      "local-sop-2024.3": "dbf996e8614b3506b8bfef856f6cc56ca943404b"
+    }
+  },
+  "kind": "APP",
+  "manifest_binding": {
+    "head_matches": true,
+    "manifest_repo_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+    "path_within_delivery_root": true,
+    "working_tree_clean": true
+  },
+  "missing_contract_leaf_count": 14,
+  "missing_contract_leaves": [
+    {
+      "category": "quality",
+      "leaf": "code_duplication",
+      "method": "deterministic",
+      "reason": "Production duplication-rate detector, denominator, and exclusion contract are absent; only the threshold table is known.",
+      "rule_id": "quality.duplication.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "integration_test",
+      "method": "external_data",
+      "reason": "GBOP APP and FRAMEWORK/embedded response schemas and status mappings are absent.",
+      "rule_id": "quality.integration_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "code_quality",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.code_quality.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "unit_test",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.unit_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "system_api_dependency",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production symbol list, scan scope, and deduplication rules are absent.",
+      "rule_id": "android_framework.system_api_dependency.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "hidden_api_reflection",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production matcher and scan/exclusion rules are absent.",
+      "rule_id": "android_framework.hidden_api_reflection.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "aidl_sdk_call",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but AIDL/SDK call-site identification and deduplication rules are absent.",
+      "rule_id": "android_framework.aidl_sdk_call.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "single_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema and 0..10 lookup table are absent.",
+      "rule_id": "platform_reuse.single_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "cross_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema and 0..10 lookup table are absent.",
+      "rule_id": "platform_reuse.cross_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "platform_upgrade",
+      "method": "deterministic",
+      "reason": "Production branch_records schema and 0..10 lookup table are absent.",
+      "rule_id": "platform_reuse.platform_upgrade.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "device_specificity",
+      "method": "deterministic",
+      "reason": "Production branch_records schema and 0..10 lookup table are absent.",
+      "rule_id": "platform_reuse.device_specificity.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_independence",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.independence.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_strategy",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.strategy.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "release_rollback",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.rollback.v1",
+      "score": null,
+      "status": "failed"
+    }
+  ],
+  "platform_reuse": {
+    "comparisons": [
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 284,
+        "base_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "development",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.010526316,
+        "changed_files": 3,
+        "common_path_files": 282,
+        "compare_branch": "develop",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 283,
+        "compare_head": "e890eaa1bd728059219dbe533b8e689a16fd7946",
+        "deleted_lines": 38,
+        "identical_blob_files": 282,
+        "identical_blob_ratio": 0.989474,
+        "line_delta": 40,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "b1191a347603984a76bc82cf282c9d6d5d3ff627",
+        "same_head": false,
+        "thin_difference": false,
+        "union_files": 285
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 284,
+        "base_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "sop",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": true,
+          "is_sop": true
+        },
+        "changed_file_ratio": 0.010526316,
+        "changed_files": 3,
+        "common_path_files": 282,
+        "compare_branch": "release/sop-2024",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 283,
+        "compare_head": "dbf996e8614b3506b8bfef856f6cc56ca943404b",
+        "deleted_lines": 38,
+        "identical_blob_files": 282,
+        "identical_blob_ratio": 0.989474,
+        "line_delta": 40,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "b1191a347603984a76bc82cf282c9d6d5d3ff627",
+        "same_head": false,
+        "thin_difference": false,
+        "union_files": 285
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 284,
+        "base_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.010526316,
+        "changed_files": 3,
+        "common_path_files": 282,
+        "compare_branch": "platform/8155",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 283,
+        "compare_head": "99b06adcd7e81d2361279a1149cbf643d2e95651",
+        "deleted_lines": 38,
+        "identical_blob_files": 282,
+        "identical_blob_ratio": 0.989474,
+        "line_delta": 40,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "b1191a347603984a76bc82cf282c9d6d5d3ff627",
+        "same_head": false,
+        "thin_difference": false,
+        "union_files": 285
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 284,
+        "base_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.010526316,
+        "changed_files": 3,
+        "common_path_files": 282,
+        "compare_branch": "platform/8295",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 283,
+        "compare_head": "4a41343c848f09811cbc154152023a7b0c19d8bd",
+        "deleted_lines": 38,
+        "identical_blob_files": 282,
+        "identical_blob_ratio": 0.989474,
+        "line_delta": 40,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "b1191a347603984a76bc82cf282c9d6d5d3ff627",
+        "same_head": false,
+        "thin_difference": false,
+        "union_files": 285
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 284,
+        "base_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.010526316,
+        "changed_files": 3,
+        "common_path_files": 282,
+        "compare_branch": "platform/xinqing",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 283,
+        "compare_head": "8809a628265aef4453450372324fd2e2b7cf0e17",
+        "deleted_lines": 38,
+        "identical_blob_files": 282,
+        "identical_blob_ratio": 0.989474,
+        "line_delta": 40,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "b1191a347603984a76bc82cf282c9d6d5d3ff627",
+        "same_head": false,
+        "thin_difference": false,
+        "union_files": 285
+      }
+    ],
+    "manifest_comparison_count": 5,
+    "status": "consistent"
+  },
+  "quality_signal_candidate": {
+    "artifact_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+    "artifact_sha256": null,
+    "current_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+    "metrics": {
+      "broad_catches": 16,
+      "broad_catches_per_kloc": 2.0,
+      "code_source_files": 97,
+      "global_state_sites": 6,
+      "global_state_sites_per_kloc": 0.75,
+      "hidden_api_sites": 11,
+      "hidden_api_sites_per_kloc": 1.375,
+      "logical_lines": 8000,
+      "method_declarations": 860,
+      "metric_schema_version": "1.1.0",
+      "near_duplicate_file_ratio": 0.216495,
+      "near_duplicate_pair_count_at_0_80": 48,
+      "placeholder_test_sites": 0,
+      "production_files_over_500_lines": 4,
+      "production_logical_lines": 7699,
+      "production_source_files": 96,
+      "reflection_sites": 19,
+      "reflection_sites_per_kloc": 2.375,
+      "test_logical_lines": 301,
+      "test_source_files": 1,
+      "test_to_production_file_ratio": 0.010417,
+      "tracked_files": 284
+    },
+    "non_scoring": true,
+    "reason": "Fresh candidate-only quality_signals metrics bound to current HEAD; not a production score.",
+    "source_path": null,
+    "status": "refreshed"
+  },
+  "relative_path": "repos/app/stream-media",
+  "repo_id": "APP-18",
+  "repository_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+  "rubric_version": "production-code-health-v1",
+  "schema_version": "1.0.0",
+  "source_inventory": {
+    "aidl_paths": [
+      "media-platform/src/android/car/media/CarAudioPatchHandle.aidl",
+      "media-platform/src/android/car/media/ICarAudio.aidl",
+      "media-platform/src/android/car/media/ICarMedia.aidl",
+      "media-platform/src/android/car/media/ICarMediaSourceListener.aidl",
+      "media-platform/src/android/car/media/ICarVolumeCallback.aidl"
+    ],
+    "ci": {
+      "standard_ci_paths": [],
+      "test_mapping_paths": []
+    },
+    "rollback_candidates": [],
+    "test_paths": [
+      "media-platform/test/com/android/car/media/CarMediaServiceTest.java"
+    ],
+    "version": {
+      "api_version_candidates": [],
+      "semantic_version_tags": [],
+      "version_file_candidates": [
+        "build.gradle",
+        "compat-car-media/build.gradle",
+        "media-platform/build.gradle",
+        "platform-8155/build.gradle",
+        "platform-8295/build.gradle"
+      ]
+    }
+  }
+}

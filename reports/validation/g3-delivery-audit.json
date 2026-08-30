@@ -1,0 +1,338 @@
+{
+  "schema_version": "1.0.0",
+  "gate": "G3",
+  "mode": "partial-20",
+  "repository_count": 20,
+  "totals": {
+    "repositories": 20,
+    "tracked_files": 16368,
+    "binary_files": 24,
+    "binary_bytes": 2932106
+  },
+  "repositories": [
+    {
+      "repo_id": "APP-01",
+      "head": "7d347803ae70eb01fdeafaff3094404909377c59",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 1710,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "APP-02",
+      "head": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 1026,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 1
+    },
+    {
+      "repo_id": "APP-03",
+      "head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 236,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "APP-04",
+      "head": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 280,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "APP-08",
+      "head": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 532,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "APP-09",
+      "head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 788,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "APP-15",
+      "head": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 1509,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "APP-16",
+      "head": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 1125,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 1
+    },
+    {
+      "repo_id": "APP-17",
+      "head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 171,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "not_applicable_synthetic",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "APP-18",
+      "head": "a88e94b024b5a13653d20034e3db753640371c0e",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 284,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "FW-01",
+      "head": "83c5c24261f986c7b8586eb7093ac9124712f7ab",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 2303,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 11
+    },
+    {
+      "repo_id": "FW-02",
+      "head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 282,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "FW-03",
+      "head": "6f29358f3951a2efd68ac93515be97231cbab325",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 652,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "FW-04",
+      "head": "be95188ed46871d0f4a7352de12745d24498b3d2",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 275,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "FW-09",
+      "head": "a8745e64918984feeda68b7a26e39f193a11e523",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 659,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "FW-10",
+      "head": "0a844e957b1269cd0e1faa61c40e1e0b9f778434",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 294,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "FW-15",
+      "head": "8ec949ad990392a014d95b04236b71181039b952",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 349,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "FW-16",
+      "head": "e5ef0b5ba39ed54205d427ace5f4bba24458f151",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 2675,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 11
+    },
+    {
+      "repo_id": "FW-17",
+      "head": "7a2bc2cbb17a2e9c407958a38dd1d1884ec0a0c8",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 275,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    },
+    {
+      "repo_id": "FW-18",
+      "head": "74db57addbc12585ca258f0e054efa07492078a4",
+      "clean": true,
+      "remote_count": 0,
+      "tracked_files": 943,
+      "root_license_paths": [
+        "LICENSE"
+      ],
+      "source_intake": "verified",
+      "large_file_count": 0,
+      "lfs_pointer_count": 0,
+      "high_confidence_secret_count": 0,
+      "tracked_binary_count": 0
+    }
+  ],
+  "warnings": [
+    {
+      "code": "tracked_binary_inventory",
+      "repo_id": "APP-02",
+      "detail": "[{'path': 'libs/appgrid/keys/com_android_car_launcher_test.jks', 'bytes': 2593}]"
+    },
+    {
+      "code": "tracked_binary_inventory",
+      "repo_id": "APP-16",
+      "detail": "[{'path': 'libs/appgrid/keys/com_android_car_launcher_test.jks', 'bytes': 2593}]"
+    },
+    {
+      "code": "tracked_binary_inventory",
+      "repo_id": "FW-01",
+      "detail": "[{'path': 'tests/BugReportApp/libs/google-api-client-1.30.2.jar', 'bytes': 205702}, {'path': 'tests/BugReportApp/libs/google-api-client-android-1.30.2.jar', 'bytes': 12117}, {'path': 'tests/BugReportApp/libs/google-api-services-storage-v1-rev158-1.25.0.jar', 'bytes': 148822}, {'path': 'tests/BugReportApp/libs/google-http-client-1.30.1.jar', 'bytes': 278541}, {'path': 'tests/BugReportApp/libs/google-http-client-android-1.30.1.jar', 'bytes': 13645}, {'path': 'tests/BugReportApp/libs/google-http-client-jackson2-1.30.1.jar', 'bytes': 8376}, {'path': 'tests/BugReportApp/libs/google-oauth-client-1.30.1.jar', 'bytes': 66723}, {'path': 'tests/BugReportApp/libs/grpc-context-1.19.0.jar', 'bytes': 29016}, {'path': 'tests/BugReportApp/libs/jackson-core-2.9.9.jar', 'bytes': 325632}, {'path': 'tests/BugReportApp/libs/opencensus-api-0.21.0.jar', 'bytes': 351573}, {'path': 'tests/BugReportApp/libs/opencensus-contrib-http-util-0.21.0.jar', 'bytes': 23313}]"
+    },
+    {
+      "code": "tracked_binary_inventory",
+      "repo_id": "FW-16",
+      "detail": "[{'path': 'tests/BugReportApp/libs/google-api-client-1.30.2.jar', 'bytes': 205702}, {'path': 'tests/BugReportApp/libs/google-api-client-android-1.30.2.jar', 'bytes': 12117}, {'path': 'tests/BugReportApp/libs/google-api-services-storage-v1-rev158-1.25.0.jar', 'bytes': 148822}, {'path': 'tests/BugReportApp/libs/google-http-client-1.30.1.jar', 'bytes': 278541}, {'path': 'tests/BugReportApp/libs/google-http-client-android-1.30.1.jar', 'bytes': 13645}, {'path': 'tests/BugReportApp/libs/google-http-client-jackson2-1.30.1.jar', 'bytes': 8376}, {'path': 'tests/BugReportApp/libs/google-oauth-client-1.30.1.jar', 'bytes': 66723}, {'path': 'tests/BugReportApp/libs/grpc-context-1.19.0.jar', 'bytes': 29016}, {'path': 'tests/BugReportApp/libs/jackson-core-2.9.9.jar', 'bytes': 325632}, {'path': 'tests/BugReportApp/libs/opencensus-api-0.21.0.jar', 'bytes': 351573}, {'path': 'tests/BugReportApp/libs/opencensus-contrib-http-util-0.21.0.jar', 'bytes': 23313}]"
+    }
+  ],
+  "issues": [],
+  "valid": true
+}

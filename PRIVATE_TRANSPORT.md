@@ -1,0 +1,54 @@
+# Private GitHub transport
+
+This wrapper repository transports the complete cockpit benchmark without turning the 40 nested
+repositories into Git submodules or mode-160000 gitlinks. Fourteen public-lineage children
+retain an intentional shallow boundary; ordinary Git bundles are not self-contained for those
+repositories, so the transport preserves their complete `.git` metadata directories instead.
+
+## Representation
+
+- `.cockpit-transport/repositories/` contains one path-safe `.git.tar` metadata archive for every
+  APP/FRAMEWORK repository, including shallow markers where applicable.
+- `.cockpit-transport/transport-index.json` binds every archive to its SHA-256, HEAD, branches,
+  tags, shallow state, raw Git tracked-file count, default branch, manifest entry and destination
+  path. This raw count is deliberately distinct from the probe-filtered `manifest.tracked_files`.
+- `Restore-CockpitBenchmark.ps1` verifies all hashes, recreates the 40 independent worktrees,
+  enables repository-local `core.longpaths=true` before checkout, checks refs/HEAD/raw Git
+  tracked-file counts, runs `git fsck --full`, and confirms no child remote exists.
+- `repos/` is intentionally ignored by the outer wrapper. On the authoring computer it contains
+  the live independent repositories; after a fresh wrapper clone it is reconstructed from bundles.
+
+The current 40 metadata archives total 825,149,440 bytes. The largest archive is 58,583,040 bytes,
+below GitHub's 100 MB per-file hard limit. Git LFS is therefore not enabled and no paid LFS quota
+is used. The rejected bundle experiment is documented at
+`reports/validation/private-transport-bundle-rejection.json`.
+
+## Restore after cloning
+
+From PowerShell in the cloned wrapper repository:
+
+```powershell
+.\Restore-CockpitBenchmark.ps1
+```
+
+To restore into another empty root:
+
+```powershell
+.\Restore-CockpitBenchmark.ps1 -DestinationRoot 'D:\Project\Git.temp\cockpit-benchmark-restored'
+```
+
+To retain a machine-readable restore report:
+
+```powershell
+.\Restore-CockpitBenchmark.ps1 -DestinationRoot 'D:\Project\Git.temp\cockpit-benchmark-restored' `
+  -ReportPath '.\reports\validation\private-transport-restore.json'
+```
+
+To exercise one repository only:
+
+```powershell
+.\Restore-CockpitBenchmark.ps1 -DestinationRoot "$env:TEMP\cockpit-restore-probe" -RepositoryId APP-03
+```
+
+Do not give this outer wrapper, `manifest.json`, `oracle/`, `calibration/`, or the transport index
+to an evaluation Agent. The Agent receives exactly one restored repository root.

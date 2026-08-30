@@ -1,0 +1,70 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 729,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 729,
+      "compare_branch": "develop",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 730,
+      "deleted_lines": 0,
+      "identical_blob_files": 729,
+      "identical_blob_ratio": 0.99863,
+      "merge_base": "d793dd6d3164dff8ce75e3cab2e73cb96fe2063a",
+      "union_files": 730
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 729,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 729,
+      "compare_branch": "release/2026.1",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 730,
+      "deleted_lines": 0,
+      "identical_blob_files": 729,
+      "identical_blob_ratio": 0.99863,
+      "merge_base": "d793dd6d3164dff8ce75e3cab2e73cb96fe2063a",
+      "union_files": 730
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 729,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 729,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 730,
+      "deleted_lines": 0,
+      "identical_blob_files": 729,
+      "identical_blob_ratio": 0.99863,
+      "merge_base": "d793dd6d3164dff8ce75e3cab2e73cb96fe2063a",
+      "union_files": 730
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 729,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 729,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 730,
+      "deleted_lines": 0,
+      "identical_blob_files": 729,
+      "identical_blob_ratio": 0.99863,
+      "merge_base": "d793dd6d3164dff8ce75e3cab2e73cb96fe2063a",
+      "union_files": 730
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\soa-gateway",
+  "schema_version": "1.0.0"
+}

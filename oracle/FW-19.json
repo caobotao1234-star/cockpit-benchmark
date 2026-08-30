@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "FW-19",
+  "quality_tier": "low",
+  "comparison_family": null,
+  "review_status": "blind_validated",
+  "evidence": [
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "path": "can-api/src/main/aidl/com/cockpitbench/can/ICanMiddleware.aidl",
+      "symbol_or_line": "ICanMiddleware",
+      "observation": "可编译 Binder contract 将 read/write/frame/callback 全部压入 int/String/Bundle/byte[] 粗粒度表面。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "path": "can-middleware/src/main/java/com/cockpitbench/can/service/CanGlobalRuntime.java",
+      "symbol_or_line": "mutable static runtime",
+      "observation": "signal cache、listener list、executor 和 platform 选择均为 public mutable static，全实例/线程共享。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "solid",
+      "branch": "main",
+      "commit": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "path": "can-middleware/src/main/java/com/cockpitbench/can/service/CanMiddlewareService.java",
+      "symbol_or_line": "constructor, poll, publish, loadDecoder",
+      "observation": "构造启动永久轮询，异常广泛吞噬，callback/listener 生命周期不一致，并以反射选择硬编码 decoder。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "code_duplication",
+      "branch": "main",
+      "commit": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "path": "can-platform-8155/src/main/java/com/cockpitbench/can/platform/p8155/CanDecoder0.java",
+      "symbol_or_line": "paired platform decoder stacks",
+      "observation": "8155/8295 各 20 个正常多行 decoder 形成 780 个确定性近重复对，配置实际引用整套 generation。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "path": "can-tests/src/test/java/com/cockpitbench/can/tests/SignalCodecTest.java",
+      "symbol_or_line": "codec round trip regression",
+      "observation": "测试发现并推动修复真实 bit decode 缺陷，但仅 3 个产品测试，Binder/poller/callback/platform 债未覆盖。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "path": "can-api/src/main/java/com/cockpitbench/can/service/PlatformDecoder.java",
+      "symbol_or_line": "PlatformDecoder module ownership",
+      "observation": "decoder contract 下沉到 can-api，8155/8295 只依赖 API，middleware 组合平台实现，tests 显式依赖 middleware；模块环与缺失依赖被消除。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_low",
+      "reason": "全局 runtime 与粗粒度 service 混合职责。"
+    },
+    {
+      "name": "solid",
+      "status": "expected_low",
+      "reason": "static state、吞异常、轮询泄漏和硬编码并存。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_low",
+      "reason": "AIDL 粗粒度但可编译。"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "expected_low",
+      "reason": "反射平台 decoder 选择。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_low",
+      "reason": "真实回归测试极少且覆盖不均。"
+    },
+    {
+      "name": "code_duplication",
+      "status": "expected_low",
+      "reason": "两代平台复制形成高比例近重复。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "expected_low",
+      "reason": "API/platform/middleware/test 模块依赖已闭合且本地编译通过，但缺 wrapper 与完整 Android 构建。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g5",
+      "blind_id": "blind-807c81bf2180",
+      "repository_head": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "result_path": "calibration/results/g5/blind-807c81bf2180.json",
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T23:58:22.433Z",
+      "finished_at": "2026-08-30T00:02:53.925Z",
+      "wall_clock_seconds": 271.492,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 772,
+        "directories_visited": 45,
+        "tool_calls": 19,
+        "notes": "HEAD 与预期一致。语义审阅覆盖 35 个代表性生产 Java 文件、全部 9 个测试 Java 文件和全部 10 个 AIDL；另外读取构建入口、分支专属配置，并对 XML 清单进行内容哈希与抽样。比较了 main 与 develop、platform/8155、platform/8295、release/2026.1 的有界差异。未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 1.0,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 27,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "仓库声明了细分 API、核心、Binder、权限、回调、平台和测试模块，纯 Java 核心也具有较清晰的领域职责；但模块边界较薄，CAN 中间件同时依赖两个具体平台实现，并以静态全局状态和反射完成组合，依赖方向和生命周期所有权存在跨模块风险。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 2,
+          "reason": "核心代码存在可替换的时钟、动作、观察者和传输接口，但运行时实现反复绕过这些边界：CAN 服务同时承担 Binder、轮询、编解码、平台选择、缓存和回调职责，并依赖静态可变协作者及硬编码反射。这使 SRP、DIP 和 OCP 的落实明显不均。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 2,
+          "reason": "Android Binder/Bundle 使用大体集中在运行时和适配器模块，核心策略可脱离 Android 类型检查；然而实际 CAN Binder 服务使用宽泛 Bundle、硬编码总线与平台、吞掉系统边界异常，且未把权限策略接入调用入口，系统依赖并不充分类型化、可替换或失败感知。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 2,
+          "reason": "反射只出现在一个装载方法中，范围尚算集中；但类名由可变全局字符串和硬编码包名决定，没有显式允许列表、注入式工厂或可诊断错误语义，调用方还直接忽略所有装载异常，测试中也没有覆盖该路径。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "AIDL 提供 oneway 回调、注册/注销方法，并有基于 RemoteCallbackList 的死亡感知辅助类；但主要调用以 Bundle、字符串操作名和原始帧表达，缺少类型化结果、权限声明及明确错误契约。实际服务吞掉 RemoteException 和传输失败，使用静态回调表且没有服务关闭或轮询停止路径。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 2,
+          "reason": "静态文件表明这是依赖外部 Android Gradle Plugin 8.7.3 和 Android SDK 35 的多模块工程，但仓库没有 Gradle wrapper，且受控审阅禁止运行构建或获取外部依赖。因此无法验证这些平台输入是否可用，也无法建立可信的独立编译结果。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "核心测试对工作流顺序、恢复、策略优先级、过期、熔断和篡改等行为有实质断言；但所有 Java 测试仍是进程内单元测试。CAN 测试只覆盖帧防御性复制和编解码，未实例化 Binder 服务、平台解码器、回调死亡、权限或轮询生命周期；TEST_MAPPING 声明的 fixture 集成测试没有对应测试类。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 0,
+          "evidence_count": 4,
+          "reason": "重复是生产代码的主导特征而非局部问题：两个平台各有 20 个近拷贝解码器，同平台内部也通过复制类改变少量常量；大量编号 XML 文件重复整份拓扑和策略结构。另有两套相似调度器逻辑。这会使修复和平台策略变更需要跨大量手写副本同步。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "实际比较显示 develop、两个平台分支和 release/2026.1 均只比 main 多一个两行属性文件，平台/发布差异受到良好限制；发布分支还与本地发布标签指向同一提交。材料仅呈现单提交分叉，尚无后续修复回合、合并或回灌历史，因此复用策略的长期可靠性无法充分证明。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "共享的 PlatformDecoder 接口和 can-middleware 核心提供了一定公共层，分支差异也保持为小型配置；但平台策略在 40 个近拷贝类中展开，中间件同时链接两个平台并用反射硬编码 CanDecoder0，平台映射没有集中为数据或工厂，公共逻辑修改仍需跨平台副本同步。"
+        }
+      ]
+    }
+  ]
+}

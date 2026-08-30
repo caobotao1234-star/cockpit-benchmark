@@ -1,0 +1,54 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 652,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 652,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 653,
+      "deleted_lines": 0,
+      "identical_blob_files": 652,
+      "identical_blob_ratio": 0.998469,
+      "merge_base": "6f29358f3951a2efd68ac93515be97231cbab325",
+      "union_files": 653
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 652,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 652,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 653,
+      "deleted_lines": 0,
+      "identical_blob_files": 652,
+      "identical_blob_ratio": 0.998469,
+      "merge_base": "6f29358f3951a2efd68ac93515be97231cbab325",
+      "union_files": 653
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 652,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 652,
+      "compare_branch": "release/2026.1",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 653,
+      "deleted_lines": 0,
+      "identical_blob_files": 652,
+      "identical_blob_ratio": 0.998469,
+      "merge_base": "6f29358f3951a2efd68ac93515be97231cbab325",
+      "union_files": 653
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-hal-adapter",
+  "schema_version": "1.0.0"
+}

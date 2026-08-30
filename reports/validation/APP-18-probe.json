@@ -1,0 +1,110 @@
+{
+  "branches": [
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "platform/xinqing",
+    "release/sop-2024"
+  ],
+  "build_system": "Gradle",
+  "commit_count": 16,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [
+      "media-platform/src/android/car/media/CarAudioPatchHandle.aidl",
+      "media-platform/src/android/car/media/ICarAudio.aidl",
+      "media-platform/src/android/car/media/ICarMedia.aidl",
+      "media-platform/src/android/car/media/ICarMediaSourceListener.aidl",
+      "media-platform/src/android/car/media/ICarVolumeCallback.aidl"
+    ],
+    "has_binder": [
+      "compat-car-media/src/com/android/car/media/service/MediaConnectorService.java",
+      "media-platform/src/android/car/media/CarAudioManager.java",
+      "media-platform/src/android/car/media/CarMediaManager.java",
+      "media-platform/src/android/car/media/ICarAudio.aidl",
+      "media-platform/src/android/car/media/ICarMedia.aidl",
+      "media-platform/src/android/car/media/ICarMediaSourceListener.aidl",
+      "media-platform/src/android/car/media/ICarVolumeCallback.aidl",
+      "media-platform/test/com/android/car/media/CarMediaServiceTest.java",
+      "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "src/com/android/car/media/localmediaplayer/runtime/hub/MediaReflectionGateway.java"
+    ],
+    "has_hidden_api": [
+      "media-platform/src/android/car/media/CarAudioPatchHandle.java",
+      "media-platform/src/android/car/media/CarMediaManager.java",
+      "media-platform/src/com/android/car/CarMediaService.java",
+      "media-platform/test/com/android/car/media/CarMediaServiceTest.java",
+      "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "src/com/android/car/media/localmediaplayer/runtime/hub/MediaReflectionGateway.java",
+      "src/com/android/car/media/localmediaplayer/runtime/hub/VendorPropertyMirror.java"
+    ],
+    "has_integration_tests": [],
+    "has_reflection": [
+      "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "src/com/android/car/media/localmediaplayer/runtime/hub/MediaReflectionGateway.java",
+      "src/com/android/car/media/localmediaplayer/runtime/hub/VendorPropertyMirror.java"
+    ]
+  },
+  "features": {
+    "has_aidl": true,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": false,
+    "has_reflection": true
+  },
+  "has_push_remote": false,
+  "module_count": 5,
+  "modules": [
+    {
+      "name": ":",
+      "path": "build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":compat-car-media",
+      "path": "compat-car-media/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":media-platform",
+      "path": "media-platform/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":platform-8155",
+      "path": "platform-8155/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":platform-8295",
+      "path": "platform-8295/build.gradle",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.1.0"
+  },
+  "remotes": [],
+  "repo_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\stream-media",
+  "source_files": 180,
+  "source_loc": 10016,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "local-sop-2024.3"
+  ],
+  "tracked_files": 200,
+  "worktree_clean": true
+}

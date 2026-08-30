@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g5",
+  "blind_id": "blind-4ae028ec439b",
+  "repository_head": "61df54de49560c6ab56df4310a9883997731d24d",
+  "prompt_version": "g2-code-health-v2",
+  "prompt_sha256": "78f40d3089fbf8736e64cd266281a6dbb7b5d9e958730e2c1b87b256e1ba3a04",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "sandbox": "workspace-write-single-root",
+  "approval_policy": "never",
+  "network_requested": false,
+  "ephemeral": true,
+  "ignore_user_config": false,
+  "ignore_rules": true,
+  "disabled_features": [
+    "apps",
+    "browser_use",
+    "browser_use_external",
+    "computer_use",
+    "goals",
+    "hooks",
+    "image_generation",
+    "in_app_browser",
+    "memories",
+    "multi_agent",
+    "plugins",
+    "remote_plugin",
+    "skill_search",
+    "tool_suggest",
+    "view_image",
+    "workspace_dependencies"
+  ],
+  "disabled_mcp_servers": [
+    "atlassian",
+    "cua_repl",
+    "node_repl"
+  ],
+  "wall_clock_budget_seconds": 900,
+  "started_at": "2026-08-29T23:39:11.055Z",
+  "finished_at": "2026-08-29T23:43:34.612Z",
+  "wall_clock_seconds": 263.563,
+  "timed_out": false,
+  "exit_code": 0,
+  "clone": {
+    "head": "61df54de49560c6ab56df4310a9883997731d24d",
+    "branches": [
+      "aosp-new/aosp-new/master",
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/2026.1"
+    ],
+    "branch_heads": {
+      "aosp-new/aosp-new/master": "0be103dc50a93e57ff6e0e8064f35f30df8c9e79",
+      "develop": "a54503518975eb5c8e92da1ed2bafd43c12fdb2e",
+      "main": "61df54de49560c6ab56df4310a9883997731d24d",
+      "platform/8155": "1390294f5846891f94946f53304c92a75dd5a8f9",
+      "platform/8295": "a37b013f618fb95de5d2c82261eedc10cd5efc20",
+      "release/2026.1": "4c79ea268543240bd1d7620a28c3c9e2b5d60bae"
+    },
+    "remotes": [],
+    "remote_count": 0,
+    "status": [],
+    "clean": true
+  },
+  "post_run_clone": {
+    "head": "61df54de49560c6ab56df4310a9883997731d24d",
+    "branches": [
+      "aosp-new/aosp-new/master",
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/2026.1"
+    ],
+    "branch_heads": {
+      "aosp-new/aosp-new/master": "0be103dc50a93e57ff6e0e8064f35f30df8c9e79",
+      "develop": "a54503518975eb5c8e92da1ed2bafd43c12fdb2e",
+      "main": "61df54de49560c6ab56df4310a9883997731d24d",
+      "platform/8155": "1390294f5846891f94946f53304c92a75dd5a8f9",
+      "platform/8295": "a37b013f618fb95de5d2c82261eedc10cd5efc20",
+      "release/2026.1": "4c79ea268543240bd1d7620a28c3c9e2b5d60bae"
+    },
+    "remotes": [],
+    "remote_count": 0,
+    "status": [],
+    "clean": true
+  },
+  "immutability_errors": [],
+  "job_repo": "C:\\b\\g5\\20260829T233902Z-blind-4ae028ec439b\\repo",
+  "raw_events": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\raw\\g5\\20260829T233902Z-blind-4ae028ec439b.events.jsonl",
+  "raw_stderr": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\raw\\g5\\20260829T233902Z-blind-4ae028ec439b.stderr.log",
+  "raw_judgment": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\raw\\g5\\20260829T233902Z-blind-4ae028ec439b.judgment.json"
+}

@@ -1,0 +1,105 @@
+{
+  "branches": [
+    "master"
+  ],
+  "build_system": "Mixed",
+  "commit_count": 1,
+  "default_branch": "master",
+  "feature_evidence": {
+    "has_aidl": [],
+    "has_binder": [
+      "car-ui-lib/src/main/java/com/android/car/ui/imewidescreen/CarUiImeWideScreenController.java",
+      "car-ui-lib/src/main/java/com/android/car/ui/toolbar/CarUiEditText.java",
+      "car-ui-lib/src/main/java/com/android/car/ui/toolbar/PrivateImeCommandCallback.java",
+      "car-ui-lib/src/main/java/com/android/car/ui/toolbar/SearchView.java",
+      "lint-baseline.xml"
+    ],
+    "has_hidden_api": [
+      "car-ui-lib/src/main/java/com/android/car/ui/utils/CarUiUtils.java",
+      "car-ui-lib/src/test/Android.bp"
+    ],
+    "has_integration_tests": [
+      "automotive/build.gradle",
+      "automotive/src/androidTest/java/dz/islem/automotive/ExampleInstrumentedTest.kt",
+      "car-ui-lib/build.gradle",
+      "car-ui-lib/src/androidTest/AndroidManifest.xml",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/AlertDialogBuilderTest.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/FakeCursor.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/FocusAreaTest.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/FocusAreaTestActivity.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/FocusAreaTouchModeTest.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/FocusParkingViewTest.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/FocusParkingViewTestActivity.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/FocusParkingViewTouchModeTest.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/RotaryCacheTest.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/TestActivity.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/TestFocusArea.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/actions/LowLevelActions.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/actions/ViewActions.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/actions/WaitForViewAction.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/imewidescreen/CarUiImeWideScreenControllerTest.java",
+      "car-ui-lib/src/androidTest/java/com/android/car/ui/imewidescreen/CarUiImeWideScreenTestActivity.java"
+    ],
+    "has_reflection": [
+      "car-ui-lib/src/main/java/com/android/car/ui/core/CarUi.java",
+      "car-ui-lib/src/main/java/com/android/car/ui/core/CarUiInstaller.java",
+      "car-ui-lib/src/main/java/com/android/car/ui/preference/PreferenceFragment.java",
+      "car-ui-lib/src/main/java/com/android/car/ui/recyclerview/CarUiRecyclerView.java",
+      "car-ui-lib/src/main/java/com/android/car/ui/toolbar/MenuItemRenderer.java",
+      "car-ui-lib/src/main/java/com/android/car/ui/utils/CarUiUtils.java"
+    ]
+  },
+  "features": {
+    "has_aidl": false,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": true
+  },
+  "has_push_remote": true,
+  "module_count": 3,
+  "modules": [
+    {
+      "name": ":automotive",
+      "path": "automotive/build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":car-ui-lib",
+      "path": "car-ui-lib/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": "CarUiRobolectricTestApp",
+      "path": "car-ui-lib/src/test/Android.bp",
+      "type": "android_app"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [
+    {
+      "fetch_urls": [
+        "https://github.com/marianosalvetti/Android-Automotive-Info-App.git"
+      ],
+      "name": "origin",
+      "push_urls": [
+        "https://github.com/marianosalvetti/Android-Automotive-Info-App.git"
+      ]
+    }
+  ],
+  "repo_head": "102ff3378b2e893d27cd36b6e8d91af338ce7ba0",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark-staging\\github-automotive-info-app",
+  "source_files": 276,
+  "source_loc": 20321,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [],
+  "tracked_files": 300,
+  "worktree_clean": true
+}

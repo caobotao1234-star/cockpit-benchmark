@@ -1,0 +1,194 @@
+{
+  "batch": "production-v1-pilot-6-r2",
+  "generated_at": "2026-08-30T07:38:21.074595Z",
+  "instructions": "Run each record in its own repository-only clone; never expose coordinator metadata or truth.",
+  "replicates": [
+    "a",
+    "b"
+  ],
+  "repositories": [
+    {
+      "allowed_input": "repository_only",
+      "blind_id": "prod-015037ace515",
+      "default_branch": "main",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "reports/production-rubric-v1/",
+        "calibration/production/coord/"
+      ],
+      "replicate": "b",
+      "repository_head": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\echo-voice"
+    },
+    {
+      "allowed_input": "repository_only",
+      "blind_id": "prod-100d075fe89a",
+      "default_branch": "main",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "reports/production-rubric-v1/",
+        "calibration/production/coord/"
+      ],
+      "replicate": "b",
+      "repository_head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\thermo-control"
+    },
+    {
+      "allowed_input": "repository_only",
+      "blind_id": "prod-30c8d60890b1",
+      "default_branch": "main",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "reports/production-rubric-v1/",
+        "calibration/production/coord/"
+      ],
+      "replicate": "b",
+      "repository_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\climatix-hvac"
+    },
+    {
+      "allowed_input": "repository_only",
+      "blind_id": "prod-34da3aa527f8",
+      "default_branch": "main",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "reports/production-rubric-v1/",
+        "calibration/production/coord/"
+      ],
+      "replicate": "a",
+      "repository_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-property-service"
+    },
+    {
+      "allowed_input": "repository_only",
+      "blind_id": "prod-3adac208b54b",
+      "default_branch": "main",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "reports/production-rubric-v1/",
+        "calibration/production/coord/"
+      ],
+      "replicate": "a",
+      "repository_head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\thermo-control"
+    },
+    {
+      "allowed_input": "repository_only",
+      "blind_id": "prod-56137b00cb4d",
+      "default_branch": "main",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "reports/production-rubric-v1/",
+        "calibration/production/coord/"
+      ],
+      "replicate": "a",
+      "repository_head": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\echo-voice"
+    },
+    {
+      "allowed_input": "repository_only",
+      "blind_id": "prod-89422d01774b",
+      "default_branch": "main",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "reports/production-rubric-v1/",
+        "calibration/production/coord/"
+      ],
+      "replicate": "a",
+      "repository_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\climatix-hvac"
+    },
+    {
+      "allowed_input": "repository_only",
+      "blind_id": "prod-c53b54b5bb27",
+      "default_branch": "main",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "reports/production-rubric-v1/",
+        "calibration/production/coord/"
+      ],
+      "replicate": "a",
+      "repository_head": "8ec949ad990392a014d95b04236b71181039b952",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\car-runtime-service"
+    },
+    {
+      "allowed_input": "repository_only",
+      "blind_id": "prod-d08c8cd8d353",
+      "default_branch": "main",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "reports/production-rubric-v1/",
+        "calibration/production/coord/"
+      ],
+      "replicate": "b",
+      "repository_head": "a8745e64918984feeda68b7a26e39f193a11e523",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vendor-signal-service"
+    },
+    {
+      "allowed_input": "repository_only",
+      "blind_id": "prod-d8bc11c70925",
+      "default_branch": "main",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "reports/production-rubric-v1/",
+        "calibration/production/coord/"
+      ],
+      "replicate": "b",
+      "repository_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-property-service"
+    },
+    {
+      "allowed_input": "repository_only",
+      "blind_id": "prod-d9bdc16fd44f",
+      "default_branch": "main",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "reports/production-rubric-v1/",
+        "calibration/production/coord/"
+      ],
+      "replicate": "b",
+      "repository_head": "8ec949ad990392a014d95b04236b71181039b952",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\car-runtime-service"
+    },
+    {
+      "allowed_input": "repository_only",
+      "blind_id": "prod-f22d5e2cbd1c",
+      "default_branch": "main",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "reports/production-rubric-v1/",
+        "calibration/production/coord/"
+      ],
+      "replicate": "a",
+      "repository_head": "a8745e64918984feeda68b7a26e39f193a11e523",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vendor-signal-service"
+    }
+  ],
+  "rubric_version": "production-code-health-v1",
+  "schema_version": "1.0.0",
+  "status": "ready_for_isolated_evaluator"
+}

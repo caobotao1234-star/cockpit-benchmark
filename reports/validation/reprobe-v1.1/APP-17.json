@@ -1,0 +1,95 @@
+{
+  "branches": [
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "release/0.9"
+  ],
+  "build_system": "Gradle",
+  "commit_count": 19,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [
+      "vehicle/src/main/aidl/com/cockpitbench/thermo/vehicle/ILegacyClimateService.aidl"
+    ],
+    "has_binder": [
+      "app/src/main/java/com/cockpitbench/thermo/ClimateCenterActivity.kt",
+      "app/src/main/java/com/cockpitbench/thermo/CockpitClimateService.kt",
+      "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/VendorClimateManager.kt"
+    ],
+    "has_hidden_api": [
+      "app/src/main/java/com/cockpitbench/thermo/legacy/AutoDemistCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/CabinDryingCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPreheatCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/CompressorProtectionCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/DriverOnlyCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/EcoClimateCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/EnergyPredictionCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/FootwellBalanceCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/FragranceScheduleCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/FrontComfortCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/HumidityControlCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/ParkingVentilationCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/PassengerComfortCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/PurifierScheduleCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/RearComfortCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/RearDefrostCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/RemoteClimateCoordinator.kt",
+      "app/src/main/java/com/cockpitbench/thermo/legacy/SeatCoordinationCoordinator.kt"
+    ],
+    "has_integration_tests": [
+      "app/build.gradle.kts",
+      "app/src/androidTest/java/com/cockpitbench/thermo/ClimateLaunchTest.kt"
+    ],
+    "has_reflection": [
+      "app/src/androidTest/java/com/cockpitbench/thermo/ClimateLaunchTest.kt",
+      "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/VendorClimateManager.kt",
+      "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/Sa8155ClimateBridge.kt",
+      "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/Sa8295ClimateBridge.kt",
+      "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/XinqingClimateBridge.kt"
+    ]
+  },
+  "features": {
+    "has_aidl": true,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": true
+  },
+  "has_push_remote": false,
+  "module_count": 2,
+  "modules": [
+    {
+      "name": ":app",
+      "path": "app/build.gradle.kts",
+      "type": "android_app"
+    },
+    {
+      "name": ":vehicle",
+      "path": "vehicle/build.gradle.kts",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.1.0"
+  },
+  "remotes": [],
+  "repo_head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\thermo-control",
+  "source_files": 166,
+  "source_loc": 11981,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "v0.9.0"
+  ],
+  "tracked_files": 171,
+  "worktree_clean": true
+}

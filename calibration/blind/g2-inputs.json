@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g2",
+  "generated_at": "2026-08-29T07:19:22.203413Z",
+  "status": "ready_for_external_evaluator",
+  "instructions": "Submit each repository independently. Do not expose the delivery parent, manifest, coordinator key, quality labels, or oracle to the evaluation Agent.",
+  "repositories": [
+    {
+      "blind_id": "blind-5ce21b8b7a91",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\car-runtime-service",
+      "repository_head": "8ec949ad990392a014d95b04236b71181039b952",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-a67e29070d18",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\climatix-hvac",
+      "repository_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-ab52d4fbc4a5",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-property-service",
+      "repository_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    },
+    {
+      "blind_id": "blind-d90d8f90078a",
+      "repository_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\thermo-control",
+      "repository_head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+      "default_branch": "main",
+      "allowed_input": "repository_only",
+      "forbidden_inputs": [
+        "manifest.json",
+        "manifest.md",
+        "oracle/",
+        "calibration/coord/"
+      ]
+    }
+  ]
+}

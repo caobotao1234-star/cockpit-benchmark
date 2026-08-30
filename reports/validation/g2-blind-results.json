@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g2",
+  "result_count": 4,
+  "expected_count": 4,
+  "comparisons": [
+    {
+      "family": "hvac-controlled-pair",
+      "high_repo_id": "APP-03",
+      "low_repo_id": "APP-17",
+      "high_mean": 2.111111,
+      "low_mean": 0.444444,
+      "gap": 1.666667,
+      "ordering_passed": true
+    },
+    {
+      "family": "vehicle-property-controlled-pair",
+      "high_repo_id": "FW-02",
+      "low_repo_id": "FW-15",
+      "high_mean": 2.222222,
+      "low_mean": 0.666667,
+      "gap": 1.555555,
+      "ordering_passed": true
+    }
+  ],
+  "issues": [],
+  "valid": true
+}

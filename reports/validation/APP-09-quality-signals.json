@@ -1,0 +1,543 @@
+{
+  "aidl_interfaces": [],
+  "broad_catches": 16,
+  "broad_catches_per_kloc": 0.59453,
+  "code_source_files": 219,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 4,
+      "global_state_sites": 0,
+      "hidden_api_sites": 5,
+      "is_test": false,
+      "logical_lines": 357,
+      "methods": 26,
+      "path": "system-shell/src/com/android/systemui/car/qc/ProfileSwitcher.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 5,
+      "is_test": false,
+      "logical_lines": 485,
+      "methods": 42,
+      "path": "system-shell/src/com/android/systemui/car/userswitcher/UserGridRecyclerView.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 6,
+      "is_test": true,
+      "logical_lines": 256,
+      "methods": 14,
+      "path": "system-shell/tests/src/com/android/systemui/car/qc/ProfileSwitcherTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 5,
+      "is_test": false,
+      "logical_lines": 541,
+      "methods": 39,
+      "path": "system-shell/src/com/android/systemui/car/systembar/CarSystemBar.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 3,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 171,
+      "methods": 18,
+      "path": "system-shell/src/com/android/systemui/wm/BarControlPolicy.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 95,
+      "methods": 6,
+      "path": "system-shell/tests/src/com/android/systemui/car/voicerecognition/ConnectedDeviceVoiceRecognitionNotifierTest.java",
+      "placeholder_test_sites": 4,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 416,
+      "methods": 37,
+      "path": "system-shell/src/com/android/systemui/car/systembar/SystemBarConfigs.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 1
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": true,
+      "logical_lines": 380,
+      "methods": 22,
+      "path": "system-shell/tests/src/com/android/systemui/car/systembar/CarSystemBarTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 298,
+      "methods": 27,
+      "path": "system-shell/src/com/android/systemui/car/systembar/CarSystemBarButton.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 143,
+      "methods": 9,
+      "path": "system-shell/tests/src/com/android/AAAPlusPlusVerifySysuiRequiredTestPropertiesTest.java",
+      "placeholder_test_sites": 1,
+      "reflection_sites": 1
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 140,
+      "methods": 11,
+      "path": "system-shell/src/com/android/systemui/car/statusicon/StatusIconGroupContainerController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 2
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 71,
+      "methods": 12,
+      "path": "system-shell/src/com/android/systemui/car/systembar/AssitantButton.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": true,
+      "logical_lines": 233,
+      "methods": 19,
+      "path": "system-shell/tests/src/com/android/systemui/car/systembar/SystemBarConfigsTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 2,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 150,
+      "methods": 14,
+      "path": "DirectRenderingCluster/src/android/car/cluster/NavigationFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 128,
+      "methods": 8,
+      "path": "system-shell/src/com/android/systemui/car/userswitcher/UserSwitchTransitionViewController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": true,
+      "logical_lines": 102,
+      "methods": 4,
+      "path": "system-shell/tests/src/com/android/systemui/car/notification/NotificationVisibilityLoggerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 98,
+      "methods": 7,
+      "path": "system-shell/src/com/android/systemui/car/notification/NotificationVisibilityLogger.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 2,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 93,
+      "methods": 7,
+      "path": "DirectRenderingCluster/src/android/car/cluster/sensors/Sensors.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 68,
+      "methods": 5,
+      "path": "system-shell/src/com/android/systemui/car/window/SystemUIOverlayWindowManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 2
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 31,
+      "methods": 2,
+      "path": "system-shell/src/com/android/systemui/car/systembar/ButtonSelectionStateListener.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [
+    {
+      "file_count": 2,
+      "paths": [
+        "ClusterOsDouble/src/com/android/car/cluster/sensors/Sensor.java",
+        "DirectRenderingCluster/src/android/car/cluster/sensors/Sensor.java"
+      ]
+    }
+  ],
+  "global_state_sites": 8,
+  "global_state_sites_per_kloc": 0.297265,
+  "hidden_api_sites": 54,
+  "hidden_api_sites_per_kloc": 2.00654,
+  "largest_code_files": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 795,
+      "methods": 82,
+      "path": "system-shell/tests/src/com/android/systemui/car/window/OverlayViewGlobalStateControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 574,
+      "methods": 55,
+      "path": "system-shell/tests/src/com/android/systemui/car/systembar/CarSystemBarControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 555,
+      "methods": 49,
+      "path": "system-shell/src/com/android/systemui/car/systembar/CarSystemBarController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 548,
+      "methods": 37,
+      "path": "system-shell/src/com/android/systemui/car/volume/CarVolumeDialogImpl.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 5,
+      "is_test": false,
+      "logical_lines": 541,
+      "methods": 39,
+      "path": "system-shell/src/com/android/systemui/car/systembar/CarSystemBar.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 512,
+      "methods": 51,
+      "path": "system-shell/src/com/android/systemui/car/window/OverlayPanelViewController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 5,
+      "is_test": false,
+      "logical_lines": 485,
+      "methods": 42,
+      "path": "system-shell/src/com/android/systemui/car/userswitcher/UserGridRecyclerView.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 446,
+      "methods": 18,
+      "path": "system-shell/src/com/android/systemui/car/privacy/PrivacyChip.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 436,
+      "methods": 35,
+      "path": "system-shell/src/com/android/systemui/car/notification/NotificationPanelViewController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 416,
+      "methods": 37,
+      "path": "system-shell/src/com/android/systemui/car/systembar/SystemBarConfigs.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 1
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 413,
+      "methods": 45,
+      "path": "system-shell/src/com/android/systemui/car/keyguard/CarKeyguardViewController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 398,
+      "methods": 43,
+      "path": "system-shell/tests/src/com/android/systemui/car/window/OverlayPanelViewControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 384,
+      "methods": 27,
+      "path": "DirectRenderingCluster/src/android/car/cluster/MainClusterActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 382,
+      "methods": 30,
+      "path": "DirectRenderingCluster/src/android/car/cluster/ClusterRenderingService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": true,
+      "logical_lines": 380,
+      "methods": 22,
+      "path": "system-shell/tests/src/com/android/systemui/car/systembar/CarSystemBarTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 371,
+      "methods": 29,
+      "path": "system-shell/src/com/android/systemui/car/statusicon/StatusIconPanelController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 4,
+      "global_state_sites": 0,
+      "hidden_api_sites": 5,
+      "is_test": false,
+      "logical_lines": 357,
+      "methods": 26,
+      "path": "system-shell/src/com/android/systemui/car/qc/ProfileSwitcher.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 320,
+      "methods": 12,
+      "path": "DirectRenderingCluster/src/android/car/cluster/NavStateController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 318,
+      "methods": 11,
+      "path": "ClusterOsDouble/src/com/android/car/cluster/view/NavStateController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 298,
+      "methods": 27,
+      "path": "system-shell/src/com/android/systemui/car/systembar/CarSystemBarButton.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 26912,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 2180,
+  "near_duplicate_file_ratio": 0.054795,
+  "near_duplicate_files_at_0_80": [
+    "ClusterHomeSample/src/com/android/car/cluster/home/FakeFreeNavigationActivity.java",
+    "ClusterOsDouble/src/com/android/car/cluster/sensors/Sensor.java",
+    "ClusterOsDouble/src/com/android/car/cluster/view/CueView.java",
+    "ClusterOsDouble/src/com/android/car/cluster/view/ImageResolver.java",
+    "ClusterOsDouble/src/com/android/car/cluster/view/LaneView.java",
+    "ClusterOsDouble/src/com/android/car/cluster/view/NavStateController.java",
+    "DirectRenderingCluster/src/android/car/cluster/CueView.java",
+    "DirectRenderingCluster/src/android/car/cluster/FakeFreeNavigationActivity.java",
+    "DirectRenderingCluster/src/android/car/cluster/ImageResolver.java",
+    "DirectRenderingCluster/src/android/car/cluster/LaneView.java",
+    "DirectRenderingCluster/src/android/car/cluster/NavStateController.java",
+    "DirectRenderingCluster/src/android/car/cluster/sensors/Sensor.java"
+  ],
+  "near_duplicate_pair_count_at_0_80": 6,
+  "near_duplicate_pairs": [
+    {
+      "logical_lines_a": 24,
+      "logical_lines_b": 24,
+      "path_a": "ClusterOsDouble/src/com/android/car/cluster/sensors/Sensor.java",
+      "path_b": "DirectRenderingCluster/src/android/car/cluster/sensors/Sensor.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 45,
+      "logical_lines_b": 44,
+      "path_a": "ClusterHomeSample/src/com/android/car/cluster/home/FakeFreeNavigationActivity.java",
+      "path_b": "DirectRenderingCluster/src/android/car/cluster/FakeFreeNavigationActivity.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 187,
+      "logical_lines_b": 190,
+      "path_a": "ClusterOsDouble/src/com/android/car/cluster/view/LaneView.java",
+      "path_b": "DirectRenderingCluster/src/android/car/cluster/LaneView.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 99,
+      "logical_lines_b": 103,
+      "path_a": "ClusterOsDouble/src/com/android/car/cluster/view/ImageResolver.java",
+      "path_b": "DirectRenderingCluster/src/android/car/cluster/ImageResolver.java",
+      "similarity": 0.910448
+    },
+    {
+      "logical_lines_a": 97,
+      "logical_lines_b": 92,
+      "path_a": "ClusterOsDouble/src/com/android/car/cluster/view/CueView.java",
+      "path_b": "DirectRenderingCluster/src/android/car/cluster/CueView.java",
+      "similarity": 0.882353
+    },
+    {
+      "logical_lines_a": 318,
+      "logical_lines_b": 320,
+      "path_a": "ClusterOsDouble/src/com/android/car/cluster/view/NavStateController.java",
+      "path_b": "DirectRenderingCluster/src/android/car/cluster/NavStateController.java",
+      "similarity": 0.868613
+    }
+  ],
+  "placeholder_test_sites": 5,
+  "production_files_over_500_lines": 4,
+  "production_logical_lines": 18901,
+  "production_source_files": 170,
+  "reflection_sites": 7,
+  "reflection_sites_per_kloc": 0.260107,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\prism-cluster",
+  "repository_head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+  "schema_version": "1.1.0",
+  "test_logical_lines": 8011,
+  "test_source_files": 49,
+  "test_to_production_file_ratio": 0.288235,
+  "tracked_files": 788
+}

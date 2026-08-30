@@ -1,0 +1,21 @@
+{
+  "clone_smoke": false,
+  "issues": [
+    {
+      "code": "manifest_mismatch",
+      "message": "commit_count: manifest=19, actual=22",
+      "repo_id": "FW-02",
+      "severity": "error"
+    },
+    {
+      "code": "calibration_incomplete",
+      "message": "repositories not calibrated: ['APP-12', 'APP-20', 'FW-08', 'FW-16']",
+      "severity": "error"
+    }
+  ],
+  "mode": "final",
+  "probed_count": 40,
+  "repository_count": 40,
+  "root": "D:\\project\\Git.temp\\cockpit-benchmark",
+  "valid": false
+}

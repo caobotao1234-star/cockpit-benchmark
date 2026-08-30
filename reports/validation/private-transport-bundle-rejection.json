@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "document_type": "private_transport_rejected_representation",
+  "status": "rejected",
+  "representation": "git bundle per child repository",
+  "reason": "27 public-lineage repositories retain intentional shallow boundaries. A bundle verified inside its source repository can depend on shallow prerequisite objects and fail when fetched into an empty repository.",
+  "first_reproduced_failure": {
+    "repo_id": "APP-01",
+    "operation": "fetch bundle into an empty independent repository",
+    "result": "failed",
+    "error_class": "bundle did not send all necessary objects"
+  },
+  "replacement": "transport schema 2.0.0 archives each complete path-safe .git metadata directory, including the shallow marker, and reconstructs the worktree with repository-local core.longpaths=true",
+  "replacement_full_restore": {
+    "repository_count": 40,
+    "result": "passed",
+    "fresh_destination": "D:/Project/Git.temp/cockpit-transport-full-restore-16c63790f8354268a066a98e7dd0c270"
+  },
+  "upload_disposition": "Rejected bundles and their obsolete index are excluded from the private wrapper and are not uploaded.",
+  "local_quarantine": "D:/Project/Git.temp/cockpit-transport-rejected-bundles-20260830 (recoverable; generated artifacts only)"
+}

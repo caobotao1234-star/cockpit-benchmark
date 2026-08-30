@@ -1,0 +1,70 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 1560,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 1560,
+      "compare_branch": "develop",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 1561,
+      "deleted_lines": 0,
+      "identical_blob_files": 1560,
+      "identical_blob_ratio": 0.999359,
+      "merge_base": "c6f4a1efa1836f9181742740e6e8b32caf962eb2",
+      "union_files": 1561
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 1560,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 1560,
+      "compare_branch": "release/2026.1",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 1561,
+      "deleted_lines": 0,
+      "identical_blob_files": 1560,
+      "identical_blob_ratio": 0.999359,
+      "merge_base": "c6f4a1efa1836f9181742740e6e8b32caf962eb2",
+      "union_files": 1561
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 1560,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 1560,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 1561,
+      "deleted_lines": 0,
+      "identical_blob_files": 1560,
+      "identical_blob_ratio": 0.999359,
+      "merge_base": "c6f4a1efa1836f9181742740e6e8b32caf962eb2",
+      "union_files": 1561
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 1560,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 1560,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 1561,
+      "deleted_lines": 0,
+      "identical_blob_files": 1560,
+      "identical_blob_ratio": 0.999359,
+      "merge_base": "c6f4a1efa1836f9181742740e6e8b32caf962eb2",
+      "union_files": 1561
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\drive-center",
+  "schema_version": "1.0.0"
+}

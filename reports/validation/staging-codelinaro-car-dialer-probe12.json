@@ -1,0 +1,111 @@
+{
+  "branches": [
+    "aosp-new/aosp-new/master"
+  ],
+  "build_system": "Mixed",
+  "commit_count": 1,
+  "default_branch": "aosp-new/aosp-new/master",
+  "feature_evidence": {
+    "has_aidl": [],
+    "has_binder": [
+      "framework/fake/src/com/android/car/dialer/framework/FakeTelecomManager.java",
+      "framework/fake/src/com/android/car/dialer/framework/InCallServiceProxy.java",
+      "src/com/android/car/dialer/notification/NotificationService.java",
+      "src/com/android/car/dialer/sms/MessagingService.java",
+      "src/com/android/car/dialer/telecom/InCallServiceImpl.java",
+      "src/com/android/car/dialer/telecom/LocalCallHandler.java",
+      "src/com/android/car/dialer/telecom/UiCallManager.java",
+      "tests/unittests/src/com/android/car/dialer/telecom/InCallServiceImplTest.java"
+    ],
+    "has_hidden_api": [],
+    "has_integration_tests": [
+      "build.gradle",
+      "tests/instrutests/Android.bp",
+      "tests/instrutests/src/com/android/car/dialer/integration/DialerHiltTestRunner.java",
+      "tests/unittests/Android.bp",
+      "tests/unittests/AndroidManifest.xml",
+      "tests/unittests/AndroidTest.xml"
+    ],
+    "has_reflection": [
+      "framework/fake/src/com/android/car/dialer/framework/testdata/DataParser.java"
+    ]
+  },
+  "features": {
+    "has_aidl": false,
+    "has_binder": true,
+    "has_hidden_api": false,
+    "has_integration_tests": true,
+    "has_reflection": true
+  },
+  "has_push_remote": true,
+  "module_count": 8,
+  "modules": [
+    {
+      "name": ":",
+      "path": "build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":framework",
+      "path": "framework/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":testing",
+      "path": "testing/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": "CarDialerApp",
+      "path": "Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarDialerAppEmulatorBuild",
+      "path": "Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "car-dialer-fake-framework-dep",
+      "path": "framework/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "car-dialer-framework-dep",
+      "path": "framework/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "car-dialer-testing",
+      "path": "testing/Android.bp",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [
+    {
+      "fetch_urls": [
+        "https://git.codelinaro.org/clo/la/platform/packages/apps/Car/Dialer.git"
+      ],
+      "name": "origin",
+      "push_urls": [
+        "https://git.codelinaro.org/clo/la/platform/packages/apps/Car/Dialer.git"
+      ]
+    }
+  ],
+  "repo_head": "cd6a5eb69f2116f6ec13fa932ab7ddba1ca94530",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark-staging\\codelinaro-car-dialer",
+  "source_files": 290,
+  "source_loc": 19328,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [],
+  "tracked_files": 301,
+  "worktree_clean": true
+}

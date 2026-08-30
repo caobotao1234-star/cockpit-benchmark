@@ -1,0 +1,555 @@
+{
+  "build_inventory": {
+    "build_system": "Soong",
+    "dependency_probe_errors": [],
+    "internal_dependency_edges": [
+      {
+        "from": "cockpit-vehicle-property-platform@Android.bp",
+        "line": 30,
+        "path": "Android.bp",
+        "to": "cockpit-vehicle-property-service@Android.bp",
+        "token": "cockpit-vehicle-property-service"
+      },
+      {
+        "from": "cockpit-vehicle-property-service@Android.bp",
+        "line": 22,
+        "path": "Android.bp",
+        "to": "cockpit-vehicle-property-api@Android.bp",
+        "token": "cockpit-vehicle-property-api"
+      },
+      {
+        "from": "cockpit-vehicle-property-support@Android.bp",
+        "line": 37,
+        "path": "Android.bp",
+        "to": "cockpit-vehicle-property-api@Android.bp",
+        "token": "cockpit-vehicle-property-api"
+      },
+      {
+        "from": "cockpit-vehicle-property-unit-tests@Android.bp",
+        "line": 44,
+        "path": "Android.bp",
+        "to": "cockpit-vehicle-property-platform@Android.bp",
+        "token": "cockpit-vehicle-property-platform"
+      },
+      {
+        "from": "cockpit-vehicle-property-unit-tests@Android.bp",
+        "line": 44,
+        "path": "Android.bp",
+        "to": "cockpit-vehicle-property-service@Android.bp",
+        "token": "cockpit-vehicle-property-service"
+      }
+    ],
+    "manifest_consistent": true,
+    "module_count": 5,
+    "modules": [
+      {
+        "name": "cockpit-vehicle-property-api",
+        "path": "Android.bp",
+        "type": "java_sdk_library"
+      },
+      {
+        "name": "cockpit-vehicle-property-platform",
+        "path": "Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "cockpit-vehicle-property-service",
+        "path": "Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "cockpit-vehicle-property-support",
+        "path": "Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "cockpit-vehicle-property-unit-tests",
+        "path": "Android.bp",
+        "type": "java_library"
+      }
+    ],
+    "standard_named_module_count": 0
+  },
+  "document_type": "repository_preflight",
+  "facts_sha256": "600774e4979d48f544d45ec2fac93e678e92a24d93271a19b321d6cdb3f5e193",
+  "generation": {
+    "extractor_name": "production_preflight_facts",
+    "extractor_version": "1.1.0",
+    "generator_name": "prepare_production_preflight",
+    "generator_version": "1.1.0",
+    "probe_name": "cockpit-repo-probe",
+    "probe_version": "1.4.0"
+  },
+  "git_inventory": {
+    "branch_classifications": {
+      "develop": {
+        "category": "development",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "main": {
+        "category": "mainline",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8155": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8295": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "release/2.0": {
+        "category": "release",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": true,
+        "is_sop": false
+      }
+    },
+    "branches": {
+      "develop": "6859685fce304cd2924c1e473674f46b0f0793cc",
+      "main": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+      "platform/8155": "18b022763c0613d48e9ba26f7dbe9c544e3edb2c",
+      "platform/8295": "3df4b8002423f8a6bd297e68d2e09bddb6c4d371",
+      "release/2.0": "e7fb96ec8cd72ed1717dcb6e5faaac39c8eb40be"
+    },
+    "default_branch": "main",
+    "tags": {
+      "v2.0.0": "a102a3247eae629bbca8ba281d1fb996143871fb"
+    }
+  },
+  "kind": "FRAMEWORK",
+  "manifest_binding": {
+    "head_matches": true,
+    "manifest_repo_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+    "path_within_delivery_root": true,
+    "working_tree_clean": true
+  },
+  "missing_contract_leaf_count": 14,
+  "missing_contract_leaves": [
+    {
+      "category": "quality",
+      "leaf": "code_duplication",
+      "method": "deterministic",
+      "reason": "Production duplication-rate detector, denominator, and exclusion contract are absent; only the threshold table is known.",
+      "rule_id": "quality.duplication.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "integration_test",
+      "method": "external_data",
+      "reason": "GBOP APP and FRAMEWORK/embedded response schemas and status mappings are absent.",
+      "rule_id": "quality.integration_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "code_quality",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.code_quality.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "unit_test",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.unit_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "system_api_dependency",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production symbol list, scan scope, and deduplication rules are absent.",
+      "rule_id": "android_framework.system_api_dependency.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "hidden_api_reflection",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production matcher and scan/exclusion rules are absent.",
+      "rule_id": "android_framework.hidden_api_reflection.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "aidl_sdk_call",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but AIDL/SDK call-site identification and deduplication rules are absent.",
+      "rule_id": "android_framework.aidl_sdk_call.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "single_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.single_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "cross_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.cross_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "platform_upgrade",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.platform_upgrade.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "device_specificity",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.device_specificity.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_independence",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.independence.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_strategy",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.strategy.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "release_rollback",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.rollback.v1",
+      "score": null,
+      "status": "failed"
+    }
+  ],
+  "platform_reuse": {
+    "comparisons": [
+      {
+        "added_lines": 1,
+        "base_branch": "main",
+        "base_files": 282,
+        "base_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.003533569,
+        "changed_files": 1,
+        "common_path_files": 282,
+        "compare_branch": "platform/8155",
+        "compare_commits_since_merge_base": 2,
+        "compare_files": 283,
+        "compare_head": "18b022763c0613d48e9ba26f7dbe9c544e3edb2c",
+        "deleted_lines": 0,
+        "identical_blob_files": 282,
+        "identical_blob_ratio": 0.996466,
+        "line_delta": 1,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 283
+      },
+      {
+        "added_lines": 1,
+        "base_branch": "main",
+        "base_files": 282,
+        "base_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.003533569,
+        "changed_files": 1,
+        "common_path_files": 282,
+        "compare_branch": "platform/8295",
+        "compare_commits_since_merge_base": 2,
+        "compare_files": 283,
+        "compare_head": "3df4b8002423f8a6bd297e68d2e09bddb6c4d371",
+        "deleted_lines": 0,
+        "identical_blob_files": 282,
+        "identical_blob_ratio": 0.996466,
+        "line_delta": 1,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 283
+      },
+      {
+        "added_lines": 1,
+        "base_branch": "main",
+        "base_files": 282,
+        "base_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "release",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": true,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.003533569,
+        "changed_files": 1,
+        "common_path_files": 282,
+        "compare_branch": "release/2.0",
+        "compare_commits_since_merge_base": 2,
+        "compare_files": 283,
+        "compare_head": "e7fb96ec8cd72ed1717dcb6e5faaac39c8eb40be",
+        "deleted_lines": 0,
+        "identical_blob_files": 282,
+        "identical_blob_ratio": 0.996466,
+        "line_delta": 1,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 283
+      }
+    ],
+    "manifest_comparison_count": 3,
+    "status": "consistent"
+  },
+  "quality_signal_candidate": {
+    "artifact_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+    "artifact_sha256": "5d668f6bc1f14b355b44897758185a7942eb2d07921b1cb40fe45cd63b0268e0",
+    "current_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+    "metrics": {
+      "broad_catches": 17,
+      "broad_catches_per_kloc": 0.329521,
+      "code_source_files": 265,
+      "global_state_sites": 4,
+      "global_state_sites_per_kloc": 0.077534,
+      "hidden_api_sites": 90,
+      "hidden_api_sites_per_kloc": 1.744524,
+      "logical_lines": 51590,
+      "method_declarations": 3393,
+      "metric_schema_version": "1.0.0",
+      "near_duplicate_file_ratio": 0.007547,
+      "near_duplicate_pair_count_at_0_80": 1,
+      "placeholder_test_sites": 5,
+      "production_files_over_500_lines": 25,
+      "production_logical_lines": 36477,
+      "production_source_files": 197,
+      "reflection_sites": 4,
+      "reflection_sites_per_kloc": 0.077534,
+      "test_logical_lines": 15113,
+      "test_source_files": 68,
+      "test_to_production_file_ratio": 0.345178,
+      "tracked_files": 282
+    },
+    "non_scoring": true,
+    "reason": "Candidate-only quality_signals metrics match current HEAD; not a production score.",
+    "source_path": "reports/validation/FW-02-quality-signals.json",
+    "status": "current"
+  },
+  "relative_path": "repos/framework/vehicle-property-service",
+  "repo_id": "FW-02",
+  "repository_head": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+  "rubric_version": "production-code-health-v1",
+  "schema_version": "1.0.0",
+  "source_inventory": {
+    "aidl_paths": [
+      "api/src/android/car/CarOccupantZoneManager.aidl",
+      "api/src/android/car/IAppFocus.aidl",
+      "api/src/android/car/IAppFocusListener.aidl",
+      "api/src/android/car/IAppFocusOwnershipCallback.aidl",
+      "api/src/android/car/ICar.aidl",
+      "api/src/android/car/ICarBluetoothUserService.aidl",
+      "api/src/android/car/ICarBugreportCallback.aidl",
+      "api/src/android/car/ICarBugreportService.aidl",
+      "api/src/android/car/ICarConnectionListener.aidl",
+      "api/src/android/car/ICarInfo.aidl",
+      "api/src/android/car/ICarOccupantZone.aidl",
+      "api/src/android/car/ICarOccupantZoneCallback.aidl",
+      "api/src/android/car/ICarProjection.aidl",
+      "api/src/android/car/ICarProjectionKeyEventHandler.aidl",
+      "api/src/android/car/ICarProjectionStatusListener.aidl",
+      "api/src/android/car/ICarResultReceiver.aidl",
+      "api/src/android/car/ICarUserService.aidl",
+      "api/src/android/car/IExperimentalCar.aidl",
+      "api/src/android/car/IExperimentalCarHelper.aidl",
+      "api/src/android/car/IExperimentalCarUserService.aidl",
+      "api/src/android/car/ILocationManagerProxy.aidl",
+      "api/src/android/car/IPerUserCarService.aidl",
+      "api/src/android/car/content/pm/CarAppBlockingPolicy.aidl",
+      "api/src/android/car/content/pm/ICarAppBlockingPolicy.aidl",
+      "api/src/android/car/content/pm/ICarAppBlockingPolicySetter.aidl",
+      "api/src/android/car/content/pm/ICarPackageManager.aidl",
+      "api/src/android/car/diagnostic/CarDiagnosticEvent.aidl",
+      "api/src/android/car/diagnostic/ICarDiagnostic.aidl",
+      "api/src/android/car/diagnostic/ICarDiagnosticEventListener.aidl",
+      "api/src/android/car/drivingstate/CarDrivingStateEvent.aidl",
+      "api/src/android/car/drivingstate/CarUxRestrictions.aidl",
+      "api/src/android/car/drivingstate/CarUxRestrictionsConfiguration.aidl",
+      "api/src/android/car/drivingstate/ICarDrivingState.aidl",
+      "api/src/android/car/drivingstate/ICarDrivingStateChangeListener.aidl",
+      "api/src/android/car/drivingstate/ICarUxRestrictionsChangeListener.aidl",
+      "api/src/android/car/drivingstate/ICarUxRestrictionsManager.aidl",
+      "api/src/android/car/hardware/CarPropertyConfig.aidl",
+      "api/src/android/car/hardware/CarPropertyValue.aidl",
+      "api/src/android/car/hardware/CarSensorConfig.aidl",
+      "api/src/android/car/hardware/CarSensorEvent.aidl",
+      "api/src/android/car/hardware/ICarSensor.aidl",
+      "api/src/android/car/hardware/ICarSensorEventListener.aidl",
+      "api/src/android/car/hardware/power/CarPowerPolicy.aidl",
+      "api/src/android/car/hardware/power/CarPowerPolicyFilter.aidl",
+      "api/src/android/car/hardware/power/ICarPower.aidl",
+      "api/src/android/car/hardware/power/ICarPowerPolicyListener.aidl",
+      "api/src/android/car/hardware/power/ICarPowerStateListener.aidl",
+      "api/src/android/car/hardware/property/CarPropertyEvent.aidl",
+      "api/src/android/car/hardware/property/ICarProperty.aidl",
+      "api/src/android/car/hardware/property/ICarPropertyEventListener.aidl"
+    ],
+    "ci": {
+      "standard_ci_paths": [],
+      "test_mapping_paths": [
+        "TEST_MAPPING"
+      ]
+    },
+    "rollback_candidates": [],
+    "test_paths": [
+      "support/src/com/android/car/hal/test/AidlVehiclePropConfigBuilder.java",
+      "support/src/com/android/car/hal/test/AidlVehiclePropValueBuilder.java",
+      "support/src/com/android/car/hal/test/DiagnosticEventBuilder.java",
+      "support/src/com/android/car/hal/test/DiagnosticJson.java",
+      "support/src/com/android/car/hal/test/DiagnosticJsonReader.java",
+      "support/src/com/android/car/hal/test/HidlVehiclePropConfigBuilder.java",
+      "support/src/com/android/car/hal/test/HidlVehiclePropValueBuilder.java",
+      "support/src/com/android/car/hal/test/Utils.java",
+      "tests/integration/com/android/car/CarPropertyManagerTest.java",
+      "tests/integration/com/android/car/CarPropertyServiceTest.java",
+      "tests/integration/vehiclehal/Android.bp",
+      "tests/integration/vehiclehal/AndroidManifest.xml",
+      "tests/integration/vehiclehal/assets/car_diagnostic_test.json",
+      "tests/integration/vehiclehal/assets/car_hvac_set_test.json",
+      "tests/integration/vehiclehal/assets/car_hvac_test.json",
+      "tests/integration/vehiclehal/assets/car_info_test.json",
+      "tests/integration/vehiclehal/assets/car_property_test.json",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/CarDiagnosticTest.java",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/CarPropertyTest.java",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/E2eCarTestBase.java",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/E2ePerformanceTest.java",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/JsonVhalEventGenerator.java",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/LinearVhalEventGenerator.java",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/NativePipeHelper.java",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/Obd2FreezeFrameTest.java",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/Obd2LiveFrameTest.java",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/Utils.java",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/VhalEventGenerator.java",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/VhalEventVerifier.java",
+      "tests/integration/vehiclehal/src/com/android/car/vehiclehal/test/VhalJsonReader.java",
+      "tests/unit/com/android/car/AbstractICarServiceHelperStub.java",
+      "tests/unit/com/android/car/AppFocusServiceTest.java",
+      "tests/unit/com/android/car/BuiltinPackageDependencyUnitTest.java",
+      "tests/unit/com/android/car/CarBugreportManagerServiceTest.java",
+      "tests/unit/com/android/car/CarInputRotaryServiceTest.java",
+      "tests/unit/com/android/car/CarInputServiceTest.java",
+      "tests/unit/com/android/car/CarLocationServiceTest.java",
+      "tests/unit/com/android/car/CarLogTest.java",
+      "tests/unit/com/android/car/CarNightServiceTest.java",
+      "tests/unit/com/android/car/CarOccupantZoneServiceTest.java",
+      "tests/unit/com/android/car/CarProjectionManagerUnitTest.java",
+      "tests/unit/com/android/car/CarProjectionServiceTest.java",
+      "tests/unit/com/android/car/CarPropertyServiceUnitTest.java",
+      "tests/unit/com/android/car/CarServiceUtilsTest.java",
+      "tests/unit/com/android/car/LocationManagerProxyTest.java",
+      "tests/unit/com/android/car/PermissionHelperTest.java",
+      "tests/unit/com/android/car/SetMultimapTest.java",
+      "tests/unit/com/android/car/SlidingWindowTest.java",
+      "tests/unit/com/android/car/SparseArrayStreamTest.java",
+      "tests/unit/com/android/car/UptimeTrackerTest.java",
+      "tests/unit/com/android/car/UtilsTest.java",
+      "tests/unit/com/android/car/VehicleStubTest.java",
+      "tests/unit/com/android/car/hal/BidirectionalSparseIntArrayTest.java",
+      "tests/unit/com/android/car/hal/ClusterHalServiceTest.java",
+      "tests/unit/com/android/car/hal/DiagnosticHalServiceTest.java",
+      "tests/unit/com/android/car/hal/DiagnosticJsonReaderTest.java",
+      "tests/unit/com/android/car/hal/DiagnosticJsonTest.java",
+      "tests/unit/com/android/car/hal/DiagnosticJsonTestUtils.java",
+      "tests/unit/com/android/car/hal/EvsHalServiceTest.java",
+      "tests/unit/com/android/car/hal/HalClientUnitTest.java",
+      "tests/unit/com/android/car/hal/HalPropConfigTest.java",
+      "tests/unit/com/android/car/hal/HalPropValueMatcher.java",
+      "tests/unit/com/android/car/hal/HalPropValueTest.java",
+      "tests/unit/com/android/car/hal/InputHalServiceTest.java",
+      "tests/unit/com/android/car/hal/MockedPowerHalService.java",
+      "tests/unit/com/android/car/hal/PowerHalServiceTest.java",
+      "tests/unit/com/android/car/hal/PropertyHalServiceIdsTest.java",
+      "tests/unit/com/android/car/hal/PropertyHalServiceTest.java",
+      "tests/unit/com/android/car/hal/TimeHalServiceTest.java",
+      "tests/unit/com/android/car/hal/UserHalHelperTest.java",
+      "tests/unit/com/android/car/hal/UserHalServiceTest.java",
+      "tests/unit/com/android/car/hal/VehicleHalTest.java",
+      "tests/unit/com/android/car/hal/VehicleHalTestingHelper.java",
+      "tests/unit/com/android/car/hal/VmsHalServiceTest.java",
+      "tests/unit/com/cockpitbench/vehicleproperty/VehiclePropertyPolicyTest.java"
+    ],
+    "version": {
+      "api_version_candidates": [],
+      "semantic_version_tags": [
+        "v2.0.0"
+      ],
+      "version_file_candidates": [
+        "Android.bp",
+        "support/upstream-build/Android.bp",
+        "tests/integration/vehiclehal/Android.bp"
+      ]
+    }
+  }
+}

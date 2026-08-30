@@ -1,0 +1,70 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 488,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 488,
+      "compare_branch": "develop",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 489,
+      "deleted_lines": 0,
+      "identical_blob_files": 488,
+      "identical_blob_ratio": 0.997955,
+      "merge_base": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+      "union_files": 489
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 488,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 488,
+      "compare_branch": "release/2026.1",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 489,
+      "deleted_lines": 0,
+      "identical_blob_files": 488,
+      "identical_blob_ratio": 0.997955,
+      "merge_base": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+      "union_files": 489
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 488,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 488,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 489,
+      "deleted_lines": 0,
+      "identical_blob_files": 488,
+      "identical_blob_ratio": 0.997955,
+      "merge_base": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+      "union_files": 489
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 488,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 488,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 489,
+      "deleted_lines": 0,
+      "identical_blob_files": 488,
+      "identical_blob_ratio": 0.997955,
+      "merge_base": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+      "union_files": 489
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\vehicle-insight",
+  "schema_version": "1.0.0"
+}

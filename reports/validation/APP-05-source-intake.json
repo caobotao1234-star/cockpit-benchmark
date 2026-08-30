@@ -1,0 +1,163 @@
+{
+  "actual_head": "e4537531ded2613e49b369bd241fe431c3155ed4",
+  "applicable_license_files": [],
+  "expected_head": "e4537531ded2613e49b369bd241fe431c3155ed4",
+  "head_matches": true,
+  "is_shallow": true,
+  "is_sparse": false,
+  "large_files": [],
+  "present_tracked_files": 494,
+  "probe": {
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/2026.1"
+    ],
+    "build_system": "Gradle",
+    "commit_count": 10,
+    "default_branch": "main",
+    "feature_evidence": {
+      "has_aidl": [
+        "platform-services/upstream/car-lib/src/android/car/ICarBluetoothUserService.aidl",
+        "platform-services/upstream/car-lib/src/android/car/ICarProjection.aidl",
+        "platform-services/upstream/car-lib/src/android/car/ICarProjectionKeyEventHandler.aidl",
+        "platform-services/upstream/car-lib/src/android/car/ICarProjectionStatusListener.aidl",
+        "voice-assist/src/com/android/car/telephony/common/Contact.aidl",
+        "voice-assist/src/com/android/car/voicecontrol/ILocalService.aidl",
+        "voice-assist/src/com/android/car/voicecontrol/ILocalServiceListener.aidl"
+      ],
+      "has_binder": [
+        "framework/fake/src/com/android/car/dialer/framework/FakeTelecomManager.java",
+        "framework/fake/src/com/android/car/dialer/framework/InCallServiceProxy.java",
+        "platform-services/upstream/car-lib/src/android/car/CarProjectionManager.java",
+        "platform-services/upstream/car-lib/src/android/car/ICarProjection.aidl",
+        "platform-services/upstream/service/src/com/android/car/CarProjectionService.java",
+        "platform-services/upstream/service/src/com/android/car/bluetooth/BluetoothProfileInhibitManager.java",
+        "platform-services/upstream/service/src/com/android/car/bluetooth/CarBluetoothService.java",
+        "platform-services/upstream/tests/carservice_unit_test/src/com/android/car/CarProjectionManagerUnitTest.java",
+        "platform-services/upstream/tests/carservice_unit_test/src/com/android/car/CarProjectionServiceTest.java",
+        "src/com/android/car/dialer/notification/NotificationService.java",
+        "src/com/android/car/dialer/sms/MessagingService.java",
+        "src/com/android/car/dialer/telecom/InCallServiceImpl.java",
+        "src/com/android/car/dialer/telecom/LocalCallHandler.java",
+        "src/com/android/car/dialer/telecom/UiCallManager.java",
+        "tests/unittests/src/com/android/car/dialer/telecom/InCallServiceImplTest.java",
+        "voice-assist/src/com/android/car/voicecontrol/InteractionService.java",
+        "voice-assist/src/com/android/car/voicecontrol/InteractionServiceClient.java"
+      ],
+      "has_hidden_api": [
+        "platform-services/upstream/car-lib/src/android/car/CarProjectionManager.java",
+        "platform-services/upstream/service/src/com/android/car/CarProjectionService.java",
+        "platform-services/upstream/service/src/com/android/car/audio/CarAudioFocus.java",
+        "platform-services/upstream/service/src/com/android/car/audio/CarZonesAudioFocus.java",
+        "platform-services/upstream/service/src/com/android/car/audio/FocusInteraction.java",
+        "platform-services/upstream/service/src/com/android/car/bluetooth/BluetoothConnectionRetryManager.java",
+        "platform-services/upstream/service/src/com/android/car/bluetooth/BluetoothDeviceManager.java",
+        "platform-services/upstream/service/src/com/android/car/bluetooth/BluetoothPowerPolicy.java",
+        "platform-services/upstream/service/src/com/android/car/bluetooth/BluetoothProfileInhibitManager.java",
+        "platform-services/upstream/service/src/com/android/car/bluetooth/CarBluetoothService.java",
+        "platform-services/upstream/tests/carservice_unit_test/src/com/android/car/bluetooth/AbstractExtendedMockitoBluetoothTestCase.java"
+      ],
+      "has_integration_tests": [
+        "build.gradle",
+        "tests/instrutests/src/com/android/car/dialer/integration/DialerHiltTestRunner.java",
+        "tests/unittests/AndroidManifest.xml",
+        "tests/unittests/AndroidTest.xml"
+      ],
+      "has_reflection": [
+        "framework/fake/src/com/android/car/dialer/framework/testdata/DataParser.java",
+        "platform-services/upstream/tests/carservice_unit_test/src/com/android/car/bluetooth/BluetoothDeviceConnectionPolicyTest.java"
+      ]
+    },
+    "features": {
+      "has_aidl": true,
+      "has_binder": true,
+      "has_hidden_api": true,
+      "has_integration_tests": true,
+      "has_reflection": true
+    },
+    "has_push_remote": false,
+    "module_count": 7,
+    "modules": [
+      {
+        "name": ":",
+        "path": "build.gradle",
+        "type": "android_app"
+      },
+      {
+        "name": ":framework",
+        "path": "framework/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":link-runtime",
+        "path": "link-runtime/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":link-tests",
+        "path": "link-tests/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":platform-services",
+        "path": "platform-services/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":testing",
+        "path": "testing/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":voice-assist",
+        "path": "voice-assist/build.gradle",
+        "type": "android_library"
+      }
+    ],
+    "probe": {
+      "name": "cockpit-repo-probe",
+      "version": "1.2.0"
+    },
+    "remotes": [],
+    "repo_head": "e4537531ded2613e49b369bd241fe431c3155ed4",
+    "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\link-phone",
+    "source_files": 394,
+    "source_loc": 33507,
+    "stats_method": {
+      "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+      "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+      "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+    },
+    "tags": [
+      "link-phone-2026.1"
+    ],
+    "tracked_files": 410,
+    "worktree_clean": true
+  },
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\link-phone",
+  "root_license_evidence": [
+    {
+      "detected_license": "Apache-2.0",
+      "path": "LICENSE"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_header_files": 261,
+  "source_header_license_counts": {
+    "Apache-2.0": 260,
+    "GPL-2.0": 0,
+    "GPL-3.0": 0,
+    "MIT": 0,
+    "unclassified": 1
+  },
+  "source_url": "https://git.codelinaro.org/clo/la/platform/packages/apps/Car/Dialer",
+  "sparse_missing_files": 0,
+  "submodule_entries": 0,
+  "tracked_files": 494,
+  "unclassified_header_sample": [
+    "src/com/android/car/dialer/ui/activecall/RingingCallControllerBarFragment.java"
+  ]
+}

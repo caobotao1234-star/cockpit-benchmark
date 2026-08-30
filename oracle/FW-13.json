@@ -1,0 +1,209 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "FW-13",
+  "quality_tier": "medium",
+  "comparison_family": null,
+  "review_status": "blind_validated",
+  "evidence": [
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
+      "path": "Android.bp",
+      "symbol_or_line": "14 Soong modules",
+      "observation": "共享 foundation 与 projection API/runtime/tests 边界清晰，domain 内容不复用 HVAC/media 文件。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
+      "path": "projection-api/src/com/cockpitbench/projection/IProjectionService.aidl",
+      "symbol_or_line": "IProjectionService",
+      "observation": "typed device/capability/connect/disconnect/callback Binder contract 生成并与 runtime 编译通过。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "solid",
+      "branch": "main",
+      "commit": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
+      "path": "projection-runtime/src/com/cockpitbench/projection/service/ProjectionBinderService.java",
+      "symbol_or_line": "connect and disconnect",
+      "observation": "session/protocol/transport/diagnostics collaborators 明确，但锁内 transport/callback、未 close transport 和空 capability 构成中等生命周期债。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
+      "path": "projection-tests/src/com/cockpitbench/projection/tests/SessionMachineTest.java",
+      "symbol_or_line": "state transition tests",
+      "observation": "session/protocol/frame/diagnostics 共 6 个行为测试通过并由 TEST_MAPPING 注册；真实手机/USB/Wi-Fi 协议未运行。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    },
+    {
+      "dimension": "system_api_dependency",
+      "branch": "main",
+      "commit": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
+      "path": "projection-runtime/config/security_00.xml",
+      "symbol_or_line": "projection security catalog",
+      "observation": "设备 trust/certificate/driving/zone policy 真实存在，但 runtime 只直接检查 device.trusted 子集。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    },
+    {
+      "dimension": "compilation_independence",
+      "branch": "main",
+      "commit": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
+      "path": "binder-runtime/src/main/java/com/cockpitbench/frameworkfoundation/binder/BinderDispatchTable.java",
+      "symbol_or_line": "source-safe dispatch key",
+      "observation": "共享 Binder dispatch composite key 不含原始 NUL，并已针对每个产品独立 javac 编译。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_medium",
+      "reason": "清晰模块伴随配置装载与生命周期缺口。"
+    },
+    {
+      "name": "solid",
+      "status": "expected_medium",
+      "reason": "窄组件与锁内协议调用共存。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_high",
+      "reason": "typed projection AIDL 可编译。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_medium",
+      "reason": "行为测试存在，真实设备协议缺失。"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "not_applicable",
+      "reason": "生产代码未使用反射或 hidden API；Soong platform_apis 与未消费的 fallback 字符串不构成调用证据。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "完整模块需 Android/BSP。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g5",
+      "blind_id": "blind-7abeaf0eb14f",
+      "repository_head": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
+      "result_path": "calibration/results/g5/blind-7abeaf0eb14f.json",
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T23:53:54.138Z",
+      "finished_at": "2026-08-29T23:58:28.753Z",
+      "wall_clock_seconds": 274.615,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 90,
+        "directories_visited": 20,
+        "tool_calls": 22,
+        "notes": "HEAD 与预期 SHA 一致。静态检查覆盖 33 个生产 Java 文件、全部 14 个 AIDL 文件、全部 11 个测试 Java 文件、15 个 Soong 入口、代表性配置族以及三个 release/platform 分支；未运行构建、脚本或网络操作。 Runner normalized tool_calls from Codex JSONL to 22 (evaluator self-report: 23); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 1.75,
+      "scored_dimension_count": 8,
+      "failed_dimension_count": 2,
+      "evidence_anchor_count": 27,
+      "dimension_evidence_coverage": 0.9,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 2,
+          "reason": "仓库按 API、共享核心、Binder、权限、回调、调度、持久化、配置、适配器、观测及投屏运行时拆分，投屏服务也通过构造注入组合状态机、协议、传输和诊断。主要缺口是多个基础模块仅有单个实现文件且 Soong 依赖关系很浅，部分边界仍以 Bundle 或大而全的核心类承载。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 2,
+          "reason": "生产代码普遍使用窄接口和构造注入，时钟、动作、传输、权限门和存储均可替换；但 WorkflowEngine 同时承担图验证、执行、等待、补偿和观察者发布，Binder 服务也把同步、传输、状态迁移和回调置于一个锁定流程中，职责分离仍不均匀。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "Android/Binder 依赖主要集中在 API、Binder、回调和适配器边界，权限检查可注入且跨用户策略集中、默认拒绝。局限是所有 Soong 模块均声明 platform_apis，包括纯 Java 核心；错误语义也常退化为通用异常或忽略 RemoteException。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "not_applicable",
+          "score": null,
+          "evidence_count": 0,
+          "reason": "对全部生产 Java/AIDL 扫描 Class.forName、反射方法获取、ServiceManager、SystemProperties 及 hidden API 常见入口，未发现隐藏 API 或反射调用。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "投屏边界使用类型化 Parcelable、单向回调、权限门和 RemoteCallbackList，具备基本生命周期处理；但另一套框架契约大量使用 Bundle 和字符串分派，契约缺少明确版本/稳定性声明。同步 connect 在 Binder 锁内执行传输并广播，断开未关闭传输，回调异常被静默忽略，失败只映射为通用 IllegalStateException。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 2,
+          "reason": "仓库仅提供依赖 AOSP/AAOS Soong 环境的 Android.bp，所有模块均使用 platform_apis；没有 Gradle、Maven 或独立 SDK 构建边界。受控评估又禁止运行构建且工作区不含所需平台输入，因此无法验证独立编译。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "核心单元测试包含状态、失败、授权、补偿和确定性断言，投屏测试也覆盖协议拒绝和状态错误；但没有 Binder 服务、权限门、死亡通知、跨进程或真实传输的行为测试。更严重的是测试被声明为 java_library，framework-testkit 的 srcs 不包含实际 src/test 路径，TEST_MAPPING 名称也没有对应的已声明测试模块。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 5,
+          "reason": "存在多组近复制的手写生产逻辑：两个调度器共享任务表、替换、完成清理和 close 流程，四个 Parcelable 也重复相同序列化模板。此外，大量编号 XML 家族重复结构和周期性数据，仓库未提供生成器或生成标记，维护成本显著。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "三个分支都以当前 main 为共同基点且仅增加一个两行属性文件，release 与平台差异确实保持为有界配置，没有复制源码。当前历史每个分支只有一个提交，尚无持续修复回合、回合并或复用行为可证明长期策略达到系统化水平。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 3,
+          "reason": "两个平台分支都直接继承相同 main，只通过两行属性选择平台和传输版本；生产代码提供统一适配器注册表与共享投屏运行时，没有平台专属 Java 副本。当前可见范围内，平台变化隔离明确且公共实现复用系统化。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "branches": [
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "release/2026.1"
+  ],
+  "build_system": "Mixed",
+  "commit_count": 9,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [
+      "platform/services-car/car-lib/src/android/car/hardware/power/CarPowerPolicy.aidl",
+      "platform/services-car/car-lib/src/android/car/hardware/power/CarPowerPolicyFilter.aidl",
+      "platform/services-car/car-lib/src/android/car/hardware/power/ICarPower.aidl",
+      "platform/services-car/car-lib/src/android/car/hardware/power/ICarPowerPolicyListener.aidl",
+      "platform/services-car/car-lib/src/android/car/hardware/power/ICarPowerStateListener.aidl",
+      "platform/services-car/car-lib/src/android/car/media/CarAudioPatchHandle.aidl",
+      "platform/services-car/car-lib/src/android/car/media/ICarAudio.aidl",
+      "platform/services-car/car-lib/src/android/car/media/ICarMedia.aidl",
+      "platform/services-car/car-lib/src/android/car/media/ICarMediaSourceListener.aidl",
+      "platform/services-car/car-lib/src/android/car/media/ICarVolumeCallback.aidl",
+      "platform/services-car/car-lib/src/android/car/user/IUserNotice.aidl",
+      "platform/services-car/car-lib/src/android/car/user/IUserNoticeUI.aidl",
+      "platform/services-car/car-lib/src/android/car/user/UserCreationResult.aidl",
+      "platform/services-car/car-lib/src/android/car/user/UserIdentificationAssociationResponse.aidl",
+      "platform/services-car/car-lib/src/android/car/user/UserLifecycleEventFilter.aidl",
+      "platform/services-car/car-lib/src/android/car/user/UserRemovalResult.aidl",
+      "platform/services-car/car-lib/src/android/car/user/UserStartResult.aidl",
+      "platform/services-car/car-lib/src/android/car/user/UserStopResult.aidl",
+      "platform/services-car/car-lib/src/android/car/user/UserSwitchResult.aidl",
+      "platform/services-car/car-lib/src/android/car/watchdog/ICarWatchdogService.aidl"
+    ],
+    "has_binder": [
+      "components/dialer/framework/fake/src/com/android/car/dialer/framework/FakeTelecomManager.java",
+      "components/dialer/framework/fake/src/com/android/car/dialer/framework/InCallServiceProxy.java",
+      "components/dialer/src/com/android/car/dialer/notification/NotificationService.java",
+      "components/dialer/src/com/android/car/dialer/sms/MessagingService.java",
+      "components/dialer/src/com/android/car/dialer/telecom/InCallServiceImpl.java",
+      "components/dialer/src/com/android/car/dialer/telecom/LocalCallHandler.java",
+      "components/dialer/src/com/android/car/dialer/telecom/UiCallManager.java",
+      "components/dialer/tests/unittests/src/com/android/car/dialer/telecom/InCallServiceImplTest.java",
+      "components/launcher/app/src/com/android/car/carlauncher/homescreen/audio/telecom/InCallServiceImpl.java",
+      "components/launcher/app/src/com/android/car/carlauncher/recents/CarQuickStepService.java",
+      "components/launcher/app/tests/src/com/android/car/carlauncher/homescreen/audio/telecom/InCallServiceImplTest.java",
+      "components/launcher/libs/appgrid/lib/src/com/android/car/carlauncher/datasources/ControlCenterMirroringDataSource.kt",
+      "platform/services-car/car-lib/src/android/car/hardware/power/CarPowerManager.java",
+      "platform/services-car/car-lib/src/android/car/hardware/power/ICarPowerPolicyListener.aidl",
+      "platform/services-car/car-lib/src/android/car/hardware/power/ICarPowerStateListener.aidl",
+      "platform/services-car/car-lib/src/android/car/media/CarAudioManager.java",
+      "platform/services-car/car-lib/src/android/car/media/CarMediaManager.java",
+      "platform/services-car/car-lib/src/android/car/media/ICarAudio.aidl",
+      "platform/services-car/car-lib/src/android/car/media/ICarMedia.aidl",
+      "platform/services-car/car-lib/src/android/car/media/ICarMediaSourceListener.aidl"
+    ],
+    "has_hidden_api": [
+      "Android.bp",
+      "components/launcher/app/Android.bp",
+      "components/launcher/app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+      "components/launcher/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+      "components/launcher/app/src/com/android/car/carlauncher/homescreen/audio/InCallModel.java",
+      "components/launcher/app/src/com/android/car/carlauncher/homescreen/audio/MediaViewModel.java",
+      "components/launcher/app/src/com/android/car/carlauncher/recents/CarQuickStepService.java",
+      "components/launcher/app/src/com/android/car/carlauncher/recents/view/RecentsRecyclerView.java",
+      "components/launcher/app/src/com/android/car/carlauncher/taskstack/TaskStackChangeListeners.java",
+      "components/launcher/app/tests/Android.bp",
+      "components/launcher/app/tests/src/com/android/car/carlauncher/homescreen/audio/InCallModelTest.java",
+      "components/launcher/docklib/Android.bp",
+      "components/launcher/docklib/src/com/android/car/docklib/data/DockAppItem.kt",
+      "components/launcher/docklib/tests/Android.bp",
+      "components/launcher/libs/appgrid/Android.bp",
+      "components/launcher/libs/appgrid/lib/tests/Android.bp",
+      "platform/services-car/car-lib/src/android/car/hardware/power/CarPowerManager.java",
+      "platform/services-car/car-lib/src/android/car/media/CarAudioPatchHandle.java",
+      "platform/services-car/car-lib/src/android/car/media/CarMediaManager.java",
+      "platform/services-car/car-lib/src/android/car/user/CarUserManager.java"
+    ],
+    "has_integration_tests": [
+      "TEST_MAPPING",
+      "components/dialer/build.gradle",
+      "components/dialer/tests/instrutests/Android.bp",
+      "components/dialer/tests/instrutests/src/com/android/car/dialer/integration/DialerHiltTestRunner.java",
+      "components/dialer/tests/unittests/Android.bp",
+      "components/dialer/tests/unittests/AndroidManifest.xml",
+      "components/dialer/tests/unittests/AndroidTest.xml",
+      "components/launcher/app/tests/Android.bp",
+      "components/launcher/app/tests/AndroidManifest.xml",
+      "components/launcher/app/tests/AndroidTest.xml",
+      "components/launcher/docklib-util/build.gradle",
+      "components/launcher/docklib-util/tests/Android.bp",
+      "components/launcher/docklib-util/tests/AndroidManifest.xml",
+      "components/launcher/docklib/tests/Android.bp",
+      "components/launcher/docklib/tests/AndroidManifest.xml",
+      "components/launcher/libs/appgrid/app/build.gradle",
+      "components/launcher/libs/appgrid/lib/build.gradle",
+      "components/launcher/libs/appgrid/lib/tests/Android.bp",
+      "components/launcher/libs/appgrid/lib/tests/AndroidManifest.xml",
+      "components/launcher/libs/car-launcher-common/build.gradle"
+    ],
+    "has_reflection": [
+      "components/dialer/framework/fake/src/com/android/car/dialer/framework/testdata/DataParser.java",
+      "components/launcher/app/src/com/android/car/carlauncher/CarLauncher.java",
+      "components/launcher/app/src/com/android/car/carlauncher/ControlBarActivity.java",
+      "components/launcher/docklib/tests/src/com/android/car/docklib/data/DockProtoDataControllerTest.kt",
+      "components/launcher/libs/appgrid/lib/robotests/src/com/android/car/carlauncher/datasources/UXRestrictionsDataSourceImplTest.kt",
+      "src/com/android/systemui/car/qc/SystemUIQCView.java",
+      "src/com/android/systemui/car/statusicon/StatusIconGroupContainerController.java",
+      "src/com/android/systemui/car/systembar/SystemBarConfigs.java",
+      "src/com/android/systemui/car/window/SystemUIOverlayWindowManager.java",
+      "tests/src/com/android/AAAPlusPlusVerifySysuiRequiredTestPropertiesTest.java"
+    ]
+  },
+  "features": {
+    "has_aidl": true,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": true
+  },
+  "has_push_remote": false,
+  "module_count": 27,
+  "modules": [
+    {
+      "name": ":components:dialer",
+      "path": "components/dialer/build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":components:dialer:framework",
+      "path": "components/dialer/framework/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":components:dialer:testing",
+      "path": "components/dialer/testing/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":components:launcher",
+      "path": "components/launcher/build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":components:launcher:docklib-util",
+      "path": "components/launcher/docklib-util/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":components:launcher:libs:appgrid:app",
+      "path": "components/launcher/libs/appgrid/app/build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":components:launcher:libs:appgrid:lib",
+      "path": "components/launcher/libs/appgrid/lib/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":components:launcher:libs:car-launcher-common",
+      "path": "components/launcher/libs/car-launcher-common/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":components:launcher:libs:hidden-apis-compat:hidden-apis-disabled",
+      "path": "components/launcher/libs/hidden-apis-compat/hidden-apis-disabled/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": "CarSystemUI",
+      "path": "Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarSystemUI-core",
+      "path": "Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarSystemUI-tests",
+      "path": "Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarDialerApp",
+      "path": "components/dialer/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarDialerAppEmulatorBuild",
+      "path": "components/dialer/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "car-dialer-fake-framework-dep",
+      "path": "components/dialer/framework/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "car-dialer-framework-dep",
+      "path": "components/dialer/framework/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "car-dialer-testing",
+      "path": "components/dialer/testing/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarLauncher",
+      "path": "components/launcher/app/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarLauncher-core",
+      "path": "components/launcher/app/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarDockUtilLib",
+      "path": "components/launcher/docklib-util/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarDockLib",
+      "path": "components/launcher/docklib/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarAppGrid-lib",
+      "path": "components/launcher/libs/appgrid/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarAppGridTestApp",
+      "path": "components/launcher/libs/appgrid/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarLauncherCommon",
+      "path": "components/launcher/libs/car-launcher-common/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarSystemUISampleOneRRO",
+      "path": "samples/sample1/rro/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarSystemUISampleTwoRRO",
+      "path": "samples/sample2/rro/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarSystemUISampleThreeRRO",
+      "path": "samples/sample3/rro/Android.bp",
+      "type": "android_app"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [],
+  "repo_head": "bb44fbd4ba79dfc1c1195b4da468a23e63a23e8d",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\cockpit-shell",
+  "source_files": 1282,
+  "source_loc": 122603,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "cockpit-shell-2026.1"
+  ],
+  "tracked_files": 1335,
+  "worktree_clean": true
+}

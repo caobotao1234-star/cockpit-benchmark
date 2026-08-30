@@ -1,0 +1,54 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 1,
+      "base_branch": "main",
+      "base_files": 282,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 282,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 2,
+      "compare_files": 283,
+      "deleted_lines": 0,
+      "identical_blob_files": 282,
+      "identical_blob_ratio": 0.996466,
+      "merge_base": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+      "union_files": 283
+    },
+    {
+      "added_lines": 1,
+      "base_branch": "main",
+      "base_files": 282,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 282,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 2,
+      "compare_files": 283,
+      "deleted_lines": 0,
+      "identical_blob_files": 282,
+      "identical_blob_ratio": 0.996466,
+      "merge_base": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+      "union_files": 283
+    },
+    {
+      "added_lines": 1,
+      "base_branch": "main",
+      "base_files": 282,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 282,
+      "compare_branch": "release/2.0",
+      "compare_commits_since_merge_base": 2,
+      "compare_files": 283,
+      "deleted_lines": 0,
+      "identical_blob_files": 282,
+      "identical_blob_ratio": 0.996466,
+      "merge_base": "6428daa9cbcd11a087f58871a20fda0a0ce282fd",
+      "union_files": 283
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-property-service",
+  "schema_version": "1.0.0"
+}

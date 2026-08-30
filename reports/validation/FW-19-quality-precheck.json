@@ -1,0 +1,520 @@
+{
+  "aidl_interfaces": [
+    {
+      "method_count": 5,
+      "path": "can-api/src/main/aidl/com/cockpitbench/can/ICanMiddleware.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitGateway.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkManager.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "can-api/src/main/aidl/com/cockpitbench/can/ICanCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitEventListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IConfigurationListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IHealthListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IMetricsSink.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/ITransactionListener.aidl"
+    }
+  ],
+  "broad_catches": 6,
+  "broad_catches_per_kloc": 1.773574,
+  "code_source_files": 88,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 4,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 6,
+      "methods": 5,
+      "path": "can-middleware/src/main/java/com/cockpitbench/can/service/CanMiddlewareService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 378,
+      "methods": 32,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/WorkflowEngine.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 311,
+      "methods": 27,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/SessionSupervisor.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 285,
+      "methods": 15,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/RecordReconciler.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 284,
+      "methods": 18,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/PolicyRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 282,
+      "methods": 14,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/RoleAuthorizationGraph.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 249,
+      "methods": 16,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/ProviderHealthMonitor.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 241,
+      "methods": 13,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/CrossUserAccessBoundary.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 239,
+      "methods": 10,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/DeviceTrustEngine.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 231,
+      "methods": 6,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/AuditRetentionPlanner.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 118,
+      "methods": 4,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/PolicyRuntimeTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 116,
+      "methods": 6,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/WorkflowEngineTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 115,
+      "methods": 5,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/RoleAuthorizationGraphTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 109,
+      "methods": 5,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/RecordReconcilerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 95,
+      "methods": 6,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/DeviceTrustEngineTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 6,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/ProviderHealthMonitorTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 63,
+      "methods": 5,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/SessionSupervisorTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 9,
+      "methods": 4,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/InMemoryRepository.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 6,
+      "methods": 3,
+      "path": "binder-runtime/src/main/java/com/cockpitbench/frameworkfoundation/binder/BinderDispatchTable.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 6,
+      "methods": 3,
+      "path": "callback-runtime/src/main/java/com/cockpitbench/frameworkfoundation/callback/DeathAwareCallbacks.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [],
+  "global_state_sites": 0,
+  "global_state_sites_per_kloc": 0.0,
+  "hidden_api_sites": 0,
+  "hidden_api_sites_per_kloc": 0.0,
+  "largest_code_files": [
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 378,
+      "methods": 32,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/WorkflowEngine.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 311,
+      "methods": 27,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/SessionSupervisor.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 285,
+      "methods": 15,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/RecordReconciler.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 284,
+      "methods": 18,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/PolicyRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 282,
+      "methods": 14,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/RoleAuthorizationGraph.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 249,
+      "methods": 16,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/ProviderHealthMonitor.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 241,
+      "methods": 13,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/CrossUserAccessBoundary.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 239,
+      "methods": 10,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/DeviceTrustEngine.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 231,
+      "methods": 6,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/AuditRetentionPlanner.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 118,
+      "methods": 4,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/PolicyRuntimeTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 116,
+      "methods": 6,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/WorkflowEngineTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 115,
+      "methods": 5,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/RoleAuthorizationGraphTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 109,
+      "methods": 5,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/RecordReconcilerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 95,
+      "methods": 6,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/DeviceTrustEngineTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 6,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/ProviderHealthMonitorTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 63,
+      "methods": 5,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/SessionSupervisorTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 9,
+      "methods": 4,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/InMemoryRepository.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 6,
+      "methods": 3,
+      "path": "binder-runtime/src/main/java/com/cockpitbench/frameworkfoundation/binder/BinderDispatchTable.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 6,
+      "methods": 3,
+      "path": "callback-runtime/src/main/java/com/cockpitbench/frameworkfoundation/callback/DeathAwareCallbacks.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 4,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 6,
+      "methods": 5,
+      "path": "can-middleware/src/main/java/com/cockpitbench/can/service/CanMiddlewareService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 3383,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 213,
+  "near_duplicate_file_ratio": 0.0,
+  "near_duplicate_files_at_0_80": [],
+  "near_duplicate_pair_count_at_0_80": 0,
+  "near_duplicate_pairs": [],
+  "placeholder_test_sites": 0,
+  "production_files_over_500_lines": 0,
+  "production_logical_lines": 2687,
+  "production_source_files": 79,
+  "reflection_sites": 0,
+  "reflection_sites_per_kloc": 0.0,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\can-middleware",
+  "repository_head": "2f1b4151410438b9fcb1354400c26a821ff6f00c",
+  "schema_version": "1.1.0",
+  "test_logical_lines": 696,
+  "test_source_files": 9,
+  "test_to_production_file_ratio": 0.113924,
+  "tracked_files": 773
+}

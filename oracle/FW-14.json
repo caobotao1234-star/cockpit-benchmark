@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "FW-14",
+  "quality_tier": "medium",
+  "comparison_family": null,
+  "review_status": "reviewed",
+  "evidence": [
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "a6518960f6185ed55dd06342f5224d23a12b611e",
+      "path": "update-manager/Android.bp",
+      "symbol_or_line": "cockpit-update-manager-service",
+      "observation": "typed local manager 是独立 Soong module，但依赖同仓完整 CarService/updater 闭包。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    },
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "a6518960f6185ed55dd06342f5224d23a12b611e",
+      "path": "update-manager/src/com/cockpitbench/update/IUpdateManager.aidl",
+      "symbol_or_line": "IUpdateManager",
+      "observation": "start/cancel/status/listener 使用 typed Binder contract；生成 Java 与 service 共编译为 10 class。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "hidden_api_reflection",
+      "branch": "main",
+      "commit": "a6518960f6185ed55dd06342f5224d23a12b611e",
+      "path": "update-manager/src/com/cockpitbench/update/UpdateManagerService.java",
+      "symbol_or_line": "requireEngine and cancelUpdate",
+      "observation": "UpdateEngine 通过有界反射获取，但错误路径状态覆盖和 broad catch 语义不一致。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "a6518960f6185ed55dd06342f5224d23a12b611e",
+      "path": "updater-app/src/com/android/car/systemupdater/UpdateParser.java",
+      "symbol_or_line": "UpdateParser",
+      "observation": "真实 updater parser/UI 与大型平台测试闭包存在；本地 manager/payload/reboot 路径没有设备 E2E。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_medium",
+      "reason": "独立 manager module 置于宽平台闭包。"
+    },
+    {
+      "name": "solid",
+      "status": "expected_medium",
+      "reason": "权限/callback 边界与状态不一致共存。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_high",
+      "reason": "typed AIDL 可编译。"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "expected_medium",
+      "reason": "真实 UpdateEngine fallback。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_medium",
+      "reason": "平台测试多但本地 E2E 缺失。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "完整闭包需 AOSP。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g5",
+      "blind_id": "blind-4ae028ec439b",
+      "repository_head": "61df54de49560c6ab56df4310a9883997731d24d",
+      "result_path": "calibration/results/g5/blind-4ae028ec439b.json",
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T23:39:11.055Z",
+      "finished_at": "2026-08-29T23:43:34.612Z",
+      "wall_clock_seconds": 263.557,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 638,
+        "directories_visited": 100,
+        "tool_calls": 22,
+        "notes": "HEAD 已核验。使用 22 次工作区内 shell 调用完成静态审查；盘点了 616 个生产源文件、144 个 AIDL、579 个测试源文件、构建入口、反射与 Binder 位置及最大文件。重点阅读了超过 20 个生产文件和 6 个测试文件，并比较 main 与 platform/8155、platform/8295、release/2026.1、develop。未运行构建、脚本、包管理器或网络访问。 Runner normalized tool_calls from Codex JSONL to 22 (evaluator self-report: 22); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 2.111111,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 34,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "car-lib、car-builtin-lib、service 和 tests 的职责及依赖方向总体清楚，CarServiceBase 和 HAL 分层也提供了可理解的边界。但 ICarImpl 是集中创建和持有大量服务的庞大组合根；新增 update-manager 与直接使用 UpdateEngine 的 updater-app 又形成两条未在仓库内组合起来的更新路径，因此边界存在实质性局部缺口。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "生命周期接口、HAL 抽象和可注入的系统接口体现了 ISP/DIP，多个构造器也支持替换依赖。不过 ICarImpl 和 UpdateManagerService 分别聚合过多组合、状态、反射、权限和回调职责，SRP 与可替换性并不一致。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "既有 Car 栈通过 car-builtin-lib、HAL 接口和 SystemInterface 对平台依赖进行了较系统的隔离，并显式标注权限。不过更新功能同时存在直接 UpdateEngine 调用和字符串反射，且 updater-app 需要平台签名与多项高权限，新增边界的替换性和失败语义偏弱。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "多数反射点有集中常量、固定构造签名和明确异常转换，且 car-builtin-lib 为隐藏 API 提供了显式隔离。但 UpdateManagerService 重复按方法名反射并强制访问构造器，没有 allowlist/适配接口或可注入后端，只把异常压缩成整数状态，形成明显局部风险。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "仓库具有大量细粒度 AIDL、单向回调、RemoteCallbackList 和客户端死亡处理。新增更新契约也包含权限门、参数校验和异步 listener，但使用裸 int/String 状态，startUpdate 返回 void 且在反射失败时静默返回；同时没有展示 UpdateEngine 回调绑定或完整服务生命周期注册。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 2,
+          "reason": "该仓库是 Android/AAOS Soong 子树而非可独立构建边界。service/Android.bp 依赖 framework、automotive HAL、模块库及工作区外的 packages/services 路径，update-manager 也要求 platform_apis 和 android.car；所需完整 AOSP/AAOS 平台输入不在当前仓库，且受控审查禁止运行构建，因此无法验证独立编译。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "Car 栈包含真实 manager/service/HAL 路径上的设备级测试、异步事件断言和系统状态转换测试，明显超过文件数量层面的覆盖。但 update-manager 与 updater-app 没有对应测试，VehicleHALTest 构建目标还被整体注释，关键新增更新边界的权限、反射失败、回调死亡和生命周期场景均无证据。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "旧 Cabin/HVAC/Vendor manager 存在高度相似的监听器注册和 CarPropertyManager 转发，但它们已弃用且共享核心实现，影响受到一定约束。更值得关注的是 update-manager 和 updater-app 各自维护 UpdateEngine 调用、状态与更新策略，造成手写业务逻辑的双轨演进风险。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "所有本地 release/platform/develop 分支均从 main 当前提交分出，实际差异各自仅为一个两行配置文件；release 分支还有对应标签，说明分歧被控制在配置层。由于历史只有单个分支提交，没有可观察的回合并、修复回灌或多版本维护证据，尚不足以评为系统化成熟策略。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 3,
+          "reason": "8155 与 8295 平台分支复用完全相同的 main 生产实现，实际分歧只有同一 properties 文件中的平台名和 slot 策略；未观察到按平台复制 Java/AIDL 或 HAL 业务实现。现有差异集中、可审查，主要不确定性只是分支历史很短。"
+        }
+      ]
+    }
+  ]
+}

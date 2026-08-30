@@ -1,0 +1,209 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "APP-11",
+  "quality_tier": "medium",
+  "comparison_family": null,
+  "review_status": "blind_validated",
+  "evidence": [
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+      "path": "settings.gradle",
+      "symbol_or_line": "11 Gradle modules",
+      "observation": "foundation 与 motion API/core/platform/app/tests 边界可发现，domain 内容不复用 market/identity。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+      "path": "motion-api/src/main/aidl/com/cockpitbench/motion/IMotionControl.aidl",
+      "symbol_or_line": "IMotionControl",
+      "observation": "typed capabilities/state/command/scene/callback Binder contract 生成并与 runtime/app 编译通过。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "solid",
+      "branch": "main",
+      "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+      "path": "motion-platform/src/main/java/com/cockpitbench/motion/platform/MotionBinderService.java",
+      "symbol_or_line": "execute, applyScene, capabilities",
+      "observation": "state/safety/router/scene collaborators 明确，但 context 固定、空 capability 和同步 scene 串行执行暴露演进缺口。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    },
+    {
+      "dimension": "hidden_api_reflection",
+      "branch": "main",
+      "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+      "path": "motion-platform/src/main/java/com/cockpitbench/motion/platform/PlatformMotionAdapter.java",
+      "symbol_or_line": "SystemProperties reflection",
+      "observation": "反射平台识别被限制在 adapter，但 remap 未连接主 signal path。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+      "path": "motion-tests/src/test/java/com/cockpitbench/motion/tests/SafetyPolicyTest.java",
+      "symbol_or_line": "safety context tests",
+      "observation": "安全/scene 共 4 个行为测试通过并由 TEST_MAPPING 注册；Binder/VHAL/Activity E2E 缺失。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    },
+    {
+      "dimension": "compilation_independence",
+      "branch": "main",
+      "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+      "path": "motion-core/src/main/java/com/cockpitbench/motion/core/ActuatorSignalRouter.java",
+      "symbol_or_line": "source-safe composite key and local compile",
+      "observation": "组合 key 不再含原始 NUL；motion AIDL/core/platform 编译为 30 class，4/4 行为测试通过。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_medium",
+      "reason": "清晰模块伴随 catalog/context 集成缺口。"
+    },
+    {
+      "name": "solid",
+      "status": "expected_medium",
+      "reason": "窄组件与固定 context/同步 scene 共存。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_high",
+      "reason": "typed motion AIDL 可编译。"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "expected_medium",
+      "reason": "有界 SystemProperties 反射。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_medium",
+      "reason": "行为测试存在，设备/VHAL 缺失。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "expected_medium",
+      "reason": "标准 SDK Gradle 边界与本地编译可信，但缺少 wrapper 和整包设备构建。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g5",
+      "blind_id": "blind-e8f750fa009b",
+      "repository_head": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+      "result_path": "calibration/results/g5/blind-e8f750fa009b.json",
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T23:53:46.948Z",
+      "finished_at": "2026-08-29T23:58:01.194Z",
+      "wall_clock_seconds": 254.246,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 414,
+        "directories_visited": 28,
+        "tool_calls": 17,
+        "notes": "HEAD 与预期 SHA 一致。机械读取了当前 HEAD 的 410 个文件路径以及 4 个分支文件版本；其中逐行检查了 27 个代表性生产 Java 文件、全部 9 个测试文件、全部 7 个 AIDL 合约、构建入口及代表性 XML 家族。检查了全部本地分支/标签，并比较 main 与 develop、platform/8155、platform/8295、release/2026.1。未运行构建、仓库脚本、包管理器或网络操作。 Runner normalized tool_calls from Codex JSONL to 17 (evaluator self-report: 17); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 1.555556,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 33,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "API、核心、平台、存储、可观测性、应用和测试模块的依赖方向总体清晰，核心逻辑基本不依赖 Android；但应用模块没有依赖或装配 motion-platform，唯一 Manifest 也未声明 Binder 服务，平台边界缺少可见的最终组合。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "核心设计经常通过小接口注入时钟、动作、执行器和硬件适配器，策略类职责也较集中；但 MotionBinderService 同时承担授权、安全校验、执行、状态存储、错误转换和回调广播，且其依赖未做构造校验，局部职责和依赖管理偏重。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "Android Context、IBinder、RemoteCallbackList 和隐藏系统属性访问主要收敛在 platform 模块，核心层通过接口隔离；但 Binder 死亡后的重试任务为空操作、回调 RemoteException 被静默忽略，系统属性访问也采用宽泛异常降级，失败恢复仍不完整。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 1,
+          "reason": "反射只出现在一个平台适配器中并提供 generic 回退，具有基本 containment；但类名、方法名和属性键均为硬编码字符串，catch(Exception) 丢失全部错误语义，没有注入点、允许列表或对应测试，平台判断还依赖模糊的 contains。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "motion 边界使用 Parcelable 命令、状态、能力以及 oneway 回调，并由服务入口统一执行 Gate；然而 foundation 网关以字符串和 Bundle 构成过于宽泛的协议，motion 的 void 调用缺少面向调用者的明确错误结果，服务将执行异常吞掉后仅广播故障，也没有可见的线程策略或服务级生命周期装配。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 3,
+          "reason": "仓库声明 Android Gradle Plugin 8.7.3 和 compileSdk 35，但没有 Gradle wrapper、固定 Gradle distribution、gradle.properties、Android.bp/Android.mk 或本地平台输入；受控审查又禁止运行构建，因而无法验证该快照在独立环境中能解析 AGP/SDK 并编译，不能据静态声明猜测分数。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "核心单元测试对工作流顺序、等待恢复、环检测、授权优先级、会话过期和熔断状态具有有意义的行为断言；但 motion 测试仅直接调用两个核心类，未覆盖 AIDL、Binder 服务、权限 Gate、死亡恢复、RemoteCallbackList、反射平台映射、Android 组件或 XML 资源加载，40 个 fixture 也没有生产/测试代码引用。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "核心 Java 算法本身没有发现大段复制，但生产资源存在 310 个 XML、约 4.1 万行的六个规则化家族；相邻文件结构和绝大多数值相同，主要变化只是家族编号。仓库未提供生成器或加载这些资源的代码，因此这些近复制内容会放大审阅、修改和一致性风险。手写 Parcelable 也重复相同序列化样板。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "release 和两个 platform 分支都从当前 main 各前进一个提交，差异严格限制为两行产品属性；release 分支还有同提交标签，显示出受控冻结和小范围配置分叉。由于历史中没有后续修复、合并或回灌记录，尚不足以证明长期维护策略达到系统化水平。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "8155/8295 分支共享完整 main，只携带两行配置，硬件调用也通过核心 Adapter/Mapping 抽象集中，平台复用基础良好；但运行时 remap 仍在 Java 中硬编码芯片字符串和数值偏移，且分支 properties 与该适配器之间没有可见连接，配置和策略存在双轨风险。"
+        }
+      ]
+    }
+  ]
+}

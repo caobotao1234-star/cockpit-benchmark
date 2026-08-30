@@ -1,0 +1,849 @@
+{
+  "aidl_interfaces": [
+    {
+      "method_count": 24,
+      "path": "migration/aidl/car-media/ICarAudio.aidl"
+    },
+    {
+      "method_count": 20,
+      "path": "car-lib/src/android/car/trust/ICarTrustAgentBleService.aidl"
+    },
+    {
+      "method_count": 14,
+      "path": "car-lib/src/android/car/media/ICarAudio.aidl"
+    },
+    {
+      "method_count": 14,
+      "path": "migration/aidl/car-watchdog/ICarWatchdogService.aidl"
+    },
+    {
+      "method_count": 12,
+      "path": "migration/aidl/car-hardware/power/ICarPower.aidl"
+    },
+    {
+      "method_count": 11,
+      "path": "car-lib/src/android/car/diagnostic/ICarDiagnostic.aidl"
+    },
+    {
+      "method_count": 11,
+      "path": "migration/aidl/car-diagnostic/ICarDiagnostic.aidl"
+    },
+    {
+      "method_count": 10,
+      "path": "car-lib/src/android/car/vms/IVmsSubscriberService.aidl"
+    },
+    {
+      "method_count": 9,
+      "path": "car-lib/src/android/car/storagemonitoring/ICarStorageMonitoring.aidl"
+    },
+    {
+      "method_count": 9,
+      "path": "migration/aidl/car-vms/IVmsBrokerService.aidl"
+    },
+    {
+      "method_count": 8,
+      "path": "migration/aidl/car-drivingstate/ICarUxRestrictionsManager.aidl"
+    },
+    {
+      "method_count": 8,
+      "path": "migration/aidl/car-hardware/property/ICarProperty.aidl"
+    },
+    {
+      "method_count": 7,
+      "path": "migration/aidl/car-media/ICarMedia.aidl"
+    },
+    {
+      "method_count": 6,
+      "path": "car-lib/src/android/car/IAppFocus.aidl"
+    },
+    {
+      "method_count": 6,
+      "path": "car-lib/src/android/car/content/pm/ICarPackageManager.aidl"
+    },
+    {
+      "method_count": 6,
+      "path": "platform/aidl/com/cockpitbench/vehicleplatform/IVehiclePlatform.aidl"
+    },
+    {
+      "method_count": 5,
+      "path": "car-lib/src/android/car/ICarBluetoothUserService.aidl"
+    },
+    {
+      "method_count": 5,
+      "path": "car-lib/src/android/car/hardware/ICarSensor.aidl"
+    },
+    {
+      "method_count": 5,
+      "path": "car-lib/src/android/car/hardware/power/ICarPower.aidl"
+    },
+    {
+      "method_count": 5,
+      "path": "car-lib/src/android/car/hardware/property/ICarProperty.aidl"
+    },
+    {
+      "method_count": 5,
+      "path": "migration/aidl/car-hardware/ICarSensor.aidl"
+    },
+    {
+      "method_count": 4,
+      "path": "car-lib/src/android/car/ICarBluetooth.aidl"
+    },
+    {
+      "method_count": 4,
+      "path": "car-lib/src/android/car/ICarProjection.aidl"
+    },
+    {
+      "method_count": 4,
+      "path": "car-lib/src/android/car/trust/ICarTrustAgentBleCallback.aidl"
+    },
+    {
+      "method_count": 4,
+      "path": "car-lib/src/android/car/trust/ICarTrustAgentTokenRequestDelegate.aidl"
+    },
+    {
+      "method_count": 4,
+      "path": "car-lib/src/android/car/vms/IVmsPublisherService.aidl"
+    },
+    {
+      "method_count": 4,
+      "path": "migration/aidl/car-drivingstate/ICarDrivingState.aidl"
+    },
+    {
+      "method_count": 4,
+      "path": "migration/aidl/car-vms/IVmsClientCallback.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "car-lib/src/android/car/ICar.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "car-lib/src/android/car/cluster/IInstrumentClusterManagerService.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "car-lib/src/android/car/cluster/renderer/IInstrumentCluster.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "car-lib/src/android/car/drivingstate/ICarDrivingState.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "car-lib/src/android/car/drivingstate/ICarUxRestrictionsManager.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "car-lib/src/android/car/trust/ICarTrustAgentTokenResponseCallback.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "migration/aidl/car-media/ICarVolumeCallback.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "car-lib/src/android/car/IAppFocusOwnershipCallback.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "car-lib/src/android/car/ICarConnectionListener.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "car-lib/src/android/car/ICarInfo.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "car-lib/src/android/car/cluster/renderer/IInstrumentClusterCallback.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "car-lib/src/android/car/cluster/renderer/IInstrumentClusterNavigation.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "car-lib/src/android/car/media/ICarVolumeCallback.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "car-lib/src/android/car/vms/IVmsPublisherClient.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "car-lib/src/android/car/vms/IVmsSubscriberClient.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "migration/aidl/car-watchdog/ICarWatchdogServiceCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/IAppFocusListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/ICarProjectionCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/ICarUserService.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/IUsbAoapSupportCheckService.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/cluster/IInstrumentClusterManagerCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/content/pm/ICarAppBlockingPolicy.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/content/pm/ICarAppBlockingPolicySetter.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/diagnostic/ICarDiagnosticEventListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/drivingstate/ICarDrivingStateChangeListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/drivingstate/ICarUxRestrictionsChangeListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/hardware/ICarSensorEventListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/hardware/power/ICarPowerStateListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/hardware/property/ICarPropertyEventListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/input/ICarInputListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/settings/ICarConfigurationManager.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/storagemonitoring/IIoStatsListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/trust/ICarTrustAgentEnrolmentCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/trust/ICarTrustAgentUnlockCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "migration/aidl/car-diagnostic/ICarDiagnosticEventListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "migration/aidl/car-drivingstate/ICarDrivingStateChangeListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "migration/aidl/car-drivingstate/ICarUxRestrictionsChangeListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "migration/aidl/car-hardware/ICarSensorEventListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "migration/aidl/car-hardware/power/ICarPowerPolicyListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "migration/aidl/car-hardware/power/ICarPowerStateListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "migration/aidl/car-hardware/property/ICarPropertyEventListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "migration/aidl/car-media/ICarMediaSourceListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "migration/aidl/car-watchdog/IResourceOveruseListener.aidl"
+    }
+  ],
+  "broad_catches": 30,
+  "broad_catches_per_kloc": 0.359885,
+  "code_source_files": 649,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 2,
+      "global_state_sites": 1,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 48,
+      "methods": 8,
+      "path": "platform/src/com/cockpitbench/vehicleplatform/LegacyPlatformRouter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 6
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 8,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 226,
+      "methods": 12,
+      "path": "tests/InstrumentClusterRendererSample/src/com/android/car/cluster/sample/TelecomUtils.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 6,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 200,
+      "methods": 12,
+      "path": "tests/carservice_unit_test/src/com/android/car/VmsRoutingTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 522,
+      "methods": 31,
+      "path": "service/src/com/android/car/ICarImpl.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 499,
+      "methods": 35,
+      "path": "migration/aidl/service-hal/UserHalHelper.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 368,
+      "methods": 27,
+      "path": "service/src/com/android/car/GarageModeService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 4,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 185,
+      "methods": 18,
+      "path": "tests/obd2_test/src/com/android/car/obd2/test/Obd2CommandTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 178,
+      "methods": 10,
+      "path": "service/src/com/android/car/CarService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 971,
+      "methods": 51,
+      "path": "migration/aidl/service-hal/UserHalService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 827,
+      "methods": 60,
+      "path": "migration/aidl/service-hal/VehicleHal.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 412,
+      "methods": 36,
+      "path": "migration/aidl/service-hal/PowerHalService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 2,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 329,
+      "methods": 20,
+      "path": "tests/carservice_unit_test/src/com/android/car/CarLocationServiceTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 160,
+      "methods": 5,
+      "path": "tests/EmbeddedKitchenSinkApp/src/com/google/android/car/kitchensink/property/PropertyTestFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 2,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 70,
+      "methods": 4,
+      "path": "service/src/com/android/car/storagemonitoring/EMmcWearInformationProvider.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 1079,
+      "methods": 64,
+      "path": "service/src/com/android/car/pm/CarPackageManagerService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 720,
+      "methods": 36,
+      "path": "migration/aidl/car-watchdog/CarWatchdogManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 695,
+      "methods": 38,
+      "path": "tests/EmbeddedKitchenSinkApp/src/com/google/android/car/kitchensink/setting/usb/UsbDeviceHandlerResolver.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 658,
+      "methods": 58,
+      "path": "service/src/com/android/car/CarPowerManagementService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 580,
+      "methods": 56,
+      "path": "service/src/com/android/car/hal/VmsHalService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 539,
+      "methods": 42,
+      "path": "migration/aidl/service-hal/VmsHalService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [
+    {
+      "file_count": 2,
+      "paths": [
+        "car-lib/src/android/car/diagnostic/ICarDiagnostic.aidl",
+        "migration/aidl/car-diagnostic/ICarDiagnostic.aidl"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "car-lib/src/android/car/hardware/ICarSensor.aidl",
+        "migration/aidl/car-hardware/ICarSensor.aidl"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "migration/aidl/service-hal/BidirectionalSparseIntArray.java",
+        "service/src/com/android/car/hal/BidirectionalSparseIntArray.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "migration/aidl/vehicle-hal-support-lib/src/com/android/car/hal/test/Utils.java",
+        "vehicle-hal-support-lib/src/com/android/car/vehiclehal/Utils.java"
+      ]
+    }
+  ],
+  "global_state_sites": 41,
+  "global_state_sites_per_kloc": 0.491843,
+  "hidden_api_sites": 101,
+  "hidden_api_sites_per_kloc": 1.211612,
+  "largest_code_files": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 1380,
+      "methods": 122,
+      "path": "migration/aidl/tests/hal/UserHalServiceTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 1162,
+      "methods": 112,
+      "path": "migration/aidl/tests/hal/UserHalHelperTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 1134,
+      "methods": 61,
+      "path": "service/src/com/android/car/BluetoothDeviceConnectionPolicy.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 1110,
+      "methods": 67,
+      "path": "migration/aidl/tests/hal/HalPropValueTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 1079,
+      "methods": 64,
+      "path": "service/src/com/android/car/pm/CarPackageManagerService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 1003,
+      "methods": 76,
+      "path": "migration/aidl/tests/hal/VehicleHalTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 971,
+      "methods": 51,
+      "path": "migration/aidl/service-hal/UserHalService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 934,
+      "methods": 71,
+      "path": "migration/aidl/car-drivingstate/CarUxRestrictionsConfiguration.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 827,
+      "methods": 60,
+      "path": "migration/aidl/service-hal/VehicleHal.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 818,
+      "methods": 14,
+      "path": "migration/aidl/service-hal/PropertyHalServiceIds.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 780,
+      "methods": 45,
+      "path": "migration/aidl/tests/hal/VmsHalServiceTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 762,
+      "methods": 37,
+      "path": "migration/aidl/car-diagnostic/CarDiagnosticEvent.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 757,
+      "methods": 54,
+      "path": "tests/carservice_test/src/com/android/car/CarStorageMonitoringTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 720,
+      "methods": 36,
+      "path": "migration/aidl/car-watchdog/CarWatchdogManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 707,
+      "methods": 40,
+      "path": "migration/aidl/tests/VehicleStubTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 695,
+      "methods": 38,
+      "path": "tests/EmbeddedKitchenSinkApp/src/com/google/android/car/kitchensink/setting/usb/UsbDeviceHandlerResolver.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 668,
+      "methods": 32,
+      "path": "service/src/com/android/car/CarAudioService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 662,
+      "methods": 81,
+      "path": "migration/aidl/service-hal/HalPropValueBuilder.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 658,
+      "methods": 58,
+      "path": "service/src/com/android/car/CarPowerManagementService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 645,
+      "methods": 35,
+      "path": "tests/carservice_test/src/com/android/car/CarDiagnosticManagerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 83360,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 6369,
+  "near_duplicate_file_ratio": 0.01849,
+  "near_duplicate_files_at_0_80": [
+    "migration/aidl/service-hal/AidlHalAreaConfig.java",
+    "migration/aidl/service-hal/BidirectionalSparseIntArray.java",
+    "migration/aidl/service-hal/HidlHalAreaConfig.java",
+    "migration/aidl/tests/vehiclehal/src/com/android/car/vehiclehal/test/E2ePerformanceTest.java",
+    "migration/aidl/vehicle-hal-support-lib/src/com/android/car/hal/test/DiagnosticJson.java",
+    "migration/aidl/vehicle-hal-support-lib/src/com/android/car/hal/test/Utils.java",
+    "platform/src/com/cockpitbench/vehicleplatform/Sa8155VehicleProfile.java",
+    "platform/src/com/cockpitbench/vehicleplatform/XinqingVehicleProfile.java",
+    "service/src/com/android/car/hal/BidirectionalSparseIntArray.java",
+    "tests/vehiclehal_test/src/com/android/car/vehiclehal/test/E2ePerformanceTest.java",
+    "vehicle-hal-support-lib/src/com/android/car/vehiclehal/DiagnosticJson.java",
+    "vehicle-hal-support-lib/src/com/android/car/vehiclehal/Utils.java"
+  ],
+  "near_duplicate_pair_count_at_0_80": 6,
+  "near_duplicate_pairs": [
+    {
+      "logical_lines_a": 31,
+      "logical_lines_b": 31,
+      "path_a": "migration/aidl/service-hal/BidirectionalSparseIntArray.java",
+      "path_b": "service/src/com/android/car/hal/BidirectionalSparseIntArray.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 35,
+      "logical_lines_b": 35,
+      "path_a": "migration/aidl/vehicle-hal-support-lib/src/com/android/car/hal/test/Utils.java",
+      "path_b": "vehicle-hal-support-lib/src/com/android/car/vehiclehal/Utils.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 229,
+      "logical_lines_b": 235,
+      "path_a": "migration/aidl/tests/vehiclehal/src/com/android/car/vehiclehal/test/E2ePerformanceTest.java",
+      "path_b": "tests/vehiclehal_test/src/com/android/car/vehiclehal/test/E2ePerformanceTest.java",
+      "similarity": 0.924812
+    },
+    {
+      "logical_lines_a": 135,
+      "logical_lines_b": 129,
+      "path_a": "migration/aidl/vehicle-hal-support-lib/src/com/android/car/hal/test/DiagnosticJson.java",
+      "path_b": "vehicle-hal-support-lib/src/com/android/car/vehiclehal/DiagnosticJson.java",
+      "similarity": 0.910448
+    },
+    {
+      "logical_lines_a": 36,
+      "logical_lines_b": 36,
+      "path_a": "migration/aidl/service-hal/AidlHalAreaConfig.java",
+      "path_b": "migration/aidl/service-hal/HidlHalAreaConfig.java",
+      "similarity": 0.828571
+    },
+    {
+      "logical_lines_a": 21,
+      "logical_lines_b": 21,
+      "path_a": "platform/src/com/cockpitbench/vehicleplatform/Sa8155VehicleProfile.java",
+      "path_b": "platform/src/com/cockpitbench/vehicleplatform/XinqingVehicleProfile.java",
+      "similarity": 0.8
+    }
+  ],
+  "placeholder_test_sites": 9,
+  "production_files_over_500_lines": 21,
+  "production_logical_lines": 47038,
+  "production_source_files": 399,
+  "reflection_sites": 12,
+  "reflection_sites_per_kloc": 0.143954,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-platform-service",
+  "repository_head": "74db57addbc12585ca258f0e054efa07492078a4",
+  "schema_version": "1.0.0",
+  "test_logical_lines": 36322,
+  "test_source_files": 250,
+  "test_to_production_file_ratio": 0.626566,
+  "tracked_files": 943
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0.0",
+  "probe_version": "1.2.0",
+  "repository_count": 20,
+  "aidl_api_paths_in_active_repositories": 0,
+  "rows": [
+    {
+      "repo_id": "APP-01",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "APP-02",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "APP-03",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "APP-04",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "APP-08",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "APP-09",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "APP-15",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "APP-16",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "APP-17",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "APP-18",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "FW-01",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "FW-02",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "FW-03",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "FW-04",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "FW-09",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "FW-10",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "FW-15",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "FW-16",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "FW-17",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    },
+    {
+      "repo_id": "FW-18",
+      "aidl_api_tracked_paths": 0,
+      "facts_unchanged": true,
+      "drift": {}
+    }
+  ],
+  "issues": [],
+  "valid": true
+}

@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "FW-06",
+  "quality_tier": "high",
+  "comparison_family": null,
+  "review_status": "reviewed",
+  "evidence": [
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "ce733dcb460cdccecb5e5c65eb4d78b7629f9b61",
+      "path": "Android.bp",
+      "symbol_or_line": "OccupantZoneApiBoundary/OccupantZoneServiceBoundary",
+      "observation": "typed user/occupant contracts、service 和 tests 形成可识别单向边界。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "ce733dcb460cdccecb5e5c65eb4d78b7629f9b61",
+      "path": "service/src/com/android/car/CarOccupantZoneService.java",
+      "symbol_or_line": "mClientCallbacks/permission checks",
+      "observation": "RemoteCallbackList 管理客户端回调且跨用户/乘员操作在服务端检查调用权限。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "ce733dcb460cdccecb5e5c65eb4d78b7629f9b61",
+      "path": "tests/carservice_unit_test/src/com/android/car/CarOccupantZoneServiceTest.java",
+      "symbol_or_line": "CarOccupantZoneServiceTest",
+      "observation": "服务测试覆盖区域映射、用户/display 变更、callback 与权限相关行为。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_high",
+      "reason": "user/occupant manager-service-HAL-test 链路完整。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_high",
+      "reason": "typed contract、权限与 callback 生命周期可复核。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "需要 AAOS/AOSP 产品树。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g5",
+      "blind_id": "blind-782b96660b4f",
+      "repository_head": "54d2aa88b2a105feee961ace11be504fca8a08df",
+      "result_path": "calibration/results/g5/blind-782b96660b4f.json",
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T23:34:22.044Z",
+      "finished_at": "2026-08-29T23:37:49.360Z",
+      "wall_clock_seconds": 207.316,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 51,
+        "directories_visited": 25,
+        "tool_calls": 20,
+        "notes": "HEAD 与协调方提供的 SHA 一致。静态检查覆盖 23 个 Java 生产文件、6 个 AIDL 契约、8 个有实质断言的测试文件、9 个构建文件、TEST_MAPPING，以及 4 个分支专属配置文件；盘点到 35 个 AIDL、548 个 Java、5 个 C++ 和 287 个测试源文件。检查了全部本地分支，并完成 main 与 develop、release/2026.1、platform/8155、platform/8295 的有界比较及两个平台分支间比较。按约束未运行构建、脚本或网络操作。 Runner normalized tool_calls from Codex JSONL to 20 (evaluator self-report: 20); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 2.222222,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 31,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "API、服务和测试边界在 Soong 中明确，HAL、系统接口和业务服务也有可辨识的分层；但服务模块仍整体编译全部源码，ICarImpl 同时承担大量对象构造、依赖排序、生命周期和 Binder 注册职责，形成明显的中心化组合根和变更热点。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "系统调用和多版本 Audio HAL 通过小接口、工厂和可替换实现体现了 ISP、OCP 与 DIP，测试构造器也允许注入关键依赖；另一方面 ICarImpl 的大规模构造职责以及 VehicleHal 的长参数测试构造器说明 SRP 和依赖组装仍不够系统化。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "多数 Android/AAOS 系统能力被封装为 typed helper、SystemInterface 或 HAL wrapper，并普遍处理 RemoteException、权限和服务死亡；但仍存在硬编码系统路径、直接 SystemProperties 访问以及对外部 framework 实现库的紧耦合，隔离程度不完全一致。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "反射点数量有限，类名集中为常量，返回值有明确基类或接口类型，加载失败也采用明确的 fail-fast 异常；不过 EVS 重复实现了原始 ClassLoader/Constructor 逻辑，多个点捕获宽泛 Exception，枚举反射还有静默忽略访问错误的语义，缺少统一的可注入反射边界。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "契约整体类型化且粒度合理，异步用户操作使用 AndroidFuture，脚本执行针对大输入提供文件描述符，回调和 Binder death 也有专门生命周期处理；不足是部分服务以 sentinel/boolean 表达错误，权限主要依赖实现侧检查而非契约可见声明，错误语义在不同边界间不完全统一。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 2,
+          "reason": "仓库只包含 AOSP/AAOS Car 源码的选择性子集；Soong 定义依赖大量当前工作区不存在的 framework、HAL、proto 和其他 packages/services/Car 模块，且声明 platform_apis/core_platform。受控环境不提供所需 AOSP 构建树，因此无法建立或验证可信的独立编译边界。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 4,
+          "reason": "测试不止验证文件或构造结果：既有真实 Car manager/服务连接的设备测试，也有权限身份切换、异步回调、跨 Binder 状态传播、HAL 错误重试和死亡重连覆盖。虽然本轮按要求未执行测试，但静态测试深度和边界覆盖充分。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "主要重复集中在不可避免的 AIDL/HIDL 版本适配族：AudioControl V1/V2/AIDL 和 VehicleStub 的不同传输实现重复了服务获取、异常转换、death link/unlink 与重连骨架。共享接口和工厂限制了重复向业务层扩散，但适配器内部仍有近似生命周期代码，维护时需同步修改多个手写文件。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "所有 release/platform/develop 分支都直接基于当前 main，且各自仅领先一个提交；release 分支只增加两行冻结渠道/模式配置，平台分支也只增加两行平台配置，未形成代码叉枝。策略当前很克制，但历史只有单次分叉，没有足够证据证明长期修复回合、合并或回灌纪律，因此不评为最高分。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 3,
+          "reason": "平台差异通过薄配置分支和公共适配层表达：8155/8295 分支没有各自复制 Java 实现，二者仅在同一两项配置值上不同；运行时代码通过统一 AudioControl 和 VehicleStub 抽象复用 AIDL/HIDL 实现。这使平台变化保持在配置或边界适配器内。"
+        }
+      ]
+    }
+  ]
+}

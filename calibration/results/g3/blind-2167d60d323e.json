@@ -1,0 +1,305 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-2167d60d323e",
+  "repository_head": "7a2bc2cbb17a2e9c407958a38dd1d1884ec0a0c8",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04d36-530a-7330-bfc6-0a613ae3aa8e",
+    "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T11:10:00.672Z",
+    "finished_at": "2026-08-29T11:15:41.326Z",
+    "wall_clock_seconds": 340.655,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 265,
+    "directories_visited": 35,
+    "tool_calls": 19,
+    "notes": "HEAD 与预期 SHA 一致。对 260 个 Java/AIDL 文件进行了行数清点，并对其中 39 个生产源文件作了完整或定向内容检查；仓库中没有测试文件，因此已检查全部 0 个测试。检查了 6 个本地分支、提交关系，并完成 release/sop-2025..main、platform/8155..platform/8295 和 main..develop 的有界比较。未运行构建、脚本、包管理器或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 1,
+      "reason": "仓库具备 car-lib、service、hub、平台目录及 HAL/systeminterface 等可识别边界，但组合方向存在严重缺口：共享音频模块的 CarAudioService 直接启动 CockpitBinderHubRuntime，而运行时模块又静态依赖共享音频模块，形成源码级反向依赖；平台模块还各自编译完整复制栈。系统接口的委托式封装是积极证据，但不足以抵消核心组合和复用风险。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 13-19 and 40-44",
+          "observation": "BinderHubSharedAudio 仅依赖 BinderHubPlatformApi，而 CockpitBinderHubRuntime 又依赖 BinderHubSharedAudio。"
+        },
+        {
+          "path": "service/src/com/android/car/audio/CarAudioService.java",
+          "ref": null,
+          "symbol_or_line": "CockpitBinderHubRuntime import, mCockpitBinderHubRuntime, init(), release()",
+          "observation": "共享音频服务直接导入、创建并管理 hub 运行时，造成相对于 Android.bp 依赖方向的反向耦合。"
+        },
+        {
+          "path": "service/src/com/android/car/systeminterface/SystemInterface.java",
+          "ref": null,
+          "symbol_or_line": "lines 218-301, Builder",
+          "observation": "平台行为通过多个小接口和可替换 Builder 实现组合，提供了清晰的系统边界。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 2,
+      "reason": "音频 HAL 和系统接口展示了真实的 DIP/ISP：调用方依赖版本无关接口，工厂选择 AIDL/HIDL 实现，Builder 可注入平台能力。主要缺口集中在 hub：服务直接构造多个具体单例/组件，并同时承担路由、缓存、回调、日志及生命周期职责，扩展域还需修改 switch。",
+      "evidence": [
+        {
+          "path": "service/src/com/android/car/audio/hal/AudioControlWrapper.java",
+          "ref": null,
+          "symbol_or_line": "lines 35-39 and 57-158",
+          "observation": "版本无关的 HAL 接口封装功能、回调和死亡通知，调用者无需依赖具体 AIDL/HIDL 类型。"
+        },
+        {
+          "path": "service/src/com/android/car/audio/hal/AudioControlFactory.java",
+          "ref": null,
+          "symbol_or_line": "lines 36-65, newAudioControl()",
+          "observation": "工厂按 AIDL、HIDL V2、HIDL V1 顺序选择实现，并对不可用情况给出明确失败。"
+        },
+        {
+          "path": "hub/src/com/cockpitbench/binderhub/CockpitBinderHubService.java",
+          "ref": null,
+          "symbol_or_line": "lines 18-30",
+          "observation": "Binder Stub 直接创建并协调 registry、callbacks、cache、journal、permissions、rules 和 router；依赖不可注入。"
+        },
+        {
+          "path": "hub/src/com/cockpitbench/binderhub/HubDomainRouter.java",
+          "ref": null,
+          "symbol_or_line": "lines 18-21, route()",
+          "observation": "四个适配器提供一定职责拆分，但新增域必须修改硬编码 switch 和 domains 列表。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 2,
+      "reason": "多数 AAOS/HAL 依赖被 ServiceManagerHelper、AudioControlWrapper 和 SystemInterface 集中封装，具备版本回退、类型边界及部分死亡恢复。材料缺口在 hub：使用反射访问隐藏 ServiceManager、硬编码服务名并返回原始 IBinder；虽有 override 和空值失败路径，但缺少类型、权限和死亡管理。",
+      "evidence": [
+        {
+          "path": "car-builtin-lib/src/android/car/builtin/os/ServiceManagerHelper.java",
+          "ref": null,
+          "symbol_or_line": "lines 25-57",
+          "observation": "ServiceManager 系统 API 被集中到 @SystemApi helper，公开 nullable 的 get/check/wait 操作。"
+        },
+        {
+          "path": "service/src/com/android/car/audio/hal/AudioControlFactory.java",
+          "ref": null,
+          "symbol_or_line": "lines 44-65, newAudioControl()",
+          "observation": "音频系统依赖被类型化封装，并按 AIDL/HIDL 版本显式回退。"
+        },
+        {
+          "path": "hub/src/com/cockpitbench/binderhub/HubServiceRegistry.java",
+          "ref": null,
+          "symbol_or_line": "line 22, resolve()",
+          "observation": "hub 反射调用 ServiceManager，缓存任意命名 IBinder，失败仅记录并返回 null。"
+        },
+        {
+          "path": "hub/src/com/cockpitbench/binderhub/CockpitBinderHubService.java",
+          "ref": null,
+          "symbol_or_line": "line 26, rawService()",
+          "observation": "跨进程 API 可按调用者提供的名称暴露原始系统 Binder。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "scored",
+      "score": 1,
+      "reason": "反射点数量有限且集中，但最关键的 HubServiceRegistry 没有允许列表、编译期类型或细粒度错误语义；它捕获所有 Throwable 后返回 null，并允许任意服务名。AndroidFuture 的反射有 Throwable 类型检查和 RuntimeException 回退，属于较健康的局部实现，但未缓解 hub 的隐藏 API 风险。",
+      "evidence": [
+        {
+          "path": "hub/src/com/cockpitbench/binderhub/HubServiceRegistry.java",
+          "ref": null,
+          "symbol_or_line": "line 22, resolve()",
+          "observation": "通过 Class.forName/getDeclaredMethod/setAccessible/invoke 访问 android.os.ServiceManager；任意异常退化为 null。"
+        },
+        {
+          "path": "car-lib/src/android/car/util/concurrent/AndroidFuture.java",
+          "ref": null,
+          "symbol_or_line": "lines 606-629",
+          "observation": "反序列化异常时仅实例化 Throwable 子类，并在类型不符或反射失败时生成 RuntimeException 回退。"
+        }
+      ]
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 1,
+      "reason": "传统 car 与音频 HAL 边界包含类型化方法、权限检查、接口版本和死亡重连，但新增 cockpit hub 合约以 String+Bundle 分派全部业务、标记 unstable、可返回原始 IBinder，且服务未实际执行已声明的权限表。回调注册没有 linkToDeath/RemoteCallbackList，RemoteException 被静默忽略，线程安全也没有明确保证。",
+      "evidence": [
+        {
+          "path": "hub/aidl/com/cockpitbench/binderhub/ICockpitServiceHub.aidl",
+          "ref": null,
+          "symbol_or_line": "lines 5-12",
+          "observation": "核心调用采用通用 domain/operation/Bundle，并公开 rawService、可变车辆变体及 reset。"
+        },
+        {
+          "path": "hub/src/com/cockpitbench/binderhub/CockpitBinderHubService.java",
+          "ref": null,
+          "symbol_or_line": "lines 20-29",
+          "observation": "HubPermissionTable 仅被构造，从未用于 Binder 调用权限检查；所有入口直接执行。"
+        },
+        {
+          "path": "hub/src/com/cockpitbench/binderhub/HubCallbackRegistry.java",
+          "ref": null,
+          "symbol_or_line": "lines 19-24",
+          "observation": "回调保存在静态可变 List/Map 中，无死亡清理或同步；发布时吞掉 RemoteException。"
+        },
+        {
+          "path": "service/src/com/android/car/audio/hal/AudioControlWrapperAidl.java",
+          "ref": null,
+          "symbol_or_line": "lines 230-251, linkToDeath()/binderDied()",
+          "observation": "HAL AIDL 路径实现死亡监听、重新获取 typed interface 并重新注册死亡接收者。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "仓库明确使用 platform_apis、Android framework/AAOS/HAL 类型和 Soong，并缺少完成这些依赖所需的 AOSP/AAOS 产品树；受控环境也禁止运行构建。因此无法建立或验证可信的独立编译边界，不能猜测分数。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 3-44",
+          "observation": "所有 Java/Android 模块使用 platform_apis 或依赖平台 AIDL/HAL，构建入口仅为 Soong Android.bp。"
+        },
+        {
+          "path": "README.md",
+          "ref": null,
+          "symbol_or_line": "lines 3-5",
+          "observation": "说明完整 Soong 构建需要 AAOS/AOSP 产品树；该平台输入不在仓库中。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "not_observed",
+      "score": null,
+      "reason": "在 273 个仓库文件中未发现任何测试目录、测试源文件或 Android.bp 测试模块；因此无法观察跨模块、Binder 进程、HAL 失败、权限或生命周期行为的集成断言。按规则不将纯粹缺少证据转换为 0 分。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 3-44",
+          "observation": "声明了六个生产库/接口模块，但没有 android_test、java_test 或测试源集合。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 0,
+      "reason": "重复是大规模且系统性的：service 音频树的 33 个 Java 文件中，每个平台目录有 32 个逐字节相同文件；platform/8155 与 platform/8295 的全部 43 个文件逐字节相同。约 1,562 行的 CarAudioService 及完整 HAL/manager 栈被复制，只有共享版本额外插入 hub 生命周期代码，形成高漂移风险且缺乏可信生成标记。",
+      "evidence": [
+        {
+          "path": "service/src/com/android/car/audio/CarAudioService.java",
+          "ref": null,
+          "symbol_or_line": "class CarAudioService; init() and release()",
+          "observation": "与 platform/8155 副本约 1,562 行近乎相同，仅共享版本增加 CockpitBinderHubRuntime 导入、字段和生命周期调用。"
+        },
+        {
+          "path": "platform/8155/service/src/com/android/car/audio/CarAudioService.java",
+          "ref": null,
+          "symbol_or_line": "class CarAudioService",
+          "observation": "与 8295 同路径文件逐字节相同，并与 service 版本仅有 hub 生命周期差异。"
+        },
+        {
+          "path": "platform/8295/service/src/com/android/car/audio/CarAudioService.java",
+          "ref": null,
+          "symbol_or_line": "class CarAudioService",
+          "observation": "平台间完整文件哈希相同；同类复制覆盖两个平台的 43 个文件。"
+        },
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 21-30",
+          "observation": "8155 和 8295 模块分别编译各自完整平台源码树，而非复用 BinderHubSharedAudio。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 2,
+      "reason": "分支比较显示配置改动受到约束：8155/8295 分支各自仅比公共祖先增加一个两行平台属性提交，两者为 1/1 提交分叉且内容差异仅两行；release 分支也仅保留两行冻结属性。材料缺口是 release 与 main 已双向分叉（1/2），main 的两个 hub 功能提交没有可观察的合并或挑拣记录，因此策略虽整洁但复用/回灌证据不完整。",
+      "evidence": [
+        {
+          "path": "product/release.properties",
+          "ref": "release/sop-2025",
+          "symbol_or_line": "lines 1-2",
+          "observation": "release 分支只配置 hub.channel=sop-2025 和 hub.variant=8155。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8155 分支只配置 sa8155 与 car_audio。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8295 分支只配置 sa8295 与 car_audio_v2；与 8155 的有界差异为两行。"
+        },
+        {
+          "path": "hub/src/com/cockpitbench/binderhub/HubPulseBuffer.java",
+          "ref": null,
+          "symbol_or_line": "line 18",
+          "observation": "该 main 分支新增功能不在 release/sop-2025；提交比较未显示回灌或合并。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 1,
+      "reason": "分支层面的车型差异很好地收敛到两行属性，但当前源码布局没有兑现公共核心复用：8155 和 8295 的 43 个文件全部相同，Android.bp 却将它们作为独立完整模块编译；车辆音量、zone 和服务名又硬编码在运行时规则表中。存在 BinderHubSharedAudio 公共模块这一方向性缓解，但平台模块并未依赖它。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 13-30",
+          "observation": "声明了共享音频模块，同时又让两个平台模块分别包含各自的完整源码/AIDL 树，平台模块未依赖共享模块。"
+        },
+        {
+          "path": "platform/8155/service/src/com/android/car/audio/CarAudioService.java",
+          "ref": null,
+          "symbol_or_line": "class CarAudioService",
+          "observation": "与 8295 版本逐字节相同，表明平台目录是复制而非公共核心复用。"
+        },
+        {
+          "path": "platform/8295/service/src/com/android/car/audio/CarAudioService.java",
+          "ref": null,
+          "symbol_or_line": "class CarAudioService",
+          "observation": "完整服务实现与 8155 重复，没有隔离出的平台策略实现。"
+        },
+        {
+          "path": "hub/src/com/cockpitbench/binderhub/VehicleVariantRules.java",
+          "ref": null,
+          "symbol_or_line": "lines 19-25",
+          "observation": "车型音量、主 zone 和服务名集中在一处，但通过硬编码条件维护。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 1.25,
+    "scored_dimension_count": 8,
+    "failed_dimension_count": 2,
+    "narrative": "主要优势是继承的 AAOS 服务代码中存在成熟的系统接口封装、版本化 AudioControl HAL 适配、权限检查以及 Binder 死亡恢复；本地平台/发布分支的配置提交也保持了较小差异。主要风险集中在新增 hub 及平台组织方式：通用 Bundle/原始 Binder 合约没有实际权限执行，隐藏 ServiceManager 反射缺少允许列表和类型语义，静态可变集合缺乏并发与死亡清理，模块依赖方向存在疑似闭环，并且两个平台保存了整套逐字节相同的音频实现。仓库没有任何测试材料，完整编译又依赖不可用的 AOSP/AAOS 产品树，因此集成行为与编译独立性保持明确不确定。19 次工具调用低于 28 次预算，覆盖全部源码清点、39 个生产文件的内容检查、全部零个测试以及三个有界分支比较，静态评审预算充足。未修改文件，未使用任何 skill。"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "branches": [
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "presubmit/launcher-contracts",
+    "release/2026.1"
+  ],
+  "build_system": "Soong",
+  "commit_count": 9,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [],
+    "has_binder": [
+      "app/src/com/android/car/carlauncher/homescreen/audio/telecom/InCallServiceImpl.java",
+      "app/src/com/android/car/carlauncher/recents/CarQuickStepService.java",
+      "app/tests/src/com/android/car/carlauncher/homescreen/audio/telecom/InCallServiceImplTest.java",
+      "libs/appgrid/lib/src/com/android/car/carlauncher/datasources/ControlCenterMirroringDataSource.kt"
+    ],
+    "has_hidden_api": [
+      "app/Android.bp",
+      "app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+      "app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+      "app/src/com/android/car/carlauncher/homescreen/audio/InCallModel.java",
+      "app/src/com/android/car/carlauncher/homescreen/audio/MediaViewModel.java",
+      "app/src/com/android/car/carlauncher/recents/CarQuickStepService.java",
+      "app/src/com/android/car/carlauncher/recents/view/RecentsRecyclerView.java",
+      "app/src/com/android/car/carlauncher/taskstack/TaskStackChangeListeners.java",
+      "app/tests/Android.bp",
+      "app/tests/src/com/android/car/carlauncher/homescreen/audio/InCallModelTest.java",
+      "docklib/Android.bp",
+      "docklib/src/com/android/car/docklib/data/DockAppItem.kt",
+      "docklib/tests/Android.bp",
+      "libs/appgrid/Android.bp",
+      "libs/appgrid/lib/tests/Android.bp"
+    ],
+    "has_integration_tests": [
+      "TEST_MAPPING",
+      "app/tests/Android.bp",
+      "app/tests/AndroidManifest.xml",
+      "app/tests/AndroidTest.xml",
+      "docklib-util/tests/Android.bp",
+      "docklib-util/tests/AndroidManifest.xml",
+      "docklib/tests/Android.bp",
+      "docklib/tests/AndroidManifest.xml",
+      "libs/appgrid/lib/tests/Android.bp",
+      "libs/appgrid/lib/tests/AndroidManifest.xml",
+      "libs/car-launcher-common/tests/Android.bp",
+      "libs/car-launcher-common/tests/AndroidManifest.xml"
+    ],
+    "has_reflection": [
+      "app/src/com/android/car/carlauncher/CarLauncher.java",
+      "app/src/com/android/car/carlauncher/ControlBarActivity.java",
+      "docklib/tests/src/com/android/car/docklib/data/DockProtoDataControllerTest.kt",
+      "libs/appgrid/lib/robotests/src/com/android/car/carlauncher/datasources/UXRestrictionsDataSourceImplTest.kt"
+    ]
+  },
+  "features": {
+    "has_aidl": false,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": true
+  },
+  "has_push_remote": false,
+  "module_count": 7,
+  "modules": [
+    {
+      "name": "CarLauncher",
+      "path": "app/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarLauncher-core",
+      "path": "app/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarDockUtilLib",
+      "path": "docklib-util/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarDockLib",
+      "path": "docklib/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarAppGrid-lib",
+      "path": "libs/appgrid/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarAppGridTestApp",
+      "path": "libs/appgrid/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarLauncherCommon",
+      "path": "libs/car-launcher-common/Android.bp",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.1.0"
+  },
+  "remotes": [],
+  "repo_head": "7b71de06d491a2f9ff6fd893e32d0e09a3a2a44f",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\horizon-launcher",
+  "source_files": 356,
+  "source_loc": 26344,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "local-sop-2026.1"
+  ],
+  "tracked_files": 382,
+  "worktree_clean": true
+}

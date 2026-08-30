@@ -1,0 +1,179 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "FW-10",
+  "quality_tier": "medium",
+  "comparison_family": null,
+  "review_status": "blind_validated",
+  "evidence": [
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "0a844e957b1269cd0e1faa61c40e1e0b9f778434",
+      "path": "runtime/src/com/android/car/ICarImpl.java",
+      "symbol_or_line": "mCockpitManagerGateway/getCarService",
+      "observation": "ManagerGatewayService 由 ICarImpl 使用真实 CarPropertyService 创建并通过固定 service name 返回，新增层已处于产品服务图中。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "0a844e957b1269cd0e1faa61c40e1e0b9f778434",
+      "path": "manager-runtime/src/com/cockpitbench/managerkit/IManagerGateway.aidl",
+      "symbol_or_line": "IManagerGateway.invoke",
+      "observation": "一个同步 Bundle invoke 以 manager/operation 字符串聚合车辆与 vendor 调用，且没有版本或结构化错误契约。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "hidden_api_reflection",
+      "branch": "main",
+      "commit": "0a844e957b1269cd0e1faa61c40e1e0b9f778434",
+      "path": "manager-runtime/src/com/cockpitbench/managerkit/PlatformManagerFallback.java",
+      "symbol_or_line": "PlatformManagerFallback.call",
+      "observation": "8155/8295/xinqing 类名在 Map 中硬编码，并按远端 operation 反射公开方法；异常被转换为字符串结果。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "0a844e957b1269cd0e1faa61c40e1e0b9f778434",
+      "path": "manager-tests/build.gradle",
+      "symbol_or_line": "manager-tests source set",
+      "observation": "既有 property 测试闭包被暴露为模块，但新增 gateway、listener、反射 fallback 和 ICarImpl service lookup 均无专门测试。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_medium",
+      "reason": "服务接入真实且边界可识别，但 generic gateway 抽象泄漏。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_medium",
+      "reason": "有权限和 RemoteCallbackList，契约仍粗粒度且同步。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_medium",
+      "reason": "继承测试丰富但新增 Manager 跨进程路径未覆盖。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "完整闭包需要 AAOS；仅新增 gateway 的 21 个 class 编译通过。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g3",
+      "blind_id": "blind-6e5ec6f5d251",
+      "repository_head": "0a844e957b1269cd0e1faa61c40e1e0b9f778434",
+      "result_path": "calibration/results/g3/blind-6e5ec6f5d251.json",
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T11:29:32.134Z",
+      "finished_at": "2026-08-29T11:34:43.285Z",
+      "wall_clock_seconds": 311.151,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 41,
+        "directories_visited": 16,
+        "tool_calls": 15,
+        "notes": "HEAD 已核验一致。盘点到 4 个 Gradle 模块、155 个生产 Java/Kotlin 文件、68 个测试文件和 52 个 AIDL 文件；人工检查了 24 个代表性生产源文件、7 个测试文件、7 个构建/入口文件及 3 个分支配置文件。完成 release/2026.1、platform/8155、platform/8295 与 main 的有界比较。未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 15 (evaluator self-report: 15); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 2.0,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 32,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "核心属性链路形成 API、Binder 服务、HAL 编排和 AIDL/HIDL 适配层，职责方向总体清楚；但 Gradle 模块通过跨目录 sourceSet 聚合整套 API/runtime/support，manager-runtime 又直接组合具体 CarPropertyService 和平台 fallback，模块边界较粗。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "VehicleStub、HalPropConfig 和 Backend 接口提供了可替换实现与共享转换逻辑，测试构造器也支持依赖替换；但 ManagerGatewayService 内部直接创建注册表和 fallback，VehiclePropertyBackend 依赖具体 CarPropertyService，新增网关的 DIP/SRP 实践不完整。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "关键 VHAL 依赖由 VehicleStub 和 PlatformVehicleAccess 集中隔离，包含服务白名单、异常转换、超时及死亡处理；不过 runtime/API 中仍广泛直接导入 AAOS builtin/internal 类型，新增 backend 也直接绑定平台 CarPropertyService，隔离程度不均匀。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 2,
+          "reason": "反射总体集中在少量兼容接缝中，其中 PlatformVehicleAccess 有服务白名单和类型化失败；但 PlatformManagerFallback 允许调用者用字符串选择任意公开方法、每次反射构造实例、调用 setAccessible，并仅返回字符串错误，且未发现对应测试。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "属性 Binder 边界采用具体类型，服务端具备权限检查、客户端死亡清理、线程切换和 RemoteException 处理；新 IManagerGateway 却采用 String+Bundle 的宽泛调用协议，监听注册未执行与 invoke 相同的权限校验，回调异常也被静默忽略。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 3,
+          "reason": "仓库只有模块级 Android Gradle 文件，没有 Gradle wrapper、根构建插件声明或完整的平台依赖；生产源码依赖 android.car.builtin、android.hardware.automotive、com.android.internal 等 AOSP/AAOS 输入。受控评估禁止运行构建，且当前仓库未提供所需平台树，因此无法验证可信的独立编译边界。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "测试覆盖 AIDL/HIDL、超时、RemoteException、死亡通知、订阅生命周期及真实 CarPropertyManager→服务→VHAL 数据路径，行为断言有深度；但新增 ManagerGateway、PlatformManagerFallback 和 PlatformVehicleAccess 没有对应边界测试，平台策略只有一个拒绝写入的单元测试。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "AIDL/HIDL 实现共享 VehicleStub、HalPropConfig 和 HalAreaConfig 抽象，核心转换逻辑得到复用；但两套 Config/Area 适配器仍高度近似，协议 Stub 也维护两条较大的实现路径，后端模型变化时存在同步修改成本。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "实际比较显示 release 和两个 platform 分支都从同一基线仅增加两行配置，分歧边界小且没有复制生产源码；但可见历史中每个分支只有一个独立提交，没有足够的修复回合、合并或回灌记录来证明长期发布复用策略。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "AIDL/HIDL 共用抽象和上层属性服务，8155/8295 分支只携带配置差异，说明公共核心复用良好；但主线 fallback 另行硬编码平台到类名的映射并默认 8155，未看到分支 properties 被该运行时接缝消费，配置与实现之间仍有双重策略来源。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "branches": [
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "release/1.0"
+  ],
+  "build_system": "Gradle",
+  "commit_count": 303,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [
+      "vehicle-api/src/main/aidl/com/cockpitbench/climatix/vehicle/ClimateSignal.aidl",
+      "vehicle-api/src/main/aidl/com/cockpitbench/climatix/vehicle/ClimateWriteRequest.aidl",
+      "vehicle-api/src/main/aidl/com/cockpitbench/climatix/vehicle/ClimateWriteResult.aidl",
+      "vehicle-api/src/main/aidl/com/cockpitbench/climatix/vehicle/IClimateControl.aidl",
+      "vehicle-api/src/main/aidl/com/cockpitbench/climatix/vehicle/IClimateListener.aidl"
+    ],
+    "has_binder": [
+      "app/src/androidTest/java/com/cockpitbench/climatix/ClimateListenerContractTest.kt",
+      "app/src/androidTest/java/com/cockpitbench/climatix/ClimateServiceContractTest.kt",
+      "diagnostics/src/main/java/com/cockpitbench/climatix/diagnostics/detectors/BinderLatencyDetector.kt",
+      "hvac-core/src/main/java/com/android/car/hvac/HvacController.java",
+      "hvac-core/src/main/java/com/android/car/hvac/HvacUiService.java",
+      "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/BinderClimateGateway.kt",
+      "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/ClimateServiceLocator.kt"
+    ],
+    "has_hidden_api": [
+      "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/ClimateServiceLocator.kt"
+    ],
+    "has_integration_tests": [
+      "app/build.gradle.kts",
+      "app/src/androidTest/java/com/cockpitbench/climatix/ClimateListenerContractTest.kt",
+      "app/src/androidTest/java/com/cockpitbench/climatix/ClimateServiceContractTest.kt"
+    ],
+    "has_reflection": [
+      "vehicle-api/src/main/java/com/cockpitbench/climatix/vehicle/ClimateServiceLocator.kt"
+    ]
+  },
+  "features": {
+    "has_aidl": true,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": true
+  },
+  "has_push_remote": false,
+  "module_count": 7,
+  "modules": [
+    {
+      "name": ":app",
+      "path": "app/build.gradle.kts",
+      "type": "android_app"
+    },
+    {
+      "name": ":comfort",
+      "path": "comfort/build.gradle.kts",
+      "type": "android_library"
+    },
+    {
+      "name": ":diagnostics",
+      "path": "diagnostics/build.gradle.kts",
+      "type": "android_library"
+    },
+    {
+      "name": ":domain",
+      "path": "domain/build.gradle.kts",
+      "type": "android_library"
+    },
+    {
+      "name": ":hvac-core",
+      "path": "hvac-core/build.gradle.kts",
+      "type": "android_library"
+    },
+    {
+      "name": ":telemetry",
+      "path": "telemetry/build.gradle.kts",
+      "type": "android_library"
+    },
+    {
+      "name": ":vehicle-api",
+      "path": "vehicle-api/build.gradle.kts",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.1.0"
+  },
+  "remotes": [],
+  "repo_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\climatix-hvac",
+  "source_files": 222,
+  "source_loc": 10774,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "v1.0.0"
+  ],
+  "tracked_files": 236,
+  "worktree_clean": true
+}

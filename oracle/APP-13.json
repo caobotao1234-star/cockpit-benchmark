@@ -1,0 +1,199 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "APP-13",
+  "quality_tier": "medium",
+  "comparison_family": null,
+  "review_status": "blind_validated",
+  "evidence": [
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "3f421d00c591dc47b7de81f77292aa512eb34992",
+      "path": "settings.gradle",
+      "symbol_or_line": "11 Gradle modules",
+      "observation": "foundation 与 market API/core/platform/app/tests 边界可发现，产品 domain 不依赖 Id Hub 内容。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "3f421d00c591dc47b7de81f77292aa512eb34992",
+      "path": "market-api/src/main/aidl/com/cockpitbench/market/IMarketService.aidl",
+      "symbol_or_line": "IMarketService",
+      "observation": "typed catalog/download/state/cancel/callback contract 生成并与 app/runtime 编译通过。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "solid",
+      "branch": "main",
+      "commit": "3f421d00c591dc47b7de81f77292aa512eb34992",
+      "path": "market-core/src/main/java/com/cockpitbench/market/core/InstallerSessionCoordinator.java",
+      "symbol_or_line": "install and cancel",
+      "observation": "installer adapter 封装 session create/write/commit/abandon，但真实 Android installer lifecycle 未接入。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "3f421d00c591dc47b7de81f77292aa512eb34992",
+      "path": "market-tests/src/test/java/com/cockpitbench/market/tests/CatalogRepositoryTest.java",
+      "symbol_or_line": "catalog filtering test",
+      "observation": "catalog/entitlement 两个行为测试通过并由 TEST_MAPPING 注册；download/install/Binder 路径覆盖不足。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    },
+    {
+      "dimension": "system_api_dependency",
+      "branch": "main",
+      "commit": "3f421d00c591dc47b7de81f77292aa512eb34992",
+      "path": "market-app/src/main/AndroidManifest.xml",
+      "symbol_or_line": "INSTALL_PACKAGES permission",
+      "observation": "系统安装权限与 application entry 真实声明，但 PackageInstaller adapter 尚未提供 Android implementation。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_medium",
+      "reason": "清晰模块与薄 UI/adapter 缺口并存。"
+    },
+    {
+      "name": "solid",
+      "status": "expected_medium",
+      "reason": "repository/coordinator 分层可用但平台实现缺失。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_high",
+      "reason": "typed market AIDL 可编译。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_medium",
+      "reason": "核心测试存在但产品覆盖不均。"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "not_applicable",
+      "reason": "本仓没有反射或隐藏 API。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "完整 app 需 Android installer 环境。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g5",
+      "blind_id": "blind-62fcf0e17219",
+      "repository_head": "3f421d00c591dc47b7de81f77292aa512eb34992",
+      "result_path": "calibration/results/g5/blind-62fcf0e17219.json",
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T23:00:11.681Z",
+      "finished_at": "2026-08-29T23:04:03.442Z",
+      "wall_clock_seconds": 231.761,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 78,
+        "directories_visited": 28,
+        "tool_calls": 18,
+        "notes": "HEAD 与预期 SHA 一致。按 path+ref 统计文件：当前 HEAD 74 个、分支文件版本 4 个；检查了全部 29 个生产 Java 文件、全部 9 个测试 Java 文件、全部 7 个 AIDL、构建入口与 13 个代表性 XML，并比较 main 与 develop、release/2026.1、platform/8155、platform/8295。未运行构建、脚本或网络操作。 Runner normalized tool_calls from Codex JSONL to 18 (evaluator self-report: 17); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 1.75,
+      "scored_dimension_count": 8,
+      "failed_dimension_count": 2,
+      "evidence_anchor_count": 29,
+      "dimension_evidence_coverage": 0.9,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "11 个模块明确区分 API、核心、平台、存储、观测、应用和测试，核心领域代码总体内聚，依赖方向大体从应用/平台指向核心。不过部分边界只是很薄的包装，foundation-core 还反向声明对 foundation-api 的依赖，市场服务直接依赖具体 CatalogRepository，组合根和实际 Android Service 暴露也不完整。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "生产设计广泛使用注入式端口和小接口，时钟、工作流动作、下载客户端、安装器和权限门都可替换；失败补偿也由动作扩展点承载。局限是若干服务仍依赖具体实现，大型领域类把数据模型、验证、状态机和调度集中在同一顶层类中，原则执行不完全一致。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "Android/Binder 依赖主要限制在 api、platform 和 app 模块，核心安装与下载操作通过接口隔离，权限检查也有集中入口。材料缺口包括使用 enforceCallingOrSelfPermission 而非严格调用方检查、market-core 直接使用 Android Parcelable API 类型和系统时钟，以及没有展示真实 PackageInstaller 适配器的权限、失败与恢复实现。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "not_applicable",
+          "score": null,
+          "evidence_count": 0,
+          "reason": "对全部生产 Java 与 AIDL 搜索 Class.forName、反射成员访问、Method.invoke、SystemProperties、ServiceManager 等站点均无匹配；已打开的全部 29 个生产 Java 文件也未出现隐藏 API 或反射路径。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "市场接口采用 Parcelable、oneway 回调和 RemoteCallbackList，且每个服务方法调用权限门；另有 Binder death 监督器。但 foundation 网关仍以字符串和 Bundle 形成粗粒度弱类型协议，市场状态使用裸整数，服务调用没有结构化错误或取消结果，死亡监督器未接入市场服务，回调 RemoteException 被静默忽略，跨进程生命周期和线程语义覆盖不足。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 3,
+          "reason": "仓库声明 Android Gradle Plugin 8.7.3 和 compileSdk 35，但未包含 Gradle wrapper、gradle.properties、插件/依赖仓库配置或离线插件与 Android SDK 输入；受控审查又禁止下载依赖和运行构建，因此无法建立可验证的独立编译边界。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "核心单元测试对工作流等待/恢复/环检测、策略优先级、会话过期和熔断半开等行为有实质断言。不过所有测试均为直接进程内 JUnit；没有 platform、androidTest、Binder/AIDL、权限、死亡、PackageInstaller 或应用生命周期测试。30 个 XML fixture 未被 Java、Gradle 或 TEST_MAPPING 消费，因此不能证明跨边界集成深度。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "核心领域算法没有明显的大段复制，但生产资源包含 180 个文件，其中 catalog、download、entitlement、install、repositories 五个家族大量复制相同结构和数值模式，仅替换索引；仓库没有生成器或 generated 标记。三个 Parcelable 类也手写重复序列化样板。这种规模使批量规则调整和一致性检查风险显著。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "四个非主分支均从当前 main 仅前进一个提交，实际差异限制为各自两行属性：开发诊断、发布频道/契约或平台安装器选择；两个平台分支之间也只替换同一配置文件。这体现了受控的小型分歧，但历史尚无回合并、补丁回灌或多次发布演进，不能确认长期复用策略。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 3,
+          "reason": "平台分支共享同一完整主线，8155 与 8295 的实际差异仅集中在两行 platform.properties；所有目录、下载、权限和安装会话逻辑均由共同模块复用，平台操作通过 Installer 等端口隔离。当前材料未见车型或芯片源码分叉。局部限制是配置选择如何绑定到具体平台适配器未在仓库中展示。"
+        }
+      ]
+    }
+  ]
+}

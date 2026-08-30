@@ -1,0 +1,112 @@
+{
+  "branches": [
+    "main"
+  ],
+  "build_system": "Gradle",
+  "commit_count": 6,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [
+      "framework-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitEventListener.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitGateway.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IConfigurationListener.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkCallback.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkManager.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IHealthListener.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IMetricsSink.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/ITransactionListener.aidl"
+    ],
+    "has_binder": [
+      "callback-runtime/src/main/java/com/cockpitbench/frameworkfoundation/callback/DeathAwareCallbacks.java",
+      "shared-core/src/main/java/com/cockpitbench/foundation/core/CrossUserAccessBoundary.java"
+    ],
+    "has_hidden_api": [],
+    "has_integration_tests": [],
+    "has_reflection": []
+  },
+  "features": {
+    "has_aidl": true,
+    "has_binder": true,
+    "has_hidden_api": false,
+    "has_integration_tests": false,
+    "has_reflection": false
+  },
+  "has_push_remote": false,
+  "module_count": 11,
+  "modules": [
+    {
+      "name": ":binder-runtime",
+      "path": "binder-runtime/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":callback-runtime",
+      "path": "callback-runtime/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":config-runtime",
+      "path": "config-runtime/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":framework-api",
+      "path": "framework-api/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":framework-testkit",
+      "path": "framework-testkit/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":observability",
+      "path": "observability/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":permission-runtime",
+      "path": "permission-runtime/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":persistence-runtime",
+      "path": "persistence-runtime/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":platform-adapters",
+      "path": "platform-adapters/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":scheduler-runtime",
+      "path": "scheduler-runtime/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":shared-core",
+      "path": "shared-core/build.gradle",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [],
+  "repo_head": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark-staging\\original-framework-foundation",
+  "source_files": 387,
+  "source_loc": 48568,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "framework-foundation-1.0.0"
+  ],
+  "tracked_files": 391,
+  "worktree_clean": true
+}

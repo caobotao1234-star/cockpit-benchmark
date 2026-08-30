@@ -1,0 +1,87 @@
+{
+  "document_type": "manifest_probe_refresh",
+  "schema_version": "1.0.0",
+  "probe_name": "cockpit-repo-probe",
+  "probe_version": "1.4.0",
+  "repository_count": 40,
+  "changed_repository_count": 3,
+  "changes": [
+    {
+      "repo_id": "APP-12",
+      "fields": {
+        "source_loc": {
+          "before": 49235,
+          "after": 49243
+        },
+        "commit_count": {
+          "before": 9,
+          "after": 10
+        },
+        "repo_head": {
+          "before": "19f223c96217e89918a40fa6847fa6de2d87808a",
+          "after": "aaf421d40393d7e629154da70104daca38a0b24f"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    },
+    {
+      "repo_id": "APP-20",
+      "fields": {
+        "source_loc": {
+          "before": 111052,
+          "after": 111095
+        },
+        "commit_count": {
+          "before": 16,
+          "after": 17
+        },
+        "repo_head": {
+          "before": "c6f4a1efa1836f9181742740e6e8b32caf962eb2",
+          "after": "db73b7b03fbb0cd07e7b469fdf0d85fb5d1803c5"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    },
+    {
+      "repo_id": "FW-08",
+      "fields": {
+        "source_loc": {
+          "before": 97486,
+          "after": 97493
+        },
+        "commit_count": {
+          "before": 8,
+          "after": 9
+        },
+        "repo_head": {
+          "before": "d793dd6d3164dff8ce75e3cab2e73cb96fe2063a",
+          "after": "76312786d19840207982edc7bbda8a99a7c4fca0"
+        },
+        "platform_reuse": {
+          "before_count": 4,
+          "after_count": 4
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    }
+  ],
+  "oracle_update_count": 3,
+  "applied": true
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g2",
+  "blind_id": "blind-259100b3628d",
+  "repository_head": "19e6001dbee5ac108aba19941231f53e80f6d578",
+  "prompt_version": "g2-code-health-v1",
+  "prompt_sha256": "456beca11e2d1a9fdc50b6f1245e62b9fa682a2eb6fa329468517ed8f22bb90d",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "sandbox": "read-only",
+  "approval_policy": "never",
+  "network_requested": false,
+  "ephemeral": true,
+  "ignore_user_config": true,
+  "ignore_rules": true,
+  "wall_clock_budget_seconds": 900,
+  "started_at": "2026-08-29T06:14:48.684Z",
+  "finished_at": "2026-08-29T06:16:00.110Z",
+  "wall_clock_seconds": 71.438,
+  "timed_out": false,
+  "exit_code": 0,
+  "clone": {
+    "head": "19e6001dbee5ac108aba19941231f53e80f6d578",
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/1.0"
+    ],
+    "remote_count": 0,
+    "clean": true
+  },
+  "job_repo": "D:\\project\\Git.temp\\cockpit-evaluator-jobs\\g2\\20260829T061446Z-blind-259100b3628d\\repo",
+  "raw_events": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\raw\\g2\\20260829T061446Z-blind-259100b3628d.events.jsonl",
+  "raw_stderr": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\raw\\g2\\20260829T061446Z-blind-259100b3628d.stderr.log",
+  "raw_judgment": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\raw\\g2\\20260829T061446Z-blind-259100b3628d.judgment.json"
+}

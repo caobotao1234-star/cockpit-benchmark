@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "APP-19",
+  "quality_tier": "low",
+  "comparison_family": null,
+  "review_status": "blind_validated",
+  "evidence": [
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "path": "voice-api/src/main/aidl/com/cockpitbench/voice/IVoiceAssistant.aidl",
+      "symbol_or_line": "IVoiceAssistant",
+      "observation": "可编译 session/execute/callback surface 将 context/result 全部压入 String/Bundle。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "path": "voice-core/src/main/java/com/cockpitbench/voice/core/VoiceGlobalState.java",
+      "symbol_or_line": "mutable static voice state",
+      "observation": "session map、callback list、executor、provider 和 generation 全部公开可变并跨实例共享。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "solid",
+      "branch": "main",
+      "commit": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "path": "voice-app/src/main/java/com/cockpitbench/companionvoice/voiceapp/VoiceBinderService.java",
+      "symbol_or_line": "callbacks and execution",
+      "observation": "static callbacks/global listener 双重注册、永久 executor、吞异常和粗粒度 hub 编排混合职责。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "hidden_api_reflection",
+      "branch": "main",
+      "commit": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "path": "voice-core/src/main/java/com/cockpitbench/voice/core/ReflectionServiceBridge.java",
+      "symbol_or_line": "ServiceManager and provider reflection",
+      "observation": "ServiceManager/平台 provider 均反射加载并在失败时返回 null，调用方缺少明确错误语义。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "code_duplication",
+      "branch": "main",
+      "commit": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "path": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+      "symbol_or_line": "paired voice provider generations",
+      "observation": "8155/8295 各 16 个 provider 形成 496 个近重复对，runtime 由全局字符串反射选择 generation。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "path": "voice-tests/src/test/java/com/cockpitbench/voice/tests/SessionHubTest.java",
+      "symbol_or_line": "global session regression",
+      "observation": "外部 Bundle test stub 下 intent/session 两项测试通过，但 Binder/audio/provider lifecycle 未覆盖。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_low",
+      "reason": "全局 hub/static state 与反射 provider 混合。"
+    },
+    {
+      "name": "solid",
+      "status": "expected_low",
+      "reason": "singleton、双重 callback、吞异常和 executor 泄漏并存。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_low",
+      "reason": "Bundle AIDL 粗粒度但可编译。"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "expected_low",
+      "reason": "ServiceManager 与 provider 反射。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_low",
+      "reason": "仅两个产品测试且覆盖不均。"
+    },
+    {
+      "name": "code_duplication",
+      "status": "expected_low",
+      "reason": "两代 provider 高比例复制。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "expected_medium",
+      "reason": "Gradle 模块与本地 AIDL/Java 编译边界可信，但仍依赖外部 Android SDK/AGP 且缺少 wrapper 和整包构建证据。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g5",
+      "blind_id": "blind-78bb4145b9bf",
+      "repository_head": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "result_path": "calibration/results/g5/blind-78bb4145b9bf.json",
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T22:46:58.233Z",
+      "finished_at": "2026-08-29T22:51:17.081Z",
+      "wall_clock_seconds": 258.848,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 426,
+        "directories_visited": 29,
+        "tool_calls": 19,
+        "notes": "HEAD matched the coordinator SHA. Static-only review used 19 of 28 allowed shell calls. It inventoried 12 declared modules, 62 production Java/AIDL files, 9 test files, four AIDL contracts, Binder/reflection sites, source sizes, 295 production XML resources, 40 fixtures, and all local branches. At least 32 production files were substantively inspected, with broader bounded searches covering the remaining production files; all 9 tests were inspected. Comparisons covered main against release/2026.1, platform/8155, platform/8295 and develop, plus platform/8155 against platform/8295. No build or repository script was run and no file was modified. Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 1.0,
+      "scored_dimension_count": 10,
+      "failed_dimension_count": 0,
+      "evidence_anchor_count": 31,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "The repository declares sensible API/core/platform/storage/observability and voice module partitions, and the foundation dependency direction is generally inward. The voice composition undermines those boundaries: the application links both platform implementations simultaneously, while process-wide mutable state, a singleton hub and reflection perform runtime selection without a typed composition root. This makes platform and lifecycle changes cross-cutting."
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 2,
+          "reason": "The foundation code contains credible dependency inversion and extension points, such as an injected clock and action/observer interfaces. The voice path repeatedly bypasses them through concrete construction, singleton access, global collections and untyped reflection; responsibilities for session state, routing, provider creation and invocation are consequently coupled. SOLID practice is therefore substantial in one subsystem but not systematic across the product path."
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "Android-specific concerns have some dedicated wrappers: permission enforcement and Binder death supervision are localized and typed. However, the actual voice execution path bypasses those wrappers, accesses hidden ServiceManager through strings, silently converts failures to null/empty results, and exposes no Binder permission check. System dependency handling is thus uneven and not reliably permission- or failure-aware."
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 2,
+          "reason": "Reflection is mostly discoverable in one bridge, but there is no service-name allowlist, typed provider interface, diagnostic error model or injectable fallback. The hub adds another reflective method lookup, and both layers catch all exceptions silently. No test exercises either reflection path or its failures, leaving compatibility regressions indistinguishable from an absent provider."
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "The contracts provide explicit session and callback operations, use oneway callbacks, and RemoteCallbackList gives basic callback-binder lifecycle support. Contract payloads remain coarse Bundles and strings, no versioning or typed error result is present, caller identity and permissions are unchecked, callback failures are discarded, and the service is not declared in the inspected manifest. A separate death supervisor exists but is not connected to this voice boundary."
+        },
+        {
+          "name": "compilation_independence",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "A credible standalone Gradle/Android boundary is statically declared: modules use compileSdk 35, dependencies are project-local except JUnit, and hidden ServiceManager access is reflective rather than a compile-time platform API. Independence is incomplete because the repository has no Gradle wrapper or pinned wrapper distribution and requires an externally supplied Android SDK/Android Gradle plugin. Per review constraints, the build was not executed, so build correctness remains unverified."
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "Foundation unit tests have meaningful assertions for workflows, policy, reconciliation, trust, sessions and circuit transitions. The voice tests cover only an in-process happy path and simple routing. There are no tests of the AIDL stub, callback threading/death, permission denial, reflection failure, either platform implementation, manifest/service lifecycle or the large fixture corpus; searches found no test-code fixture consumer."
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 0,
+          "evidence_count": 4,
+          "reason": "Duplication is pervasive production structure rather than a small generated boundary: each platform contains 16 near-copy provider classes whose behavior differs mainly by constants/platform labels, and voice-core contains 295 large, repetitive XML files across six numbered families with no generator or shared schema-driven runtime consumer evident. This creates a broad multi-file change surface for basic provider policy."
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "The inspected release and platform branches are tightly bounded: each is one commit directly based on the reviewed main and changes only a two-line properties file; the release commit is tagged. Direct platform comparison changes only the two configuration values. This limits code forks, but the shallow one-commit histories provide no evidence of sustained fix propagation, merges or long-lived release maintenance."
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 0,
+          "evidence_count": 4,
+          "reason": "Branch-level platform configuration is isolated, but production reuse is severely weak. Both platform libraries are packaged into the same app, each carries 16 near-identical provider classes, and core selects one concrete VoiceProvider0 by mutable string and reflection. There is no shared provider interface or centralized mapping model, so common policy is copied across models and most provider classes are disconnected from selection."
+        }
+      ]
+    }
+  ]
+}

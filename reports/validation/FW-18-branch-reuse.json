@@ -1,0 +1,70 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 3,
+      "base_branch": "main",
+      "base_files": 943,
+      "binary_changed_files": 0,
+      "changed_files": 4,
+      "common_path_files": 941,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 942,
+      "deleted_lines": 70,
+      "identical_blob_files": 940,
+      "identical_blob_ratio": 0.995763,
+      "merge_base": "43a56d3edb0aa7296aec1a9bef82c6c3cfc71558",
+      "union_files": 944
+    },
+    {
+      "added_lines": 3,
+      "base_branch": "main",
+      "base_files": 943,
+      "binary_changed_files": 0,
+      "changed_files": 4,
+      "common_path_files": 941,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 942,
+      "deleted_lines": 70,
+      "identical_blob_files": 940,
+      "identical_blob_ratio": 0.995763,
+      "merge_base": "43a56d3edb0aa7296aec1a9bef82c6c3cfc71558",
+      "union_files": 944
+    },
+    {
+      "added_lines": 3,
+      "base_branch": "main",
+      "base_files": 943,
+      "binary_changed_files": 0,
+      "changed_files": 4,
+      "common_path_files": 941,
+      "compare_branch": "platform/xinqing",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 942,
+      "deleted_lines": 70,
+      "identical_blob_files": 940,
+      "identical_blob_ratio": 0.995763,
+      "merge_base": "43a56d3edb0aa7296aec1a9bef82c6c3cfc71558",
+      "union_files": 944
+    },
+    {
+      "added_lines": 3,
+      "base_branch": "main",
+      "base_files": 943,
+      "binary_changed_files": 0,
+      "changed_files": 4,
+      "common_path_files": 941,
+      "compare_branch": "release/sop-2019",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 942,
+      "deleted_lines": 70,
+      "identical_blob_files": 940,
+      "identical_blob_ratio": 0.995763,
+      "merge_base": "43a56d3edb0aa7296aec1a9bef82c6c3cfc71558",
+      "union_files": 944
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-platform-service",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,329 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-72caa63dd88d",
+  "repository_head": "e5ef0b5ba39ed54205d427ace5f4bba24458f151",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04d37-2f22-7e32-9099-bd892d3390d7",
+    "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T11:10:56.998Z",
+    "finished_at": "2026-08-29T11:17:43.829Z",
+    "wall_clock_seconds": 406.831,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 986,
+    "directories_visited": 136,
+    "tool_calls": 21,
+    "notes": "HEAD 与预期 SHA 一致。文件数包含为最大文件统计读取的 690 个源码文件，以及对 car-lib/src 与 compat/legacy/car-lib/src 做精确目录比较时遍历的文件，按路径去重；语义审查重点覆盖 22 个代表性生产源码文件和 7 个有实质断言的测试文件。检查了 5 个本地分支相对 main 的 merge-base、左右提交数、diff stat/name-status，并读取各分支唯一配置文件。未运行构建、脚本、包管理器或网络操作；未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 21 (evaluator self-report: 21); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 1,
+      "reason": "原有汽车服务栈具备清晰的客户端、服务、HAL 和系统接口层次，但新增兼容层以字符串域、Bundle 和反射构成弱类型总线，同时保留整套平行 car API 源码树；这些跨模块问题使边界演进和一致性维护存在持续风险。",
+      "evidence": [
+        {
+          "path": "service/src/com/android/car/VehicleStub.java",
+          "ref": null,
+          "symbol_or_line": "VehicleStub.newVehicleStub(), lines 33-91",
+          "observation": "以统一抽象隔离 AIDL/HIDL VHAL，并在工厂中明确选择和失败语义，体现了原有架构的良好边界。"
+        },
+        {
+          "path": "compat/src/com/cockpitbench/platformcompat/PlatformCompatService.java",
+          "ref": null,
+          "symbol_or_line": "PlatformCompatService fields and Binder methods, lines 19-29",
+          "observation": "单例服务直接构造 registry、cache、rules、router 和 bridge，并暴露通用 invoke、rawService 与可变平台入口，形成高耦合的弱类型汇聚点。"
+        },
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "PlatformCompatSharedCarApi and PlatformCompatLegacyCarApi, lines 3-13",
+          "observation": "顶层同时声明当前与 legacy 两套完整汽车 API 库，扩大了架构上的平行维护面。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 1,
+      "reason": "VehicleStub、AudioControlWrapper 和 SystemInterface 展现出可替换接口与依赖隔离，但兼容层普遍依赖静态全局状态、具体类内联构造和任意反射调用，SRP、DIP 与接口隔离在新增边界上系统性偏弱。",
+      "evidence": [
+        {
+          "path": "service/src/com/android/car/VehicleStub.java",
+          "ref": null,
+          "symbol_or_line": "VehicleStub abstract contract, lines 38-168",
+          "observation": "客户端依赖稳定的抽象契约，AIDL/HIDL 实现可替换，并显式声明远程和服务错误。"
+        },
+        {
+          "path": "service/src/com/android/car/systeminterface/SystemInterface.java",
+          "ref": null,
+          "symbol_or_line": "SystemInterface constructor delegation, lines 53-74",
+          "observation": "Activity、Display、IO、Storage、State、Time 和 WakeLock 职责通过独立接口注入并委托。"
+        },
+        {
+          "path": "compat/src/com/cockpitbench/platformcompat/PlatformCompatService.java",
+          "ref": null,
+          "symbol_or_line": "PlatformCompatService composition, lines 20-23",
+          "observation": "类内部直接实例化全部具体协作者并使用全局单例，难以替换依赖或独立验证职责。"
+        },
+        {
+          "path": "compat/src/com/cockpitbench/platformcompat/HiddenApiRegistry.java",
+          "ref": null,
+          "symbol_or_line": "HiddenApiRegistry.call(), lines 20-26",
+          "observation": "通用 Object/方法名/参数数量接口承担发现、缓存、反射派发和错误吞并，接口过宽且职责混合。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 1,
+      "reason": "基础服务对 ServiceManager、VHAL 和 AudioControl 有类型化包装、版本替换和死亡处理；兼容层却再次以多处硬编码服务名、反射和原始 Binder 绕过这些边界，且没有调用权限校验。",
+      "evidence": [
+        {
+          "path": "car-builtin-lib/src/android/car/builtin/os/ServiceManagerHelper.java",
+          "ref": null,
+          "symbol_or_line": "ServiceManagerHelper, lines 31-58",
+          "observation": "将隐藏 ServiceManager 操作集中为带空值注解的模块库 SystemApi 包装。"
+        },
+        {
+          "path": "service/src/com/android/car/audio/hal/AudioControlWrapperAidl.java",
+          "ref": null,
+          "symbol_or_line": "getService(), constructor, and death handling, lines 59-77 and 230-253",
+          "observation": "使用类型化 IAudioControl、固定声明服务、RemoteException 转换及 Binder death 后重连。"
+        },
+        {
+          "path": "compat/src/com/cockpitbench/platformcompat/PlatformBranchRules.java",
+          "ref": null,
+          "symbol_or_line": "PlatformBranchRules constructor, lines 20-25",
+          "observation": "车辆和音频服务标识以及平台版本直接硬编码在可变静态平台规则中。"
+        },
+        {
+          "path": "compat/src/com/cockpitbench/platformcompat/CompatPollingLoop.java",
+          "ref": null,
+          "symbol_or_line": "CompatPollingLoop.start(), lines 20-23",
+          "observation": "主线程每秒轮询三个硬编码服务名；stop() 没有移除回调，只写入 registry 标记。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "scored",
+      "score": 1,
+      "reason": "反射被集中在单个 registry，且提供 override/clear 测试接缝；但没有成员 allowlist、类型化适配或明确错误模型，按方法名和参数数量选重载并吞掉 Throwable，错误可能静默变成 null。",
+      "evidence": [
+        {
+          "path": "compat/src/com/cockpitbench/platformcompat/HiddenApiRegistry.java",
+          "ref": null,
+          "symbol_or_line": "service(), call(), binder(), lines 23-26",
+          "observation": "反射 ServiceManager#getService，并遍历所有 declared methods，仅以名称和参数数量匹配；一个路径捕获 Throwable，另一路径完全忽略失败。"
+        },
+        {
+          "path": "compat/src/com/cockpitbench/platformcompat/VendorSdkBridge.java",
+          "ref": null,
+          "symbol_or_line": "VendorSdkBridge.call(), lines 20-23",
+          "observation": "将反射结果降格为 String.valueOf，并仅以 available/version 字段表示能力，无法区分方法缺失、类型不匹配与真实 null 返回。"
+        }
+      ]
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 1,
+      "reason": "原有 VHAL/AudioControl 边界具备类型化契约、超时、服务错误和死亡处理；新增 IPlatformCompat 则允许任意字符串操作、Bundle 和原始 IBinder，服务端无权限检查，回调注册无 death 清理且 RemoteException 被忽略。",
+      "evidence": [
+        {
+          "path": "compat/aidl/com/cockpitbench/platformcompat/IPlatformCompat.aidl",
+          "ref": null,
+          "symbol_or_line": "IPlatformCompat, lines 3-9",
+          "observation": "核心调用是 domain/operation/Bundle 通用入口，并直接返回任意命名系统服务的 IBinder；接口标记为 unstable。"
+        },
+        {
+          "path": "compat/src/com/cockpitbench/platformcompat/PlatformCompatService.java",
+          "ref": null,
+          "symbol_or_line": "Binder implementations, lines 23-28",
+          "observation": "invoke、rawService、setPlatform 和回调注册均未执行 calling UID 或权限校验，失败被包装为字符串。"
+        },
+        {
+          "path": "compat/src/com/cockpitbench/platformcompat/CompatCallbackRegistry.java",
+          "ref": null,
+          "symbol_or_line": "add(), remove(), publish(), lines 20-24",
+          "observation": "静态 List 保存远程回调，没有 RemoteCallbackList 或 linkToDeath；发布时静默忽略 RemoteException。"
+        },
+        {
+          "path": "service/src/com/android/car/AidlVehicleStub.java",
+          "ref": null,
+          "symbol_or_line": "linkToDeath() and get(), lines 164-179 and 225-263",
+          "observation": "对照实现使用 Binder death、带请求 ID 的 future、10 秒超时、线程中断恢复和 ServiceSpecificException。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "仓库仅提供依赖 AOSP/AAOS Soong 环境的 Android.bp/Android.mk 边界；顶层兼容模块声明 platform_apis 并引用平台生成的 AIDL 与完整 car API，car-lib 还依赖 framework、module SDK 和源码树外 include 路径。受控审查禁止运行构建，且工作区不包含所需平台输入，因此无法验证独立编译。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "all module declarations, lines 3-27",
+          "observation": "三个 Java/Android 模块均直接纳入平台源码或 platform_apis，并依赖 cockpit-platform-compat-aidl-java。"
+        },
+        {
+          "path": "car-lib/Android.bp",
+          "ref": null,
+          "symbol_or_line": "android.car module, lines 51-87",
+          "observation": "构建引用 packages/modules/Bluetooth/framework/aidl-export、android.car.builtin、framework-wifi、framework-bluetooth 和 module_current SDK，均要求外部平台树。"
+        },
+        {
+          "path": "car-builtin-lib/Android.bp",
+          "ref": null,
+          "symbol_or_line": "android.car.builtin module, lines 21-61",
+          "observation": "使用 core_platform/module_current 及平台库依赖，未建立普通 SDK 或独立 Gradle/Maven 边界。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 2,
+      "reason": "既有测试对 AIDL/HIDL 替换、Binder death、HAL 状态机、错误码和真实属性回调具有较深行为覆盖；但新增 compat 源码和 AIDL 没有对应测试目标或 TEST_MAPPING 条目，关键跨进程权限、反射失败、callback death 和轮询停止行为未被覆盖。",
+      "evidence": [
+        {
+          "path": "tests/carservice_unit_test/src/com/android/car/VehicleStubTest.java",
+          "ref": null,
+          "symbol_or_line": "death and remote-failure tests, lines 118-188",
+          "observation": "分别验证 AIDL/HIDL descriptor、link/unlink death 及 RemoteException 行为，后续还覆盖大 Parcelable。"
+        },
+        {
+          "path": "tests/carservice_test/src/com/android/car/power/CarPowerManagementTest.java",
+          "ref": null,
+          "symbol_or_line": "power-state integration tests, lines 110-150",
+          "observation": "通过模拟 AIDL VHAL 验证 shutdown 状态响应及 TRY_AGAIN、ACCESS_DENIED、NOT_AVAILABLE、INTERNAL_ERROR 等失败路径。"
+        },
+        {
+          "path": "tests/vehiclehal_test/src/com/android/car/vehiclehal/test/CarPropertyTest.java",
+          "ref": null,
+          "symbol_or_line": "testHvacHardButtonOperations(), lines 156-204",
+          "observation": "执行 CarPropertyManager 到 VHAL 的 set/get/callback 端到端行为并核对事件集合。"
+        },
+        {
+          "path": "TEST_MAPPING",
+          "ref": null,
+          "symbol_or_line": "entire mapping, lines 1-23",
+          "observation": "列出既有汽车 API、示例和 vehicle binding 集成测试，但没有 compat runtime/AIDL 测试。"
+        },
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "PlatformCompatRuntime, lines 15-27",
+          "observation": "兼容 AIDL 和运行时模块只有生产声明，没有测试源或测试模块。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 0,
+      "reason": "存在一套完整、逐文件相同的手写 car API 生产源码副本：只读目录比较确认 car-lib/src 与 compat/legacy/car-lib/src 各 334 个文件且无差异。该规模的平行树会使任何修复都面临双点修改和未来漂移风险。",
+      "evidence": [
+        {
+          "path": "car-lib/src/android/car/Car.java",
+          "ref": null,
+          "symbol_or_line": "Car class, line 105; file length 2118",
+          "observation": "该核心 API 文件与 legacy 路径对应文件逐字相同。"
+        },
+        {
+          "path": "compat/legacy/car-lib/src/android/car/Car.java",
+          "ref": null,
+          "symbol_or_line": "Car class, line 105; file length 2118",
+          "observation": "目录级 git diff --no-index 返回无差异；不仅此文件，两个 334 文件源码树整体相同。"
+        },
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "PlatformCompatSharedCarApi and PlatformCompatLegacyCarApi, lines 3-13",
+          "observation": "构建显式将原树和复制树分别作为生产库编译，副本并非生成输出或测试 fixture。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 2,
+      "reason": "所有平台/发布分支从同一基点仅增加一个两行属性文件，实际差异局限且易审阅；但每个分支均比 main 少两个后续兼容修复提交，历史中没有合并或回灌证据，因此长期同步策略仍不明确。",
+      "evidence": [
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "分支唯一差异为 compat.platform=sa8155 与 compat.api=legacy；相对 main 为 2 个提交落后、1 个提交领先。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "分支唯一差异为 compat.platform=sa8295 与 compat.api=hybrid；同样为 2 落后、1 领先。"
+        },
+        {
+          "path": "product/release.properties",
+          "ref": "release/sop-2025",
+          "symbol_or_line": "lines 1-2",
+          "observation": "发布分支唯一差异为冻结 channel 和 8155 平台配置，但未包含 main 后续 event journal/fallback commits。"
+        },
+        {
+          "path": "product/development.properties",
+          "ref": "develop",
+          "symbol_or_line": "lines 1-2",
+          "observation": "开发分支也只增加 channel 与 poll_ms，显示差异受控，但没有与 main 后续提交汇合。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 1,
+      "reason": "平台分支采用配置级差异，运行时也尝试集中平台服务映射，这是可复用方向；但规则仍硬编码三平台政策，fallback/journal 未接入主调用路径，且 legacy 平台复用通过复制整套 334 文件 API 树实现，显著削弱共核复用。",
+      "evidence": [
+        {
+          "path": "compat/src/com/cockpitbench/platformcompat/PlatformBranchRules.java",
+          "ref": null,
+          "symbol_or_line": "constructor and lookup methods, lines 20-25",
+          "observation": "三平台的 vehicle/audio 服务和版本映射集中在一个类中，但值硬编码且依赖进程级可变 sPlatform。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/xinqing",
+          "symbol_or_line": "lines 1-2",
+          "observation": "xinqing 分支只携带 platform/API 两项配置，说明分支本身没有复制实现代码。"
+        },
+        {
+          "path": "compat/src/com/cockpitbench/platformcompat/CompatibilityCommandRouter.java",
+          "ref": null,
+          "symbol_or_line": "invoke(), lines 20-23",
+          "observation": "共享路由复用同一 bridge，但只接受固定字符串域，并未使用 CompatFallbackServices 或 CompatEventJournal。"
+        },
+        {
+          "path": "compat/legacy/car-lib/src/android/car/Car.java",
+          "ref": null,
+          "symbol_or_line": "Car class, line 105",
+          "observation": "legacy 平台采用与当前 car-lib 完全相同的整树源码副本，而不是适配器、生成物或共享核心。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 1.111111,
+    "scored_dimension_count": 9,
+    "failed_dimension_count": 1,
+    "narrative": "主要优势是原有 AAOS 服务栈具有成熟的类型化 HAL 抽象、系统接口注入、Binder death/超时处理，以及覆盖状态机和跨 HAL 行为的测试。主要风险集中在新增兼容层：通用 Bundle/字符串/原始 Binder 契约缺乏权限与生命周期治理，反射失败语义模糊，多处静态可变集合缺少并发保护，停止轮询无效，并且完整复制了 334 文件的 car API 树。平台与发布分支的实际差异均被限制为两行配置，这是良好信号，但它们尚未吸收 main 的两个后续修复，也没有足够历史证明稳定的回灌方式。独立编译因缺少所需 AOSP/AAOS 平台输入而无法验证。21 次 shell 调用低于 28 次预算；源码、测试、AIDL、构建、反射/Binder 点、重复家族和五个分支均已覆盖，预算对静态结论充分，但按照受控要求未通过构建或运行测试验证运行时行为。未修改文件，未使用 skill。"
+  }
+}

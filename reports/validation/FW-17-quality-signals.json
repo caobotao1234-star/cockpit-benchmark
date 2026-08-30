@@ -1,0 +1,1199 @@
+{
+  "aidl_interfaces": [
+    {
+      "method_count": 24,
+      "path": "car-lib/src/android/car/media/ICarAudio.aidl"
+    },
+    {
+      "method_count": 24,
+      "path": "platform/8155/car-lib/src/android/car/media/ICarAudio.aidl"
+    },
+    {
+      "method_count": 24,
+      "path": "platform/8295/car-lib/src/android/car/media/ICarAudio.aidl"
+    },
+    {
+      "method_count": 12,
+      "path": "car-lib/src/android/car/hardware/power/ICarPower.aidl"
+    },
+    {
+      "method_count": 10,
+      "path": "car-lib/src/android/car/content/pm/ICarPackageManager.aidl"
+    },
+    {
+      "method_count": 7,
+      "path": "car-lib/src/android/car/media/ICarMedia.aidl"
+    },
+    {
+      "method_count": 7,
+      "path": "hub/aidl/com/cockpitbench/binderhub/ICockpitServiceHub.aidl"
+    },
+    {
+      "method_count": 7,
+      "path": "platform/8155/car-lib/src/android/car/media/ICarMedia.aidl"
+    },
+    {
+      "method_count": 7,
+      "path": "platform/8295/car-lib/src/android/car/media/ICarMedia.aidl"
+    },
+    {
+      "method_count": 6,
+      "path": "car-lib/src/android/car/app/ICarActivityService.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "car-lib/src/android/car/media/ICarVolumeCallback.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "platform/8155/car-lib/src/android/car/media/ICarVolumeCallback.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "platform/8295/car-lib/src/android/car/media/ICarVolumeCallback.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "car-lib/src/android/car/os/ICarPerformanceService.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/content/pm/ICarAppBlockingPolicy.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/content/pm/ICarAppBlockingPolicySetter.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/hardware/power/ICarPowerPolicyListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/hardware/power/ICarPowerStateListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/media/ICarMediaSourceListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/os/ICpuAvailabilityChangeListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/user/IUserNotice.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/user/IUserNoticeUI.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "car-lib/src/android/car/util/concurrent/IAndroidFuture.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "hub/aidl/com/cockpitbench/binderhub/ICockpitHubCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "platform/8155/car-lib/src/android/car/media/ICarMediaSourceListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "platform/8295/car-lib/src/android/car/media/ICarMediaSourceListener.aidl"
+    }
+  ],
+  "broad_catches": 34,
+  "broad_catches_per_kloc": 0.92271,
+  "code_source_files": 260,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 11,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 498,
+      "methods": 36,
+      "path": "car-lib/src/android/car/util/concurrent/AndroidFuture.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 1
+    },
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 1960,
+      "methods": 120,
+      "path": "service/src/com/android/car/power/CarPowerManagementService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 4,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 1775,
+      "methods": 96,
+      "path": "service/src/com/android/car/user/CarUserService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 578,
+      "methods": 35,
+      "path": "service/src/com/android/car/user/InitialUserSetter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 11,
+      "methods": 6,
+      "path": "hub/src/com/cockpitbench/binderhub/HubServiceRegistry.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 3
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 1211,
+      "methods": 94,
+      "path": "service/src/com/android/car/audio/CarAudioService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 1204,
+      "methods": 94,
+      "path": "platform/8155/service/src/com/android/car/audio/CarAudioService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 1204,
+      "methods": 94,
+      "path": "platform/8295/service/src/com/android/car/audio/CarAudioService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 519,
+      "methods": 23,
+      "path": "service/src/com/android/car/am/FixedActivityService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 224,
+      "methods": 14,
+      "path": "service/src/com/android/car/power/SilentModeHandler.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 737,
+      "methods": 40,
+      "path": "car-lib/src/android/car/user/CarUserManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 337,
+      "methods": 33,
+      "path": "platform/8155/service/src/com/android/car/audio/CarVolumeGroup.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 337,
+      "methods": 33,
+      "path": "platform/8295/service/src/com/android/car/audio/CarVolumeGroup.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 337,
+      "methods": 33,
+      "path": "service/src/com/android/car/audio/CarVolumeGroup.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 207,
+      "methods": 16,
+      "path": "car-lib/src/android/car/user/UserLifecycleEventFilter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 134,
+      "methods": 11,
+      "path": "platform/8155/service/src/com/android/car/audio/CarVolumeGroupMuting.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 134,
+      "methods": 11,
+      "path": "platform/8295/service/src/com/android/car/audio/CarVolumeGroupMuting.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 134,
+      "methods": 11,
+      "path": "service/src/com/android/car/audio/CarVolumeGroupMuting.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 12,
+      "path": "service/src/com/android/car/systeminterface/SystemStateInterface.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 1103,
+      "methods": 65,
+      "path": "service/src/com/android/car/CarOccupantZoneService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [
+    {
+      "file_count": 3,
+      "paths": [
+        "car-lib/src/android/car/media/CarAudioManager.java",
+        "platform/8155/car-lib/src/android/car/media/CarAudioManager.java",
+        "platform/8295/car-lib/src/android/car/media/CarAudioManager.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "car-lib/src/android/car/media/CarAudioPatchHandle.java",
+        "platform/8155/car-lib/src/android/car/media/CarAudioPatchHandle.java",
+        "platform/8295/car-lib/src/android/car/media/CarAudioPatchHandle.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "car-lib/src/android/car/media/CarMediaIntents.java",
+        "platform/8155/car-lib/src/android/car/media/CarMediaIntents.java",
+        "platform/8295/car-lib/src/android/car/media/CarMediaIntents.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "car-lib/src/android/car/media/CarMediaManager.java",
+        "platform/8155/car-lib/src/android/car/media/CarMediaManager.java",
+        "platform/8295/car-lib/src/android/car/media/CarMediaManager.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "car-lib/src/android/car/media/ICarAudio.aidl",
+        "platform/8155/car-lib/src/android/car/media/ICarAudio.aidl",
+        "platform/8295/car-lib/src/android/car/media/ICarAudio.aidl"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "car-lib/src/android/car/media/ICarMedia.aidl",
+        "platform/8155/car-lib/src/android/car/media/ICarMedia.aidl",
+        "platform/8295/car-lib/src/android/car/media/ICarMedia.aidl"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "car-lib/src/android/car/media/ICarVolumeCallback.aidl",
+        "platform/8155/car-lib/src/android/car/media/ICarVolumeCallback.aidl",
+        "platform/8295/car-lib/src/android/car/media/ICarVolumeCallback.aidl"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioContext.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioContext.java",
+        "service/src/com/android/car/audio/CarAudioContext.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioDeviceInfo.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioDeviceInfo.java",
+        "service/src/com/android/car/audio/CarAudioDeviceInfo.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioDynamicRouting.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioDynamicRouting.java",
+        "service/src/com/android/car/audio/CarAudioDynamicRouting.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioFocus.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioFocus.java",
+        "service/src/com/android/car/audio/CarAudioFocus.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioGainConfigInfo.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioGainConfigInfo.java",
+        "service/src/com/android/car/audio/CarAudioGainConfigInfo.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioPlaybackCallback.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioPlaybackCallback.java",
+        "service/src/com/android/car/audio/CarAudioPlaybackCallback.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioPolicyVolumeCallback.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioPolicyVolumeCallback.java",
+        "service/src/com/android/car/audio/CarAudioPolicyVolumeCallback.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioPowerListener.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioPowerListener.java",
+        "service/src/com/android/car/audio/CarAudioPowerListener.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioSettings.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioSettings.java",
+        "service/src/com/android/car/audio/CarAudioSettings.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioUtils.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioUtils.java",
+        "service/src/com/android/car/audio/CarAudioUtils.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioZone.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioZone.java",
+        "service/src/com/android/car/audio/CarAudioZone.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioZonesHelper.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioZonesHelper.java",
+        "service/src/com/android/car/audio/CarAudioZonesHelper.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform/8155/service/src/com/android/car/audio/CarAudioZonesHelperLegacy.java",
+        "platform/8295/service/src/com/android/car/audio/CarAudioZonesHelperLegacy.java",
+        "service/src/com/android/car/audio/CarAudioZonesHelperLegacy.java"
+      ]
+    }
+  ],
+  "global_state_sites": 3,
+  "global_state_sites_per_kloc": 0.081416,
+  "hidden_api_sites": 165,
+  "hidden_api_sites_per_kloc": 4.477855,
+  "largest_code_files": [
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 1960,
+      "methods": 120,
+      "path": "service/src/com/android/car/power/CarPowerManagementService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 4,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 1775,
+      "methods": 96,
+      "path": "service/src/com/android/car/user/CarUserService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 1211,
+      "methods": 94,
+      "path": "service/src/com/android/car/audio/CarAudioService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 1204,
+      "methods": 94,
+      "path": "platform/8155/service/src/com/android/car/audio/CarAudioService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 1204,
+      "methods": 94,
+      "path": "platform/8295/service/src/com/android/car/audio/CarAudioService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 1103,
+      "methods": 65,
+      "path": "service/src/com/android/car/CarOccupantZoneService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 737,
+      "methods": 40,
+      "path": "car-lib/src/android/car/user/CarUserManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 663,
+      "methods": 33,
+      "path": "service/src/com/android/car/power/PolicyReader.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 578,
+      "methods": 35,
+      "path": "service/src/com/android/car/user/InitialUserSetter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 519,
+      "methods": 23,
+      "path": "service/src/com/android/car/am/FixedActivityService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 504,
+      "methods": 27,
+      "path": "car-lib/src/android/car/hardware/power/CarPowerManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 498,
+      "methods": 46,
+      "path": "car-lib/src/android/car/media/CarAudioManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 11,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 498,
+      "methods": 36,
+      "path": "car-lib/src/android/car/util/concurrent/AndroidFuture.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 1
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 498,
+      "methods": 46,
+      "path": "platform/8155/car-lib/src/android/car/media/CarAudioManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 498,
+      "methods": 46,
+      "path": "platform/8295/car-lib/src/android/car/media/CarAudioManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 497,
+      "methods": 30,
+      "path": "platform/8155/service/src/com/android/car/audio/CarAudioFocus.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 497,
+      "methods": 30,
+      "path": "platform/8295/service/src/com/android/car/audio/CarAudioFocus.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 497,
+      "methods": 30,
+      "path": "service/src/com/android/car/audio/CarAudioFocus.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 466,
+      "methods": 42,
+      "path": "service/src/com/android/car/AppFocusService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 439,
+      "methods": 29,
+      "path": "service/src/com/android/car/user/ExperimentalCarUserService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 36848,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 2747,
+  "near_duplicate_file_ratio": 0.392308,
+  "near_duplicate_files_at_0_80": [
+    "car-lib/src/android/car/media/CarAudioManager.java",
+    "car-lib/src/android/car/media/CarAudioPatchHandle.java",
+    "car-lib/src/android/car/media/CarMediaManager.java",
+    "car-lib/src/android/car/media/ICarAudio.aidl",
+    "platform/8155/car-lib/src/android/car/media/CarAudioManager.java",
+    "platform/8155/car-lib/src/android/car/media/CarAudioPatchHandle.java",
+    "platform/8155/car-lib/src/android/car/media/CarMediaManager.java",
+    "platform/8155/car-lib/src/android/car/media/ICarAudio.aidl",
+    "platform/8155/service/src/com/android/car/audio/CarAudioContext.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioDeviceInfo.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioDynamicRouting.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioFocus.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioGainConfigInfo.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioPlaybackCallback.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioPolicyVolumeCallback.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioPowerListener.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioService.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioSettings.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioZone.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioZonesHelper.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioZonesHelperLegacy.java",
+    "platform/8155/service/src/com/android/car/audio/CarAudioZonesValidator.java",
+    "platform/8155/service/src/com/android/car/audio/CarDucking.java",
+    "platform/8155/service/src/com/android/car/audio/CarDuckingInfo.java",
+    "platform/8155/service/src/com/android/car/audio/CarDuckingUtils.java",
+    "platform/8155/service/src/com/android/car/audio/CarVolume.java",
+    "platform/8155/service/src/com/android/car/audio/CarVolumeCallbackHandler.java",
+    "platform/8155/service/src/com/android/car/audio/CarVolumeGroup.java",
+    "platform/8155/service/src/com/android/car/audio/CarVolumeGroupMuting.java",
+    "platform/8155/service/src/com/android/car/audio/CarZonesAudioFocus.java",
+    "platform/8155/service/src/com/android/car/audio/FocusEntry.java",
+    "platform/8155/service/src/com/android/car/audio/FocusInteraction.java",
+    "platform/8155/service/src/com/android/car/audio/hal/AudioControlFactory.java",
+    "platform/8155/service/src/com/android/car/audio/hal/AudioControlWrapper.java",
+    "platform/8155/service/src/com/android/car/audio/hal/AudioControlWrapperAidl.java",
+    "platform/8155/service/src/com/android/car/audio/hal/AudioControlWrapperV1.java",
+    "platform/8155/service/src/com/android/car/audio/hal/AudioControlWrapperV2.java",
+    "platform/8155/service/src/com/android/car/audio/hal/HalAudioFocus.java",
+    "platform/8295/car-lib/src/android/car/media/CarAudioManager.java",
+    "platform/8295/car-lib/src/android/car/media/CarAudioPatchHandle.java",
+    "platform/8295/car-lib/src/android/car/media/CarMediaManager.java",
+    "platform/8295/car-lib/src/android/car/media/ICarAudio.aidl",
+    "platform/8295/service/src/com/android/car/audio/CarAudioContext.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioDeviceInfo.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioDynamicRouting.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioFocus.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioGainConfigInfo.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioPlaybackCallback.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioPolicyVolumeCallback.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioPowerListener.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioService.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioSettings.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioZone.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioZonesHelper.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioZonesHelperLegacy.java",
+    "platform/8295/service/src/com/android/car/audio/CarAudioZonesValidator.java",
+    "platform/8295/service/src/com/android/car/audio/CarDucking.java",
+    "platform/8295/service/src/com/android/car/audio/CarDuckingInfo.java",
+    "platform/8295/service/src/com/android/car/audio/CarDuckingUtils.java",
+    "platform/8295/service/src/com/android/car/audio/CarVolume.java",
+    "platform/8295/service/src/com/android/car/audio/CarVolumeCallbackHandler.java",
+    "platform/8295/service/src/com/android/car/audio/CarVolumeGroup.java",
+    "platform/8295/service/src/com/android/car/audio/CarVolumeGroupMuting.java",
+    "platform/8295/service/src/com/android/car/audio/CarZonesAudioFocus.java",
+    "platform/8295/service/src/com/android/car/audio/FocusEntry.java",
+    "platform/8295/service/src/com/android/car/audio/FocusInteraction.java",
+    "platform/8295/service/src/com/android/car/audio/hal/AudioControlFactory.java",
+    "platform/8295/service/src/com/android/car/audio/hal/AudioControlWrapper.java",
+    "platform/8295/service/src/com/android/car/audio/hal/AudioControlWrapperAidl.java",
+    "platform/8295/service/src/com/android/car/audio/hal/AudioControlWrapperV1.java",
+    "platform/8295/service/src/com/android/car/audio/hal/AudioControlWrapperV2.java",
+    "platform/8295/service/src/com/android/car/audio/hal/HalAudioFocus.java",
+    "service/src/com/android/car/audio/CarAudioContext.java",
+    "service/src/com/android/car/audio/CarAudioDeviceInfo.java",
+    "service/src/com/android/car/audio/CarAudioDynamicRouting.java",
+    "service/src/com/android/car/audio/CarAudioFocus.java",
+    "service/src/com/android/car/audio/CarAudioGainConfigInfo.java",
+    "service/src/com/android/car/audio/CarAudioPlaybackCallback.java",
+    "service/src/com/android/car/audio/CarAudioPolicyVolumeCallback.java",
+    "service/src/com/android/car/audio/CarAudioPowerListener.java",
+    "service/src/com/android/car/audio/CarAudioService.java",
+    "service/src/com/android/car/audio/CarAudioSettings.java",
+    "service/src/com/android/car/audio/CarAudioZone.java",
+    "service/src/com/android/car/audio/CarAudioZonesHelper.java",
+    "service/src/com/android/car/audio/CarAudioZonesHelperLegacy.java",
+    "service/src/com/android/car/audio/CarAudioZonesValidator.java",
+    "service/src/com/android/car/audio/CarDucking.java",
+    "service/src/com/android/car/audio/CarDuckingInfo.java",
+    "service/src/com/android/car/audio/CarDuckingUtils.java",
+    "service/src/com/android/car/audio/CarVolume.java",
+    "service/src/com/android/car/audio/CarVolumeCallbackHandler.java",
+    "service/src/com/android/car/audio/CarVolumeGroup.java",
+    "service/src/com/android/car/audio/CarVolumeGroupMuting.java",
+    "service/src/com/android/car/audio/CarZonesAudioFocus.java",
+    "service/src/com/android/car/audio/FocusEntry.java",
+    "service/src/com/android/car/audio/FocusInteraction.java",
+    "service/src/com/android/car/audio/hal/AudioControlFactory.java",
+    "service/src/com/android/car/audio/hal/AudioControlWrapper.java",
+    "service/src/com/android/car/audio/hal/AudioControlWrapperAidl.java",
+    "service/src/com/android/car/audio/hal/AudioControlWrapperV1.java",
+    "service/src/com/android/car/audio/hal/AudioControlWrapperV2.java",
+    "service/src/com/android/car/audio/hal/HalAudioFocus.java"
+  ],
+  "near_duplicate_pair_count_at_0_80": 102,
+  "near_duplicate_pairs": [
+    {
+      "logical_lines_a": 498,
+      "logical_lines_b": 498,
+      "path_a": "car-lib/src/android/car/media/CarAudioManager.java",
+      "path_b": "platform/8155/car-lib/src/android/car/media/CarAudioManager.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 498,
+      "logical_lines_b": 498,
+      "path_a": "car-lib/src/android/car/media/CarAudioManager.java",
+      "path_b": "platform/8295/car-lib/src/android/car/media/CarAudioManager.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 70,
+      "logical_lines_b": 70,
+      "path_a": "car-lib/src/android/car/media/CarAudioPatchHandle.java",
+      "path_b": "platform/8155/car-lib/src/android/car/media/CarAudioPatchHandle.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 70,
+      "logical_lines_b": 70,
+      "path_a": "car-lib/src/android/car/media/CarAudioPatchHandle.java",
+      "path_b": "platform/8295/car-lib/src/android/car/media/CarAudioPatchHandle.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 126,
+      "logical_lines_b": 126,
+      "path_a": "car-lib/src/android/car/media/CarMediaManager.java",
+      "path_b": "platform/8155/car-lib/src/android/car/media/CarMediaManager.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 126,
+      "logical_lines_b": 126,
+      "path_a": "car-lib/src/android/car/media/CarMediaManager.java",
+      "path_b": "platform/8295/car-lib/src/android/car/media/CarMediaManager.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "car-lib/src/android/car/media/ICarAudio.aidl",
+      "path_b": "platform/8155/car-lib/src/android/car/media/ICarAudio.aidl",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "car-lib/src/android/car/media/ICarAudio.aidl",
+      "path_b": "platform/8295/car-lib/src/android/car/media/ICarAudio.aidl",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 498,
+      "logical_lines_b": 498,
+      "path_a": "platform/8155/car-lib/src/android/car/media/CarAudioManager.java",
+      "path_b": "platform/8295/car-lib/src/android/car/media/CarAudioManager.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 70,
+      "logical_lines_b": 70,
+      "path_a": "platform/8155/car-lib/src/android/car/media/CarAudioPatchHandle.java",
+      "path_b": "platform/8295/car-lib/src/android/car/media/CarAudioPatchHandle.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 126,
+      "logical_lines_b": 126,
+      "path_a": "platform/8155/car-lib/src/android/car/media/CarMediaManager.java",
+      "path_b": "platform/8295/car-lib/src/android/car/media/CarMediaManager.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "platform/8155/car-lib/src/android/car/media/ICarAudio.aidl",
+      "path_b": "platform/8295/car-lib/src/android/car/media/ICarAudio.aidl",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 188,
+      "logical_lines_b": 188,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioContext.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioContext.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 188,
+      "logical_lines_b": 188,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioContext.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioContext.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 127,
+      "logical_lines_b": 127,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioDeviceInfo.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioDeviceInfo.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 127,
+      "logical_lines_b": 127,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioDeviceInfo.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioDeviceInfo.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioDynamicRouting.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioDynamicRouting.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioDynamicRouting.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioDynamicRouting.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 497,
+      "logical_lines_b": 497,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioFocus.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioFocus.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 497,
+      "logical_lines_b": 497,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioFocus.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioFocus.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 34,
+      "logical_lines_b": 34,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioGainConfigInfo.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioGainConfigInfo.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 34,
+      "logical_lines_b": 34,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioGainConfigInfo.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioGainConfigInfo.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 117,
+      "logical_lines_b": 117,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioPlaybackCallback.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioPlaybackCallback.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 117,
+      "logical_lines_b": 117,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioPlaybackCallback.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioPlaybackCallback.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 105,
+      "logical_lines_b": 105,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioPolicyVolumeCallback.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioPolicyVolumeCallback.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 105,
+      "logical_lines_b": 105,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioPolicyVolumeCallback.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioPolicyVolumeCallback.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 83,
+      "logical_lines_b": 83,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioPowerListener.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioPowerListener.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 83,
+      "logical_lines_b": 83,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioPowerListener.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioPowerListener.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 1204,
+      "logical_lines_b": 1204,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioService.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioService.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 1204,
+      "logical_lines_b": 1211,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioService.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioService.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 77,
+      "logical_lines_b": 77,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioSettings.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioSettings.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 77,
+      "logical_lines_b": 77,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioSettings.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioSettings.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 170,
+      "logical_lines_b": 170,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioZone.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioZone.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 170,
+      "logical_lines_b": 170,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioZone.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioZone.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 419,
+      "logical_lines_b": 419,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioZonesHelper.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioZonesHelper.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 419,
+      "logical_lines_b": 419,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioZonesHelper.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioZonesHelper.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 193,
+      "logical_lines_b": 193,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioZonesHelperLegacy.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioZonesHelperLegacy.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 193,
+      "logical_lines_b": 193,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioZonesHelperLegacy.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioZonesHelperLegacy.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 60,
+      "logical_lines_b": 60,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioZonesValidator.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarAudioZonesValidator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 60,
+      "logical_lines_b": 60,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarAudioZonesValidator.java",
+      "path_b": "service/src/com/android/car/audio/CarAudioZonesValidator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 83,
+      "logical_lines_b": 83,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarDucking.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarDucking.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 83,
+      "logical_lines_b": 83,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarDucking.java",
+      "path_b": "service/src/com/android/car/audio/CarDucking.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarDuckingInfo.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarDuckingInfo.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarDuckingInfo.java",
+      "path_b": "service/src/com/android/car/audio/CarDuckingInfo.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 138,
+      "logical_lines_b": 138,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarDuckingUtils.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarDuckingUtils.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 138,
+      "logical_lines_b": 138,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarDuckingUtils.java",
+      "path_b": "service/src/com/android/car/audio/CarDuckingUtils.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 175,
+      "logical_lines_b": 175,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarVolume.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarVolume.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 175,
+      "logical_lines_b": 175,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarVolume.java",
+      "path_b": "service/src/com/android/car/audio/CarVolume.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarVolumeCallbackHandler.java",
+      "path_b": "platform/8295/service/src/com/android/car/audio/CarVolumeCallbackHandler.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "platform/8155/service/src/com/android/car/audio/CarVolumeCallbackHandler.java",
+      "path_b": "service/src/com/android/car/audio/CarVolumeCallbackHandler.java",
+      "similarity": 1.0
+    }
+  ],
+  "placeholder_test_sites": 0,
+  "production_files_over_500_lines": 11,
+  "production_logical_lines": 36848,
+  "production_source_files": 260,
+  "reflection_sites": 4,
+  "reflection_sites_per_kloc": 0.108554,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\binder-hub-service",
+  "repository_head": "7a2bc2cbb17a2e9c407958a38dd1d1884ec0a0c8",
+  "schema_version": "1.0.0",
+  "test_logical_lines": 0,
+  "test_source_files": 0,
+  "test_to_production_file_ratio": 0.0,
+  "tracked_files": 275
+}

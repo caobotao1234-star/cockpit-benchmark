@@ -1,0 +1,98 @@
+{
+  "branches": [
+    "main"
+  ],
+  "build_system": "Gradle",
+  "commit_count": 1,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [],
+    "has_binder": [
+      "car_app_library/navigation/common/src/main/java/androidx/car/app/sample/navigation/common/app/MainActivity.java",
+      "car_app_library/navigation/common/src/main/java/androidx/car/app/sample/navigation/common/car/NavigationSession.java",
+      "car_app_library/navigation/common/src/main/java/androidx/car/app/sample/navigation/common/nav/NavigationService.java",
+      "car_app_library/showcase/common/src/main/java/androidx/car/app/sample/showcase/common/screens/navigationdemos/NavigationNotificationService.java",
+      "car_app_library/showcase/common/src/main/java/androidx/car/app/sample/showcase/common/screens/templatelayouts/SignInWithGoogleActivity.java"
+    ],
+    "has_hidden_api": [],
+    "has_integration_tests": [
+      "car-lib/CarGearViewerKotlin/automotive/build.gradle"
+    ],
+    "has_reflection": []
+  },
+  "features": {
+    "has_aidl": false,
+    "has_binder": true,
+    "has_hidden_api": false,
+    "has_integration_tests": true,
+    "has_reflection": false
+  },
+  "has_push_remote": true,
+  "module_count": 7,
+  "modules": [
+    {
+      "name": ":car-lib:CarGearViewerKotlin:automotive",
+      "path": "car-lib/CarGearViewerKotlin/automotive/build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":car_app_library:navigation:automotive",
+      "path": "car_app_library/navigation/automotive/build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":car_app_library:navigation:common",
+      "path": "car_app_library/navigation/common/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":car_app_library:navigation:mobile",
+      "path": "car_app_library/navigation/mobile/build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":car_app_library:showcase:automotive",
+      "path": "car_app_library/showcase/automotive/build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":car_app_library:showcase:common",
+      "path": "car_app_library/showcase/common/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":car_app_library:showcase:mobile",
+      "path": "car_app_library/showcase/mobile/build.gradle",
+      "type": "android_app"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [
+    {
+      "fetch_urls": [
+        "https://github.com/android/car-samples.git"
+      ],
+      "name": "origin",
+      "push_urls": [
+        "https://github.com/android/car-samples.git"
+      ]
+    }
+  ],
+  "repo_head": "9be0b199986770cd5cde7765765c0eaef0758d15",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark-staging\\github-android-car-samples",
+  "source_files": 183,
+  "source_loc": 14030,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "v1.9.0-alpha01"
+  ],
+  "tracked_files": 252,
+  "worktree_clean": true
+}

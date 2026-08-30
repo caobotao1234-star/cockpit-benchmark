@@ -1,0 +1,1551 @@
+{
+  "schema_version": "2.0.0",
+  "document_type": "cockpit_benchmark_private_transport",
+  "generated_at": "2026-08-30T12:48:03.671903Z",
+  "packaging": "one path-safe complete .git metadata archive per independent child repository",
+  "manifest": "manifest.json",
+  "manifest_sha256": "42b39b9e2356ff180c5491cb626669a6a4d42cd5c2de14ed49c91d20b052a43f",
+  "repository_count": 40,
+  "shallow_repository_count": 14,
+  "total_archive_bytes": 825149440,
+  "repositories": [
+    {
+      "id": "APP-01",
+      "name": "aurora-settings",
+      "kind": "APP",
+      "relative_path": "repos/app/aurora-settings",
+      "default_branch": "main",
+      "head": "7d347803ae70eb01fdeafaff3094404909377c59",
+      "git_tracked_files": 1710,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "local-sop-2026.1"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-01-aurora-settings.git.tar",
+      "archive_bytes": 3788800,
+      "archive_sha256": "8cbdc90c5d42114eb9dedd6349695390fe7c4d5cdca9d597028c3d88ee32c99e",
+      "refs": {
+        "refs/heads/develop": "e0d173ae0eb292129ee05b3bdc853b9c019acd06",
+        "refs/heads/main": "7d347803ae70eb01fdeafaff3094404909377c59",
+        "refs/heads/platform/8155": "769d29b8ea64cf98d8a330969e3581b9a19e8b98",
+        "refs/heads/platform/8295": "33e548d7b2fd3486deaa0531462a99b76285adae",
+        "refs/heads/release/2026.1": "c4801bf2d3c44a5903fa85a37ef92f0101279434",
+        "refs/tags/local-sop-2026.1": "c4801bf2d3c44a5903fa85a37ef92f0101279434"
+      }
+    },
+    {
+      "id": "APP-02",
+      "name": "horizon-launcher",
+      "kind": "APP",
+      "relative_path": "repos/app/horizon-launcher",
+      "default_branch": "main",
+      "head": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+      "git_tracked_files": 1026,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "presubmit/launcher-contracts",
+        "release/2026.1"
+      ],
+      "tags": [
+        "local-sop-2026.1"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-02-horizon-launcher.git.tar",
+      "archive_bytes": 1576960,
+      "archive_sha256": "fe0b7b488f82e541a5b0e9b8c76079619fa542f0eea3a531f310bc3260d95f9a",
+      "refs": {
+        "refs/heads/develop": "b7679d85c43fcd06e01477cc3b370711828cc92f",
+        "refs/heads/main": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+        "refs/heads/platform/8155": "2edf9de770aebfd18082b64ce6cd0d3841149764",
+        "refs/heads/platform/8295": "39e9d76442d3fb8d1d7f0fe04570028fff8122ca",
+        "refs/heads/presubmit/launcher-contracts": "26c11b8f3f9bf6279cdbe1fda3270ab01c89b796",
+        "refs/heads/release/2026.1": "8c956f08ff5e66f5d3a9b414db1109489a4af133",
+        "refs/tags/local-sop-2026.1": "8c956f08ff5e66f5d3a9b414db1109489a4af133"
+      }
+    },
+    {
+      "id": "APP-03",
+      "name": "climatix-hvac",
+      "kind": "APP",
+      "relative_path": "repos/app/climatix-hvac",
+      "default_branch": "main",
+      "head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "git_tracked_files": 236,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/1.0"
+      ],
+      "tags": [
+        "v1.0.0"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/APP-03-climatix-hvac.git.tar",
+      "archive_bytes": 3573760,
+      "archive_sha256": "abc8c7573b2d0100d699b2e63b584b5431078ab1f38e79a8177da4963f2c29c3",
+      "refs": {
+        "refs/heads/develop": "7fc67a915ef594c8ba573fae90053e286b790713",
+        "refs/heads/main": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+        "refs/heads/platform/8155": "b313db00f552d9dac3ba3e20a5fc0df0e873d646",
+        "refs/heads/platform/8295": "f6df3cc885c4ba3c6e229800781a78c873665db2",
+        "refs/heads/release/1.0": "85770d2ca3b6038c90a3a3b989b1bbb8c6acadc2",
+        "refs/tags/v1.0.0": "396c63091d227f1331d10b8f6bf9b2ebed9f5691"
+      }
+    },
+    {
+      "id": "APP-04",
+      "name": "wave-media",
+      "kind": "APP",
+      "relative_path": "repos/app/wave-media",
+      "default_branch": "main",
+      "head": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
+      "git_tracked_files": 280,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "local-sop-2026.1"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-04-wave-media.git.tar",
+      "archive_bytes": 1167360,
+      "archive_sha256": "164de521b5492285353d4b51f4ef6603a7d11c2866161a4de635a6d9818c2d6c",
+      "refs": {
+        "refs/heads/develop": "29a531ee8c451008a3c0884f2679c0cc8ff5db21",
+        "refs/heads/main": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
+        "refs/heads/platform/8155": "cd33c2628dbf553a0c9a6f965b49349fda34d04f",
+        "refs/heads/platform/8295": "adff71bf95990dbd559593123528ea2f6ddb1e42",
+        "refs/heads/release/2026.1": "7a79eaebb2bcadb003ba92f4103ee4fd12547bb7",
+        "refs/tags/local-sop-2026.1": "7a79eaebb2bcadb003ba92f4103ee4fd12547bb7"
+      }
+    },
+    {
+      "id": "APP-05",
+      "name": "link-phone",
+      "kind": "APP",
+      "relative_path": "repos/app/link-phone",
+      "default_branch": "main",
+      "head": "e4537531ded2613e49b369bd241fe431c3155ed4",
+      "git_tracked_files": 494,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "link-phone-2026.1"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-05-link-phone.git.tar",
+      "archive_bytes": 1515520,
+      "archive_sha256": "58b6b06b6d2c9518d768af5249f2d7b7fdf2e4174ef46c2d30eb95f5b66e5468",
+      "refs": {
+        "refs/heads/develop": "0ff85d102892a3025cb71f54dfc3da1c70bdcda9",
+        "refs/heads/main": "e4537531ded2613e49b369bd241fe431c3155ed4",
+        "refs/heads/platform/8155": "8487443119156878ef499689e117061e99a8fb70",
+        "refs/heads/platform/8295": "6a477754b241ed5ed53500e19a5f9f51a0e65232",
+        "refs/heads/release/2026.1": "aa26484a02a3ea771732fe277cb863f9d92c0693",
+        "refs/tags/link-phone-2026.1": "aa26484a02a3ea771732fe277cb863f9d92c0693"
+      }
+    },
+    {
+      "id": "APP-06",
+      "name": "navpilot",
+      "kind": "APP",
+      "relative_path": "repos/app/navpilot",
+      "default_branch": "main",
+      "head": "0793e20235ec761a1b42b7454e8771794d660a04",
+      "git_tracked_files": 2273,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "navpilot-2026.1",
+        "v1.9.0-alpha01"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-06-navpilot.git.tar",
+      "archive_bytes": 5980160,
+      "archive_sha256": "e4000ea0c3a3191203cbce117e749e64d4396161dc106bb2a26821b4a3cf53c0",
+      "refs": {
+        "refs/heads/develop": "a8c13ab050e48467c34c872296910513fc9015e5",
+        "refs/heads/main": "0793e20235ec761a1b42b7454e8771794d660a04",
+        "refs/heads/platform/8155": "50c0796712504aa97ccc453f68883d6026ad9940",
+        "refs/heads/platform/8295": "69ad89bea35a795ac35d3cc0d98dcd41955da9f8",
+        "refs/heads/release/2026.1": "333e0c574b34a82625b20a1e6c51a122018f2333",
+        "refs/tags/navpilot-2026.1": "333e0c574b34a82625b20a1e6c51a122018f2333",
+        "refs/tags/v1.9.0-alpha01": "9be0b199986770cd5cde7765765c0eaef0758d15"
+      }
+    },
+    {
+      "id": "APP-07",
+      "name": "id-hub",
+      "kind": "APP",
+      "relative_path": "repos/app/id-hub",
+      "default_branch": "main",
+      "head": "2c664340f515e34f31a1c05b0be9c804eae698bb",
+      "git_tracked_files": 226,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "id-hub-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/APP-07-id-hub.git.tar",
+      "archive_bytes": 1136640,
+      "archive_sha256": "a78180b7372d54fabd071d09c4fe93247befaeb337240875d1c6bae4e3cc5bf9",
+      "refs": {
+        "refs/heads/develop": "cf25b978c4e84cfb2fa9a8683a80d9dacbf540a4",
+        "refs/heads/main": "2c664340f515e34f31a1c05b0be9c804eae698bb",
+        "refs/heads/platform/8155": "0d8e42d7594508421b0133801fb7cee0fc7577fe",
+        "refs/heads/platform/8295": "7fc754ed67a19906cf2e13f7e0317c01e837e1b2",
+        "refs/heads/release/2026.1": "348c4f4b54f2a09e5edf0196dfc78cadba673633",
+        "refs/tags/id-hub-2026.1": "348c4f4b54f2a09e5edf0196dfc78cadba673633"
+      }
+    },
+    {
+      "id": "APP-08",
+      "name": "echo-voice",
+      "kind": "APP",
+      "relative_path": "repos/app/echo-voice",
+      "default_branch": "main",
+      "head": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+      "git_tracked_files": 532,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "LA.QSSI.13.0.c1-00400-qssi.0",
+        "LA.QSSI.13.0.c1-00600-qssi.0",
+        "LA.QSSI.13.0.c1-01600-qssi.0",
+        "LA.QSSI.13.0.c1-03200-qssi.0",
+        "LA.QSSI.13.0.c26-00300-qssi.0",
+        "LA.QSSI.13.0.c26-00400-qssi.0",
+        "LA.QSSI.13.0.c26-00900-qssi.0",
+        "LA.QSSI.13.0.c26-01300-qssi.0",
+        "LA.QSSI.13.0.c26-01800-qssi.0",
+        "LA.QSSI.13.0.c26-02000-qssi.0",
+        "LA.QSSI.13.0.c26-02900-qssi.0",
+        "LA.QSSI.13.0.c26-03300-qssi.0",
+        "LA.QSSI.13.0.c26-03500-qssi.0",
+        "LA.QSSI.13.0.c26-04500-qssi.0",
+        "LA.QSSI.13.0.c27-00400-qssi.0",
+        "LA.QSSI.13.0.c27-00700-qssi.0",
+        "LA.QSSI.13.0.c27-01400-qssi.0",
+        "LA.QSSI.13.0.c27-02700-qssi.0",
+        "LA.QSSI.13.0.c27-03900-qssi.0",
+        "LA.QSSI.13.0.c28-00300-qssi.0",
+        "LA.QSSI.13.0.c28-00800-qssi.0",
+        "LA.QSSI.13.0.c28-01300-qssi.0",
+        "LA.QSSI.13.0.c28-01500-qssi.0",
+        "LA.QSSI.13.0.c28-01800-qssi.0",
+        "LA.QSSI.13.0.c28-01900-qssi.0",
+        "LA.QSSI.13.0.c28-02200-qssi.0",
+        "LA.QSSI.13.0.c28-02300-qssi.0",
+        "LA.QSSI.13.0.c28-02600-qssi.0",
+        "LA.QSSI.13.0.c28-02800-qssi.0",
+        "LA.QSSI.13.0.c28-02900-qssi.0",
+        "LA.QSSI.13.0.c28-03000-qssi.0",
+        "LA.QSSI.13.0.c28-03900-qssi.0",
+        "LA.QSSI.13.0.c29-00200-qssi.0",
+        "LA.QSSI.13.0.c29-00300-qssi.0",
+        "LA.QSSI.13.0.c30-00200-qssi.0",
+        "LA.QSSI.13.0.c30-00300-qssi.0",
+        "LA.QSSI.13.0.c31-00400-qssi.0",
+        "LA.QSSI.13.0.c31-00500-qssi.0",
+        "LA.QSSI.13.0.c32-00800-qssi.0",
+        "LA.QSSI.13.0.c33-00200-qssi.0",
+        "LA.QSSI.13.0.r1-10700-qssi.0",
+        "LA.QSSI.13.0.r1-10900-qssi.0",
+        "LA.QSSI.13.0.r1-10900.01-qssi.0",
+        "LA.QSSI.13.0.r1-11000-qssi.0",
+        "LA.QSSI.13.0.r1-11000.01-qssi.0",
+        "LA.QSSI.13.0.r1-11100-qssi.0",
+        "LA.QSSI.13.0.r1-11300-qssi.0",
+        "LA.QSSI.13.0.r1-11300.01-qssi.0",
+        "LA.QSSI.13.0.r1-11500-qssi.0",
+        "LA.QSSI.13.0.r1-11500.01-qssi.0",
+        "LA.QSSI.13.0.r1-11500.02-qssi.0",
+        "LA.QSSI.13.0.r1-11600-qssi.0",
+        "LA.QSSI.13.0.r1-11700-qssi.0",
+        "LA.QSSI.13.0.r1-11900-qssi.0",
+        "LA.QSSI.13.0.r1-11900.01-qssi.0",
+        "LA.QSSI.13.0.r1-12000-qssi.0",
+        "LA.QSSI.13.0.r1-12100-qssi.0",
+        "LA.QSSI.13.0.r1-12200-qssi.0",
+        "LA.QSSI.13.0.r1-12300-qssi.0",
+        "LA.QSSI.13.0.r1-12300.01-qssi.0",
+        "LA.QSSI.13.0.r1-12400-qssi.0",
+        "LA.QSSI.13.0.r1-12500-qssi.0",
+        "LA.QSSI.13.0.r1-12600-qssi.0",
+        "LA.QSSI.13.0.r1-12700-qssi.0",
+        "LA.QSSI.13.0.r1-12800-qssi.0",
+        "LA.QSSI.13.0.r1-12900-qssi.0",
+        "LA.QSSI.13.0.r1-13100-qssi.0",
+        "LA.QSSI.13.0.r1-13200-qssi.0",
+        "LA.QSSI.13.0.r1-13300-qssi.0",
+        "LA.QSSI.13.0.r1-13400-qssi.0",
+        "LA.QSSI.13.0.r1-13500-qssi.0",
+        "LA.QSSI.13.0.r1-13600-qssi.0",
+        "LA.QSSI.13.0.r1-13700-qssi.0",
+        "LA.QSSI.13.0.r1-13800-qssi.0",
+        "LA.QSSI.13.0.r1-13900-qssi.0",
+        "LA.QSSI.13.0.r1-14100-qssi.0",
+        "LA.QSSI.13.0.r1-14200-qssi.0",
+        "LA.QSSI.13.0.r1-14300-qssi.0",
+        "LA.QSSI.13.0.r1-14400-qssi.0",
+        "LA.QSSI.13.0.r1-14500-qssi.0",
+        "LA.QSSI.13.0.r1-14600-qssi.0",
+        "LA.QSSI.13.0.r1-14700-qssi.0",
+        "LA.QSSI.13.0.r1-14800-qssi.0",
+        "LA.QSSI.13.0.r1-14900-qssi.0",
+        "LA.QSSI.13.0.r1-14900.01-qssi.0",
+        "LA.QSSI.13.0.r1-15000-qssi.0",
+        "LA.QSSI.13.0.r1-15100-qssi.0",
+        "LA.QSSI.13.0.r1-15200-qssi.0",
+        "LA.QSSI.13.0.r1-15300-qssi.0",
+        "LA.QSSI.13.0.r1-15400-qssi.0",
+        "LA.QSSI.13.0.r1-15500-qssi.0",
+        "LA.QSSI.13.0.r1-15700-qssi.0",
+        "LA.QSSI.13.0.r1-15800-qssi.0",
+        "LA.QSSI.13.0.r1-15900-qssi.0",
+        "LA.QSSI.13.0.r1-16100-qssi.0",
+        "LA.QSSI.13.0.r1-16200-qssi.0",
+        "LA.QSSI.13.0.r1-16300-qssi.0",
+        "LA.QSSI.13.0.r1-16400-qssi.0",
+        "LA.QSSI.13.0.r1-16500-qssi.0",
+        "LA.QSSI.13.0.r1-16600-qssi.0",
+        "LA.QSSI.13.0.r1-16700-qssi.0",
+        "LA.QSSI.13.0.r1-16800-qssi.0",
+        "LA.QSSI.13.0.r1-16900-qssi.0",
+        "LA.QSSI.13.0.r1-17000-qssi.0",
+        "LA.QSSI.13.0.r1-17100-qssi.0",
+        "LA.QSSI.13.0.r1-17200-qssi.0",
+        "LA.QSSI.13.0.r1-17300-qssi.0",
+        "LA.QSSI.13.0.r1-17400-qssi.0",
+        "LA.QSSI.13.0.r1-17500-qssi.0",
+        "LA.QSSI.13.0.r1-18000-qssi.0",
+        "LA.QSSI.13.0.r1-18100-qssi.0",
+        "LA.QSSI.13.0.r1-18200-qssi.0",
+        "LA.QSSI.13.0.r1-18600-qssi.0",
+        "LA.QSSI.13.0.r1-19000-qssi.0",
+        "LA.QSSI.13.0.r1-19100-qssi.0",
+        "LA.QSSI.13.0.r1-19200-qssi.0",
+        "LA.QSSI.13.0.r1-19300-qssi.0",
+        "echo-voice-2026.1"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-08-echo-voice.git.tar",
+      "archive_bytes": 3061760,
+      "archive_sha256": "c1b9d01e5879991b4b0e4eda9a47539328cc49b65097f0ecfacc694ffe037fd7",
+      "refs": {
+        "refs/heads/develop": "ee1cf043a5766a252ddf08c240c63761e9999600",
+        "refs/heads/main": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+        "refs/heads/platform/8155": "aa6fb21603cccee8db23c91d3807fea1b544cd19",
+        "refs/heads/platform/8295": "52adaa26816cb0eb10d25af56a2c9e701607f071",
+        "refs/heads/release/2026.1": "6fbfa8b525eb0b19fc666845c12b3ec368ee57d0",
+        "refs/tags/LA.QSSI.13.0.c1-00400-qssi.0": "4659d82aa91fb816ef143ff8a0b0e30d007bc3db",
+        "refs/tags/LA.QSSI.13.0.c1-00600-qssi.0": "7d004ea3379af70701f2a100d1857712abbd389b",
+        "refs/tags/LA.QSSI.13.0.c1-01600-qssi.0": "e1f1b690afe5a6b54f997ae8abc3fa3e7ff7ce20",
+        "refs/tags/LA.QSSI.13.0.c1-03200-qssi.0": "c677f67bb1f645b1a1efb2034aa5aa2665ae9f26",
+        "refs/tags/LA.QSSI.13.0.c26-00300-qssi.0": "7761ab8a05426cc06bdc8161be2c842ff354b274",
+        "refs/tags/LA.QSSI.13.0.c26-00400-qssi.0": "beb2da89217d34d24b9e8aa2c3cc17462c195902",
+        "refs/tags/LA.QSSI.13.0.c26-00900-qssi.0": "c12666433e9a60a51ee9525a3e2ef164d4bb09f2",
+        "refs/tags/LA.QSSI.13.0.c26-01300-qssi.0": "c88560a423d41c3bf413288f1b2acdad72481956",
+        "refs/tags/LA.QSSI.13.0.c26-01800-qssi.0": "b4a55392ae3c9350ea7f22de1f2d299cb7307442",
+        "refs/tags/LA.QSSI.13.0.c26-02000-qssi.0": "0d60cc58b0cd8b5d3902ce138ebe2ae531c9c57a",
+        "refs/tags/LA.QSSI.13.0.c26-02900-qssi.0": "a68ca973bd7077405ff0d2a4eb5539a062506ccb",
+        "refs/tags/LA.QSSI.13.0.c26-03300-qssi.0": "81750755f5f20b1c25cbb5c71657b16c399a3a34",
+        "refs/tags/LA.QSSI.13.0.c26-03500-qssi.0": "363ed996653d32c74e36a8a70bc844bd9cbfd29d",
+        "refs/tags/LA.QSSI.13.0.c26-04500-qssi.0": "5a3d5913c91ece4ab6c129d24d7b01ed89b34cf7",
+        "refs/tags/LA.QSSI.13.0.c27-00400-qssi.0": "181e117aee72698232d7ab3c0c8a13a46991be19",
+        "refs/tags/LA.QSSI.13.0.c27-00700-qssi.0": "4a3f362833ca975ff31aa468be62d85aa6011710",
+        "refs/tags/LA.QSSI.13.0.c27-01400-qssi.0": "124ecfe9d24f7211e629497865160a33ba106cf6",
+        "refs/tags/LA.QSSI.13.0.c27-02700-qssi.0": "e1f80931e6944abe226d1d90ab9c3ca679d61f09",
+        "refs/tags/LA.QSSI.13.0.c27-03900-qssi.0": "b8f453144d3504b692d6937836c1f15d80e03d04",
+        "refs/tags/LA.QSSI.13.0.c28-00300-qssi.0": "48bd92a9a18b627bb2772fba694d3544806fc117",
+        "refs/tags/LA.QSSI.13.0.c28-00800-qssi.0": "f42b2de23ba00e324dab31cda2ffe5a75fdb5bd2",
+        "refs/tags/LA.QSSI.13.0.c28-01300-qssi.0": "2076958f086564d5ab0c380fe8af05bcbb6ed623",
+        "refs/tags/LA.QSSI.13.0.c28-01500-qssi.0": "5b766cf7335815db8bc95591dea29b92d35e2667",
+        "refs/tags/LA.QSSI.13.0.c28-01800-qssi.0": "0a51c42db351e4b021a4264e7c2c6acc27cb0295",
+        "refs/tags/LA.QSSI.13.0.c28-01900-qssi.0": "69a54d084ab647ce0d2c90ad13a9a9713657511a",
+        "refs/tags/LA.QSSI.13.0.c28-02200-qssi.0": "4b5e4f602e601eaaadaed938c6f07e9af02e9cc4",
+        "refs/tags/LA.QSSI.13.0.c28-02300-qssi.0": "199ab1a805d8625f1d09d392cb942aef8b134097",
+        "refs/tags/LA.QSSI.13.0.c28-02600-qssi.0": "bfef86edff80a97d54a6a03e1f1fe4baf0c305f4",
+        "refs/tags/LA.QSSI.13.0.c28-02800-qssi.0": "24a7920e65edeaa368ec9ad82fc26f64af82cf83",
+        "refs/tags/LA.QSSI.13.0.c28-02900-qssi.0": "df4f5fe5f0c5aeec674049e6b8ee8ba0fff51b75",
+        "refs/tags/LA.QSSI.13.0.c28-03000-qssi.0": "0dfe9e0967aec74d622332a6739d0ef73124c1a1",
+        "refs/tags/LA.QSSI.13.0.c28-03900-qssi.0": "b587e7f3179be87cf7749baf5bab41a75fe39eae",
+        "refs/tags/LA.QSSI.13.0.c29-00200-qssi.0": "947aafee6143db6e72bb2e1f39b95b5f6491cb99",
+        "refs/tags/LA.QSSI.13.0.c29-00300-qssi.0": "ba932a3a2647371e871faece91cd5dc5519e117d",
+        "refs/tags/LA.QSSI.13.0.c30-00200-qssi.0": "c2b37ed2895efc0a9af3aa33e593c8b44a148f81",
+        "refs/tags/LA.QSSI.13.0.c30-00300-qssi.0": "76a1218c3f402a90b4451b4a5fa5cc7778968c8d",
+        "refs/tags/LA.QSSI.13.0.c31-00400-qssi.0": "45baf0fb62ed077199cad995002ba0e2ca13e81f",
+        "refs/tags/LA.QSSI.13.0.c31-00500-qssi.0": "2ceb7a3f51b44c5592b869ed3391c76d5746566c",
+        "refs/tags/LA.QSSI.13.0.c32-00800-qssi.0": "acd283e0e8de98fce58e85e70a8428dbd89f2f84",
+        "refs/tags/LA.QSSI.13.0.c33-00200-qssi.0": "0b54231a41c2bdc9ac20af72196567e522c936de",
+        "refs/tags/LA.QSSI.13.0.r1-10700-qssi.0": "a45ed71601e630fb9c61cec0b1b7de4a8d935907",
+        "refs/tags/LA.QSSI.13.0.r1-10900-qssi.0": "38447bed416d8c657dc8e8661384acfacda18f78",
+        "refs/tags/LA.QSSI.13.0.r1-10900.01-qssi.0": "044029f057fd8dbc474ba08e57d15e11e230e41a",
+        "refs/tags/LA.QSSI.13.0.r1-11000-qssi.0": "1c5d5d95b3b66cc9ba28802581780584d669aed0",
+        "refs/tags/LA.QSSI.13.0.r1-11000.01-qssi.0": "8320ee33666b753fe71711b0cc365dc8bbfa64c5",
+        "refs/tags/LA.QSSI.13.0.r1-11100-qssi.0": "51cb7a81ea4540d53f65899986e8e9af4def3193",
+        "refs/tags/LA.QSSI.13.0.r1-11300-qssi.0": "3cb8e323f6570317c6d1f9fdfcfaaf0461a85649",
+        "refs/tags/LA.QSSI.13.0.r1-11300.01-qssi.0": "5521ba74cd85cfbb8e1e98c490390d3692620f05",
+        "refs/tags/LA.QSSI.13.0.r1-11500-qssi.0": "9dc9db9cec633c54e9e835a85958c045490897fb",
+        "refs/tags/LA.QSSI.13.0.r1-11500.01-qssi.0": "316351049ed5dce4a3b65a08a6166229294c35dc",
+        "refs/tags/LA.QSSI.13.0.r1-11500.02-qssi.0": "8c001ec50e78a9f7e3593a4680ecf4fba3f38293",
+        "refs/tags/LA.QSSI.13.0.r1-11600-qssi.0": "053141b2a27c1099a44c2ac24c826c97549ccd40",
+        "refs/tags/LA.QSSI.13.0.r1-11700-qssi.0": "75ef925a5389c5b15e99684b88a626a8afeed252",
+        "refs/tags/LA.QSSI.13.0.r1-11900-qssi.0": "05696d3b2722c99975c2bc0f781ea250cc03216f",
+        "refs/tags/LA.QSSI.13.0.r1-11900.01-qssi.0": "c45bea753a7f520c527a3f68e216efff583535d0",
+        "refs/tags/LA.QSSI.13.0.r1-12000-qssi.0": "2f0aa7ddc1b6ac2cfd9f54cda641f03b430cdb6b",
+        "refs/tags/LA.QSSI.13.0.r1-12100-qssi.0": "64cc9c24eea7fdc7272401b8a3211c3ef8575438",
+        "refs/tags/LA.QSSI.13.0.r1-12200-qssi.0": "68c11db2db0a8a24dc5f866709a4cd02bab34ddb",
+        "refs/tags/LA.QSSI.13.0.r1-12300-qssi.0": "398ee304c7c72546a9ae32c47a8340a587cf160d",
+        "refs/tags/LA.QSSI.13.0.r1-12300.01-qssi.0": "f4e79cc7c8b9f896df70b69e8abef164ff7c1818",
+        "refs/tags/LA.QSSI.13.0.r1-12400-qssi.0": "a04dc917e7cb7d189b65c5e12e942520e7a39733",
+        "refs/tags/LA.QSSI.13.0.r1-12500-qssi.0": "70163c78a264e2f9eeba8043ceaedbd69a9bcd86",
+        "refs/tags/LA.QSSI.13.0.r1-12600-qssi.0": "6e4f10a18912a0946840cdb323d877d67cb06d93",
+        "refs/tags/LA.QSSI.13.0.r1-12700-qssi.0": "6217f8762e88d673ccb1e66ec5016b564296c93d",
+        "refs/tags/LA.QSSI.13.0.r1-12800-qssi.0": "5d4cf6aa572e901687086c46cb26b8b2e4e42e0c",
+        "refs/tags/LA.QSSI.13.0.r1-12900-qssi.0": "8ca793ca877af516e78b2413faed236777fdc473",
+        "refs/tags/LA.QSSI.13.0.r1-13100-qssi.0": "a1897806be033e9de6908aa1abf2d4b6fa90e810",
+        "refs/tags/LA.QSSI.13.0.r1-13200-qssi.0": "f0740d663bb4a2becbd7bff32b44ea6b00d9b760",
+        "refs/tags/LA.QSSI.13.0.r1-13300-qssi.0": "58553bedebb1e83dfc8713bbc78727d93b913ed1",
+        "refs/tags/LA.QSSI.13.0.r1-13400-qssi.0": "4a4d817cef7b5f72c6386d51c77ec84e640d1da9",
+        "refs/tags/LA.QSSI.13.0.r1-13500-qssi.0": "f2eb1f180090f4b400c1366111efa58921072dc0",
+        "refs/tags/LA.QSSI.13.0.r1-13600-qssi.0": "da261d56d008ff0fdc43e8030132aacbc5765647",
+        "refs/tags/LA.QSSI.13.0.r1-13700-qssi.0": "99b5072b99d8fba234401f22eacd303be3492b57",
+        "refs/tags/LA.QSSI.13.0.r1-13800-qssi.0": "faa7f0b519fc1f5148d666843e2091c77d323662",
+        "refs/tags/LA.QSSI.13.0.r1-13900-qssi.0": "9f55ac6825278ae4838644fa42521e856e2a242c",
+        "refs/tags/LA.QSSI.13.0.r1-14100-qssi.0": "801c2e23b9db1edbf64eade673d37a18b176a5d9",
+        "refs/tags/LA.QSSI.13.0.r1-14200-qssi.0": "93b0a36607a3d28ac3d6afc80e996412f425108f",
+        "refs/tags/LA.QSSI.13.0.r1-14300-qssi.0": "81abcd0f564191ac99b9e8870a4d98ccfd3723fa",
+        "refs/tags/LA.QSSI.13.0.r1-14400-qssi.0": "6142ba347d4a64ac502a587e9973e2da04058725",
+        "refs/tags/LA.QSSI.13.0.r1-14500-qssi.0": "dd78809ce3f1db3f1c4bfe31b82afd847ddfeb6a",
+        "refs/tags/LA.QSSI.13.0.r1-14600-qssi.0": "c44ee53230db5447f412e67d5807693fe941d06d",
+        "refs/tags/LA.QSSI.13.0.r1-14700-qssi.0": "ebd75cc6b84711cc706408ab026936f43e98ec3f",
+        "refs/tags/LA.QSSI.13.0.r1-14800-qssi.0": "92408962e1150eaf89e78c5c3524e14a8647c5e6",
+        "refs/tags/LA.QSSI.13.0.r1-14900-qssi.0": "233c18db56d1d9ec5557622d67a43df86e31bbc1",
+        "refs/tags/LA.QSSI.13.0.r1-14900.01-qssi.0": "dd7fe388fbfbdd842dd3841086f900b1dc79d2a7",
+        "refs/tags/LA.QSSI.13.0.r1-15000-qssi.0": "b71ee7535298679b836736159611248c5ae42687",
+        "refs/tags/LA.QSSI.13.0.r1-15100-qssi.0": "097a81e98a6ad015e4cb935b90667811145b0f57",
+        "refs/tags/LA.QSSI.13.0.r1-15200-qssi.0": "9bce151c4c1fa36a24d3b61aac07b69377520320",
+        "refs/tags/LA.QSSI.13.0.r1-15300-qssi.0": "d4a1bf712e4abb74bce73ea2bcc0e41740266a7f",
+        "refs/tags/LA.QSSI.13.0.r1-15400-qssi.0": "a6cfefa42aea05014860916143f3949180d1f66c",
+        "refs/tags/LA.QSSI.13.0.r1-15500-qssi.0": "14928183136a5b828d93795981cb1c7797ee8938",
+        "refs/tags/LA.QSSI.13.0.r1-15700-qssi.0": "b3197c85b1786d594c381a822c505cce31bf4b35",
+        "refs/tags/LA.QSSI.13.0.r1-15800-qssi.0": "0a5b4df0a8ef50fc180719ac9a23f58e4a9764c1",
+        "refs/tags/LA.QSSI.13.0.r1-15900-qssi.0": "bf011f2e67b20decc12f4c6452064d5702274e0f",
+        "refs/tags/LA.QSSI.13.0.r1-16100-qssi.0": "9babd7ad05b4daf78f9778c8387bea58c6a78f35",
+        "refs/tags/LA.QSSI.13.0.r1-16200-qssi.0": "341f96ec6f2b5b79c19fd91405e4bc449ddb4ecd",
+        "refs/tags/LA.QSSI.13.0.r1-16300-qssi.0": "1a9d1686cbfc59ab96abe9416e44ad459ddc2eea",
+        "refs/tags/LA.QSSI.13.0.r1-16400-qssi.0": "701f60b4e302695167843547d201e454c7467252",
+        "refs/tags/LA.QSSI.13.0.r1-16500-qssi.0": "1b14c1333cd7ea6a73688322ece029a3855cf1aa",
+        "refs/tags/LA.QSSI.13.0.r1-16600-qssi.0": "aface6b4e06be5b96eb290f3e9695efffa7bb2d6",
+        "refs/tags/LA.QSSI.13.0.r1-16700-qssi.0": "055599fe966105cc9b3a7cb829320cd45292ad36",
+        "refs/tags/LA.QSSI.13.0.r1-16800-qssi.0": "3eebac8436236c686bc2365b219d7efaccf469be",
+        "refs/tags/LA.QSSI.13.0.r1-16900-qssi.0": "038630293d166fa191d13de210b8ad6a229f225d",
+        "refs/tags/LA.QSSI.13.0.r1-17000-qssi.0": "aed82ab4c6070eaa03bb0db52dad99b2b0a022a3",
+        "refs/tags/LA.QSSI.13.0.r1-17100-qssi.0": "44b28ae1a91623f001c131a8549cfde0ae1bc76d",
+        "refs/tags/LA.QSSI.13.0.r1-17200-qssi.0": "6df74924cf8e4ddb366a7fe1d49753dc6c9ce108",
+        "refs/tags/LA.QSSI.13.0.r1-17300-qssi.0": "204315bb1a37941dafc0381a752b7833e9e50e87",
+        "refs/tags/LA.QSSI.13.0.r1-17400-qssi.0": "8266df26fa169a4d344de73d295e713d184b24e1",
+        "refs/tags/LA.QSSI.13.0.r1-17500-qssi.0": "1144b86570a532419d857e04117ae4bb7d60c18a",
+        "refs/tags/LA.QSSI.13.0.r1-18000-qssi.0": "b29305116a8e98b98102784571195d2a7009903d",
+        "refs/tags/LA.QSSI.13.0.r1-18100-qssi.0": "be4881dd896d564b3a7d6852e551d7ad34c88bae",
+        "refs/tags/LA.QSSI.13.0.r1-18200-qssi.0": "57c2cf394ab70e42560abfff128e683b610756fc",
+        "refs/tags/LA.QSSI.13.0.r1-18600-qssi.0": "b13d02f217e648212da44314d89ce8970f910060",
+        "refs/tags/LA.QSSI.13.0.r1-19000-qssi.0": "c28657c6e7aae07bcb6d72cbf76156719e3f3898",
+        "refs/tags/LA.QSSI.13.0.r1-19100-qssi.0": "29447e74e20742bca66d38e7393decf70ef5f8a3",
+        "refs/tags/LA.QSSI.13.0.r1-19200-qssi.0": "a3c897ed13d6e03b7c1070aed3a9699f25a2a4c1",
+        "refs/tags/LA.QSSI.13.0.r1-19300-qssi.0": "a3f8568f0c5f925f38e5aee87d4eb82e8a007c65",
+        "refs/tags/echo-voice-2026.1": "6fbfa8b525eb0b19fc666845c12b3ec368ee57d0"
+      }
+    },
+    {
+      "id": "APP-09",
+      "name": "prism-cluster",
+      "kind": "APP",
+      "relative_path": "repos/app/prism-cluster",
+      "default_branch": "main",
+      "head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "git_tracked_files": 788,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "prism-cluster-2026.1"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-09-prism-cluster.git.tar",
+      "archive_bytes": 1208320,
+      "archive_sha256": "9921923d680c331b4ce6be9bcc839679c9a18dbf00eca5dff9d12f89df8ece75",
+      "refs": {
+        "refs/heads/develop": "b062dfdbc8f73a5a35e627d24d77c19b5db74038",
+        "refs/heads/main": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+        "refs/heads/platform/8155": "74c9baaf818c931da5120b57fddf4b033634c3dd",
+        "refs/heads/platform/8295": "0fb2cae8b921c470525da6be0133915e1d856e44",
+        "refs/heads/release/2026.1": "9494ba5c59cadf1ba7865d3a572a8fcbebca2607",
+        "refs/tags/prism-cluster-2026.1": "9494ba5c59cadf1ba7865d3a572a8fcbebca2607"
+      }
+    },
+    {
+      "id": "APP-10",
+      "name": "vehicle-insight",
+      "kind": "APP",
+      "relative_path": "repos/app/vehicle-insight",
+      "default_branch": "main",
+      "head": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+      "git_tracked_files": 488,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "vehicle-insight-2026.1"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-10-vehicle-insight.git.tar",
+      "archive_bytes": 4730880,
+      "archive_sha256": "267c093cae3d71bd18d4f192b7cb2f50d6982fa55de9fd0f0241157f6846f8ca",
+      "refs": {
+        "refs/heads/develop": "89ffbd68482c413fc1c288550b03c6e03121b4ab",
+        "refs/heads/main": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+        "refs/heads/platform/8155": "b003b9dced04101ce732799dbbdec957ce5e35ba",
+        "refs/heads/platform/8295": "5c84378222ae9f65b3f01297aceeb42900de89e1",
+        "refs/heads/release/2026.1": "4e1cb1491caa0ca6349b4e186d98b92fe89ab663",
+        "refs/tags/vehicle-insight-2026.1": "4e1cb1491caa0ca6349b4e186d98b92fe89ab663"
+      }
+    },
+    {
+      "id": "APP-11",
+      "name": "motion-control",
+      "kind": "APP",
+      "relative_path": "repos/app/motion-control",
+      "default_branch": "main",
+      "head": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+      "git_tracked_files": 416,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "app-foundation-1.0.0",
+        "motion-control-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/APP-11-motion-control.git.tar",
+      "archive_bytes": 911360,
+      "archive_sha256": "fde79bd23c32e65c4b6f27fea7de74c7a385d77c7b70a97ab6695a5d4f173b60",
+      "refs": {
+        "refs/heads/develop": "1980fb386da0e5cde632575bc6eef356e9d295c5",
+        "refs/heads/main": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+        "refs/heads/platform/8155": "f037ffc21b67fd241515e5597e073931ad155ae8",
+        "refs/heads/platform/8295": "7dfbf90dc7380c72c87be739c5f8d0b472d539e6",
+        "refs/heads/release/2026.1": "3fda6ae66dccf476d54bb234bd410354623ebc1e",
+        "refs/tags/app-foundation-1.0.0": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
+        "refs/tags/motion-control-2026.1": "3fda6ae66dccf476d54bb234bd410354623ebc1e"
+      }
+    },
+    {
+      "id": "APP-12",
+      "name": "orbit-ota",
+      "kind": "APP",
+      "relative_path": "repos/app/orbit-ota",
+      "default_branch": "main",
+      "head": "aaf421d40393d7e629154da70104daca38a0b24f",
+      "git_tracked_files": 1115,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "orbit-ota-2026.1"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-12-orbit-ota.git.tar",
+      "archive_bytes": 2887680,
+      "archive_sha256": "040afabca917474c90fab3f6b494e971d62d859a41d3e9e0fbfc55d572fc145e",
+      "refs": {
+        "refs/heads/develop": "3a7e142fe052592e333d7472457c0afc65b6a14f",
+        "refs/heads/main": "aaf421d40393d7e629154da70104daca38a0b24f",
+        "refs/heads/platform/8155": "e7b94fce32174e74ff60b63da971f0cf2dc4c2bf",
+        "refs/heads/platform/8295": "7520859a2a68047e29f7cb2c291c9ff1f9d15c46",
+        "refs/heads/release/2026.1": "09d92c3a36e1253ae77750f559a4d0a49568c55d",
+        "refs/tags/orbit-ota-2026.1": "09d92c3a36e1253ae77750f559a4d0a49568c55d"
+      }
+    },
+    {
+      "id": "APP-13",
+      "name": "market-hub",
+      "kind": "APP",
+      "relative_path": "repos/app/market-hub",
+      "default_branch": "main",
+      "head": "3f421d00c591dc47b7de81f77292aa512eb34992",
+      "git_tracked_files": 270,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "app-foundation-1.0.0",
+        "market-hub-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/APP-13-market-hub.git.tar",
+      "archive_bytes": 1751040,
+      "archive_sha256": "131e8db5ce279b4ae36e373c8082bd9040483e7bdc150fc9f1cc796442fbdf7b",
+      "refs": {
+        "refs/heads/develop": "3e9736d750046ab2d2ec7d807355ff3e27b2c16f",
+        "refs/heads/main": "3f421d00c591dc47b7de81f77292aa512eb34992",
+        "refs/heads/platform/8155": "f8623eec7728151f121030a58f1643a6e34ad383",
+        "refs/heads/platform/8295": "fad482ad315db0a65c9b6169898ea8a310210623",
+        "refs/heads/release/2026.1": "7a3bcd1ea1125c2aa8feb863c119e8867b599796",
+        "refs/tags/app-foundation-1.0.0": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
+        "refs/tags/market-hub-2026.1": "7a3bcd1ea1125c2aa8feb863c119e8867b599796"
+      }
+    },
+    {
+      "id": "APP-14",
+      "name": "cockpit-shell",
+      "kind": "APP",
+      "relative_path": "repos/app/cockpit-shell",
+      "default_branch": "main",
+      "head": "bf4a421f8084c139e4ea097d4256e9394008dd8e",
+      "git_tracked_files": 2071,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "cockpit-shell-2026.1"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-14-cockpit-shell.git.tar",
+      "archive_bytes": 2877440,
+      "archive_sha256": "52fa788d864bee533975933f113c238755bc215f2275756504fabe31a420f53c",
+      "refs": {
+        "refs/heads/develop": "f04fca095550796a4812b3133225717ee5aa6f98",
+        "refs/heads/main": "bf4a421f8084c139e4ea097d4256e9394008dd8e",
+        "refs/heads/platform/8155": "e78cfb993351ca86eac2777d4ff0c5b50b4abe5f",
+        "refs/heads/platform/8295": "d4afa6cac8e9b2d4125ec0fb8d4aa2ee69ba7f78",
+        "refs/heads/release/2026.1": "2883836c2dd71c7fd5238f78e244bd5c1a871fe7",
+        "refs/tags/cockpit-shell-2026.1": "2883836c2dd71c7fd5238f78e244bd5c1a871fe7"
+      }
+    },
+    {
+      "id": "APP-15",
+      "name": "atlas-settings",
+      "kind": "APP",
+      "relative_path": "repos/app/atlas-settings",
+      "default_branch": "main",
+      "head": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
+      "git_tracked_files": 1509,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "platform/xinqing",
+        "release/sop-2024"
+      ],
+      "tags": [
+        "android-10.0.0_r12",
+        "android-10.0.0_r13",
+        "android-10.0.0_r14",
+        "android-10.0.0_r7",
+        "android-10.0.0_r8",
+        "android-10.0.0_r9",
+        "local-sop-2024.4"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-15-atlas-settings.git.tar",
+      "archive_bytes": 4495360,
+      "archive_sha256": "3ea66d1996a0d88cd98c6c6fa4b80da3467fbdee14ca268fba1712e5d305352d",
+      "refs": {
+        "refs/heads/develop": "b551fe7c60932ff235c0ae5ad19d6195907707bf",
+        "refs/heads/main": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
+        "refs/heads/platform/8155": "2b04c1935fa517c248636fccb7c685b9cc8e3c29",
+        "refs/heads/platform/8295": "035d15b75c11aded807b4f15eb74710b67d88dd3",
+        "refs/heads/platform/xinqing": "0bdb623bf0d177a16b383dd796b07245d449c4c8",
+        "refs/heads/release/sop-2024": "081a37a09d224e38197faf864f4a98878b8233cb",
+        "refs/tags/android-10.0.0_r12": "2171e21cc32367fb5a56963cc62c9dfc0edeb3c1",
+        "refs/tags/android-10.0.0_r13": "bb2bc1ccb5eaf417fd2e6cb56c4b69782198cc5a",
+        "refs/tags/android-10.0.0_r14": "82a6dafc9d05d185ccb17294bc1bcffbbb550e9a",
+        "refs/tags/android-10.0.0_r7": "f6a7616175a523a22422e7195063731f22f529b4",
+        "refs/tags/android-10.0.0_r8": "75d41e96231adfc019662116f169b21d0187a33a",
+        "refs/tags/android-10.0.0_r9": "145d842a03fac649e41118b31fad0f34539d8111",
+        "refs/tags/local-sop-2024.4": "081a37a09d224e38197faf864f4a98878b8233cb"
+      }
+    },
+    {
+      "id": "APP-16",
+      "name": "nova-launcher",
+      "kind": "APP",
+      "relative_path": "repos/app/nova-launcher",
+      "default_branch": "main",
+      "head": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "git_tracked_files": 1125,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "platform/xinqing",
+        "release/sop-2025"
+      ],
+      "tags": [
+        "local-sop-2025.4"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-16-nova-launcher.git.tar",
+      "archive_bytes": 1423360,
+      "archive_sha256": "9ccac7a29665bb702e5177894fa8ed8e0cf9385fd97036cbe82c00ee8a5cf398",
+      "refs": {
+        "refs/heads/develop": "5d0ff53477b891aa9c2c9847cea9ba269940ed92",
+        "refs/heads/main": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+        "refs/heads/platform/8155": "f3f3930c5d307211df9537e84f51a87780f62031",
+        "refs/heads/platform/8295": "64fb347729366c2fb3c24cd3974158bf5fb0da0d",
+        "refs/heads/platform/xinqing": "daa890d560b843106eacf8cc3437c16719208bbb",
+        "refs/heads/release/sop-2025": "e7e7355ee020893699b3935736fe7218bce9f398",
+        "refs/tags/local-sop-2025.4": "e7e7355ee020893699b3935736fe7218bce9f398"
+      }
+    },
+    {
+      "id": "APP-17",
+      "name": "thermo-control",
+      "kind": "APP",
+      "relative_path": "repos/app/thermo-control",
+      "default_branch": "main",
+      "head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+      "git_tracked_files": 171,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/0.9"
+      ],
+      "tags": [
+        "v0.9.0"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/APP-17-thermo-control.git.tar",
+      "archive_bytes": 1331200,
+      "archive_sha256": "a31e72400ec42b855950a4b694bcf3bf0fa05fc79178b3a35c12d8858d245936",
+      "refs": {
+        "refs/heads/develop": "487b0d1181923b2628d21258d78db89a6eb611dc",
+        "refs/heads/main": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+        "refs/heads/platform/8155": "483e416e1a9edf2f1d60f4ed065186fbaec6d47f",
+        "refs/heads/platform/8295": "dc027394cbc970a47f04e7ed3121f8aa5fe18053",
+        "refs/heads/release/0.9": "d476f5dbf0ec829a9cc2b0d88dd04b7117eda847",
+        "refs/tags/v0.9.0": "f582b4c550acb1349565e8afe50d728fe80e473b"
+      }
+    },
+    {
+      "id": "APP-18",
+      "name": "stream-media",
+      "kind": "APP",
+      "relative_path": "repos/app/stream-media",
+      "default_branch": "main",
+      "head": "a88e94b024b5a13653d20034e3db753640371c0e",
+      "git_tracked_files": 284,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "platform/xinqing",
+        "release/sop-2024"
+      ],
+      "tags": [
+        "local-sop-2024.3"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/APP-18-stream-media.git.tar",
+      "archive_bytes": 645120,
+      "archive_sha256": "63261b092174161aeeeedfb819d3607f6046a7f4cc101ef474d6b0dae6b3822f",
+      "refs": {
+        "refs/heads/develop": "e890eaa1bd728059219dbe533b8e689a16fd7946",
+        "refs/heads/main": "a88e94b024b5a13653d20034e3db753640371c0e",
+        "refs/heads/platform/8155": "99b06adcd7e81d2361279a1149cbf643d2e95651",
+        "refs/heads/platform/8295": "4a41343c848f09811cbc154152023a7b0c19d8bd",
+        "refs/heads/platform/xinqing": "8809a628265aef4453450372324fd2e2b7cf0e17",
+        "refs/heads/release/sop-2024": "dbf996e8614b3506b8bfef856f6cc56ca943404b",
+        "refs/tags/local-sop-2024.3": "dbf996e8614b3506b8bfef856f6cc56ca943404b"
+      }
+    },
+    {
+      "id": "APP-19",
+      "name": "companion-voice",
+      "kind": "APP",
+      "relative_path": "repos/app/companion-voice",
+      "default_branch": "main",
+      "head": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+      "git_tracked_files": 427,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "app-foundation-1.0.0",
+        "companion-voice-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/APP-19-companion-voice.git.tar",
+      "archive_bytes": 2539520,
+      "archive_sha256": "6c1e21eea7b4b6529ecefb1fee412204336b664f9241ca4133ec4a89c9624215",
+      "refs": {
+        "refs/heads/develop": "eff13aa6a3546b4b9d01287cbb13bcf7fcfe20b5",
+        "refs/heads/main": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+        "refs/heads/platform/8155": "273a02a7338e42d4dadf3d06c0011c552e37a470",
+        "refs/heads/platform/8295": "fddc2e53f0c90a3b5e257d58aa1beca9b8fe66c4",
+        "refs/heads/release/2026.1": "7ccce2f49b11f347ddb528a8c1077da6e0511535",
+        "refs/tags/app-foundation-1.0.0": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
+        "refs/tags/companion-voice-2026.1": "7ccce2f49b11f347ddb528a8c1077da6e0511535"
+      }
+    },
+    {
+      "id": "APP-20",
+      "name": "drive-center",
+      "kind": "APP",
+      "relative_path": "repos/app/drive-center",
+      "default_branch": "main",
+      "head": "4259f591ee7b80f541a55ee2a2c0bbc39cf06941",
+      "git_tracked_files": 1560,
+      "branches": [
+        "aosp-new/aosp-new/master",
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "drive-center-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/APP-20-drive-center.git.tar",
+      "archive_bytes": 58583040,
+      "archive_sha256": "e10cab4450d52d0ff6580ae9de10fcba1a822b3bbb57beafdb0444b6eec8e6c7",
+      "refs": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "d3d65f89bd9c865e36068fda239c8af76d94827b",
+        "refs/heads/main": "4259f591ee7b80f541a55ee2a2c0bbc39cf06941",
+        "refs/heads/platform/8155": "170947ca03a20adb89c6a3c0a139d33c5924ce41",
+        "refs/heads/platform/8295": "2ff09a7586c59d17506dbf10935c54f213758fc1",
+        "refs/heads/release/2026.1": "0392b9e29ad81c28d9c1a65681ec2541006da554",
+        "refs/tags/drive-center-2026.1": "0392b9e29ad81c28d9c1a65681ec2541006da554"
+      }
+    },
+    {
+      "id": "FW-01",
+      "name": "car-api-core",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/car-api-core",
+      "default_branch": "main",
+      "head": "985cc498d8c52c2e5ba558e079ea2d670806e43a",
+      "git_tracked_files": 2303,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "local-sop-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-01-car-api-core.git.tar",
+      "archive_bytes": 57569280,
+      "archive_sha256": "3d7998db29d0527ae1cb372e2af8ff378df99cb63ea3aa81d257801ad89672a1",
+      "refs": {
+        "refs/heads/develop": "e99b504bec425d6f1adb8f6d594cdb03a381d1c6",
+        "refs/heads/main": "985cc498d8c52c2e5ba558e079ea2d670806e43a",
+        "refs/heads/platform/8155": "00862035b7e1384a9e3e5d5c83be9529e3e91845",
+        "refs/heads/platform/8295": "e06b7f2b354b8eb0bf6b5e383cd383395272a4a3",
+        "refs/heads/release/2026.1": "8135028142b98adb9c3559c06c7b863ba7ec8126",
+        "refs/tags/local-sop-2026.1": "8135028142b98adb9c3559c06c7b863ba7ec8126"
+      }
+    },
+    {
+      "id": "FW-02",
+      "name": "vehicle-property-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/vehicle-property-service",
+      "default_branch": "main",
+      "head": "08201c6278d25198577f2428c92dd2483032bf20",
+      "git_tracked_files": 283,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2.0"
+      ],
+      "tags": [
+        "v2.0.0"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-02-vehicle-property-service.git.tar",
+      "archive_bytes": 2314240,
+      "archive_sha256": "893b8640e26701dfc48b31f81404794603b1143480547f0f5770fa09c3e621ed",
+      "refs": {
+        "refs/heads/develop": "d64b3c7cf7118d30eb24d37c35816545af4c76b4",
+        "refs/heads/main": "08201c6278d25198577f2428c92dd2483032bf20",
+        "refs/heads/platform/8155": "fab2b54427e9a46b5f096d464ccafafc899c8c35",
+        "refs/heads/platform/8295": "1c687eb3c8523279f6f62465b1fdf366dc108994",
+        "refs/heads/release/2.0": "e76509ba3527e842a6a3b2f201b68e2078cd016b",
+        "refs/tags/v2.0.0": "dd728954b7f0646d3fde72830a4840566c667467"
+      }
+    },
+    {
+      "id": "FW-03",
+      "name": "vehicle-hal-adapter",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/vehicle-hal-adapter",
+      "default_branch": "main",
+      "head": "85517b3ecba303d7acc5e49a3f4780d685f75500",
+      "git_tracked_files": 652,
+      "branches": [
+        "aosp-new/aosp-new/master",
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "local-sop-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-03-vehicle-hal-adapter.git.tar",
+      "archive_bytes": 57333760,
+      "archive_sha256": "52c1461c9a407ca709657e8a6696625049d124db29926c61497eff3f21eaf15c",
+      "refs": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "3ec304a4adc4acff7f90638f505cedf4823906dc",
+        "refs/heads/main": "85517b3ecba303d7acc5e49a3f4780d685f75500",
+        "refs/heads/platform/8155": "45e3a735a9fba1262f91c8b569dc648f957d2128",
+        "refs/heads/platform/8295": "04fa82d9a7210dad2a63a44f2478cdc27965bb0f",
+        "refs/heads/release/2026.1": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098",
+        "refs/tags/local-sop-2026.1": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098"
+      }
+    },
+    {
+      "id": "FW-04",
+      "name": "cockpit-audio-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/cockpit-audio-service",
+      "default_branch": "main",
+      "head": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
+      "git_tracked_files": 275,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "local-sop-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-04-cockpit-audio-service.git.tar",
+      "archive_bytes": 57282560,
+      "archive_sha256": "a923c0274f8d5c174d4ff27402722da9d3e6e44be63792a758189bf5663d4945",
+      "refs": {
+        "refs/heads/develop": "356ac7ee1005f373921731183fdf6f910e6d42b4",
+        "refs/heads/main": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
+        "refs/heads/platform/8155": "872c2c736467b05740a7cac588b2ae777de1c126",
+        "refs/heads/platform/8295": "8de47ac36548c055c393d03587d5e75039861ec4",
+        "refs/heads/release/2026.1": "d463ea588d438395dd55dfadc193c285809df688",
+        "refs/tags/local-sop-2026.1": "d463ea588d438395dd55dfadc193c285809df688"
+      }
+    },
+    {
+      "id": "FW-05",
+      "name": "car-power-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/car-power-service",
+      "default_branch": "main",
+      "head": "2bf5074a6a50dd19635b67ea5d9f9d556e389682",
+      "git_tracked_files": 2182,
+      "branches": [
+        "aosp-new/aosp-new/master",
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "car-power-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-05-car-power-service.git.tar",
+      "archive_bytes": 57548800,
+      "archive_sha256": "2fd46fc68e32fd6eb847cd52fe900ebed88b7a418b217344c1c88e54cb1ee928",
+      "refs": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "9adb9e1713ed4547fca25395a50fe84695a7f30f",
+        "refs/heads/main": "2bf5074a6a50dd19635b67ea5d9f9d556e389682",
+        "refs/heads/platform/8155": "88a6ab3d2f5e2700eae0c64e2aa0aa2d01f4b56c",
+        "refs/heads/platform/8295": "d880fdbebb78d9cde78fb88910f02ee594a9f661",
+        "refs/heads/release/2026.1": "55768fd6c4603ec0932536fbc87e13c409d2216a",
+        "refs/tags/car-power-2026.1": "55768fd6c4603ec0932536fbc87e13c409d2216a"
+      }
+    },
+    {
+      "id": "FW-06",
+      "name": "occupant-zone-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/occupant-zone-service",
+      "default_branch": "main",
+      "head": "ce733dcb460cdccecb5e5c65eb4d78b7629f9b61",
+      "git_tracked_files": 787,
+      "branches": [
+        "aosp-new/aosp-new/master",
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "occupant-zone-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-06-occupant-zone-service.git.tar",
+      "archive_bytes": 57344000,
+      "archive_sha256": "53642cfe8670a2c25bb1571f920a13a7bef5a4673c997a74f2ff31b7fe72388c",
+      "refs": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "73ccd1647186b250dbb32f255833423640fcdaf4",
+        "refs/heads/main": "ce733dcb460cdccecb5e5c65eb4d78b7629f9b61",
+        "refs/heads/platform/8155": "c6846725ac0d302c2c1e54156a3b6372ccb44b18",
+        "refs/heads/platform/8295": "28218ddbeba65045d5945b3608f8f79f0fdb56cc",
+        "refs/heads/release/2026.1": "6120e69bb6b881c14fa806ce8fadfe0acb906833",
+        "refs/tags/occupant-zone-2026.1": "6120e69bb6b881c14fa806ce8fadfe0acb906833"
+      }
+    },
+    {
+      "id": "FW-07",
+      "name": "vehicle-diagnostics",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/vehicle-diagnostics",
+      "default_branch": "main",
+      "head": "8bb2a496bbe8ab7be5ee348973a921b016702251",
+      "git_tracked_files": 2553,
+      "branches": [
+        "aosp-new/aosp-new/master",
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "vehicle-diagnostics-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-07-vehicle-diagnostics.git.tar",
+      "archive_bytes": 57600000,
+      "archive_sha256": "57f577f881337be286468fb75ee2e958df153e7a02433c0dd4138a8a99ffd9ed",
+      "refs": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "20db2e9e2398ad2f34d281cdcb26a78a1dfd4fac",
+        "refs/heads/main": "8bb2a496bbe8ab7be5ee348973a921b016702251",
+        "refs/heads/platform/8155": "85f0ccfb542ae84b40d3314c9de2d6d9fab195b0",
+        "refs/heads/platform/8295": "87130476985f8886d380d9198c80c1edb826f1c8",
+        "refs/heads/release/2026.1": "7898b482b3dbad5ace4c354cdd8a4e039059e681",
+        "refs/tags/vehicle-diagnostics-2026.1": "7898b482b3dbad5ace4c354cdd8a4e039059e681"
+      }
+    },
+    {
+      "id": "FW-08",
+      "name": "soa-gateway",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/soa-gateway",
+      "default_branch": "main",
+      "head": "58d1f6eda9c6b053ff62351a69b258489154acdf",
+      "git_tracked_files": 729,
+      "branches": [
+        "aosp-new/aosp-new/master",
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "soa-gateway-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-08-soa-gateway.git.tar",
+      "archive_bytes": 57323520,
+      "archive_sha256": "b3bfb44532dd2b94767cd74a67fdaf248c476c36ceefef60ccc542e840de5226",
+      "refs": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "8c12e40c1a67b3387cde26ff1810205bcfc0cc98",
+        "refs/heads/main": "58d1f6eda9c6b053ff62351a69b258489154acdf",
+        "refs/heads/platform/8155": "9f1058453589715d6ae60a21f8d0601f4d258793",
+        "refs/heads/platform/8295": "dfb6fde79a368da471256c6fd83457e0ee4ee09f",
+        "refs/heads/release/2026.1": "1e7dabf4b9630a7da0dc1ba490eb3dee42b077a6",
+        "refs/tags/soa-gateway-2026.1": "1e7dabf4b9630a7da0dc1ba490eb3dee42b077a6"
+      }
+    },
+    {
+      "id": "FW-09",
+      "name": "vendor-signal-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/vendor-signal-service",
+      "default_branch": "main",
+      "head": "d5cd34d3c5a1cef3f79794d5a435d047c10073be",
+      "git_tracked_files": 659,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "local-sop-2026.1",
+        "vendor-signal-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-09-vendor-signal-service.git.tar",
+      "archive_bytes": 57333760,
+      "archive_sha256": "d56c0f492326798bd6d1812d0181db89388c5c963c2375f90baaa98fe80b3013",
+      "refs": {
+        "refs/heads/develop": "995d58712011f99f4090b5786d16bb3b11c4be83",
+        "refs/heads/main": "d5cd34d3c5a1cef3f79794d5a435d047c10073be",
+        "refs/heads/platform/8155": "81227ff036b1e5a0987d945bace5ac0ee11cc276",
+        "refs/heads/platform/8295": "a9fb39a35ea1e865d1e6be75ace8c0a3565ad623",
+        "refs/heads/release/2026.1": "8cf05bfe07672ae4c681c31fff094f87a6139b97",
+        "refs/tags/local-sop-2026.1": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098",
+        "refs/tags/vendor-signal-2026.1": "8cf05bfe07672ae4c681c31fff094f87a6139b97"
+      }
+    },
+    {
+      "id": "FW-10",
+      "name": "cockpit-manager-kit",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/cockpit-manager-kit",
+      "default_branch": "main",
+      "head": "0a844e957b1269cd0e1faa61c40e1e0b9f778434",
+      "git_tracked_files": 294,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "manager-kit-2026.1",
+        "v2.0.0"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-10-cockpit-manager-kit.git.tar",
+      "archive_bytes": 921600,
+      "archive_sha256": "69998fe943a40c013ceb78b831bef02350ea9906f199c3aecfafed95194c72e9",
+      "refs": {
+        "refs/heads/develop": "1b510f14db4108bdbd9175f188f20f143503db40",
+        "refs/heads/main": "0a844e957b1269cd0e1faa61c40e1e0b9f778434",
+        "refs/heads/platform/8155": "fcd9448a5bad02d50e88d037cb8ac72fd187fc48",
+        "refs/heads/platform/8295": "75655639921aff733604be10ce44ad8b9fe9bb1e",
+        "refs/heads/release/2026.1": "af6e27f2c9ef73cf3d2d9b079b790d7e57430665",
+        "refs/tags/manager-kit-2026.1": "af6e27f2c9ef73cf3d2d9b079b790d7e57430665",
+        "refs/tags/v2.0.0": "dd728954b7f0646d3fde72830a4840566c667467"
+      }
+    },
+    {
+      "id": "FW-11",
+      "name": "hvac-binder-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/hvac-binder-service",
+      "default_branch": "main",
+      "head": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+      "git_tracked_files": 682,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "framework-foundation-1.0.0",
+        "hvac-binder-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-11-hvac-binder-service.git.tar",
+      "archive_bytes": 1402880,
+      "archive_sha256": "68750081fe9b8e6b3381a1067c9b45285a7ecc7b6611bc96977a0540d92d68f4",
+      "refs": {
+        "refs/heads/develop": "dc9e4d256750912cb8d4120f0295a267cc901a81",
+        "refs/heads/main": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+        "refs/heads/platform/8155": "2b6ded4ff1db2667e3c6d6d5fd8b81042acd83aa",
+        "refs/heads/platform/8295": "445ecd8a8839dc0bc0c7100af888601ea734d92f",
+        "refs/heads/release/2026.1": "b7559b78d2afb592ee28d069e1881642e8c3560f",
+        "refs/tags/framework-foundation-1.0.0": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+        "refs/tags/hvac-binder-2026.1": "b7559b78d2afb592ee28d069e1881642e8c3560f"
+      }
+    },
+    {
+      "id": "FW-12",
+      "name": "media-routing-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/media-routing-service",
+      "default_branch": "main",
+      "head": "3a474c0b4e1d30474362fb3e01cc480da00be29a",
+      "git_tracked_files": 700,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "framework-foundation-1.0.0",
+        "media-routing-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-12-media-routing-service.git.tar",
+      "archive_bytes": 3522560,
+      "archive_sha256": "30d509d5fbbad1716a291095cc94e7135681de0ed3e3f6846c74fef454cc6e53",
+      "refs": {
+        "refs/heads/develop": "c7428966d817503641eb17e8cf0cef50fbaa38b9",
+        "refs/heads/main": "3a474c0b4e1d30474362fb3e01cc480da00be29a",
+        "refs/heads/platform/8155": "3d23764afd43979531e1e8df605312bd180dc392",
+        "refs/heads/platform/8295": "d09c275127c826ed8369aaa59e270de5f5b29a01",
+        "refs/heads/release/2026.1": "7f80683a56ddba2f0115be7bb496a6dba99980a6",
+        "refs/tags/framework-foundation-1.0.0": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+        "refs/tags/media-routing-2026.1": "7f80683a56ddba2f0115be7bb496a6dba99980a6"
+      }
+    },
+    {
+      "id": "FW-13",
+      "name": "projection-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/projection-service",
+      "default_branch": "main",
+      "head": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
+      "git_tracked_files": 740,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "framework-foundation-1.0.0",
+        "projection-service-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-13-projection-service.git.tar",
+      "archive_bytes": 3573760,
+      "archive_sha256": "44a49b2496e28e3d1c63095837630dfe8b6748b8b7a1d24c78730ce941e49722",
+      "refs": {
+        "refs/heads/develop": "9670285485cff394081159d2e564aafd22a6cd6c",
+        "refs/heads/main": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
+        "refs/heads/platform/8155": "df7740c8c00b6dec4738b8d50bf8b6c8061c4117",
+        "refs/heads/platform/8295": "4c811012e18371e6471bad319782af358800d400",
+        "refs/heads/release/2026.1": "0f085f393754ee3d8948c1b5f54629452a451dca",
+        "refs/tags/framework-foundation-1.0.0": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+        "refs/tags/projection-service-2026.1": "0f085f393754ee3d8948c1b5f54629452a451dca"
+      }
+    },
+    {
+      "id": "FW-14",
+      "name": "update-manager-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/update-manager-service",
+      "default_branch": "main",
+      "head": "a6518960f6185ed55dd06342f5224d23a12b611e",
+      "git_tracked_files": 2251,
+      "branches": [
+        "aosp-new/aosp-new/master",
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "update-manager-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-14-update-manager-service.git.tar",
+      "archive_bytes": 57630720,
+      "archive_sha256": "37b2d4f2b91e4ba63cfd0656b2650f1fa4cbecd1c1f34095d7b32e50bc8e8077",
+      "refs": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "507115a4592f0bf5410319bf2736355869ad4ccd",
+        "refs/heads/main": "a6518960f6185ed55dd06342f5224d23a12b611e",
+        "refs/heads/platform/8155": "a7bea930370a84ef6ed661b0f1994af4f65e7a20",
+        "refs/heads/platform/8295": "f4b18929661fa3a498975db35c88ebd50200a36a",
+        "refs/heads/release/2026.1": "0143874da344319474944761dfd576983a83d7c8",
+        "refs/tags/update-manager-2026.1": "0143874da344319474944761dfd576983a83d7c8"
+      }
+    },
+    {
+      "id": "FW-15",
+      "name": "car-runtime-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/car-runtime-service",
+      "default_branch": "main",
+      "head": "8ec949ad990392a014d95b04236b71181039b952",
+      "git_tracked_files": 349,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/0.8"
+      ],
+      "tags": [
+        "v0.8.0"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-15-car-runtime-service.git.tar",
+      "archive_bytes": 1986560,
+      "archive_sha256": "2a132075002874be29844ad7f510bdeeb0ca49447681211e12432a9646096eb9",
+      "refs": {
+        "refs/heads/develop": "7dab9a6cf9a25cd399f4bf906a6a0a9b2a3d9bde",
+        "refs/heads/main": "8ec949ad990392a014d95b04236b71181039b952",
+        "refs/heads/platform/8155": "d2c21ebaf7409378645444b9976d8fa53b20d7d6",
+        "refs/heads/platform/8295": "8ef2b0f2a5fb25a37662d773bd4947a59e25f909",
+        "refs/heads/release/0.8": "bac3ee088718b7453032dfbb6b5bfc3286ea221e",
+        "refs/tags/v0.8.0": "1dc821a73df8734808b9073cb6217113daed5fdf"
+      }
+    },
+    {
+      "id": "FW-16",
+      "name": "platform-compat-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/platform-compat-service",
+      "default_branch": "main",
+      "head": "611df2d26b42e2b79d9063d6226378a81e090982",
+      "git_tracked_files": 2676,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "platform/xinqing",
+        "release/sop-2025"
+      ],
+      "tags": [
+        "local-sop-2025.4"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-16-platform-compat-service.git.tar",
+      "archive_bytes": 57640960,
+      "archive_sha256": "1d3f7ca06054ac871ac8365f0ea3251601ca29d586ea470b7199960095eaa337",
+      "refs": {
+        "refs/heads/develop": "997aec1802b976e2d628247a38c100c39bbe6046",
+        "refs/heads/main": "611df2d26b42e2b79d9063d6226378a81e090982",
+        "refs/heads/platform/8155": "93ccc6f808390533175a71aca35192f1a1f704bb",
+        "refs/heads/platform/8295": "068b6972dc4b5f3ded6b55d1800746b914243f3b",
+        "refs/heads/platform/xinqing": "a79b428ffc3e3bd90003ef628ff4c1323b2f8243",
+        "refs/heads/release/sop-2025": "2234a82e84b34d2d36c5a4bc220313238e5daf13",
+        "refs/tags/local-sop-2025.4": "2234a82e84b34d2d36c5a4bc220313238e5daf13"
+      }
+    },
+    {
+      "id": "FW-17",
+      "name": "binder-hub-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/binder-hub-service",
+      "default_branch": "main",
+      "head": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
+      "git_tracked_files": 275,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "platform/xinqing",
+        "release/sop-2025"
+      ],
+      "tags": [
+        "local-sop-2025.4"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-17-binder-hub-service.git.tar",
+      "archive_bytes": 57303040,
+      "archive_sha256": "028388ccbb2e43b8b6fa24339396f841051690130e3fa1cfe65ccb7351d5e8ff",
+      "refs": {
+        "refs/heads/develop": "5c2cc6dc792bd9644d20b70f99bc798eaa4f815a",
+        "refs/heads/main": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
+        "refs/heads/platform/8155": "37fd2fb80b5dd397ee130ac324ff1c58a4be3fc9",
+        "refs/heads/platform/8295": "4d7f2a39ab74763e56722541a547c6f62d659863",
+        "refs/heads/platform/xinqing": "b25998afb97bf35b9f7ec919e7ff6c7b24563bfe",
+        "refs/heads/release/sop-2025": "ab196893249deebdb6d0bf252dfd5a0f3be726ba",
+        "refs/tags/local-sop-2025.4": "ab196893249deebdb6d0bf252dfd5a0f3be726ba"
+      }
+    },
+    {
+      "id": "FW-18",
+      "name": "vehicle-platform-service",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/vehicle-platform-service",
+      "default_branch": "main",
+      "head": "74db57addbc12585ca258f0e054efa07492078a4",
+      "git_tracked_files": 943,
+      "branches": [
+        "aosp/pie-release",
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "platform/xinqing",
+        "release/sop-2019"
+      ],
+      "tags": [
+        "local-sop-2019.4"
+      ],
+      "shallow": true,
+      "archive": ".cockpit-transport/repositories/FW-18-vehicle-platform-service.git.tar",
+      "archive_bytes": 12554240,
+      "archive_sha256": "18e16cb6b089d92072baeeb9720a22a49bd16a7012a4f1784d4ea8761492d59b",
+      "refs": {
+        "refs/heads/aosp/pie-release": "f02b56678700a4035d0ad8882f7d20371bb96ee2",
+        "refs/heads/develop": "ca512ec4d29b7f7e84ba3ea637bc072b5514c8d2",
+        "refs/heads/main": "74db57addbc12585ca258f0e054efa07492078a4",
+        "refs/heads/platform/8155": "1cd1c6a43839fb526de6df597312286c6a95d9bf",
+        "refs/heads/platform/8295": "bce6dc6fca9eda196edaaff305bf6ffc4ccf0e72",
+        "refs/heads/platform/xinqing": "e4e968216af43e9b612b2bed5b150887a2b93c0c",
+        "refs/heads/release/sop-2019": "0f866904ae21d162731a3939b7f5efb1b0d6017b",
+        "refs/tags/local-sop-2019.4": "0f866904ae21d162731a3939b7f5efb1b0d6017b"
+      }
+    },
+    {
+      "id": "FW-19",
+      "name": "can-middleware",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/can-middleware",
+      "default_branch": "main",
+      "head": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "git_tracked_files": 773,
+      "branches": [
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "can-middleware-2026.1",
+        "framework-foundation-1.0.0"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-19-can-middleware.git.tar",
+      "archive_bytes": 4218880,
+      "archive_sha256": "9475f4a30da213727ffe84f59e3f9fb31d624136b1e4d3b9de4b2482abd2af28",
+      "refs": {
+        "refs/heads/develop": "8aeb7a1fab0ef6f19c1e4447e8703fc7898688ac",
+        "refs/heads/main": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+        "refs/heads/platform/8155": "f67435d0a2abf52ad9bacdaa895c0e92794fcd2d",
+        "refs/heads/platform/8295": "188aa2a99763d4b91023fc0aeecccbb6b2e01c49",
+        "refs/heads/release/2026.1": "9f5eb5e246b9c5b019c1be2f84d8c26336d079fe",
+        "refs/tags/can-middleware-2026.1": "9f5eb5e246b9c5b019c1be2f84d8c26336d079fe",
+        "refs/tags/framework-foundation-1.0.0": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50"
+      }
+    },
+    {
+      "id": "FW-20",
+      "name": "system-service-facade",
+      "kind": "FRAMEWORK",
+      "relative_path": "repos/framework/system-service-facade",
+      "default_branch": "main",
+      "head": "069d0685270ac591ede24b37507016505f1f7645",
+      "git_tracked_files": 2166,
+      "branches": [
+        "aosp-new/aosp-new/master",
+        "develop",
+        "main",
+        "platform/8155",
+        "platform/8295",
+        "release/2026.1"
+      ],
+      "tags": [
+        "system-facade-2026.1"
+      ],
+      "shallow": false,
+      "archive": ".cockpit-transport/repositories/FW-20-system-service-facade.git.tar",
+      "archive_bytes": 57559040,
+      "archive_sha256": "262c31953c71138448903770b1b274b5fa7e2c7bbffbeeae6bb653c1f9084a52",
+      "refs": {
+        "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+        "refs/heads/develop": "6b258ff2c6448d1cf4b7ed7725412a9625c20f3d",
+        "refs/heads/main": "069d0685270ac591ede24b37507016505f1f7645",
+        "refs/heads/platform/8155": "0e41b4a0059705574f75efaa6c13e750ec7075e0",
+        "refs/heads/platform/8295": "cf67fa1f565c7c9838f5b874200ebafe715efe6a",
+        "refs/heads/release/2026.1": "564c76d3147a6032ad8a504f96d7c4c9ec369ba6",
+        "refs/tags/system-facade-2026.1": "564c76d3147a6032ad8a504f96d7c4c9ec369ba6"
+      }
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "rubric_version": "production-code-health-v1",
+  "batch": "production-v1-pilot-6",
+  "blind_id": "prod-8c5f0aa0c6f5",
+  "replicate": "a",
+  "repository_head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+  "outcome": "process_failed",
+  "prompt_version": "production-code-health-v1",
+  "prompt_sha256": "f5977fc8d8f18122717eea7f3d46677a151701fd94c0877f44081dbc35e0fe5f",
+  "judgment_schema_sha256": "4cf937afdfd6883fbc43ebdd91e306c0641856742e396087e1beaae3dd0b0405",
+  "rubric_sha256": "3d37cfb986443be855841e86ed24446c9e0016f2c77921e81261c63da9908b76",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "cli_version": "0.151.0-alpha.7.1",
+  "sandbox": "workspace-write-single-root",
+  "approval_policy": "never",
+  "network_requested": false,
+  "ephemeral": true,
+  "ignore_rules": true,
+  "disabled_features": [
+    "apps",
+    "browser_use",
+    "browser_use_external",
+    "computer_use",
+    "goals",
+    "hooks",
+    "image_generation",
+    "in_app_browser",
+    "memories",
+    "multi_agent",
+    "plugins",
+    "remote_plugin",
+    "skill_search",
+    "tool_suggest",
+    "view_image",
+    "workspace_dependencies"
+  ],
+  "disabled_mcp_servers": [
+    "atlassian",
+    "cua_repl",
+    "node_repl"
+  ],
+  "wall_clock_budget_seconds": 1800,
+  "started_at": "2026-08-30T07:12:48.172Z",
+  "finished_at": "2026-08-30T07:12:56.384Z",
+  "wall_clock_seconds": 8.203,
+  "timed_out": false,
+  "exit_code": 1,
+  "clone": {
+    "head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/1.0"
+    ],
+    "branch_heads": {
+      "develop": "7fc67a915ef594c8ba573fae90053e286b790713",
+      "main": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "platform/8155": "b313db00f552d9dac3ba3e20a5fc0df0e873d646",
+      "platform/8295": "f6df3cc885c4ba3c6e229800781a78c873665db2",
+      "release/1.0": "85770d2ca3b6038c90a3a3b989b1bbb8c6acadc2"
+    },
+    "remotes": [],
+    "remote_count": 0,
+    "status": [],
+    "clean": true
+  },
+  "post_run_clone": {
+    "head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/1.0"
+    ],
+    "branch_heads": {
+      "develop": "7fc67a915ef594c8ba573fae90053e286b790713",
+      "main": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "platform/8155": "b313db00f552d9dac3ba3e20a5fc0df0e873d646",
+      "platform/8295": "f6df3cc885c4ba3c6e229800781a78c873665db2",
+      "release/1.0": "85770d2ca3b6038c90a3a3b989b1bbb8c6acadc2"
+    },
+    "remotes": [],
+    "remote_count": 0,
+    "status": [],
+    "clean": true
+  },
+  "immutability_errors": [],
+  "event_metrics": null,
+  "forbidden_event_items": [],
+  "judgment_errors": [],
+  "job_repo": "C:\\Users\\benchmark-user\\AppData\\Local\\Temp\\cockpit-production-evaluator-jobs\\production-v1-pilot-6\\20260830T071243.156443Z-prod-8c5f0aa0c6f5-replicate-a\\repo",
+  "raw_events": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\production\\raw\\production-v1-pilot-6\\20260830T071243.156443Z-prod-8c5f0aa0c6f5-replicate-a.events.jsonl",
+  "raw_stderr": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\production\\raw\\production-v1-pilot-6\\20260830T071243.156443Z-prod-8c5f0aa0c6f5-replicate-a.stderr.log",
+  "raw_judgment": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\production\\raw\\production-v1-pilot-6\\20260830T071243.156443Z-prod-8c5f0aa0c6f5-replicate-a.judgment.json"
+}

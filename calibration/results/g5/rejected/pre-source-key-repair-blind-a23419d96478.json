@@ -1,0 +1,287 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-a23419d96478",
+  "repository_head": "815c2eb33ad8ce47689462da3e04ad28989211b2",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04fba-f40e-7d41-b27f-ac458df13cd9",
+    "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T22:54:04.694Z",
+    "finished_at": "2026-08-29T22:58:32.459Z",
+    "wall_clock_seconds": 267.765,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 414,
+    "directories_visited": 28,
+    "tool_calls": 22,
+    "notes": "HEAD 与协调器提供的 SHA 一致。静态检查覆盖全部 30 个生产 Java 文件、7 个 AIDL、至少 7 个测试 Java 文件、构建入口、Manifest、代表性 XML 资源及测试夹具；检查了全部本地分支，并完成 main 与 release/2026.1、platform/8155、platform/8295、develop 的有界比较。未运行构建、脚本或网络操作；23 次 shell 调用低于 28 次预算。 Runner normalized tool_calls from Codex JSONL to 22 (evaluator self-report: 23); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 2,
+      "reason": "项目按 API、核心、平台、存储、可观测性、应用和测试拆成明确模块，依赖大体由平台/应用指向核心。但运行时组合不完整：motion-app 不依赖 motion-platform，Manifest 只声明 Activity，Binder 服务和平台适配器没有可见的装配或发布路径；foundation 的通用 Gateway 也没有服务实现。",
+      "evidence": [
+        {
+          "path": "settings.gradle",
+          "ref": null,
+          "symbol_or_line": "lines 1-4",
+          "observation": "声明 11 个职责明确的 foundation 与 motion 模块。"
+        },
+        {
+          "path": "motion-app/build.gradle",
+          "ref": null,
+          "symbol_or_line": "dependencies, line 5",
+          "observation": "应用仅依赖 motion-api、foundation-core、motion-core，没有依赖包含 Binder 服务的 motion-platform。"
+        },
+        {
+          "path": "motion-app/src/main/AndroidManifest.xml",
+          "ref": null,
+          "symbol_or_line": "line 1",
+          "observation": "Manifest 只注册导出的 MotionActivity，未注册或保护 MotionBinderService。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 2,
+      "reason": "核心逻辑存在真实的依赖倒置和可替换行为：工作流注入时钟与动作，信号路由注入平台 Adapter，场景执行注入 Executor。另一方面，若干大型核心类同时容纳领域模型、状态机、验证、同步和通知逻辑，平台服务也集中处理权限、安全、路由、状态及回调，SRP 落实不均。",
+      "evidence": [
+        {
+          "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/WorkflowEngine.java",
+          "ref": null,
+          "symbol_or_line": "Action lines 50-55; constructor lines 209-214",
+          "observation": "工作流通过 Action 扩展行为并注入 CockpitClock，支持替换执行逻辑和时间源。"
+        },
+        {
+          "path": "motion-core/src/main/java/com/cockpitbench/motion/core/ActuatorSignalRouter.java",
+          "ref": null,
+          "symbol_or_line": "Adapter and constructor, line 16",
+          "observation": "核心路由依赖小型 Adapter 接口而不是直接依赖平台属性 API。"
+        },
+        {
+          "path": "motion-platform/src/main/java/com/cockpitbench/motion/platform/MotionBinderService.java",
+          "ref": null,
+          "symbol_or_line": "MotionBinderService, line 16",
+          "observation": "单个服务类同时承担权限、安全校验、执行、状态持久化、场景协调、错误转换和回调广播。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 2,
+      "reason": "Android/Binder 依赖主要集中在 api/platform/app 模块，核心策略大多保持平台无关，并具备 PermissionGate 与 Adapter 边界。不过平台状态读取依赖硬编码隐藏属性，MotionBinderService 将车辆移动和占用状态硬编码为 false/true，异常也被压缩成类名回调，替换性和故障语义仍有明显缺口。",
+      "evidence": [
+        {
+          "path": "foundation-platform/src/main/java/com/cockpitbench/foundation/platform/PermissionGate.java",
+          "ref": null,
+          "symbol_or_line": "PermissionGate.enforce, lines 1-3",
+          "observation": "系统权限检查集中封装为可识别的平台边界。"
+        },
+        {
+          "path": "motion-core/src/main/java/com/cockpitbench/motion/core/ActuatorSignalRouter.java",
+          "ref": null,
+          "symbol_or_line": "Adapter, line 16",
+          "observation": "属性读写由核心定义的接口隔离。"
+        },
+        {
+          "path": "motion-platform/src/main/java/com/cockpitbench/motion/platform/MotionBinderService.java",
+          "ref": null,
+          "symbol_or_line": "execute, line 16",
+          "observation": "安全校验调用 safety.validate(c,false,true)，没有接入真实车辆移动或乘员状态。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "scored",
+      "score": 1,
+      "reason": "反射使用被限制在单个 motion-platform 类中，并提供 generic 回退；但目标类、方法、属性名、平台字符串和偏移量全部硬编码，catch(Exception) 丢弃原因，没有显式允许列表、类型化错误、注入点或对应测试。",
+      "evidence": [
+        {
+          "path": "motion-platform/src/main/java/com/cockpitbench/motion/platform/PlatformMotionAdapter.java",
+          "ref": null,
+          "symbol_or_line": "platform and remap, line 16",
+          "observation": "通过 Class.forName/getMethod/invoke 访问 android.os.SystemProperties，所有异常均静默回退 generic，并按平台字符串增加硬编码偏移。"
+        },
+        {
+          "path": "motion-platform/build.gradle",
+          "ref": null,
+          "symbol_or_line": "lines 1-5",
+          "observation": "反射类位于独立 platform 模块，但模块未声明测试依赖或替代实现。"
+        }
+      ]
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 1,
+      "reason": "motion AIDL 使用 Parcelable、类型化接口和 oneway 回调，服务入口也统一调用 Gate；RemoteCallbackList 提供基本回调死亡清理。但命令方法没有结构化结果或错误契约，服务吞掉执行异常后仅异步广播故障，调用线程和生命周期未明确；foundation Gateway 仍以 domain/operation/Bundle 构成粗粒度字符串协议且没有实现。",
+      "evidence": [
+        {
+          "path": "motion-api/src/main/aidl/com/cockpitbench/motion/IMotionControl.aidl",
+          "ref": null,
+          "symbol_or_line": "line 3",
+          "observation": "提供能力、状态、命令、场景和回调注册接口，但 execute/applyScene 为无结果同步调用，没有类型化错误返回。"
+        },
+        {
+          "path": "motion-platform/src/main/java/com/cockpitbench/motion/platform/MotionBinderService.java",
+          "ref": null,
+          "symbol_or_line": "MotionBinderService, line 16",
+          "observation": "每个入口执行 Gate，但异常被捕获并转换为仅含数值码和异常类名的回调；没有显式线程调度或服务发布生命周期。"
+        },
+        {
+          "path": "foundation-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitGateway.aidl",
+          "ref": null,
+          "symbol_or_line": "lines 1-3",
+          "observation": "跨进程调用由字符串 domain、operation 和 Bundle 表达，契约粒度较粗；仓库内没有 ICockpitGateway.Stub 实现。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "scored",
+      "score": 2,
+      "reason": "仓库具有完整的多模块 Gradle 边界，固定 Android Gradle Plugin 8.7.3 和 compileSdk 35；生产源码仅静态引用公开 Android SDK/Binder 类型，隐藏 SystemProperties 通过反射避免私有编译桩，因此没有发现必须依赖 AOSP/AAOS/BSP 源树的证据。不过仓库没有 Gradle wrapper，构建工具链无法由仓库自身复现，本次受控评审也未执行构建。",
+      "evidence": [
+        {
+          "path": "build.gradle",
+          "ref": null,
+          "symbol_or_line": "lines 1-3",
+          "observation": "顶层固定 com.android.library 插件版本 8.7.3。"
+        },
+        {
+          "path": "settings.gradle",
+          "ref": null,
+          "symbol_or_line": "lines 1-4",
+          "observation": "单一 settings 文件声明全部模块，形成明确 standalone Gradle 工程边界。"
+        },
+        {
+          "path": "motion-api/build.gradle",
+          "ref": null,
+          "symbol_or_line": "lines 1-5",
+          "observation": "模块明确声明 namespace、compileSdk 35、min/target SDK 和源码集。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 1,
+      "reason": "foundation 单元测试对工作流、会话、授权、健康状态和信任策略具有有意义的状态及失败断言，motion 核心也验证顺序和安全拒绝。但测试均直接构造核心对象；没有 Binder、权限、回调死亡、平台反射、应用装配或跨进程测试。TEST_MAPPING 声明 fixture integration 测试，仓库却只有未被 Java 测试引用的重复 XML fixture。",
+      "evidence": [
+        {
+          "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/WorkflowEngineTest.java",
+          "ref": null,
+          "symbol_or_line": "tests at lines 32-118",
+          "observation": "验证依赖顺序、等待恢复和循环拒绝，属于有深度的核心行为测试。"
+        },
+        {
+          "path": "motion-tests/src/test/java/com/cockpitbench/motion/tests/SceneCoordinatorTest.java",
+          "ref": null,
+          "symbol_or_line": "appliesStepsInOrder, line 16",
+          "observation": "只在进程内直接测试 SceneCoordinator，没有经过 AIDL/Binder 或平台适配器。"
+        },
+        {
+          "path": "TEST_MAPPING",
+          "ref": null,
+          "symbol_or_line": "line 1",
+          "observation": "映射声明 MotionFixtureIntegrationTests，但仓库测试源码中不存在该测试类或 fixture 读取实现。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 1,
+      "reason": "Java 生产逻辑的职责复用尚可，但生产资源存在大规模近拷贝目录：310 个 motion XML 中多组文件仅索引标识不同。对 actuators_00 与 actuators_01 进行索引归一化后内容完全一致，仓库又没有生成器、模板或生成标记，造成审查和批量修改风险；测试 fixture 也呈相同模式。",
+      "evidence": [
+        {
+          "path": "motion-core/src/main/res/xml/actuators_00.xml",
+          "ref": null,
+          "symbol_or_line": "lines 1-132",
+          "observation": "包含一整套按固定模式展开的 actuator 与 capability 条目。"
+        },
+        {
+          "path": "motion-core/src/main/res/xml/actuators_01.xml",
+          "ref": null,
+          "symbol_or_line": "lines 1-132",
+          "observation": "除根 ID 和 actuator 索引外与 actuators_00 相同；归一化比较差异数为 0。"
+        },
+        {
+          "path": "motion-tests/src/test/resources/fixture_39.xml",
+          "ref": null,
+          "symbol_or_line": "lines 1-92",
+          "observation": "测试数据同样按固定命令模式整文件展开，与 fixture_00 归一化后无差异。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 2,
+      "reason": "有界比较显示 release 和 platform 分支均只在 main 之上增加一个两行配置文件，没有复制或修改生产源码，分歧范围受控。局限是所有分支都只有一个分叉提交，尚无修复回合、回合并或长期维护证据，而且这些属性未接入当前 Gradle 或运行时组合。",
+      "evidence": [
+        {
+          "path": "product/release.properties",
+          "ref": "release/2026.1",
+          "symbol_or_line": "lines 1-2",
+          "observation": "release/2026.1 相对 main 仅增加 channel 与 contract 两项配置。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "platform/8155 相对 main 仅增加平台和 mapping 两项配置。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "platform/8295 保持相同配置结构，仅将值切换为 sa8295/next。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 2,
+      "reason": "两个平台分支共享全部核心和平台 Java 代码，仅用两行配置表达平台差异；属性映射也集中在一个适配器中，没有发现成套平台源码 fork。扣分点是分支配置没有消费者，实际 remap 仍在共享类中通过平台名字符串和固定数值偏移硬编码，配置与实现形成两套平台判定来源。",
+      "evidence": [
+        {
+          "path": "motion-platform/src/main/java/com/cockpitbench/motion/platform/PlatformMotionAdapter.java",
+          "ref": null,
+          "symbol_or_line": "remap, line 16",
+          "observation": "8155/8295 差异集中在单个方法，但使用字符串包含判断和 0x100/0x200 硬编码。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8155 分支只表达 sa8155/legacy 配置，没有平台专属源码。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8295 分支只表达 sa8295/next 配置；与 8155 的有界差异为两行值替换。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 1.6,
+    "scored_dimension_count": 10,
+    "failed_dimension_count": 0,
+    "narrative": "主要优势是模块边界清楚、核心策略普遍保持平台无关，工作流与安全策略具备有效的单元测试，平台/发布分支的源码分歧也很小。主要风险集中在端到端闭环：Binder 服务没有被应用或 Manifest 装配，真实车辆状态未接入安全校验，AIDL 错误与线程语义薄弱，隐藏 API 失败被静默降级；大量近拷贝 XML 又缺少可验证的生成机制。编译边界可从 Gradle 和公开 SDK 依赖静态建立，但因无 wrapper 且按要求未构建，实际可编译性仍有不确定性。23/28 次调用预算足以覆盖全部生产 Java/AIDL、代表性资源、7 个测试和四组分支比较。未修改文件，未使用任何 skill、网络或附加代理。"
+  }
+}

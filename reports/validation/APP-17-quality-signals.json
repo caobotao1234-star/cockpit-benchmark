@@ -1,0 +1,981 @@
+{
+  "aidl_interfaces": [
+    {
+      "method_count": 8,
+      "path": "vehicle/src/main/aidl/com/cockpitbench/thermo/vehicle/ILegacyClimateService.aidl"
+    }
+  ],
+  "broad_catches": 0,
+  "broad_catches_per_kloc": 0.0,
+  "code_source_files": 153,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 49,
+      "methods": 3,
+      "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/Sa8155ClimateBridge.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 6
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 49,
+      "methods": 3,
+      "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/Sa8295ClimateBridge.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 6
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 49,
+      "methods": 3,
+      "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/XinqingClimateBridge.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 6
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 53,
+      "methods": 6,
+      "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/VendorClimateManager.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 3
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/AutoDemistOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/CabinDryingOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/CabinPrecoolOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/CabinPreheatOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/CompressorProtectionOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/DefrostBoostOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/DriverOnlyOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/EcoClimateOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/EnergyPredictionOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/FootwellBalanceOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/FragranceScheduleOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/FrontComfortOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/HumidityControlOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/ParkingVentilationOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/PassengerComfortOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 111,
+      "methods": 0,
+      "path": "app/src/main/java/com/cockpitbench/thermo/model/PurifierScheduleOverrides.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [],
+  "global_state_sites": 32,
+  "global_state_sites_per_kloc": 2.688398,
+  "hidden_api_sites": 86,
+  "hidden_api_sites_per_kloc": 7.225069,
+  "largest_code_files": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 172,
+      "methods": 22,
+      "path": "app/src/main/java/com/cockpitbench/thermo/ClimateCenterActivity.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/AutoDemistCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinDryingCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPreheatCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/CompressorProtectionCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/DriverOnlyCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/EcoClimateCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/EnergyPredictionCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/FootwellBalanceCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/FragranceScheduleCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/FrontComfortCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/HumidityControlCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/ParkingVentilationCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/PassengerComfortCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/PurifierScheduleCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/RearComfortCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/RearDefrostCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 121,
+      "methods": 34,
+      "path": "app/src/main/java/com/cockpitbench/thermo/legacy/RemoteClimateCoordinator.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 11903,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 1500,
+  "near_duplicate_file_ratio": 0.947712,
+  "near_duplicate_files_at_0_80": [
+    "app/src/main/java/com/cockpitbench/thermo/diagnostics/AirQualitySensorMonitor.kt",
+    "app/src/main/java/com/cockpitbench/thermo/diagnostics/BinderReconnectMonitor.kt",
+    "app/src/main/java/com/cockpitbench/thermo/diagnostics/CacheDriftMonitor.kt",
+    "app/src/main/java/com/cockpitbench/thermo/diagnostics/CallbackBacklogMonitor.kt",
+    "app/src/main/java/com/cockpitbench/thermo/diagnostics/CompressorStateMonitor.kt",
+    "app/src/main/java/com/cockpitbench/thermo/diagnostics/FanStallMonitor.kt",
+    "app/src/main/java/com/cockpitbench/thermo/diagnostics/PermissionProbeMonitor.kt",
+    "app/src/main/java/com/cockpitbench/thermo/diagnostics/PlatformMismatchMonitor.kt",
+    "app/src/main/java/com/cockpitbench/thermo/diagnostics/PropertyRangeMonitor.kt",
+    "app/src/main/java/com/cockpitbench/thermo/diagnostics/SignalTimeoutMonitor.kt",
+    "app/src/main/java/com/cockpitbench/thermo/diagnostics/TemperatureSensorMonitor.kt",
+    "app/src/main/java/com/cockpitbench/thermo/diagnostics/ZoneConsistencyMonitor.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/AirQualityController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/AirflowController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/AutoModeController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/CabinFilterController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/DriverProfileController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/EnergySaverController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/FanController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/FragranceController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/FrontDefrostController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/HeatPumpController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/HumidityController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/MassageController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/PassengerProfileController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/PurifierController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/QuickPanelController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/RearDefrostController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/RearZoneController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/RecirculationController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/RemoteStartController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/SeatHeatController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/SteeringWheelController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/SunroofVentController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/SyncModeController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/VentilationController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/VoiceCommandController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/feature/WindowDemisterController.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/AutoDemistCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/CabinDryingCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPreheatCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/CompressorProtectionCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/DriverOnlyCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/EcoClimateCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/EnergyPredictionCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/FootwellBalanceCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/FragranceScheduleCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/FrontComfortCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/HumidityControlCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/ParkingVentilationCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/PassengerComfortCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/PurifierScheduleCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/RearComfortCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/RearDefrostCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/RemoteClimateCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/SeatCoordinationCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/SmartRecirculationCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/SolarCompensationCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/SteeringComfortCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/ThermalProtectionCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/TunnelRecirculationCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/VentDirectionCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/WindowDemistCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/WindshieldHeatCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/WinterWarmupCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/legacy/ZoneSynchronizationCoordinator.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/AutoDemistOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/CabinDryingOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/CabinPrecoolOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/CabinPreheatOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/CompressorProtectionOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/DefrostBoostOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/DriverOnlyOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/EcoClimateOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/EnergyPredictionOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/FootwellBalanceOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/FragranceScheduleOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/FrontComfortOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/HumidityControlOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/ParkingVentilationOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/PassengerComfortOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/PurifierScheduleOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/RearComfortOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/RearDefrostOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/RemoteClimateOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/SeatCoordinationOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/SmartRecirculationOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/SolarCompensationOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/SteeringComfortOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/ThermalProtectionOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/TunnelRecirculationOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/VentDirectionOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/WindowDemistOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/WindshieldHeatOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/WinterWarmupOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/model/ZoneSynchronizationOverrides.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/AtlasBaseProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/AtlasPremiumProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/AuroraBaseProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/AuroraFamilyProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/BorealBaseProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/BorealLongRangeProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/HorizonBaseProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/HorizonPerformanceProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/NimbusBaseProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/NimbusPremiumProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/NovaBaseProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/NovaTouringProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/OrionBaseProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/OrionExecutiveProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/SolsticeBaseProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/SolsticeLuxuryProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/VegaBaseProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/VegaSportProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/VertexBaseProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/VertexFlagshipProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/ZenithBaseProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/profile/ZenithRearCabinProfile.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/AllergyCareScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/BatterySaverScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/CampingScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/ChargingEcoScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/ChildComfortScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/CityFreshAirScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/HighwayQuietScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/MorningCommuteScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/NightDriveScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/PetWaitingScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/RainDefogScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/RapidDefrostScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/RearPassengerScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/RemotePreconditionScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/SeatRecoveryScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/SportCoolingScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/SummerCoolDownScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/TunnelRecirculationScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/ValetScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/VoiceComfortScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/WindowClearScene.kt",
+    "app/src/main/java/com/cockpitbench/thermo/scene/WinterWarmupScene.kt",
+    "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/Sa8155ClimateBridge.kt",
+    "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/Sa8295ClimateBridge.kt",
+    "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/XinqingClimateBridge.kt"
+  ],
+  "near_duplicate_pair_count_at_0_80": 1726,
+  "near_duplicate_pairs": [
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/BinderReconnectMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/CompressorStateMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/BinderReconnectMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/PlatformMismatchMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/BinderReconnectMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/PropertyRangeMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/BinderReconnectMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/SignalTimeoutMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/BinderReconnectMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/ZoneConsistencyMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/CompressorStateMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/PlatformMismatchMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/CompressorStateMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/PropertyRangeMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/CompressorStateMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/SignalTimeoutMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/CompressorStateMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/ZoneConsistencyMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/PlatformMismatchMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/PropertyRangeMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/PlatformMismatchMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/SignalTimeoutMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/PlatformMismatchMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/ZoneConsistencyMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/PropertyRangeMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/SignalTimeoutMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/PropertyRangeMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/ZoneConsistencyMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/diagnostics/SignalTimeoutMonitor.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/diagnostics/ZoneConsistencyMonitor.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/CabinFilterController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/FragranceController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/CabinFilterController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/FrontDefrostController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/CabinFilterController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/MassageController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/CabinFilterController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/PurifierController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/CabinFilterController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/SteeringWheelController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/FragranceController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/FrontDefrostController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/FragranceController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/MassageController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/FragranceController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/PurifierController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/FragranceController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/SteeringWheelController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/FrontDefrostController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/MassageController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/FrontDefrostController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/PurifierController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/FrontDefrostController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/SteeringWheelController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/MassageController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/PurifierController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/MassageController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/SteeringWheelController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 51,
+      "logical_lines_b": 51,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/feature/PurifierController.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/feature/SteeringWheelController.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/DriverOnlyCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/EnergyPredictionCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/FootwellBalanceCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/FragranceScheduleCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/HumidityControlCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/PurifierScheduleCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/RearDefrostCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/SeatCoordinationCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/CabinPrecoolCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/SolarCompensationCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/DriverOnlyCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/EnergyPredictionCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/FootwellBalanceCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/FragranceScheduleCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/HumidityControlCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/PurifierScheduleCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/RearDefrostCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/SeatCoordinationCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/DefrostBoostCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/SolarCompensationCoordinator.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/main/java/com/cockpitbench/thermo/legacy/DriverOnlyCoordinator.kt",
+      "path_b": "app/src/main/java/com/cockpitbench/thermo/legacy/EnergyPredictionCoordinator.kt",
+      "similarity": 1.0
+    }
+  ],
+  "placeholder_test_sites": 1,
+  "production_files_over_500_lines": 0,
+  "production_logical_lines": 11895,
+  "production_source_files": 152,
+  "reflection_sites": 22,
+  "reflection_sites_per_kloc": 1.848274,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\thermo-control",
+  "repository_head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+  "schema_version": "1.0.0",
+  "test_logical_lines": 8,
+  "test_source_files": 1,
+  "test_to_production_file_ratio": 0.006579,
+  "tracked_files": 171
+}

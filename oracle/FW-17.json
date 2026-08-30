@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "FW-17",
+  "quality_tier": "low",
+  "comparison_family": "fw-audio-binder-small",
+  "review_status": "reviewed",
+  "evidence": [
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
+      "path": "hub/aidl/com/cockpitbench/binderhub/ICockpitServiceHub.aidl",
+      "symbol_or_line": "ICockpitServiceHub.invoke",
+      "observation": "单个 Bundle invoke 和 rawService 横跨 audio/power/user/media，接口缺少类型化请求、版本化错误、权限声明和死亡语义。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "system_api_dependency",
+      "branch": "main",
+      "commit": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
+      "path": "hub/src/com/cockpitbench/binderhub/CockpitBinderHubService.java",
+      "symbol_or_line": "invoke, registerCallback, rawService",
+      "observation": "服务构造 HubPermissionTable 却不检查它；任意调用者路径可注册 callback、跨域 invoke 或取得裸 IBinder。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "hidden_api_reflection",
+      "branch": "main",
+      "commit": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
+      "path": "hub/src/com/cockpitbench/binderhub/HubServiceRegistry.java",
+      "symbol_or_line": "HubServiceRegistry.resolve",
+      "observation": "进程全局单例反射 ServiceManager.getService、setAccessible、缓存裸 IBinder 并宽泛捕获 Throwable。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "solid",
+      "branch": "main",
+      "commit": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
+      "path": "hub/src/com/cockpitbench/binderhub/HubCallbackRegistry.java",
+      "symbol_or_line": "HubCallbackRegistry",
+      "observation": "静态 Map/List 保存跨域 callback，不做 linkToDeath；RemoteException 被吞掉且无效 callback 继续保留。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "code_duplication",
+      "branch": "main",
+      "commit": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
+      "path": "platform/8155/service/src/com/android/car/audio/CarAudioService.java",
+      "symbol_or_line": "shared, platform/8155, platform/8295 audio stacks",
+      "observation": "三套音频/media 栈产生 102 对 1.0 相似度近重复，近重复生产文件比 0.392308。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
+      "path": "service/src/com/android/car/audio/CarAudioService.java",
+      "symbol_or_line": "CockpitBinderHubRuntime lifecycle wiring",
+      "observation": "hub 已在 audio init/release 接线，但仓内 0 个测试源，未覆盖权限绕过、callback death、重复轮询或平台副本。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_low",
+      "reason": "Soong 模块可解析，但跨域职责收敛到单个 hub/service/router 和全局 registry。"
+    },
+    {
+      "name": "solid",
+      "status": "expected_low",
+      "reason": "静态状态、裸 IBinder、Bundle 协议、四域 switch 和无生命周期 callback 削弱 SRP/ISP/DIP。"
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "expected_low",
+      "reason": "权限表未执行，隐藏服务与车型路由硬编码在全局运行时。"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "expected_low",
+      "reason": "ServiceManager 通过 setAccessible/Throwable 反射，结果作为裸 IBinder 缓存。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_low",
+      "reason": "粗粒度 AIDL 缺少类型、权限、错误版本、callback death 与背压。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "完整共享及平台栈需要 AAOS；仅新增 hub AIDL/Java 独立编译通过。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_low",
+      "reason": "仓内没有测试源，关键新增路径无任何自动验证。"
+    },
+    {
+      "name": "code_duplication",
+      "status": "expected_low",
+      "reason": "shared/8155/8295 三栈产生 102 对确定性近重复。"
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "expected_low",
+      "reason": "五个侧分支均缺少 main 后续 pulse/fallback 演进。"
+    },
+    {
+      "name": "platform_reuse",
+      "status": "expected_low",
+      "reason": "平台差异同时依赖完整源码复制、硬编码 rules 与配置分支。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g3",
+      "blind_id": "blind-2167d60d323e",
+      "repository_head": "7a2bc2cbb17a2e9c407958a38dd1d1884ec0a0c8",
+      "result_path": "calibration/results/g3/blind-2167d60d323e.json",
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T11:10:00.672Z",
+      "finished_at": "2026-08-29T11:15:41.326Z",
+      "wall_clock_seconds": 340.655,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 265,
+        "directories_visited": 35,
+        "tool_calls": 19,
+        "notes": "HEAD 与预期 SHA 一致。对 260 个 Java/AIDL 文件进行了行数清点，并对其中 39 个生产源文件作了完整或定向内容检查；仓库中没有测试文件，因此已检查全部 0 个测试。检查了 6 个本地分支、提交关系，并完成 release/sop-2025..main、platform/8155..platform/8295 和 main..develop 的有界比较。未运行构建、脚本、包管理器或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 1.25,
+      "scored_dimension_count": 8,
+      "failed_dimension_count": 2,
+      "evidence_anchor_count": 32,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "仓库具备 car-lib、service、hub、平台目录及 HAL/systeminterface 等可识别边界，但组合方向存在严重缺口：共享音频模块的 CarAudioService 直接启动 CockpitBinderHubRuntime，而运行时模块又静态依赖共享音频模块，形成源码级反向依赖；平台模块还各自编译完整复制栈。系统接口的委托式封装是积极证据，但不足以抵消核心组合和复用风险。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "音频 HAL 和系统接口展示了真实的 DIP/ISP：调用方依赖版本无关接口，工厂选择 AIDL/HIDL 实现，Builder 可注入平台能力。主要缺口集中在 hub：服务直接构造多个具体单例/组件，并同时承担路由、缓存、回调、日志及生命周期职责，扩展域还需修改 switch。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "多数 AAOS/HAL 依赖被 ServiceManagerHelper、AudioControlWrapper 和 SystemInterface 集中封装，具备版本回退、类型边界及部分死亡恢复。材料缺口在 hub：使用反射访问隐藏 ServiceManager、硬编码服务名并返回原始 IBinder；虽有 override 和空值失败路径，但缺少类型、权限和死亡管理。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 2,
+          "reason": "反射点数量有限且集中，但最关键的 HubServiceRegistry 没有允许列表、编译期类型或细粒度错误语义；它捕获所有 Throwable 后返回 null，并允许任意服务名。AndroidFuture 的反射有 Throwable 类型检查和 RuntimeException 回退，属于较健康的局部实现，但未缓解 hub 的隐藏 API 风险。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "传统 car 与音频 HAL 边界包含类型化方法、权限检查、接口版本和死亡重连，但新增 cockpit hub 合约以 String+Bundle 分派全部业务、标记 unstable、可返回原始 IBinder，且服务未实际执行已声明的权限表。回调注册没有 linkToDeath/RemoteCallbackList，RemoteException 被静默忽略，线程安全也没有明确保证。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 2,
+          "reason": "仓库明确使用 platform_apis、Android framework/AAOS/HAL 类型和 Soong，并缺少完成这些依赖所需的 AOSP/AAOS 产品树；受控环境也禁止运行构建。因此无法建立或验证可信的独立编译边界，不能猜测分数。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "not_observed",
+          "score": null,
+          "evidence_count": 1,
+          "reason": "在 273 个仓库文件中未发现任何测试目录、测试源文件或 Android.bp 测试模块；因此无法观察跨模块、Binder 进程、HAL 失败、权限或生命周期行为的集成断言。按规则不将纯粹缺少证据转换为 0 分。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 0,
+          "evidence_count": 4,
+          "reason": "重复是大规模且系统性的：service 音频树的 33 个 Java 文件中，每个平台目录有 32 个逐字节相同文件；platform/8155 与 platform/8295 的全部 43 个文件逐字节相同。约 1,562 行的 CarAudioService 及完整 HAL/manager 栈被复制，只有共享版本额外插入 hub 生命周期代码，形成高漂移风险且缺乏可信生成标记。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "分支比较显示配置改动受到约束：8155/8295 分支各自仅比公共祖先增加一个两行平台属性提交，两者为 1/1 提交分叉且内容差异仅两行；release 分支也仅保留两行冻结属性。材料缺口是 release 与 main 已双向分叉（1/2），main 的两个 hub 功能提交没有可观察的合并或挑拣记录，因此策略虽整洁但复用/回灌证据不完整。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "分支层面的车型差异很好地收敛到两行属性，但当前源码布局没有兑现公共核心复用：8155 和 8295 的 43 个文件全部相同，Android.bp 却将它们作为独立完整模块编译；车辆音量、zone 和服务名又硬编码在运行时规则表中。存在 BinderHubSharedAudio 公共模块这一方向性缓解，但平台模块并未依赖它。"
+        }
+      ]
+    }
+  ]
+}

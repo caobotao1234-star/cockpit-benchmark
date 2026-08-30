@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g5",
+  "result_count": 20,
+  "expected_count": 20,
+  "comparisons": [],
+  "tier_distributions": [
+    {
+      "kind": "APP",
+      "tiers": [
+        {
+          "tier": "high",
+          "count": 3,
+          "mean": 1.847222,
+          "minimum": 1.777778,
+          "maximum": 1.888889
+        },
+        {
+          "tier": "medium",
+          "count": 5,
+          "mean": 1.825556,
+          "minimum": 1.555556,
+          "maximum": 2.111111
+        },
+        {
+          "tier": "low",
+          "count": 2,
+          "mean": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0
+        }
+      ],
+      "ordering_checked": true,
+      "ordering_passed": true
+    },
+    {
+      "kind": "FRAMEWORK",
+      "tiers": [
+        {
+          "tier": "high",
+          "count": 3,
+          "mean": 2.37037,
+          "minimum": 2.222222,
+          "maximum": 2.444444
+        },
+        {
+          "tier": "medium",
+          "count": 5,
+          "mean": 1.755555,
+          "minimum": 1.375,
+          "maximum": 2.222222
+        },
+        {
+          "tier": "low",
+          "count": 2,
+          "mean": 0.844445,
+          "minimum": 0.8,
+          "maximum": 0.888889
+        }
+      ],
+      "ordering_checked": true,
+      "ordering_passed": true
+    }
+  ],
+  "issues": [
+    {
+      "code": "oracle_status_mismatch",
+      "message": "hidden_api_reflection: oracle expects not_applicable, evaluator returned 'not_observed'",
+      "blind_id": "blind-d51cd4d07379"
+    },
+    {
+      "code": "oracle_status_mismatch",
+      "message": "hidden_api_reflection: oracle expects not_applicable, evaluator returned 'not_observed'",
+      "blind_id": "blind-f449395eab40"
+    },
+    {
+      "code": "oracle_status_mismatch",
+      "message": "compilation_independence: oracle expects failed, evaluator returned 'scored'",
+      "blind_id": "blind-f449395eab40"
+    },
+    {
+      "code": "oracle_status_mismatch",
+      "message": "compilation_independence: oracle expects failed, evaluator returned 'scored'",
+      "blind_id": "blind-f4ccc08bfcfe"
+    }
+  ],
+  "valid": false
+}

@@ -1,0 +1,993 @@
+{
+  "aidl_interfaces": [
+    {
+      "method_count": 5,
+      "path": "voice-api/src/main/aidl/com/cockpitbench/voice/IVoiceAssistant.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "foundation-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitGateway.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "voice-api/src/main/aidl/com/cockpitbench/voice/IVoiceCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "foundation-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitEventListener.aidl"
+    }
+  ],
+  "broad_catches": 6,
+  "broad_catches_per_kloc": 1.427891,
+  "code_source_files": 71,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 1,
+      "methods": 0,
+      "path": "voice-core/src/main/java/com/cockpitbench/voice/core/ReflectionServiceBridge.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 5
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 5,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 12,
+      "methods": 1,
+      "path": "voice-core/src/main/java/com/cockpitbench/voice/core/VoiceGlobalState.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 378,
+      "methods": 32,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/WorkflowEngine.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 1,
+      "methods": 0,
+      "path": "voice-core/src/main/java/com/cockpitbench/voice/core/VoiceSessionHub.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 1
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 1,
+      "methods": 0,
+      "path": "voice-app/src/main/java/com/cockpitbench/companionvoice/voiceapp/VoiceBinderService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 311,
+      "methods": 27,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/SessionSupervisor.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 285,
+      "methods": 15,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/RecordReconciler.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 284,
+      "methods": 18,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/PolicyRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 282,
+      "methods": 14,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/RoleAuthorizationGraph.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 249,
+      "methods": 16,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/ProviderHealthMonitor.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 241,
+      "methods": 13,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/CrossUserAccessBoundary.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 239,
+      "methods": 10,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/DeviceTrustEngine.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 231,
+      "methods": 6,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/AuditRetentionPlanner.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 118,
+      "methods": 4,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/PolicyRuntimeTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 116,
+      "methods": 6,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/WorkflowEngineTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 115,
+      "methods": 5,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/RoleAuthorizationGraphTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 109,
+      "methods": 5,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/RecordReconcilerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 95,
+      "methods": 6,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/DeviceTrustEngineTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 6,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/ProviderHealthMonitorTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 63,
+      "methods": 5,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/SessionSupervisorTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider0.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider1.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider1.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider10.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider10.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider11.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider11.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider12.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider12.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider13.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider13.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider14.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider14.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider15.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider15.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider2.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider2.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider3.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider3.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider4.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider4.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider5.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider5.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider6.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider6.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider7.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider7.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider8.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider8.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider9.java",
+        "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider9.java"
+      ]
+    }
+  ],
+  "global_state_sites": 5,
+  "global_state_sites_per_kloc": 1.18991,
+  "hidden_api_sites": 1,
+  "hidden_api_sites_per_kloc": 0.237982,
+  "largest_code_files": [
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 378,
+      "methods": 32,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/WorkflowEngine.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 311,
+      "methods": 27,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/SessionSupervisor.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 285,
+      "methods": 15,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/RecordReconciler.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 284,
+      "methods": 18,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/PolicyRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 282,
+      "methods": 14,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/RoleAuthorizationGraph.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 249,
+      "methods": 16,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/ProviderHealthMonitor.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 241,
+      "methods": 13,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/CrossUserAccessBoundary.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 239,
+      "methods": 10,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/DeviceTrustEngine.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 231,
+      "methods": 6,
+      "path": "foundation-core/src/main/java/com/cockpitbench/foundation/core/AuditRetentionPlanner.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 118,
+      "methods": 4,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/PolicyRuntimeTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 116,
+      "methods": 6,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/WorkflowEngineTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 115,
+      "methods": 5,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/RoleAuthorizationGraphTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 109,
+      "methods": 5,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/RecordReconcilerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 95,
+      "methods": 6,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/DeviceTrustEngineTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 6,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/ProviderHealthMonitorTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 63,
+      "methods": 5,
+      "path": "foundation-testkit/src/test/java/com/cockpitbench/foundation/tests/SessionSupervisorTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 29,
+      "methods": 6,
+      "path": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 29,
+      "methods": 6,
+      "path": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider1.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 29,
+      "methods": 6,
+      "path": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider10.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 29,
+      "methods": 6,
+      "path": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider11.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 4202,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 400,
+  "near_duplicate_file_ratio": 0.450704,
+  "near_duplicate_files_at_0_80": [
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider1.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider10.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider11.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider12.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider13.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider14.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider15.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider2.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider3.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider4.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider5.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider6.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider7.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider8.java",
+    "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider9.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider0.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider1.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider10.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider11.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider12.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider13.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider14.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider15.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider2.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider3.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider4.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider5.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider6.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider7.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider8.java",
+    "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider9.java"
+  ],
+  "near_duplicate_pair_count_at_0_80": 496,
+  "near_duplicate_pairs": [
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider0.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider1.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider1.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider10.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider10.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider11.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider11.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider12.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider12.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider13.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider13.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider14.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider14.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider15.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider15.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider2.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider2.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider3.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider3.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider4.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider4.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider5.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider5.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider6.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider6.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider7.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider7.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider8.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider8.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider9.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider9.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+      "path_b": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider10.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+      "path_b": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider2.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+      "path_b": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider6.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+      "path_b": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider8.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider10.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider2.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider6.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider0.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider8.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider10.java",
+      "path_b": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider2.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider10.java",
+      "path_b": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider6.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider10.java",
+      "path_b": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider8.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider10.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider0.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider10.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider2.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider10.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider6.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider10.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider8.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider2.java",
+      "path_b": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider6.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider2.java",
+      "path_b": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider8.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider2.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider0.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider2.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider10.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider2.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider6.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider2.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider8.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider6.java",
+      "path_b": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider8.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider6.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider0.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider6.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider10.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider6.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider2.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider6.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider8.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider8.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider0.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider8.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider10.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider8.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider2.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8155/src/main/java/com/cockpitbench/voice/platform/p8155/VoiceProvider8.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider6.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider0.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider10.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider0.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider2.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider0.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider6.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 29,
+      "logical_lines_b": 29,
+      "path_a": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider0.java",
+      "path_b": "voice-platform-8295/src/main/java/com/cockpitbench/voice/platform/p8295/VoiceProvider8.java",
+      "similarity": 0.969231
+    }
+  ],
+  "placeholder_test_sites": 0,
+  "production_files_over_500_lines": 0,
+  "production_logical_lines": 3506,
+  "production_source_files": 62,
+  "reflection_sites": 6,
+  "reflection_sites_per_kloc": 1.427891,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\companion-voice",
+  "repository_head": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+  "schema_version": "1.1.0",
+  "test_logical_lines": 696,
+  "test_source_files": 9,
+  "test_to_production_file_ratio": 0.145161,
+  "tracked_files": 427
+}

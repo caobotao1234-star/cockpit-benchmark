@@ -1,0 +1,1150 @@
+{
+  "aidl_interfaces": [],
+  "broad_catches": 14,
+  "broad_catches_per_kloc": 0.146437,
+  "code_source_files": 1100,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 15,
+      "is_test": false,
+      "logical_lines": 160,
+      "methods": 8,
+      "path": "modern/src/com/android/car/settings/security/PasswordHelper.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 8,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 121,
+      "methods": 19,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowContentResolver.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 12,
+      "methods": 7,
+      "path": "platform-bridge/src/com/android/car/settings/platform/LegacySettingsRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 4
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 5,
+      "hidden_api_sites": 2,
+      "is_test": true,
+      "logical_lines": 60,
+      "methods": 10,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowLockPatternUtils.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 6,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 7,
+      "path": "tests/robotests/src/com/android/car/settings/storage/FileSizeFormatterTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 5,
+      "is_test": false,
+      "logical_lines": 412,
+      "methods": 29,
+      "path": "modern/src/com/android/car/settings/security/ChooseLockPatternFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 5,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 115,
+      "methods": 21,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowCarWifiManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 5,
+      "is_test": false,
+      "logical_lines": 101,
+      "methods": 7,
+      "path": "modern/src/com/android/car/settings/security/ChooseLockTypePreferenceController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 415,
+      "methods": 29,
+      "path": "src/com/android/car/settings/security/ChooseLockPatternFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 69,
+      "methods": 6,
+      "path": "modern/src/com/android/car/settings/security/CheckLockWorker.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 69,
+      "methods": 6,
+      "path": "src/com/android/car/settings/applications/NotificationsPreferenceController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 4,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 66,
+      "methods": 4,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowCar.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 4,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 60,
+      "methods": 11,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowCarUnitsManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 305,
+      "methods": 28,
+      "path": "modern/src/com/android/car/settings/profiles/ProfileHelper.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 139,
+      "methods": 6,
+      "path": "src/com/android/car/settings/setupservice/InitialLockSetupService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 122,
+      "methods": 11,
+      "path": "src/com/android/car/settings/applications/specialaccess/PremiumSmsAccessPreferenceController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 103,
+      "methods": 14,
+      "path": "modern/src/com/android/car/settings/security/SaveLockWorker.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 3,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 100,
+      "methods": 9,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowInputMethodManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 90,
+      "methods": 14,
+      "path": "modern/src/com/android/car/settings/security/ConfirmLockLockoutHelper.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 3,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 15,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowTextToSpeech.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/accounts/AccountDetailsSettingController.java",
+        "src/com/android/car/settings/accounts/AccountDetailsSettingController.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/accounts/AccountSyncPreferenceController.java",
+        "src/com/android/car/settings/accounts/AccountSyncPreferenceController.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/ApplicationPreferenceController.java",
+        "src/com/android/car/settings/applications/ApplicationPreferenceController.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/assist/DefaultVoiceInputServiceInfo.java",
+        "src/com/android/car/settings/applications/assist/DefaultVoiceInputServiceInfo.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/assist/ScreenshotContextPreferenceController.java",
+        "src/com/android/car/settings/applications/assist/ScreenshotContextPreferenceController.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/assist/TextContextPreferenceController.java",
+        "src/com/android/car/settings/applications/assist/TextContextPreferenceController.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/assist/VoiceInputUtils.java",
+        "src/com/android/car/settings/applications/assist/VoiceInputUtils.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerEntryPreferenceController.java",
+        "src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerEntryPreferenceController.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerPreferenceController.java",
+        "src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerPreferenceController.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/managedomainurls/ApplicationWithVersionPreferenceController.java",
+        "src/com/android/car/settings/applications/managedomainurls/ApplicationWithVersionPreferenceController.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/managedomainurls/DomainUrlsUtils.java",
+        "src/com/android/car/settings/applications/managedomainurls/DomainUrlsUtils.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/managedomainurls/ManageDomainUrlsFragment.java",
+        "src/com/android/car/settings/applications/managedomainurls/ManageDomainUrlsFragment.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/specialaccess/ModifySystemSettingsFragment.java",
+        "src/com/android/car/settings/applications/specialaccess/ModifySystemSettingsFragment.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/specialaccess/PremiumSmsAccessEntryPreferenceController.java",
+        "src/com/android/car/settings/applications/specialaccess/PremiumSmsAccessEntryPreferenceController.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/specialaccess/UsageAccessFragment.java",
+        "src/com/android/car/settings/applications/specialaccess/UsageAccessFragment.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/specialaccess/WifiControlFragment.java",
+        "src/com/android/car/settings/applications/specialaccess/WifiControlFragment.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/applications/specialaccess/WifiControlPreferenceController.java",
+        "src/com/android/car/settings/applications/specialaccess/WifiControlPreferenceController.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/bluetooth/BluetoothDeviceAddressPreferenceController.java",
+        "src/com/android/car/settings/bluetooth/BluetoothDeviceAddressPreferenceController.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/bluetooth/BluetoothPairingRequest.java",
+        "src/com/android/car/settings/bluetooth/BluetoothPairingRequest.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "modern/src/com/android/car/settings/bluetooth/LocalRenameDialogFragment.java",
+        "src/com/android/car/settings/bluetooth/LocalRenameDialogFragment.java"
+      ]
+    }
+  ],
+  "global_state_sites": 79,
+  "global_state_sites_per_kloc": 0.826325,
+  "hidden_api_sites": 196,
+  "hidden_api_sites_per_kloc": 2.050123,
+  "largest_code_files": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 828,
+      "methods": 48,
+      "path": "tests/robotests/src/com/android/car/settings/inputmethod/KeyboardManagementPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 620,
+      "methods": 54,
+      "path": "modern/tests/unit/src/com/android/car/settings/applications/ApplicationActionButtonsPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 489,
+      "methods": 42,
+      "path": "tests/robotests/src/com/android/car/settings/applications/ApplicationDetailsFragmentTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 433,
+      "methods": 36,
+      "path": "src/com/android/car/settings/security/ChooseLockPinPasswordFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 424,
+      "methods": 33,
+      "path": "modern/src/com/android/car/settings/applications/ApplicationActionButtonsPreferenceController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 415,
+      "methods": 29,
+      "path": "src/com/android/car/settings/security/ChooseLockPatternFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 413,
+      "methods": 41,
+      "path": "modern/src/com/android/car/settings/profiles/ProfileGridRecyclerView.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 5,
+      "is_test": false,
+      "logical_lines": 412,
+      "methods": 29,
+      "path": "modern/src/com/android/car/settings/security/ChooseLockPatternFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 402,
+      "methods": 30,
+      "path": "modern/src/com/android/car/settings/common/BaseCarSettingsActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 391,
+      "methods": 29,
+      "path": "modern/src/com/android/car/settings/wifi/networkrequest/NetworkRequestDialogFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 389,
+      "methods": 45,
+      "path": "modern/src/com/android/car/settings/common/CarSettingActivities.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 389,
+      "methods": 34,
+      "path": "src/com/android/car/settings/applications/ApplicationDetailsFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 385,
+      "methods": 21,
+      "path": "modern/src/com/android/car/settings/bluetooth/BluetoothRequestPermissionActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 382,
+      "methods": 39,
+      "path": "modern/tests/robotests/src/com/android/car/settings/profiles/ProfileHelperTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 376,
+      "methods": 27,
+      "path": "modern/tests/robotests/src/com/android/car/settings/accounts/AccountSyncDetailsPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 376,
+      "methods": 27,
+      "path": "tests/robotests/src/com/android/car/settings/accounts/AccountSyncDetailsPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 364,
+      "methods": 32,
+      "path": "modern/src/com/android/car/settings/security/ChooseLockPinPasswordFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 330,
+      "methods": 22,
+      "path": "tests/robotests/src/com/android/car/settings/tts/TtsPlaybackPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 329,
+      "methods": 20,
+      "path": "src/com/android/car/settings/tts/TtsPlaybackPreferenceController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 327,
+      "methods": 17,
+      "path": "src/com/android/car/settings/bluetooth/BluetoothRequestPermissionActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 95604,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 8596,
+  "near_duplicate_file_ratio": 0.161818,
+  "near_duplicate_files_at_0_80": [
+    "modern/src/com/android/car/settings/accounts/AccountAutoSyncPreferenceController.java",
+    "modern/src/com/android/car/settings/accounts/AccountDetailsSettingController.java",
+    "modern/src/com/android/car/settings/accounts/AccountSyncDetailsPreferenceController.java",
+    "modern/src/com/android/car/settings/accounts/AccountSyncHelper.java",
+    "modern/src/com/android/car/settings/accounts/AccountSyncPreferenceController.java",
+    "modern/src/com/android/car/settings/accounts/SyncPreference.java",
+    "modern/src/com/android/car/settings/applications/ApplicationPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/ApplicationsSettingsPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/PermissionsPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/VersionPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/assist/AssistantAndVoiceEntryPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/assist/DefaultVoiceInputServiceInfo.java",
+    "modern/src/com/android/car/settings/applications/assist/ScreenshotContextPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/assist/TextContextPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/assist/VoiceInputInfoProvider.java",
+    "modern/src/com/android/car/settings/applications/assist/VoiceInputUtils.java",
+    "modern/src/com/android/car/settings/applications/defaultapps/DefaultAppUtils.java",
+    "modern/src/com/android/car/settings/applications/defaultapps/DefaultAssistantPickerEntryPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerEntryPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/managedomainurls/AppLinkStatePreferenceController.java",
+    "modern/src/com/android/car/settings/applications/managedomainurls/ApplicationLaunchSettingsFragment.java",
+    "modern/src/com/android/car/settings/applications/managedomainurls/ClearDefaultsPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/managedomainurls/DomainUrlsPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/managedomainurls/DomainUrlsUtils.java",
+    "modern/src/com/android/car/settings/applications/specialaccess/AppEntryListManager.java",
+    "modern/src/com/android/car/settings/applications/specialaccess/AppOpsPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/specialaccess/AppStateAppOpsBridge.java",
+    "modern/src/com/android/car/settings/applications/specialaccess/ModifySystemSettingsFragment.java",
+    "modern/src/com/android/car/settings/applications/specialaccess/PremiumSmsAccessEntryPreferenceController.java",
+    "modern/src/com/android/car/settings/applications/specialaccess/UsageAccessFragment.java",
+    "modern/src/com/android/car/settings/applications/specialaccess/WifiControlPreferenceController.java",
+    "modern/src/com/android/car/settings/bluetooth/BluetoothDeviceAddressPreferenceController.java",
+    "modern/src/com/android/car/settings/bluetooth/BluetoothDeviceProfilePreference.java",
+    "modern/src/com/android/car/settings/bluetooth/BluetoothDevicesGroupPreferenceController.java",
+    "modern/src/com/android/car/settings/bluetooth/BluetoothNamePreferenceController.java",
+    "modern/src/com/android/car/settings/bluetooth/BluetoothPairingController.java",
+    "modern/src/com/android/car/settings/bluetooth/BluetoothPairingDialog.java",
+    "modern/src/com/android/car/settings/bluetooth/BluetoothPairingDialogFragment.java",
+    "modern/src/com/android/car/settings/bluetooth/BluetoothPairingRequest.java",
+    "modern/src/com/android/car/settings/bluetooth/BluetoothPairingService.java",
+    "modern/src/com/android/car/settings/bluetooth/LocalRenameDialogFragment.java",
+    "modern/src/com/android/car/settings/bluetooth/RemoteRenameDialogFragment.java",
+    "modern/src/com/android/car/settings/bluetooth/Utf8ByteLengthFilter.java",
+    "modern/src/com/android/car/settings/common/PasswordEditTextPreference.java",
+    "modern/src/com/android/car/settings/common/PasswordEditTextPreferenceDialogFragment.java",
+    "modern/src/com/android/car/settings/common/PreferenceControllerListHelper.java",
+    "modern/src/com/android/car/settings/common/ProgressBarPreference.java",
+    "modern/src/com/android/car/settings/common/ValidatedEditTextPreference.java",
+    "modern/src/com/android/car/settings/common/ValidatedEditTextPreferenceDialogFragment.java",
+    "modern/src/com/android/car/settings/security/ConfirmPasswordFragmentFactory.java",
+    "modern/src/com/android/car/settings/security/PinPadView.java",
+    "modern/src/com/android/car/settings/wifi/AddWifiPreferenceController.java",
+    "modern/src/com/android/car/settings/wifi/NetworkNamePreferenceController.java",
+    "modern/src/com/android/car/settings/wifi/NetworkNameRestrictedPasswordEditTextPreference.java",
+    "modern/src/com/android/car/settings/wifi/details/WifiDetailsPreference.java",
+    "modern/src/com/android/car/settings/wifi/details/WifiLinkSpeedPreferenceController.java",
+    "modern/src/com/android/car/settings/wifi/details/WifiSignalStrengthPreferenceController.java",
+    "modern/src/com/android/car/settings/wifi/preferences/CellularFallbackTogglePreferenceController.java",
+    "modern/tests/robotests/src/com/android/car/settings/accounts/AccountDetailsSettingControllerTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/accounts/AccountSyncDetailsPreferenceControllerTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/accounts/AccountSyncPreferenceControllerTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/applications/PermissionsPreferenceControllerTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/applications/VersionPreferenceControllerTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerEntryPreferenceControllerTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerPreferenceControllerTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDeviceAddressPreferenceControllerTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDevicePreferenceControllerTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDeviceProfilePreferenceTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDevicesGroupPreferenceControllerTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/bluetooth/BluetoothRenameDialogFragmentTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/bluetooth/BluetoothScanningDevicesGroupPreferenceControllerTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/bluetooth/LocalRenameDialogFragmentTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/bluetooth/RemoteRenameDialogFragmentTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/bluetooth/Utf8ByteLengthFilterTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/common/ErrorDialogTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/common/ExtraSettingsLoaderTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/common/FakePreferenceController.java",
+    "modern/tests/robotests/src/com/android/car/settings/common/PreferenceControllerListHelperTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/common/PreferenceControllerTestHelper.java",
+    "modern/tests/robotests/src/com/android/car/settings/common/PreferenceUtilTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/common/PreferenceXmlParserTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/common/ProgressBarPreferenceTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/security/InitialLockSetupServiceTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/security/PinPadViewTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/wifi/AddWifiPreferenceControllerTest.java",
+    "modern/tests/robotests/src/com/android/car/settings/wifi/NetworkNamePreferenceControllerTest.java",
+    "src/com/android/car/settings/accounts/AccountAutoSyncPreferenceController.java",
+    "src/com/android/car/settings/accounts/AccountDetailsSettingController.java",
+    "src/com/android/car/settings/accounts/AccountSyncDetailsPreferenceController.java",
+    "src/com/android/car/settings/accounts/AccountSyncHelper.java",
+    "src/com/android/car/settings/accounts/AccountSyncPreferenceController.java",
+    "src/com/android/car/settings/accounts/SyncPreference.java",
+    "src/com/android/car/settings/applications/ApplicationPreferenceController.java",
+    "src/com/android/car/settings/applications/ApplicationsSettingsPreferenceController.java",
+    "src/com/android/car/settings/applications/PermissionsPreferenceController.java",
+    "src/com/android/car/settings/applications/VersionPreferenceController.java",
+    "src/com/android/car/settings/applications/assist/DefaultVoiceInputServiceInfo.java",
+    "src/com/android/car/settings/applications/assist/ManageAssistEntryPreferenceController.java",
+    "src/com/android/car/settings/applications/assist/ScreenshotContextPreferenceController.java",
+    "src/com/android/car/settings/applications/assist/TextContextPreferenceController.java",
+    "src/com/android/car/settings/applications/assist/VoiceInputInfoProvider.java",
+    "src/com/android/car/settings/applications/assist/VoiceInputUtils.java",
+    "src/com/android/car/settings/applications/defaultapps/DefaultAppUtils.java",
+    "src/com/android/car/settings/applications/defaultapps/DefaultAssistantPickerEntryPreferenceController.java",
+    "src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerEntryPreferenceController.java",
+    "src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerPreferenceController.java",
+    "src/com/android/car/settings/applications/managedomainurls/AppLinkStatePreferenceController.java",
+    "src/com/android/car/settings/applications/managedomainurls/ApplicationLaunchSettingsFragment.java",
+    "src/com/android/car/settings/applications/managedomainurls/ClearDefaultsPreferenceController.java",
+    "src/com/android/car/settings/applications/managedomainurls/DomainUrlsPreferenceController.java",
+    "src/com/android/car/settings/applications/managedomainurls/DomainUrlsUtils.java",
+    "src/com/android/car/settings/applications/specialaccess/AppEntryListManager.java",
+    "src/com/android/car/settings/applications/specialaccess/AppOpsPreferenceController.java",
+    "src/com/android/car/settings/applications/specialaccess/AppStateAppOpsBridge.java",
+    "src/com/android/car/settings/applications/specialaccess/ModifySystemSettingsFragment.java",
+    "src/com/android/car/settings/applications/specialaccess/PremiumSmsAccessEntryPreferenceController.java",
+    "src/com/android/car/settings/applications/specialaccess/UsageAccessFragment.java",
+    "src/com/android/car/settings/applications/specialaccess/WifiControlPreferenceController.java",
+    "src/com/android/car/settings/bluetooth/BluetoothDeviceAddressPreferenceController.java",
+    "src/com/android/car/settings/bluetooth/BluetoothDeviceProfilePreference.java",
+    "src/com/android/car/settings/bluetooth/BluetoothDevicesGroupPreferenceController.java",
+    "src/com/android/car/settings/bluetooth/BluetoothNamePreferenceController.java",
+    "src/com/android/car/settings/bluetooth/BluetoothPairingController.java",
+    "src/com/android/car/settings/bluetooth/BluetoothPairingDialog.java",
+    "src/com/android/car/settings/bluetooth/BluetoothPairingDialogFragment.java",
+    "src/com/android/car/settings/bluetooth/BluetoothPairingRequest.java",
+    "src/com/android/car/settings/bluetooth/BluetoothPairingService.java",
+    "src/com/android/car/settings/bluetooth/LocalRenameDialogFragment.java",
+    "src/com/android/car/settings/bluetooth/RemoteRenameDialogFragment.java",
+    "src/com/android/car/settings/bluetooth/Utf8ByteLengthFilter.java",
+    "src/com/android/car/settings/common/PasswordEditTextPreference.java",
+    "src/com/android/car/settings/common/PasswordEditTextPreferenceDialogFragment.java",
+    "src/com/android/car/settings/common/PreferenceControllerListHelper.java",
+    "src/com/android/car/settings/common/ProgressBarPreference.java",
+    "src/com/android/car/settings/common/ValidatedEditTextPreference.java",
+    "src/com/android/car/settings/common/ValidatedEditTextPreferenceDialogFragment.java",
+    "src/com/android/car/settings/datetime/DatePickerPreferenceController.java",
+    "src/com/android/car/settings/datetime/TimePickerPreferenceController.java",
+    "src/com/android/car/settings/security/ConfirmPasswordFragmentFactory.java",
+    "src/com/android/car/settings/security/PinPadView.java",
+    "src/com/android/car/settings/system/AboutSettingsEntryPreferenceController.java",
+    "src/com/android/car/settings/system/FirmwareVersionPreferenceController.java",
+    "src/com/android/car/settings/wifi/AddWifiPreferenceController.java",
+    "src/com/android/car/settings/wifi/NetworkNamePreferenceController.java",
+    "src/com/android/car/settings/wifi/NetworkNameRestrictedPasswordEditTextPreference.java",
+    "src/com/android/car/settings/wifi/details/WifiDetailsPreference.java",
+    "src/com/android/car/settings/wifi/details/WifiLinkSpeedPreferenceController.java",
+    "src/com/android/car/settings/wifi/details/WifiSignalStrengthPreferenceController.java",
+    "src/com/android/car/settings/wifi/preferences/CellularFallbackTogglePreferenceController.java",
+    "tests/robotests/src/com/android/car/settings/accounts/AccountDetailsSettingControllerTest.java",
+    "tests/robotests/src/com/android/car/settings/accounts/AccountSyncDetailsPreferenceControllerTest.java",
+    "tests/robotests/src/com/android/car/settings/accounts/AccountSyncPreferenceControllerTest.java",
+    "tests/robotests/src/com/android/car/settings/applications/PermissionsPreferenceControllerTest.java",
+    "tests/robotests/src/com/android/car/settings/applications/VersionPreferenceControllerTest.java",
+    "tests/robotests/src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerEntryPreferenceControllerTest.java",
+    "tests/robotests/src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerPreferenceControllerTest.java",
+    "tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDeviceAddressPreferenceControllerTest.java",
+    "tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDevicePreferenceControllerTest.java",
+    "tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDeviceProfilePreferenceTest.java",
+    "tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDevicesGroupPreferenceControllerTest.java",
+    "tests/robotests/src/com/android/car/settings/bluetooth/BluetoothRenameDialogFragmentTest.java",
+    "tests/robotests/src/com/android/car/settings/bluetooth/BluetoothScanningDevicesGroupPreferenceControllerTest.java",
+    "tests/robotests/src/com/android/car/settings/bluetooth/LocalRenameDialogFragmentTest.java",
+    "tests/robotests/src/com/android/car/settings/bluetooth/RemoteRenameDialogFragmentTest.java",
+    "tests/robotests/src/com/android/car/settings/bluetooth/Utf8ByteLengthFilterTest.java",
+    "tests/robotests/src/com/android/car/settings/common/ErrorDialogTest.java",
+    "tests/robotests/src/com/android/car/settings/common/ExtraSettingsLoaderTest.java",
+    "tests/robotests/src/com/android/car/settings/common/FakePreferenceController.java",
+    "tests/robotests/src/com/android/car/settings/common/PreferenceControllerListHelperTest.java",
+    "tests/robotests/src/com/android/car/settings/common/PreferenceControllerTestHelper.java",
+    "tests/robotests/src/com/android/car/settings/common/PreferenceUtilTest.java",
+    "tests/robotests/src/com/android/car/settings/common/PreferenceXmlParserTest.java",
+    "tests/robotests/src/com/android/car/settings/common/ProgressBarPreferenceTest.java",
+    "tests/robotests/src/com/android/car/settings/security/InitialLockSetupServiceTest.java",
+    "tests/robotests/src/com/android/car/settings/security/PinPadViewTest.java",
+    "tests/robotests/src/com/android/car/settings/wifi/AddWifiPreferenceControllerTest.java",
+    "tests/robotests/src/com/android/car/settings/wifi/NetworkNamePreferenceControllerTest.java"
+  ],
+  "near_duplicate_pair_count_at_0_80": 89,
+  "near_duplicate_pairs": [
+    {
+      "logical_lines_a": 41,
+      "logical_lines_b": 41,
+      "path_a": "modern/src/com/android/car/settings/accounts/AccountDetailsSettingController.java",
+      "path_b": "src/com/android/car/settings/accounts/AccountDetailsSettingController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 88,
+      "logical_lines_b": 88,
+      "path_a": "modern/src/com/android/car/settings/accounts/AccountSyncPreferenceController.java",
+      "path_b": "src/com/android/car/settings/accounts/AccountSyncPreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 52,
+      "logical_lines_b": 52,
+      "path_a": "modern/src/com/android/car/settings/applications/ApplicationPreferenceController.java",
+      "path_b": "src/com/android/car/settings/applications/ApplicationPreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 28,
+      "logical_lines_b": 28,
+      "path_a": "modern/src/com/android/car/settings/applications/assist/DefaultVoiceInputServiceInfo.java",
+      "path_b": "src/com/android/car/settings/applications/assist/DefaultVoiceInputServiceInfo.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 36,
+      "logical_lines_b": 36,
+      "path_a": "modern/src/com/android/car/settings/applications/assist/ScreenshotContextPreferenceController.java",
+      "path_b": "src/com/android/car/settings/applications/assist/ScreenshotContextPreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 34,
+      "logical_lines_b": 34,
+      "path_a": "modern/src/com/android/car/settings/applications/assist/TextContextPreferenceController.java",
+      "path_b": "src/com/android/car/settings/applications/assist/TextContextPreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 30,
+      "logical_lines_b": 30,
+      "path_a": "modern/src/com/android/car/settings/applications/assist/VoiceInputUtils.java",
+      "path_b": "src/com/android/car/settings/applications/assist/VoiceInputUtils.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 80,
+      "logical_lines_b": 80,
+      "path_a": "modern/src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerEntryPreferenceController.java",
+      "path_b": "src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerEntryPreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 68,
+      "logical_lines_b": 68,
+      "path_a": "modern/src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerPreferenceController.java",
+      "path_b": "src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerPreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 50,
+      "logical_lines_b": 50,
+      "path_a": "modern/src/com/android/car/settings/applications/managedomainurls/DomainUrlsUtils.java",
+      "path_b": "src/com/android/car/settings/applications/managedomainurls/DomainUrlsUtils.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 27,
+      "logical_lines_b": 27,
+      "path_a": "modern/src/com/android/car/settings/applications/specialaccess/ModifySystemSettingsFragment.java",
+      "path_b": "src/com/android/car/settings/applications/specialaccess/ModifySystemSettingsFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 22,
+      "logical_lines_b": 22,
+      "path_a": "modern/src/com/android/car/settings/applications/specialaccess/PremiumSmsAccessEntryPreferenceController.java",
+      "path_b": "src/com/android/car/settings/applications/specialaccess/PremiumSmsAccessEntryPreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 26,
+      "logical_lines_b": 26,
+      "path_a": "modern/src/com/android/car/settings/applications/specialaccess/UsageAccessFragment.java",
+      "path_b": "src/com/android/car/settings/applications/specialaccess/UsageAccessFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 35,
+      "logical_lines_b": 35,
+      "path_a": "modern/src/com/android/car/settings/applications/specialaccess/WifiControlPreferenceController.java",
+      "path_b": "src/com/android/car/settings/applications/specialaccess/WifiControlPreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 23,
+      "logical_lines_b": 23,
+      "path_a": "modern/src/com/android/car/settings/bluetooth/BluetoothDeviceAddressPreferenceController.java",
+      "path_b": "src/com/android/car/settings/bluetooth/BluetoothDeviceAddressPreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 31,
+      "logical_lines_b": 31,
+      "path_a": "modern/src/com/android/car/settings/bluetooth/BluetoothPairingRequest.java",
+      "path_b": "src/com/android/car/settings/bluetooth/BluetoothPairingRequest.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 46,
+      "logical_lines_b": 46,
+      "path_a": "modern/src/com/android/car/settings/bluetooth/LocalRenameDialogFragment.java",
+      "path_b": "src/com/android/car/settings/bluetooth/LocalRenameDialogFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 48,
+      "logical_lines_b": 48,
+      "path_a": "modern/src/com/android/car/settings/bluetooth/RemoteRenameDialogFragment.java",
+      "path_b": "src/com/android/car/settings/bluetooth/RemoteRenameDialogFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 41,
+      "logical_lines_b": 41,
+      "path_a": "modern/src/com/android/car/settings/bluetooth/Utf8ByteLengthFilter.java",
+      "path_b": "src/com/android/car/settings/bluetooth/Utf8ByteLengthFilter.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 27,
+      "logical_lines_b": 27,
+      "path_a": "modern/src/com/android/car/settings/common/PasswordEditTextPreference.java",
+      "path_b": "src/com/android/car/settings/common/PasswordEditTextPreference.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 40,
+      "logical_lines_b": 40,
+      "path_a": "modern/src/com/android/car/settings/common/PasswordEditTextPreferenceDialogFragment.java",
+      "path_b": "src/com/android/car/settings/common/PasswordEditTextPreferenceDialogFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 62,
+      "logical_lines_b": 62,
+      "path_a": "modern/src/com/android/car/settings/common/PreferenceControllerListHelper.java",
+      "path_b": "src/com/android/car/settings/common/PreferenceControllerListHelper.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 67,
+      "logical_lines_b": 66,
+      "path_a": "modern/src/com/android/car/settings/common/ValidatedEditTextPreferenceDialogFragment.java",
+      "path_b": "src/com/android/car/settings/common/ValidatedEditTextPreferenceDialogFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 26,
+      "logical_lines_b": 26,
+      "path_a": "modern/src/com/android/car/settings/wifi/AddWifiPreferenceController.java",
+      "path_b": "src/com/android/car/settings/wifi/AddWifiPreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 41,
+      "logical_lines_b": 41,
+      "path_a": "modern/src/com/android/car/settings/wifi/NetworkNamePreferenceController.java",
+      "path_b": "src/com/android/car/settings/wifi/NetworkNamePreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 36,
+      "logical_lines_b": 35,
+      "path_a": "modern/src/com/android/car/settings/wifi/NetworkNameRestrictedPasswordEditTextPreference.java",
+      "path_b": "src/com/android/car/settings/wifi/NetworkNameRestrictedPasswordEditTextPreference.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 46,
+      "logical_lines_b": 46,
+      "path_a": "modern/src/com/android/car/settings/wifi/preferences/CellularFallbackTogglePreferenceController.java",
+      "path_b": "src/com/android/car/settings/wifi/preferences/CellularFallbackTogglePreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 140,
+      "logical_lines_b": 140,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/common/FakePreferenceController.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/common/FakePreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 156,
+      "logical_lines_b": 156,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/common/PreferenceControllerTestHelper.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/common/PreferenceControllerTestHelper.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "modern/src/com/android/car/settings/applications/defaultapps/DefaultAssistantPickerEntryPreferenceController.java",
+      "path_b": "src/com/android/car/settings/applications/defaultapps/DefaultAssistantPickerEntryPreferenceController.java",
+      "similarity": 0.984496
+    },
+    {
+      "logical_lines_a": 138,
+      "logical_lines_b": 138,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/accounts/AccountDetailsSettingControllerTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/accounts/AccountDetailsSettingControllerTest.java",
+      "similarity": 0.984496
+    },
+    {
+      "logical_lines_a": 376,
+      "logical_lines_b": 376,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/accounts/AccountSyncDetailsPreferenceControllerTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/accounts/AccountSyncDetailsPreferenceControllerTest.java",
+      "similarity": 0.984496
+    },
+    {
+      "logical_lines_a": 242,
+      "logical_lines_b": 242,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDevicesGroupPreferenceControllerTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDevicesGroupPreferenceControllerTest.java",
+      "similarity": 0.984496
+    },
+    {
+      "logical_lines_a": 81,
+      "logical_lines_b": 81,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/bluetooth/Utf8ByteLengthFilterTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/bluetooth/Utf8ByteLengthFilterTest.java",
+      "similarity": 0.984496
+    },
+    {
+      "logical_lines_a": 272,
+      "logical_lines_b": 272,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/common/ExtraSettingsLoaderTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/common/ExtraSettingsLoaderTest.java",
+      "similarity": 0.984496
+    },
+    {
+      "logical_lines_a": 63,
+      "logical_lines_b": 63,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/security/PinPadViewTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/security/PinPadViewTest.java",
+      "similarity": 0.984496
+    },
+    {
+      "logical_lines_a": 255,
+      "logical_lines_b": 258,
+      "path_a": "modern/src/com/android/car/settings/accounts/AccountSyncDetailsPreferenceController.java",
+      "path_b": "src/com/android/car/settings/accounts/AccountSyncDetailsPreferenceController.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 143,
+      "logical_lines_b": 141,
+      "path_a": "modern/src/com/android/car/settings/bluetooth/BluetoothPairingService.java",
+      "path_b": "src/com/android/car/settings/bluetooth/BluetoothPairingService.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 100,
+      "logical_lines_b": 100,
+      "path_a": "modern/src/com/android/car/settings/common/ProgressBarPreference.java",
+      "path_b": "src/com/android/car/settings/common/ProgressBarPreference.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 180,
+      "logical_lines_b": 160,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/accounts/AccountSyncPreferenceControllerTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/accounts/AccountSyncPreferenceControllerTest.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 113,
+      "logical_lines_b": 113,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerPreferenceControllerTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/applications/defaultapps/DefaultAutofillPickerPreferenceControllerTest.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 54,
+      "logical_lines_b": 54,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDeviceAddressPreferenceControllerTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDeviceAddressPreferenceControllerTest.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 67,
+      "logical_lines_b": 67,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/common/ProgressBarPreferenceTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/common/ProgressBarPreferenceTest.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 62,
+      "logical_lines_b": 62,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/wifi/NetworkNamePreferenceControllerTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/wifi/NetworkNamePreferenceControllerTest.java",
+      "similarity": 0.969231
+    },
+    {
+      "logical_lines_a": 101,
+      "logical_lines_b": 91,
+      "path_a": "modern/src/com/android/car/settings/bluetooth/BluetoothDevicesGroupPreferenceController.java",
+      "path_b": "src/com/android/car/settings/bluetooth/BluetoothDevicesGroupPreferenceController.java",
+      "similarity": 0.954198
+    },
+    {
+      "logical_lines_a": 235,
+      "logical_lines_b": 232,
+      "path_a": "modern/src/com/android/car/settings/bluetooth/BluetoothPairingDialogFragment.java",
+      "path_b": "src/com/android/car/settings/bluetooth/BluetoothPairingDialogFragment.java",
+      "similarity": 0.954198
+    },
+    {
+      "logical_lines_a": 49,
+      "logical_lines_b": 49,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/applications/PermissionsPreferenceControllerTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/applications/PermissionsPreferenceControllerTest.java",
+      "similarity": 0.954198
+    },
+    {
+      "logical_lines_a": 47,
+      "logical_lines_b": 47,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/applications/VersionPreferenceControllerTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/applications/VersionPreferenceControllerTest.java",
+      "similarity": 0.954198
+    },
+    {
+      "logical_lines_a": 125,
+      "logical_lines_b": 125,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDeviceProfilePreferenceTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/bluetooth/BluetoothDeviceProfilePreferenceTest.java",
+      "similarity": 0.954198
+    },
+    {
+      "logical_lines_a": 181,
+      "logical_lines_b": 181,
+      "path_a": "modern/tests/robotests/src/com/android/car/settings/security/InitialLockSetupServiceTest.java",
+      "path_b": "tests/robotests/src/com/android/car/settings/security/InitialLockSetupServiceTest.java",
+      "similarity": 0.954198
+    }
+  ],
+  "placeholder_test_sites": 0,
+  "production_files_over_500_lines": 0,
+  "production_logical_lines": 52802,
+  "production_source_files": 702,
+  "reflection_sites": 6,
+  "reflection_sites_per_kloc": 0.062759,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\atlas-settings",
+  "repository_head": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
+  "schema_version": "1.1.0",
+  "test_logical_lines": 42802,
+  "test_source_files": 398,
+  "test_to_production_file_ratio": 0.566952,
+  "tracked_files": 1509
+}

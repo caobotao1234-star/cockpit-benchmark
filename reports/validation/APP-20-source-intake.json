@@ -1,0 +1,243 @@
+{
+  "actual_head": "c6f4a1efa1836f9181742740e6e8b32caf962eb2",
+  "applicable_license_files": [],
+  "expected_head": "c6f4a1efa1836f9181742740e6e8b32caf962eb2",
+  "head_matches": true,
+  "is_shallow": true,
+  "is_sparse": false,
+  "large_files": [],
+  "present_tracked_files": 1560,
+  "probe": {
+    "branches": [
+      "aosp-new/aosp-new/master",
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/2026.1"
+    ],
+    "build_system": "Gradle",
+    "commit_count": 16,
+    "default_branch": "main",
+    "feature_evidence": {
+      "has_aidl": [
+        "car-lib/src/android/car/ICar.aidl",
+        "car-lib/src/android/car/hardware/CarPropertyConfig.aidl",
+        "car-lib/src/android/car/hardware/CarPropertyValue.aidl",
+        "car-lib/src/android/car/hardware/CarSensorConfig.aidl",
+        "car-lib/src/android/car/hardware/CarSensorEvent.aidl",
+        "car-lib/src/android/car/hardware/ICarSensor.aidl",
+        "car-lib/src/android/car/hardware/ICarSensorEventListener.aidl",
+        "car-lib/src/android/car/hardware/power/CarPowerPolicy.aidl",
+        "car-lib/src/android/car/hardware/power/CarPowerPolicyFilter.aidl",
+        "car-lib/src/android/car/hardware/power/ICarPower.aidl",
+        "car-lib/src/android/car/hardware/power/ICarPowerPolicyListener.aidl",
+        "car-lib/src/android/car/hardware/power/ICarPowerStateListener.aidl",
+        "car-lib/src/android/car/hardware/property/CarPropertyEvent.aidl",
+        "car-lib/src/android/car/hardware/property/ICarProperty.aidl",
+        "car-lib/src/android/car/hardware/property/ICarPropertyEventListener.aidl",
+        "car-lib/src/android/car/media/CarAudioPatchHandle.aidl",
+        "car-lib/src/android/car/media/ICarAudio.aidl",
+        "car-lib/src/android/car/media/ICarMedia.aidl",
+        "car-lib/src/android/car/media/ICarMediaSourceListener.aidl",
+        "car-lib/src/android/car/media/ICarVolumeCallback.aidl"
+      ],
+      "has_binder": [
+        "car-lib/src/android/car/Car.java",
+        "car-lib/src/android/car/ICar.aidl",
+        "car-lib/src/android/car/hardware/CarSensorManager.java",
+        "car-lib/src/android/car/hardware/CarVendorExtensionManager.java",
+        "car-lib/src/android/car/hardware/ICarSensorEventListener.aidl",
+        "car-lib/src/android/car/hardware/cabin/CarCabinManager.java",
+        "car-lib/src/android/car/hardware/hvac/CarHvacManager.java",
+        "car-lib/src/android/car/hardware/power/CarPowerManager.java",
+        "car-lib/src/android/car/hardware/power/ICarPowerPolicyListener.aidl",
+        "car-lib/src/android/car/hardware/power/ICarPowerStateListener.aidl",
+        "car-lib/src/android/car/hardware/property/ICarPropertyEventListener.aidl",
+        "car-lib/src/android/car/media/CarAudioManager.java",
+        "car-lib/src/android/car/media/CarMediaManager.java",
+        "car-lib/src/android/car/media/ICarAudio.aidl",
+        "car-lib/src/android/car/media/ICarMedia.aidl",
+        "car-lib/src/android/car/media/ICarMediaSourceListener.aidl",
+        "car-lib/src/android/car/media/ICarVolumeCallback.aidl",
+        "car-lib/src/android/car/user/CarUserManager.java",
+        "car-lib/src/android/car/user/ExperimentalCarUserManager.java",
+        "car-lib/src/android/car/user/IUserNotice.aidl"
+      ],
+      "has_hidden_api": [
+        "car-lib/src/android/car/Car.java",
+        "car-lib/src/android/car/hardware/CarVendorExtensionManager.java",
+        "car-lib/src/android/car/hardware/cabin/CarCabinManager.java",
+        "car-lib/src/android/car/hardware/hvac/CarHvacManager.java",
+        "car-lib/src/android/car/hardware/power/CarPowerManager.java",
+        "car-lib/src/android/car/media/CarAudioPatchHandle.java",
+        "car-lib/src/android/car/media/CarMediaManager.java",
+        "car-lib/src/android/car/user/CarUserManager.java",
+        "car-lib/src/android/car/user/ExperimentalCarUserManager.java",
+        "car-lib/src/android/car/user/UserIdentificationAssociationResponse.java",
+        "car-lib/src/android/car/user/UserLifecycleEventFilter.java",
+        "components/launcher/app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+        "components/launcher/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+        "components/launcher/app/src/com/android/car/carlauncher/homescreen/audio/InCallModel.java",
+        "components/launcher/app/src/com/android/car/carlauncher/homescreen/audio/MediaViewModel.java",
+        "components/launcher/app/src/com/android/car/carlauncher/recents/CarQuickStepService.java",
+        "components/launcher/app/src/com/android/car/carlauncher/recents/view/RecentsRecyclerView.java",
+        "components/launcher/app/src/com/android/car/carlauncher/taskstack/TaskStackChangeListeners.java",
+        "components/launcher/app/tests/src/com/android/car/carlauncher/homescreen/audio/InCallModelTest.java",
+        "components/launcher/docklib/src/com/android/car/docklib/data/DockAppItem.kt"
+      ],
+      "has_integration_tests": [
+        "TEST_MAPPING",
+        "components/launcher/app/tests/AndroidManifest.xml",
+        "components/launcher/app/tests/AndroidTest.xml",
+        "components/launcher/docklib-util/tests/AndroidManifest.xml",
+        "components/launcher/docklib/tests/AndroidManifest.xml",
+        "product/TEST_MAPPING"
+      ],
+      "has_reflection": [
+        "car-lib/src/android/car/Car.java",
+        "car-lib/src/android/car/hardware/CarPropertyConfig.java",
+        "car-lib/src/android/car/hardware/CarPropertyValue.java",
+        "components/launcher/app/src/com/android/car/carlauncher/CarLauncher.java",
+        "components/launcher/app/src/com/android/car/carlauncher/ControlBarActivity.java",
+        "components/launcher/docklib/tests/src/com/android/car/docklib/data/DockProtoDataControllerTest.kt",
+        "components/systemui/src/com/android/systemui/car/qc/SystemUIQCView.java",
+        "components/systemui/src/com/android/systemui/car/statusicon/StatusIconGroupContainerController.java",
+        "components/systemui/src/com/android/systemui/car/systembar/SystemBarConfigs.java",
+        "components/systemui/src/com/android/systemui/car/window/SystemUIOverlayWindowManager.java",
+        "components/systemui/tests/src/com/android/AAAPlusPlusVerifySysuiRequiredTestPropertiesTest.java",
+        "drive-runtime/src/main/java/com/cockpitbench/drivecenter/PlatformAdapterRegistry.java",
+        "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/AudioAdapter.java",
+        "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/ChargingAdapter.java",
+        "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/ClimateAdapter.java",
+        "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/DiagnosticsAdapter.java",
+        "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/DisplayAdapter.java",
+        "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/LightingAdapter.java",
+        "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/MediaAdapter.java",
+        "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/NavigationAdapter.java"
+      ]
+    },
+    "features": {
+      "has_aidl": true,
+      "has_binder": true,
+      "has_hidden_api": true,
+      "has_integration_tests": true,
+      "has_reflection": true
+    },
+    "has_push_remote": false,
+    "module_count": 10,
+    "modules": [
+      {
+        "name": ":app",
+        "path": "app/build.gradle",
+        "type": "android_app"
+      },
+      {
+        "name": ":comfort-surface",
+        "path": "comfort-surface/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":integration-tests",
+        "path": "integration-tests/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":launcher-surface",
+        "path": "launcher-surface/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":media-surface",
+        "path": "media-surface/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":platform-8155",
+        "path": "platform-8155/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":platform-8295",
+        "path": "platform-8295/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":platform-api",
+        "path": "platform-api/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":platform-service",
+        "path": "platform-service/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":systemui-surface",
+        "path": "systemui-surface/build.gradle",
+        "type": "android_library"
+      }
+    ],
+    "probe": {
+      "name": "cockpit-repo-probe",
+      "version": "1.2.0"
+    },
+    "remotes": [],
+    "repo_head": "c6f4a1efa1836f9181742740e6e8b32caf962eb2",
+    "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\drive-center",
+    "source_files": 1030,
+    "source_loc": 111052,
+    "stats_method": {
+      "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+      "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+      "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+    },
+    "tags": [
+      "drive-center-2026.1"
+    ],
+    "tracked_files": 1057,
+    "worktree_clean": true
+  },
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\drive-center",
+  "root_license_evidence": [
+    {
+      "detected_license": "Apache-2.0",
+      "path": "LICENSE"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_header_files": 593,
+  "source_header_license_counts": {
+    "Apache-2.0": 551,
+    "GPL-2.0": 0,
+    "GPL-3.0": 0,
+    "MIT": 0,
+    "unclassified": 42
+  },
+  "source_url": "https://git.codelinaro.org/clo/la/platform/packages/services/Car",
+  "sparse_missing_files": 0,
+  "submodule_entries": 0,
+  "tracked_files": 1560,
+  "unclassified_header_sample": [
+    "components/launcher/docklib/src/com/android/car/docklib/data/proto/dock_item.proto",
+    "components/launcher/docklib/tests/src/com/android/car/docklib/TestUtils.kt",
+    "components/launcher/docklib/tests/src/com/android/car/docklib/events/DockPackageChangeReceiverTest.kt",
+    "components/launcher/docklib/tests/src/com/android/car/docklib/view/DockAdapterTest.kt",
+    "components/launcher/docklib/tests/src/com/android/car/docklib/view/DockDragListenerTest.kt",
+    "components/launcher/docklib/tests/src/com/android/car/docklib/view/DockItemLongClickListenerTest.kt",
+    "components/launcher/docklib/tests/src/com/android/car/docklib/view/animation/ExcitementAnimationHelperTest.kt",
+    "components/media/src/com/android/car/media/ErrorScreenController.java",
+    "components/media/src/com/android/car/media/MediaDispatcherActivity.java",
+    "components/media/src/com/android/car/media/widgets/AppBarController.java",
+    "drive-runtime/src/main/java/com/cockpitbench/drivecenter/CrossDomainCoordinator.java",
+    "drive-runtime/src/main/java/com/cockpitbench/drivecenter/DomainAdapter.java",
+    "drive-runtime/src/main/java/com/cockpitbench/drivecenter/DriveCenterFacadeService.java",
+    "drive-runtime/src/main/java/com/cockpitbench/drivecenter/DriveCenterGlobal.java",
+    "drive-runtime/src/main/java/com/cockpitbench/drivecenter/DriveCommand.java",
+    "drive-runtime/src/main/java/com/cockpitbench/drivecenter/IDriveCenterFacade.aidl",
+    "drive-runtime/src/main/java/com/cockpitbench/drivecenter/IDriveCenterListener.aidl",
+    "drive-runtime/src/main/java/com/cockpitbench/drivecenter/PlatformAdapterRegistry.java",
+    "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/AudioAdapter.java",
+    "drive-runtime/src/main/java/com/cockpitbench/drivecenter/platform8155/ChargingAdapter.java"
+  ]
+}

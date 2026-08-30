@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "APP-16",
+  "quality_tier": "low",
+  "comparison_family": "app-launcher-medium",
+  "review_status": "blind_validated",
+  "evidence": [
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "path": "app/src/com/android/car/carlauncher/product/LauncherExperienceCoordinator.java",
+      "symbol_or_line": "LauncherExperienceCoordinator",
+      "observation": "单一协调器承担 Activity 生命周期、平台选择、轮询、偏好、任务启动、重试和 Dock 限制。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "hidden_api_reflection",
+      "branch": "main",
+      "commit": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "path": "app/src/com/android/car/carlauncher/product/VendorLauncherRuntime.java",
+      "symbol_or_line": "VendorLauncherRuntime",
+      "observation": "进程单例反射 ServiceManager/SystemProperties、setAccessible、裸 Object/IBinder 并持续轮询。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "code_duplication",
+      "branch": "main",
+      "commit": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "path": "platform/8155/app/src/com/android/car/carlauncher/CarLauncher.java",
+      "symbol_or_line": "shared, platform/8155 and platform/8295 launcher stacks",
+      "observation": "两套完整平台源码加 shared 栈产生 183 对近重复；三套 profile 继续复制硬编码差异。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "path": "app/src/com/android/car/carlauncher/product/VendorLauncherRuntime.java",
+      "symbol_or_line": "vendor/product runtime",
+      "observation": "53 个既有测试源不引用 vendor runtime、协调器、平台 profile 或两套复制栈。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "release_branch_strategy",
+      "branch": "main",
+      "commit": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "path": "app/Android.bp",
+      "symbol_or_line": "main versus product branches",
+      "observation": "五个侧分支都缺少 main 的 signal ledger 与 fallback 两次演进；相对 main 删除 88 行。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_low",
+      "reason": "模块可解析但产品职责回流 Activity/协调器/全局 runtime。"
+    },
+    {
+      "name": "solid",
+      "status": "expected_low",
+      "reason": "单例、Object 服务句柄、instanceof 分派和复制平台栈削弱 SRP/DIP/OCP。"
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "expected_low",
+      "reason": "vendor 服务、系统属性和包名硬编码在全局 runtime。"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "expected_low",
+      "reason": "27 个反射点且 product runtime 使用 setAccessible/Throwable。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_low",
+      "reason": "系统 Binder 存在，但 vendor 连接缺少类型化契约与 death 处理。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "需要 AAOS/AOSP 平台树。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_low",
+      "reason": "现有测试未覆盖新增 product/platform 路径。"
+    },
+    {
+      "name": "code_duplication",
+      "status": "expected_low",
+      "reason": "183 对近重复，文件比 0.45481。"
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "expected_low",
+      "reason": "侧分支缺少后续 main 演进。"
+    },
+    {
+      "name": "platform_reuse",
+      "status": "expected_low",
+      "reason": "平台通过完整源码复制与 profile instanceof 同时扩展。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g3",
+      "blind_id": "blind-c199615f0c53",
+      "repository_head": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "result_path": "calibration/results/g3/blind-c199615f0c53.json",
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T10:59:24.030Z",
+      "finished_at": "2026-08-29T11:05:34.863Z",
+      "wall_clock_seconds": 370.833,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 61,
+        "directories_visited": 45,
+        "tool_calls": 18,
+        "notes": "HEAD 与预期 SHA 一致。静态清点了 15 个 Soong 构建文件、289 个生产源码/契约文件与 56 个测试源码/契约文件的分布；仓库内未发现 .aidl。深入检查了 25 个以上、覆盖 app、docklib、docklib-util、appgrid、car-launcher-common、hidden-apis-compat 和 platform 模块的生产文件，以及 8 个有行为断言的测试文件。比较了 main 与 platform/8155、platform/8295、platform/xinqing、release/sop-2025，并对至少两个分支执行了有界内容比较。未运行构建或仓库脚本，未使用网络、skill、插件、浏览器或额外 agent。 Runner normalized tool_calls from Codex JSONL to 18 (evaluator self-report: 18); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 1.222222,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 32,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "仓库有明确的 app、dock、app-grid、common 和隐藏 API 兼容模块，AppGrid 也采用数据源/仓库组合；但产品层重新引入了具体类型分派、全局运行时和三套几乎完整的平台源码树，依赖方向与变更隔离存在跨模块的系统性弱点。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "局部存在接口注入和可替换数据源，但产品运行时同时承担系统服务发现、属性读取、任务状态、轮询和启动模式策略，且协调器依赖具体 profile 类型；SRP、OCP 与 DIP 的违背不是单一局部问题。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "权限在清单中集中声明，部分 Car manager 接入具有 ready/null 分支和对称注销；但 ActivityTaskManager、NotificationManager、CarPropertyManager、系统 UI wrapper 和隐藏 API 仍散布于 ViewModel、Controller 与工具类中，若干路径直接假定 manager 存在，替换和故障注入不一致。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "HiddenApiAccess 为一组隐藏 API 提供了集中、类型化的 Soong/开发构建替代实现，这是有效的隔离；但仓库其他位置仍直接使用隐藏 API和反射，Vendor 运行时捕获 Throwable、返回原始 Object 并静默采用默认值，缺少 allowlist、类型化失败语义和对应测试。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "虽然仓库没有自有 AIDL 文件，但存在真实 Binder/Messenger 和平台 SDK 跨进程边界。Quickstep 使用类型化 Stub、受权限保护并处理 RemoteException；镜像服务具备显式组件、后台流、解绑和安全异常处理。主要缺口是 Messenger 协议依赖资源整数和未经验证的 Bundle 强转，且未见 binder death/rebind 策略。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 2,
+          "reason": "无法验证可信的独立编译边界：构建入口只有 Soong Android.bp，生产模块启用 platform_apis，并依赖 android.car、WindowManager-Shell、SystemUISharedLib、car-ui-lib 等仓库外 AOSP/AAOS 模块。当前受控环境未提供这些平台输入，而且评审规则禁止运行构建，因此不能据此猜测独立编译得分。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "测试分布覆盖 instrumentation、device tests 和 Robolectric，并对任务过滤、UI 拖放、Binder/Messenger 注册与清理、Car 生命周期等行为进行实质断言。覆盖仍主要是单进程 mock/场景测试；未发现 VendorLauncherRuntime、产品 profiles、协调器、反射失败、binder death 或真实多进程集成测试。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 0,
+          "evidence_count": 3,
+          "reason": "生产重复是大规模且结构性的：app/src 有 72 个源码文件，两个平台目录各有 70 个；8155 与 8295 源码树逐文件无差异，而 app 与任一平台树仅有 3 个文件、88 行级别的差异。三套 profile 又重复相同映射与方法。这会使修复、测试和安全变更极易漂移。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "实际比较显示所有平台和发布分支都从共同基线各自仅前进一个提交，差异严格限制为两行产品配置；main 同时前进两个共享功能提交，没有在分支复制功能修复。这是可控的有界分歧，但历史很浅，分支专有 properties 未显示被当前 Soong 构建消费，尚不足以证明长期合并/回灌纪律。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "CarLauncherCommon、AppGrid 和 Dock 库提供了可复用公共层，平台差异也有 profile 概念；然而主应用和两个平台模块保留了几乎完整的三份 launcher 栈，profile 策略自身复制，协调器再以 concrete-type 条件分派。公共层未能把平台差异收敛为薄适配。"
+        }
+      ]
+    }
+  ]
+}

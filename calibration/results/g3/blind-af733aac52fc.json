@@ -1,0 +1,293 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-af733aac52fc",
+  "repository_head": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04d36-c3f4-7f90-b64c-84e1ab09d076",
+    "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T11:10:29.555Z",
+    "finished_at": "2026-08-29T11:16:59.110Z",
+    "wall_clock_seconds": 389.555,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 1055,
+    "directories_visited": 97,
+    "tool_calls": 19,
+    "notes": "HEAD 与预期 SHA 一致。完成构建入口、4 个 Gradle 模块、806 个生产/现代测试脚本候选、338 个测试类、Binder/反射点、最大源文件、重复家族及全部本地分支盘点；详细检查了超过 20 个生产文件和 8 个有意义测试文件，并对 platform/8155、platform/8295、platform/xinqing、release/sop-2024、develop 做了有界比较。文件数包含批量行数/重复度盘点实际读取的文件以及 5 个分支专属文件版本。未运行构建或仓库脚本，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 1,
+      "reason": "代码有清晰的功能包和 PreferenceController 模式，也抽出了 platform-bridge；但 app 同时编译 legacy src 并依赖包含大量同包同名类型的 modern-settings，形成重叠所有权和潜在同 FQCN 冲突。平台协调器又直接植入所有设置 Activity 的基类，模块边界和组合方向存在系统性风险。",
+      "evidence": [
+        {
+          "path": "app/build.gradle",
+          "ref": null,
+          "symbol_or_line": "android.sourceSets.main（第5-8行）、dependencies（第10-13行）",
+          "observation": "应用直接编译 ../src，同时依赖 modern-settings 和 platform-bridge；legacy 与 modern 不是互斥变体。"
+        },
+        {
+          "path": "src/com/android/car/settings/common/BaseCarSettingsActivity.java",
+          "ref": null,
+          "symbol_or_line": "BaseCarSettingsActivity.onCreate/onDestroy（第45-83行）",
+          "observation": "通用 UI 基类直接创建并管理 SettingsPageCoordinator，把平台桥生命周期耦合进所有派生 Activity。"
+        },
+        {
+          "path": "platform-bridge/src/com/android/car/settings/platform/SettingsPageCoordinator.java",
+          "ref": null,
+          "symbol_or_line": "SettingsPageCoordinator 构造与 open（第19-27行）",
+          "observation": "协调器内部直接构造 runtime、overrides、router、cache 和 callbacks，并同时承担生命周期、路由、启动 Activity、缓存及历史记录。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 2,
+      "reason": "PreferenceController 的泛型边界、final 生命周期入口和子类钩子提供了可信的 OCP/LSP 约束，WifiTetheringHandler 也通过监听器与测试替换点分离状态逻辑。但新平台桥普遍直接构造具体依赖、使用全局静态状态并聚合多项职责，DIP/SRP 执行不均衡。",
+      "evidence": [
+        {
+          "path": "src/com/android/car/settings/common/PreferenceController.java",
+          "ref": null,
+          "symbol_or_line": "PreferenceController<V>（第87-151行）、setPreference（第205-214行）",
+          "observation": "泛型 Preference 上界、运行时类型校验以及受控生命周期钩子让扩展保持明确契约。"
+        },
+        {
+          "path": "modern/src/com/android/car/settings/wifi/WifiTetheringHandler.java",
+          "ref": null,
+          "symbol_or_line": "setCarWifiManager/setTetheringManager 与 WifiTetheringAvailabilityListener（第107-191行）",
+          "observation": "热点状态机被集中到 handler，并提供依赖替换点和窄监听接口。"
+        },
+        {
+          "path": "platform-bridge/src/com/android/car/settings/platform/SettingsPageCoordinator.java",
+          "ref": null,
+          "symbol_or_line": "字段及构造器（第20-24行）",
+          "observation": "具体依赖全部在类内创建，同时承担平台检测、路由、缓存、回调、导航和历史，削弱依赖倒置与单一职责。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 1,
+      "reason": "部分调用采用类型化 Binder proxy、空值检查、RemoteException 处理及测试构造器；但 ServiceManager、android.car、com.android.internal 和系统权限依赖散布于控制器、Fragment、manager 与反射桥中，缺少统一、可替换且权限感知的适配层。",
+      "evidence": [
+        {
+          "path": "modern/src/com/android/car/settings/applications/managedomainurls/ClearDefaultsPreferenceController.java",
+          "ref": null,
+          "symbol_or_line": "构造器及 hasUsbDefaults（第49-62、108-116行）",
+          "observation": "生产构造器直接获取 USB 系统 Binder；测试构造器允许注入类型化 IUsbManager，并将 RemoteException 转为保守结果。"
+        },
+        {
+          "path": "src/com/android/car/settings/system/ResetAppPrefFragment.java",
+          "ref": null,
+          "symbol_or_line": "ResetTask.doInBackground（第83-141行）",
+          "observation": "单个后台任务直接获取 notification/package 两个隐藏 Binder 服务；虽检查 null 并捕获 RemoteException，系统访问仍嵌在 UI Fragment 内。"
+        },
+        {
+          "path": "AndroidManifest.xml",
+          "ref": null,
+          "symbol_or_line": "manifest 身份与 uses-permission（第19-65行）",
+          "observation": "应用使用 system shared UID、coreApp，并声明大量 privileged/system 权限，显示其平台依赖面很宽。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "scored",
+      "score": 1,
+      "reason": "XML 控制器反射限定了构造器签名并将失败包装成明确异常；相对地，LegacySettingsRuntime 反射 ServiceManager，并以方法名和参数数量选择任意方法，广泛捕获 Throwable、吞掉调用失败且返回无类型 Object/null，也没有对应测试或 allowlist。",
+      "evidence": [
+        {
+          "path": "src/com/android/car/settings/common/PreferenceControllerListHelper.java",
+          "ref": null,
+          "symbol_or_line": "createInstance（第89-102行）",
+          "observation": "反射目标来自 XML，但要求固定四参数 public 构造器，并把具体反射异常统一转换为带上下文的 IllegalArgumentException。"
+        },
+        {
+          "path": "platform-bridge/src/com/android/car/settings/platform/LegacySettingsRuntime.java",
+          "ref": null,
+          "symbol_or_line": "connect/call（第23-25行）",
+          "observation": "隐藏 ServiceManager 和任意目标方法均通过反射调用；call 只匹配名称与参数数量，失败被吞掉并返回 null。"
+        }
+      ]
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 2,
+      "reason": "仓库没有自有 .aidl 文件，但存在真实的外部 AIDL/Binder 边界。InitialLockSetupService 具备签名权限、绑定时二次校验、版本、细粒度错误码、输入验证和密码清理，并有较深行为测试；不足是契约源位于外部平台库，Binder 线程模型、死亡处理及跨进程生命周期无法在仓库中验证，其他系统 Binder 客户端也多为直接 ServiceManager 调用。",
+      "evidence": [
+        {
+          "path": "src/com/android/car/settings/setupservice/InitialLockSetupService.java",
+          "ref": null,
+          "symbol_or_line": "onBind 与 InitialLockSetupServiceImpl（第60-194行）",
+          "observation": "服务返回类型化 IInitialLockSetupService.Stub，校验调用权限和既有锁，使用明确验证/设置结果码，并在完成后清零输入字节。"
+        },
+        {
+          "path": "AndroidManifest.xml",
+          "ref": null,
+          "symbol_or_line": "InitialLockSetupService 声明（第404-408行）",
+          "observation": "导出的 Binder 服务由 signature|setup 级 SET_INITIAL_LOCK 权限保护。"
+        },
+        {
+          "path": "tests/robotests/src/com/android/car/settings/security/InitialLockSetupServiceTest.java",
+          "ref": null,
+          "symbol_or_line": "绑定、验证、设置及权限测试（第75-223行）",
+          "observation": "覆盖无权限、已有锁、不同凭据类型、无效输入与成功写入，但通过 Robolectric 在同进程直接调用 Stub。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "仓库声明了 Gradle 模块和 compileSdk 35，但未提供可验证的独立平台输入边界：源码依赖 android.car、com.android.internal、settingslib 及外部 setupwizard AIDL 类型，而模块依赖中没有声明这些 AAOS/AOSP 输入；同时 app 编译 legacy 源并依赖包含同包同名类的 modern-settings。受控审查禁止构建，且所需平台/BSP 输入不在仓库中，因此无法可信验证独立编译。",
+      "evidence": [
+        {
+          "path": "app/build.gradle",
+          "ref": null,
+          "symbol_or_line": "android 与 dependencies（第1-13行）",
+          "observation": "仅声明 compileSdk 和两个项目依赖，没有声明源码实际导入的 AAOS/AOSP 平台库。"
+        },
+        {
+          "path": "src/com/android/car/settings/setupservice/InitialLockSetupService.java",
+          "ref": null,
+          "symbol_or_line": "imports（第20-37行）",
+          "observation": "直接依赖 setupwizard AIDL、android.car.userlib、com.android.internal.widget 等仓库外平台类型。"
+        },
+        {
+          "path": "modern-settings/build.gradle",
+          "ref": null,
+          "symbol_or_line": "完整文件（第1-6行）",
+          "observation": "modern 源集被声明为普通 Android library，但没有列出其 android.car、car-ui、internal 和 settingslib 依赖。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 1,
+      "reason": "测试数量大且不少断言有实际行为深度，包括权限、失败码、生命周期和异步用户操作；然而全部 338 个测试类都位于 Robolectric/unit 源树，未发现 instrumentation、跨进程或端到端测试。新 platform-bridge 没有测试，Binder 测试也直接调用本地 Stub，因此模块、进程与真实 AAOS 生命周期风险仍未覆盖。",
+      "evidence": [
+        {
+          "path": "tests/robotests/src/com/android/car/settings/security/InitialLockSetupServiceTest.java",
+          "ref": null,
+          "symbol_or_line": "InitialLockSetupServiceTest（第52-223行）",
+          "observation": "对服务契约有多分支行为断言，但依赖 ShadowLockPatternUtils 并在同进程调用 onBind/Stub。"
+        },
+        {
+          "path": "modern/tests/robotests/src/com/android/car/settings/profiles/ProfileHelperTest.java",
+          "ref": null,
+          "symbol_or_line": "删除用户失败/成功场景（第278-371行）",
+          "observation": "覆盖权限与异步结果失败分支，所有 CarUserManager/UserManager 交互均为 mock 或 shadow。"
+        },
+        {
+          "path": "tests/robotests/src/com/android/car/settings/common/BaseCarSettingsActivityTest.java",
+          "ref": null,
+          "symbol_or_line": "Activity/UX restriction 测试（第61-179行）",
+          "observation": "验证 Fragment 导航和 UX restriction 传播，但没有断言新 SettingsPageCoordinator 或平台桥的创建、轮询及销毁行为。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 0,
+      "reason": "legacy src 与 modern/src 中有 182 个同名生产类；批量比较还发现数十个去除头部/导入后完全相同的手写实现，并存在大量数百行的近拷贝。两代代码同时进入 app 模块图，没有生成代码标记或共享 core，导致修复漂移和重复类所有权成为贯穿仓库的维护风险。",
+      "evidence": [
+        {
+          "path": "src/com/android/car/settings/common/PreferenceController.java",
+          "ref": null,
+          "symbol_or_line": "PreferenceController（第87行起）",
+          "observation": "legacy 版本约 426 行，与 modern 同包同名基类形成独立演进的大型副本。"
+        },
+        {
+          "path": "modern/src/com/android/car/settings/common/PreferenceController.java",
+          "ref": null,
+          "symbol_or_line": "PreferenceController（第93行起）",
+          "observation": "modern 版本约 511 行，复制 legacy 生命周期框架后增加状态，未复用公共核心。"
+        },
+        {
+          "path": "src/com/android/car/settings/applications/managedomainurls/ClearDefaultsPreferenceController.java",
+          "ref": null,
+          "symbol_or_line": "ClearDefaultsPreferenceController（第41-110行）",
+          "observation": "与 modern 版本保留几乎相同的 USB Binder、默认浏览器和 UI 更新逻辑。"
+        },
+        {
+          "path": "modern/src/com/android/car/settings/applications/managedomainurls/ClearDefaultsPreferenceController.java",
+          "ref": null,
+          "symbol_or_line": "ClearDefaultsPreferenceController（第42-117行）",
+          "observation": "主要差异是增加测试注入构造器，核心生产逻辑仍为平行副本。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 2,
+      "reason": "实际分支比较显示 release/platform 分支均从同一基点仅增加一个两行配置文件，差异高度有界，没有复制代码修复；但每个分支只有一个独有提交，未观察到 merge、回灌或长期修复复用记录，且当前主线又比共同基点多两个未进入这些分支的桥文件，因此策略的持续性证据有限。",
+      "evidence": [
+        {
+          "path": "product/release.properties",
+          "ref": "release/sop-2024",
+          "symbol_or_line": "第1-2行",
+          "observation": "release 分支仅固定 settings.channel=sop-2024 和 legacy generation。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "第1-2行",
+          "observation": "8155 分支仅用两行属性选择 sa8155/legacy，没有平台代码 fork。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "第1-2行",
+          "observation": "8295 分支同样只选择 sa8295/hybrid，和 8155 的差异局限于配置值。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 1,
+      "reason": "平台分支自身保持薄配置，VehicleSettingOverrides 也集中了一部分平台到包名的映射；但运行时平台选择依赖硬编码 Build.HARDWARE 字符串和静态路由状态，分支属性未形成可见的类型化配置入口。更严重的是 legacy/modern 两代设置栈大面积复制，公共 core 复用不足。",
+      "evidence": [
+        {
+          "path": "platform-bridge/src/com/android/car/settings/platform/VehicleSettingOverrides.java",
+          "ref": null,
+          "symbol_or_line": "构造器与 packageName（第19-24行）",
+          "observation": "8155、8295、xinqing 的包名映射集中在一个类中并提供默认回退，但值全部硬编码在构造器。"
+        },
+        {
+          "path": "platform-bridge/src/com/android/car/settings/platform/SettingsPageCoordinator.java",
+          "ref": null,
+          "symbol_or_line": "create（第22行）",
+          "observation": "平台只按 Build.HARDWARE 是否包含 8295 二选一，无法表示集中映射中已有的 xinqing 平台。"
+        },
+        {
+          "path": "modern/src/com/android/car/settings/common/PreferenceController.java",
+          "ref": null,
+          "symbol_or_line": "PreferenceController（第93行起）",
+          "observation": "平台/代际演进通过复制完整公共控制器框架实现，而不是共享稳定核心。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 1.222222,
+    "scored_dimension_count": 9,
+    "failed_dimension_count": 1,
+    "narrative": "主要优势是既有 PreferenceController 生命周期框架清晰、测试断言并非只做文件计数，初始锁 Binder 服务在权限、输入验证、错误码和敏感数据清理方面尤其完整；各 release/platform 分支的实际差异也保持在两行配置内。主要风险来自 legacy 与 modern 两套同包代码的大面积平行复制、app 模块的重叠组合，以及 platform-bridge 中静态可变状态、宽泛反射、吞错和缺失测试。系统/隐藏 API 调用仍散落在 UI 与 manager 中。独立编译因缺少仓库内 AAOS/AOSP/BSP 输入和完整依赖声明无法验证；分支历史较短且没有 merge 记录，因此长期发布策略存在不确定性。19 次 shell 调用足以满足静态代表性检查、批量盘点和多分支有界比较，但不能替代真实平台构建、跨进程测试或设备生命周期验证。未修改文件，未使用 skill。"
+  }
+}

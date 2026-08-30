@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "FW-20",
+  "quality_tier": "low",
+  "comparison_family": null,
+  "review_status": "reviewed",
+  "evidence": [
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "069d0685270ac591ede24b37507016505f1f7645",
+      "path": "service/src/com/android/car/ICarImpl.java",
+      "symbol_or_line": "mSystemServiceFacade construction and getCarService",
+      "observation": "平台聚合根 ICarImpl 直接 import/构造本地 facade，facade 同时持有 property/audio/power/user 对象，形成反向依赖和隐藏服务环。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "069d0685270ac591ede24b37507016505f1f7645",
+      "path": "facade-runtime/src/com/cockpitbench/systemfacade/ISystemServiceFacade.aidl",
+      "symbol_or_line": "ISystemServiceFacade.transact",
+      "observation": "AIDL 可生成编译，但所有系统服务共享 service/operation/String/Bundle contract，类型、权限和错误策略无法按服务演进。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "code_duplication",
+      "branch": "main",
+      "commit": "069d0685270ac591ede24b37507016505f1f7645",
+      "path": "facade-runtime/src/com/cockpitbench/systemfacade/platform8155/PowerEndpoint.java",
+      "symbol_or_line": "PowerEndpoint and platform8295 peer",
+      "observation": "十组 endpoint 在两套平台树中复制，探针在完整大仓仍检出 191 对近重复且每个 endpoint 维护独立静态缓存。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "hidden_api_reflection",
+      "branch": "main",
+      "commit": "069d0685270ac591ede24b37507016505f1f7645",
+      "path": "facade-runtime/src/com/cockpitbench/systemfacade/ReflectionDispatcher.java",
+      "symbol_or_line": "ReflectionDispatcher.dispatch",
+      "observation": "服务名和平台字符串拼出 endpoint class，再由 endpoint 反射真实/厂商方法；异常统一转成 fallback 值。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "solid",
+      "branch": "main",
+      "commit": "069d0685270ac591ede24b37507016505f1f7645",
+      "path": "facade-runtime/src/com/cockpitbench/systemfacade/FacadeState.java",
+      "symbol_or_line": "SERVICES CACHE EVENTS EXECUTOR",
+      "observation": "静态可变 service/cache/event/executor 跨 Binder 请求共享且没有清理生命周期，listener 也由 static RemoteCallbackList 持有。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "069d0685270ac591ede24b37507016505f1f7645",
+      "path": "product/TEST_MAPPING",
+      "symbol_or_line": "presubmit",
+      "observation": "映射继承 carservice 与安全测试，但没有本地 facade 权限、callback、平台 endpoint、反射错误或 suspend 扇出测试。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_low",
+      "reason": "ICarImpl 与通用 facade 形成反向依赖和服务环。"
+    },
+    {
+      "name": "solid",
+      "status": "expected_low",
+      "reason": "跨服务全局状态和单一 dispatcher 职责混杂。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_low",
+      "reason": "Binder 可编译但 contract 粗粒度。"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "expected_low",
+      "reason": "双层字符串反射和异常吞噬。"
+    },
+    {
+      "name": "code_duplication",
+      "status": "expected_low",
+      "reason": "8155/8295 endpoint 大量复制。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_low",
+      "reason": "大型继承测试集不覆盖 facade。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "完整服务依赖 AOSP 产品树。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g5",
+      "blind_id": "blind-3d6aa9fca710",
+      "repository_head": "0171c05a0e48eabd0bf83b073809a6f28b1f2172",
+      "result_path": "calibration/results/g5/blind-3d6aa9fca710.json",
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T23:28:44.768Z",
+      "finished_at": "2026-08-29T23:32:48.668Z",
+      "wall_clock_seconds": 243.9,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 38,
+        "directories_visited": 21,
+        "tool_calls": 21,
+        "notes": "HEAD 与预期 SHA 一致。静态检查覆盖 24 个代表性生产源文件、5 个有意义的测试文件、主要 Soong 入口、AIDL/Binder/反射点、源文件规模和重复家族；比较了 release/2026.1、platform/8155、platform/8295 与 main 的有界差异。未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 21 (evaluator self-report: 21); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 0.888889,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 28,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "原有 CarService 具备服务生命周期和系统接口分层，但新增 facade 以字符串、Object、全局静态容器和运行时反射跨越这些边界；它直接接入 ICarImpl，却未进入统一的 CarServiceBase 生命周期。模块虽单独声明，service 的依赖表中也未声明该 facade 库，组合边界存在明显风险。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "仓库原有 SystemInterface 展现了 DIP，CarServiceBase 也统一了生命周期；但 facade 的抽象仅是接受 Object、字符串操作和 Bundle 的宽接口。Dispatcher 自行选择平台并反射构造具体类，SystemServiceFacade 同时承担权限、分派、事件发布和 suspend 编排，SRP、ISP 与 DIP 均明显削弱。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "原有代码通过 android.car.builtin helper、SystemInterface 和明确权限注解隔离不少平台 API；新增 facade 却根据属性字符串选择平台、硬编码 vendor 类名，并以 Object/Bundle 反射调用，失败信息也被压缩成布尔值和 fallback。因此隔离策略在关键新增边界上显著退化。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 0,
+          "evidence_count": 2,
+          "reason": "反射是 facade 的核心机制而非受控适配点：服务名决定类名，客户端 operation 决定私有方法名，随后无条件 setAccessible(true)。20 个平台端点重复此模式；没有允许列表、typed adapter、异常分类或可注入反射层，所有异常均被静默转换为含 fallback 的成功形态 Bundle。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "边界使用 AIDL、oneway callback 和 RemoteCallbackList，transact 也执行权限检查；但业务契约被压成 String/String/Bundle，缺少 typed operation、错误码和版本语义。registerListener/unregisterListener 没有同等权限检查，回调 RemoteException 被静默忽略，也没有明确线程、背压或调用生命周期约束。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 3,
+          "reason": "仓库只有 Soong/AOSP 构建边界，facade 声明 platform_apis 并依赖 android.car，service 又依赖多项 framework、HAL、AIDL 和生成目标；当前工作区没有所需 AOSP/AAOS 平台输入，因此无法验证独立编译。静态检查还发现 service 导入 facade 类，但其 Android.bp 依赖列表没有引用 cockpit-system-service-facade，构建可行性存在额外不确定性。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "仓库提供了真实 manager/service/HAL 路径、生命周期、权限失败和异步事件断言，测试深度明显超出文件计数；但新增 facade、其权限不一致、反射降级、平台选择、回调死亡和 suspend 编排均没有测试引用。这是范围明确但影响关键边界的覆盖缺口。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 0,
+          "evidence_count": 2,
+          "reason": "facade-runtime 中 8155 与 8295 各有十个手写端点，端点之间及平台之间都重复相同的缓存、反射、Bundle 填充和异常降级逻辑。抽查 Audio 与 User 的跨平台 diff 仅有包名、vendor namespace 和 platform 字符串变化；该重复并非生成代码，任何安全或错误处理修复都需同步修改大量副本。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "实际历史显示 release/2026.1、platform/8155、platform/8295 都从当前 main 精确分叉且各只有一个小型配置提交；三次有界比较均未复制生产源码，分歧被限制为两行属性文件。这种策略的变更面较小，但历史极短，尚无回合并、补丁回灌或多版本演进证据，不能视为系统化成熟策略。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 0,
+          "evidence_count": 3,
+          "reason": "分支层面的平台差异被很好地压缩为配置，但当前 HEAD 同时保留两套各十个近乎相同的手写端点。共同的 ServiceEndpoint 接口和 Dispatcher 没有承载共享调用策略、缓存、错误映射或 namespace 映射，平台变化仍要求修改成组副本，因此代码级平台复用严重不足。"
+        }
+      ]
+    }
+  ]
+}

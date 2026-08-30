@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g3",
+  "blind_id": "blind-3f168d5d3871",
+  "repository_head": "74db57addbc12585ca258f0e054efa07492078a4",
+  "prompt_version": "g2-code-health-v2",
+  "prompt_sha256": "78f40d3089fbf8736e64cd266281a6dbb7b5d9e958730e2c1b87b256e1ba3a04",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "sandbox": "workspace-write-single-root",
+  "approval_policy": "never",
+  "network_requested": false,
+  "ephemeral": true,
+  "ignore_user_config": false,
+  "ignore_rules": true,
+  "disabled_features": [
+    "apps",
+    "browser_use",
+    "browser_use_external",
+    "computer_use",
+    "goals",
+    "hooks",
+    "image_generation",
+    "in_app_browser",
+    "memories",
+    "multi_agent",
+    "plugins",
+    "remote_plugin",
+    "skill_search",
+    "tool_suggest",
+    "view_image",
+    "workspace_dependencies"
+  ],
+  "disabled_mcp_servers": [
+    "atlassian",
+    "cua_repl",
+    "node_repl"
+  ],
+  "wall_clock_budget_seconds": 900,
+  "started_at": "2026-08-29T11:09:00.396Z",
+  "finished_at": "2026-08-29T11:14:53.375Z",
+  "wall_clock_seconds": 352.984,
+  "timed_out": false,
+  "exit_code": 0,
+  "clone": {
+    "head": "74db57addbc12585ca258f0e054efa07492078a4",
+    "branches": [
+      "aosp/pie-release",
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "platform/xinqing",
+      "release/sop-2019"
+    ],
+    "branch_heads": {
+      "aosp/pie-release": "f02b56678700a4035d0ad8882f7d20371bb96ee2",
+      "develop": "ca512ec4d29b7f7e84ba3ea637bc072b5514c8d2",
+      "main": "74db57addbc12585ca258f0e054efa07492078a4",
+      "platform/8155": "1cd1c6a43839fb526de6df597312286c6a95d9bf",
+      "platform/8295": "bce6dc6fca9eda196edaaff305bf6ffc4ccf0e72",
+      "platform/xinqing": "e4e968216af43e9b612b2bed5b150887a2b93c0c",
+      "release/sop-2019": "0f866904ae21d162731a3939b7f5efb1b0d6017b"
+    },
+    "remotes": [],
+    "remote_count": 0,
+    "status": [],
+    "clean": true
+  },
+  "post_run_clone": {
+    "head": "74db57addbc12585ca258f0e054efa07492078a4",
+    "branches": [
+      "aosp/pie-release",
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "platform/xinqing",
+      "release/sop-2019"
+    ],
+    "branch_heads": {
+      "aosp/pie-release": "f02b56678700a4035d0ad8882f7d20371bb96ee2",
+      "develop": "ca512ec4d29b7f7e84ba3ea637bc072b5514c8d2",
+      "main": "74db57addbc12585ca258f0e054efa07492078a4",
+      "platform/8155": "1cd1c6a43839fb526de6df597312286c6a95d9bf",
+      "platform/8295": "bce6dc6fca9eda196edaaff305bf6ffc4ccf0e72",
+      "platform/xinqing": "e4e968216af43e9b612b2bed5b150887a2b93c0c",
+      "release/sop-2019": "0f866904ae21d162731a3939b7f5efb1b0d6017b"
+    },
+    "remotes": [],
+    "remote_count": 0,
+    "status": [],
+    "clean": true
+  },
+  "immutability_errors": [],
+  "job_repo": "C:\\Users\\benchmark-user\\AppData\\Local\\Temp\\cockpit-evaluator-jobs\\g3\\20260829T110857Z-blind-3f168d5d3871\\repo",
+  "raw_events": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\raw\\g3\\20260829T110857Z-blind-3f168d5d3871.events.jsonl",
+  "raw_stderr": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\raw\\g3\\20260829T110857Z-blind-3f168d5d3871.stderr.log",
+  "raw_judgment": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\raw\\g3\\20260829T110857Z-blind-3f168d5d3871.judgment.json"
+}

@@ -1,0 +1,92 @@
+{
+  "branches": [
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "release/2026.1"
+  ],
+  "build_system": "Gradle",
+  "commit_count": 13,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [
+      "media-platform/src/android/car/media/CarAudioPatchHandle.aidl",
+      "media-platform/src/android/car/media/ICarAudio.aidl",
+      "media-platform/src/android/car/media/ICarMedia.aidl",
+      "media-platform/src/android/car/media/ICarMediaSourceListener.aidl",
+      "media-platform/src/android/car/media/ICarVolumeCallback.aidl"
+    ],
+    "has_binder": [
+      "media-platform/src/android/car/media/CarAudioManager.java",
+      "media-platform/src/android/car/media/CarMediaManager.java",
+      "media-platform/src/android/car/media/ICarAudio.aidl",
+      "media-platform/src/android/car/media/ICarMedia.aidl",
+      "media-platform/src/android/car/media/ICarMediaSourceListener.aidl",
+      "media-platform/src/android/car/media/ICarVolumeCallback.aidl",
+      "media-platform/test/com/android/car/media/CarMediaServiceTest.java",
+      "src/com/android/car/media/service/MediaConnectorService.java"
+    ],
+    "has_hidden_api": [
+      "media-platform/src/android/car/media/CarAudioPatchHandle.java",
+      "media-platform/src/android/car/media/CarMediaManager.java",
+      "media-platform/src/com/android/car/CarMediaService.java",
+      "media-platform/test/com/android/car/media/CarMediaServiceTest.java"
+    ],
+    "has_integration_tests": [
+      "media-runtime/src/androidTest/java/com/cockpitbench/wavemedia/MediaCatalogRuntimeContractTest.java",
+      "media-runtime/src/androidTest/java/com/cockpitbench/wavemedia/PlaybackRuntimeContractTest.java"
+    ],
+    "has_reflection": []
+  },
+  "features": {
+    "has_aidl": true,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": false
+  },
+  "has_push_remote": false,
+  "module_count": 4,
+  "modules": [
+    {
+      "name": ":",
+      "path": "build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":local-source",
+      "path": "local-source/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":media-platform",
+      "path": "media-platform/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":media-runtime",
+      "path": "media-runtime/build.gradle",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.1.0"
+  },
+  "remotes": [],
+  "repo_head": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\wave-media",
+  "source_files": 174,
+  "source_loc": 10037,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "local-sop-2026.1"
+  ],
+  "tracked_files": 196,
+  "worktree_clean": true
+}

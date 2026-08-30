@@ -1,0 +1,54 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 29,
+      "base_branch": "main",
+      "base_files": 236,
+      "binary_changed_files": 0,
+      "changed_files": 2,
+      "common_path_files": 236,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 6,
+      "compare_files": 237,
+      "deleted_lines": 1,
+      "identical_blob_files": 235,
+      "identical_blob_ratio": 0.991561,
+      "merge_base": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "union_files": 237
+    },
+    {
+      "added_lines": 29,
+      "base_branch": "main",
+      "base_files": 236,
+      "binary_changed_files": 0,
+      "changed_files": 2,
+      "common_path_files": 236,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 6,
+      "compare_files": 237,
+      "deleted_lines": 1,
+      "identical_blob_files": 235,
+      "identical_blob_ratio": 0.991561,
+      "merge_base": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "union_files": 237
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 236,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 236,
+      "compare_branch": "release/1.0",
+      "compare_commits_since_merge_base": 5,
+      "compare_files": 237,
+      "deleted_lines": 0,
+      "identical_blob_files": 236,
+      "identical_blob_ratio": 0.995781,
+      "merge_base": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "union_files": 237
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\climatix-hvac",
+  "schema_version": "1.0.0"
+}

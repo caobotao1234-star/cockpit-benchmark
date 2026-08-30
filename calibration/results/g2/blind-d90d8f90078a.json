@@ -1,0 +1,275 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-d90d8f90078a",
+  "repository_head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04c69-6e85-74b0-a1f6-ee8fa69aecec",
+    "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T07:26:12.936Z",
+    "finished_at": "2026-08-29T07:30:59.121Z",
+    "wall_clock_seconds": 286.185,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 165,
+    "directories_visited": 18,
+    "tool_calls": 16,
+    "notes": "HEAD 与预期 SHA 一致。清点了 2 个 Gradle 模块、152 个生产源文件、唯一的测试文件、1 个 AIDL、Binder/系统 API/反射位置、最大文件及重复家族；重点检查了 23 个以上生产文件并读取全部测试。比较了 main 与 platform/8155、platform/8295、release/0.9，并检查 develop 和标签历史。未运行构建、脚本、包管理器或网络操作；未修改文件；未使用 skill 或附加代理。 Runner normalized tool_calls from Codex JSONL to 16 (evaluator self-report: 16); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 1,
+      "reason": "存在 app→vehicle 的模块方向以及按 feature、scene、profile 等包划分，但边界主要是目录性的。应用层大量直接取得全局 VendorClimateManager；主 Activity 同时承担 UI、状态持久化、硬件写入、轮询、服务绑定和分析记录，且轮询生命周期处理不完整，导致职责和组合高度耦合。",
+      "evidence": [
+        {
+          "path": "settings.gradle.kts",
+          "ref": null,
+          "symbol_or_line": "lines 3-4",
+          "observation": "声明 app 与 vehicle 两个模块，为平台访问提供了基本物理边界。"
+        },
+        {
+          "path": "app/src/main/java/com/cockpitbench/thermo/ClimateCenterActivity.kt",
+          "ref": null,
+          "symbol_or_line": "ClimateCenterActivity, lines 40-96 and 198-208",
+          "observation": "Activity 内直接连接硬件管理器、创建控制器、轮询、恢复持久状态并绑定服务；onResume 再次启动轮询，而 onDestroy 未移除 Handler 回调。"
+        },
+        {
+          "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/VendorClimateManager.kt",
+          "ref": null,
+          "symbol_or_line": "VendorClimateManager, lines 25-74",
+          "observation": "单例同时负责平台选择、反射调用、监听器、缓存和 Binder 暴露，形成跨层共享中心。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 1,
+      "reason": "代码可读且按用例拆成许多小类，但生产设计普遍依赖具体 Android Context 和全局单例，没有可替换端口；平台多态通过 Any 与反射模拟。控制器重复承担 UI 提示、状态、定时和硬件协议，DIP、OCP 与 SRP 均存在持续性弱点。",
+      "evidence": [
+        {
+          "path": "app/src/main/java/com/cockpitbench/thermo/feature/FanController.kt",
+          "ref": null,
+          "symbol_or_line": "FanController, lines 25-74",
+          "observation": "构造器只接收 Context，内部自行取得全局管理器和主线程 Handler，并混合监听、范围规则、协议写入、Toast、缓存及延时刷新。"
+        },
+        {
+          "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/VendorClimateManager.kt",
+          "ref": null,
+          "symbol_or_line": "VendorClimateManager.connect/read/write, lines 31-62",
+          "observation": "平台保存为 Any?，由板级字符串分支创建具体实现，再逐次按方法名反射；没有平台接口或注入点。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 0,
+      "reason": "虽然汽车访问集中了一部分到 vehicle 模块，但系统依赖仍大范围散落：SystemProperties 出现在平台桥、30 个 legacy 协调器、30 个 model override 和大量 profile 中，业务类还直接使用硬编码属性 ID。权限仅在 manifest 声明，未找到运行时/调用方校验；底层错误多数被吞掉或折叠成 -1，难以区分权限、断连和协议失败。",
+      "evidence": [
+        {
+          "path": "app/src/main/java/com/cockpitbench/thermo/legacy/AutoDemistCoordinator.kt",
+          "ref": null,
+          "symbol_or_line": "AutoDemistCoordinator, lines 20-100",
+          "observation": "应用业务类直接读取隐藏 SystemProperties，并包含 64 路硬编码车辆属性映射；宽泛 Throwable 只写入偏好设置。"
+        },
+        {
+          "path": "app/src/main/AndroidManifest.xml",
+          "ref": null,
+          "symbol_or_line": "lines 2-7",
+          "observation": "声明 CONTROL_CAR_CLIMATE，但导出的 Activity 和 Service 都未配置组件权限；全仓搜索未发现 check/enforce permission 调用。"
+        },
+        {
+          "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/Sa8155ClimateBridge.kt",
+          "ref": null,
+          "symbol_or_line": "connect/read/write, lines 27-61",
+          "observation": "系统服务通过字符串反射访问，所有 Throwable 被转换为 false、-1 或静默忽略。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "scored",
+      "score": 1,
+      "reason": "反射基本被限制在 vehicle 模块，这提供了最低限度的隔离；但三个平台桥完整复制反射路径，管理器自身又按字符串反射桥方法。实现使用 Any、setAccessible 和宽泛 Throwable，没有允许列表、缓存的方法句柄、类型化失败或可注入测试后端。",
+      "evidence": [
+        {
+          "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/Sa8155ClimateBridge.kt",
+          "ref": null,
+          "symbol_or_line": "Sa8155ClimateBridge, lines 23-61",
+          "observation": "通过 Class.forName/getDeclaredMethod/setAccessible/invoke 访问 Car 和 CarPropertyManager，失败仅返回哨兵或静默结束。"
+        },
+        {
+          "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/VendorClimateManager.kt",
+          "ref": null,
+          "symbol_or_line": "connect/read/write, lines 31-62",
+          "observation": "即使三个桥在编译期已知，管理器仍按方法名二次反射并捕获 Throwable，进一步削弱类型与错误语义。"
+        }
+      ]
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 0,
+      "reason": "仓库存在真实 Binder/AIDL 边界，但契约主要暴露原始 propertyId/areaId 和通用预设字符串，没有契约级错误、回调、版本或权限语义。更严重的是 AIDL 未被 Stub/asInterface 使用；导出的 Service 返回一个无协议的裸 Binder，也没有死亡监听、调用方权限或跨进程线程策略。",
+      "evidence": [
+        {
+          "path": "vehicle/src/main/aidl/com/cockpitbench/thermo/vehicle/ILegacyClimateService.aidl",
+          "ref": null,
+          "symbol_or_line": "ILegacyClimateService, lines 3-11",
+          "observation": "接口由通用 read/write、字符串 preset、reset 和 dump 组成；无回调、结构化状态或显式错误结果。"
+        },
+        {
+          "path": "app/src/main/java/com/cockpitbench/thermo/CockpitClimateService.kt",
+          "ref": null,
+          "symbol_or_line": "CockpitClimateService.onBind, lines 24-31",
+          "observation": "onBind 返回 manager.binder，而非 ILegacyClimateService.Stub；仓库中 AIDL 名称只出现在契约文件本身。"
+        },
+        {
+          "path": "app/src/main/AndroidManifest.xml",
+          "ref": null,
+          "symbol_or_line": "line 7",
+          "observation": "CockpitClimateService 被导出但没有 android:permission 保护。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "无法建立可信的独立编译边界：仓库没有 Gradle wrapper，也没有声明 AAOS/AOSP/vendor stub 输入；生产代码直接引用标准 Android SDK 不公开的 android.os.SystemProperties。所需平台输入在当前受控环境不可用，且本次规则禁止执行构建，因此不能验证可独立编译性。",
+      "evidence": [
+        {
+          "path": "vehicle/build.gradle.kts",
+          "ref": null,
+          "symbol_or_line": "android/dependencies, lines 6-16",
+          "observation": "模块只声明 compileSdk/minSdk/AIDL 和 JUnit，没有 AAOS、AOSP 或 vendor stub 依赖。"
+        },
+        {
+          "path": "app/src/main/java/com/cockpitbench/thermo/profile/AtlasBaseProfile.kt",
+          "ref": null,
+          "symbol_or_line": "import and applyDriverProfile, lines 20 and 59-67",
+          "observation": "应用生产代码直接导入并调用 android.os.SystemProperties，形成平台 SDK 输入要求。"
+        },
+        {
+          "path": "settings.gradle.kts",
+          "ref": null,
+          "symbol_or_line": "lines 1-4",
+          "observation": "仅配置在线仓库和两个模块；仓库清点未发现 gradlew 或 gradle/wrapper 文件。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 0,
+      "reason": "152 个生产源文件对应唯一一个 androidTest，且该测试只通过 Class.forName 验证 Activity 类存在，没有启动组件、断言行为、替身平台、Binder 往返、权限/断连/生命周期或多平台映射覆盖。vehicle 虽声明 JUnit，实际没有单元测试。",
+      "evidence": [
+        {
+          "path": "app/src/androidTest/java/com/cockpitbench/thermo/ClimateLaunchTest.kt",
+          "ref": null,
+          "symbol_or_line": "ClimateLaunchTest.activityClassIsPresent, lines 23-25",
+          "observation": "唯一测试没有显式断言或组件交互，仅加载 Activity 类。"
+        },
+        {
+          "path": "vehicle/build.gradle.kts",
+          "ref": null,
+          "symbol_or_line": "lines 10-16",
+          "observation": "启用了 AIDL 并声明 JUnit 依赖，但 vehicle/src/test 与 vehicle/src/androidTest 均无测试文件。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 0,
+      "reason": "重复是跨家族且手写的：26 个控制器共享同一控制流，三个平台桥各 71 行且任意一对仅有两行增删，另有 22 个 scene、22 个 profile、30 个 legacy 和 30 个 model 文件遵循大段模板。没有生成文件标记；差异埋在类名、属性 ID、偏移和少量默认值中，使修复和协议变更需要广泛同步。",
+      "evidence": [
+        {
+          "path": "app/src/main/java/com/cockpitbench/thermo/feature/FanController.kt",
+          "ref": null,
+          "symbol_or_line": "FanController, lines 25-74",
+          "observation": "与 AutoModeController 的 attach/increase/decrease/toggle/applyPreset/currentValue 结构相同；有界 no-index 比较仅显示各 16 行变化。"
+        },
+        {
+          "path": "app/src/main/java/com/cockpitbench/thermo/feature/AutoModeController.kt",
+          "ref": null,
+          "symbol_or_line": "AutoModeController, lines 25-74",
+          "observation": "主要差异是类/缓存名称及硬编码 ID，行为模板与 FanController 重复。"
+        },
+        {
+          "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/Sa8155ClimateBridge.kt",
+          "ref": null,
+          "symbol_or_line": "Sa8155ClimateBridge, lines 23-70",
+          "observation": "与 Sa8295ClimateBridge 的有界比较只产生 2 行增加和 2 行删除。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 1,
+      "reason": "分支差异确实受到约束：两个平台分支各只增加一个两行默认配置，release 分支只增加一个发布通道文件。但四个非 main 分支都从较早共同基点形成 1 个独有提交，而 main 已前进 6 个提交；历史中未观察到合并、回移或共享配置整合，因而长期同步策略证据薄弱。",
+      "evidence": [
+        {
+          "path": "app/src/main/res/xml/platform_defaults.xml",
+          "ref": "platform/8155",
+          "symbol_or_line": "line 2",
+          "observation": "main...platform/8155 的唯一文件差异，配置 SA8155 的 rearZones=false 与 7 档风量；比较计数为 main 独有 6、分支独有 1。"
+        },
+        {
+          "path": "app/src/main/res/xml/platform_defaults.xml",
+          "ref": "platform/8295",
+          "symbol_or_line": "line 2",
+          "observation": "main...platform/8295 的唯一文件差异，配置 SA8295 的 rearZones=true 与 8 档风量；同样为 6/1 分叉。"
+        },
+        {
+          "path": "app/src/main/res/xml/release_channel.xml",
+          "ref": "release/0.9",
+          "symbol_or_line": "line 2",
+          "observation": "release/0.9 只增加 pilot-sop 通道文件，但相对 main 已形成 6/1 分叉，未观察到后续合并。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 0,
+      "reason": "运行时选择集中在 VendorClimateManager，且分支配置差异很小，这是有限的复用基础；但主干仍保存三个近乎逐行复制的平台桥，没有共同接口或可配置映射。产品 profile、legacy 与 model 政策也以大量平行类复制，平台和车型差异没有被可靠收敛为数据或共享核心。",
+      "evidence": [
+        {
+          "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/VendorClimateManager.kt",
+          "ref": null,
+          "symbol_or_line": "connect, lines 31-42",
+          "observation": "平台选择集中于一个 when 分支，但结果保存为 Any?，三个具体桥仍由管理器硬编码创建。"
+        },
+        {
+          "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/Sa8295ClimateBridge.kt",
+          "ref": null,
+          "symbol_or_line": "Sa8295ClimateBridge, lines 23-70",
+          "observation": "与 SA8155、Xinqing 桥的结构、反射、错误处理和 warmUp 完全平行；有界比较每对仅有两行增删。"
+        },
+        {
+          "path": "app/src/main/java/com/cockpitbench/thermo/profile/AtlasBaseProfile.kt",
+          "ref": null,
+          "symbol_or_line": "AtlasBaseProfile, lines 24-83",
+          "observation": "车型配置、区域、默认值、写入流程和缓存键封装在具体类中；与 AtlasPremiumProfile 比较仅有 8 行增删，未复用共同 profile 核心。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 0.444444,
+    "scored_dimension_count": 9,
+    "failed_dimension_count": 1,
+    "narrative": "主要可见优势是 app 与 vehicle 的基本模块方向、平台选择入口集中、ClimateEventBuffer 具备容量和过期约束，以及平台/发布分支的单次差异保持很小。主要风险来自规模化模板复制、全局单例与硬编码车辆属性、散落的隐藏 SystemProperties、反射吞错、未实际接线的 AIDL、无权限保护的导出服务，以及几乎不存在的行为测试。编译独立性因缺少 wrapper、平台 stub 和可用 AAOS/AOSP 输入而无法验证。16 次 shell 调用低于 28 次上限，已覆盖全部清单要求、超过 20 个代表性生产文件、唯一测试及三组分支比较；预算对识别这些系统性模式是充分的，但静态审查不能验证真实车辆服务行为、权限授予或运行时线程表现。"
+  }
+}

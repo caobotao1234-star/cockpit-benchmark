@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "FW-01",
+  "quality_tier": "high",
+  "comparison_family": "fw-car-api-compat-large",
+  "review_status": "reviewed",
+  "evidence": [
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "985cc498d8c52c2e5ba558e079ea2d670806e43a",
+      "path": "Android.bp",
+      "symbol_or_line": "CarApiCoreBoundary and CarApiServiceBoundary",
+      "observation": "顶层边界与原 39 个真实模块共同覆盖 API、builtin、服务和测试，依赖方向从 manager/AIDL 指向 service/HAL。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "985cc498d8c52c2e5ba558e079ea2d670806e43a",
+      "path": "car-lib/src/android/car/ICar.aidl",
+      "symbol_or_line": "ICar",
+      "observation": "核心服务发现和 manager 获取使用类型化 ICar AIDL，API/Stub/SystemStub 模块均保留。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "system_api_dependency",
+      "branch": "main",
+      "commit": "985cc498d8c52c2e5ba558e079ea2d670806e43a",
+      "path": "service/src/com/android/car/ICarImpl.java",
+      "symbol_or_line": "ICarImpl",
+      "observation": "系统服务初始化、权限和子服务生命周期集中在 ICarImpl/CarServiceBase 边界。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "985cc498d8c52c2e5ba558e079ea2d670806e43a",
+      "path": "tests/android_car_api_test/AndroidManifest.xml",
+      "symbol_or_line": "API and service tests",
+      "observation": "606 个测试源、105,210 测试 LOC 覆盖 API、权限、服务、HAL、用户、音频和产品测试应用。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "release_branch_strategy",
+      "branch": "main",
+      "commit": "985cc498d8c52c2e5ba558e079ea2d670806e43a",
+      "path": "Android.bp",
+      "symbol_or_line": "current main baseline",
+      "observation": "所有侧分支以当前 main 为 merge base且各只增加两行配置，blob 复用 0.999566。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_high",
+      "reason": "API/builtin/service/test 边界完整且 Soong 模块真实。"
+    },
+    {
+      "name": "solid",
+      "status": "expected_high",
+      "reason": "Manager/AIDL/CarServiceBase/HAL wrapper 职责可追踪。"
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "expected_high",
+      "reason": "隐藏和系统 API 集中在 builtin/internal/service 边界。"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "expected_medium",
+      "reason": "平台闭包有 8 处受限反射但有明确边界。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_high",
+      "reason": "ICar 与大量 manager/listener AIDL 类型化。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "需要 AAOS 产品树。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_high",
+      "reason": "606 个测试源覆盖平台闭包。"
+    },
+    {
+      "name": "code_duplication",
+      "status": "expected_high",
+      "reason": "近重复比 0.001668。"
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "expected_high",
+      "reason": "分支基于最新 main。"
+    },
+    {
+      "name": "platform_reuse",
+      "status": "expected_high",
+      "reason": "平台分支 blob 复用 0.999566。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g3",
+      "blind_id": "blind-5d41ad31c1bc",
+      "repository_head": "83c5c24261f986c7b8586eb7093ac9124712f7ab",
+      "result_path": "calibration/results/g3/blind-5d41ad31c1bc.json",
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T11:05:40.406Z",
+      "finished_at": "2026-08-29T11:10:50.628Z",
+      "wall_clock_seconds": 310.221,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 47,
+        "directories_visited": 25,
+        "tool_calls": 20,
+        "notes": "HEAD 已核对。显式读取了 28 个生产 Java 文件（覆盖 car-lib、car-builtin-lib、service）、6 个测试文件、4 个 AIDL 合约、主要构建/说明文件及 3 个唯一的分支配置路径；另以 rg 完成全仓构建入口、142 个 AIDL、Binder/系统 API/反射位置、最大源文件和实现家族清点。比较了 main 与 develop、platform/8155、platform/8295、release/2026.1，并直接比较两个平台分支及发布/开发分支。文件数不计仅用于清单或行数统计的广域扫描。20/28 次工具调用足以覆盖要求，未运行构建或脚本，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 20 (evaluator self-report: 20); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 2.333333,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 34,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "API、内建系统桥接和服务实现存在明确的模块及依赖方向，HAL 和系统接口也有专门边界；但服务组合根集中持有大量具体服务，多个核心类超过千行，职责和变更面仍偏大。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "生产设计中有可信的接口替换、构造注入和公共传输抽象，测试构造器可替换关键依赖；不过 ICarImpl 的具体装配和大量静态 helper 限制了 DIP/OCP 的系统性，部分大服务仍聚合多种状态与策略。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "隐藏/系统框架调用大多收敛到 car-builtin-lib 的类型化 helper，服务侧广泛复用这些入口；权限检查也较系统化。局部代码仍直接依赖 SystemProperties、HIDL/AIDL 框架类型，且若干静态 helper 难以替换，因此隔离并不完全。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "反射通常使用固定类名/构造签名、强类型基类和明确异常，且动态内建包加载至少有正向测试；但反射分布在管理器构造、内建包、EVS、Parcelable 和常量扫描等多个位置，缺少统一 allowlist，部分失败只降级或忽略，负向测试也不充分。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 4,
+          "reason": "跨进程边界具备细粒度合约、稳定事务编号或明确 oneway 选择、权限语义、回调线程/生命周期、Binder death、超时和服务错误转换；大负载还有共享内存或文件描述符路径，并有对应测试。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 3,
+          "reason": "仓库只提供 Soong/Android 平台构建入口；声明依赖大量仓库外 framework、module、HAL、proto 和生成工具目标，且 PDK 模式因缺少 AIDL import 被禁用。当前受控环境未提供完整 AOSP/AAOS 产品树，按要求也未运行构建，因此无法建立或验证可信的独立编译边界。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 4,
+          "reason": "所查测试不只是计数或简单 getter：覆盖 AIDL/HIDL 两种传输、Binder death、RemoteException、大载荷、订阅生命周期、异步事件、权限/状态错误，以及完整 ICarImpl 初始化与释放。测试分为 unit、service instrumentation 和 API 层目标；受控审查未执行它们，因此结论限于静态深度。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "AIDL/HIDL 与多版 AudioControl 的并行实现形成可见的近似家族，特别是属性值构造存在成对分支和大型嵌套实现；维护成本真实存在。不过重复主要局限在传输适配层，上层通过 VehicleStub、HalPropValue、HalPropConfig 等公共抽象复用，未观察到跨平台整树复制。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "所有 release/platform/develop 分支都从 main 单独前进一个提交，差异严格限于两行配置；release/2026.1 还有同点标签，冻结面清晰。历史只有这一轮短分支，无法验证长期回合并、补丁移植或多次发布治理，所以不足以评为系统性完整策略。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 4,
+          "reason": "两个平台分支共享完全相同的主代码，只以两行配置选择 SoC 与 HIDL/AIDL；当前代码又通过共同 VehicleStub 和属性模型吸收两种传输差异。平台策略没有扩散成模型专属服务副本，变更隔离明确。"
+        }
+      ]
+    }
+  ]
+}

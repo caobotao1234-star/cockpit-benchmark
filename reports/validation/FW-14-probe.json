@@ -1,0 +1,355 @@
+{
+  "branches": [
+    "aosp-new/aosp-new/master",
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "release/2026.1"
+  ],
+  "build_system": "Soong",
+  "commit_count": 9,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [
+      "car-lib/src/android/car/CarOccupantZoneManager.aidl",
+      "car-lib/src/android/car/IAppFocus.aidl",
+      "car-lib/src/android/car/IAppFocusListener.aidl",
+      "car-lib/src/android/car/IAppFocusOwnershipCallback.aidl",
+      "car-lib/src/android/car/ICar.aidl",
+      "car-lib/src/android/car/ICarBluetoothUserService.aidl",
+      "car-lib/src/android/car/ICarBugreportCallback.aidl",
+      "car-lib/src/android/car/ICarBugreportService.aidl",
+      "car-lib/src/android/car/ICarConnectionListener.aidl",
+      "car-lib/src/android/car/ICarInfo.aidl",
+      "car-lib/src/android/car/ICarOccupantZone.aidl",
+      "car-lib/src/android/car/ICarOccupantZoneCallback.aidl",
+      "car-lib/src/android/car/ICarProjection.aidl",
+      "car-lib/src/android/car/ICarProjectionKeyEventHandler.aidl",
+      "car-lib/src/android/car/ICarProjectionStatusListener.aidl",
+      "car-lib/src/android/car/ICarResultReceiver.aidl",
+      "car-lib/src/android/car/ICarUserService.aidl",
+      "car-lib/src/android/car/IExperimentalCar.aidl",
+      "car-lib/src/android/car/IExperimentalCarHelper.aidl",
+      "car-lib/src/android/car/IExperimentalCarUserService.aidl"
+    ],
+    "has_binder": [
+      "car-builtin-lib/src/android/car/builtin/app/VoiceInteractionHelper.java",
+      "car-builtin-lib/src/android/car/builtin/os/BinderHelper.java",
+      "car-builtin-lib/src/android/car/builtin/os/ServiceManagerHelper.java",
+      "car-lib/native/CarPowerManager/CarPowerManager.cpp",
+      "car-lib/src/android/car/AoapService.java",
+      "car-lib/src/android/car/Car.java",
+      "car-lib/src/android/car/CarAppFocusManager.java",
+      "car-lib/src/android/car/CarBugreportManager.java",
+      "car-lib/src/android/car/CarInfoManager.java",
+      "car-lib/src/android/car/CarOccupantZoneManager.java",
+      "car-lib/src/android/car/CarProjectionManager.java",
+      "car-lib/src/android/car/ICar.aidl",
+      "car-lib/src/android/car/ICarBugreportService.aidl",
+      "car-lib/src/android/car/ICarConnectionListener.aidl",
+      "car-lib/src/android/car/ICarProjection.aidl",
+      "car-lib/src/android/car/IExperimentalCarHelper.aidl",
+      "car-lib/src/android/car/admin/CarDevicePolicyManager.java",
+      "car-lib/src/android/car/app/CarActivityManager.java",
+      "car-lib/src/android/car/app/ICarActivityService.aidl",
+      "car-lib/src/android/car/cluster/CarInstrumentClusterManager.java"
+    ],
+    "has_hidden_api": [
+      "car-builtin-lib/src/android/car/builtin/CarBuiltin.java",
+      "car-builtin-lib/src/android/car/builtin/app/ActivityManagerHelper.java",
+      "car-builtin-lib/src/android/car/builtin/app/VoiceInteractionHelper.java",
+      "car-builtin-lib/src/android/car/builtin/content/pm/PackageManagerHelper.java",
+      "car-builtin-lib/src/android/car/builtin/media/AudioManagerHelper.java",
+      "car-builtin-lib/src/android/car/builtin/os/BinderHelper.java",
+      "car-builtin-lib/src/android/car/builtin/os/ServiceManagerHelper.java",
+      "car-builtin-lib/src/android/car/builtin/os/SystemPropertiesHelper.java",
+      "car-builtin-lib/src/android/car/builtin/os/UserManagerHelper.java",
+      "car-builtin-lib/src/android/car/builtin/util/AssistUtilsHelper.java",
+      "car-builtin-lib/src/android/car/builtin/util/Slogf.java",
+      "car-builtin-lib/src/android/car/builtin/widget/LockPatternHelper.java",
+      "car-lib/Android.bp",
+      "car-lib/src/android/car/Car.java",
+      "car-lib/src/android/car/CarAppFocusManager.java",
+      "car-lib/src/android/car/CarBugreportManager.java",
+      "car-lib/src/android/car/CarFeatures.java",
+      "car-lib/src/android/car/CarOccupantZoneManager.java",
+      "car-lib/src/android/car/CarProjectionManager.java",
+      "car-lib/src/android/car/admin/CarDevicePolicyManager.java"
+    ],
+    "has_integration_tests": [
+      "TEST_MAPPING",
+      "service/src/com/android/car/pm/TEST_MAPPING",
+      "service/src/com/android/car/storagemonitoring/TEST_MAPPING",
+      "tests/CarSecurityPermissionTest/Android.bp",
+      "tests/CarSecurityPermissionTest/AndroidManifest.xml",
+      "tests/CarTelemetryApp/tests/Android.bp",
+      "tests/CarTelemetryApp/tests/AndroidManifest.xml",
+      "tests/DiagnosticTools/Android.bp",
+      "tests/DiagnosticTools/tests/Android.bp",
+      "tests/OccupantAwareness/Android.bp",
+      "tests/OccupantAwareness/AndroidManifest.xml",
+      "tests/SampleCustomInputService/Android.bp",
+      "tests/SampleCustomInputService/tests/AndroidManifest.xml",
+      "tests/android_car_api_test/Android.bp",
+      "tests/android_car_api_test/AndroidManifest.xml",
+      "tests/android_car_api_test/AndroidTest.xml",
+      "tests/carservice_test/Android.bp",
+      "tests/carservice_test/AndroidManifest.xml",
+      "tests/carservice_test/AndroidTest.xml",
+      "tests/carservice_test/src/com/android/car/ICarImplTest.java"
+    ],
+    "has_reflection": [
+      "car-lib/src/android/car/Car.java",
+      "car-lib/src/android/car/VehiclePropertyIds.java",
+      "car-lib/src/android/car/hardware/CarPropertyConfig.java",
+      "car-lib/src/android/car/hardware/CarPropertyValue.java",
+      "car-lib/src/android/car/util/concurrent/AndroidFuture.java",
+      "car-lib/src/com/android/car/internal/LargeParcelable.java",
+      "car-lib/src/com/android/car/internal/util/ArrayUtils.java",
+      "car-lib/src/com/android/car/internal/util/DebugUtils.java",
+      "car-lib/src/com/android/car/internal/util/ParcelableException.java",
+      "service/src/com/android/car/BuiltinPackageDependency.java",
+      "service/src/com/android/car/evs/CarEvsService.java",
+      "service/src/com/android/car/hal/DiagnosticHalService.java",
+      "service/src/com/android/car/hal/PropertyHalServiceIds.java",
+      "tests/DiagnosticTools/src/com/google/android/car/diagnostictools/utils/JsonMetadataReader.java",
+      "tests/android_car_api_test/src/android/car/apitest/VehiclePropertyIdsTest.java",
+      "tests/carservice_test/src/com/android/car/CarDiagnosticConstantsTest.java",
+      "tests/carservice_test/src/com/android/car/power/PowerComponentValidityTest.java",
+      "tests/carservice_unit_test/src/android/car/AnnotationTest.java",
+      "tests/carservice_unit_test/src/com/android/car/bluetooth/BluetoothDeviceConnectionPolicyTest.java",
+      "tests/carservice_unit_test/src/com/android/car/hardware/power/PowerComponentUtilUnitTest.java"
+    ]
+  },
+  "features": {
+    "has_aidl": true,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": true
+  },
+  "has_push_remote": false,
+  "module_count": 40,
+  "modules": [
+    {
+      "name": "android.car.builtin",
+      "path": "car-builtin-lib/Android.bp",
+      "type": "java_sdk_library"
+    },
+    {
+      "name": "android.car",
+      "path": "car-lib/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "android.car-stubs",
+      "path": "car-lib/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "android.car-stubs-dex",
+      "path": "car-lib/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "android.car-system-stubs",
+      "path": "car-lib/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "android.car-system-stubs-dex",
+      "path": "car-lib/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "android.car-test-stubs",
+      "path": "car-lib/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "android.car-test-stubs-dex",
+      "path": "car-lib/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "android.car.cluster.navigation",
+      "path": "car-lib/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "CarServiceUpdatable",
+      "path": "service/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarServiceUpdatableNonModule",
+      "path": "service/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "car-service-common-util-static-lib",
+      "path": "service/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "car-service-lib-for-builtin",
+      "path": "service/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "car-service-test-static-lib",
+      "path": "service/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "AdasLocationTestApp",
+      "path": "tests/AdasLocationTestApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarEvsCameraPreviewApp",
+      "path": "tests/CarEvsCameraPreviewApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarLibTestApp",
+      "path": "tests/CarLibTests/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarTelemetryApp",
+      "path": "tests/CarTelemetryApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarVoiceTriggerApp",
+      "path": "tests/CarVoiceServiceTriggerApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "DefaultStorageMonitoringCompanionApp",
+      "path": "tests/DefaultStorageMonitoringCompanionApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "EmbeddedKitchenSinkApp",
+      "path": "tests/EmbeddedKitchenSinkApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "GarageModeTestApp",
+      "path": "tests/GarageModeTestApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "MultiDisplaySecondaryHomeTestLauncher",
+      "path": "tests/MultiDisplaySecondaryHomeTestLauncher/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "MultiDisplayTest",
+      "path": "tests/MultiDisplayTest/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "MultiDisplayTestHelloActivity",
+      "path": "tests/MultiDisplayTestHelloActivity/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "NetworkPreferenceApp",
+      "path": "tests/NetworkPreferenceApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "RailwayReferenceApp",
+      "path": "tests/RailwayReferenceApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "SampleCustomInputService",
+      "path": "tests/SampleCustomInputService/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "SampleRearViewCamera",
+      "path": "tests/SampleRearViewCamera/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "ThemePlayground",
+      "path": "tests/ThemePlayground/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "UserSwitchMonitorApp",
+      "path": "tests/UserSwitchMonitorApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "UserSwitchMonitorApp2",
+      "path": "tests/UserSwitchMonitorApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "UxRestrictionsSample",
+      "path": "tests/UxRestrictionsSample/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "android.car.apitest-aidl-binder",
+      "path": "tests/android_car_api_test/test_aidl/Android.bp",
+      "type": "aidl_interface"
+    },
+    {
+      "name": "com.android.car.test.lib",
+      "path": "tests/common_utils/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "Obd2App",
+      "path": "tests/obd2_app/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "AoapHostApp",
+      "path": "tests/usb/AoapHostApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "AoapPhoneCompanionApp",
+      "path": "tests/usb/AoapPhoneCompanionApp/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "cockpit-update-manager-service",
+      "path": "update-manager/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "SystemUpdater",
+      "path": "updater-app/Android.bp",
+      "type": "android_app"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [],
+  "repo_head": "61df54de49560c6ab56df4310a9883997731d24d",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\update-manager-service",
+  "source_files": 1613,
+  "source_loc": 213289,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "update-manager-2026.1"
+  ],
+  "tracked_files": 1747,
+  "worktree_clean": true
+}

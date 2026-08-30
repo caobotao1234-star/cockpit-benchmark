@@ -1,0 +1,520 @@
+{
+  "aidl_interfaces": [
+    {
+      "method_count": 5,
+      "path": "media-api/src/main/aidl/com/cockpitbench/mediarouting/IMediaRoutingService.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitGateway.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkManager.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "media-api/src/main/aidl/com/cockpitbench/mediarouting/IMediaRouteCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitEventListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IConfigurationListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IHealthListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IMetricsSink.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/ITransactionListener.aidl"
+    }
+  ],
+  "broad_catches": 2,
+  "broad_catches_per_kloc": 0.590319,
+  "code_source_files": 57,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 378,
+      "methods": 32,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/WorkflowEngine.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 311,
+      "methods": 27,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/SessionSupervisor.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 285,
+      "methods": 15,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/RecordReconciler.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 284,
+      "methods": 18,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/PolicyRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 282,
+      "methods": 14,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/RoleAuthorizationGraph.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 249,
+      "methods": 16,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/ProviderHealthMonitor.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 241,
+      "methods": 13,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/CrossUserAccessBoundary.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 239,
+      "methods": 10,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/DeviceTrustEngine.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 231,
+      "methods": 6,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/AuditRetentionPlanner.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 118,
+      "methods": 4,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/PolicyRuntimeTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 116,
+      "methods": 6,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/WorkflowEngineTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 115,
+      "methods": 5,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/RoleAuthorizationGraphTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 109,
+      "methods": 5,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/RecordReconcilerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 95,
+      "methods": 6,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/DeviceTrustEngineTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 6,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/ProviderHealthMonitorTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 63,
+      "methods": 5,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/SessionSupervisorTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 19,
+      "methods": 2,
+      "path": "media-api/src/main/java/com/cockpitbench/mediarouting/RouteRequest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 19,
+      "methods": 2,
+      "path": "media-api/src/main/java/com/cockpitbench/mediarouting/RouteState.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 16,
+      "methods": 2,
+      "path": "media-api/src/main/java/com/cockpitbench/mediarouting/MediaEndpoint.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 16,
+      "methods": 2,
+      "path": "media-api/src/main/java/com/cockpitbench/mediarouting/RoutingSession.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [],
+  "global_state_sites": 0,
+  "global_state_sites_per_kloc": 0.0,
+  "hidden_api_sites": 0,
+  "hidden_api_sites_per_kloc": 0.0,
+  "largest_code_files": [
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 378,
+      "methods": 32,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/WorkflowEngine.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 311,
+      "methods": 27,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/SessionSupervisor.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 285,
+      "methods": 15,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/RecordReconciler.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 284,
+      "methods": 18,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/PolicyRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 282,
+      "methods": 14,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/RoleAuthorizationGraph.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 249,
+      "methods": 16,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/ProviderHealthMonitor.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 241,
+      "methods": 13,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/CrossUserAccessBoundary.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 239,
+      "methods": 10,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/DeviceTrustEngine.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 231,
+      "methods": 6,
+      "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/AuditRetentionPlanner.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 118,
+      "methods": 4,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/PolicyRuntimeTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 116,
+      "methods": 6,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/WorkflowEngineTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 115,
+      "methods": 5,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/RoleAuthorizationGraphTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 109,
+      "methods": 5,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/RecordReconcilerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 95,
+      "methods": 6,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/DeviceTrustEngineTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 6,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/ProviderHealthMonitorTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 63,
+      "methods": 5,
+      "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/SessionSupervisorTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 19,
+      "methods": 2,
+      "path": "media-api/src/main/java/com/cockpitbench/mediarouting/RouteRequest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 19,
+      "methods": 2,
+      "path": "media-api/src/main/java/com/cockpitbench/mediarouting/RouteState.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 16,
+      "methods": 2,
+      "path": "media-api/src/main/java/com/cockpitbench/mediarouting/MediaEndpoint.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 16,
+      "methods": 2,
+      "path": "media-api/src/main/java/com/cockpitbench/mediarouting/RoutingSession.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 3388,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 221,
+  "near_duplicate_file_ratio": 0.0,
+  "near_duplicate_files_at_0_80": [],
+  "near_duplicate_pair_count_at_0_80": 0,
+  "near_duplicate_pairs": [],
+  "placeholder_test_sites": 0,
+  "production_files_over_500_lines": 0,
+  "production_logical_lines": 2690,
+  "production_source_files": 46,
+  "reflection_sites": 0,
+  "reflection_sites_per_kloc": 0.0,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\media-routing-service",
+  "repository_head": "33f2b6f09494649f87cb8601e3e940d853602e60",
+  "schema_version": "1.1.0",
+  "test_logical_lines": 698,
+  "test_source_files": 11,
+  "test_to_production_file_ratio": 0.23913,
+  "tracked_files": 699
+}

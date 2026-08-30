@@ -1,0 +1,287 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-fd7c14d2f1c0",
+  "repository_head": "bf4a421f8084c139e4ea097d4256e9394008dd8e",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04fc0-9ffa-76a1-a6ee-5fc490539cda",
+    "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T23:00:15.756Z",
+    "finished_at": "2026-08-29T23:05:09.729Z",
+    "wall_clock_seconds": 293.973,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 48,
+    "directories_visited": 33,
+    "tool_calls": 22,
+    "notes": "HEAD 与预期 SHA 一致。审查了 28 个代表性生产文件、9 个测试文件、4 个构建文件、3 个 Manifest，以及 4 个分支文件版本；清点到 713 个 Java/Kotlin/AIDL 文件（510 个生产、203 个测试）和 29 个 AIDL 合约。完成了 develop、release/2026.1、platform/8155、platform/8295 相对 main 的有界比较，以及两个平台分支之间的直接比较。仅执行只读静态检查；未运行构建、脚本、网络、skill 或额外代理，未修改文件。22 次 shell 调用低于 28 次预算，探索预算足够覆盖要求。 Runner normalized tool_calls from Codex JSONL to 22 (evaluator self-report: 22); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 2,
+      "reason": "SystemUI、Dialer、Launcher、公共库及车载服务在目录和 Soong 模块上有清晰分区，且使用 controller、model、repository、framework facade 和 HAL wrapper 分离职责；但若干核心服务和控制器仍承担过多状态、平台协调及生命周期责任，最大的生产类超过两千行，局部变更面较大。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "CarSystemUI-core，20-75 行；CarSystemUI-tests，77-141 行",
+          "observation": "生产代码和测试分别声明模块，依赖及资源边界显式。"
+        },
+        {
+          "path": "components/launcher/app/Android.bp",
+          "ref": null,
+          "symbol_or_line": "CarLauncher-core，34-63 行；CarLauncher，65-99 行",
+          "observation": "Launcher 将核心库与最终特权应用分开组合。"
+        },
+        {
+          "path": "platform/services-car/service/src/com/android/car/power/CarPowerManagementService.java",
+          "ref": null,
+          "symbol_or_line": "CarPowerManagementService，103-2410 行附近",
+          "observation": "单类同时负责 Binder API、状态机、策略、守护进程连接、Wi-Fi、挂起重试和命令入口，职责范围很宽。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 2,
+      "reason": "依赖注入、稳定接口和协议适配工厂提供了可信的 DIP/OCP 证据，回调接口也较为聚焦；但 CarPowerManagementService、CarUserService、CarSystemBarController 等类依赖众多并协调大量子域，SRP 执行不均衡。",
+      "evidence": [
+        {
+          "path": "components/dialer/framework/real/src/com/android/car/dialer/framework/ProdModule.java",
+          "ref": null,
+          "symbol_or_line": "provideTelecomManager 与 bindAndroidFramework，34-40 行",
+          "observation": "平台服务由模块提供，AndroidFramework 实现通过接口绑定，便于替换测试实现。"
+        },
+        {
+          "path": "platform/services-car/service/src/com/android/car/audio/hal/AudioControlFactory.java",
+          "ref": null,
+          "symbol_or_line": "newAudioControl，36-65 行",
+          "observation": "调用者依赖统一 AudioControlWrapper，工厂按 AIDL、HIDL V2、HIDL V1 顺序选择实现。"
+        },
+        {
+          "path": "src/com/android/systemui/car/systembar/CarSystemBarController.java",
+          "ref": null,
+          "symbol_or_line": "字段 65-108 行；构造函数 116-151 行",
+          "observation": "控制器通过注入获得协作者，但构造依赖很多，并同时管理四边系统栏、隐私面板、用户面板和 HVAC 状态。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 2,
+      "reason": "系统依赖大多具有明确类型、Manifest 权限或集中 wrapper，并包含部分降级及异常处理；然而 Launcher 和 SystemUI 仍直接依赖大量特权/内部 API，部分 Activity 内直接取得系统服务和操纵私有窗口标志，隔离程度不一致。",
+      "evidence": [
+        {
+          "path": "components/launcher/app/AndroidManifest.xml",
+          "ref": null,
+          "symbol_or_line": "uses-permission，21-79 行",
+          "observation": "特权依赖及用途被显式声明，包括 ACTIVITY_EMBEDDING、MANAGE_ACTIVITY_TASKS、INTERNAL_SYSTEM_WINDOW 和多项 car 权限。"
+        },
+        {
+          "path": "platform/services-car/service/src/com/android/car/audio/hal/AudioControlFactory.java",
+          "ref": null,
+          "symbol_or_line": "newAudioControl，44-65 行",
+          "observation": "供应商音频 HAL 的 AIDL/HIDL 版本差异被集中在工厂和统一 wrapper 后方，并有明确不可用错误。"
+        },
+        {
+          "path": "components/launcher/app/src/com/android/car/carlauncher/CarLauncher.java",
+          "ref": null,
+          "symbol_or_line": "onCreate，124-181 行；release，235-247 行",
+          "observation": "Activity 直接使用 ActivityManager、Car、TaskView 和私有窗口标志，但对 TaskStackListener、Car 连接及视图资源执行了生命周期清理。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "scored",
+      "score": 1,
+      "reason": "隐藏 API 有专门兼容入口和构建变体，但反射并未统一收口：多个 SystemUI/Launcher 类从资源字符串加载类型。部分路径直接抛 RuntimeException，软降级版本又以 null、false、固定显示 ID 等方式丢失语义；未观察到针对这些生产反射失败路径的专门测试。",
+      "evidence": [
+        {
+          "path": "src/com/android/systemui/car/window/SystemUIOverlayWindowManager.java",
+          "ref": null,
+          "symbol_or_line": "startServices 与 resolve，61-98 行",
+          "observation": "优先使用 Dagger provider map 是积极边界，但随后以 Class.forName/构造器回退；多种反射异常被包装为 RuntimeException，且未捕获参数类型错误。"
+        },
+        {
+          "path": "components/launcher/libs/hidden-apis-compat/hidden-apis-enabled/src/com/android/car/hidden/apis/HiddenApiAccess.java",
+          "ref": null,
+          "symbol_or_line": "HiddenApiAccess，31-83 行",
+          "observation": "Soong 隐藏 API 调用集中在单一类型中，表面接口稳定。"
+        },
+        {
+          "path": "components/launcher/libs/hidden-apis-compat/hidden-apis-disabled/src/com/android/car/hidden/apis/HiddenApiAccess.java",
+          "ref": null,
+          "symbol_or_line": "HiddenApiAccess，28-82 行",
+          "observation": "Gradle 替代实现会返回 null、false、默认显示器或忽略目标用户，属于可测试但语义较弱的软失败。"
+        }
+      ]
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 3,
+      "reason": "跨进程边界具有细粒度类型合约、调用方权限注解、服务端权限校验、回调执行器、Binder death 注册/注销和远端异常处理；相关测试覆盖监听器死亡、重复注册、守护进程断连及 RemoteException 重试。局部仍使用整数返回码，但整体边界系统且健壮。",
+      "evidence": [
+        {
+          "path": "platform/services-car/car-lib/src/android/car/watchdog/ICarWatchdogService.aidl",
+          "ref": null,
+          "symbol_or_line": "ICarWatchdogService，27-58 行",
+          "observation": "合约区分客户端健康检查、资源统计、监听器和配置操作，并明确说明哪些调用因调用方 PID/UID 语义不能使用 oneway。"
+        },
+        {
+          "path": "platform/services-car/service/src/com/android/car/watchdog/CarWatchdogService.java",
+          "ref": null,
+          "symbol_or_line": "Binder 实现及权限校验，91、354-514 行",
+          "observation": "服务继承 Stub，并针对不同操作执行 USE、COLLECT 或 CONTROL 权限检查。"
+        },
+        {
+          "path": "platform/services-car/service/src/com/android/car/watchdog/WatchdogProcessHandler.java",
+          "ref": null,
+          "symbol_or_line": "registerClient/unregisterClient，155-216 行；ClientInfo，448-477 行",
+          "observation": "客户端注册与 Binder death 生命周期绑定，RemoteException 会阻止无效注册，注销和死亡均移除状态。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "仓库只提供 Soong 入口，核心模块引用 SystemUI、WindowManager Shell、android.car、内部 API、外部 AndroidX/Car 库及平台签名环境；platform/services-car 源码子树自身没有对应构建入口。当前受控环境不含完整 AOSP/AAOS 产品树，因此无法建立或验证可信的独立编译边界。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "CarSystemUI-core 依赖，34-65 行",
+          "observation": "模块依赖 SystemUI-core、SystemUIPluginLib、SettingsLib、car-ui-lib、car-qc-lib 和 android.car 等仓库外平台模块。"
+        },
+        {
+          "path": "components/launcher/app/Android.bp",
+          "ref": null,
+          "symbol_or_line": "CarLauncher，65-88 行",
+          "observation": "最终应用声明 platform_apis、platform certificate、privileged，并依赖 android.car，要求完整平台构建上下文。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 2,
+      "reason": "测试量充足且行为断言有深度：Dialer 仪器测试覆盖呼叫、交换、合并和 UI，车载服务测试覆盖 Binder death、重连、异常重试与权限相关失败；但大量边界仍由 mock/static spy 替代，SystemUI、Launcher 与实际 AAOS 服务的端到端组合证据有限。",
+      "evidence": [
+        {
+          "path": "components/dialer/tests/instrutests/src/com/android/car/dialer/integration/InCallTest.java",
+          "ref": null,
+          "symbol_or_line": "placeCall、swapCall、mergeCall，94-182 行；tearDown，183-184 行",
+          "observation": "仪器测试驱动真实 UI 流程并覆盖多呼叫行为，测试后断开模拟 Bluetooth 设备。"
+        },
+        {
+          "path": "platform/services-car/tests/carservice_unit_test/src/com/android/car/watchdog/CarWatchdogServiceUnitTest.java",
+          "ref": null,
+          "symbol_or_line": "监听器 death 测试，1288-1430 行；断连与 RemoteException 重试，1875-1934 行",
+          "observation": "对 link/unlink death、多个监听器、守护进程重连和重复远端异常进行明确断言。"
+        },
+        {
+          "path": "tests/src/com/android/systemui/car/window/OverlayViewGlobalStateControllerTest.java",
+          "ref": null,
+          "symbol_or_line": "showView/hideView 状态组合，92-664 行",
+          "observation": "系统栏可见性、焦点、z-order、膨胀及空状态具有大量细粒度行为断言，但仍是 mock 驱动的单进程测试。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 2,
+      "reason": "大多数共性通过公共 launcher 库、接口和 HAL wrapper 复用，重复文件族数量有限；但 Dialer 与 Launcher 各自维护 InCallServiceImpl 及相关生命周期/回调逻辑，隐藏 API 的双实现也要求接口同步。协议 wrapper 的相似 death 处理主要源于 AIDL/HIDL 差异，维护影响可控。",
+      "evidence": [
+        {
+          "path": "components/dialer/src/com/android/car/dialer/telecom/InCallServiceImpl.java",
+          "ref": null,
+          "symbol_or_line": "InCallServiceImpl，41-180 行",
+          "observation": "实现呼叫加入/移除、音频回调、本地 Binder 和生命周期路由。"
+        },
+        {
+          "path": "components/launcher/app/src/com/android/car/carlauncher/homescreen/audio/telecom/InCallServiceImpl.java",
+          "ref": null,
+          "symbol_or_line": "InCallServiceImpl，38-148 行",
+          "observation": "Launcher 另有同名实现，重复维护 onCallAdded、onCallRemoved、onBind、监听器和销毁流程，虽然具体消费者不同。"
+        },
+        {
+          "path": "components/launcher/libs/hidden-apis-compat/hidden-apis-disabled/src/com/android/car/hidden/apis/HiddenApiAccess.java",
+          "ref": null,
+          "symbol_or_line": "HiddenApiAccess，39-82 行",
+          "observation": "与 enabled 版本维持相同静态 API，属于有意的构建变体重复，但需人工保持签名同步。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 2,
+      "reason": "实际比较显示所有本地开发、发布和平台分支均直接基于 main，且各自仅领先一个两行配置提交；release/2026.1 的 tag 与分支头一致，平台差异也限制在同一配置文件。策略的分歧控制良好，但历史很浅，没有足够证据验证长期 backport、回合并或多版本维护纪律。",
+      "evidence": [
+        {
+          "path": "product/release.properties",
+          "ref": "release/2026.1",
+          "symbol_or_line": "1-2 行",
+          "observation": "发布分支相对 main 只增加 channel 和 overlay contract 两项配置；本地 tag cockpit-shell-2026.1 指向该分支头。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "1-2 行",
+          "observation": "8155 分支只声明 sa8155 和 dual-zone 布局。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "1-2 行",
+          "observation": "8295 分支在相同配置位置改为 sa8295 和 multi-display；直接分支比较未显示生产代码分叉。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 3,
+      "reason": "平台差异通过共同核心、统一 HAL 接口、集中版本选择和小型分支配置表达，没有观察到按芯片复制生产实现。隐藏 API 的 enabled/disabled 变体共享同一表面接口，两个实际平台分支仅改变两项配置，因此平台策略变化具有良好的隔离性。",
+      "evidence": [
+        {
+          "path": "platform/services-car/service/src/com/android/car/audio/hal/AudioControlFactory.java",
+          "ref": null,
+          "symbol_or_line": "newAudioControl，36-65 行",
+          "observation": "同一服务代码通过统一 AudioControlWrapper 复用 AIDL、HIDL V2 和 HIDL V1 平台实现，并集中定义优先级与失败语义。"
+        },
+        {
+          "path": "components/launcher/app/Android.bp",
+          "ref": null,
+          "symbol_or_line": "CarLauncher-core 与 CarLauncher，34-99 行",
+          "observation": "公共核心作为静态库被最终应用复用，避免应用包装层复制主逻辑。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "1-2 行",
+          "observation": "平台分支差异仅为平台标识和系统栏布局配置；与 platform/8155 的比较未产生代码级 fork。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 2.111111,
+    "scored_dimension_count": 9,
+    "failed_dimension_count": 1,
+    "narrative": "主要优势是清晰的 Soong 模块分区、统一 HAL 适配层、严格的 Binder 权限与死亡处理，以及覆盖异常重试和生命周期的测试。主要风险集中在若干超大平台服务、Launcher/SystemUI 对特权平台 API 的直接依赖、散落的字符串反射，以及开发用隐藏 API fallback 的弱语义。独立编译无法在缺少完整 AOSP/AAOS 输入的当前仓库和环境中验证，因此该维度明确失败而未猜测分数。发布与平台分支的实际差异非常小且配置化，但历史不足以证明长期合并策略。22/28 的调用预算足以完成构建、源码、测试、AIDL、反射、重复族和四个分支的要求性检查。未修改文件，未使用 skill。"
+  }
+}

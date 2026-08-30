@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "FW-09",
+  "quality_tier": "medium",
+  "comparison_family": null,
+  "review_status": "reviewed",
+  "evidence": [
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "d5cd34d3c5a1cef3f79794d5a435d047c10073be",
+      "path": "vendor-signal/src/com/cockpitbench/vendorsignal/VendorSignalRuntime.java",
+      "symbol_or_line": "VendorSignalRuntime",
+      "observation": "normalizer/subscription/batcher/error policy 有独立类型，但 runtime 聚合且缺少异步边界。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "d5cd34d3c5a1cef3f79794d5a435d047c10073be",
+      "path": "Android.bp",
+      "symbol_or_line": "VehicleHalAdapterFocusedTests",
+      "observation": "上游 HAL 测试丰富但不覆盖新增 vendor-signal 模块。",
+      "expected_impact": "negative",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_medium",
+      "reason": "主闭包成熟，新增 vendor 层测试和边界不完整。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "需要 AAOS。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g3",
+      "blind_id": "blind-3e3daf67c2f9",
+      "repository_head": "a8745e64918984feeda68b7a26e39f193a11e523",
+      "result_path": "calibration/results/g3/blind-3e3daf67c2f9.json",
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T11:17:02.543Z",
+      "finished_at": "2026-08-29T11:22:37.322Z",
+      "wall_clock_seconds": 334.779,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 53,
+        "directories_visited": 22,
+        "tool_calls": 17,
+        "notes": "HEAD 与预期 SHA 一致。静态审查覆盖 32 个生产/契约源文件、7 个测试文件、10 个构建或仓库入口文件，以及 4 个分支专属配置文件；另以全库搜索盘点了 657 个文件、181 个生产代码文件、294 个测试代码文件、101 个 AIDL 文件和 8 个构建入口。比较了 main 与 platform/8155、platform/8295、release/2026.1、develop 的有界差异。未联网、未运行构建或仓库脚本、未修改文件、未使用 skill 或额外代理。 Runner normalized tool_calls from Codex JSONL to 17 (evaluator self-report: 17); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 2.0,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 33,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "管理器、Binder 服务、HAL 服务和 AIDL/HIDL 传输之间有明确分层，构建目标也体现 Contracts→Runtime 的依赖方向；但 VehicleHal 等编排类很大，新增 vendor-signal 模块在仓库内没有生产消费者，形成局部集成缺口。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "VehicleStub 使 AIDL/HIDL 实现可替换，VehicleHal 的测试构造器允许注入多数协作者，体现 DIP/OCP；但大型编排类和 VendorSignalRuntime 内部直接实例化全部具体策略，使扩展与独立替换仍有明显局部限制。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "平台服务发现、AIDL/HIDL 类型转换和权限映射主要封装在边界类中，并提供测试构造器及明确失败语义；不过代码仍依赖 platform_apis、builtin API、SystemProperties 和固定服务名，独立替换能力局限于已有封装。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "反射集中在少数工具和映射点，LargeParcelable 只访问固定 Stable-AIDL 字段/方法并将失败转换为带原因的异常；ParcelableException 还限制为 Parcelable 的类加载器和 Throwable 子类。缺少显式类名白名单，且部分辅助反射会静默降级。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "跨进程契约粒度清楚，事件回调使用 oneway，服务端执行权限校验和 Binder death 清理；VHAL AIDL 适配器还处理异步请求、超时、大载荷和线程切换。主要缺口是同步 IPC 在挂起表登记后若立即抛出 RemoteException，没有对应清理路径，死亡时也未见统一完成全部挂起请求。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 2,
+          "reason": "仓库只声明 Soong/Android.mk 平台构建边界，目标广泛使用 platform_apis，并引用当前工作区不存在的 AAOS/AOSP framework、HAL、AIDL 和模块库。受控审查禁止运行构建，且所需平台树输入不可用，因此无法验证可信的独立编译边界。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "测试具有真实的边界行为深度：覆盖 AIDL/HIDL、Binder death、异步超时、大载荷、错误映射、VMS 发布订阅和端到端事件吞吐。局限是 vehiclehal 测试目标整体被注释禁用，新增 vendor-signal 六个生产类没有对应测试或集成消费。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "未发现内容完全相同的生产 Java 文件，且 AIDL/HIDL 差异被共同抽象所约束；但多组手写双实现仍近乎逐方法镜像，尤其 AreaConfig 与测试 builder，修改类型字段或校验规则时需同步维护。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "所有检查到的 release/platform 分支都直接从共同 main 基线增加单个两行配置文件，没有代码复制或广泛漂移，并有 release tag；但本地历史每个分支仅一个提交，未提供长期修复回合、合并或回灌证据，无法认定为更系统的发布治理。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "AIDL/HIDL 平台共享 VehicleStub、HalPropConfig/HalPropValue 和 VehicleHal 上层流程，两个平台分支也只携带配置差异，复用基础较好；但传输适配器、AreaConfig、PropConfig 和测试 builder 仍有明显双份手写政策，且分支配置在仓库内没有可见消费者。"
+        }
+      ]
+    }
+  ]
+}

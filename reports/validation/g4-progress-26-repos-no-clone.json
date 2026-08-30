@@ -1,0 +1,50 @@
+{
+  "clone_smoke": false,
+  "issues": [
+    {
+      "code": "kind_quota",
+      "message": "expected={'APP': 20, 'FRAMEWORK': 20}, actual={'APP': 13, 'FRAMEWORK': 13}",
+      "severity": "error"
+    },
+    {
+      "code": "tier_quota",
+      "message": "expected={('APP', 'high'): 7, ('APP', 'medium'): 7, ('APP', 'low'): 6, ('FRAMEWORK', 'high'): 7, ('FRAMEWORK', 'medium'): 7, ('FRAMEWORK', 'low'): 6}, actual={('APP', 'high'): 7, ('APP', 'medium'): 2, ('APP', 'low'): 4, ('FRAMEWORK', 'high'): 7, ('FRAMEWORK', 'medium'): 2, ('FRAMEWORK', 'low'): 4}",
+      "severity": "error"
+    },
+    {
+      "code": "size_quota",
+      "message": "size quota mismatch: expected={('APP', 'small'): 6, ('APP', 'medium'): 9, ('APP', 'large'): 5, ('FRAMEWORK', 'small'): 5, ('FRAMEWORK', 'medium'): 9, ('FRAMEWORK', 'large'): 6}, actual={('APP', 'large'): 3, ('APP', 'medium'): 5, ('APP', 'small'): 5, ('FRAMEWORK', 'large'): 4, ('FRAMEWORK', 'small'): 5, ('FRAMEWORK', 'medium'): 4}",
+      "severity": "error"
+    },
+    {
+      "code": "size_quota",
+      "message": "quality tier must span >=2 size bands: ('APP', 'medium') actual=['medium']",
+      "severity": "error"
+    },
+    {
+      "code": "build_quota",
+      "message": "expected={('APP', 'Gradle'): 16, ('APP', 'Soong'): 4, ('FRAMEWORK', 'Gradle'): 4, ('FRAMEWORK', 'Soong'): 16}, actual={('APP', 'Gradle'): 10, ('APP', 'Soong'): 3, ('FRAMEWORK', 'Soong'): 12, ('FRAMEWORK', 'Gradle'): 1}",
+      "severity": "error"
+    },
+    {
+      "code": "source_quota",
+      "message": "requires lineage>=28 and synthetic 8..12; actual lineage=24, synthetic=2",
+      "severity": "error"
+    },
+    {
+      "code": "feature_quota",
+      "message": "framework_aidl_or_binder requires >= 18, actual=13",
+      "severity": "error"
+    },
+    {
+      "code": "calibration_incomplete",
+      "message": "repositories not calibrated: ['APP-05', 'APP-06', 'APP-07', 'FW-05', 'FW-06', 'FW-07']",
+      "severity": "error"
+    }
+  ],
+  "mode": "final",
+  "probed_count": 26,
+  "repository_count": 26,
+  "root": "D:\\project\\Git.temp\\cockpit-benchmark",
+  "valid": false
+}

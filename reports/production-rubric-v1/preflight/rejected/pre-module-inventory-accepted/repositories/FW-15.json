@@ -1,0 +1,388 @@
+{
+  "document_type": "repository_preflight",
+  "facts_sha256": "cbc7b0a761fc9d0a14a40aa2f4479b4c93e8d08972854accfa6f4aab635788fa",
+  "git_inventory": {
+    "branch_classifications": {
+      "develop": {
+        "category": "development",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "main": {
+        "category": "mainline",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8155": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8295": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "release/0.8": {
+        "category": "release",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": true,
+        "is_sop": false
+      }
+    },
+    "branches": {
+      "develop": "7dab9a6cf9a25cd399f4bf906a6a0a9b2a3d9bde",
+      "main": "8ec949ad990392a014d95b04236b71181039b952",
+      "platform/8155": "d2c21ebaf7409378645444b9976d8fa53b20d7d6",
+      "platform/8295": "8ef2b0f2a5fb25a37662d773bd4947a59e25f909",
+      "release/0.8": "bac3ee088718b7453032dfbb6b5bfc3286ea221e"
+    },
+    "default_branch": "main",
+    "tags": {
+      "v0.8.0": "d7159a2ab16bf4d9640afd49c8ce022b97bb9b2b"
+    }
+  },
+  "kind": "FRAMEWORK",
+  "manifest_binding": {
+    "head_matches": true,
+    "manifest_repo_head": "8ec949ad990392a014d95b04236b71181039b952",
+    "path_within_delivery_root": true,
+    "working_tree_clean": true
+  },
+  "missing_contract_leaf_count": 14,
+  "missing_contract_leaves": [
+    {
+      "category": "quality",
+      "leaf": "code_duplication",
+      "method": "deterministic",
+      "reason": "Production duplication-rate detector, denominator, and exclusion contract are absent; only the threshold table is known.",
+      "rule_id": "quality.duplication.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "integration_test",
+      "method": "external_data",
+      "reason": "GBOP APP and FRAMEWORK/embedded response schemas and status mappings are absent.",
+      "rule_id": "quality.integration_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "code_quality",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.code_quality.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "unit_test",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.unit_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "system_api_dependency",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production symbol list, scan scope, and deduplication rules are absent.",
+      "rule_id": "android_framework.system_api_dependency.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "hidden_api_reflection",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production matcher and scan/exclusion rules are absent.",
+      "rule_id": "android_framework.hidden_api_reflection.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "aidl_sdk_call",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but AIDL/SDK call-site identification and deduplication rules are absent.",
+      "rule_id": "android_framework.aidl_sdk_call.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "single_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema and 0..10 lookup table are absent.",
+      "rule_id": "platform_reuse.single_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "cross_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema and 0..10 lookup table are absent.",
+      "rule_id": "platform_reuse.cross_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "platform_upgrade",
+      "method": "deterministic",
+      "reason": "Production branch_records schema and 0..10 lookup table are absent.",
+      "rule_id": "platform_reuse.platform_upgrade.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "device_specificity",
+      "method": "deterministic",
+      "reason": "Production branch_records schema and 0..10 lookup table are absent.",
+      "rule_id": "platform_reuse.device_specificity.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_independence",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.independence.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_strategy",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.strategy.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "release_rollback",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.rollback.v1",
+      "score": null,
+      "status": "failed"
+    }
+  ],
+  "platform_reuse": {
+    "comparisons": [
+      {
+        "added_lines": 1,
+        "base_branch": "main",
+        "base_files": 349,
+        "base_head": "8ec949ad990392a014d95b04236b71181039b952",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.56,
+        "changed_files": 196,
+        "common_path_files": 154,
+        "compare_branch": "platform/8155",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 155,
+        "compare_head": "d2c21ebaf7409378645444b9976d8fa53b20d7d6",
+        "deleted_lines": 34997,
+        "identical_blob_files": 154,
+        "identical_blob_ratio": 0.44,
+        "line_delta": 34998,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "a3995339b479b2293ef5c29b4cb043a1ccfcd65c",
+        "same_head": false,
+        "thin_difference": false,
+        "union_files": 350
+      },
+      {
+        "added_lines": 1,
+        "base_branch": "main",
+        "base_files": 349,
+        "base_head": "8ec949ad990392a014d95b04236b71181039b952",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.56,
+        "changed_files": 196,
+        "common_path_files": 154,
+        "compare_branch": "platform/8295",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 155,
+        "compare_head": "8ef2b0f2a5fb25a37662d773bd4947a59e25f909",
+        "deleted_lines": 34997,
+        "identical_blob_files": 154,
+        "identical_blob_ratio": 0.44,
+        "line_delta": 34998,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "a3995339b479b2293ef5c29b4cb043a1ccfcd65c",
+        "same_head": false,
+        "thin_difference": false,
+        "union_files": 350
+      },
+      {
+        "added_lines": 1,
+        "base_branch": "main",
+        "base_files": 349,
+        "base_head": "8ec949ad990392a014d95b04236b71181039b952",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "release",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": true,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.331428571,
+        "changed_files": 116,
+        "common_path_files": 234,
+        "compare_branch": "release/0.8",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 235,
+        "compare_head": "bac3ee088718b7453032dfbb6b5bfc3286ea221e",
+        "deleted_lines": 32729,
+        "identical_blob_files": 234,
+        "identical_blob_ratio": 0.668571,
+        "line_delta": 32730,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "d7159a2ab16bf4d9640afd49c8ce022b97bb9b2b",
+        "same_head": false,
+        "thin_difference": false,
+        "union_files": 350
+      }
+    ],
+    "manifest_comparison_count": 3,
+    "status": "consistent"
+  },
+  "quality_signal_candidate": {
+    "artifact_head": "8ec949ad990392a014d95b04236b71181039b952",
+    "artifact_sha256": null,
+    "current_head": "8ec949ad990392a014d95b04236b71181039b952",
+    "metrics": {
+      "broad_catches": 2,
+      "broad_catches_per_kloc": 0.04847,
+      "code_source_files": 322,
+      "global_state_sites": 2,
+      "global_state_sites_per_kloc": 0.04847,
+      "hidden_api_sites": 149,
+      "hidden_api_sites_per_kloc": 3.610983,
+      "logical_lines": 41263,
+      "method_declarations": 6432,
+      "metric_schema_version": "1.1.0",
+      "near_duplicate_file_ratio": 0.419255,
+      "near_duplicate_pair_count_at_0_80": 3397,
+      "placeholder_test_sites": 2,
+      "production_files_over_500_lines": 56,
+      "production_logical_lines": 41249,
+      "production_source_files": 320,
+      "reflection_sites": 6,
+      "reflection_sites_per_kloc": 0.145409,
+      "test_logical_lines": 14,
+      "test_source_files": 2,
+      "test_to_production_file_ratio": 0.00625,
+      "tracked_files": 349
+    },
+    "non_scoring": true,
+    "reason": "Fresh candidate-only quality_signals metrics bound to current HEAD; not a production score.",
+    "source_path": null,
+    "status": "refreshed"
+  },
+  "relative_path": "repos/framework/car-runtime-service",
+  "repo_id": "FW-15",
+  "repository_head": "8ec949ad990392a014d95b04236b71181039b952",
+  "rubric_version": "production-code-health-v1",
+  "schema_version": "1.0.0",
+  "source_inventory": {
+    "aidl_paths": [
+      "api/src/android/car/CarOccupantZoneManager.aidl",
+      "api/src/android/car/IAppFocus.aidl",
+      "api/src/android/car/IAppFocusListener.aidl",
+      "api/src/android/car/IAppFocusOwnershipCallback.aidl",
+      "api/src/android/car/ICar.aidl",
+      "api/src/android/car/ICarBluetoothUserService.aidl",
+      "api/src/android/car/ICarBugreportCallback.aidl",
+      "api/src/android/car/ICarBugreportService.aidl",
+      "api/src/android/car/ICarConnectionListener.aidl",
+      "api/src/android/car/ICarInfo.aidl",
+      "api/src/android/car/ICarOccupantZone.aidl",
+      "api/src/android/car/ICarOccupantZoneCallback.aidl",
+      "api/src/android/car/ICarProjection.aidl",
+      "api/src/android/car/ICarProjectionKeyEventHandler.aidl",
+      "api/src/android/car/ICarProjectionStatusListener.aidl",
+      "api/src/android/car/ICarResultReceiver.aidl",
+      "api/src/android/car/ICarUserService.aidl",
+      "api/src/android/car/IExperimentalCar.aidl",
+      "api/src/android/car/IExperimentalCarHelper.aidl",
+      "api/src/android/car/IExperimentalCarUserService.aidl",
+      "api/src/android/car/ILocationManagerProxy.aidl",
+      "api/src/android/car/IPerUserCarService.aidl",
+      "api/src/android/car/hardware/CarPropertyConfig.aidl",
+      "api/src/android/car/hardware/CarPropertyValue.aidl",
+      "api/src/android/car/hardware/CarSensorConfig.aidl",
+      "api/src/android/car/hardware/CarSensorEvent.aidl",
+      "api/src/android/car/hardware/ICarSensor.aidl",
+      "api/src/android/car/hardware/ICarSensorEventListener.aidl",
+      "api/src/android/car/hardware/power/CarPowerPolicy.aidl",
+      "api/src/android/car/hardware/power/CarPowerPolicyFilter.aidl",
+      "api/src/android/car/hardware/power/ICarPower.aidl",
+      "api/src/android/car/hardware/power/ICarPowerPolicyListener.aidl",
+      "api/src/android/car/hardware/power/ICarPowerStateListener.aidl",
+      "api/src/android/car/hardware/property/CarPropertyEvent.aidl",
+      "api/src/android/car/hardware/property/ICarProperty.aidl",
+      "api/src/android/car/hardware/property/ICarPropertyEventListener.aidl",
+      "runtime/src/com/cockpitbench/carruntime/ICarRuntime.aidl"
+    ],
+    "ci": {
+      "standard_ci_paths": [],
+      "test_mapping_paths": [
+        "TEST_MAPPING"
+      ]
+    },
+    "rollback_candidates": [],
+    "test_paths": [
+      "tests/integration/com/cockpitbench/carruntime/CarRuntimeServiceLaunchTest.java",
+      "tests/unit/com/cockpitbench/carruntime/RuntimeConfigTest.java"
+    ],
+    "version": {
+      "api_version_candidates": [],
+      "semantic_version_tags": [
+        "v0.8.0"
+      ],
+      "version_file_candidates": [
+        "Android.bp"
+      ]
+    }
+  }
+}

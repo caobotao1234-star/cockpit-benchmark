@@ -1,0 +1,8 @@
+# The evaluated repositories are restored from verified metadata archives after cloning the wrapper.
+# On the authoring machine they remain independent, remote-free Git worktrees.
+/repos/
+
+# Interrupted transport generation must never be committed.
+/.cockpit-transport/repositories/*.tmp
+/.cockpit-transport/bundles/
+/.cockpit-transport/*.tmp

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "gate": "G4",
+  "repository_count": 40,
+  "kind_counts": {
+    "APP": 20,
+    "FRAMEWORK": 20
+  },
+  "status_counts": {
+    "calibrated": 20,
+    "verified": 7,
+    "planned": 13
+  },
+  "family_counts": {
+    "APP": 4,
+    "FRAMEWORK": 4
+  },
+  "public_lineage_count": 31,
+  "pure_synthetic_count": 9,
+  "synthetic_tier_counts": {
+    "high": 1,
+    "medium": 5,
+    "low": 3
+  },
+  "issues": [],
+  "valid": true
+}

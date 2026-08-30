@@ -1,0 +1,496 @@
+{
+  "aidl_interfaces": [
+    {
+      "method_count": 24,
+      "path": "media-platform/src/android/car/media/ICarAudio.aidl"
+    },
+    {
+      "method_count": 7,
+      "path": "media-platform/src/android/car/media/ICarMedia.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "media-platform/src/android/car/media/ICarVolumeCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "media-platform/src/android/car/media/ICarMediaSourceListener.aidl"
+    }
+  ],
+  "broad_catches": 0,
+  "broad_catches_per_kloc": 0.0,
+  "code_source_files": 92,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 935,
+      "methods": 56,
+      "path": "media-platform/src/com/android/car/CarMediaService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 301,
+      "methods": 24,
+      "path": "media-platform/test/com/android/car/media/CarMediaServiceTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 126,
+      "methods": 8,
+      "path": "media-platform/src/android/car/media/CarMediaManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 78,
+      "methods": 2,
+      "path": "src/com/android/car/media/MediaDispatcherActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 75,
+      "methods": 4,
+      "path": "src/com/android/car/media/service/MediaConnectorService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 70,
+      "methods": 10,
+      "path": "media-platform/src/android/car/media/CarAudioPatchHandle.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 622,
+      "methods": 45,
+      "path": "src/com/android/car/media/PlaybackFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 533,
+      "methods": 50,
+      "path": "src/com/android/car/media/MediaActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 513,
+      "methods": 32,
+      "path": "local-source/src/com/android/car/media/localmediaplayer/Player.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 498,
+      "methods": 46,
+      "path": "media-platform/src/android/car/media/CarAudioManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 489,
+      "methods": 36,
+      "path": "src/com/android/car/media/MediaActivityController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 373,
+      "methods": 25,
+      "path": "local-source/src/com/android/car/media/localmediaplayer/DataModel.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 270,
+      "methods": 19,
+      "path": "src/com/android/car/media/BrowseViewController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 222,
+      "methods": 29,
+      "path": "src/com/android/car/media/browse/BrowseAdapter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 217,
+      "methods": 28,
+      "path": "src/com/android/car/media/widgets/AppBarController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 178,
+      "methods": 13,
+      "path": "src/com/android/car/media/UxrPivotFilterImpl.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 148,
+      "methods": 6,
+      "path": "local-source/src/com/android/car/media/localmediaplayer/LocalMediaBrowserService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 118,
+      "methods": 6,
+      "path": "src/com/android/car/media/ViewControllerBase.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 94,
+      "methods": 10,
+      "path": "media-runtime/src/com/cockpitbench/wavemedia/MediaCatalogRepository.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 94,
+      "methods": 7,
+      "path": "src/com/android/car/media/browse/LimitedBrowseAdapter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [],
+  "global_state_sites": 2,
+  "global_state_sites_per_kloc": 0.250376,
+  "hidden_api_sites": 5,
+  "hidden_api_sites_per_kloc": 0.625939,
+  "largest_code_files": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 935,
+      "methods": 56,
+      "path": "media-platform/src/com/android/car/CarMediaService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 622,
+      "methods": 45,
+      "path": "src/com/android/car/media/PlaybackFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 533,
+      "methods": 50,
+      "path": "src/com/android/car/media/MediaActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 513,
+      "methods": 32,
+      "path": "local-source/src/com/android/car/media/localmediaplayer/Player.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 498,
+      "methods": 46,
+      "path": "media-platform/src/android/car/media/CarAudioManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 489,
+      "methods": 36,
+      "path": "src/com/android/car/media/MediaActivityController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 373,
+      "methods": 25,
+      "path": "local-source/src/com/android/car/media/localmediaplayer/DataModel.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 301,
+      "methods": 24,
+      "path": "media-platform/test/com/android/car/media/CarMediaServiceTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 270,
+      "methods": 19,
+      "path": "src/com/android/car/media/BrowseViewController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 222,
+      "methods": 29,
+      "path": "src/com/android/car/media/browse/BrowseAdapter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 217,
+      "methods": 28,
+      "path": "src/com/android/car/media/widgets/AppBarController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 178,
+      "methods": 13,
+      "path": "src/com/android/car/media/UxrPivotFilterImpl.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 148,
+      "methods": 6,
+      "path": "local-source/src/com/android/car/media/localmediaplayer/LocalMediaBrowserService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 126,
+      "methods": 8,
+      "path": "media-platform/src/android/car/media/CarMediaManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 118,
+      "methods": 6,
+      "path": "src/com/android/car/media/ViewControllerBase.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 94,
+      "methods": 10,
+      "path": "media-runtime/src/com/cockpitbench/wavemedia/MediaCatalogRepository.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 94,
+      "methods": 7,
+      "path": "src/com/android/car/media/browse/LimitedBrowseAdapter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 80,
+      "methods": 29,
+      "path": "media-runtime/src/com/cockpitbench/wavemedia/PlaybackSessionRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 79,
+      "methods": 6,
+      "path": "media-runtime/src/com/cockpitbench/wavemedia/MediaSearchIndex.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 78,
+      "methods": 2,
+      "path": "src/com/android/car/media/MediaDispatcherActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 7988,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 774,
+  "near_duplicate_file_ratio": 0.0,
+  "near_duplicate_files_at_0_80": [],
+  "near_duplicate_pair_count_at_0_80": 0,
+  "near_duplicate_pairs": [],
+  "placeholder_test_sites": 0,
+  "production_files_over_500_lines": 4,
+  "production_logical_lines": 7550,
+  "production_source_files": 76,
+  "reflection_sites": 0,
+  "reflection_sites_per_kloc": 0.0,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\wave-media",
+  "repository_head": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
+  "schema_version": "1.0.0",
+  "test_logical_lines": 438,
+  "test_source_files": 16,
+  "test_to_production_file_ratio": 0.210526,
+  "tracked_files": 280
+}

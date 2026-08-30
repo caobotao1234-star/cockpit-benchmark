@@ -1,0 +1,908 @@
+{
+  "aidl_interfaces": [
+    {
+      "method_count": 5,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IIdentityService.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IAccountService.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IConsentService.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IDeviceBindingService.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IRoleService.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/ISessionService.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/ISyncService.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IAccountListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IConsentListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IDeviceBindingListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IIdentityListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IRoleListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/ISessionListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/ISyncListener.aidl"
+    }
+  ],
+  "broad_catches": 1,
+  "broad_catches_per_kloc": 0.517331,
+  "code_source_files": 73,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 1,
+      "methods": 0,
+      "path": "identity-core/src/main/java/com/cockpitbench/idhub/core/AccountSyncCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AuditLogTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/BackoffPolicyTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CallbackRegistryTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/ConsentLedgerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CredentialVaultTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CrossUserIsolationTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/DeviceBindingTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/IdentityRuntimeTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/IdentityServiceTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/MigrationJournalTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/PermissionGateTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/PermissionPolicyTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/ProviderRegistryTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/RolePolicyTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/SessionManagerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/SnapshotStoreTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [],
+  "global_state_sites": 0,
+  "global_state_sites_per_kloc": 0.0,
+  "hidden_api_sites": 0,
+  "hidden_api_sites_per_kloc": 0.0,
+  "largest_code_files": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AuditLogTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/BackoffPolicyTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CallbackRegistryTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/ConsentLedgerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CredentialVaultTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CrossUserIsolationTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/DeviceBindingTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/IdentityRuntimeTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/IdentityServiceTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/MigrationJournalTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/PermissionGateTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/PermissionPolicyTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/ProviderRegistryTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/RolePolicyTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/SessionManagerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/SnapshotStoreTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 78,
+      "methods": 8,
+      "path": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/UserScopeTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 1933,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 202,
+  "near_duplicate_file_ratio": 0.273973,
+  "near_duplicate_files_at_0_80": [
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AuditLogTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/BackoffPolicyTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CallbackRegistryTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/ConsentLedgerTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CredentialVaultTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CrossUserIsolationTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/DeviceBindingTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/IdentityRuntimeTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/IdentityServiceTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/MigrationJournalTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/PermissionGateTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/PermissionPolicyTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/ProviderRegistryTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/RolePolicyTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/SessionManagerTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/SnapshotStoreTest.java",
+    "identity-tests/src/main/java/com/cockpitbench/idhub/tests/UserScopeTest.java"
+  ],
+  "near_duplicate_pair_count_at_0_80": 190,
+  "near_duplicate_pairs": [
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AuditLogTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/BackoffPolicyTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CallbackRegistryTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/ConsentLedgerTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CredentialVaultTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CrossUserIsolationTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/DeviceBindingTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/IdentityRuntimeTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/IdentityServiceTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/MigrationJournalTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/PermissionGateTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/PermissionPolicyTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/ProviderRegistryTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/RolePolicyTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/SessionManagerTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/SnapshotStoreTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountLifecycleTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/UserScopeTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AuditLogTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/BackoffPolicyTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CallbackRegistryTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/ConsentLedgerTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CredentialVaultTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CrossUserIsolationTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/DeviceBindingTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/IdentityRuntimeTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/IdentityServiceTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/MigrationJournalTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/PermissionGateTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/PermissionPolicyTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/ProviderRegistryTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/RolePolicyTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/SessionManagerTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/SnapshotStoreTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountRepositoryTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/UserScopeTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AuditLogTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/BackoffPolicyTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CallbackRegistryTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/ConsentLedgerTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CredentialVaultTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/CrossUserIsolationTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/DeviceBindingTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/IdentityRuntimeTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/IdentityServiceTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/MigrationJournalTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/PermissionGateTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/PermissionPolicyTest.java",
+      "similarity": 0.927928
+    },
+    {
+      "logical_lines_a": 78,
+      "logical_lines_b": 78,
+      "path_a": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/AccountSyncTest.java",
+      "path_b": "identity-tests/src/main/java/com/cockpitbench/idhub/tests/ProviderRegistryTest.java",
+      "similarity": 0.927928
+    }
+  ],
+  "placeholder_test_sites": 0,
+  "production_files_over_500_lines": 0,
+  "production_logical_lines": 373,
+  "production_source_files": 53,
+  "reflection_sites": 0,
+  "reflection_sites_per_kloc": 0.0,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\id-hub",
+  "repository_head": "ef4048d4819722a7d23ed403484ea1433ead08db",
+  "schema_version": "1.1.0",
+  "test_logical_lines": 1560,
+  "test_source_files": 20,
+  "test_to_production_file_ratio": 0.377358,
+  "tracked_files": 211
+}

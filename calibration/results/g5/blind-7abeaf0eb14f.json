@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-7abeaf0eb14f",
+  "repository_head": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04ff1-b9e0-7a80-8488-cab740832cdd",
+    "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T23:53:54.138Z",
+    "finished_at": "2026-08-29T23:58:28.753Z",
+    "wall_clock_seconds": 274.615,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 90,
+    "directories_visited": 20,
+    "tool_calls": 22,
+    "notes": "HEAD 与预期 SHA 一致。静态检查覆盖 33 个生产 Java 文件、全部 14 个 AIDL 文件、全部 11 个测试 Java 文件、15 个 Soong 入口、代表性配置族以及三个 release/platform 分支；未运行构建、脚本或网络操作。 Runner normalized tool_calls from Codex JSONL to 22 (evaluator self-report: 23); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 2,
+      "reason": "仓库按 API、共享核心、Binder、权限、回调、调度、持久化、配置、适配器、观测及投屏运行时拆分，投屏服务也通过构造注入组合状态机、协议、传输和诊断。主要缺口是多个基础模块仅有单个实现文件且 Soong 依赖关系很浅，部分边界仍以 Bundle 或大而全的核心类承载。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "line 1",
+          "observation": "根 Soong 入口显式声明 14 个子模块，形成清晰的物理模块边界。"
+        },
+        {
+          "path": "projection-runtime/src/com/cockpitbench/projection/service/ProjectionBinderService.java",
+          "ref": null,
+          "symbol_or_line": "lines 16-18, ProjectionBinderService",
+          "observation": "Binder 入口组合 Gate、ProjectionSessionMachine、ProtocolNegotiator、TransportCoordinator 和 ProjectionDiagnostics，而非直接实现全部领域逻辑。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 2,
+      "reason": "生产代码普遍使用窄接口和构造注入，时钟、动作、传输、权限门和存储均可替换；但 WorkflowEngine 同时承担图验证、执行、等待、补偿和观察者发布，Binder 服务也把同步、传输、状态迁移和回调置于一个锁定流程中，职责分离仍不均匀。",
+      "evidence": [
+        {
+          "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/WorkflowEngine.java",
+          "ref": null,
+          "symbol_or_line": "lines 50-57, 209-212, Action/Observer and constructor",
+          "observation": "动作、观察者和 CockpitClock 均通过接口或构造注入，支持替换和扩展；同一类后续仍集中实现执行及补偿。"
+        },
+        {
+          "path": "projection-runtime/src/com/cockpitbench/projection/service/TransportCoordinator.java",
+          "ref": null,
+          "symbol_or_line": "line 16, Transport and TransportCoordinator",
+          "observation": "传输能力由小型 Transport 接口提供，协调器依赖接口集合并集中进行健康检查和选择。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 2,
+      "reason": "Android/Binder 依赖主要集中在 API、Binder、回调和适配器边界，权限检查可注入且跨用户策略集中、默认拒绝。局限是所有 Soong 模块均声明 platform_apis，包括纯 Java 核心；错误语义也常退化为通用异常或忽略 RemoteException。",
+      "evidence": [
+        {
+          "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/CrossUserAccessBoundary.java",
+          "ref": null,
+          "symbol_or_line": "lines 184-224, evaluate",
+          "observation": "跨用户和跨区域访问统一检查规则、驾驶状态、权限及委托令牌，并在缺少策略或权限时拒绝。"
+        },
+        {
+          "path": "projection-runtime/src/com/cockpitbench/projection/service/ProjectionBinderService.java",
+          "ref": null,
+          "symbol_or_line": "lines 16-18, Gate and Binder methods",
+          "observation": "系统权限通过可替换 Gate 集中执行；但实现直接依赖 RemoteCallbackList、系统时钟并吞掉回调 RemoteException。"
+        },
+        {
+          "path": "shared-core/Android.bp",
+          "ref": null,
+          "symbol_or_line": "line 1",
+          "observation": "不含 Android 类型的共享核心仍声明 platform_apis: true，扩大了平台编译依赖。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "not_applicable",
+      "score": null,
+      "reason": "对全部生产 Java/AIDL 扫描 Class.forName、反射方法获取、ServiceManager、SystemProperties 及 hidden API 常见入口，未发现隐藏 API 或反射调用。",
+      "evidence": []
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 1,
+      "reason": "投屏边界使用类型化 Parcelable、单向回调、权限门和 RemoteCallbackList，具备基本生命周期处理；但另一套框架契约大量使用 Bundle 和字符串分派，契约缺少明确版本/稳定性声明。同步 connect 在 Binder 锁内执行传输并广播，断开未关闭传输，回调异常被静默忽略，失败只映射为通用 IllegalStateException。",
+      "evidence": [
+        {
+          "path": "projection-api/src/com/cockpitbench/projection/IProjectionService.aidl",
+          "ref": null,
+          "symbol_or_line": "line 3, IProjectionService",
+          "observation": "服务以 ProjectionDevice、ProjectionCapability、ProjectionSession 等类型化对象定义连接和回调生命周期。"
+        },
+        {
+          "path": "projection-runtime/src/com/cockpitbench/projection/service/ProjectionBinderService.java",
+          "ref": null,
+          "symbol_or_line": "lines 17-18, connect/disconnect/broadcast",
+          "observation": "connect 在 synchronized 方法内进行潜在阻塞传输和回调；失败丢失原始错误，disconnect 未调用 TransportCoordinator.close，RemoteException 被忽略。"
+        },
+        {
+          "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkManager.aidl",
+          "ref": null,
+          "symbol_or_line": "line 4, IFrameworkManager",
+          "observation": "核心调用采用 component/operation 字符串和 Bundle 参数/返回值，削弱了跨进程契约的类型和演进约束。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "仓库仅提供依赖 AOSP/AAOS Soong 环境的 Android.bp，所有模块均使用 platform_apis；没有 Gradle、Maven 或独立 SDK 构建边界。受控评估又禁止运行构建且工作区不含所需平台输入，因此无法验证独立编译。",
+      "evidence": [
+        {
+          "path": "projection-api/Android.bp",
+          "ref": null,
+          "symbol_or_line": "line 1",
+          "observation": "API 模块是 Soong java_library，并显式要求 platform_apis。"
+        },
+        {
+          "path": "projection-runtime/Android.bp",
+          "ref": null,
+          "symbol_or_line": "line 1",
+          "observation": "运行时仅声明 Soong 静态依赖 cockpit-projection-api，同样要求 platform_apis。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 1,
+      "reason": "核心单元测试包含状态、失败、授权、补偿和确定性断言，投屏测试也覆盖协议拒绝和状态错误；但没有 Binder 服务、权限门、死亡通知、跨进程或真实传输的行为测试。更严重的是测试被声明为 java_library，framework-testkit 的 srcs 不包含实际 src/test 路径，TEST_MAPPING 名称也没有对应的已声明测试模块。",
+      "evidence": [
+        {
+          "path": "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/WorkflowEngineTest.java",
+          "ref": null,
+          "symbol_or_line": "lines 33-117, three test cases",
+          "observation": "验证依赖顺序、等待后恢复和依赖环拒绝，断言具有实际行为深度。"
+        },
+        {
+          "path": "projection-tests/src/com/cockpitbench/projection/tests/ProtocolNegotiatorTest.java",
+          "ref": null,
+          "symbol_or_line": "line 16, acceptsTrustedCompatibleDevice/rejectsUntrustedDevice",
+          "observation": "覆盖兼容成功和不可信设备失败，但仍是进程内单元测试。"
+        },
+        {
+          "path": "framework-testkit/Android.bp",
+          "ref": null,
+          "symbol_or_line": "line 1",
+          "observation": "模块是 java_library，且 srcs 指向 src/main，仓库中的 src/test 测试不会被该定义收录。"
+        },
+        {
+          "path": "TEST_MAPPING",
+          "ref": null,
+          "symbol_or_line": "line 1",
+          "observation": "映射引用 ProjectionBehaviorTests 和 ProjectionFixtureIntegrationTests，但已检查的 Android.bp 中没有这些模块名。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 1,
+      "reason": "存在多组近复制的手写生产逻辑：两个调度器共享任务表、替换、完成清理和 close 流程，四个 Parcelable 也重复相同序列化模板。此外，大量编号 XML 家族重复结构和周期性数据，仓库未提供生成器或生成标记，维护成本显著。",
+      "evidence": [
+        {
+          "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/OperationScheduler.java",
+          "ref": null,
+          "symbol_or_line": "lines 3-5, OperationScheduler",
+          "observation": "任务注册、替换、完成清理、取消和 close 流程与 DeadlineScheduler 高度相似。"
+        },
+        {
+          "path": "scheduler-runtime/src/main/java/com/cockpitbench/frameworkfoundation/scheduler/DeadlineScheduler.java",
+          "ref": null,
+          "symbol_or_line": "lines 18-20, DeadlineScheduler",
+          "observation": "复现 OperationScheduler 的并发任务管理结构，仅增加 deadline 参数验证。"
+        },
+        {
+          "path": "projection-api/src/com/cockpitbench/projection/ProjectionDevice.java",
+          "ref": null,
+          "symbol_or_line": "lines 16-25, Parcelable implementation",
+          "observation": "字段赋值、Parcel 读写和 CREATOR 模板与其他投屏 Parcelable 近似复制。"
+        },
+        {
+          "path": "projection-api/src/com/cockpitbench/projection/ProjectionFrame.java",
+          "ref": null,
+          "symbol_or_line": "lines 16-25, Parcelable implementation",
+          "observation": "重复 ProjectionDevice/Capability/Session 的手写 Parcel 模板。"
+        },
+        {
+          "path": "scheduler-runtime/src/main/res/xml/scheduler_00.xml",
+          "ref": null,
+          "symbol_or_line": "lines 1-133",
+          "observation": "单个配置即包含大规模周期性任务和依赖序列；同目录另有 47 个同族编号文件，且未发现生成设施。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 2,
+      "reason": "三个分支都以当前 main 为共同基点且仅增加一个两行属性文件，release 与平台差异确实保持为有界配置，没有复制源码。当前历史每个分支只有一个提交，尚无持续修复回合、回合并或复用行为可证明长期策略达到系统化水平。",
+      "evidence": [
+        {
+          "path": "product/release.properties",
+          "ref": "release/2026.1",
+          "symbol_or_line": "lines 1-2",
+          "observation": "release 分支相对 main 唯一增加 channel 和 contract 两项冻结配置。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8155 分支相对 main 仅增加平台及传输版本属性。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8295 分支同样仅增加平台及传输版本属性，没有源码分叉。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 3,
+      "reason": "两个平台分支都直接继承相同 main，只通过两行属性选择平台和传输版本；生产代码提供统一适配器注册表与共享投屏运行时，没有平台专属 Java 副本。当前可见范围内，平台变化隔离明确且公共实现复用系统化。",
+      "evidence": [
+        {
+          "path": "platform-adapters/src/main/java/com/cockpitbench/frameworkfoundation/adapter/PlatformAdapterRegistry.java",
+          "ref": null,
+          "symbol_or_line": "lines 18-19, Adapter and registry",
+          "observation": "平台差异通过统一 Adapter 接口及按平台键注册/选择集中管理。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8155 的全部分支差异是平台和传输配置。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8295 复用相同主线代码，仅选择不同平台和传输版本。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 1.75,
+    "scored_dimension_count": 8,
+    "failed_dimension_count": 2,
+    "narrative": "主要优势是模块物理边界清晰、共享核心对 Android 类型依赖较少、权限与跨用户规则集中处理，以及平台分支通过极小配置覆盖复用同一主线。主要风险集中在跨进程质量和可验证性：两套 AIDL 风格不一致，通用 Bundle/字符串契约较弱，Binder 连接路径持锁执行外部工作并丢失错误细节；测试源码虽有不少有意义的单元断言，但 Soong 声明和 TEST_MAPPING 无法把它们可信地组成边界级测试。大量编号 XML、重复 Parcelable 和调度器实现也增加变更面。独立编译因仅有 platform_apis Soong 边界且缺少平台输入而无法验证。23 次工具调用覆盖了全部生产/测试 Java、全部 AIDL、构建入口及三个分支比较，静态评估预算充分；未通过构建或设备执行验证运行时行为。"
+  }
+}

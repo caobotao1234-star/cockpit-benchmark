@@ -1,0 +1,35 @@
+{
+  "clone_smoke": false,
+  "issues": [
+    {
+      "code": "manifest_schema",
+      "message": "manifest.json:$: 'size_standard_version' is a required property",
+      "severity": "error"
+    },
+    {
+      "code": "manifest_schema",
+      "message": "manifest.json:repositories/0: 'size_band' is a required property",
+      "severity": "error"
+    },
+    {
+      "code": "manifest_schema",
+      "message": "manifest.json:repositories/1: 'size_band' is a required property",
+      "severity": "error"
+    },
+    {
+      "code": "manifest_schema",
+      "message": "manifest.json:repositories/2: 'size_band' is a required property",
+      "severity": "error"
+    },
+    {
+      "code": "manifest_schema",
+      "message": "manifest.json:repositories/3: 'size_band' is a required property",
+      "severity": "error"
+    }
+  ],
+  "mode": "partial",
+  "probed_count": 0,
+  "repository_count": 4,
+  "root": "D:\\project\\Git.temp\\cockpit-benchmark",
+  "valid": false
+}

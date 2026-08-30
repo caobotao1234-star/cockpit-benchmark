@@ -1,0 +1,54 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 171,
+      "binary_changed_files": 0,
+      "changed_files": 119,
+      "common_path_files": 53,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 54,
+      "deleted_lines": 12648,
+      "identical_blob_files": 53,
+      "identical_blob_ratio": 0.30814,
+      "merge_base": "88a778e7ef882b0b54a060608c31c4f46b2a1661",
+      "union_files": 172
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 171,
+      "binary_changed_files": 0,
+      "changed_files": 119,
+      "common_path_files": 53,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 54,
+      "deleted_lines": 12648,
+      "identical_blob_files": 53,
+      "identical_blob_ratio": 0.30814,
+      "merge_base": "88a778e7ef882b0b54a060608c31c4f46b2a1661",
+      "union_files": 172
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 171,
+      "binary_changed_files": 0,
+      "changed_files": 119,
+      "common_path_files": 53,
+      "compare_branch": "release/0.9",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 54,
+      "deleted_lines": 12648,
+      "identical_blob_files": 53,
+      "identical_blob_ratio": 0.30814,
+      "merge_base": "88a778e7ef882b0b54a060608c31c4f46b2a1661",
+      "union_files": 172
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\thermo-control",
+  "schema_version": "1.0.0"
+}

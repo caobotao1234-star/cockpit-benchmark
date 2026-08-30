@@ -1,0 +1,70 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 773,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 773,
+      "compare_branch": "develop",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 774,
+      "deleted_lines": 0,
+      "identical_blob_files": 773,
+      "identical_blob_ratio": 0.998708,
+      "merge_base": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "union_files": 774
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 773,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 773,
+      "compare_branch": "release/2026.1",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 774,
+      "deleted_lines": 0,
+      "identical_blob_files": 773,
+      "identical_blob_ratio": 0.998708,
+      "merge_base": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "union_files": 774
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 773,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 773,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 774,
+      "deleted_lines": 0,
+      "identical_blob_files": 773,
+      "identical_blob_ratio": 0.998708,
+      "merge_base": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "union_files": 774
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 773,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 773,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 774,
+      "deleted_lines": 0,
+      "identical_blob_files": 773,
+      "identical_blob_ratio": 0.998708,
+      "merge_base": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "union_files": 774
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\can-middleware",
+  "schema_version": "1.0.0"
+}

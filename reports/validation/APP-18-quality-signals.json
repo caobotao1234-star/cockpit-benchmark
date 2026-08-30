@@ -1,0 +1,951 @@
+{
+  "aidl_interfaces": [
+    {
+      "method_count": 24,
+      "path": "media-platform/src/android/car/media/ICarAudio.aidl"
+    },
+    {
+      "method_count": 7,
+      "path": "media-platform/src/android/car/media/ICarMedia.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "media-platform/src/android/car/media/ICarVolumeCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "media-platform/src/android/car/media/ICarMediaSourceListener.aidl"
+    }
+  ],
+  "broad_catches": 16,
+  "broad_catches_per_kloc": 2.0,
+  "code_source_files": 97,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 3,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 39,
+      "methods": 5,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/VendorPropertyMirror.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 6
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 11,
+      "methods": 6,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/MediaReflectionGateway.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 4
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 11,
+      "methods": 5,
+      "path": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 3
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 11,
+      "methods": 5,
+      "path": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 3
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 11,
+      "methods": 5,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 3
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 935,
+      "methods": 56,
+      "path": "media-platform/src/com/android/car/CarMediaService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 301,
+      "methods": 24,
+      "path": "media-platform/test/com/android/car/media/CarMediaServiceTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 126,
+      "methods": 8,
+      "path": "media-platform/src/android/car/media/CarMediaManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 78,
+      "methods": 2,
+      "path": "compat-car-media/src/com/android/car/media/MediaDispatcherActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 70,
+      "methods": 10,
+      "path": "media-platform/src/android/car/media/CarAudioPatchHandle.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 67,
+      "methods": 3,
+      "path": "compat-car-media/src/com/android/car/media/service/MediaConnectorService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 38,
+      "methods": 6,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/LegacyAudioFocusRouter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 35,
+      "methods": 6,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/MediaNotificationRegistry.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 19,
+      "methods": 14,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/GlobalVehicleMediaHub.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 16,
+      "methods": 11,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/MediaProcessState.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 14,
+      "methods": 9,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/GlobalMediaPreferences.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 13,
+      "methods": 7,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/MediaCallbackBus.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 13,
+      "methods": 8,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/VehicleProfileTable.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 11,
+      "methods": 6,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/PlaybackWatchdog.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 10,
+      "methods": 5,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/CrossDomainCommandRouter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [
+    {
+      "file_count": 3,
+      "paths": [
+        "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+        "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+        "src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyQueueStore.java",
+        "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyQueueStore.java",
+        "src/com/android/car/media/localmediaplayer/runtime/LegacyQueueStore.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform-8155/src/com/android/car/media/localmediaplayer/runtime/MediaRouteTable.java",
+        "platform-8295/src/com/android/car/media/localmediaplayer/runtime/MediaRouteTable.java",
+        "src/com/android/car/media/localmediaplayer/runtime/MediaRouteTable.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform-8155/src/com/android/car/media/localmediaplayer/runtime/PlaybackAudit.java",
+        "platform-8295/src/com/android/car/media/localmediaplayer/runtime/PlaybackAudit.java",
+        "src/com/android/car/media/localmediaplayer/runtime/PlaybackAudit.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform-8155/src/com/android/car/media/localmediaplayer/runtime/PlaybackNotificationState.java",
+        "platform-8295/src/com/android/car/media/localmediaplayer/runtime/PlaybackNotificationState.java",
+        "src/com/android/car/media/localmediaplayer/runtime/PlaybackNotificationState.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform-8155/src/com/android/car/media/localmediaplayer/runtime/PlaybackRecoveryTable.java",
+        "platform-8295/src/com/android/car/media/localmediaplayer/runtime/PlaybackRecoveryTable.java",
+        "src/com/android/car/media/localmediaplayer/runtime/PlaybackRecoveryTable.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+        "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+        "src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+        "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+        "src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehicleAudioBridge.java",
+        "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehicleAudioBridge.java",
+        "src/com/android/car/media/localmediaplayer/runtime/VehicleAudioBridge.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+        "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+        "src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+        "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+        "src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "platform-8155/src/com/android/car/media/localmediaplayer/runtime/PlaybackCoordinator.java",
+        "platform-8295/src/com/android/car/media/localmediaplayer/runtime/PlaybackCoordinator.java"
+      ]
+    }
+  ],
+  "global_state_sites": 6,
+  "global_state_sites_per_kloc": 0.75,
+  "hidden_api_sites": 11,
+  "hidden_api_sites_per_kloc": 1.375,
+  "largest_code_files": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 935,
+      "methods": 56,
+      "path": "media-platform/src/com/android/car/CarMediaService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 622,
+      "methods": 45,
+      "path": "compat-car-media/src/com/android/car/media/PlaybackFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 533,
+      "methods": 50,
+      "path": "compat-car-media/src/com/android/car/media/MediaActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 513,
+      "methods": 32,
+      "path": "src/com/android/car/media/localmediaplayer/Player.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 498,
+      "methods": 46,
+      "path": "media-platform/src/android/car/media/CarAudioManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 489,
+      "methods": 36,
+      "path": "compat-car-media/src/com/android/car/media/MediaActivityController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 373,
+      "methods": 25,
+      "path": "src/com/android/car/media/localmediaplayer/DataModel.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 301,
+      "methods": 24,
+      "path": "media-platform/test/com/android/car/media/CarMediaServiceTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 270,
+      "methods": 19,
+      "path": "compat-car-media/src/com/android/car/media/BrowseViewController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 222,
+      "methods": 29,
+      "path": "compat-car-media/src/com/android/car/media/browse/BrowseAdapter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 217,
+      "methods": 28,
+      "path": "compat-car-media/src/com/android/car/media/widgets/AppBarController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 178,
+      "methods": 13,
+      "path": "compat-car-media/src/com/android/car/media/UxrPivotFilterImpl.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 153,
+      "methods": 6,
+      "path": "src/com/android/car/media/localmediaplayer/LocalMediaBrowserService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 126,
+      "methods": 8,
+      "path": "media-platform/src/android/car/media/CarMediaManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 118,
+      "methods": 6,
+      "path": "compat-car-media/src/com/android/car/media/ViewControllerBase.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 94,
+      "methods": 7,
+      "path": "compat-car-media/src/com/android/car/media/browse/LimitedBrowseAdapter.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 78,
+      "methods": 2,
+      "path": "compat-car-media/src/com/android/car/media/MediaDispatcherActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 77,
+      "methods": 8,
+      "path": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 77,
+      "methods": 8,
+      "path": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 77,
+      "methods": 8,
+      "path": "src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 8000,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 860,
+  "near_duplicate_file_ratio": 0.216495,
+  "near_duplicate_files_at_0_80": [
+    "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+    "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyQueueStore.java",
+    "platform-8155/src/com/android/car/media/localmediaplayer/runtime/PlaybackCoordinator.java",
+    "platform-8155/src/com/android/car/media/localmediaplayer/runtime/PlaybackNotificationState.java",
+    "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+    "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+    "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+    "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+    "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyQueueStore.java",
+    "platform-8295/src/com/android/car/media/localmediaplayer/runtime/PlaybackCoordinator.java",
+    "platform-8295/src/com/android/car/media/localmediaplayer/runtime/PlaybackNotificationState.java",
+    "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+    "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+    "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+    "src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+    "src/com/android/car/media/localmediaplayer/runtime/LegacyQueueStore.java",
+    "src/com/android/car/media/localmediaplayer/runtime/PlaybackCoordinator.java",
+    "src/com/android/car/media/localmediaplayer/runtime/PlaybackNotificationState.java",
+    "src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+    "src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+    "src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java"
+  ],
+  "near_duplicate_pair_count_at_0_80": 48,
+  "near_duplicate_pairs": [
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 65,
+      "logical_lines_b": 65,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyQueueStore.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyQueueStore.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 65,
+      "logical_lines_b": 65,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyQueueStore.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/LegacyQueueStore.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 21,
+      "logical_lines_b": 21,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/PlaybackCoordinator.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/PlaybackCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 61,
+      "logical_lines_b": 61,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/PlaybackNotificationState.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/PlaybackNotificationState.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 61,
+      "logical_lines_b": 61,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/PlaybackNotificationState.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/PlaybackNotificationState.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 77,
+      "logical_lines_b": 77,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 77,
+      "logical_lines_b": 77,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 65,
+      "logical_lines_b": 65,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyQueueStore.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/LegacyQueueStore.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 61,
+      "logical_lines_b": 61,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/PlaybackNotificationState.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/PlaybackNotificationState.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 77,
+      "logical_lines_b": 77,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/VehicleMediaPolicy.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 0.882353
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 0.882353
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 0.882353
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "similarity": 0.882353
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "similarity": 0.882353
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 0.882353
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 0.882353
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "similarity": 0.882353
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 0.882353
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "path_b": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "path_b": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "src/com/android/car/media/localmediaplayer/runtime/LegacyPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "src/com/android/car/media/localmediaplayer/runtime/StreamingPlayerFacade.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/VehiclePlayerFacade.java",
+      "similarity": 0.868613
+    },
+    {
+      "logical_lines_a": 21,
+      "logical_lines_b": 21,
+      "path_a": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/PlaybackCoordinator.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/PlaybackCoordinator.java",
+      "similarity": 0.841727
+    },
+    {
+      "logical_lines_a": 21,
+      "logical_lines_b": 21,
+      "path_a": "platform-8295/src/com/android/car/media/localmediaplayer/runtime/PlaybackCoordinator.java",
+      "path_b": "src/com/android/car/media/localmediaplayer/runtime/PlaybackCoordinator.java",
+      "similarity": 0.841727
+    }
+  ],
+  "placeholder_test_sites": 0,
+  "production_files_over_500_lines": 4,
+  "production_logical_lines": 7699,
+  "production_source_files": 96,
+  "reflection_sites": 19,
+  "reflection_sites_per_kloc": 2.375,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\stream-media",
+  "repository_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+  "schema_version": "1.0.0",
+  "test_logical_lines": 301,
+  "test_source_files": 1,
+  "test_to_production_file_ratio": 0.010417,
+  "tracked_files": 284
+}

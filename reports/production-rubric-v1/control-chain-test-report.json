@@ -1,0 +1,14 @@
+{
+  "document_type": "production_control_chain_test_report",
+  "schema_version": "1.0.0",
+  "rubric_version": "production-code-health-v1",
+  "command": "python -m unittest discover -s tests -v",
+  "working_directory": "E:\\Project\\202608AINP",
+  "test_count": 88,
+  "passed": 88,
+  "failed": 0,
+  "errors": 0,
+  "wall_clock_seconds": 467.928,
+  "status": "passed",
+  "notes": "Includes legacy G2/G5 regression coverage plus strict preflight, coordinator-key, A/B run, judgment, reconciliation, score, fresh-facts, control-drift, event-exploration, and adversarial tamper tests."
+}

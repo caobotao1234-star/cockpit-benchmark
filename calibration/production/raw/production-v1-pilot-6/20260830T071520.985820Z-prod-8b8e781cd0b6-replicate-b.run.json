@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0.0",
+  "rubric_version": "production-code-health-v1",
+  "batch": "production-v1-pilot-6",
+  "blind_id": "prod-8b8e781cd0b6",
+  "replicate": "b",
+  "repository_head": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+  "outcome": "invalid_judgment",
+  "prompt_version": "production-code-health-v1",
+  "prompt_sha256": "f5977fc8d8f18122717eea7f3d46677a151701fd94c0877f44081dbc35e0fe5f",
+  "judgment_schema_sha256": "005f9ee3a659965fbc933dc0cc2ea0ea8df33c18c106e79b60b57e59c00f2710",
+  "rubric_sha256": "3d37cfb986443be855841e86ed24446c9e0016f2c77921e81261c63da9908b76",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "cli_version": "0.151.0-alpha.7.1",
+  "sandbox": "workspace-write-single-root",
+  "approval_policy": "never",
+  "network_requested": false,
+  "ephemeral": true,
+  "ignore_rules": true,
+  "disabled_features": [
+    "apps",
+    "browser_use",
+    "browser_use_external",
+    "computer_use",
+    "goals",
+    "hooks",
+    "image_generation",
+    "in_app_browser",
+    "memories",
+    "multi_agent",
+    "plugins",
+    "remote_plugin",
+    "skill_search",
+    "tool_suggest",
+    "view_image",
+    "workspace_dependencies"
+  ],
+  "disabled_mcp_servers": [
+    "atlassian",
+    "cua_repl",
+    "node_repl"
+  ],
+  "wall_clock_budget_seconds": 1800,
+  "started_at": "2026-08-30T07:15:33.799Z",
+  "finished_at": "2026-08-30T07:22:19.031Z",
+  "wall_clock_seconds": 405.235,
+  "timed_out": false,
+  "exit_code": 0,
+  "clone": {
+    "head": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/2026.1"
+    ],
+    "branch_heads": {
+      "develop": "ee1cf043a5766a252ddf08c240c63761e9999600",
+      "main": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+      "platform/8155": "aa6fb21603cccee8db23c91d3807fea1b544cd19",
+      "platform/8295": "52adaa26816cb0eb10d25af56a2c9e701607f071",
+      "release/2026.1": "6fbfa8b525eb0b19fc666845c12b3ec368ee57d0"
+    },
+    "remotes": [],
+    "remote_count": 0,
+    "status": [],
+    "clean": true
+  },
+  "post_run_clone": {
+    "head": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/2026.1"
+    ],
+    "branch_heads": {
+      "develop": "ee1cf043a5766a252ddf08c240c63761e9999600",
+      "main": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+      "platform/8155": "aa6fb21603cccee8db23c91d3807fea1b544cd19",
+      "platform/8295": "52adaa26816cb0eb10d25af56a2c9e701607f071",
+      "release/2026.1": "6fbfa8b525eb0b19fc666845c12b3ec368ee57d0"
+    },
+    "remotes": [],
+    "remote_count": 0,
+    "status": [],
+    "clean": true
+  },
+  "immutability_errors": [],
+  "event_metrics": {
+    "thread_id": "01a05186-1421-7d43-b55f-1d7128765c4a",
+    "turn_started": 1,
+    "turn_completed": 1,
+    "turn_failed": 0,
+    "tool_calls": 21,
+    "usage": {
+      "input_tokens": 1649729,
+      "cached_input_tokens": 1520128,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 17629,
+      "reasoning_output_tokens": 5703
+    }
+  },
+  "forbidden_event_items": [],
+  "judgment_errors": [
+    "architecture_facts.dependency_edges[2] references an undeclared module",
+    "architecture_facts.dependency_edges[3] references an undeclared module",
+    "architecture_facts.dependency_edges[4] references an undeclared module",
+    "architecture_facts.dependency_edges[5] references an undeclared module",
+    "architecture_facts.dependency_edges[6] references an undeclared module",
+    "architecture_facts.dependency_edges[7] references an undeclared module",
+    "architecture_facts.dependency_edges[8] references an undeclared module",
+    "architecture_facts.dependency_edges[9] references an undeclared module",
+    "architecture_facts.dependency_edges[10] references an undeclared module",
+    "architecture_facts.dependency_edges[11] references an undeclared module",
+    "architecture_facts.dependency_edges[12] references an undeclared module",
+    "architecture_facts.evidence[3].anchor: unsafe repository-relative evidence path",
+    "leaves[9].evidence[0]: unsafe repository-relative evidence path"
+  ],
+  "job_repo": "C:\\cbp\\production-v1-pilot-6\\20260830T071520.985820Z-prod-8b8e781cd0b6-replicate-b\\repo",
+  "raw_events": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\production\\raw\\production-v1-pilot-6\\20260830T071520.985820Z-prod-8b8e781cd0b6-replicate-b.events.jsonl",
+  "raw_stderr": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\production\\raw\\production-v1-pilot-6\\20260830T071520.985820Z-prod-8b8e781cd0b6-replicate-b.stderr.log",
+  "raw_judgment": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\production\\raw\\production-v1-pilot-6\\20260830T071520.985820Z-prod-8b8e781cd0b6-replicate-b.judgment.json"
+}

@@ -1,0 +1,634 @@
+{
+  "aidl_interfaces": [],
+  "broad_catches": 14,
+  "broad_catches_per_kloc": 0.14814,
+  "code_source_files": 1096,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 15,
+      "is_test": false,
+      "logical_lines": 160,
+      "methods": 8,
+      "path": "src/com/android/car/settings/security/PasswordHelper.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 8,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 121,
+      "methods": 19,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowContentResolver.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 5,
+      "hidden_api_sites": 2,
+      "is_test": true,
+      "logical_lines": 56,
+      "methods": 8,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowLockPatternUtils.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 6,
+      "is_test": false,
+      "logical_lines": 284,
+      "methods": 13,
+      "path": "src/com/android/car/settings/qc/PairedBluetoothDevices.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 6,
+      "is_test": true,
+      "logical_lines": 167,
+      "methods": 13,
+      "path": "tests/unit/src/com/android/car/settings/security/ChooseLockTypePreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 5,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 98,
+      "methods": 19,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowCarWifiManager.java",
+      "placeholder_test_sites": 1,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 5,
+      "is_test": false,
+      "logical_lines": 412,
+      "methods": 29,
+      "path": "src/com/android/car/settings/security/ChooseLockPatternFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 5,
+      "is_test": false,
+      "logical_lines": 101,
+      "methods": 7,
+      "path": "src/com/android/car/settings/security/ChooseLockTypePreferenceController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 5,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 85,
+      "methods": 14,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowUserManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": false,
+      "logical_lines": 146,
+      "methods": 6,
+      "path": "src/com/android/car/settings/setupservice/InitialLockSetupService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": false,
+      "logical_lines": 69,
+      "methods": 6,
+      "path": "src/com/android/car/settings/security/CheckLockWorker.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 4,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 66,
+      "methods": 4,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowCar.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 4,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 60,
+      "methods": 11,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowCarUnitsManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": true,
+      "logical_lines": 28,
+      "methods": 5,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/DialogTestUtils.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 4,
+      "is_test": true,
+      "logical_lines": 28,
+      "methods": 5,
+      "path": "tests/unit/src/com/android/car/settings/testutils/DialogTestUtils.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": true,
+      "logical_lines": 355,
+      "methods": 22,
+      "path": "tests/unit/src/com/android/car/settings/security/PasswordHelperTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 305,
+      "methods": 28,
+      "path": "src/com/android/car/settings/profiles/ProfileHelper.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": true,
+      "logical_lines": 214,
+      "methods": 18,
+      "path": "tests/unit/src/com/android/car/settings/language/LanguageBasePreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 103,
+      "methods": 14,
+      "path": "src/com/android/car/settings/security/SaveLockWorker.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 3,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 100,
+      "methods": 9,
+      "path": "tests/robotests/src/com/android/car/settings/testutils/ShadowInputMethodManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [
+    {
+      "file_count": 2,
+      "paths": [
+        "src/com/android/car/settings/enterprise/EnterprisePrivacyFeatureProvider.java",
+        "src/com/android/car/settingslib/enterprise/EnterprisePrivacyFeatureProvider.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "tests/robotests/src/com/android/car/settings/common/FakePreferenceController.java",
+        "tests/unit/src/com/android/car/settings/common/FakePreferenceController.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "tests/robotests/src/com/android/car/settings/testutils/DialogTestUtils.java",
+        "tests/unit/src/com/android/car/settings/testutils/DialogTestUtils.java"
+      ]
+    },
+    {
+      "file_count": 2,
+      "paths": [
+        "tests/unit/src/com/android/car/settings/enterprise/EnterprisePrivacyFeatureProviderImplTest.java",
+        "tests/unit/src/com/android/car/settingslib/enterprise/EnterprisePrivacyFeatureProviderImplTest.java"
+      ]
+    }
+  ],
+  "global_state_sites": 83,
+  "global_state_sites_per_kloc": 0.87826,
+  "hidden_api_sites": 197,
+  "hidden_api_sites_per_kloc": 2.084546,
+  "largest_code_files": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 1000,
+      "methods": 54,
+      "path": "tests/unit/src/com/android/car/settings/inputmethod/KeyboardManagementPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 620,
+      "methods": 54,
+      "path": "tests/unit/src/com/android/car/settings/applications/ApplicationActionButtonsPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 1,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 424,
+      "methods": 33,
+      "path": "src/com/android/car/settings/applications/ApplicationActionButtonsPreferenceController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 413,
+      "methods": 41,
+      "path": "src/com/android/car/settings/profiles/ProfileGridRecyclerView.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 5,
+      "is_test": false,
+      "logical_lines": 412,
+      "methods": 29,
+      "path": "src/com/android/car/settings/security/ChooseLockPatternFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 403,
+      "methods": 39,
+      "path": "tests/unit/src/com/android/car/settings/enterprise/DeviceAdminAddFragmentTest.java",
+      "placeholder_test_sites": 2,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 402,
+      "methods": 30,
+      "path": "src/com/android/car/settings/common/BaseCarSettingsActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 391,
+      "methods": 29,
+      "path": "src/com/android/car/settings/wifi/networkrequest/NetworkRequestDialogFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 389,
+      "methods": 45,
+      "path": "src/com/android/car/settings/common/CarSettingActivities.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 385,
+      "methods": 21,
+      "path": "src/com/android/car/settings/bluetooth/BluetoothRequestPermissionActivity.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 382,
+      "methods": 39,
+      "path": "tests/robotests/src/com/android/car/settings/profiles/ProfileHelperTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 380,
+      "methods": 22,
+      "path": "tests/unit/src/com/android/car/settings/tts/TtsPlaybackPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 376,
+      "methods": 27,
+      "path": "tests/robotests/src/com/android/car/settings/accounts/AccountSyncDetailsPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 364,
+      "methods": 32,
+      "path": "src/com/android/car/settings/security/ChooseLockPinPasswordFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 364,
+      "methods": 22,
+      "path": "src/com/android/car/settings/tts/TtsPlaybackPreferenceController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 3,
+      "is_test": true,
+      "logical_lines": 355,
+      "methods": 22,
+      "path": "tests/unit/src/com/android/car/settings/security/PasswordHelperTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 345,
+      "methods": 16,
+      "path": "tests/unit/src/com/android/car/settings/bluetooth/BluetoothBondedDevicesPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 329,
+      "methods": 25,
+      "path": "tests/unit/src/com/android/car/settings/profiles/ProfileDetailsActionButtonsPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 327,
+      "methods": 21,
+      "path": "tests/unit/src/com/android/car/settings/storage/StorageApplicationActionButtonsPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 325,
+      "methods": 28,
+      "path": "tests/unit/src/com/android/car/settings/system/ResetNetworkSubscriptionPreferenceControllerTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 94505,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 8187,
+  "near_duplicate_file_ratio": 0.017336,
+  "near_duplicate_files_at_0_80": [
+    "src/com/android/car/settings/datetime/DatePickerPreferenceController.java",
+    "src/com/android/car/settings/datetime/TimePickerPreferenceController.java",
+    "src/com/android/car/settings/enterprise/EnterprisePrivacyFeatureProviderImpl.java",
+    "src/com/android/car/settingslib/enterprise/EnterprisePrivacyFeatureProviderImpl.java",
+    "tests/robotests/src/com/android/car/settings/common/FakePreferenceController.java",
+    "tests/robotests/src/com/android/car/settings/testutils/DialogTestUtils.java",
+    "tests/unit/src/com/android/car/settings/common/FakePreferenceController.java",
+    "tests/unit/src/com/android/car/settings/datetime/DatePickerPreferenceControllerTest.java",
+    "tests/unit/src/com/android/car/settings/datetime/TimePickerPreferenceControllerTest.java",
+    "tests/unit/src/com/android/car/settings/datetime/TimeZonePickerPreferenceControllerTest.java",
+    "tests/unit/src/com/android/car/settings/enterprise/EnterprisePrivacyFeatureProviderImplTest.java",
+    "tests/unit/src/com/android/car/settings/testutils/DialogTestUtils.java",
+    "tests/unit/src/com/android/car/settings/units/UnitsEnergyConsumptionPreferenceControllerTest.java",
+    "tests/unit/src/com/android/car/settings/units/UnitsFuelConsumptionPreferenceControllerTest.java",
+    "tests/unit/src/com/android/car/settings/units/UnitsPressurePreferenceControllerTest.java",
+    "tests/unit/src/com/android/car/settings/units/UnitsSpeedPreferenceControllerTest.java",
+    "tests/unit/src/com/android/car/settings/units/UnitsTemperaturePreferenceControllerTest.java",
+    "tests/unit/src/com/android/car/settings/units/UnitsVolumePreferenceControllerTest.java",
+    "tests/unit/src/com/android/car/settingslib/enterprise/EnterprisePrivacyFeatureProviderImplTest.java"
+  ],
+  "near_duplicate_pair_count_at_0_80": 15,
+  "near_duplicate_pairs": [
+    {
+      "logical_lines_a": 140,
+      "logical_lines_b": 140,
+      "path_a": "tests/robotests/src/com/android/car/settings/common/FakePreferenceController.java",
+      "path_b": "tests/unit/src/com/android/car/settings/common/FakePreferenceController.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 28,
+      "logical_lines_b": 28,
+      "path_a": "tests/robotests/src/com/android/car/settings/testutils/DialogTestUtils.java",
+      "path_b": "tests/unit/src/com/android/car/settings/testutils/DialogTestUtils.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 147,
+      "logical_lines_b": 148,
+      "path_a": "tests/unit/src/com/android/car/settings/enterprise/EnterprisePrivacyFeatureProviderImplTest.java",
+      "path_b": "tests/unit/src/com/android/car/settingslib/enterprise/EnterprisePrivacyFeatureProviderImplTest.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 66,
+      "logical_lines_b": 67,
+      "path_a": "src/com/android/car/settings/enterprise/EnterprisePrivacyFeatureProviderImpl.java",
+      "path_b": "src/com/android/car/settingslib/enterprise/EnterprisePrivacyFeatureProviderImpl.java",
+      "similarity": 0.939394
+    },
+    {
+      "logical_lines_a": 58,
+      "logical_lines_b": 58,
+      "path_a": "src/com/android/car/settings/datetime/DatePickerPreferenceController.java",
+      "path_b": "src/com/android/car/settings/datetime/TimePickerPreferenceController.java",
+      "similarity": 0.896296
+    },
+    {
+      "logical_lines_a": 80,
+      "logical_lines_b": 80,
+      "path_a": "tests/unit/src/com/android/car/settings/datetime/DatePickerPreferenceControllerTest.java",
+      "path_b": "tests/unit/src/com/android/car/settings/datetime/TimePickerPreferenceControllerTest.java",
+      "similarity": 0.882353
+    },
+    {
+      "logical_lines_a": 98,
+      "logical_lines_b": 97,
+      "path_a": "tests/unit/src/com/android/car/settings/units/UnitsSpeedPreferenceControllerTest.java",
+      "path_b": "tests/unit/src/com/android/car/settings/units/UnitsTemperaturePreferenceControllerTest.java",
+      "similarity": 0.841727
+    },
+    {
+      "logical_lines_a": 80,
+      "logical_lines_b": 80,
+      "path_a": "tests/unit/src/com/android/car/settings/datetime/DatePickerPreferenceControllerTest.java",
+      "path_b": "tests/unit/src/com/android/car/settings/datetime/TimeZonePickerPreferenceControllerTest.java",
+      "similarity": 0.828571
+    },
+    {
+      "logical_lines_a": 80,
+      "logical_lines_b": 80,
+      "path_a": "tests/unit/src/com/android/car/settings/datetime/TimePickerPreferenceControllerTest.java",
+      "path_b": "tests/unit/src/com/android/car/settings/datetime/TimeZonePickerPreferenceControllerTest.java",
+      "similarity": 0.828571
+    },
+    {
+      "logical_lines_a": 98,
+      "logical_lines_b": 96,
+      "path_a": "tests/unit/src/com/android/car/settings/units/UnitsSpeedPreferenceControllerTest.java",
+      "path_b": "tests/unit/src/com/android/car/settings/units/UnitsVolumePreferenceControllerTest.java",
+      "similarity": 0.828571
+    },
+    {
+      "logical_lines_a": 97,
+      "logical_lines_b": 96,
+      "path_a": "tests/unit/src/com/android/car/settings/units/UnitsTemperaturePreferenceControllerTest.java",
+      "path_b": "tests/unit/src/com/android/car/settings/units/UnitsVolumePreferenceControllerTest.java",
+      "similarity": 0.828571
+    },
+    {
+      "logical_lines_a": 98,
+      "logical_lines_b": 98,
+      "path_a": "tests/unit/src/com/android/car/settings/units/UnitsPressurePreferenceControllerTest.java",
+      "path_b": "tests/unit/src/com/android/car/settings/units/UnitsSpeedPreferenceControllerTest.java",
+      "similarity": 0.815603
+    },
+    {
+      "logical_lines_a": 98,
+      "logical_lines_b": 97,
+      "path_a": "tests/unit/src/com/android/car/settings/units/UnitsPressurePreferenceControllerTest.java",
+      "path_b": "tests/unit/src/com/android/car/settings/units/UnitsTemperaturePreferenceControllerTest.java",
+      "similarity": 0.815603
+    },
+    {
+      "logical_lines_a": 98,
+      "logical_lines_b": 96,
+      "path_a": "tests/unit/src/com/android/car/settings/units/UnitsPressurePreferenceControllerTest.java",
+      "path_b": "tests/unit/src/com/android/car/settings/units/UnitsVolumePreferenceControllerTest.java",
+      "similarity": 0.815603
+    },
+    {
+      "logical_lines_a": 101,
+      "logical_lines_b": 101,
+      "path_a": "tests/unit/src/com/android/car/settings/units/UnitsEnergyConsumptionPreferenceControllerTest.java",
+      "path_b": "tests/unit/src/com/android/car/settings/units/UnitsFuelConsumptionPreferenceControllerTest.java",
+      "similarity": 0.802817
+    }
+  ],
+  "placeholder_test_sites": 7,
+  "production_files_over_500_lines": 0,
+  "production_logical_lines": 44986,
+  "production_source_files": 619,
+  "reflection_sites": 1,
+  "reflection_sites_per_kloc": 0.010581,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\aurora-settings",
+  "repository_head": "7d347803ae70eb01fdeafaff3094404909377c59",
+  "schema_version": "1.1.0",
+  "test_logical_lines": 49519,
+  "test_source_files": 477,
+  "test_to_production_file_ratio": 0.770598,
+  "tracked_files": 1710
+}

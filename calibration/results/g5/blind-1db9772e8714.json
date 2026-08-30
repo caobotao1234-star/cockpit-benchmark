@@ -1,0 +1,292 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-1db9772e8714",
+  "repository_head": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04ff1-aa4b-7612-a1a8-6660b863968a",
+    "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T23:53:50.087Z",
+    "finished_at": "2026-08-29T23:57:42.227Z",
+    "wall_clock_seconds": 232.14,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 96,
+    "directories_visited": 40,
+    "tool_calls": 17,
+    "notes": "HEAD 与预期 SHA 一致。打开并检查了 92 个当前 HEAD 文件及 4 个分支文件版本，包括全部 32 个生产 Java 文件、全部 15 个测试 Java 文件、14 个 AIDL、15 个 Android.bp，以及代表性 XML 配置；盘点到 601 个 XML。检查了全部本地分支，并对 develop、platform/8155、platform/8295、release/2026.1 分别进行了有界比较。未运行构建、脚本或网络操作。 Runner normalized tool_calls from Codex JSONL to 17 (evaluator self-report: 17); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 1,
+      "reason": "HVAC API、服务和测试具有可辨认的边界，服务内部也拆分了策略、路由、状态和诊断职责；但顶层声明的十四个模块多数只是单类模块，Soong 依赖除 HVAC service→API 外基本没有表达，foundation 与 HVAC 之间也没有可见的组合根或依赖方向，模块化更多是目录级拆分而非完整架构。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "line 1",
+          "observation": "顶层一次性列出十四个子模块，但未提供组合或依赖关系。"
+        },
+        {
+          "path": "shared-core/Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 1-6",
+          "observation": "核心模块仅用通配符收集源码并启用 platform_apis，没有声明与其他运行时模块的依赖边界。"
+        },
+        {
+          "path": "hvac-service/src/com/cockpitbench/hvac/service/HvacBinderService.java",
+          "ref": null,
+          "symbol_or_line": "HvacBinderService, lines 18-22",
+          "observation": "Binder 服务通过构造器组合权限、策略、信号路由、状态和诊断组件，局部职责边界清楚。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 2,
+      "reason": "生产设计中存在真实的依赖倒置和职责拆分：时钟、权限门、车辆信号适配器及工作流动作均可注入；HVAC 服务委托给专用组件。局限是部分核心类聚合大量状态模型和控制流程，且通用 Binder/平台接口依赖字符串和 Bundle，接口约束偏弱。",
+      "evidence": [
+        {
+          "path": "hvac-service/src/com/cockpitbench/hvac/service/HvacSignalRouter.java",
+          "ref": null,
+          "symbol_or_line": "Adapter and HvacSignalRouter, lines 18-19",
+          "observation": "车辆属性读写被隔离在可替换的 Adapter 接口后，路由器只负责映射和缩放。"
+        },
+        {
+          "path": "shared-core/src/main/java/com/cockpitbench/foundation/core/WorkflowEngine.java",
+          "ref": null,
+          "symbol_or_line": "WorkflowEngine, lines 31-440",
+          "observation": "Action、Observer 和 CockpitClock 支持扩展与测试，但单个类同时包含定义、执行状态、调度、补偿、通知和图校验等多项职责。"
+        },
+        {
+          "path": "hvac-service/src/com/cockpitbench/hvac/service/HvacBinderService.java",
+          "ref": null,
+          "symbol_or_line": "constructor and fields, lines 18-20",
+          "observation": "五个协作者均由构造器注入，Binder 层主要负责编排。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 2,
+      "reason": "Android/Binder 依赖主要集中在 API、Binder、callback 和 adapter 边界，车辆属性访问通过类型化 Adapter 隔离，权限门也可替换。材料缺口包括所有 Soong 模块普遍启用 platform_apis、平台注册表使用通用 Bundle、仓库没有实际 AAOS/CarProperty 适配器，以及 Binder 执行路径将平台异常转成诊断后吞掉。",
+      "evidence": [
+        {
+          "path": "hvac-service/src/com/cockpitbench/hvac/service/HvacSignalRouter.java",
+          "ref": null,
+          "symbol_or_line": "Adapter, lines 18-19",
+          "observation": "系统车辆属性访问被限定为 read/write 接口，映射缺失会明确失败。"
+        },
+        {
+          "path": "platform-adapters/src/main/java/com/cockpitbench/frameworkfoundation/adapter/PlatformAdapterRegistry.java",
+          "ref": null,
+          "symbol_or_line": "Adapter, lines 17-19",
+          "observation": "平台依赖集中在注册表边界，但 invoke 采用字符串操作和 Bundle，缺乏强类型错误语义。"
+        },
+        {
+          "path": "hvac-service/src/com/cockpitbench/hvac/service/HvacBinderService.java",
+          "ref": null,
+          "symbol_or_line": "execute, line 19",
+          "observation": "路由异常被记录并通知回调，但没有向同步调用方传播失败；移动状态还被固定传为 false。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "not_applicable",
+      "score": null,
+      "reason": "对全部 47 个 Java 文件及 14 个 AIDL 合同检索了反射、Class.forName、getDeclared*、setAccessible、@hide 和 hidden API 痕迹，未发现隐藏 API 或反射使用。",
+      "evidence": []
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 1,
+      "reason": "HVAC 合同使用 Parcelable、类型化命令/状态/能力及 oneway 回调，并由 RemoteCallbackList 管理回调生命周期；但同步 execute 没有结果或错误类型，服务捕获所有适配器异常后仍让调用正常返回。另一套 framework 合同退化为字符串组件/操作加 Bundle，缺少细粒度类型、版本/稳定性声明、明确线程模型和客户端死亡/重连语义。",
+      "evidence": [
+        {
+          "path": "hvac-api/src/com/cockpitbench/hvac/IHvacService.aidl",
+          "ref": null,
+          "symbol_or_line": "IHvacService, line 3",
+          "observation": "服务提供类型化状态、能力和命令以及显式回调注册，但 execute 返回 void。"
+        },
+        {
+          "path": "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkManager.aidl",
+          "ref": null,
+          "symbol_or_line": "IFrameworkManager, line 4",
+          "observation": "跨进程入口以 component、operation 和 Bundle 构成通用调用，合同粒度和类型安全较弱。"
+        },
+        {
+          "path": "hvac-service/src/com/cockpitbench/hvac/service/HvacBinderService.java",
+          "ref": null,
+          "symbol_or_line": "execute and callback lifecycle, lines 19-22",
+          "observation": "权限在每个入口执行，RemoteCallbackList 支持死亡清理；但执行异常仅写诊断和发 fault 回调，RemoteException 也被忽略。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "仓库只提供 Android Soong 入口，模块均声明 platform_apis；README 明确构建需要平台 Binder 和 car API。受控环境中没有对应 AOSP/AAOS 平台输入，且按要求不能运行构建，因此无法建立可信的独立编译边界。",
+      "evidence": [
+        {
+          "path": "README.md",
+          "ref": null,
+          "symbol_or_line": "line 3",
+          "observation": "说明完整 Android 构建需要平台 Binder 和 car APIs。"
+        },
+        {
+          "path": "hvac-api/Android.bp",
+          "ref": null,
+          "symbol_or_line": "line 1",
+          "observation": "API 模块直接启用 platform_apis。"
+        },
+        {
+          "path": "shared-core/Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 1-6",
+          "observation": "核心模块同样以 Soong java_library 和 platform_apis 定义，没有独立 Gradle/Maven 构建入口。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 0,
+      "reason": "核心算法有若干有意义的单元测试，但没有可信的跨 Binder 进程、真实权限、RemoteException/死亡、平台适配器或恢复流程测试。framework-testkit 的构建入口收集 src/main/java，而实际测试位于 src/test/java；HVAC 测试也声明为 java_library。名为权限边界和回调生命周期的测试只断言常量字符串和场景集合，未触达生产代码。",
+      "evidence": [
+        {
+          "path": "framework-testkit/Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 1-6",
+          "observation": "模块 srcs 指向 src/main/java/**/*.java，而七个已检查测试均位于 src/test/java，且模块类型是 java_library。"
+        },
+        {
+          "path": "hvac-tests/Android.bp",
+          "ref": null,
+          "symbol_or_line": "line 1",
+          "observation": "所谓 device-tests 模块仍声明为 java_library，并静态链接服务，没有可见的跨进程测试装配。"
+        },
+        {
+          "path": "hvac-tests/src/com/cockpitbench/hvac/tests/PermissionBoundaryTest.java",
+          "ref": null,
+          "symbol_or_line": "PermissionBoundaryTest, lines 18-20",
+          "observation": "测试只检查硬编码描述字符串和四个场景名称集合，不调用权限门或 Binder 服务。"
+        },
+        {
+          "path": "hvac-tests/src/com/cockpitbench/hvac/tests/CallbackLifecycleTest.java",
+          "ref": null,
+          "symbol_or_line": "CallbackLifecycleTest, lines 18-20",
+          "observation": "测试未注册回调、模拟 Binder 死亡或验证 close，只断言常量文本。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 1,
+      "reason": "存在跨模块的系统性近复制：七个运行时目录各含 48 个大型参数化 XML，HVAC 配置另有 225 个 XML，且未发现生成器或“生成文件”标记。四个 Parcelable 类也复制了几乎相同的校验、Parcel 读写和 CREATOR 模板。数据文件的差异部分具有业务含义，但当前维护形式使结构性修改需要大范围同步。",
+      "evidence": [
+        {
+          "path": "scheduler-runtime/src/main/res/xml/scheduler_00.xml",
+          "ref": null,
+          "symbol_or_line": "lines 1-133",
+          "observation": "文件手写展开 80 个 task 和 50 个 dependency 条目；同目录共有 48 个同构 profile。"
+        },
+        {
+          "path": "scheduler-runtime/src/main/res/xml/scheduler_47.xml",
+          "ref": null,
+          "symbol_or_line": "lines 1-133",
+          "observation": "与 scheduler_00.xml 具有相同的大型结构，仅配置值和标识变化，未标注生成来源。"
+        },
+        {
+          "path": "hvac-api/src/com/cockpitbench/hvac/HvacState.java",
+          "ref": null,
+          "symbol_or_line": "HvacState, lines 18-41",
+          "observation": "Parcelable 校验、读写和 CREATOR 模板与其他三个 HVAC 模型重复。"
+        },
+        {
+          "path": "hvac-api/src/com/cockpitbench/hvac/HvacZone.java",
+          "ref": null,
+          "symbol_or_line": "HvacZone, lines 18-41",
+          "observation": "与 HvacState 使用近相同的 Parcelable 样板。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 2,
+      "reason": "所有四个非 main 分支都从当前 main 各自仅前进一个提交；实际比较显示 develop、两个 platform 分支和 release 分支分别只新增两行属性文件，发布差异是有界的，没有复制生产代码。历史很短且没有合并记录，尚不足以证明长期回合并、补丁传播或多版本维护策略。",
+      "evidence": [
+        {
+          "path": "product/release.properties",
+          "ref": "release/2026.1",
+          "symbol_or_line": "lines 1-2",
+          "observation": "release 分支相对 main 仅增加发布通道和合同版本两个属性。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8155 分支仅选择 sa8155 和 legacy 映射。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8295 分支仅选择 sa8295 和 aidl 映射，没有平台代码分叉。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 2,
+      "reason": "平台复用方向清楚：主干共享完整 HVAC API/服务，信号读写通过 Adapter 与映射层隔离，8155 与 8295 分支只保留平台选择属性而没有复制 Java 实现。材料限制是仓库未包含实际平台 Adapter 实现或配置装载/映射选择链路，因此无法确认这种共用核心在真实 BSP 集成中的完整性。",
+      "evidence": [
+        {
+          "path": "hvac-service/src/com/cockpitbench/hvac/service/HvacSignalRouter.java",
+          "ref": null,
+          "symbol_or_line": "Adapter and Mapping, lines 18-19",
+          "observation": "公共路由逻辑通过 Adapter、property、area 和 scale 集中处理平台信号差异。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8155 平台差异被限制为两项配置。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8295 平台沿用相同主干，只切换平台和映射模式。"
+        },
+        {
+          "path": "platform-adapters/src/main/java/com/cockpitbench/frameworkfoundation/adapter/PlatformAdapterRegistry.java",
+          "ref": null,
+          "symbol_or_line": "PlatformAdapterRegistry, lines 18-19",
+          "observation": "提供共享的平台适配器注册机制，但当前仓库没有具体平台实现。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 1.375,
+    "scored_dimension_count": 8,
+    "failed_dimension_count": 2,
+    "narrative": "主要优势是 HVAC 领域模型、策略、信号路由、状态和诊断已有清晰的局部分工，外部依赖可通过权限门和 Adapter 注入；分支实际差异也严格限制在小型配置文件中。主要风险是模块声明与真实依赖/测试装配不一致、跨进程合同部分仍为字符串加 Bundle、同步 Binder 错误被吞掉、移动安全状态被硬编码为 false，以及数百个同构 XML 和 Parcelable 样板带来的维护扩散。独立编译因缺少所需 AOSP/AAOS 平台输入而无法验证；真实平台复用同样受缺少具体适配器实现限制。17 次 shell 调用已覆盖全部生产与测试 Java、全部 AIDL、全部构建入口、代表性配置和四个分支比较，静态评审预算充足。未修改文件，未使用 skill，未运行构建或测试。"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 700,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 700,
+      "compare_branch": "develop",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 701,
+      "deleted_lines": 0,
+      "identical_blob_files": 700,
+      "identical_blob_ratio": 0.998573,
+      "merge_base": "3a474c0b4e1d30474362fb3e01cc480da00be29a",
+      "union_files": 701
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 700,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 700,
+      "compare_branch": "release/2026.1",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 701,
+      "deleted_lines": 0,
+      "identical_blob_files": 700,
+      "identical_blob_ratio": 0.998573,
+      "merge_base": "3a474c0b4e1d30474362fb3e01cc480da00be29a",
+      "union_files": 701
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 700,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 700,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 701,
+      "deleted_lines": 0,
+      "identical_blob_files": 700,
+      "identical_blob_ratio": 0.998573,
+      "merge_base": "3a474c0b4e1d30474362fb3e01cc480da00be29a",
+      "union_files": 701
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 700,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 700,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 701,
+      "deleted_lines": 0,
+      "identical_blob_files": 700,
+      "identical_blob_ratio": 0.998573,
+      "merge_base": "3a474c0b4e1d30474362fb3e01cc480da00be29a",
+      "union_files": 701
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\media-routing-service",
+  "schema_version": "1.0.0"
+}

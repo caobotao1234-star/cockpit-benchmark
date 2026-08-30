@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "APP-06",
+  "quality_tier": "high",
+  "comparison_family": null,
+  "review_status": "blind_validated",
+  "evidence": [
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "0793e20235ec761a1b42b7454e8771794d660a04",
+      "path": "settings.gradle",
+      "symbol_or_line": "19-module navigation graph",
+      "observation": "导航 app、cluster、shell、launcher、voice、platform、runtime/test 均有显式 Gradle 边界，模块依赖从产品面指向 platform/runtime。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "solid",
+      "branch": "main",
+      "commit": "0793e20235ec761a1b42b7454e8771794d660a04",
+      "path": "nav-runtime/src/com/cockpitbench/navpilot/runtime/NavigationRuntimeCoordinator.java",
+      "symbol_or_line": "injected constructor and idempotent lifecycle",
+      "observation": "observer 与有界 ledger 由 composition factory 注入；重复 attach/start 与 close 状态具有明确语义。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "0793e20235ec761a1b42b7454e8771794d660a04",
+      "path": "product/TEST_MAPPING",
+      "symbol_or_line": "presubmit",
+      "observation": "platform tests 位于 test source set；NavPilot 6/6 runtime/policy JUnit 通过，并映射 cluster/VMS 平台套件。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "code_duplication",
+      "branch": "main",
+      "commit": "0793e20235ec761a1b42b7454e8771794d660a04",
+      "path": "cluster-ui/DirectRenderingCluster/src/android/car/cluster/NavStateController.java",
+      "symbol_or_line": "paired cluster renderers",
+      "observation": "两套真实 cluster renderer 仍留下 6 对近重复，作为受控高层局限。",
+      "expected_impact": "neutral",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_high",
+      "reason": "大型导航子系统入口和依赖方向可识别。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_high",
+      "reason": "跨 shell/cluster/platform 测试丰富。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "需要 AAOS。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g5",
+      "blind_id": "blind-897981a4cf01",
+      "repository_head": "0793e20235ec761a1b42b7454e8771794d660a04",
+      "result_path": "calibration/results/g5/blind-897981a4cf01.json",
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T23:22:24.545Z",
+      "finished_at": "2026-08-29T23:26:30.507Z",
+      "wall_clock_seconds": 245.962,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 55,
+        "directories_visited": 28,
+        "tool_calls": 21,
+        "notes": "HEAD 与预期 SHA 一致。静态检查覆盖 32 个生产实现文件、5 个 AIDL 合约、6 个测试文件、构建入口和模块配置；盘点了 551 个生产 Java/Kotlin/AIDL 文件与 131 个测试文件、最大源文件、反射/隐藏 API/Binder 位置及重复实现。比较了 main 与 release/2026.1、platform/8155、platform/8295 三组分支差异。未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 21 (evaluator self-report: 21); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 1.777778,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 34,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 4,
+          "reason": "仓库有明确的顶层模块和独立导航运行时，但边界落实不一致：navigation-platform 将 service 与 car-lib 两棵平台源码树聚合进单一模块，cluster-ui 声明的主源码目录又与实际检查到的两套 cluster 实现目录不一致。多个外壳模块直接依赖平台聚合模块，导致组合关系与实际源码布局存在跨模块风险。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "生产设计中存在真实的依赖注入、接口隔离和小型策略类，但实践不均匀：导航协调器依赖并公开具体注册表和账本类型，语音路由器则通过静态固定执行器列表扩展，削弱 DIP/OCP。整体可维护，但有明显局部耦合。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "部分系统边界具备类型化权限检查和异常处理，但 Android/AAOS 内部依赖分布广且与普通 Android Library 构建混合。平台服务直接使用 android.car.builtin、com.android.internal 和 com.android.car.internal 类型，语音模块也直接调用 Car 权限及系统服务；替换或脱离平台输入的成本高。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 2,
+          "reason": "全仓静态搜索未发现 Class.forName、setAccessible、反射 Method/Field 或 invoke 使用，避免了字符串化反射风险。隐藏接口主要是类型化 AIDL/平台类并集中在平台与 cluster 区域；但这些 @hide 合约仍被直接编入模块，没有显式允许列表、版本能力探测或公共 API 回退。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "VMS Binder 边界工程质量较强：合约细分、固定事务编号、oneway 回调、大包 SharedMemory、服务端权限检查、死亡通知和注销清理均有实现。另一方面，voice 本地服务提供同步、较宽的接口，服务入口没有独立调用方权限校验，客户端也主要把 RemoteException 转为 IllegalStateException，故整体仍有明显不均衡。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 3,
+          "reason": "无法建立可信的独立编译边界。仓库构建文件把 AOSP/AAOS 平台源码作为 Android Library 输入，但这些源码引用 android.car.builtin、com.android.internal、com.android.car.internal、SystemUI/Dagger 等平台组件；仓库中未找到相应完整平台输入或本地 SDK 配置。受控评审禁止运行构建，因而不能验证这些依赖能否由外部 AOSP/AAOS/BSP 环境补齐。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "测试具有真实行为深度：导航状态机覆盖幂等和非法生命周期，cluster 测试覆盖 HAL/显示/回调协作，VMS 覆盖多客户端、死亡回调和注销状态。然而这些主要是进程内单元测试或 mock Binder；没有看到可独立执行的真实跨进程/设备集成链路，而且部分测试目录未被相应顶层模块接入或缺少所用测试库声明。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "重复主要集中在两套 cluster 产品实现，属于有维护影响但仍局部的近复制。NavStateController、ImageResolver、LaneView、CueView 和 ClusterViewModel 在 DirectRenderingCluster 与 ClusterOsDouble 间高度相似，差异多为包名、资源和少量构造策略；未看到抽取出的共享视图核心。其他检查到的导航运行时策略则较小且职责独立。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "实际分支比较显示 release 与两个 platform 分支都从当前 main 仅增加一个两行配置文件，未复制或修改生产代码；release HEAD 还有对应标签。这是清晰、受限的分歧方式，但历史只有单个分支提交，尚不足以证明长期合并、回灌和多版本修复策略。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "分支层面平台差异被压缩为两项属性，且各外壳复用共同 nav-runtime，说明核心复用方向明确。主要缺口是 cluster 的 legacy/modern 产品实现仍保留多组近复制视图策略，平台变化可能需要双点修改；因此复用良好但不系统。"
+        }
+      ]
+    }
+  ]
+}

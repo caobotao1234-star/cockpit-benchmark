@@ -1,0 +1,174 @@
+{
+  "branches": [
+    "aosp-new/aosp-new/master",
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "release/2026.1"
+  ],
+  "build_system": "Soong",
+  "commit_count": 8,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [
+      "car-lib/src/android/car/admin/ICarDevicePolicyService.aidl",
+      "car-lib/src/android/car/app/ICarActivityService.aidl",
+      "car-lib/src/android/car/cluster/ClusterState.aidl",
+      "car-lib/src/android/car/cluster/IClusterHomeService.aidl",
+      "car-lib/src/android/car/cluster/IClusterNavigationStateListener.aidl",
+      "car-lib/src/android/car/cluster/IClusterStateListener.aidl",
+      "car-lib/src/android/car/cluster/IInstrumentClusterManagerCallback.aidl",
+      "car-lib/src/android/car/cluster/IInstrumentClusterManagerService.aidl",
+      "car-lib/src/android/car/cluster/renderer/IInstrumentCluster.aidl",
+      "car-lib/src/android/car/cluster/renderer/IInstrumentClusterHelper.aidl",
+      "car-lib/src/android/car/cluster/renderer/IInstrumentClusterNavigation.aidl",
+      "car-lib/src/android/car/content/pm/CarAppBlockingPolicy.aidl",
+      "car-lib/src/android/car/content/pm/ICarAppBlockingPolicy.aidl",
+      "car-lib/src/android/car/content/pm/ICarAppBlockingPolicySetter.aidl",
+      "car-lib/src/android/car/content/pm/ICarPackageManager.aidl",
+      "car-lib/src/android/car/diagnostic/CarDiagnosticEvent.aidl",
+      "car-lib/src/android/car/diagnostic/ICarDiagnostic.aidl",
+      "car-lib/src/android/car/diagnostic/ICarDiagnosticEventListener.aidl",
+      "car-lib/src/android/car/drivingstate/CarDrivingStateEvent.aidl",
+      "car-lib/src/android/car/drivingstate/CarUxRestrictions.aidl"
+    ],
+    "has_binder": [
+      "car-lib/src/android/car/admin/CarDevicePolicyManager.java",
+      "car-lib/src/android/car/app/CarActivityManager.java",
+      "car-lib/src/android/car/app/ICarActivityService.aidl",
+      "car-lib/src/android/car/cluster/CarInstrumentClusterManager.java",
+      "car-lib/src/android/car/cluster/ClusterHomeManager.java",
+      "car-lib/src/android/car/cluster/renderer/IInstrumentCluster.aidl",
+      "car-lib/src/android/car/cluster/renderer/IInstrumentClusterNavigation.aidl",
+      "car-lib/src/android/car/cluster/renderer/InstrumentClusterRenderingService.java",
+      "car-lib/src/android/car/content/pm/CarAppBlockingPolicyService.java",
+      "car-lib/src/android/car/content/pm/CarPackageManager.java",
+      "car-lib/src/android/car/diagnostic/CarDiagnosticManager.java",
+      "car-lib/src/android/car/drivingstate/CarDrivingStateManager.java",
+      "car-lib/src/android/car/drivingstate/CarUxRestrictionsManager.java",
+      "car-lib/src/android/car/drivingstate/ICarDrivingState.aidl",
+      "car-lib/src/android/car/drivingstate/ICarDrivingStateChangeListener.aidl",
+      "car-lib/src/android/car/drivingstate/ICarUxRestrictionsChangeListener.aidl",
+      "car-lib/src/android/car/drivingstate/ICarUxRestrictionsManager.aidl",
+      "car-lib/src/android/car/evs/CarEvsManager.java",
+      "car-lib/src/android/car/evs/ICarEvsService.aidl",
+      "car-lib/src/android/car/evs/ICarEvsStatusListener.aidl"
+    ],
+    "has_hidden_api": [
+      "Android.bp",
+      "car-lib/src/android/car/admin/CarDevicePolicyManager.java",
+      "car-lib/src/android/car/admin/CreateUserResult.java",
+      "car-lib/src/android/car/admin/RemoveUserResult.java",
+      "car-lib/src/android/car/admin/StartUserInBackgroundResult.java",
+      "car-lib/src/android/car/admin/StopUserResult.java",
+      "car-lib/src/android/car/app/CarActivityManager.java",
+      "car-lib/src/android/car/cluster/ClusterHomeManager.java",
+      "car-lib/src/android/car/cluster/renderer/InstrumentClusterRenderer.java",
+      "car-lib/src/android/car/cluster/renderer/InstrumentClusterRenderingService.java",
+      "car-lib/src/android/car/drivingstate/CarUxRestrictionsManager.java",
+      "car-lib/src/android/car/evs/CarEvsManager.java",
+      "car-lib/src/android/car/hardware/CarVendorExtensionManager.java",
+      "car-lib/src/android/car/hardware/cabin/CarCabinManager.java",
+      "car-lib/src/android/car/hardware/hvac/CarHvacManager.java",
+      "car-lib/src/android/car/hardware/power/CarPowerManager.java",
+      "car-lib/src/android/car/input/CarInputManager.java",
+      "car-lib/src/android/car/media/CarAudioPatchHandle.java",
+      "car-lib/src/android/car/media/CarMediaManager.java",
+      "car-lib/src/android/car/occupantawareness/OccupantAwarenessManager.java"
+    ],
+    "has_integration_tests": [
+      "Android.bp",
+      "TEST_MAPPING",
+      "tests/carservice_test/Android.bp",
+      "tests/carservice_test/AndroidManifest.xml",
+      "tests/carservice_test/AndroidTest.xml",
+      "tests/carservice_test/src/com/android/car/ICarImplTest.java",
+      "tests/carservice_unit_test/Android.bp",
+      "tests/carservice_unit_test/AndroidManifest.xml",
+      "tests/carservice_unit_test/AndroidTest.xml",
+      "tests/vehiclehal_test/AndroidManifest.xml"
+    ],
+    "has_reflection": [
+      "car-lib/src/android/car/hardware/CarPropertyConfig.java",
+      "car-lib/src/android/car/hardware/CarPropertyValue.java",
+      "car-lib/src/com/android/car/internal/LargeParcelable.java",
+      "car-lib/src/com/android/car/internal/util/ArrayUtils.java",
+      "car-lib/src/com/android/car/internal/util/DebugUtils.java",
+      "car-lib/src/com/android/car/internal/util/ParcelableException.java",
+      "service/src/com/android/car/hal/DiagnosticHalService.java",
+      "service/src/com/android/car/hal/PropertyHalServiceIds.java",
+      "tests/carservice_test/src/com/android/car/CarDiagnosticConstantsTest.java",
+      "tests/carservice_test/src/com/android/car/power/PowerComponentValidityTest.java",
+      "tests/carservice_unit_test/src/android/car/AnnotationTest.java",
+      "tests/carservice_unit_test/src/com/android/car/bluetooth/BluetoothDeviceConnectionPolicyTest.java",
+      "tests/carservice_unit_test/src/com/android/car/hardware/power/PowerComponentUtilUnitTest.java",
+      "vehicle-hal-support-lib/src/com/android/car/hal/test/DiagnosticEventBuilder.java"
+    ]
+  },
+  "features": {
+    "has_aidl": true,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": true
+  },
+  "has_push_remote": false,
+  "module_count": 7,
+  "modules": [
+    {
+      "name": "VehicleHalAdapterContracts",
+      "path": "Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "VehicleHalAdapterRuntime",
+      "path": "Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "CarServiceUpdatable",
+      "path": "service/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarServiceUpdatableNonModule",
+      "path": "service/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "car-service-common-util-static-lib",
+      "path": "service/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "car-service-lib-for-builtin",
+      "path": "service/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "car-service-test-static-lib",
+      "path": "service/Android.bp",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.1.0"
+  },
+  "remotes": [],
+  "repo_head": "6f29358f3951a2efd68ac93515be97231cbab325",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vehicle-hal-adapter",
+  "source_files": 632,
+  "source_loc": 103426,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "local-sop-2026.1"
+  ],
+  "tracked_files": 652,
+  "worktree_clean": true
+}

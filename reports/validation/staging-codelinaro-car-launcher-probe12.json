@@ -1,0 +1,160 @@
+{
+  "branches": [
+    "aosp-new/master"
+  ],
+  "build_system": "Mixed",
+  "commit_count": 1,
+  "default_branch": "aosp-new/master",
+  "feature_evidence": {
+    "has_aidl": [],
+    "has_binder": [
+      "app/src/com/android/car/carlauncher/homescreen/audio/telecom/InCallServiceImpl.java",
+      "app/src/com/android/car/carlauncher/recents/CarQuickStepService.java",
+      "app/tests/src/com/android/car/carlauncher/homescreen/audio/telecom/InCallServiceImplTest.java",
+      "libs/appgrid/lib/src/com/android/car/carlauncher/datasources/ControlCenterMirroringDataSource.kt"
+    ],
+    "has_hidden_api": [
+      "app/Android.bp",
+      "app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+      "app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+      "app/src/com/android/car/carlauncher/homescreen/audio/InCallModel.java",
+      "app/src/com/android/car/carlauncher/homescreen/audio/MediaViewModel.java",
+      "app/src/com/android/car/carlauncher/recents/CarQuickStepService.java",
+      "app/src/com/android/car/carlauncher/recents/view/RecentsRecyclerView.java",
+      "app/src/com/android/car/carlauncher/taskstack/TaskStackChangeListeners.java",
+      "app/tests/Android.bp",
+      "app/tests/src/com/android/car/carlauncher/homescreen/audio/InCallModelTest.java",
+      "docklib/Android.bp",
+      "docklib/src/com/android/car/docklib/data/DockAppItem.kt",
+      "docklib/tests/Android.bp",
+      "libs/appgrid/Android.bp",
+      "libs/appgrid/lib/tests/Android.bp"
+    ],
+    "has_integration_tests": [
+      "app/tests/Android.bp",
+      "app/tests/AndroidManifest.xml",
+      "app/tests/AndroidTest.xml",
+      "docklib-util/build.gradle",
+      "docklib-util/tests/Android.bp",
+      "docklib-util/tests/AndroidManifest.xml",
+      "docklib/tests/Android.bp",
+      "docklib/tests/AndroidManifest.xml",
+      "libs/appgrid/app/build.gradle",
+      "libs/appgrid/lib/build.gradle",
+      "libs/appgrid/lib/tests/Android.bp",
+      "libs/appgrid/lib/tests/AndroidManifest.xml",
+      "libs/car-launcher-common/build.gradle",
+      "libs/car-launcher-common/tests/Android.bp",
+      "libs/car-launcher-common/tests/AndroidManifest.xml"
+    ],
+    "has_reflection": [
+      "app/src/com/android/car/carlauncher/CarLauncher.java",
+      "app/src/com/android/car/carlauncher/ControlBarActivity.java",
+      "docklib/tests/src/com/android/car/docklib/data/DockProtoDataControllerTest.kt",
+      "libs/appgrid/lib/robotests/src/com/android/car/carlauncher/datasources/UXRestrictionsDataSourceImplTest.kt"
+    ]
+  },
+  "features": {
+    "has_aidl": false,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": true
+  },
+  "has_push_remote": true,
+  "module_count": 13,
+  "modules": [
+    {
+      "name": ":",
+      "path": "build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":docklib-util",
+      "path": "docklib-util/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":libs:appgrid:app",
+      "path": "libs/appgrid/app/build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":libs:appgrid:lib",
+      "path": "libs/appgrid/lib/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":libs:car-launcher-common",
+      "path": "libs/car-launcher-common/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":libs:hidden-apis-compat:hidden-apis-disabled",
+      "path": "libs/hidden-apis-compat/hidden-apis-disabled/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": "CarLauncher",
+      "path": "app/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarLauncher-core",
+      "path": "app/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarDockUtilLib",
+      "path": "docklib-util/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarDockLib",
+      "path": "docklib/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarAppGrid-lib",
+      "path": "libs/appgrid/Android.bp",
+      "type": "android_library"
+    },
+    {
+      "name": "CarAppGridTestApp",
+      "path": "libs/appgrid/Android.bp",
+      "type": "android_app"
+    },
+    {
+      "name": "CarLauncherCommon",
+      "path": "libs/car-launcher-common/Android.bp",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [
+    {
+      "fetch_urls": [
+        "https://git.codelinaro.org/clo/la/platform/packages/apps/Car/Launcher.git"
+      ],
+      "name": "origin",
+      "push_urls": [
+        "https://git.codelinaro.org/clo/la/platform/packages/apps/Car/Launcher.git"
+      ]
+    }
+  ],
+  "repo_head": "a945124b0d8bdf24c38cd3141062f6862acad57d",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark-staging\\codelinaro-car-launcher",
+  "source_files": 373,
+  "source_loc": 26886,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [],
+  "tracked_files": 400,
+  "worktree_clean": true
+}

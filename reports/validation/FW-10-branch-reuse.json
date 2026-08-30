@@ -1,0 +1,70 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 3,
+      "base_branch": "main",
+      "base_files": 294,
+      "binary_changed_files": 0,
+      "changed_files": 8,
+      "common_path_files": 289,
+      "compare_branch": "develop",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 290,
+      "deleted_lines": 142,
+      "identical_blob_files": 287,
+      "identical_blob_ratio": 0.972881,
+      "merge_base": "da250c4f0799cf9f959b1b1bfa756695ba79cd09",
+      "union_files": 295
+    },
+    {
+      "added_lines": 3,
+      "base_branch": "main",
+      "base_files": 294,
+      "binary_changed_files": 0,
+      "changed_files": 8,
+      "common_path_files": 289,
+      "compare_branch": "release/2026.1",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 290,
+      "deleted_lines": 142,
+      "identical_blob_files": 287,
+      "identical_blob_ratio": 0.972881,
+      "merge_base": "da250c4f0799cf9f959b1b1bfa756695ba79cd09",
+      "union_files": 295
+    },
+    {
+      "added_lines": 3,
+      "base_branch": "main",
+      "base_files": 294,
+      "binary_changed_files": 0,
+      "changed_files": 8,
+      "common_path_files": 289,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 290,
+      "deleted_lines": 142,
+      "identical_blob_files": 287,
+      "identical_blob_ratio": 0.972881,
+      "merge_base": "da250c4f0799cf9f959b1b1bfa756695ba79cd09",
+      "union_files": 295
+    },
+    {
+      "added_lines": 3,
+      "base_branch": "main",
+      "base_files": 294,
+      "binary_changed_files": 0,
+      "changed_files": 8,
+      "common_path_files": 289,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 290,
+      "deleted_lines": 142,
+      "identical_blob_files": 287,
+      "identical_blob_ratio": 0.972881,
+      "merge_base": "da250c4f0799cf9f959b1b1bfa756695ba79cd09",
+      "union_files": 295
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\cockpit-manager-kit",
+  "schema_version": "1.0.0"
+}

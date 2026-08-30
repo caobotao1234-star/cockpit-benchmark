@@ -1,0 +1,1083 @@
+{
+  "aidl_interfaces": [
+    {
+      "method_count": 54,
+      "path": "runtime/src/com/cockpitbench/carruntime/ICarRuntime.aidl"
+    },
+    {
+      "method_count": 14,
+      "path": "api/src/android/car/ICarProjection.aidl"
+    },
+    {
+      "method_count": 12,
+      "path": "api/src/android/car/ICarOccupantZone.aidl"
+    },
+    {
+      "method_count": 12,
+      "path": "api/src/android/car/hardware/power/ICarPower.aidl"
+    },
+    {
+      "method_count": 11,
+      "path": "api/src/android/car/ICarUserService.aidl"
+    },
+    {
+      "method_count": 10,
+      "path": "api/src/android/car/ICar.aidl"
+    },
+    {
+      "method_count": 8,
+      "path": "api/src/android/car/hardware/property/ICarProperty.aidl"
+    },
+    {
+      "method_count": 7,
+      "path": "api/src/android/car/IAppFocus.aidl"
+    },
+    {
+      "method_count": 7,
+      "path": "api/src/android/car/IExperimentalCarUserService.aidl"
+    },
+    {
+      "method_count": 6,
+      "path": "api/src/android/car/ICarBluetoothUserService.aidl"
+    },
+    {
+      "method_count": 5,
+      "path": "api/src/android/car/hardware/ICarSensor.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "api/src/android/car/ICarBugreportCallback.aidl"
+    },
+    {
+      "method_count": 3,
+      "path": "api/src/android/car/ILocationManagerProxy.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "api/src/android/car/IAppFocusOwnershipCallback.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "api/src/android/car/ICarBugreportService.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "api/src/android/car/ICarConnectionListener.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "api/src/android/car/ICarInfo.aidl"
+    },
+    {
+      "method_count": 2,
+      "path": "api/src/android/car/IPerUserCarService.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "api/src/android/car/IAppFocusListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "api/src/android/car/ICarOccupantZoneCallback.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "api/src/android/car/ICarProjectionKeyEventHandler.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "api/src/android/car/ICarProjectionStatusListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "api/src/android/car/ICarResultReceiver.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "api/src/android/car/IExperimentalCar.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "api/src/android/car/IExperimentalCarHelper.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "api/src/android/car/hardware/ICarSensorEventListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "api/src/android/car/hardware/power/ICarPowerPolicyListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "api/src/android/car/hardware/power/ICarPowerStateListener.aidl"
+    },
+    {
+      "method_count": 1,
+      "path": "api/src/android/car/hardware/property/ICarPropertyEventListener.aidl"
+    }
+  ],
+  "broad_catches": 2,
+  "broad_catches_per_kloc": 0.04847,
+  "code_source_files": 322,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 1,
+      "global_state_sites": 1,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 129,
+      "methods": 61,
+      "path": "runtime/src/com/cockpitbench/carruntime/CarRuntimeService.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 3
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 1288,
+      "methods": 46,
+      "path": "api/src/android/car/Car.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 581,
+      "methods": 34,
+      "path": "api/src/android/car/CarProjectionManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 39,
+      "methods": 2,
+      "path": "api/src/android/car/CarFeatures.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 8,
+      "methods": 1,
+      "path": "tests/integration/com/cockpitbench/carruntime/CarRuntimeServiceLaunchTest.java",
+      "placeholder_test_sites": 1,
+      "reflection_sites": 1
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 6,
+      "methods": 1,
+      "path": "tests/unit/com/cockpitbench/carruntime/RuntimeConfigTest.java",
+      "placeholder_test_sites": 2,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/AetherPremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/AtlasBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/AtlasPremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/AuroraBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/AuroraPremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/BorealPremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/CelestePremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/CometBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/CometPremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/EclipseBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/EclipsePremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [],
+  "global_state_sites": 2,
+  "global_state_sites_per_kloc": 0.04847,
+  "hidden_api_sites": 149,
+  "hidden_api_sites_per_kloc": 3.610983,
+  "largest_code_files": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 1288,
+      "methods": 46,
+      "path": "api/src/android/car/Car.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 581,
+      "methods": 34,
+      "path": "api/src/android/car/CarProjectionManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 549,
+      "methods": 4,
+      "path": "api/src/android/car/VehiclePropertyIds.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 542,
+      "methods": 34,
+      "path": "api/src/android/car/hardware/property/CarPropertyManager.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/AetherPremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/AtlasBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/AtlasPremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/AuroraBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/AuroraPremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/BorealPremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/CelestePremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/CometBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/CometPremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/EclipseBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/EclipsePremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/EquinoxBaseRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 518,
+      "methods": 94,
+      "path": "platform/src/com/cockpitbench/carruntime/product/integration/EquinoxPremiumRuntimeCoordinator.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 41263,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 6432,
+  "near_duplicate_file_ratio": 0.419255,
+  "near_duplicate_files_at_0_80": [
+    "platform/src/com/cockpitbench/carruntime/platform/Sa8155VehicleBridge.java",
+    "platform/src/com/cockpitbench/carruntime/platform/Sa8295VehicleBridge.java",
+    "platform/src/com/cockpitbench/carruntime/platform/XinqingVehicleBridge.java",
+    "platform/src/com/cockpitbench/carruntime/product/AetherBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/AetherPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/AtlasBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/AtlasPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/AuroraBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/AuroraPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/BorealBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/BorealPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/CelesteBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/CelestePremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/CometBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/CometPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/DriftBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/DriftPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/EclipseBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/EclipsePremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/EquinoxBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/EquinoxPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/FalconBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/FalconPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/GalaxyBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/GalaxyPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/HeliosBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/HeliosPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/HorizonBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/HorizonPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/IonBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/IonPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/MeteorBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/MeteorPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/NebulaBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/NebulaPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/NimbusBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/NimbusPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/NovaBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/NovaPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/OrionBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/OrionPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/PhoenixBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/PhoenixPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/PolarisBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/PolarisPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/QuantumBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/QuantumPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/SolsticeBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/SolsticePremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/StellarBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/StellarPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/TerraBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/TerraPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/TundraBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/TundraPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/VectorBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/VectorPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/VegaBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/VegaPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/VertexBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/VertexPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/VoyagerBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/VoyagerPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/ZenithBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/ZenithPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/ZephyrBaseRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/ZephyrPremiumRuntimeProfile.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/AetherPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/AtlasBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/AtlasPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/AuroraBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/AuroraPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/BorealPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/CelestePremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/CometBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/CometPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/EclipseBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/EclipsePremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/EquinoxBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/EquinoxPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/FalconBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/FalconPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/GalaxyBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/GalaxyPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/HorizonBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/HorizonPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/MeteorBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/MeteorPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/NebulaBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/NebulaPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/NimbusBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/NimbusPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/NovaBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/NovaPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/OrionBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/OrionPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/PhoenixBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/PhoenixPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/PolarisBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/PolarisPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/SolsticeBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/SolsticePremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/StellarBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/StellarPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/VegaBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/VegaPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/VertexBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/VertexPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/VoyagerBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/VoyagerPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/ZenithBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/ZenithPremiumRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/ZephyrBaseRuntimeCoordinator.java",
+    "platform/src/com/cockpitbench/carruntime/product/integration/ZephyrPremiumRuntimeCoordinator.java",
+    "runtime/src/com/cockpitbench/carruntime/audio/AudioSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/charging/ChargingSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/climate/ClimateSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/diagnostics/DiagnosticsSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/display/DisplaySignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/doors/DoorsSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/driving/DrivingSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/input/InputSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/lighting/LightingSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/network/NetworkSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/ota/OtaSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/power/PowerSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/seats/SeatsSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/security/SecuritySignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/telemetry/TelemetrySignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/user/UserSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/vehicle_settings/VehicleSettingsSignalMapper.java",
+    "runtime/src/com/cockpitbench/carruntime/windows/WindowsSignalMapper.java"
+  ],
+  "near_duplicate_pair_count_at_0_80": 3397,
+  "near_duplicate_pairs": [
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/CometBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/EclipseBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/GalaxyBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/HorizonBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/NebulaPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/PhoenixBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/PolarisBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/StellarBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/VegaBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/VegaPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/VoyagerPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/ZephyrBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/ZephyrPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherPremiumRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/AtlasPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherPremiumRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/GalaxyPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherPremiumRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/MeteorPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherPremiumRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/NimbusPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherPremiumRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/PolarisPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AetherPremiumRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/VertexPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AtlasPremiumRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/GalaxyPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AtlasPremiumRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/MeteorPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AtlasPremiumRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/NimbusPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AtlasPremiumRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/PolarisPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/AtlasPremiumRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/VertexPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/CometBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/EclipseBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/GalaxyBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/HorizonBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/NebulaPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/PhoenixBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/PolarisBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/StellarBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/VegaBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/VegaPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/VoyagerPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/ZephyrBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/BorealBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/ZephyrPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/CometBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/EclipseBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/GalaxyBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/HorizonBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/NebulaPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/PhoenixBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/PolarisBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/StellarBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/VegaBaseRuntimeCoordinator.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 518,
+      "logical_lines_b": 518,
+      "path_a": "platform/src/com/cockpitbench/carruntime/product/integration/CelesteBaseRuntimeCoordinator.java",
+      "path_b": "platform/src/com/cockpitbench/carruntime/product/integration/VegaPremiumRuntimeCoordinator.java",
+      "similarity": 1.0
+    }
+  ],
+  "placeholder_test_sites": 3,
+  "production_files_over_500_lines": 56,
+  "production_logical_lines": 41249,
+  "production_source_files": 320,
+  "reflection_sites": 6,
+  "reflection_sites_per_kloc": 0.145409,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\car-runtime-service",
+  "repository_head": "8ec949ad990392a014d95b04236b71181039b952",
+  "schema_version": "1.0.0",
+  "test_logical_lines": 14,
+  "test_source_files": 2,
+  "test_to_production_file_ratio": 0.00625,
+  "tracked_files": 349
+}

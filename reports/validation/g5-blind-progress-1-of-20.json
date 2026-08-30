@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g5",
+  "result_count": 1,
+  "expected_count": 20,
+  "comparisons": [],
+  "tier_distributions": [
+    {
+      "kind": "APP",
+      "tiers": [
+        {
+          "tier": "high",
+          "count": 0,
+          "mean": null,
+          "minimum": null,
+          "maximum": null
+        },
+        {
+          "tier": "medium",
+          "count": 0,
+          "mean": null,
+          "minimum": null,
+          "maximum": null
+        },
+        {
+          "tier": "low",
+          "count": 1,
+          "mean": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0
+        }
+      ],
+      "ordering_checked": false,
+      "ordering_passed": false
+    }
+  ],
+  "issues": [
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-3d6aa9fca710.json",
+      "blind_id": "blind-3d6aa9fca710"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-4ae028ec439b.json",
+      "blind_id": "blind-4ae028ec439b"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-54da785c4fb2.json",
+      "blind_id": "blind-54da785c4fb2"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-62fcf0e17219.json",
+      "blind_id": "blind-62fcf0e17219"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-64c0fd8fd870.json",
+      "blind_id": "blind-64c0fd8fd870"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-6a96cb943408.json",
+      "blind_id": "blind-6a96cb943408"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-782b96660b4f.json",
+      "blind_id": "blind-782b96660b4f"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-78bb4145b9bf.json",
+      "blind_id": "blind-78bb4145b9bf"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-a23419d96478.json",
+      "blind_id": "blind-a23419d96478"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-b321d769a45e.json",
+      "blind_id": "blind-b321d769a45e"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-c0c5e0364fff.json",
+      "blind_id": "blind-c0c5e0364fff"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-c669c464c3d4.json",
+      "blind_id": "blind-c669c464c3d4"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-d51cd4d07379.json",
+      "blind_id": "blind-d51cd4d07379"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-d87ab577ddcb.json",
+      "blind_id": "blind-d87ab577ddcb"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-e13e93358b13.json",
+      "blind_id": "blind-e13e93358b13"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-ebb253869cba.json",
+      "blind_id": "blind-ebb253869cba"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-f449395eab40.json",
+      "blind_id": "blind-f449395eab40"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-f4ccc08bfcfe.json",
+      "blind_id": "blind-f4ccc08bfcfe"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g5\\blind-fd7c14d2f1c0.json",
+      "blind_id": "blind-fd7c14d2f1c0"
+    }
+  ],
+  "valid": false
+}

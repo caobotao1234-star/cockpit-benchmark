@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "gate": "G3",
+  "repository_count": 20,
+  "kind_counts": {
+    "APP": 10,
+    "FRAMEWORK": 10
+  },
+  "family_counts": {
+    "APP": 4,
+    "FRAMEWORK": 4
+  },
+  "pure_synthetic_count": 1,
+  "issues": [],
+  "valid": true
+}

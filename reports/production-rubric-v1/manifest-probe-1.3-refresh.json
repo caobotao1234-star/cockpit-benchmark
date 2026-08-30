@@ -1,0 +1,347 @@
+{
+  "document_type": "manifest_probe_refresh",
+  "schema_version": "1.0.0",
+  "probe_name": "cockpit-repo-probe",
+  "probe_version": "1.3.0",
+  "repository_count": 40,
+  "changed_repository_count": 3,
+  "changes": [
+    {
+      "repo_id": "FW-11",
+      "fields": {
+        "modules": {
+          "before": [
+            {
+              "name": "framework-foundation-binder",
+              "path": "binder-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "framework-foundation-callback",
+              "path": "callback-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "framework-foundation-config",
+              "path": "config-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "framework-foundation-api",
+              "path": "framework-api/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "framework-foundation-testkit",
+              "path": "framework-testkit/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "hvac-api/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "hvac-service/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "hvac-tests/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "framework-foundation-observability",
+              "path": "observability/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "framework-foundation-permission",
+              "path": "permission-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "framework-foundation-persistence",
+              "path": "persistence-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "framework-foundation-adapters",
+              "path": "platform-adapters/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "framework-foundation-scheduler",
+              "path": "scheduler-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "framework-foundation-core",
+              "path": "shared-core/Android.bp",
+              "type": "java_library"
+            }
+          ],
+          "after": [
+            {
+              "name": "framework-foundation-binder",
+              "type": "java_library",
+              "path": "binder-runtime/Android.bp"
+            },
+            {
+              "name": "framework-foundation-callback",
+              "type": "java_library",
+              "path": "callback-runtime/Android.bp"
+            },
+            {
+              "name": "framework-foundation-config",
+              "type": "java_library",
+              "path": "config-runtime/Android.bp"
+            },
+            {
+              "name": "framework-foundation-api",
+              "type": "java_library",
+              "path": "framework-api/Android.bp"
+            },
+            {
+              "name": "framework-foundation-testkit",
+              "type": "java_library",
+              "path": "framework-testkit/Android.bp"
+            },
+            {
+              "name": "cockpit-hvac-api",
+              "type": "java_library",
+              "path": "hvac-api/Android.bp"
+            },
+            {
+              "name": "cockpit-hvac-service",
+              "type": "java_library",
+              "path": "hvac-service/Android.bp"
+            },
+            {
+              "name": "cockpit-hvac-tests",
+              "type": "java_library",
+              "path": "hvac-tests/Android.bp"
+            },
+            {
+              "name": "framework-foundation-observability",
+              "type": "java_library",
+              "path": "observability/Android.bp"
+            },
+            {
+              "name": "framework-foundation-permission",
+              "type": "java_library",
+              "path": "permission-runtime/Android.bp"
+            },
+            {
+              "name": "framework-foundation-persistence",
+              "type": "java_library",
+              "path": "persistence-runtime/Android.bp"
+            },
+            {
+              "name": "framework-foundation-adapters",
+              "type": "java_library",
+              "path": "platform-adapters/Android.bp"
+            },
+            {
+              "name": "framework-foundation-scheduler",
+              "type": "java_library",
+              "path": "scheduler-runtime/Android.bp"
+            },
+            {
+              "name": "framework-foundation-core",
+              "type": "java_library",
+              "path": "shared-core/Android.bp"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "repo_id": "FW-13",
+      "fields": {
+        "modules": {
+          "before": [
+            {
+              "name": "unnamed@0",
+              "path": "binder-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "callback-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "config-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "framework-api/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "framework-testkit/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "observability/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "permission-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "persistence-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "platform-adapters/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "projection-api/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "projection-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "projection-tests/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "scheduler-runtime/Android.bp",
+              "type": "java_library"
+            },
+            {
+              "name": "unnamed@0",
+              "path": "shared-core/Android.bp",
+              "type": "java_library"
+            }
+          ],
+          "after": [
+            {
+              "name": "projection-foundation-binder-runtime",
+              "type": "java_library",
+              "path": "binder-runtime/Android.bp"
+            },
+            {
+              "name": "projection-foundation-callback-runtime",
+              "type": "java_library",
+              "path": "callback-runtime/Android.bp"
+            },
+            {
+              "name": "projection-foundation-config-runtime",
+              "type": "java_library",
+              "path": "config-runtime/Android.bp"
+            },
+            {
+              "name": "projection-foundation-framework-api",
+              "type": "java_library",
+              "path": "framework-api/Android.bp"
+            },
+            {
+              "name": "projection-foundation-framework-testkit",
+              "type": "java_library",
+              "path": "framework-testkit/Android.bp"
+            },
+            {
+              "name": "projection-foundation-observability",
+              "type": "java_library",
+              "path": "observability/Android.bp"
+            },
+            {
+              "name": "projection-foundation-permission-runtime",
+              "type": "java_library",
+              "path": "permission-runtime/Android.bp"
+            },
+            {
+              "name": "projection-foundation-persistence-runtime",
+              "type": "java_library",
+              "path": "persistence-runtime/Android.bp"
+            },
+            {
+              "name": "projection-foundation-platform-adapters",
+              "type": "java_library",
+              "path": "platform-adapters/Android.bp"
+            },
+            {
+              "name": "cockpit-projection-api",
+              "type": "java_library",
+              "path": "projection-api/Android.bp"
+            },
+            {
+              "name": "cockpit-projection-service",
+              "type": "java_library",
+              "path": "projection-runtime/Android.bp"
+            },
+            {
+              "name": "cockpit-projection-tests",
+              "type": "java_library",
+              "path": "projection-tests/Android.bp"
+            },
+            {
+              "name": "projection-foundation-scheduler-runtime",
+              "type": "java_library",
+              "path": "scheduler-runtime/Android.bp"
+            },
+            {
+              "name": "projection-foundation-shared-core",
+              "type": "java_library",
+              "path": "shared-core/Android.bp"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "repo_id": "FW-16",
+      "fields": {
+        "tracked_files": {
+          "before": 2171,
+          "after": 2172
+        },
+        "source_files": {
+          "before": 1978,
+          "after": 1979
+        },
+        "source_loc": {
+          "before": 246971,
+          "after": 246978
+        },
+        "commit_count": {
+          "before": 12,
+          "after": 13
+        },
+        "repo_head": {
+          "before": "e5ef0b5ba39ed54205d427ace5f4bba24458f151",
+          "after": "c155f1b2c481c9ca2a4062441f7022fd809fb338"
+        },
+        "platform_reuse": {
+          "before_count": 5,
+          "after_count": 5
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    }
+  ],
+  "oracle_update_count": 1,
+  "applied": true
+}

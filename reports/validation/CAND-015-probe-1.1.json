@@ -1,0 +1,97 @@
+{
+  "branches": [
+    "aosp/android10-c2f2-release"
+  ],
+  "build_system": "Unknown",
+  "commit_count": 1,
+  "default_branch": "aosp/android10-c2f2-release",
+  "feature_evidence": {
+    "has_aidl": [],
+    "has_binder": [
+      "src/com/android/car/settings/applications/NotificationsPreferenceController.java",
+      "src/com/android/car/settings/applications/managedomainurls/ClearDefaultsPreferenceController.java",
+      "src/com/android/car/settings/applications/specialaccess/PremiumSmsAccessPreferenceController.java",
+      "src/com/android/car/settings/bluetooth/BluetoothPairingService.java",
+      "src/com/android/car/settings/common/CarUxRestrictionsHelper.java",
+      "src/com/android/car/settings/datausage/AppsNetworkStatsManager.java",
+      "src/com/android/car/settings/setupservice/InitialLockSetupService.java",
+      "src/com/android/car/settings/sound/VolumeSettingsPreferenceController.java",
+      "src/com/android/car/settings/system/ResetAppPrefFragment.java",
+      "src/com/android/car/settings/units/CarUnitsManager.java",
+      "tests/robotests/src/com/android/car/settings/security/InitialLockSetupServiceTest.java",
+      "tests/robotests/src/com/android/car/settings/testutils/ShadowINetworkStatsServiceStub.java",
+      "tests/robotests/src/com/android/car/settings/testutils/ShadowISms.java",
+      "tests/robotests/src/com/android/car/settings/testutils/ShadowIUsbManager.java"
+    ],
+    "has_hidden_api": [
+      "res/layout/choose_lock_pattern.xml",
+      "res/layout/confirm_lock_pattern.xml",
+      "src/com/android/car/settings/accounts/SyncPreference.java",
+      "src/com/android/car/settings/applications/ApplicationsUtils.java",
+      "src/com/android/car/settings/applications/NotificationsPreferenceController.java",
+      "src/com/android/car/settings/applications/assist/AssistConfigBasePreferenceController.java",
+      "src/com/android/car/settings/applications/assist/DefaultVoiceInputPickerEntryPreferenceController.java",
+      "src/com/android/car/settings/applications/assist/DefaultVoiceInputPickerPreferenceController.java",
+      "src/com/android/car/settings/applications/assist/ManageAssistEntryPreferenceController.java",
+      "src/com/android/car/settings/applications/assist/VoiceInputInfoProvider.java",
+      "src/com/android/car/settings/applications/defaultapps/DefaultAssistantPickerEntryPreferenceController.java",
+      "src/com/android/car/settings/applications/managedomainurls/ClearDefaultsPreferenceController.java",
+      "src/com/android/car/settings/applications/specialaccess/AppStateAppOpsBridge.java",
+      "src/com/android/car/settings/applications/specialaccess/AppStatePremiumSmsBridge.java",
+      "src/com/android/car/settings/applications/specialaccess/PremiumSmsAccessPreferenceController.java",
+      "src/com/android/car/settings/applications/specialaccess/WifiControlPreferenceController.java",
+      "src/com/android/car/settings/bluetooth/BluetoothDevicePreference.java",
+      "src/com/android/car/settings/bluetooth/BluetoothPairingDialogFragment.java",
+      "src/com/android/car/settings/bluetooth/BluetoothPairingService.java",
+      "src/com/android/car/settings/bluetooth/BluetoothUtils.java"
+    ],
+    "has_integration_tests": [],
+    "has_reflection": [
+      "src/com/android/car/settings/common/PreferenceControllerListHelper.java"
+    ]
+  },
+  "features": {
+    "has_aidl": false,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": false,
+    "has_reflection": true
+  },
+  "has_push_remote": true,
+  "module_count": 0,
+  "modules": [],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.1.0"
+  },
+  "remotes": [
+    {
+      "fetch_urls": [
+        "https://github.com/nxp-imx-android/aosp_platform_packages_apps_Car_Settings.git"
+      ],
+      "name": "origin",
+      "push_urls": [
+        "https://github.com/nxp-imx-android/aosp_platform_packages_apps_Car_Settings.git"
+      ]
+    }
+  ],
+  "repo_head": "fda2fa4162e5653e44fa040b1f570ab654a81ac9",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark-staging\\github-nxp-car-settings",
+  "source_files": 928,
+  "source_loc": 64833,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "android-10.0.0_r12",
+    "android-10.0.0_r13",
+    "android-10.0.0_r14",
+    "android-10.0.0_r7",
+    "android-10.0.0_r8",
+    "android-10.0.0_r9"
+  ],
+  "tracked_files": 935,
+  "worktree_clean": true
+}

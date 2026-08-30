@@ -1,0 +1,103 @@
+{
+  "branches": [
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "release/2026.1"
+  ],
+  "build_system": "Gradle",
+  "commit_count": 13,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/AuthRequest.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/AuthResult.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/ConsentGrant.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/DeviceBinding.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IAccountListener.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IAccountService.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IConsentListener.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IConsentService.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IDeviceBindingListener.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IDeviceBindingService.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IIdentityListener.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IIdentityService.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IRoleListener.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IRoleService.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/ISessionListener.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/ISessionService.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/ISyncListener.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/ISyncService.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IdentityAccount.aidl",
+      "identity-api/src/main/aidl/com/cockpitbench/idhub/api/RoleAssignment.aidl"
+    ],
+    "has_binder": [
+      "app/src/main/java/com/cockpitbench/idhub/IdentityService.java",
+      "identity-platform/src/main/java/com/cockpitbench/idhub/platform/CallingIdentity.java"
+    ],
+    "has_hidden_api": [],
+    "has_integration_tests": [],
+    "has_reflection": []
+  },
+  "features": {
+    "has_aidl": true,
+    "has_binder": true,
+    "has_hidden_api": false,
+    "has_integration_tests": false,
+    "has_reflection": false
+  },
+  "has_push_remote": false,
+  "module_count": 6,
+  "modules": [
+    {
+      "name": ":app",
+      "path": "app/build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":identity-api",
+      "path": "identity-api/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":identity-core",
+      "path": "identity-core/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":identity-platform",
+      "path": "identity-platform/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":identity-storage",
+      "path": "identity-storage/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":identity-tests",
+      "path": "identity-tests/build.gradle",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [],
+  "repo_head": "6ec68055caf1346e78aaca4d7b31aba8799666b1",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\id-hub",
+  "source_files": 214,
+  "source_loc": 8385,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "id-hub-2026.1"
+  ],
+  "tracked_files": 217,
+  "worktree_clean": false
+}

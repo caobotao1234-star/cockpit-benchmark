@@ -1,0 +1,54 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 1,
+      "base_branch": "main",
+      "base_files": 349,
+      "binary_changed_files": 0,
+      "changed_files": 196,
+      "common_path_files": 154,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 155,
+      "deleted_lines": 34997,
+      "identical_blob_files": 154,
+      "identical_blob_ratio": 0.44,
+      "merge_base": "a3995339b479b2293ef5c29b4cb043a1ccfcd65c",
+      "union_files": 350
+    },
+    {
+      "added_lines": 1,
+      "base_branch": "main",
+      "base_files": 349,
+      "binary_changed_files": 0,
+      "changed_files": 196,
+      "common_path_files": 154,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 155,
+      "deleted_lines": 34997,
+      "identical_blob_files": 154,
+      "identical_blob_ratio": 0.44,
+      "merge_base": "a3995339b479b2293ef5c29b4cb043a1ccfcd65c",
+      "union_files": 350
+    },
+    {
+      "added_lines": 1,
+      "base_branch": "main",
+      "base_files": 349,
+      "binary_changed_files": 0,
+      "changed_files": 116,
+      "common_path_files": 234,
+      "compare_branch": "release/0.8",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 235,
+      "deleted_lines": 32729,
+      "identical_blob_files": 234,
+      "identical_blob_ratio": 0.668571,
+      "merge_base": "d7159a2ab16bf4d9640afd49c8ce022b97bb9b2b",
+      "union_files": 350
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\car-runtime-service",
+  "schema_version": "1.0.0"
+}

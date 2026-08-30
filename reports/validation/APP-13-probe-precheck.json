@@ -1,0 +1,118 @@
+{
+  "branches": [
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "release/2026.1"
+  ],
+  "build_system": "Gradle",
+  "commit_count": 28,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [
+      "foundation-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitEventListener.aidl",
+      "foundation-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitGateway.aidl",
+      "market-api/src/main/aidl/com/cockpitbench/market/CatalogItem.aidl",
+      "market-api/src/main/aidl/com/cockpitbench/market/DownloadRequest.aidl",
+      "market-api/src/main/aidl/com/cockpitbench/market/IMarketCallback.aidl",
+      "market-api/src/main/aidl/com/cockpitbench/market/IMarketService.aidl",
+      "market-api/src/main/aidl/com/cockpitbench/market/InstallState.aidl"
+    ],
+    "has_binder": [
+      "foundation-core/src/main/java/com/cockpitbench/foundation/core/CrossUserAccessBoundary.java",
+      "foundation-platform/src/main/java/com/cockpitbench/foundation/platform/BinderConnectionSupervisor.java"
+    ],
+    "has_hidden_api": [],
+    "has_integration_tests": [
+      "TEST_MAPPING"
+    ],
+    "has_reflection": []
+  },
+  "features": {
+    "has_aidl": true,
+    "has_binder": true,
+    "has_hidden_api": false,
+    "has_integration_tests": true,
+    "has_reflection": false
+  },
+  "has_push_remote": false,
+  "module_count": 11,
+  "modules": [
+    {
+      "name": ":foundation-api",
+      "path": "foundation-api/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":foundation-core",
+      "path": "foundation-core/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":foundation-observability",
+      "path": "foundation-observability/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":foundation-platform",
+      "path": "foundation-platform/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":foundation-storage",
+      "path": "foundation-storage/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":foundation-testkit",
+      "path": "foundation-testkit/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":market-api",
+      "path": "market-api/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":market-app",
+      "path": "market-app/build.gradle",
+      "type": "android_app"
+    },
+    {
+      "name": ":market-core",
+      "path": "market-core/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":market-platform",
+      "path": "market-platform/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":market-tests",
+      "path": "market-tests/build.gradle",
+      "type": "android_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [],
+  "repo_head": "3f421d00c591dc47b7de81f77292aa512eb34992",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\market-hub",
+  "source_files": 264,
+  "source_loc": 21482,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "app-foundation-1.0.0",
+    "market-hub-2026.1"
+  ],
+  "tracked_files": 270,
+  "worktree_clean": true
+}

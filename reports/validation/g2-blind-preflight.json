@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g2",
+  "result_count": 1,
+  "expected_count": 4,
+  "comparisons": [],
+  "issues": [
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g2\\blind-5ce21b8b7a91.json",
+      "blind_id": "blind-5ce21b8b7a91"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g2\\blind-ab52d4fbc4a5.json",
+      "blind_id": "blind-ab52d4fbc4a5"
+    },
+    {
+      "code": "result_missing",
+      "message": "missing canonical result D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\results\\g2\\blind-d90d8f90078a.json",
+      "blind_id": "blind-d90d8f90078a"
+    },
+    {
+      "code": "family_comparison_missing",
+      "message": "missing high/low comparison for hvac-controlled-pair"
+    },
+    {
+      "code": "family_comparison_missing",
+      "message": "missing high/low comparison for vehicle-property-controlled-pair"
+    }
+  ],
+  "valid": false
+}

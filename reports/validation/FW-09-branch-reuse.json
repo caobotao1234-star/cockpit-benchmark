@@ -1,0 +1,70 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 659,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 659,
+      "compare_branch": "develop",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 660,
+      "deleted_lines": 0,
+      "identical_blob_files": 659,
+      "identical_blob_ratio": 0.998485,
+      "merge_base": "a8745e64918984feeda68b7a26e39f193a11e523",
+      "union_files": 660
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 659,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 659,
+      "compare_branch": "release/2026.1",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 660,
+      "deleted_lines": 0,
+      "identical_blob_files": 659,
+      "identical_blob_ratio": 0.998485,
+      "merge_base": "a8745e64918984feeda68b7a26e39f193a11e523",
+      "union_files": 660
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 659,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 659,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 660,
+      "deleted_lines": 0,
+      "identical_blob_files": 659,
+      "identical_blob_ratio": 0.998485,
+      "merge_base": "a8745e64918984feeda68b7a26e39f193a11e523",
+      "union_files": 660
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 659,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 659,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 660,
+      "deleted_lines": 0,
+      "identical_blob_files": 659,
+      "identical_blob_ratio": 0.998485,
+      "merge_base": "a8745e64918984feeda68b7a26e39f193a11e523",
+      "union_files": 660
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\vendor-signal-service",
+  "schema_version": "1.0.0"
+}

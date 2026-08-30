@@ -1,0 +1,542 @@
+{
+  "build_inventory": {
+    "build_system": "Gradle",
+    "manifest_consistent": true,
+    "module_count": 16,
+    "modules": [
+      {
+        "name": ":binder-runtime",
+        "path": "binder-runtime/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":callback-runtime",
+        "path": "callback-runtime/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":can-api",
+        "path": "can-api/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":can-middleware",
+        "path": "can-middleware/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":can-platform-8155",
+        "path": "can-platform-8155/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":can-platform-8295",
+        "path": "can-platform-8295/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":can-tests",
+        "path": "can-tests/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":config-runtime",
+        "path": "config-runtime/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":framework-api",
+        "path": "framework-api/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":framework-testkit",
+        "path": "framework-testkit/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":observability",
+        "path": "observability/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":permission-runtime",
+        "path": "permission-runtime/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":persistence-runtime",
+        "path": "persistence-runtime/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":platform-adapters",
+        "path": "platform-adapters/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":scheduler-runtime",
+        "path": "scheduler-runtime/build.gradle",
+        "type": "android_library"
+      },
+      {
+        "name": ":shared-core",
+        "path": "shared-core/build.gradle",
+        "type": "android_library"
+      }
+    ],
+    "standard_named_module_count": 1
+  },
+  "document_type": "repository_preflight",
+  "facts_sha256": "5fae4e519e367cdffd839f4733bf09687b83848eef15a76ee86781051acc4ac4",
+  "git_inventory": {
+    "branch_classifications": {
+      "develop": {
+        "category": "development",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "main": {
+        "category": "mainline",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8155": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8295": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "release/2026.1": {
+        "category": "release",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": true,
+        "is_sop": false
+      }
+    },
+    "branches": {
+      "develop": "8aeb7a1fab0ef6f19c1e4447e8703fc7898688ac",
+      "main": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+      "platform/8155": "f67435d0a2abf52ad9bacdaa895c0e92794fcd2d",
+      "platform/8295": "188aa2a99763d4b91023fc0aeecccbb6b2e01c49",
+      "release/2026.1": "9f5eb5e246b9c5b019c1be2f84d8c26336d079fe"
+    },
+    "default_branch": "main",
+    "tags": {
+      "can-middleware-2026.1": "9f5eb5e246b9c5b019c1be2f84d8c26336d079fe",
+      "framework-foundation-1.0.0": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50"
+    }
+  },
+  "kind": "FRAMEWORK",
+  "manifest_binding": {
+    "head_matches": true,
+    "manifest_repo_head": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+    "path_within_delivery_root": true,
+    "working_tree_clean": true
+  },
+  "missing_contract_leaf_count": 14,
+  "missing_contract_leaves": [
+    {
+      "category": "quality",
+      "leaf": "code_duplication",
+      "method": "deterministic",
+      "reason": "Production duplication-rate detector, denominator, and exclusion contract are absent; only the threshold table is known.",
+      "rule_id": "quality.duplication.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "integration_test",
+      "method": "external_data",
+      "reason": "GBOP APP and FRAMEWORK/embedded response schemas and status mappings are absent.",
+      "rule_id": "quality.integration_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "code_quality",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.code_quality.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "unit_test",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.unit_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "system_api_dependency",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production symbol list, scan scope, and deduplication rules are absent.",
+      "rule_id": "android_framework.system_api_dependency.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "hidden_api_reflection",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production matcher and scan/exclusion rules are absent.",
+      "rule_id": "android_framework.hidden_api_reflection.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "aidl_sdk_call",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but AIDL/SDK call-site identification and deduplication rules are absent.",
+      "rule_id": "android_framework.aidl_sdk_call.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "single_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.single_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "cross_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.cross_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "platform_upgrade",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.platform_upgrade.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "device_specificity",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.device_specificity.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_independence",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.independence.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_strategy",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.strategy.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "release_rollback",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.rollback.v1",
+      "score": null,
+      "status": "failed"
+    }
+  ],
+  "platform_reuse": {
+    "comparisons": [
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 773,
+        "base_head": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "development",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.00129199,
+        "changed_files": 1,
+        "common_path_files": 773,
+        "compare_branch": "develop",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 774,
+        "compare_head": "8aeb7a1fab0ef6f19c1e4447e8703fc7898688ac",
+        "deleted_lines": 0,
+        "identical_blob_files": 773,
+        "identical_blob_ratio": 0.998708,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 774
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 773,
+        "base_head": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "release",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": true,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.00129199,
+        "changed_files": 1,
+        "common_path_files": 773,
+        "compare_branch": "release/2026.1",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 774,
+        "compare_head": "9f5eb5e246b9c5b019c1be2f84d8c26336d079fe",
+        "deleted_lines": 0,
+        "identical_blob_files": 773,
+        "identical_blob_ratio": 0.998708,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 774
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 773,
+        "base_head": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.00129199,
+        "changed_files": 1,
+        "common_path_files": 773,
+        "compare_branch": "platform/8155",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 774,
+        "compare_head": "f67435d0a2abf52ad9bacdaa895c0e92794fcd2d",
+        "deleted_lines": 0,
+        "identical_blob_files": 773,
+        "identical_blob_ratio": 0.998708,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 774
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 773,
+        "base_head": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.00129199,
+        "changed_files": 1,
+        "common_path_files": 773,
+        "compare_branch": "platform/8295",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 774,
+        "compare_head": "188aa2a99763d4b91023fc0aeecccbb6b2e01c49",
+        "deleted_lines": 0,
+        "identical_blob_files": 773,
+        "identical_blob_ratio": 0.998708,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 774
+      }
+    ],
+    "manifest_comparison_count": 4,
+    "status": "consistent"
+  },
+  "quality_signal_candidate": {
+    "artifact_head": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+    "artifact_sha256": null,
+    "current_head": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+    "metrics": {
+      "broad_catches": 7,
+      "broad_catches_per_kloc": 1.52207,
+      "code_source_files": 88,
+      "global_state_sites": 4,
+      "global_state_sites_per_kloc": 0.869754,
+      "hidden_api_sites": 0,
+      "hidden_api_sites_per_kloc": 0.0,
+      "logical_lines": 4599,
+      "method_declarations": 498,
+      "metric_schema_version": "1.1.0",
+      "near_duplicate_file_ratio": 0.454545,
+      "near_duplicate_pair_count_at_0_80": 780,
+      "placeholder_test_sites": 0,
+      "production_files_over_500_lines": 0,
+      "production_logical_lines": 3903,
+      "production_source_files": 79,
+      "reflection_sites": 2,
+      "reflection_sites_per_kloc": 0.434877,
+      "test_logical_lines": 696,
+      "test_source_files": 9,
+      "test_to_production_file_ratio": 0.113924,
+      "tracked_files": 773
+    },
+    "non_scoring": true,
+    "reason": "Fresh candidate-only quality_signals metrics bound to current HEAD; not a production score.",
+    "source_path": null,
+    "status": "refreshed"
+  },
+  "relative_path": "repos/framework/can-middleware",
+  "repo_id": "FW-19",
+  "repository_head": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
+  "rubric_version": "production-code-health-v1",
+  "schema_version": "1.0.0",
+  "source_inventory": {
+    "aidl_paths": [
+      "can-api/src/main/aidl/com/cockpitbench/can/ICanCallback.aidl",
+      "can-api/src/main/aidl/com/cockpitbench/can/ICanMiddleware.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitEventListener.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitGateway.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IConfigurationListener.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkCallback.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkManager.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IHealthListener.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IMetricsSink.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/ITransactionListener.aidl"
+    ],
+    "ci": {
+      "standard_ci_paths": [],
+      "test_mapping_paths": [
+        "TEST_MAPPING"
+      ]
+    },
+    "rollback_candidates": [],
+    "test_paths": [
+      "can-tests/src/test/java/com/cockpitbench/can/tests/FrameModelTest.java",
+      "can-tests/src/test/java/com/cockpitbench/can/tests/SignalCodecTest.java",
+      "can-tests/src/test/resources/fixture_00.xml",
+      "can-tests/src/test/resources/fixture_01.xml",
+      "can-tests/src/test/resources/fixture_02.xml",
+      "can-tests/src/test/resources/fixture_03.xml",
+      "can-tests/src/test/resources/fixture_04.xml",
+      "can-tests/src/test/resources/fixture_05.xml",
+      "can-tests/src/test/resources/fixture_06.xml",
+      "can-tests/src/test/resources/fixture_07.xml",
+      "can-tests/src/test/resources/fixture_08.xml",
+      "can-tests/src/test/resources/fixture_09.xml",
+      "can-tests/src/test/resources/fixture_10.xml",
+      "can-tests/src/test/resources/fixture_11.xml",
+      "can-tests/src/test/resources/fixture_12.xml",
+      "can-tests/src/test/resources/fixture_13.xml",
+      "can-tests/src/test/resources/fixture_14.xml",
+      "can-tests/src/test/resources/fixture_15.xml",
+      "can-tests/src/test/resources/fixture_16.xml",
+      "can-tests/src/test/resources/fixture_17.xml",
+      "can-tests/src/test/resources/fixture_18.xml",
+      "can-tests/src/test/resources/fixture_19.xml",
+      "can-tests/src/test/resources/fixture_20.xml",
+      "can-tests/src/test/resources/fixture_21.xml",
+      "can-tests/src/test/resources/fixture_22.xml",
+      "can-tests/src/test/resources/fixture_23.xml",
+      "can-tests/src/test/resources/fixture_24.xml",
+      "can-tests/src/test/resources/fixture_25.xml",
+      "can-tests/src/test/resources/fixture_26.xml",
+      "can-tests/src/test/resources/fixture_27.xml",
+      "can-tests/src/test/resources/fixture_28.xml",
+      "can-tests/src/test/resources/fixture_29.xml",
+      "can-tests/src/test/resources/fixture_30.xml",
+      "can-tests/src/test/resources/fixture_31.xml",
+      "can-tests/src/test/resources/fixture_32.xml",
+      "can-tests/src/test/resources/fixture_33.xml",
+      "can-tests/src/test/resources/fixture_34.xml",
+      "can-tests/src/test/resources/fixture_35.xml",
+      "can-tests/src/test/resources/fixture_36.xml",
+      "can-tests/src/test/resources/fixture_37.xml",
+      "can-tests/src/test/resources/fixture_38.xml",
+      "can-tests/src/test/resources/fixture_39.xml",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/DeviceTrustEngineTest.java",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/PolicyRuntimeTest.java",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/ProviderHealthMonitorTest.java",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/RecordReconcilerTest.java",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/RoleAuthorizationGraphTest.java",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/SessionSupervisorTest.java",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/WorkflowEngineTest.java"
+    ],
+    "version": {
+      "api_version_candidates": [],
+      "semantic_version_tags": [],
+      "version_file_candidates": [
+        "binder-runtime/build.gradle",
+        "build.gradle",
+        "callback-runtime/build.gradle",
+        "can-api/build.gradle",
+        "can-middleware/build.gradle",
+        "can-platform-8155/build.gradle",
+        "can-platform-8295/build.gradle",
+        "can-tests/build.gradle",
+        "config-runtime/build.gradle",
+        "framework-api/build.gradle",
+        "framework-testkit/build.gradle",
+        "observability/build.gradle",
+        "permission-runtime/build.gradle",
+        "persistence-runtime/build.gradle",
+        "platform-adapters/build.gradle",
+        "scheduler-runtime/build.gradle",
+        "shared-core/build.gradle"
+      ]
+    }
+  }
+}

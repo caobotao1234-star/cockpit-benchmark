@@ -1,0 +1,100 @@
+{
+  "branches": [
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "release/2026.1"
+  ],
+  "build_system": "Gradle",
+  "commit_count": 9,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [],
+    "has_binder": [
+      "settings-platform/upstream/src/com/android/car/settings/applications/managedomainurls/ClearDefaultsPreferenceController.java",
+      "settings-platform/upstream/src/com/android/car/settings/system/ResetAppPrefFragment.java",
+      "settings-platform/upstream/tests/robotests/src/com/android/car/settings/security/InitialLockSetupServiceTest.java",
+      "settings-platform/upstream/tests/robotests/src/com/android/car/settings/testutils/ShadowIUsbManager.java",
+      "settings-platform/upstream/tests/unit/src/com/android/car/settings/system/ResetAppPrefFragmentTest.java"
+    ],
+    "has_hidden_api": [
+      "settings-platform/upstream/src/com/android/car/settings/applications/ApplicationsUtils.java",
+      "settings-platform/upstream/src/com/android/car/settings/applications/PrioritizeAppPerformancePreferenceController.java",
+      "settings-platform/upstream/src/com/android/car/settings/applications/assist/AssistConfigBasePreferenceController.java",
+      "settings-platform/upstream/src/com/android/car/settings/applications/assist/AssistantAndVoiceEntryPreferenceController.java",
+      "settings-platform/upstream/src/com/android/car/settings/applications/assist/DefaultVoiceInputPickerEntryPreferenceController.java",
+      "settings-platform/upstream/src/com/android/car/settings/applications/assist/DefaultVoiceInputPickerPreferenceController.java",
+      "settings-platform/upstream/src/com/android/car/settings/applications/assist/VoiceInputInfoProvider.java",
+      "settings-platform/upstream/src/com/android/car/settings/applications/defaultapps/DefaultAssistantPickerEntryPreferenceController.java",
+      "settings-platform/upstream/src/com/android/car/settings/applications/managedomainurls/ClearDefaultsPreferenceController.java",
+      "settings-platform/upstream/src/com/android/car/settings/applications/specialaccess/AppStateAppOpsBridge.java",
+      "settings-platform/upstream/src/com/android/car/settings/applications/specialaccess/WifiControlPreferenceController.java",
+      "settings-platform/upstream/src/com/android/car/settings/common/PreferenceXmlParser.java",
+      "settings-platform/upstream/src/com/android/car/settings/common/TopLevelIcon.java",
+      "settings-platform/upstream/src/com/android/car/settings/storage/FetchPackageStorageAsyncLoader.java",
+      "settings-platform/upstream/src/com/android/car/settings/system/FactoryResetEsimPreferenceController.java",
+      "settings-platform/upstream/src/com/android/car/settings/system/RegulatoryInfoDisplayActivity.java",
+      "settings-platform/upstream/src/com/android/car/settings/system/ResetAppPrefFragment.java",
+      "settings-platform/upstream/src/com/android/car/settings/system/ThirdPartyLicensesActivity.java",
+      "settings-platform/upstream/src/com/android/car/settings/system/hardwareinfo/HardwareRevisionPreferenceController.java",
+      "settings-platform/upstream/tests/robotests/src/com/android/car/settings/accessibility/ScreenReaderEnabledSwitchPreferenceControllerTest.java"
+    ],
+    "has_integration_tests": [
+      "TEST_MAPPING"
+    ],
+    "has_reflection": [
+      "settings-platform/upstream/src/com/android/car/settings/common/PreferenceControllerListHelper.java"
+    ]
+  },
+  "features": {
+    "has_aidl": false,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": true
+  },
+  "has_push_remote": false,
+  "module_count": 4,
+  "modules": [
+    {
+      "name": ":settings-compat",
+      "path": "settings-compat/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":update-policy",
+      "path": "update-policy/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":update-tests",
+      "path": "update-tests/build.gradle",
+      "type": "android_library"
+    },
+    {
+      "name": ":updater-app",
+      "path": "updater-app/build.gradle",
+      "type": "android_app"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [],
+  "repo_head": "19f223c96217e89918a40fa6847fa6de2d87808a",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\orbit-ota",
+  "source_files": 771,
+  "source_loc": 49235,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "orbit-ota-2026.1"
+  ],
+  "tracked_files": 779,
+  "worktree_clean": true
+}

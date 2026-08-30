@@ -1,0 +1,156 @@
+{
+  "branches": [
+    "develop",
+    "main",
+    "platform/8155",
+    "platform/8295",
+    "release/2026.1"
+  ],
+  "build_system": "Soong",
+  "commit_count": 22,
+  "default_branch": "main",
+  "feature_evidence": {
+    "has_aidl": [
+      "framework-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitEventListener.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitGateway.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IConfigurationListener.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkCallback.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkManager.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IHealthListener.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IMetricsSink.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/ITransactionListener.aidl",
+      "projection-api/src/com/cockpitbench/projection/IProjectionCallback.aidl",
+      "projection-api/src/com/cockpitbench/projection/IProjectionService.aidl",
+      "projection-api/src/com/cockpitbench/projection/ProjectionCapability.aidl",
+      "projection-api/src/com/cockpitbench/projection/ProjectionDevice.aidl",
+      "projection-api/src/com/cockpitbench/projection/ProjectionFrame.aidl",
+      "projection-api/src/com/cockpitbench/projection/ProjectionSession.aidl"
+    ],
+    "has_binder": [
+      "callback-runtime/src/main/java/com/cockpitbench/frameworkfoundation/callback/DeathAwareCallbacks.java",
+      "shared-core/src/main/java/com/cockpitbench/foundation/core/CrossUserAccessBoundary.java"
+    ],
+    "has_hidden_api": [
+      "binder-runtime/Android.bp",
+      "callback-runtime/Android.bp",
+      "config-runtime/Android.bp",
+      "framework-api/Android.bp",
+      "framework-testkit/Android.bp",
+      "observability/Android.bp",
+      "permission-runtime/Android.bp",
+      "persistence-runtime/Android.bp",
+      "platform-adapters/Android.bp",
+      "projection-api/Android.bp",
+      "projection-runtime/Android.bp",
+      "projection-tests/Android.bp",
+      "scheduler-runtime/Android.bp",
+      "shared-core/Android.bp"
+    ],
+    "has_integration_tests": [
+      "TEST_MAPPING",
+      "projection-tests/Android.bp"
+    ],
+    "has_reflection": []
+  },
+  "features": {
+    "has_aidl": true,
+    "has_binder": true,
+    "has_hidden_api": true,
+    "has_integration_tests": true,
+    "has_reflection": false
+  },
+  "has_push_remote": false,
+  "module_count": 14,
+  "modules": [
+    {
+      "name": "unnamed@0",
+      "path": "binder-runtime/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "callback-runtime/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "config-runtime/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "framework-api/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "framework-testkit/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "observability/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "permission-runtime/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "persistence-runtime/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "platform-adapters/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "projection-api/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "projection-runtime/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "projection-tests/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "scheduler-runtime/Android.bp",
+      "type": "java_library"
+    },
+    {
+      "name": "unnamed@0",
+      "path": "shared-core/Android.bp",
+      "type": "java_library"
+    }
+  ],
+  "probe": {
+    "name": "cockpit-repo-probe",
+    "version": "1.2.0"
+  },
+  "remotes": [],
+  "repo_head": "fdee35c27048bd90443b2bbf11024e41f795ad67",
+  "repo_path": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\projection-service",
+  "source_files": 734,
+  "source_loc": 91835,
+  "stats_method": {
+    "source_files": "tracked source/build files selected by cockpit-repo-probe extension/name allowlist; Android localized values resources excluded",
+    "source_loc": "nonblank, full-line-comment-excluded logical lines; generated/cache directories and Android localized values resources excluded",
+    "tracked_files": "git ls-files excluding known generated/cache directories and Android localized values resources"
+  },
+  "tags": [
+    "framework-foundation-1.0.0",
+    "projection-service-2026.1"
+  ],
+  "tracked_files": 740,
+  "worktree_clean": true
+}

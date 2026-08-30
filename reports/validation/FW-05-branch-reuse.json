@@ -1,0 +1,70 @@
+{
+  "comparisons": [
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 2182,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 2182,
+      "compare_branch": "develop",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 2183,
+      "deleted_lines": 0,
+      "identical_blob_files": 2182,
+      "identical_blob_ratio": 0.999542,
+      "merge_base": "75743bb11957ac8d69ed010618dded632061f50d",
+      "union_files": 2183
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 2182,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 2182,
+      "compare_branch": "release/2026.1",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 2183,
+      "deleted_lines": 0,
+      "identical_blob_files": 2182,
+      "identical_blob_ratio": 0.999542,
+      "merge_base": "75743bb11957ac8d69ed010618dded632061f50d",
+      "union_files": 2183
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 2182,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 2182,
+      "compare_branch": "platform/8155",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 2183,
+      "deleted_lines": 0,
+      "identical_blob_files": 2182,
+      "identical_blob_ratio": 0.999542,
+      "merge_base": "75743bb11957ac8d69ed010618dded632061f50d",
+      "union_files": 2183
+    },
+    {
+      "added_lines": 2,
+      "base_branch": "main",
+      "base_files": 2182,
+      "binary_changed_files": 0,
+      "changed_files": 1,
+      "common_path_files": 2182,
+      "compare_branch": "platform/8295",
+      "compare_commits_since_merge_base": 1,
+      "compare_files": 2183,
+      "deleted_lines": 0,
+      "identical_blob_files": 2182,
+      "identical_blob_ratio": 0.999542,
+      "merge_base": "75743bb11957ac8d69ed010618dded632061f50d",
+      "union_files": 2183
+    }
+  ],
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\framework\\car-power-service",
+  "schema_version": "1.0.0"
+}

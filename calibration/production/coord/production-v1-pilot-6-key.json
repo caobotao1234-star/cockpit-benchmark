@@ -1,0 +1,117 @@
+{
+  "batch": "production-v1-pilot-6",
+  "generated_at": "2026-08-30T07:11:46.839449Z",
+  "repositories": [
+    {
+      "blind_id": "prod-096659c62352",
+      "kind": "FRAMEWORK",
+      "oracle_path": "oracle/FW-09.json",
+      "preflight_fact_path": "reports/production-rubric-v1/preflight/accepted/repositories/FW-09.json",
+      "quality_tier": "medium",
+      "replicate": "a",
+      "repo_id": "FW-09"
+    },
+    {
+      "blind_id": "prod-1a28828bb1e7",
+      "kind": "FRAMEWORK",
+      "oracle_path": "oracle/FW-02.json",
+      "preflight_fact_path": "reports/production-rubric-v1/preflight/accepted/repositories/FW-02.json",
+      "quality_tier": "high",
+      "replicate": "a",
+      "repo_id": "FW-02"
+    },
+    {
+      "blind_id": "prod-3d90979c58ca",
+      "kind": "APP",
+      "oracle_path": "oracle/APP-17.json",
+      "preflight_fact_path": "reports/production-rubric-v1/preflight/accepted/repositories/APP-17.json",
+      "quality_tier": "low",
+      "replicate": "a",
+      "repo_id": "APP-17"
+    },
+    {
+      "blind_id": "prod-558b29ddb34d",
+      "kind": "FRAMEWORK",
+      "oracle_path": "oracle/FW-02.json",
+      "preflight_fact_path": "reports/production-rubric-v1/preflight/accepted/repositories/FW-02.json",
+      "quality_tier": "high",
+      "replicate": "b",
+      "repo_id": "FW-02"
+    },
+    {
+      "blind_id": "prod-628e10cd2208",
+      "kind": "APP",
+      "oracle_path": "oracle/APP-17.json",
+      "preflight_fact_path": "reports/production-rubric-v1/preflight/accepted/repositories/APP-17.json",
+      "quality_tier": "low",
+      "replicate": "b",
+      "repo_id": "APP-17"
+    },
+    {
+      "blind_id": "prod-7cfa8d543962",
+      "kind": "FRAMEWORK",
+      "oracle_path": "oracle/FW-15.json",
+      "preflight_fact_path": "reports/production-rubric-v1/preflight/accepted/repositories/FW-15.json",
+      "quality_tier": "low",
+      "replicate": "a",
+      "repo_id": "FW-15"
+    },
+    {
+      "blind_id": "prod-8b8e781cd0b6",
+      "kind": "APP",
+      "oracle_path": "oracle/APP-08.json",
+      "preflight_fact_path": "reports/production-rubric-v1/preflight/accepted/repositories/APP-08.json",
+      "quality_tier": "medium",
+      "replicate": "b",
+      "repo_id": "APP-08"
+    },
+    {
+      "blind_id": "prod-8c5f0aa0c6f5",
+      "kind": "APP",
+      "oracle_path": "oracle/APP-03.json",
+      "preflight_fact_path": "reports/production-rubric-v1/preflight/accepted/repositories/APP-03.json",
+      "quality_tier": "high",
+      "replicate": "a",
+      "repo_id": "APP-03"
+    },
+    {
+      "blind_id": "prod-a33814a91c0f",
+      "kind": "APP",
+      "oracle_path": "oracle/APP-03.json",
+      "preflight_fact_path": "reports/production-rubric-v1/preflight/accepted/repositories/APP-03.json",
+      "quality_tier": "high",
+      "replicate": "b",
+      "repo_id": "APP-03"
+    },
+    {
+      "blind_id": "prod-b4f47b69a9bc",
+      "kind": "APP",
+      "oracle_path": "oracle/APP-08.json",
+      "preflight_fact_path": "reports/production-rubric-v1/preflight/accepted/repositories/APP-08.json",
+      "quality_tier": "medium",
+      "replicate": "a",
+      "repo_id": "APP-08"
+    },
+    {
+      "blind_id": "prod-c29d79a6bb34",
+      "kind": "FRAMEWORK",
+      "oracle_path": "oracle/FW-09.json",
+      "preflight_fact_path": "reports/production-rubric-v1/preflight/accepted/repositories/FW-09.json",
+      "quality_tier": "medium",
+      "replicate": "b",
+      "repo_id": "FW-09"
+    },
+    {
+      "blind_id": "prod-d2520868f599",
+      "kind": "FRAMEWORK",
+      "oracle_path": "oracle/FW-15.json",
+      "preflight_fact_path": "reports/production-rubric-v1/preflight/accepted/repositories/FW-15.json",
+      "quality_tier": "low",
+      "replicate": "b",
+      "repo_id": "FW-15"
+    }
+  ],
+  "rubric_version": "production-code-health-v1",
+  "schema_version": "1.0.0",
+  "warning": "COORDINATOR ONLY - NEVER SEND TO AN EVALUATION AGENT"
+}

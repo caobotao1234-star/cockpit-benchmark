@@ -1,0 +1,299 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-782b96660b4f",
+  "repository_head": "54d2aa88b2a105feee961ace11be504fca8a08df",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04fdf-e861-7423-9b2e-883e2be724bd",
+    "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T23:34:22.044Z",
+    "finished_at": "2026-08-29T23:37:49.360Z",
+    "wall_clock_seconds": 207.316,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 51,
+    "directories_visited": 25,
+    "tool_calls": 20,
+    "notes": "HEAD 与协调方提供的 SHA 一致。静态检查覆盖 23 个 Java 生产文件、6 个 AIDL 契约、8 个有实质断言的测试文件、9 个构建文件、TEST_MAPPING，以及 4 个分支专属配置文件；盘点到 35 个 AIDL、548 个 Java、5 个 C++ 和 287 个测试源文件。检查了全部本地分支，并完成 main 与 develop、release/2026.1、platform/8155、platform/8295 的有界比较及两个平台分支间比较。按约束未运行构建、脚本或网络操作。 Runner normalized tool_calls from Codex JSONL to 20 (evaluator self-report: 20); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 2,
+      "reason": "API、服务和测试边界在 Soong 中明确，HAL、系统接口和业务服务也有可辨识的分层；但服务模块仍整体编译全部源码，ICarImpl 同时承担大量对象构造、依赖排序、生命周期和 Binder 注册职责，形成明显的中心化组合根和变更热点。",
+      "evidence": [
+        {
+          "path": "Android.bp",
+          "ref": null,
+          "symbol_or_line": "lines 3-32, OccupantZoneApiBoundary / OccupantZoneServiceBoundary / OccupantZoneBoundaryTests",
+          "observation": "构建定义显式区分 API、服务实现和测试，并保持单向静态依赖。"
+        },
+        {
+          "path": "service/src/com/android/car/ICarImpl.java",
+          "ref": null,
+          "symbol_or_line": "ICarImpl constructor, lines 182-213 and service ordering at lines 416-430",
+          "observation": "构造器集中创建 VehicleHal 和大量服务，随后以手工顺序维护跨服务生命周期，边界清楚但组合职责很重。"
+        },
+        {
+          "path": "service/src/com/android/car/hal/VehicleHal.java",
+          "ref": null,
+          "symbol_or_line": "constructor and init, lines 124-180 and 218-258",
+          "observation": "VehicleHal 将属性按 HalServiceBase 分发，并对各 HAL 子服务统一初始化，体现了较好的子系统内聚。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 2,
+      "reason": "系统调用和多版本 Audio HAL 通过小接口、工厂和可替换实现体现了 ISP、OCP 与 DIP，测试构造器也允许注入关键依赖；另一方面 ICarImpl 的大规模构造职责以及 VehicleHal 的长参数测试构造器说明 SRP 和依赖组装仍不够系统化。",
+      "evidence": [
+        {
+          "path": "service/src/com/android/car/systeminterface/SystemInterface.java",
+          "ref": null,
+          "symbol_or_line": "SystemInterface and Builder, lines 39-65 and 218-254",
+          "observation": "按活动管理、显示、I/O、存储、状态、时间和唤醒锁拆分接口，再由组合对象委托，支持细粒度替换。"
+        },
+        {
+          "path": "service/src/com/android/car/audio/hal/AudioControlFactory.java",
+          "ref": null,
+          "symbol_or_line": "newAudioControl(), lines 36-65",
+          "observation": "客户端依赖统一 AudioControlWrapper，工厂按 AIDL、HIDL V2、HIDL V1 选择实现，版本扩展被限制在适配层。"
+        },
+        {
+          "path": "service/src/com/android/car/ICarImpl.java",
+          "ref": null,
+          "symbol_or_line": "fields and constructor, lines 112-159 and 182-213",
+          "observation": "同一类持有并组装数十个服务，SRP 压力明显。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 2,
+      "reason": "多数 Android/AAOS 系统能力被封装为 typed helper、SystemInterface 或 HAL wrapper，并普遍处理 RemoteException、权限和服务死亡；但仍存在硬编码系统路径、直接 SystemProperties 访问以及对外部 framework 实现库的紧耦合，隔离程度不完全一致。",
+      "evidence": [
+        {
+          "path": "service/src/com/android/car/systeminterface/SystemInterface.java",
+          "ref": null,
+          "symbol_or_line": "defaultSystemInterface(), lines 233-243",
+          "observation": "平台活动管理、显示、存储、状态、时间和唤醒锁实现集中在一个可替换的构建入口。"
+        },
+        {
+          "path": "service/src/com/android/car/HidlVehicleStub.java",
+          "ref": null,
+          "symbol_or_line": "getService(), lines 226-230",
+          "observation": "HIDL VHAL 实例名直接来自 ro.vehicle.hal，并直接获取平台服务；异常被捕获，但平台选择仍硬编码在适配器中。"
+        },
+        {
+          "path": "service/src/com/android/car/systeminterface/IOInterface.java",
+          "ref": null,
+          "symbol_or_line": "DefaultImpl, lines 34-44",
+          "observation": "系统目录访问被接口包裹，默认实现仍硬编码 /data/system/car。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "scored",
+      "score": 2,
+      "reason": "反射点数量有限，类名集中为常量，返回值有明确基类或接口类型，加载失败也采用明确的 fail-fast 异常；不过 EVS 重复实现了原始 ClassLoader/Constructor 逻辑，多个点捕获宽泛 Exception，枚举反射还有静默忽略访问错误的语义，缺少统一的可注入反射边界。",
+      "evidence": [
+        {
+          "path": "service/src/com/android/car/BuiltinPackageDependency.java",
+          "ref": null,
+          "symbol_or_line": "class constants and createNotificationHelper(), lines 27-53 and 82-91",
+          "observation": "反射依赖集中列出，构造结果强制转换为 NotificationHelperBase，并将加载失败转换为 IllegalStateException。"
+        },
+        {
+          "path": "service/src/com/android/car/evs/CarEvsService.java",
+          "ref": null,
+          "symbol_or_line": "createHalWrapper(), lines 810-821",
+          "observation": "EVS 通过固定类名和接口构造器加载实现，但重复了反射机制并捕获所有 Exception。"
+        },
+        {
+          "path": "service/src/com/android/car/hal/DiagnosticHalService.java",
+          "ref": null,
+          "symbol_or_line": "getLastIndex(), lines 352-368",
+          "observation": "字段反射限定为 public static final int，但 IllegalAccessException 被直接忽略。"
+        }
+      ]
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 2,
+      "reason": "契约整体类型化且粒度合理，异步用户操作使用 AndroidFuture，脚本执行针对大输入提供文件描述符，回调和 Binder death 也有专门生命周期处理；不足是部分服务以 sentinel/boolean 表达错误，权限主要依赖实现侧检查而非契约可见声明，错误语义在不同边界间不完全统一。",
+      "evidence": [
+        {
+          "path": "car-lib/src/android/car/ICarUserService.aidl",
+          "ref": null,
+          "symbol_or_line": "ICarUserService, lines 30-44",
+          "observation": "用户切换、创建、移除和关联操作使用具体结果类型及 AndroidFuture，避免阻塞式粗粒度 Binder 调用。"
+        },
+        {
+          "path": "service/src/com/android/car/telemetry/scriptexecutorinterface/IScriptExecutor.aidl",
+          "ref": null,
+          "symbol_or_line": "IScriptExecutor, lines 27-61",
+          "observation": "oneway 调用配合结果 listener，并为可能超过 Binder 缓冲区的大输入提供 ParcelFileDescriptor 专用入口。"
+        },
+        {
+          "path": "service/src/com/android/car/BinderInterfaceContainer.java",
+          "ref": null,
+          "symbol_or_line": "BinderInterface and addBinder(), lines 44-65 and 92-106",
+          "observation": "通用容器注册 DeathRecipient、去重 Binder，并在链接失败时显式拒绝注册。"
+        },
+        {
+          "path": "car-lib/src/android/car/CarOccupantZoneManager.java",
+          "ref": null,
+          "symbol_or_line": "getAllOccupantZones() and register callback, lines 317-322 and 504-535",
+          "observation": "客户端统一处理 RemoteException 并维护首次注册、末次注销回调，但部分远程失败被折叠为空集合或静默注销。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "仓库只包含 AOSP/AAOS Car 源码的选择性子集；Soong 定义依赖大量当前工作区不存在的 framework、HAL、proto 和其他 packages/services/Car 模块，且声明 platform_apis/core_platform。受控环境不提供所需 AOSP 构建树，因此无法建立或验证可信的独立编译边界。",
+      "evidence": [
+        {
+          "path": "service/Android.bp",
+          "ref": null,
+          "symbol_or_line": "carservice-updatable-min-java-defaults, lines 34-105",
+          "observation": "服务依赖仓库外的 watchdog、procfs、Bluetooth、framework、telemetry、power-policy、HIDL/AIDL HAL 等模块，并明确使用 module_current。"
+        },
+        {
+          "path": "car-builtin-lib/Android.bp",
+          "ref": null,
+          "symbol_or_line": "android.car.builtin, lines 20-46",
+          "observation": "模块声明 core_platform，并依赖 framework-bluetooth.impl 和 framework；对应完整平台输入不在当前仓库。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 3,
+      "reason": "测试不止验证文件或构造结果：既有真实 Car manager/服务连接的设备测试，也有权限身份切换、异步回调、跨 Binder 状态传播、HAL 错误重试和死亡重连覆盖。虽然本轮按要求未执行测试，但静态测试深度和边界覆盖充分。",
+      "evidence": [
+        {
+          "path": "tests/carservice_test/src/com/android/car/vms/VmsClientTest.java",
+          "ref": null,
+          "symbol_or_line": "setUpTest() and registration tests, lines 97-139",
+          "observation": "通过真实 Car manager 连接 VMS，验证多个客户端之间的当前 layer/subscription 状态及异步回调。"
+        },
+        {
+          "path": "tests/CarSecurityPermissionTest/src/com/android/car/watchdog/CarWatchdogManagerPermissionTest.java",
+          "ref": null,
+          "symbol_or_line": "permission tests, lines 59-124 and 207-216",
+          "observation": "设备级测试实际采用和撤销 shell 权限身份，并断言跨服务调用返回精确 SecurityException 语义。"
+        },
+        {
+          "path": "tests/carservice_unit_test/src/com/android/car/audio/hal/AudioControlWrapperAidlTest.java",
+          "ref": null,
+          "symbol_or_line": "Binder death tests, lines 273-317",
+          "observation": "验证 linkToDeath、服务重新获取、重新链接和上层死亡通知的完整恢复流程。"
+        },
+        {
+          "path": "tests/carservice_unit_test/src/com/android/car/hal/VehicleHalTest.java",
+          "ref": null,
+          "symbol_or_line": "event/error and retry tests, lines 607-690 and 770-832",
+          "observation": "覆盖事件分发、未知属性隔离、分区错误路由、ServiceSpecificException、重试成功和 init 前访问。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 2,
+      "reason": "主要重复集中在不可避免的 AIDL/HIDL 版本适配族：AudioControl V1/V2/AIDL 和 VehicleStub 的不同传输实现重复了服务获取、异常转换、death link/unlink 与重连骨架。共享接口和工厂限制了重复向业务层扩散，但适配器内部仍有近似生命周期代码，维护时需同步修改多个手写文件。",
+      "evidence": [
+        {
+          "path": "service/src/com/android/car/audio/hal/AudioControlWrapperV2.java",
+          "ref": null,
+          "symbol_or_line": "getService(), remote methods and death handling, lines 54-62 and 169-195",
+          "observation": "服务发现、RemoteException 转换、link/unlink 和死亡后重新获取流程与 V1/AIDL 实现高度相似。"
+        },
+        {
+          "path": "service/src/com/android/car/audio/hal/AudioControlWrapperV1.java",
+          "ref": null,
+          "symbol_or_line": "getService() and death handling, lines 48-64 and 158-184",
+          "observation": "手写实现重复 V2 的生命周期骨架，仅能力矩阵和 HAL 类型不同。"
+        },
+        {
+          "path": "service/src/com/android/car/audio/hal/AudioControlWrapper.java",
+          "ref": null,
+          "symbol_or_line": "AudioControlWrapper, lines 35-159",
+          "observation": "统一接口把版本重复限制在适配层，业务调用方无需复制版本判断。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 2,
+      "reason": "所有 release/platform/develop 分支都直接基于当前 main，且各自仅领先一个提交；release 分支只增加两行冻结渠道/模式配置，平台分支也只增加两行平台配置，未形成代码叉枝。策略当前很克制，但历史只有单次分叉，没有足够证据证明长期修复回合、合并或回灌纪律，因此不评为最高分。",
+      "evidence": [
+        {
+          "path": "product/release.properties",
+          "ref": "release/2026.1",
+          "symbol_or_line": "lines 1-2",
+          "observation": "release/2026.1 相对 main 唯一变化是 occupant.channel=sop-2026.1 和 occupant.schema=3。"
+        },
+        {
+          "path": "product/development.properties",
+          "ref": "develop",
+          "symbol_or_line": "lines 1-2",
+          "observation": "develop 相对 main 唯一变化是 tracing 与预创建用户配置，没有复制生产代码。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "platform/8155 相对 main 仅增加平台标识和 display_assignment 配置。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 3,
+      "reason": "平台差异通过薄配置分支和公共适配层表达：8155/8295 分支没有各自复制 Java 实现，二者仅在同一两项配置值上不同；运行时代码通过统一 AudioControl 和 VehicleStub 抽象复用 AIDL/HIDL 实现。这使平台变化保持在配置或边界适配器内。",
+      "evidence": [
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8155 只声明 sa8155 与 legacy display assignment。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8295 使用相同配置结构，仅替换为 sa8295 与 dynamic assignment；分支间无生产源码差异。"
+        },
+        {
+          "path": "service/src/com/android/car/audio/hal/AudioControlFactory.java",
+          "ref": null,
+          "symbol_or_line": "newAudioControl(), lines 36-65",
+          "observation": "公共核心按能力选择 AIDL、HIDL V2 或 V1 wrapper，而非要求平台分支维护独立音频策略。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 2.222222,
+    "scored_dimension_count": 9,
+    "failed_dimension_count": 1,
+    "narrative": "主要优势是清晰的 API/服务/HAL 分层、集中且类型化的平台适配、成熟的 Binder 生命周期处理，以及覆盖真实 manager、权限、异步回调、HAL 错误和死亡恢复的测试体系。平台与发布分支目前保持为极薄配置差异，共享核心代码未发生分叉。主要风险来自 ICarImpl 的中心化组装职责、多个手写版本适配器中的生命周期重复、少量宽泛或静默的反射错误处理，以及对完整 AOSP/AAOS 构建环境的强依赖。独立编译因缺少必需平台输入而无法验证；发布策略也只有一次分叉历史，长期合并纪律仍有不确定性。20 次 shell 调用在 28 次预算内完成了规定的生产、测试、契约、构建和分支覆盖，静态代码健康判断的探索预算充分。"
+  }
+}

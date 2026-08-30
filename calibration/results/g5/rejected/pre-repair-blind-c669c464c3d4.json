@@ -1,0 +1,286 @@
+{
+  "schema_version": "1.0.0",
+  "blind_id": "blind-c669c464c3d4",
+  "repository_head": "6cf3eca1c528f7ce916f86620e350e7ad98270f7",
+  "status": "completed",
+  "run": {
+    "run_id": "01a04fba-e618-7353-90a8-f96f29c329b1",
+    "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+    "model": "gpt-5.6-sol",
+    "started_at": "2026-08-29T22:54:00.674Z",
+    "finished_at": "2026-08-29T22:58:09.477Z",
+    "wall_clock_seconds": 248.803,
+    "rounds_used": 1,
+    "max_rounds": 1,
+    "wall_clock_budget_seconds": 900,
+    "truncated": false,
+    "truncation_reason": null
+  },
+  "exploration": {
+    "files_opened": 94,
+    "directories_visited": 23,
+    "tool_calls": 23,
+    "notes": "HEAD 与预期 SHA 一致。静态审查覆盖全部 60 个 Java 文件的规模清单，并深入检查了超过 20 个生产文件、7 个测试文件、全部 20 个 AIDL 合约、6 个模块构建入口、Manifest、资源重复族及本地分支差异。比较了 main 与 release/2026.1、platform/8155、platform/8295、develop，并比较了两个平台分支。未运行构建、脚本或网络操作；未修改文件；未使用 skill。 Runner normalized tool_calls from Codex JSONL to 23 (evaluator self-report: 23); prompt=g2-code-health-v2; reasoning_effort=high."
+  },
+  "dimensions": [
+    {
+      "name": "architecture",
+      "status": "scored",
+      "score": 1,
+      "reason": "API、core、platform、storage、app 的静态依赖方向清楚，但实际组合层只接入一个很小的内存运行时；大量成熟的策略、工作流、跨用户边界、持久化和平台适配器仅由测试单独实例化，未进入应用主路径。这种“模块存在但系统未组合”的跨切面脱节使集成变更风险较高。",
+      "evidence": [
+        {
+          "path": "app/build.gradle",
+          "ref": null,
+          "symbol_or_line": "line 6",
+          "observation": "应用声明依赖 identity-api、identity-core、identity-platform 和 identity-storage，模块边界在构建层明确。"
+        },
+        {
+          "path": "app/src/main/java/com/cockpitbench/idhub/IdentityApplication.java",
+          "ref": null,
+          "symbol_or_line": "IdentityApplication.onCreate, line 16",
+          "observation": "生产组合仅创建 IdentityRuntime、InMemoryAccountRepository 和 SystemIdentityClock，没有接入 storage、provider、policy 或 workflow 组件。"
+        },
+        {
+          "path": "identity-core/src/main/java/com/cockpitbench/idhub/core/IdentityRuntime.java",
+          "ref": null,
+          "symbol_or_line": "IdentityRuntime constructor and authenticate, line 16",
+          "observation": "运行时内部只组合账户、简单 consent/binding/session/audit 对象，与同模块中更完整的策略和协调器体系脱节。"
+        }
+      ]
+    },
+    {
+      "name": "solid",
+      "status": "scored",
+      "score": 2,
+      "reason": "核心状态机广泛使用小型接口和构造注入，具备可信的 DIP/OCP 测试接缝；但若干协调器达到 300–440 行且同时承载状态、校验、历史和观察者发布，组合根也直接构造具体实现，SRP/DIP 执行不均衡。",
+      "evidence": [
+        {
+          "path": "identity-core/src/main/java/com/cockpitbench/idhub/core/AuthenticationPipeline.java",
+          "ref": null,
+          "symbol_or_line": "Verifier and constructor, lines 50-54 and 171-175",
+          "observation": "认证验证行为通过 Verifier 注入，允许替换具体认证机制而无需修改状态机。"
+        },
+        {
+          "path": "identity-core/src/main/java/com/cockpitbench/idhub/core/IdentityWorkflowEngine.java",
+          "ref": null,
+          "symbol_or_line": "Action/Observer and constructor, lines 50-57 and 209-212",
+          "observation": "工作流动作、观察者和时钟形成明确扩展与测试接缝。"
+        },
+        {
+          "path": "identity-core/src/main/java/com/cockpitbench/idhub/core/AccountLifecycleCoordinator.java",
+          "ref": null,
+          "symbol_or_line": "AccountLifecycleCoordinator, lines 27-378",
+          "observation": "单类同时维护生命周期状态、事件历史、观察者、验证和所有转换，职责较宽。"
+        }
+      ]
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "scored",
+      "score": 2,
+      "reason": "Android Binder、UserHandle、权限检查和回调管理基本集中在 app/platform，且导出服务受 signature 权限保护；不足是若干身份/用户适配器未被生产路径使用，跨用户方法直接接受 userId，平台失败处理也较薄。",
+      "evidence": [
+        {
+          "path": "identity-platform/src/main/java/com/cockpitbench/idhub/platform/IdentityPermissionGate.java",
+          "ref": null,
+          "symbol_or_line": "IdentityPermissionGate, line 16",
+          "observation": "管理身份和跨用户权限检查集中封装，并使用 enforceCallingOrSelfPermission。"
+        },
+        {
+          "path": "identity-platform/src/main/java/com/cockpitbench/idhub/platform/UserScopeResolver.java",
+          "ref": null,
+          "symbol_or_line": "UserScopeResolver.normalize, line 16",
+          "observation": "UserHandle 特殊值被集中归一化，但未发现生产调用点。"
+        },
+        {
+          "path": "app/src/main/AndroidManifest.xml",
+          "ref": null,
+          "symbol_or_line": "lines 2-7",
+          "observation": "服务由 signature 级 MANAGE_IDENTITY 权限保护，同时声明系统级跨用户权限。"
+        }
+      ]
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "not_applicable",
+      "score": null,
+      "reason": "对全部 Java、AIDL、XML 和 Gradle 文件的静态搜索未发现 Class.forName、反射成员访问、invoke、@hide、@SystemApi、ServiceManager 或其他隐藏 API 调用；发现的 Binder/UserHandle/RemoteCallbackList 使用均为直接类型化调用。",
+      "evidence": []
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "scored",
+      "score": 1,
+      "reason": "合约按账户、授权、设备、角色、会话和同步拆分，Parcelable 类型明确，实际导出服务也有权限门和 RemoteCallbackList 生命周期清理。但只有 IIdentityService 找到实现；其余服务/监听合约没有生产接线。Binder 调用同步直达内存运行时，错误多以空值、字符串或静默忽略表达，缺少服务端死亡/版本协商和跨进程失败语义测试。",
+      "evidence": [
+        {
+          "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IIdentityService.aidl",
+          "ref": null,
+          "symbol_or_line": "IIdentityService, line 8",
+          "observation": "主服务提供查询、认证、登出和监听器注册，但没有版本方法或结构化服务错误协议。"
+        },
+        {
+          "path": "app/src/main/java/com/cockpitbench/idhub/IdentityService.java",
+          "ref": null,
+          "symbol_or_line": "binder stub and lifecycle, line 16",
+          "observation": "权限检查和 onDestroy 清理存在，但同步 Binder 方法直接调用运行时，且未验证参数、调用者 userId 或异常映射。"
+        },
+        {
+          "path": "identity-platform/src/main/java/com/cockpitbench/idhub/platform/IdentityCallbackRegistry.java",
+          "ref": null,
+          "symbol_or_line": "publish, line 16",
+          "observation": "RemoteCallbackList 正确包围 begin/finishBroadcast，但 RemoteException 被无条件忽略，调用者不可观察回调失败。"
+        }
+      ]
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "score": null,
+      "reason": "仓库声明 Android Gradle Plugin 8.7.3 和 compileSdk 35，但没有 Gradle wrapper；受控环境不提供或允许验证所需 Android SDK/插件输入，因此不能建立可信的独立编译边界。此外，ConsentLedger.java 含原始 NUL 字节，是静态可见的潜在 Java 编译阻断。按 rubric 不对未验证的编译独立性猜测评分。",
+      "evidence": [
+        {
+          "path": "build.gradle",
+          "ref": null,
+          "symbol_or_line": "lines 1-3",
+          "observation": "构建依赖 Android Gradle Plugin 8.7.3。"
+        },
+        {
+          "path": "identity-core/build.gradle",
+          "ref": null,
+          "symbol_or_line": "line 2",
+          "observation": "模块要求 compileSdkVersion 35。"
+        },
+        {
+          "path": "identity-core/src/main/java/com/cockpitbench/idhub/core/ConsentLedger.java",
+          "ref": null,
+          "symbol_or_line": "ConsentLedger.key, line 16",
+          "observation": "字符串分隔符中存在原始 NUL 字节；rg 默认将该源码识别为二进制文件。"
+        }
+      ]
+    },
+    {
+      "name": "integration_testing",
+      "status": "scored",
+      "score": 1,
+      "reason": "单元测试对认证、恢复、工作流、角色、冲突和生命周期有较好的行为断言；所谓 integrationtests 也组合了多个核心策略并覆盖拒绝路径。然而它们被并入普通 JVM test source set，仅测试同进程纯 Java 对象，没有启动应用/服务、跨 Binder、权限、RemoteException、存储或 Android 用户生命周期覆盖。",
+      "evidence": [
+        {
+          "path": "identity-tests/build.gradle",
+          "ref": null,
+          "symbol_or_line": "lines 2-3",
+          "observation": "src/integrationtests/java 被并入 test source set，依赖只有 core/api 和 JUnit，没有 instrumentation 配置或 app/platform/storage 依赖。"
+        },
+        {
+          "path": "identity-tests/src/integrationtests/java/com/cockpitbench/idhub/integrationtests/CrossUserIdentityBoundaryIntegrationTest.java",
+          "ref": null,
+          "symbol_or_line": "tests at lines 29-126",
+          "observation": "覆盖策略与跨用户决策组合、撤销委托和行驶中拒绝，但使用手工 Caller/Target 数据，不经过 Android/Binder 边界。"
+        },
+        {
+          "path": "identity-tests/src/integrationtests/java/com/cockpitbench/idhub/integrationtests/PrivacyGovernanceIntegrationTest.java",
+          "ref": null,
+          "symbol_or_line": "exportBudgetAndRetentionActionsRemainAuditable, lines 31-139",
+          "observation": "组合导出与保留规划并作具体断言，但仍是纯内存核心对象测试。"
+        }
+      ]
+    },
+    {
+      "name": "code_duplication",
+      "status": "scored",
+      "score": 2,
+      "reason": "未发现平台分支复制生产代码，XML 家族的内容哈希也各不相同，主要是声明式数据变体。局部维护负担来自六个手写 Parcelable 的近模板实现，以及几乎所有 AIDL 接口复制整套无关 import；这是明显但局限于 API 层的重复。",
+      "evidence": [
+        {
+          "path": "identity-api/src/main/java/com/cockpitbench/idhub/api/AuthRequest.java",
+          "ref": null,
+          "symbol_or_line": "Parcelable implementation, lines 20-52",
+          "observation": "构造、validate、Parcel 读写和 CREATOR 模板与其他五个 API 数据类高度相似且为手写代码。"
+        },
+        {
+          "path": "identity-api/src/main/java/com/cockpitbench/idhub/api/AuthResult.java",
+          "ref": null,
+          "symbol_or_line": "Parcelable implementation, lines 20-52",
+          "observation": "重复同一 Parcelable/校验骨架，字段差异是主要变化。"
+        },
+        {
+          "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IAccountService.aidl",
+          "ref": null,
+          "symbol_or_line": "lines 2-7",
+          "observation": "复制导入全部六个 Parcelable，其中多数未被该接口使用。"
+        },
+        {
+          "path": "identity-api/src/main/aidl/com/cockpitbench/idhub/api/IConsentService.aidl",
+          "ref": null,
+          "symbol_or_line": "lines 2-7",
+          "observation": "再次复制完全相同的六条 import，体现 API 合约模板重复。"
+        }
+      ]
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "scored",
+      "score": 2,
+      "reason": "release 和两个 platform 分支都从当前 main 精确分叉且各仅领先一个提交；实际差异分别限于两行发布或平台属性，release 提交还有同 SHA 标签。这是受控、低冲突的分歧，但历史中没有合并提交，属性也未被构建或生产代码消费，因此长期回合并和发布机制尚未得到证明。",
+      "evidence": [
+        {
+          "path": "product/release.properties",
+          "ref": "release/2026.1",
+          "symbol_or_line": "lines 1-2",
+          "observation": "发布分支只增加 channel 和 contract 两项冻结配置。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8155 分支只增加平台与 legacy keystore 两项配置。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8295 分支保持相同配置形状，只改变平台与 keystore 值。"
+        }
+      ]
+    },
+    {
+      "name": "platform_reuse",
+      "status": "scored",
+      "score": 2,
+      "reason": "平台分支共享全部主干源码，没有发现按 SoC 复制的 Java/AIDL/XML 实现；差异集中在相同的两项属性，公共核心与 Android 适配层也分模块放置。限制是这些分支属性没有任何消费点，多个平台/provider/storage 适配类亦未接入应用，因此复用结构清楚但真实平台变化隔离尚未闭环。",
+      "evidence": [
+        {
+          "path": "identity-platform/build.gradle",
+          "ref": null,
+          "symbol_or_line": "lines 1-3",
+          "observation": "Android 平台适配器独立成模块并只依赖公共 API/core。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8155",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8155 差异以数据配置表达，没有平台源码 fork。"
+        },
+        {
+          "path": "product/platform.properties",
+          "ref": "platform/8295",
+          "symbol_or_line": "lines 1-2",
+          "observation": "8295 复用同一配置键，仅替换 SoC 和 keystore 策略值。"
+        },
+        {
+          "path": "app/src/main/java/com/cockpitbench/idhub/IdentityApplication.java",
+          "ref": null,
+          "symbol_or_line": "onCreate, line 16",
+          "observation": "当前组合根没有读取平台配置或注入平台专用实现，削弱了配置复用机制的可验证性。"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "unweighted_mean": 1.625,
+    "scored_dimension_count": 8,
+    "failed_dimension_count": 2,
+    "narrative": "主要优势是清晰的静态模块方向、类型化 AIDL/Parcelable、集中权限门，以及对核心状态机和策略的大量行为测试。主要风险是生产组合远小于仓库声明的能力：高级核心引擎、平台适配器、存储层和多数 AIDL 合约基本停留在独立代码或测试中；跨进程错误语义与真正的平台集成测试也不足。平台和发布分支的分歧非常小且配置化，但配置没有消费点、历史也不足以证明长期合并策略。编译独立性因受控环境无法提供 Android SDK/插件验证而保持失败状态，且源码中的原始 NUL 字节构成额外风险。23 次 shell 调用低于 28 次预算，覆盖了全部模块、足量生产/测试文件、全部 AIDL 及三组以上分支比较，探索预算充分。未修改文件，未使用 skill。"
+  }
+}

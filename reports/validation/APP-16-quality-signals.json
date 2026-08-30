@@ -1,0 +1,1148 @@
+{
+  "aidl_interfaces": [],
+  "broad_catches": 21,
+  "broad_catches_per_kloc": 0.578401,
+  "code_source_files": 343,
+  "coupling_hotspots": [
+    {
+      "broad_catches": 3,
+      "global_state_sites": 1,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 86,
+      "methods": 11,
+      "path": "app/src/com/android/car/carlauncher/product/VendorLauncherRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 6
+    },
+    {
+      "broad_catches": 3,
+      "global_state_sites": 1,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 86,
+      "methods": 11,
+      "path": "platform/8155/app/src/com/android/car/carlauncher/product/VendorLauncherRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 6
+    },
+    {
+      "broad_catches": 3,
+      "global_state_sites": 1,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 86,
+      "methods": 11,
+      "path": "platform/8295/app/src/com/android/car/carlauncher/product/VendorLauncherRuntime.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 6
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 3,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 330,
+      "methods": 28,
+      "path": "app/src/com/android/car/carlauncher/recents/RecentTasksProvider.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 3,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 330,
+      "methods": 28,
+      "path": "platform/8155/app/src/com/android/car/carlauncher/recents/RecentTasksProvider.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 3,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 330,
+      "methods": 28,
+      "path": "platform/8295/app/src/com/android/car/carlauncher/recents/RecentTasksProvider.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 2,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 513,
+      "methods": 25,
+      "path": "libs/appgrid/lib/src/com/android/car/carlauncher/AppGridFragment.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 332,
+      "methods": 22,
+      "path": "app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 332,
+      "methods": 22,
+      "path": "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 332,
+      "methods": 22,
+      "path": "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 270,
+      "methods": 22,
+      "path": "app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 270,
+      "methods": 22,
+      "path": "platform/8155/app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 270,
+      "methods": 22,
+      "path": "platform/8295/app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 2,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 167,
+      "methods": 7,
+      "path": "libs/appgrid/lib/src/com/android/car/carlauncher/datasources/ControlCenterMirroringDataSource.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 161,
+      "methods": 12,
+      "path": "app/src/com/android/car/carlauncher/taskstack/TaskStackChangeListeners.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 161,
+      "methods": 12,
+      "path": "platform/8155/app/src/com/android/car/carlauncher/taskstack/TaskStackChangeListeners.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 2,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 161,
+      "methods": 12,
+      "path": "platform/8295/app/src/com/android/car/carlauncher/taskstack/TaskStackChangeListeners.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 118,
+      "methods": 4,
+      "path": "libs/appgrid/lib/robotests/src/com/android/car/carlauncher/datasources/UXRestrictionsDataSourceImplTest.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 2
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 2,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 101,
+      "methods": 3,
+      "path": "libs/appgrid/lib/src/com/android/car/carlauncher/datasources/LauncherActivitiesDataSource.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 60,
+      "methods": 2,
+      "path": "docklib/src/com/android/car/docklib/data/DockAppItem.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "exact_normalized_duplicate_groups": [
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/CarLauncher.java",
+        "platform/8155/app/src/com/android/car/carlauncher/CarLauncher.java",
+        "platform/8295/app/src/com/android/car/carlauncher/CarLauncher.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/CarLauncherUtils.java",
+        "platform/8155/app/src/com/android/car/carlauncher/CarLauncherUtils.java",
+        "platform/8295/app/src/com/android/car/carlauncher/CarLauncherUtils.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/CarLauncherViewModel.java",
+        "platform/8155/app/src/com/android/car/carlauncher/CarLauncherViewModel.java",
+        "platform/8295/app/src/com/android/car/carlauncher/CarLauncherViewModel.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/ControlBarActivity.java",
+        "platform/8155/app/src/com/android/car/carlauncher/ControlBarActivity.java",
+        "platform/8295/app/src/com/android/car/carlauncher/ControlBarActivity.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/calmmode/CalmModeActivity.java",
+        "platform/8155/app/src/com/android/car/carlauncher/calmmode/CalmModeActivity.java",
+        "platform/8295/app/src/com/android/car/carlauncher/calmmode/CalmModeActivity.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/calmmode/CalmModeFragment.java",
+        "platform/8155/app/src/com/android/car/carlauncher/calmmode/CalmModeFragment.java",
+        "platform/8295/app/src/com/android/car/carlauncher/calmmode/CalmModeFragment.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/calmmode/CalmModeQCProvider.java",
+        "platform/8155/app/src/com/android/car/carlauncher/calmmode/CalmModeQCProvider.java",
+        "platform/8295/app/src/com/android/car/carlauncher/calmmode/CalmModeQCProvider.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/calmmode/CalmModeStatsLogHelper.java",
+        "platform/8155/app/src/com/android/car/carlauncher/calmmode/CalmModeStatsLogHelper.java",
+        "platform/8295/app/src/com/android/car/carlauncher/calmmode/CalmModeStatsLogHelper.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/calmmode/NavigationStateData.java",
+        "platform/8155/app/src/com/android/car/carlauncher/calmmode/NavigationStateData.java",
+        "platform/8295/app/src/com/android/car/carlauncher/calmmode/NavigationStateData.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/calmmode/NavigationStateViewModel.java",
+        "platform/8155/app/src/com/android/car/carlauncher/calmmode/NavigationStateViewModel.java",
+        "platform/8295/app/src/com/android/car/carlauncher/calmmode/NavigationStateViewModel.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/calmmode/TemperatureData.java",
+        "platform/8155/app/src/com/android/car/carlauncher/calmmode/TemperatureData.java",
+        "platform/8295/app/src/com/android/car/carlauncher/calmmode/TemperatureData.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/calmmode/TemperatureViewModel.java",
+        "platform/8155/app/src/com/android/car/carlauncher/calmmode/TemperatureViewModel.java",
+        "platform/8295/app/src/com/android/car/carlauncher/calmmode/TemperatureViewModel.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/homescreen/CardPresenter.java",
+        "platform/8155/app/src/com/android/car/carlauncher/homescreen/CardPresenter.java",
+        "platform/8295/app/src/com/android/car/carlauncher/homescreen/CardPresenter.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+        "platform/8155/app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+        "platform/8295/app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/homescreen/HomeCardInterface.java",
+        "platform/8155/app/src/com/android/car/carlauncher/homescreen/HomeCardInterface.java",
+        "platform/8295/app/src/com/android/car/carlauncher/homescreen/HomeCardInterface.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/homescreen/HomeCardModule.java",
+        "platform/8155/app/src/com/android/car/carlauncher/homescreen/HomeCardModule.java",
+        "platform/8295/app/src/com/android/car/carlauncher/homescreen/HomeCardModule.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/homescreen/MapTosActivity.kt",
+        "platform/8155/app/src/com/android/car/carlauncher/homescreen/MapTosActivity.kt",
+        "platform/8295/app/src/com/android/car/carlauncher/homescreen/MapTosActivity.kt"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardModule.java",
+        "platform/8155/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardModule.java",
+        "platform/8295/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardModule.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+        "platform/8155/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+        "platform/8295/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java"
+      ]
+    },
+    {
+      "file_count": 3,
+      "paths": [
+        "app/src/com/android/car/carlauncher/homescreen/assistive/FakeWeatherModel.java",
+        "platform/8155/app/src/com/android/car/carlauncher/homescreen/assistive/FakeWeatherModel.java",
+        "platform/8295/app/src/com/android/car/carlauncher/homescreen/assistive/FakeWeatherModel.java"
+      ]
+    }
+  ],
+  "global_state_sites": 77,
+  "global_state_sites_per_kloc": 2.120803,
+  "hidden_api_sites": 36,
+  "hidden_api_sites_per_kloc": 0.991544,
+  "largest_code_files": [
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 570,
+      "methods": 30,
+      "path": "docklib/tests/src/com/android/car/docklib/DockViewModelTest.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 521,
+      "methods": 45,
+      "path": "app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 521,
+      "methods": 45,
+      "path": "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 521,
+      "methods": 45,
+      "path": "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardController.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 2,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 513,
+      "methods": 25,
+      "path": "libs/appgrid/lib/src/com/android/car/carlauncher/AppGridFragment.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 507,
+      "methods": 10,
+      "path": "app/tests/src/com/android/car/carlauncher/homescreen/audio/AudioCardFragmentTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 490,
+      "methods": 38,
+      "path": "libs/appgrid/lib/src/com/android/car/carlauncher/recyclerview/AppItemViewHolder.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 454,
+      "methods": 21,
+      "path": "libs/appgrid/lib/tests/src/com/android/car/carlauncher/AppGridPageSnapperTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 1,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 397,
+      "methods": 16,
+      "path": "docklib/src/com/android/car/docklib/DockViewModel.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 378,
+      "methods": 15,
+      "path": "libs/car-launcher-common/tests/src/com/android/car/carlaunchercommon/shortcuts/ForceStopShortcutItemTest.kt",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": true,
+      "logical_lines": 370,
+      "methods": 24,
+      "path": "app/tests/src/com/android/car/carlauncher/recents/view/RecentsRecyclerViewTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 1,
+      "is_test": true,
+      "logical_lines": 359,
+      "methods": 35,
+      "path": "app/tests/src/com/android/car/carlauncher/recents/RecentTasksProviderTest.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 332,
+      "methods": 22,
+      "path": "app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 332,
+      "methods": 28,
+      "path": "app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 332,
+      "methods": 22,
+      "path": "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 332,
+      "methods": 28,
+      "path": "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 2,
+      "is_test": false,
+      "logical_lines": 332,
+      "methods": 22,
+      "path": "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 0,
+      "hidden_api_sites": 0,
+      "is_test": false,
+      "logical_lines": 332,
+      "methods": 28,
+      "path": "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardFragment.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 3,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 330,
+      "methods": 28,
+      "path": "app/src/com/android/car/carlauncher/recents/RecentTasksProvider.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    },
+    {
+      "broad_catches": 0,
+      "global_state_sites": 3,
+      "hidden_api_sites": 1,
+      "is_test": false,
+      "logical_lines": 330,
+      "methods": 28,
+      "path": "platform/8155/app/src/com/android/car/carlauncher/recents/RecentTasksProvider.java",
+      "placeholder_test_sites": 0,
+      "reflection_sites": 0
+    }
+  ],
+  "logical_lines": 36307,
+  "method": {
+    "logical_lines": "nonblank lines after block/full-line comment removal",
+    "near_duplicates": "bottom-128 deterministic hashes of normalized five-token shingles; threshold 0.80",
+    "non_scoring": true
+  },
+  "method_declarations": 2863,
+  "near_duplicate_file_ratio": 0.45481,
+  "near_duplicate_files_at_0_80": [
+    "app/src/com/android/car/carlauncher/CarLauncher.java",
+    "app/src/com/android/car/carlauncher/CarLauncherUtils.java",
+    "app/src/com/android/car/carlauncher/CarLauncherViewModel.java",
+    "app/src/com/android/car/carlauncher/ControlBarActivity.java",
+    "app/src/com/android/car/carlauncher/calmmode/CalmModeFragment.java",
+    "app/src/com/android/car/carlauncher/calmmode/CalmModeQCProvider.java",
+    "app/src/com/android/car/carlauncher/calmmode/CalmModeStatsLogHelper.java",
+    "app/src/com/android/car/carlauncher/calmmode/NavigationStateData.java",
+    "app/src/com/android/car/carlauncher/calmmode/NavigationStateViewModel.java",
+    "app/src/com/android/car/carlauncher/calmmode/TemperatureData.java",
+    "app/src/com/android/car/carlauncher/calmmode/TemperatureViewModel.java",
+    "app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+    "app/src/com/android/car/carlauncher/homescreen/HomeCardInterface.java",
+    "app/src/com/android/car/carlauncher/homescreen/MapTosActivity.kt",
+    "app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardModule.java",
+    "app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+    "app/src/com/android/car/carlauncher/homescreen/assistive/FakeWeatherModel.java",
+    "app/src/com/android/car/carlauncher/homescreen/assistive/ProjectionModel.java",
+    "app/src/com/android/car/carlauncher/homescreen/audio/AudioCardFragment.java",
+    "app/src/com/android/car/carlauncher/homescreen/audio/AudioCardModule.java",
+    "app/src/com/android/car/carlauncher/homescreen/audio/AudioCardPresenter.java",
+    "app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+    "app/src/com/android/car/carlauncher/homescreen/audio/MediaViewModel.java",
+    "app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardFragment.java",
+    "app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardPresenter.java",
+    "app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardController.java",
+    "app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardFragment.java",
+    "app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardPanelViewPagerAdapter.java",
+    "app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardPresenter.java",
+    "app/src/com/android/car/carlauncher/homescreen/ui/DescriptiveTextView.java",
+    "app/src/com/android/car/carlauncher/homescreen/ui/DescriptiveTextWithControlsView.java",
+    "app/src/com/android/car/carlauncher/homescreen/ui/SeekBarViewModel.java",
+    "app/src/com/android/car/carlauncher/homescreen/ui/TextBlockView.java",
+    "app/src/com/android/car/carlauncher/product/LauncherExperienceCoordinator.java",
+    "app/src/com/android/car/carlauncher/product/Sa8155LauncherProfile.java",
+    "app/src/com/android/car/carlauncher/product/Sa8295LauncherProfile.java",
+    "app/src/com/android/car/carlauncher/product/VendorLauncherRuntime.java",
+    "app/src/com/android/car/carlauncher/product/XinqingLauncherProfile.java",
+    "app/src/com/android/car/carlauncher/recents/CarQuickStepService.java",
+    "app/src/com/android/car/carlauncher/recents/CarRecentsActivity.java",
+    "app/src/com/android/car/carlauncher/recents/NonDODisabledTaskProvider.java",
+    "app/src/com/android/car/carlauncher/recents/RecentTasksProvider.java",
+    "app/src/com/android/car/carlauncher/recents/RecentTasksProviderInterface.java",
+    "app/src/com/android/car/carlauncher/recents/RecentTasksViewModel.java",
+    "app/src/com/android/car/carlauncher/recents/RecentsStatsLogHelper.java",
+    "app/src/com/android/car/carlauncher/recents/view/BaseTaskViewHolder.java",
+    "app/src/com/android/car/carlauncher/recents/view/RecentTasksAdapter.java",
+    "app/src/com/android/car/carlauncher/recents/view/RecentsRecyclerView.java",
+    "app/src/com/android/car/carlauncher/recents/view/TaskTouchHelperCallback.java",
+    "app/src/com/android/car/carlauncher/recents/view/TaskTouchListener.java",
+    "app/src/com/android/car/carlauncher/recents/view/TaskViewHolder.java",
+    "app/src/com/android/car/carlauncher/taskstack/TaskStackChangeListeners.java",
+    "platform/8155/app/src/com/android/car/carlauncher/CarLauncher.java",
+    "platform/8155/app/src/com/android/car/carlauncher/CarLauncherUtils.java",
+    "platform/8155/app/src/com/android/car/carlauncher/CarLauncherViewModel.java",
+    "platform/8155/app/src/com/android/car/carlauncher/ControlBarActivity.java",
+    "platform/8155/app/src/com/android/car/carlauncher/calmmode/CalmModeFragment.java",
+    "platform/8155/app/src/com/android/car/carlauncher/calmmode/CalmModeQCProvider.java",
+    "platform/8155/app/src/com/android/car/carlauncher/calmmode/CalmModeStatsLogHelper.java",
+    "platform/8155/app/src/com/android/car/carlauncher/calmmode/NavigationStateData.java",
+    "platform/8155/app/src/com/android/car/carlauncher/calmmode/NavigationStateViewModel.java",
+    "platform/8155/app/src/com/android/car/carlauncher/calmmode/TemperatureData.java",
+    "platform/8155/app/src/com/android/car/carlauncher/calmmode/TemperatureViewModel.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/HomeCardInterface.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/MapTosActivity.kt",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardModule.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/assistive/FakeWeatherModel.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/assistive/ProjectionModel.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/AudioCardFragment.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/AudioCardModule.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/AudioCardPresenter.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/MediaViewModel.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardFragment.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardPresenter.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardController.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardFragment.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardPanelViewPagerAdapter.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardPresenter.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/ui/DescriptiveTextView.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/ui/DescriptiveTextWithControlsView.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/ui/SeekBarViewModel.java",
+    "platform/8155/app/src/com/android/car/carlauncher/homescreen/ui/TextBlockView.java",
+    "platform/8155/app/src/com/android/car/carlauncher/product/LauncherExperienceCoordinator.java",
+    "platform/8155/app/src/com/android/car/carlauncher/product/Sa8155LauncherProfile.java",
+    "platform/8155/app/src/com/android/car/carlauncher/product/Sa8295LauncherProfile.java",
+    "platform/8155/app/src/com/android/car/carlauncher/product/VendorLauncherRuntime.java",
+    "platform/8155/app/src/com/android/car/carlauncher/product/XinqingLauncherProfile.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/CarQuickStepService.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/CarRecentsActivity.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/NonDODisabledTaskProvider.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/RecentTasksProvider.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/RecentTasksProviderInterface.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/RecentTasksViewModel.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/RecentsStatsLogHelper.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/view/BaseTaskViewHolder.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/view/RecentTasksAdapter.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/view/RecentsRecyclerView.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/view/TaskTouchHelperCallback.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/view/TaskTouchListener.java",
+    "platform/8155/app/src/com/android/car/carlauncher/recents/view/TaskViewHolder.java",
+    "platform/8155/app/src/com/android/car/carlauncher/taskstack/TaskStackChangeListeners.java",
+    "platform/8295/app/src/com/android/car/carlauncher/CarLauncher.java",
+    "platform/8295/app/src/com/android/car/carlauncher/CarLauncherUtils.java",
+    "platform/8295/app/src/com/android/car/carlauncher/CarLauncherViewModel.java",
+    "platform/8295/app/src/com/android/car/carlauncher/ControlBarActivity.java",
+    "platform/8295/app/src/com/android/car/carlauncher/calmmode/CalmModeFragment.java",
+    "platform/8295/app/src/com/android/car/carlauncher/calmmode/CalmModeQCProvider.java",
+    "platform/8295/app/src/com/android/car/carlauncher/calmmode/CalmModeStatsLogHelper.java",
+    "platform/8295/app/src/com/android/car/carlauncher/calmmode/NavigationStateData.java",
+    "platform/8295/app/src/com/android/car/carlauncher/calmmode/NavigationStateViewModel.java",
+    "platform/8295/app/src/com/android/car/carlauncher/calmmode/TemperatureData.java",
+    "platform/8295/app/src/com/android/car/carlauncher/calmmode/TemperatureViewModel.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/HomeCardInterface.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/MapTosActivity.kt",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardModule.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/assistive/FakeWeatherModel.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/assistive/ProjectionModel.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/AudioCardFragment.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/AudioCardModule.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/AudioCardPresenter.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/MediaViewModel.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardFragment.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardPresenter.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardController.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardFragment.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardPanelViewPagerAdapter.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/media/MediaCardPresenter.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/ui/DescriptiveTextView.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/ui/DescriptiveTextWithControlsView.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/ui/SeekBarViewModel.java",
+    "platform/8295/app/src/com/android/car/carlauncher/homescreen/ui/TextBlockView.java",
+    "platform/8295/app/src/com/android/car/carlauncher/product/LauncherExperienceCoordinator.java",
+    "platform/8295/app/src/com/android/car/carlauncher/product/Sa8155LauncherProfile.java",
+    "platform/8295/app/src/com/android/car/carlauncher/product/Sa8295LauncherProfile.java",
+    "platform/8295/app/src/com/android/car/carlauncher/product/VendorLauncherRuntime.java",
+    "platform/8295/app/src/com/android/car/carlauncher/product/XinqingLauncherProfile.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/CarQuickStepService.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/CarRecentsActivity.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/NonDODisabledTaskProvider.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/RecentTasksProvider.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/RecentTasksProviderInterface.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/RecentTasksViewModel.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/RecentsStatsLogHelper.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/view/BaseTaskViewHolder.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/view/RecentTasksAdapter.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/view/RecentsRecyclerView.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/view/TaskTouchHelperCallback.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/view/TaskTouchListener.java",
+    "platform/8295/app/src/com/android/car/carlauncher/recents/view/TaskViewHolder.java",
+    "platform/8295/app/src/com/android/car/carlauncher/taskstack/TaskStackChangeListeners.java"
+  ],
+  "near_duplicate_pair_count_at_0_80": 183,
+  "near_duplicate_pairs": [
+    {
+      "logical_lines_a": 300,
+      "logical_lines_b": 300,
+      "path_a": "app/src/com/android/car/carlauncher/CarLauncher.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/CarLauncher.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 300,
+      "logical_lines_b": 300,
+      "path_a": "app/src/com/android/car/carlauncher/CarLauncher.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/CarLauncher.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 92,
+      "logical_lines_b": 92,
+      "path_a": "app/src/com/android/car/carlauncher/CarLauncherUtils.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/CarLauncherUtils.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 92,
+      "logical_lines_b": 92,
+      "path_a": "app/src/com/android/car/carlauncher/CarLauncherUtils.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/CarLauncherUtils.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 181,
+      "logical_lines_b": 181,
+      "path_a": "app/src/com/android/car/carlauncher/CarLauncherViewModel.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/CarLauncherViewModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 181,
+      "logical_lines_b": 181,
+      "path_a": "app/src/com/android/car/carlauncher/CarLauncherViewModel.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/CarLauncherViewModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 89,
+      "logical_lines_b": 89,
+      "path_a": "app/src/com/android/car/carlauncher/ControlBarActivity.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/ControlBarActivity.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 89,
+      "logical_lines_b": 89,
+      "path_a": "app/src/com/android/car/carlauncher/ControlBarActivity.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/ControlBarActivity.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 313,
+      "logical_lines_b": 313,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/CalmModeFragment.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/calmmode/CalmModeFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 313,
+      "logical_lines_b": 313,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/CalmModeFragment.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/calmmode/CalmModeFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 93,
+      "logical_lines_b": 93,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/CalmModeQCProvider.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/calmmode/CalmModeQCProvider.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 93,
+      "logical_lines_b": 93,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/CalmModeQCProvider.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/calmmode/CalmModeQCProvider.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 72,
+      "logical_lines_b": 72,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/CalmModeStatsLogHelper.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/calmmode/CalmModeStatsLogHelper.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 72,
+      "logical_lines_b": 72,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/CalmModeStatsLogHelper.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/calmmode/CalmModeStatsLogHelper.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/NavigationStateData.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/calmmode/NavigationStateData.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 121,
+      "logical_lines_b": 121,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/NavigationStateData.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/calmmode/NavigationStateData.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 100,
+      "logical_lines_b": 100,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/NavigationStateViewModel.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/calmmode/NavigationStateViewModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 100,
+      "logical_lines_b": 100,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/NavigationStateViewModel.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/calmmode/NavigationStateViewModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 92,
+      "logical_lines_b": 92,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/TemperatureData.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/calmmode/TemperatureData.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 92,
+      "logical_lines_b": 92,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/TemperatureData.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/calmmode/TemperatureData.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 135,
+      "logical_lines_b": 135,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/TemperatureViewModel.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/calmmode/TemperatureViewModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 135,
+      "logical_lines_b": 135,
+      "path_a": "app/src/com/android/car/carlauncher/calmmode/TemperatureViewModel.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/calmmode/TemperatureViewModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 270,
+      "logical_lines_b": 270,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 270,
+      "logical_lines_b": 270,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/HomeCardFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 24,
+      "logical_lines_b": 24,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/HomeCardInterface.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/HomeCardInterface.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 24,
+      "logical_lines_b": 24,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/HomeCardInterface.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/HomeCardInterface.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 114,
+      "logical_lines_b": 114,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/MapTosActivity.kt",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/MapTosActivity.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 114,
+      "logical_lines_b": 114,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/MapTosActivity.kt",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/MapTosActivity.kt",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardModule.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardModule.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 39,
+      "logical_lines_b": 39,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardModule.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardModule.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 103,
+      "logical_lines_b": 103,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 103,
+      "logical_lines_b": 103,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/assistive/AssistiveCardPresenter.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 34,
+      "logical_lines_b": 34,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/assistive/FakeWeatherModel.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/assistive/FakeWeatherModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 34,
+      "logical_lines_b": 34,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/assistive/FakeWeatherModel.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/assistive/FakeWeatherModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 149,
+      "logical_lines_b": 149,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/assistive/ProjectionModel.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/assistive/ProjectionModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 149,
+      "logical_lines_b": 149,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/assistive/ProjectionModel.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/assistive/ProjectionModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 91,
+      "logical_lines_b": 91,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/AudioCardFragment.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/AudioCardFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 91,
+      "logical_lines_b": 91,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/AudioCardFragment.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/AudioCardFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 38,
+      "logical_lines_b": 38,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/AudioCardModule.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/AudioCardModule.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 38,
+      "logical_lines_b": 38,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/AudioCardModule.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/AudioCardModule.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 59,
+      "logical_lines_b": 59,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/AudioCardPresenter.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/AudioCardPresenter.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 59,
+      "logical_lines_b": 59,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/AudioCardPresenter.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/AudioCardPresenter.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 332,
+      "logical_lines_b": 332,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 332,
+      "logical_lines_b": 332,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/InCallViewModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 297,
+      "logical_lines_b": 297,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/MediaViewModel.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/MediaViewModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 297,
+      "logical_lines_b": 297,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/MediaViewModel.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/MediaViewModel.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 119,
+      "logical_lines_b": 119,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardFragment.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 119,
+      "logical_lines_b": 119,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardFragment.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardFragment.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 76,
+      "logical_lines_b": 76,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardPresenter.java",
+      "path_b": "platform/8155/app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardPresenter.java",
+      "similarity": 1.0
+    },
+    {
+      "logical_lines_a": 76,
+      "logical_lines_b": 76,
+      "path_a": "app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardPresenter.java",
+      "path_b": "platform/8295/app/src/com/android/car/carlauncher/homescreen/audio/dialer/DialerCardPresenter.java",
+      "similarity": 1.0
+    }
+  ],
+  "placeholder_test_sites": 0,
+  "production_files_over_500_lines": 4,
+  "production_logical_lines": 28116,
+  "production_source_files": 290,
+  "reflection_sites": 27,
+  "reflection_sites_per_kloc": 0.743658,
+  "repository": "D:\\project\\Git.temp\\cockpit-benchmark\\repos\\app\\nova-launcher",
+  "repository_head": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+  "schema_version": "1.0.0",
+  "test_logical_lines": 8191,
+  "test_source_files": 53,
+  "test_to_production_file_ratio": 0.182759,
+  "tracked_files": 1125
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "g3",
+  "result_count": 20,
+  "expected_count": 20,
+  "comparisons": [
+    {
+      "family": "app-launcher-medium",
+      "high_repo_id": "APP-02",
+      "low_repo_id": "APP-16",
+      "high_mean": 2.0,
+      "low_mean": 1.222222,
+      "gap": 0.777778,
+      "ordering_passed": true
+    },
+    {
+      "family": "app-media-small",
+      "high_repo_id": "APP-04",
+      "low_repo_id": "APP-18",
+      "high_mean": 1.666667,
+      "low_mean": 1.111111,
+      "gap": 0.555556,
+      "ordering_passed": true
+    },
+    {
+      "family": "app-settings-large",
+      "high_repo_id": "APP-01",
+      "low_repo_id": "APP-15",
+      "high_mean": 1.777778,
+      "low_mean": 1.222222,
+      "gap": 0.555556,
+      "ordering_passed": true
+    },
+    {
+      "family": "fw-audio-binder-small",
+      "high_repo_id": "FW-04",
+      "low_repo_id": "FW-17",
+      "high_mean": 2.111111,
+      "low_mean": 1.25,
+      "gap": 0.861111,
+      "ordering_passed": true
+    },
+    {
+      "family": "fw-car-api-compat-large",
+      "high_repo_id": "FW-01",
+      "low_repo_id": "FW-16",
+      "high_mean": 2.333333,
+      "low_mean": 1.111111,
+      "gap": 1.222222,
+      "ordering_passed": true
+    },
+    {
+      "family": "fw-vehicle-hal-medium",
+      "high_repo_id": "FW-03",
+      "low_repo_id": "FW-18",
+      "high_mean": 2.111111,
+      "low_mean": 1.222222,
+      "gap": 0.888889,
+      "ordering_passed": true
+    },
+    {
+      "family": "hvac-controlled-pair",
+      "high_repo_id": "APP-03",
+      "low_repo_id": "APP-17",
+      "high_mean": 2.111111,
+      "low_mean": 0.777778,
+      "gap": 1.333333,
+      "ordering_passed": true
+    },
+    {
+      "family": "vehicle-property-controlled-pair",
+      "high_repo_id": "FW-02",
+      "low_repo_id": "FW-15",
+      "high_mean": 2.111111,
+      "low_mean": 0.888889,
+      "gap": 1.222222,
+      "ordering_passed": true
+    }
+  ],
+  "tier_distributions": [
+    {
+      "kind": "APP",
+      "tiers": [
+        {
+          "tier": "high",
+          "count": 4,
+          "mean": 1.888889,
+          "minimum": 1.666667,
+          "maximum": 2.111111
+        },
+        {
+          "tier": "medium",
+          "count": 2,
+          "mean": 1.666667,
+          "minimum": 1.333333,
+          "maximum": 2.0
+        },
+        {
+          "tier": "low",
+          "count": 4,
+          "mean": 1.083333,
+          "minimum": 0.777778,
+          "maximum": 1.222222
+        }
+      ],
+      "ordering_checked": true,
+      "ordering_passed": true
+    },
+    {
+      "kind": "FRAMEWORK",
+      "tiers": [
+        {
+          "tier": "high",
+          "count": 4,
+          "mean": 2.166667,
+          "minimum": 2.111111,
+          "maximum": 2.333333
+        },
+        {
+          "tier": "medium",
+          "count": 2,
+          "mean": 2.0,
+          "minimum": 2.0,
+          "maximum": 2.0
+        },
+        {
+          "tier": "low",
+          "count": 4,
+          "mean": 1.118056,
+          "minimum": 0.888889,
+          "maximum": 1.25
+        }
+      ],
+      "ordering_checked": true,
+      "ordering_passed": true
+    }
+  ],
+  "issues": [],
+  "valid": true
+}

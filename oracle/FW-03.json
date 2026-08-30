@@ -1,0 +1,209 @@
+{
+  "schema_version": "1.0.0",
+  "repo_id": "FW-03",
+  "quality_tier": "high",
+  "comparison_family": "fw-vehicle-hal-medium",
+  "review_status": "reviewed",
+  "evidence": [
+    {
+      "dimension": "architecture",
+      "branch": "main",
+      "commit": "85517b3ecba303d7acc5e49a3f4780d685f75500",
+      "path": "Android.bp",
+      "symbol_or_line": "VehicleHalAdapterContracts/Runtime/FocusedTests",
+      "observation": "根 Soong 入口把 API 契约、HAL runtime 与 focused tests 分离，运行时不依赖测试实现。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "solid",
+      "branch": "main",
+      "commit": "85517b3ecba303d7acc5e49a3f4780d685f75500",
+      "path": "service/src/com/android/car/VehicleStub.java",
+      "symbol_or_line": "VehicleStub",
+      "observation": "AIDL/HIDL 传输通过共同窄接口向上层暴露，协议差异限制在具体 Stub。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "aidl_sdk_call",
+      "branch": "main",
+      "commit": "85517b3ecba303d7acc5e49a3f4780d685f75500",
+      "path": "service/src/com/android/car/AidlVehicleStub.java",
+      "symbol_or_line": "get/set/pending request lifecycle",
+      "observation": "AIDL 传输使用请求 ID、pending map、超时、状态映射和死亡通知，而不是裸字符串服务句柄。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    },
+    {
+      "dimension": "integration_testing",
+      "branch": "main",
+      "commit": "85517b3ecba303d7acc5e49a3f4780d685f75500",
+      "path": "tests/carservice_unit_test/src/com/android/car/VehicleStubTest.java",
+      "symbol_or_line": "VehicleStubTest",
+      "observation": "单测覆盖 AIDL/HIDL link/unlink death、远端异常、请求超时及 pending 清理。",
+      "expected_impact": "positive",
+      "confidence": "high"
+    }
+  ],
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "status": "expected_high",
+      "reason": "contracts/runtime/tests 和 HAL/API 闭包有明确 Soong 边界。"
+    },
+    {
+      "name": "solid",
+      "status": "expected_high",
+      "reason": "共同 VehicleStub 接口隔离 AIDL/HIDL 变化，服务依赖可替换。"
+    },
+    {
+      "name": "system_api_dependency",
+      "status": "expected_high",
+      "reason": "平台类型集中在 HAL/API 适配层并保留专门错误映射。"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "status": "expected_medium",
+      "reason": "少量平台反射辅助仍存在，但不作为核心传输发现机制。"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "status": "expected_high",
+      "reason": "请求 ID、超时、状态、死亡和回调语义可复核。"
+    },
+    {
+      "name": "compilation_independence",
+      "status": "failed",
+      "reason": "需要 AAOS/AOSP 生成类型和平台 Soong 输入。"
+    },
+    {
+      "name": "integration_testing",
+      "status": "expected_high",
+      "reason": "294 个测试源覆盖 HAL、Binder、API、失败与并发行为。"
+    },
+    {
+      "name": "code_duplication",
+      "status": "expected_high",
+      "reason": "协议转换有必要平行实现，但确定性近重复对仅 1。"
+    },
+    {
+      "name": "release_branch_strategy",
+      "status": "expected_high",
+      "reason": "平台/发布分支基于当前 main 且只保存窄传输配置。"
+    },
+    {
+      "name": "platform_reuse",
+      "status": "expected_high",
+      "reason": "8155/8295 复用同一 contracts/runtime，只在配置中选择 HIDL/AIDL。"
+    }
+  ],
+  "calibration_runs": [
+    {
+      "batch": "g3",
+      "blind_id": "blind-627291ab9722",
+      "repository_head": "6f29358f3951a2efd68ac93515be97231cbab325",
+      "result_path": "calibration/results/g3/blind-627291ab9722.json",
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "status": "blind_validated",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "model": "gpt-5.6-sol",
+      "started_at": "2026-08-29T11:03:21.832Z",
+      "finished_at": "2026-08-29T11:08:57.053Z",
+      "wall_clock_seconds": 335.221,
+      "rounds_used": 1,
+      "max_rounds": 1,
+      "wall_clock_budget_seconds": 900,
+      "truncated": false,
+      "truncation_reason": null,
+      "exploration": {
+        "files_opened": 51,
+        "directories_visited": 20,
+        "tool_calls": 22,
+        "notes": "HEAD 与预期 SHA 一致。静态检查覆盖 175 个生产源文件和 294 个测试/测试辅助源文件的清单、101 个 AIDL 文件、6 个 Android.bp、最大生产文件、反射与 Binder 位置；实际细读了 20 个以上生产文件及 5 个以上测试文件，并比较 main 与 develop、两个 platform 分支及 release 分支。未运行构建、脚本或网络操作。 Runner normalized tool_calls from Codex JSONL to 22 (evaluator self-report: 22); prompt=g2-code-health-v2; reasoning_effort=high."
+      },
+      "unweighted_mean": 2.111111,
+      "scored_dimension_count": 9,
+      "failed_dimension_count": 1,
+      "evidence_anchor_count": 33,
+      "dimension_evidence_coverage": 1.0,
+      "scored_evidence_coverage": 1.0,
+      "evidence_validation": "passed",
+      "human_review": "passed",
+      "dimensions": [
+        {
+          "name": "architecture",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "Binder 服务、通用 HAL 编排、传输适配和语义 HAL 服务形成清晰分层，AIDL/HIDL 差异主要被 VehicleStub 和统一值类型吸收。但聚合类仍偏大：VehicleHal 同时负责服务组合、属性归属、订阅、分发和调试注入，CarPropertyService 同时承担 Binder、权限、监听生命周期及操作追踪；根 Contracts 模块也汇集了较宽的 API 面，边界并非完全内聚。"
+        },
+        {
+          "name": "solid",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "VehicleStub、HalPropValue/HalPropConfig 和 HalServiceBase 方向体现了依赖倒置及可替换传输实现，语义服务也通过属性所有权扩展。局部仍存在 SRP/OCP 压力：新增传输或值形态需要在大型 HalPropValueBuilder 中成对修改，VehicleHal 和 CarPropertyService 的职责面较宽。"
+        },
+        {
+          "name": "system_api_dependency",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "AAOS Vehicle HAL、ServiceManager、SystemProperties 和 Binder 依赖大体封装在传输/服务层，并通过统一类型、权限检查、RemoteException/ServiceSpecificException 和重试语义向上转换。差距是 AIDL 服务名与 HIDL 属性键仍硬编码在适配器内，平台类型导入遍布各语义 HAL 服务，且暴露的 VHAL death API 在所检查生产路径中未见实际接线。"
+        },
+        {
+          "name": "hidden_api_reflection",
+          "status": "scored",
+          "score": 1,
+          "evidence_count": 3,
+          "reason": "反射主要集中在 Parcelable 兼容工具和枚举映射辅助中，失败通常转换为 IllegalArgumentException、日志或 RuntimeException 回退；但没有类/成员 allowlist。LargeParcelable 依赖字符串约定的公共字段和方法，ParcelableException 会按 Parcel 中的类名初始化任意类后才检查 Throwable 类型，并吞掉 ReflectiveOperationException，形成跨多个生产辅助类的脆弱约定。"
+        },
+        {
+          "name": "aidl_sdk_call",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "仓库包含真实 Binder/AIDL 边界，契约方法粒度清楚；服务端具备权限检查和客户端死亡清理，VHAL 适配器具备请求 ID、锁保护、超时、状态码、共享内存大载荷及指定线程回调，测试覆盖错误和超时。主要缺口是 VHAL death 接口未在所见生产组合路径接线，而且 getValues/setValues 在 pending 请求登记后、进入清理超时块前同步抛出 RemoteException 时会遗留 pending 项。"
+        },
+        {
+          "name": "compilation_independence",
+          "status": "failed",
+          "score": null,
+          "evidence_count": 2,
+          "reason": "仓库声明的是 Soong/platform_apis 边界，依赖大量当前工作区不存在的 AAOS/AOSP framework、HAL、模块和生成目标；当前受控环境也未提供产品树。因而无法建立或验证可信的独立编译边界，按规则不推测得分。"
+        },
+        {
+          "name": "integration_testing",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 4,
+          "reason": "测试不仅统计文件：VehicleStubTest 覆盖 AIDL/HIDL、共享内存、超时、状态码和死亡链接；CarPropertyServiceUnitTest 覆盖多监听者订阅率、注销和回调锁；device 测试包含真实 VHAL 到公开 Car API 的事件/性能路径。覆盖仍不均衡：vehiclehal_test 的原生 android_test 目标被整体注释停用，说明关键 VHAL 迁移端到端套件当前缺少稳定执行入口。"
+        },
+        {
+          "name": "code_duplication",
+          "status": "scored",
+          "score": 2,
+          "evidence_count": 3,
+          "reason": "重复主要是兼容两代 HAL 所需的局部适配，未扩散到业务服务；不过 Aidl/Hidl PropConfig 与 AreaConfig 几乎同构，HalPropValueBuilder 在同一 1233 行文件中维护两套大型镜像值实现和成对工厂分支，修改字段映射时容易产生版本漂移。"
+        },
+        {
+          "name": "release_branch_strategy",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 4,
+          "reason": "四个非 main 分支均以当前 main 为共同 merge-base，且各自仅领先一个提交；实际差异严格限于两行产品配置，没有复制生产源码。平台分支分别选择 HIDL/AIDL，release 分支只冻结渠道和契约修订，develop 只启用开发检查。证据历史较浅，但现有分歧是明确、可审计且易合并的。"
+        },
+        {
+          "name": "platform_reuse",
+          "status": "scored",
+          "score": 3,
+          "evidence_count": 4,
+          "reason": "平台差异通过同一 VehicleStub 抽象、统一 HalPropValue/HalPropConfig 及局部 AIDL/HIDL 适配器复用共同核心；8155/8295 分支没有代码 fork，只切换产品与传输配置。映射实现存在局部镜像重复，但变化隔离在传输层，未造成平台业务策略复制。"
+        }
+      ]
+    }
+  ]
+}

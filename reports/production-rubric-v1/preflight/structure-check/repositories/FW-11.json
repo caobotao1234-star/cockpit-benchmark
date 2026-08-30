@@ -1,0 +1,498 @@
+{
+  "build_inventory": {
+    "build_system": "Soong",
+    "manifest_consistent": true,
+    "module_count": 14,
+    "modules": [
+      {
+        "name": "framework-foundation-adapters",
+        "path": "platform-adapters/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "framework-foundation-api",
+        "path": "framework-api/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "framework-foundation-binder",
+        "path": "binder-runtime/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "framework-foundation-callback",
+        "path": "callback-runtime/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "framework-foundation-config",
+        "path": "config-runtime/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "framework-foundation-core",
+        "path": "shared-core/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "framework-foundation-observability",
+        "path": "observability/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "framework-foundation-permission",
+        "path": "permission-runtime/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "framework-foundation-persistence",
+        "path": "persistence-runtime/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "framework-foundation-scheduler",
+        "path": "scheduler-runtime/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "framework-foundation-testkit",
+        "path": "framework-testkit/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "unnamed@0",
+        "path": "hvac-api/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "unnamed@0",
+        "path": "hvac-service/Android.bp",
+        "type": "java_library"
+      },
+      {
+        "name": "unnamed@0",
+        "path": "hvac-tests/Android.bp",
+        "type": "java_library"
+      }
+    ],
+    "standard_named_module_count": 1
+  },
+  "document_type": "repository_preflight",
+  "facts_sha256": "c057e021646571cc9bcdf56e8efc0eb8128b05ab23d6576c8b8db2f65a1cfab5",
+  "git_inventory": {
+    "branch_classifications": {
+      "develop": {
+        "category": "development",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "main": {
+        "category": "mainline",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8155": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "platform/8295": {
+        "category": "platform",
+        "is_device_specific": false,
+        "is_platform": true,
+        "is_release": false,
+        "is_sop": false
+      },
+      "release/2026.1": {
+        "category": "release",
+        "is_device_specific": false,
+        "is_platform": false,
+        "is_release": true,
+        "is_sop": false
+      }
+    },
+    "branches": {
+      "develop": "dc9e4d256750912cb8d4120f0295a267cc901a81",
+      "main": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+      "platform/8155": "2b6ded4ff1db2667e3c6d6d5fd8b81042acd83aa",
+      "platform/8295": "445ecd8a8839dc0bc0c7100af888601ea734d92f",
+      "release/2026.1": "b7559b78d2afb592ee28d069e1881642e8c3560f"
+    },
+    "default_branch": "main",
+    "tags": {
+      "framework-foundation-1.0.0": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+      "hvac-binder-2026.1": "b7559b78d2afb592ee28d069e1881642e8c3560f"
+    }
+  },
+  "kind": "FRAMEWORK",
+  "manifest_binding": {
+    "head_matches": true,
+    "manifest_repo_head": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+    "path_within_delivery_root": true,
+    "working_tree_clean": true
+  },
+  "missing_contract_leaf_count": 14,
+  "missing_contract_leaves": [
+    {
+      "category": "quality",
+      "leaf": "code_duplication",
+      "method": "deterministic",
+      "reason": "Production duplication-rate detector, denominator, and exclusion contract are absent; only the threshold table is known.",
+      "rule_id": "quality.duplication.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "integration_test",
+      "method": "external_data",
+      "reason": "GBOP APP and FRAMEWORK/embedded response schemas and status mappings are absent.",
+      "rule_id": "quality.integration_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "code_quality",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.code_quality.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "quality",
+      "leaf": "unit_test",
+      "method": "deterministic",
+      "reason": "Production metric inputs and score thresholds are absent.",
+      "rule_id": "quality.unit_test.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "system_api_dependency",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production symbol list, scan scope, and deduplication rules are absent.",
+      "rule_id": "android_framework.system_api_dependency.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "hidden_api_reflection",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but the production matcher and scan/exclusion rules are absent.",
+      "rule_id": "android_framework.hidden_api_reflection.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_coupling",
+      "leaf": "aidl_sdk_call",
+      "method": "deterministic",
+      "reason": "Count thresholds are known, but AIDL/SDK call-site identification and deduplication rules are absent.",
+      "rule_id": "android_framework.aidl_sdk_call.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "single_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.single_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "cross_platform_reuse",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.cross_platform.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "platform_upgrade",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.platform_upgrade.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "platform_reuse",
+      "leaf": "device_specificity",
+      "method": "deterministic",
+      "reason": "Production branch_records schema, leaf maximum, discrete scale, and lookup table are absent.",
+      "rule_id": "platform_reuse.device_specificity.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_independence",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.independence.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "version_strategy",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.strategy.v1",
+      "score": null,
+      "status": "failed"
+    },
+    {
+      "category": "version",
+      "leaf": "release_rollback",
+      "method": "deterministic",
+      "reason": "Production detector, leaf maximum, and lookup table are absent.",
+      "rule_id": "version.rollback.v1",
+      "score": null,
+      "status": "failed"
+    }
+  ],
+  "platform_reuse": {
+    "comparisons": [
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 682,
+        "base_head": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "development",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.001464129,
+        "changed_files": 1,
+        "common_path_files": 682,
+        "compare_branch": "develop",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 683,
+        "compare_head": "dc9e4d256750912cb8d4120f0295a267cc901a81",
+        "deleted_lines": 0,
+        "identical_blob_files": 682,
+        "identical_blob_ratio": 0.998536,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 683
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 682,
+        "base_head": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "release",
+          "is_device_specific": false,
+          "is_platform": false,
+          "is_release": true,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.001464129,
+        "changed_files": 1,
+        "common_path_files": 682,
+        "compare_branch": "release/2026.1",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 683,
+        "compare_head": "b7559b78d2afb592ee28d069e1881642e8c3560f",
+        "deleted_lines": 0,
+        "identical_blob_files": 682,
+        "identical_blob_ratio": 0.998536,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 683
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 682,
+        "base_head": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.001464129,
+        "changed_files": 1,
+        "common_path_files": 682,
+        "compare_branch": "platform/8155",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 683,
+        "compare_head": "2b6ded4ff1db2667e3c6d6d5fd8b81042acd83aa",
+        "deleted_lines": 0,
+        "identical_blob_files": 682,
+        "identical_blob_ratio": 0.998536,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 683
+      },
+      {
+        "added_lines": 2,
+        "base_branch": "main",
+        "base_files": 682,
+        "base_head": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+        "binary_changed_files": 0,
+        "branch_classification": {
+          "category": "platform",
+          "is_device_specific": false,
+          "is_platform": true,
+          "is_release": false,
+          "is_sop": false
+        },
+        "changed_file_ratio": 0.001464129,
+        "changed_files": 1,
+        "common_path_files": 682,
+        "compare_branch": "platform/8295",
+        "compare_commits_since_merge_base": 1,
+        "compare_files": 683,
+        "compare_head": "445ecd8a8839dc0bc0c7100af888601ea734d92f",
+        "deleted_lines": 0,
+        "identical_blob_files": 682,
+        "identical_blob_ratio": 0.998536,
+        "line_delta": 2,
+        "manifest_consistent": true,
+        "manifest_mismatches": [],
+        "merge_base": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+        "same_head": false,
+        "thin_difference": true,
+        "union_files": 683
+      }
+    ],
+    "manifest_comparison_count": 4,
+    "status": "consistent"
+  },
+  "quality_signal_candidate": {
+    "artifact_head": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+    "artifact_sha256": "e234fd7a5e721384e689f023c03c44cb2a589cc3f287ca7756b9d5fef42426b0",
+    "current_head": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+    "metrics": {
+      "broad_catches": 3,
+      "broad_catches_per_kloc": 0.866301,
+      "code_source_files": 61,
+      "global_state_sites": 0,
+      "global_state_sites_per_kloc": 0.0,
+      "hidden_api_sites": 0,
+      "hidden_api_sites_per_kloc": 0.0,
+      "logical_lines": 3463,
+      "method_declarations": 242,
+      "metric_schema_version": "1.1.0",
+      "near_duplicate_file_ratio": 0.0,
+      "near_duplicate_pair_count_at_0_80": 0,
+      "placeholder_test_sites": 0,
+      "production_files_over_500_lines": 0,
+      "production_logical_lines": 2734,
+      "production_source_files": 46,
+      "reflection_sites": 0,
+      "reflection_sites_per_kloc": 0.0,
+      "test_logical_lines": 729,
+      "test_source_files": 15,
+      "test_to_production_file_ratio": 0.326087,
+      "tracked_files": 682
+    },
+    "non_scoring": true,
+    "reason": "Candidate-only quality_signals metrics match current HEAD; not a production score.",
+    "source_path": "reports/validation/FW-11-quality.json",
+    "status": "current"
+  },
+  "relative_path": "repos/framework/hvac-binder-service",
+  "repo_id": "FW-11",
+  "repository_head": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+  "rubric_version": "production-code-health-v1",
+  "schema_version": "1.0.0",
+  "source_inventory": {
+    "aidl_paths": [
+      "framework-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitEventListener.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/foundation/api/ICockpitGateway.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IConfigurationListener.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkCallback.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IFrameworkManager.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IHealthListener.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/IMetricsSink.aidl",
+      "framework-api/src/main/aidl/com/cockpitbench/frameworkfoundation/api/ITransactionListener.aidl",
+      "hvac-api/src/com/cockpitbench/hvac/HvacCapability.aidl",
+      "hvac-api/src/com/cockpitbench/hvac/HvacCommand.aidl",
+      "hvac-api/src/com/cockpitbench/hvac/HvacState.aidl",
+      "hvac-api/src/com/cockpitbench/hvac/HvacZone.aidl",
+      "hvac-api/src/com/cockpitbench/hvac/IHvacCallback.aidl",
+      "hvac-api/src/com/cockpitbench/hvac/IHvacService.aidl"
+    ],
+    "ci": {
+      "standard_ci_paths": [],
+      "test_mapping_paths": []
+    },
+    "rollback_candidates": [],
+    "test_paths": [
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/DeviceTrustEngineTest.java",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/PolicyRuntimeTest.java",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/ProviderHealthMonitorTest.java",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/RecordReconcilerTest.java",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/RoleAuthorizationGraphTest.java",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/SessionSupervisorTest.java",
+      "framework-testkit/src/test/java/com/cockpitbench/foundation/tests/WorkflowEngineTest.java",
+      "hvac-tests/src/com/cockpitbench/hvac/tests/CallbackLifecycleTest.java",
+      "hvac-tests/src/com/cockpitbench/hvac/tests/CapabilityModelTest.java",
+      "hvac-tests/src/com/cockpitbench/hvac/tests/DiagnosticsRetentionTest.java",
+      "hvac-tests/src/com/cockpitbench/hvac/tests/PermissionBoundaryTest.java",
+      "hvac-tests/src/com/cockpitbench/hvac/tests/PolicyRangeTest.java",
+      "hvac-tests/src/com/cockpitbench/hvac/tests/SignalMappingTest.java",
+      "hvac-tests/src/com/cockpitbench/hvac/tests/StateSnapshotTest.java",
+      "hvac-tests/src/com/cockpitbench/hvac/tests/ZoneModelTest.java"
+    ],
+    "version": {
+      "api_version_candidates": [],
+      "semantic_version_tags": [],
+      "version_file_candidates": [
+        "Android.bp",
+        "binder-runtime/Android.bp",
+        "callback-runtime/Android.bp",
+        "config-runtime/Android.bp",
+        "framework-api/Android.bp",
+        "framework-testkit/Android.bp",
+        "hvac-api/Android.bp",
+        "hvac-service/Android.bp",
+        "hvac-tests/Android.bp",
+        "observability/Android.bp",
+        "permission-runtime/Android.bp",
+        "persistence-runtime/Android.bp",
+        "platform-adapters/Android.bp",
+        "scheduler-runtime/Android.bp",
+        "shared-core/Android.bp"
+      ]
+    }
+  }
+}

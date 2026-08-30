@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "rubric_version": "production-code-health-v1",
+  "batch": "production-v1-pilot-6",
+  "blind_id": "prod-7cfa8d543962",
+  "replicate": "a",
+  "repository_head": "8ec949ad990392a014d95b04236b71181039b952",
+  "outcome": "timed_out",
+  "prompt_version": "production-code-health-v1",
+  "prompt_sha256": "f5977fc8d8f18122717eea7f3d46677a151701fd94c0877f44081dbc35e0fe5f",
+  "judgment_schema_sha256": "f8cf61182d8fa2c36eb2460b5dc9b2220c333dd9682cb2cb4fd495383a91bfdb",
+  "rubric_sha256": "3d37cfb986443be855841e86ed24446c9e0016f2c77921e81261c63da9908b76",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "cli_version": "0.151.0-alpha.7.1",
+  "sandbox": "workspace-write-single-root",
+  "approval_policy": "never",
+  "network_requested": false,
+  "ephemeral": true,
+  "ignore_rules": true,
+  "disabled_features": [
+    "apps",
+    "browser_use",
+    "browser_use_external",
+    "computer_use",
+    "goals",
+    "hooks",
+    "image_generation",
+    "in_app_browser",
+    "memories",
+    "multi_agent",
+    "plugins",
+    "remote_plugin",
+    "skill_search",
+    "tool_suggest",
+    "view_image",
+    "workspace_dependencies"
+  ],
+  "disabled_mcp_servers": [
+    "atlassian",
+    "cua_repl",
+    "node_repl"
+  ],
+  "wall_clock_budget_seconds": 1800,
+  "started_at": "2026-08-30T07:31:31.200Z",
+  "finished_at": "2026-08-30T08:01:34.968Z",
+  "wall_clock_seconds": 1803.781,
+  "timed_out": true,
+  "exit_code": null,
+  "clone": {
+    "head": "8ec949ad990392a014d95b04236b71181039b952",
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/0.8"
+    ],
+    "branch_heads": {
+      "develop": "7dab9a6cf9a25cd399f4bf906a6a0a9b2a3d9bde",
+      "main": "8ec949ad990392a014d95b04236b71181039b952",
+      "platform/8155": "d2c21ebaf7409378645444b9976d8fa53b20d7d6",
+      "platform/8295": "8ef2b0f2a5fb25a37662d773bd4947a59e25f909",
+      "release/0.8": "bac3ee088718b7453032dfbb6b5bfc3286ea221e"
+    },
+    "remotes": [],
+    "remote_count": 0,
+    "status": [],
+    "clean": true
+  },
+  "post_run_clone": {
+    "head": "8ec949ad990392a014d95b04236b71181039b952",
+    "branches": [
+      "develop",
+      "main",
+      "platform/8155",
+      "platform/8295",
+      "release/0.8"
+    ],
+    "branch_heads": {
+      "develop": "7dab9a6cf9a25cd399f4bf906a6a0a9b2a3d9bde",
+      "main": "8ec949ad990392a014d95b04236b71181039b952",
+      "platform/8155": "d2c21ebaf7409378645444b9976d8fa53b20d7d6",
+      "platform/8295": "8ef2b0f2a5fb25a37662d773bd4947a59e25f909",
+      "release/0.8": "bac3ee088718b7453032dfbb6b5bfc3286ea221e"
+    },
+    "remotes": [],
+    "remote_count": 0,
+    "status": [],
+    "clean": true
+  },
+  "immutability_errors": [],
+  "event_metrics": null,
+  "forbidden_event_items": [],
+  "judgment_errors": [],
+  "job_repo": "C:\\cbp\\production-v1-pilot-6\\20260830T073127.913499Z-prod-7cfa8d543962-replicate-a\\repo",
+  "raw_events": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\production\\raw\\production-v1-pilot-6\\20260830T073127.913499Z-prod-7cfa8d543962-replicate-a.events.jsonl",
+  "raw_stderr": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\production\\raw\\production-v1-pilot-6\\20260830T073127.913499Z-prod-7cfa8d543962-replicate-a.stderr.log",
+  "raw_judgment": "D:\\project\\Git.temp\\cockpit-benchmark\\calibration\\production\\raw\\production-v1-pilot-6\\20260830T073127.913499Z-prod-7cfa8d543962-replicate-a.judgment.json"
+}
