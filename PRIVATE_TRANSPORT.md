@@ -1,4 +1,4 @@
-# Private GitHub transport
+# GitHub transport
 
 This wrapper repository transports the complete cockpit benchmark without turning the 40 nested
 repositories into Git submodules or mode-160000 gitlinks. Fourteen public-lineage children
@@ -16,12 +16,16 @@ repositories, so the transport preserves their complete `.git` metadata director
   enables repository-local `core.longpaths=true` before checkout, checks refs/HEAD/raw Git
   tracked-file counts, runs `git fsck --full`, and confirms no child remote exists.
 - `repos/` is intentionally ignored by the outer wrapper. On the authoring computer it contains
-  the live independent repositories; after a fresh wrapper clone it is reconstructed from bundles.
+  the live independent repositories; after a fresh wrapper clone it is reconstructed from archives.
 
 The current 40 metadata archives total 825,149,440 bytes. The largest archive is 58,583,040 bytes,
 below GitHub's 100 MB per-file hard limit. Git LFS is therefore not enabled and no paid LFS quota
 is used. The rejected bundle experiment is documented at
 `reports/validation/private-transport-bundle-rejection.json`.
+
+The wrapper is public at `https://github.com/caobotao1234-star/cockpit-benchmark`. Its manifest,
+oracle and historical calibration artifacts are therefore public ground truth. Never give the
+wrapper root to a blind evaluator; give it exactly one restored child repository root.
 
 ## Restore after cloning
 

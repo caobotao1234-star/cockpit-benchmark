@@ -5,7 +5,7 @@ remains historical evidence; it is not a substitute for the new production-rubri
 
 This directory is the delivery root for the cockpit Android code-health benchmark. Locally, each
 directory below `repos/app/` and `repos/framework/` is an independent, remote-free Git repository.
-The outer repository is only a private transport wrapper: it stores verified Git metadata archives and never
+The outer repository is only a public transport wrapper: it stores verified Git metadata archives and never
 records the children as gitlinks. See `PRIVATE_TRANSPORT.md` and run
 `Restore-CockpitBenchmark.ps1` after a fresh wrapper clone.
 
@@ -26,14 +26,15 @@ Give the evaluation Agent exactly one repository directory as its input. Do not 
 - `manifest.json`: structured source of truth.
 - `manifest.md`: human-readable summary.
 - `.cockpit-transport/`: SHA-bound child-repository metadata archives and restore index.
-- `PRIVATE_TRANSPORT.md`: private download and restoration instructions.
+- `PRIVATE_TRANSPORT.md`: download, restoration and isolation instructions.
 - `reports/validation/g5-acceptance.md`: historical completion evidence for the prior rubric.
 
 ## Safety
 
 No evaluated child repository may retain an external remote. Provenance belongs in the parent
-manifest. Only the outer wrapper may use the recorded, user-owned private GitHub remote.
+manifest. Only the outer wrapper uses the recorded, user-owned GitHub transport remote. Because
+the wrapper is public, its oracle and quality labels must never be included in blind evaluator input.
 
 Complete AAOS/AOSP builds remain environment-dependent where `buildability` is `aosp_required` or
 `bsp_stubbed`; those limits are recorded per repository and are not represented as successful
-standalone builds. Private transport does not change evaluator isolation or calibration status.
+standalone builds. Public transport does not change evaluator isolation or calibration status.
