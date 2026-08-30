@@ -6,7 +6,7 @@ remains historical evidence; it is not a substitute for the new production-rubri
 This directory is the delivery root for the cockpit Android code-health benchmark. Locally, each
 directory below `repos/app/` and `repos/framework/` is an independent, remote-free Git repository.
 The outer repository is only a public transport wrapper: it stores verified Git metadata archives and never
-records the children as gitlinks. See `PRIVATE_TRANSPORT.md` and run
+records the children as gitlinks. See `TRANSPORT.md` and run
 `Restore-CockpitBenchmark.ps1` after a fresh wrapper clone.
 
 The final set contains 20 APP and 20 FRAMEWORK repositories. Each kind has 7 high, 7 medium and
@@ -26,7 +26,8 @@ Give the evaluation Agent exactly one repository directory as its input. Do not 
 - `manifest.json`: structured source of truth.
 - `manifest.md`: human-readable summary.
 - `.cockpit-transport/`: SHA-bound child-repository metadata archives and restore index.
-- `PRIVATE_TRANSPORT.md`: download, restoration and isolation instructions.
+- `TRANSPORT.md`: download, restoration and isolation instructions.
+- `LICENSE` / `NOTICE`: wrapper-level Apache-2.0 terms and child-license scope boundary.
 - `reports/validation/g5-acceptance.md`: historical completion evidence for the prior rubric.
 
 ## Safety
