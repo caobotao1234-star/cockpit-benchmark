@@ -9,4 +9,3 @@ Each child repository preserves its own LICENSE/NOTICE/copyright files. Exact up
 source, commit, license evidence, and modifications are recorded in manifest.json and the
 repository-level provenance files. Restore the children before redistributing or evaluating
 them, and retain those repository-specific notices.
-
