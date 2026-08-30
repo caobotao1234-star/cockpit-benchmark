@@ -1,0 +1,14 @@
+{
+  "document_type": "restored_history_binding_verification",
+  "schema_version": "1.0.0",
+  "verified_at": "2026-08-30T14:44:12.013Z",
+  "valid": true,
+  "source_history_report_sha256": "e331986f2e8c8d961fa2b8684ed019f0bb254160d398b8fc57693bd9749dd421",
+  "source_manifest_sha256": "9e3ffbaac5811b47497ac7fa489f3444b8d9c002be66455419c1980548000fb7",
+  "transport_index_sha256": "da969d0926ee58a20c494d1566e2a6240b4b5bee8db06cedd37ffeee801a56f3",
+  "restore_root": "D:/Project/Git.temp/cb-hardening-restore-verify-20260830",
+  "repository_count": 40,
+  "history_binding_passed_count": 40,
+  "history_binding_failed_repo_ids": [],
+  "method": "Recompute the structural Git history/object-graph audit in each restored remote-free child and require exact equality with the corresponding full source history audit facts_sha256."
+}

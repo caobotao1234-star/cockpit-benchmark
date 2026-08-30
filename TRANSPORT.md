@@ -18,7 +18,7 @@ repositories, so the transport preserves their complete `.git` metadata director
 - `repos/` is intentionally ignored by the outer wrapper. On the authoring computer it contains
   the live independent repositories; after a fresh wrapper clone it is reconstructed from archives.
 
-The current 40 metadata archives total 825,149,440 bytes. The largest archive is 58,583,040 bytes,
+The current 40 metadata archives total 805,591,040 bytes. The largest archive is 58,583,040 bytes,
 below GitHub's 100 MB per-file hard limit. Git LFS is therefore not enabled and no paid LFS quota
 is used. The rejected bundle experiment is documented at
 `reports/validation/private-transport-bundle-rejection.json`.

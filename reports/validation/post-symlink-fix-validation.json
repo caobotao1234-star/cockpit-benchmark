@@ -1,0 +1,15 @@
+{
+  "clone_smoke": false,
+  "issues": [
+    {
+      "code": "calibration_incomplete",
+      "message": "repositories not calibrated: ['APP-02', 'APP-12', 'APP-16', 'APP-20', 'FW-01', 'FW-02', 'FW-03', 'FW-04', 'FW-05', 'FW-06', 'FW-07', 'FW-08', 'FW-09', 'FW-14', 'FW-16', 'FW-17', 'FW-20']",
+      "severity": "error"
+    }
+  ],
+  "mode": "final",
+  "probed_count": 40,
+  "repository_count": 40,
+  "root": "D:\\project\\Git.temp\\cockpit-benchmark",
+  "valid": false
+}

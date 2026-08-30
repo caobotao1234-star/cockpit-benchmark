@@ -3,12 +3,12 @@
   "repo_id": "APP-02",
   "quality_tier": "high",
   "comparison_family": "app-launcher-medium",
-  "review_status": "blind_validated",
+  "review_status": "reviewed",
   "evidence": [
     {
       "dimension": "architecture",
       "branch": "main",
-      "commit": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
       "path": "systemui-shell/Android.bp",
       "symbol_or_line": "LauncherSystemUiShell",
       "observation": "Launcher/Dock/AppGrid 七模块之外，系统栏、用户切换、窗口和通知形成独立 android_library 与测试目标。",
@@ -18,7 +18,7 @@
     {
       "dimension": "system_api_dependency",
       "branch": "main",
-      "commit": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
       "path": "systemui-shell/src/com/android/systemui/car/systembar/CarSystemBar.java",
       "symbol_or_line": "CarSystemBar",
       "observation": "CommandQueue、用户切换和系统窗口职责由 system-shell 专门控制器/mediator 处理，而非回灌 Launcher Activity。",
@@ -28,7 +28,7 @@
     {
       "dimension": "integration_testing",
       "branch": "main",
-      "commit": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
       "path": "TEST_MAPPING",
       "symbol_or_line": "presubmit",
       "observation": "六个保留测试目标映射到 presubmit；71 个测试源覆盖 Launcher/Dock/AppGrid 与新增 system-shell 边界。",
@@ -38,7 +38,7 @@
     {
       "dimension": "solid",
       "branch": "main",
-      "commit": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
       "path": "systemui-shell/src/com/android/systemui/car/userswitcher/UserSwitchTransitionViewMediator.java",
       "symbol_or_line": "UserSwitchTransitionViewMediator",
       "observation": "用户切换展示通过 mediator/controller 分离，与 Launcher task/card 数据流保持单向边界。",
@@ -48,7 +48,7 @@
     {
       "dimension": "release_branch_strategy",
       "branch": "main",
-      "commit": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
       "path": "app/Android.bp",
       "symbol_or_line": "shared Soong baseline",
       "observation": "develop/release/8155/8295/presubmit 都以修复后 main 为 merge base，相同 blob 比例 0.999026。",

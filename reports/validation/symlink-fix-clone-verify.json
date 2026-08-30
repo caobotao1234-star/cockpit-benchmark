@@ -1,0 +1,55 @@
+{
+  "document_type": "symlink_fix_clone_verification",
+  "schema_version": "1.0.0",
+  "verified_at": "2026-08-30T14:09:28.390Z",
+  "status": "passed",
+  "reason": "Removed unresolved external AOSP source links from every delivery branch and moved benchmark-local release tags to the repaired release heads.",
+  "backup": {
+    "path": "D:/Project/Git.temp/cockpit-transport-pre-symlink-fix-backup-20260830",
+    "archives": {
+      "APP-02-horizon-launcher.git.tar": "fe0b7b488f82e541a5b0e9b8c76079619fa542f0eea3a531f310bc3260d95f9a",
+      "APP-16-nova-launcher.git.tar": "9ccac7a29665bb702e5177894fa8ed8e0cf9385fd97036cbe82c00ee8a5cf398"
+    }
+  },
+  "fresh_clone_root": "D:/Project/Git.temp/symlink-fix-clone-verify-20260830",
+  "repositories": [
+    {
+      "repo_id": "APP-02",
+      "head": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
+      "head_match": true,
+      "clean": true,
+      "fsck": "passed",
+      "delivery_ref_symlink_count": 0,
+      "branches": {
+        "develop": "f514ce2e97d90de9a60d40ae02bcfbfcb174f0bb",
+        "main": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
+        "platform/8155": "29ce9d750e0b7158b0f2d61313420641a385a199",
+        "platform/8295": "30709ae25c06616fdfe9aa3efbd5420b0d3b8ac2",
+        "presubmit/launcher-contracts": "9507ddd5d13a13cf58bd2cee81fb3f2d32ea0d56",
+        "release/2026.1": "af0cf348d8f926e1649c79c0a22759564611b790"
+      },
+      "tags": {
+        "local-sop-2026.1": "af0cf348d8f926e1649c79c0a22759564611b790"
+      }
+    },
+    {
+      "repo_id": "APP-16",
+      "head": "997b2a7589a81c30c93992b3f7871f2afc99ac77",
+      "head_match": true,
+      "clean": true,
+      "fsck": "passed",
+      "delivery_ref_symlink_count": 0,
+      "branches": {
+        "develop": "5eae59466aa7302b1fb76b2a48ebef4e221930e0",
+        "main": "997b2a7589a81c30c93992b3f7871f2afc99ac77",
+        "platform/8155": "12018f5c86295792c08f2dc1c6ddf1ff53d1c87a",
+        "platform/8295": "8d942866a7277643388928721bd043a5a33d83e7",
+        "platform/xinqing": "6c1af62ba51904f824be85a7b7409e3c5dafe657",
+        "release/sop-2025": "9819e8a6017d953300b0a04c32915146823241ee"
+      },
+      "tags": {
+        "local-sop-2025.4": "9819e8a6017d953300b0a04c32915146823241ee"
+      }
+    }
+  ]
+}

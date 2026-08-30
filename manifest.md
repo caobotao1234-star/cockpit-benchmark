@@ -7,14 +7,14 @@ Status: **FINAL CANDIDATE**
 | APP repositories | 20 | 20 |
 | FRAMEWORK repositories | 20 | 20 |
 | Deterministically verified | 40 | 40 |
-| Blind calibrated | 25 | 40 |
+| Blind calibrated | 23 | 40 |
 
 ## Registered repositories
 
 | ID | Repository | Kind | Tier | Size band | Source files | Source LOC | Modules | Build | First known issue |
 |---|---|---|---|---|---:|---:|---:|---|---|
 | APP-01 | `aurora-settings` | APP | high | large | 1,443 | 106,170 | 4 | Gradle | 依赖 AAOS SettingsLib、car-lib、系统/隐藏 API 与资源，完整构建需要产品树。 |
-| APP-02 | `horizon-launcher` | APP | high | medium | 413 | 36,269 | 8 | Soong | 完整构建依赖 AAOS Launcher/SystemUI/WindowManager 隐藏和系统 API，只声明 a... |
+| APP-02 | `horizon-launcher` | APP | high | medium | 412 | 36,268 | 8 | Soong | 完整构建依赖 AAOS Launcher/SystemUI/WindowManager 隐藏和系统 API，只声明 a... |
 | APP-03 | `climatix-hvac` | APP | high | small | 222 | 10,774 | 7 | Gradle | ServiceManager 通过 vehicle-api 内单一反射适配器访问，运行仍要求系统权限与平台服务。 |
 | APP-04 | `wave-media` | APP | high | small | 174 | 10,037 | 4 | Gradle | 完整 APP 仍依赖未随仓交付的 AAOS UI/common 库、android.car 和隐藏 API，只声明 a... |
 | APP-05 | `link-phone` | APP | high | medium | 394 | 33,507 | 7 | Gradle | 完整 Gradle 图仍依赖 AAOS car-* 库、Hilt 与平台 Telecom/CarService。 |
@@ -28,7 +28,7 @@ Status: **FINAL CANDIDATE**
 | APP-13 | `market-hub` | APP | medium | small | 264 | 21,482 | 11 | Gradle | MarketActivity 只提供 catalog 入口，尚未连接完整筛选/详情/下载 UI。 |
 | APP-14 | `cockpit-shell` | APP | medium | large | 1,267 | 121,978 | 18 | Soong | 多产品源在同一 Soong 闭包中保留各自入口，组合层集成测试不覆盖完整启动顺序。 |
 | APP-15 | `atlas-settings` | APP | low | large | 1,331 | 101,808 | 4 | Gradle | LegacySettingsRuntime 是 Context 单例，反射 ServiceManager/任意方法并重... |
-| APP-16 | `nova-launcher` | APP | low | medium | 514 | 40,968 | 9 | Soong | VendorLauncherRuntime 以 Context 单例反射 ServiceManager/SystemP... |
+| APP-16 | `nova-launcher` | APP | low | medium | 513 | 40,967 | 9 | Soong | VendorLauncherRuntime 以 Context 单例反射 ServiceManager/SystemP... |
 | APP-17 | `thermo-control` | APP | low | small | 166 | 11,981 | 2 | Gradle | ClimateCenterActivity 聚合 UI、状态、诊断、车辆控制和生命周期职责。 |
 | APP-18 | `stream-media` | APP | low | small | 180 | 10,016 | 5 | Gradle | GlobalVehicleMediaHub 是 Context 进程级单例并聚合 media/audio/phone/... |
 | APP-19 | `companion-voice` | APP | low | medium | 421 | 43,262 | 12 | Gradle | VoiceGlobalState 暴露 mutable static session/callback/executo... |

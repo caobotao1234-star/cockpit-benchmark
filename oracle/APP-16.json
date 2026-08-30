@@ -3,12 +3,12 @@
   "repo_id": "APP-16",
   "quality_tier": "low",
   "comparison_family": "app-launcher-medium",
-  "review_status": "blind_validated",
+  "review_status": "reviewed",
   "evidence": [
     {
       "dimension": "architecture",
       "branch": "main",
-      "commit": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "commit": "997b2a7589a81c30c93992b3f7871f2afc99ac77",
       "path": "app/src/com/android/car/carlauncher/product/LauncherExperienceCoordinator.java",
       "symbol_or_line": "LauncherExperienceCoordinator",
       "observation": "单一协调器承担 Activity 生命周期、平台选择、轮询、偏好、任务启动、重试和 Dock 限制。",
@@ -18,7 +18,7 @@
     {
       "dimension": "hidden_api_reflection",
       "branch": "main",
-      "commit": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "commit": "997b2a7589a81c30c93992b3f7871f2afc99ac77",
       "path": "app/src/com/android/car/carlauncher/product/VendorLauncherRuntime.java",
       "symbol_or_line": "VendorLauncherRuntime",
       "observation": "进程单例反射 ServiceManager/SystemProperties、setAccessible、裸 Object/IBinder 并持续轮询。",
@@ -28,7 +28,7 @@
     {
       "dimension": "code_duplication",
       "branch": "main",
-      "commit": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "commit": "997b2a7589a81c30c93992b3f7871f2afc99ac77",
       "path": "platform/8155/app/src/com/android/car/carlauncher/CarLauncher.java",
       "symbol_or_line": "shared, platform/8155 and platform/8295 launcher stacks",
       "observation": "两套完整平台源码加 shared 栈产生 183 对近重复；三套 profile 继续复制硬编码差异。",
@@ -38,7 +38,7 @@
     {
       "dimension": "integration_testing",
       "branch": "main",
-      "commit": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "commit": "997b2a7589a81c30c93992b3f7871f2afc99ac77",
       "path": "app/src/com/android/car/carlauncher/product/VendorLauncherRuntime.java",
       "symbol_or_line": "vendor/product runtime",
       "observation": "53 个既有测试源不引用 vendor runtime、协调器、平台 profile 或两套复制栈。",
@@ -48,7 +48,7 @@
     {
       "dimension": "release_branch_strategy",
       "branch": "main",
-      "commit": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+      "commit": "997b2a7589a81c30c93992b3f7871f2afc99ac77",
       "path": "app/Android.bp",
       "symbol_or_line": "main versus product branches",
       "observation": "五个侧分支都缺少 main 的 signal ledger 与 fallback 两次演进；相对 main 删除 88 行。",

@@ -1,0 +1,45 @@
+{
+  "document_type": "unreachable_git_object_prune",
+  "schema_version": "1.0.0",
+  "completed_at": "2026-08-30T14:32:54.549Z",
+  "status": "passed",
+  "reason": "Restored child repositories are evaluator-visible Git roots; unreachable objects were therefore removed after a complete recoverable metadata-archive backup.",
+  "backup": {
+    "path": "D:/Project/Git.temp/cockpit-transport-pre-unreachable-prune-backup-20260830",
+    "archive_count": 16,
+    "archive_bytes": 37867520,
+    "recoverable": true
+  },
+  "prune_method": [
+    "git reflog expire --expire=now --all",
+    "git gc --prune=now",
+    "git fsck --unreachable --no-reflogs --no-progress"
+  ],
+  "removed_unreachable_object_count": 3972,
+  "repositories": {
+    "APP-02": 10,
+    "APP-03": 3736,
+    "APP-04": 8,
+    "APP-06": 20,
+    "APP-07": 28,
+    "APP-11": 8,
+    "APP-14": 8,
+    "APP-16": 14,
+    "APP-18": 28,
+    "APP-19": 8,
+    "FW-02": 23,
+    "FW-10": 25,
+    "FW-11": 16,
+    "FW-12": 16,
+    "FW-13": 8,
+    "FW-19": 16
+  },
+  "postconditions": {
+    "repository_count": 16,
+    "unreachable_object_count": 0,
+    "all_heads_unchanged": true,
+    "all_worktrees_clean": true,
+    "full_40_history_audit_valid": true,
+    "full_40_history_audit_report_sha256": "e331986f2e8c8d961fa2b8684ed019f0bb254160d398b8fc57693bd9749dd421"
+  }
+}

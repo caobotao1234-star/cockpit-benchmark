@@ -1,0 +1,78 @@
+{
+  "document_type": "manifest_probe_refresh",
+  "schema_version": "1.0.0",
+  "probe_name": "cockpit-repo-probe",
+  "probe_version": "1.5.0",
+  "repository_count": 40,
+  "changed_repository_count": 2,
+  "changes": [
+    {
+      "repo_id": "APP-02",
+      "fields": {
+        "tracked_files": {
+          "before": 439,
+          "after": 437
+        },
+        "source_files": {
+          "before": 413,
+          "after": 412
+        },
+        "source_loc": {
+          "before": 36269,
+          "after": 36268
+        },
+        "commit_count": {
+          "before": 11,
+          "after": 17
+        },
+        "repo_head": {
+          "before": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+          "after": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629"
+        },
+        "platform_reuse": {
+          "before_count": 5,
+          "after_count": 5
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    },
+    {
+      "repo_id": "APP-16",
+      "fields": {
+        "tracked_files": {
+          "before": 538,
+          "after": 536
+        },
+        "source_files": {
+          "before": 514,
+          "after": 513
+        },
+        "source_loc": {
+          "before": 40968,
+          "after": 40967
+        },
+        "commit_count": {
+          "before": 14,
+          "after": 20
+        },
+        "repo_head": {
+          "before": "7e60333d1980be7209b8b2d81fb33873dd50f3ea",
+          "after": "997b2a7589a81c30c93992b3f7871f2afc99ac77"
+        },
+        "platform_reuse": {
+          "before_count": 5,
+          "after_count": 5
+        },
+        "validation_status": {
+          "before": "calibrated",
+          "after": "verified"
+        }
+      }
+    }
+  ],
+  "oracle_update_count": 2,
+  "applied": true
+}
