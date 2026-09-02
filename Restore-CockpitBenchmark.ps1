@@ -30,8 +30,13 @@ $arguments = @(
     '--root', $PSScriptRoot,
     '--destination-root', ([System.IO.Path]::GetFullPath($DestinationRoot))
 )
-foreach ($id in @($RepositoryId)) {
-    $arguments += @('--repository-id', $id)
+if ($RepositoryId) {
+    foreach ($id in $RepositoryId) {
+        if ([string]::IsNullOrWhiteSpace($id)) {
+            throw 'RepositoryId entries must not be empty.'
+        }
+        $arguments += @('--repository-id', $id)
+    }
 }
 if ($ReportPath) {
     $arguments += @('--report-path', ([System.IO.Path]::GetFullPath($ReportPath)))
