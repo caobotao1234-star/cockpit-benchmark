@@ -1,219 +1,220 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "APP-02",
-  "quality_tier": "high",
-  "comparison_family": "app-launcher-medium",
-  "review_status": "reviewed",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
-      "path": "systemui-shell/Android.bp",
-      "symbol_or_line": "LauncherSystemUiShell",
-      "observation": "Launcher/Dock/AppGrid 七模块之外，系统栏、用户切换、窗口和通知形成独立 android_library 与测试目标。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "system_api_dependency",
-      "branch": "main",
-      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
-      "path": "systemui-shell/src/com/android/systemui/car/systembar/CarSystemBar.java",
-      "symbol_or_line": "CarSystemBar",
-      "observation": "CommandQueue、用户切换和系统窗口职责由 system-shell 专门控制器/mediator 处理，而非回灌 Launcher Activity。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
-      "path": "TEST_MAPPING",
-      "symbol_or_line": "presubmit",
-      "observation": "六个保留测试目标映射到 presubmit；71 个测试源覆盖 Launcher/Dock/AppGrid 与新增 system-shell 边界。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "solid",
-      "branch": "main",
-      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
-      "path": "systemui-shell/src/com/android/systemui/car/userswitcher/UserSwitchTransitionViewMediator.java",
-      "symbol_or_line": "UserSwitchTransitionViewMediator",
-      "observation": "用户切换展示通过 mediator/controller 分离，与 Launcher task/card 数据流保持单向边界。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "release_branch_strategy",
-      "branch": "main",
-      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
-      "path": "app/Android.bp",
-      "symbol_or_line": "shared Soong baseline",
-      "observation": "develop/release/8155/8295/presubmit 都以修复后 main 为 merge base，相同 blob 比例 0.999026。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_high",
-      "reason": "八个模块明确分开 Launcher、Dock、AppGrid、公共库与 system-shell。"
-    },
-    {
-      "name": "solid",
-      "status": "expected_high",
-      "reason": "Task/card/systembar/userswitcher/window/notification 使用专门 controller/mediator。"
-    },
-    {
-      "name": "system_api_dependency",
-      "status": "expected_high",
-      "reason": "系统 Task/Window/CommandQueue 依赖集中在 QuickStep/SystemUI 边界。"
-    },
-    {
-      "name": "hidden_api_reflection",
-      "status": "expected_medium",
-      "reason": "平台 UI 仍有少量反射与全局状态，但边界和测试可见。"
-    },
-    {
-      "name": "aidl_sdk_call",
-      "status": "expected_medium",
-      "reason": "主要使用系统 Task/InCall/Binder SDK 而非自定义 AIDL。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "需要 AAOS/AOSP Launcher/SystemUI 产品树。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_high",
-      "reason": "71 个测试源与精确 TEST_MAPPING。"
-    },
-    {
-      "name": "code_duplication",
-      "status": "expected_high",
-      "reason": "0.80 阈值无近重复文件。"
-    },
-    {
-      "name": "release_branch_strategy",
-      "status": "expected_high",
-      "reason": "所有侧分支基于当前 main。"
-    },
-    {
-      "name": "platform_reuse",
-      "status": "expected_high",
-      "reason": "平台分支复用率 0.999026。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g3",
       "blind_id": "blind-bcc8acfa07b8",
-      "repository_head": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
-      "result_path": "calibration/results/g3/blind-bcc8acfa07b8.json",
-      "validation_report": "reports/validation/g3-blind-results.json",
-      "human_review_report": "reports/validation/g3-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-29T11:40:16.568740Z",
-      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T10:54:03.396Z",
-      "finished_at": "2026-08-29T10:59:20.907Z",
-      "wall_clock_seconds": 317.511,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 56,
-        "directories_visited": 38,
-        "tool_calls": 19,
-        "notes": "HEAD 与预期 SHA 一致。静态检查覆盖 30 个生产源文件、7 个测试文件、Soong 模块与清单、隐藏 API/反射/Binder 边界，以及 release/2026.1、platform/8155、platform/8295、develop 和 presubmit/launcher-contracts 的本地引用与有界差异。未运行构建、脚本或网络操作；一次受限 PowerShell 汇总命令部分报错，随后用 rg/git 的有界检查补足了清单。未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 2.0,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 32,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "仓库按 launcher、app-grid、dock、公共库和 SystemUI shell 划分，并通过 Soong 形成清晰的组合方向；app-grid 内也有 ViewModel、repository、data-source 分层。局部仍存在承担大量 UI、系统状态和编排职责的大类，削弱了边界的可演进性。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "仓库按 launcher、app-grid、dock、公共库和 SystemUI shell 划分，并通过 Soong 形成清晰的组合方向；app-grid 内也有 ViewModel、repository、data-source 分层。局部仍存在承担大量 UI、系统状态和编排职责的大类，削弱了边界的可演进性。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "生产设计中存在真实的窄接口、构造注入、可替换函数边界和生命周期封装，体现 ISP/DIP；但部分 ViewModel/控制器仍直接依赖具体 Android/Car 服务并承载多种职责，实践不完全一致。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "生产设计中存在真实的窄接口、构造注入、可替换函数边界和生命周期封装，体现 ISP/DIP；但部分 ViewModel/控制器仍直接依赖具体 Android/Car 服务并承载多种职责，实践不完全一致。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "系统能力大多使用类型化 Android/AAOS API，权限在清单中声明，部分边界具备注入、异常处理和资源释放。依赖隔离仍不均匀：若干核心类直接创建 Car 服务或调用隐藏任务 API，且特权权限面较宽。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "系统能力大多使用类型化 Android/AAOS API，权限在清单中声明，部分边界具备注入、异常处理和资源释放。依赖隔离仍不均匀：若干核心类直接创建 Car 服务或调用隐藏任务 API，且特权权限面较宽。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "hidden_api_reflection",
-          "status": "scored",
+          "reason": "隐藏 API 有集中、类型化的 enabled/disabled 兼容层，禁用版本提供明确的降级值；但配置驱动的反射分散在多个 Activity/SystemUI 类中，使用已废弃的 newInstance，错误语义从静默跳过到启动时 RuntimeException 不一致，且未观察到针对这些反射失败路径的专门测试。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "隐藏 API 有集中、类型化的 enabled/disabled 兼容层，禁用版本提供明确的降级值；但配置驱动的反射分散在多个 Activity/SystemUI 类中，使用已废弃的 newInstance，错误语义从静默跳过到启动时 RuntimeException 不一致，且未观察到针对这些反射失败路径的专门测试。"
+          "status": "scored"
         },
         {
+          "evidence_count": 2,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "仓库没有 AIDL 文件，但存在真实 Messenger/Binder 跨进程边界。该边界具有显式服务组件、注册/注销协议、RemoteException/SecurityException 处理、协程关闭清理和行为测试；不足在于协议依赖资源整数与 Bundle 字符串，缺少编译期类型契约、Binder death/onBindingDied 处理和调用方身份校验。",
           "score": 2,
-          "evidence_count": 2,
-          "reason": "仓库没有 AIDL 文件，但存在真实 Messenger/Binder 跨进程边界。该边界具有显式服务组件、注册/注销协议、RemoteException/SecurityException 处理、协程关闭清理和行为测试；不足在于协议依赖资源整数与 Bundle 字符串，缺少编译期类型契约、Binder death/onBindingDied 处理和调用方身份校验。"
+          "status": "scored"
         },
         {
+          "evidence_count": 2,
           "name": "compilation_independence",
-          "status": "failed",
+          "reason": "仓库只声明 Soong 模块，并依赖 android.car、SystemUISharedLib、WindowManager-Shell、平台 stubs、平台证书及多个 AOSP 内部模块；当前工作区不包含所需 AAOS/AOSP 平台树，且受控评估禁止运行构建，因此无法建立或验证可信的独立编译边界。",
           "score": null,
-          "evidence_count": 2,
-          "reason": "仓库只声明 Soong 模块，并依赖 android.car、SystemUISharedLib、WindowManager-Shell、平台 stubs、平台证书及多个 AOSP 内部模块；当前工作区不包含所需 AAOS/AOSP 平台树，且受控评估禁止运行构建，因此无法建立或验证可信的独立编译边界。"
+          "status": "failed"
         },
         {
+          "evidence_count": 4,
           "name": "integration_testing",
-          "status": "scored",
+          "reason": "测试分布覆盖各主要模块，并包含设备级 Activity 重建、Car UX fake、Messenger 生命周期和受权限保护广播等跨 Android 边界行为；但多数边界仍通过 mock/Robolectric 或进程内替身验证，未观察到真实多进程死亡、重连、权限拒绝和完整产品组合场景。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "测试分布覆盖各主要模块，并包含设备级 Activity 重建、Car UX fake、Messenger 生命周期和受权限保护广播等跨 Android 边界行为；但多数边界仍通过 mock/Robolectric 或进程内替身验证，未观察到真实多进程死亡、重连、权限拒绝和完整产品组合场景。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "code_duplication",
-          "status": "scored",
+          "reason": "存在多处手写重复且已产生维护风险：两个 Activity 复制了反射式卡片初始化流程，公共 ProtoDataSource 明示从 app-grid 复制，系统栏控制器又按四个方位重复大量相同分支。重复仍可定位且部分家族通过基类复用，因此不是失控状态。",
           "score": 1,
-          "evidence_count": 4,
-          "reason": "存在多处手写重复且已产生维护风险：两个 Activity 复制了反射式卡片初始化流程，公共 ProtoDataSource 明示从 app-grid 复制，系统栏控制器又按四个方位重复大量相同分支。重复仍可定位且部分家族通过基类复用，因此不是失控状态。"
+          "status": "scored"
         },
         {
-          "name": "release_branch_strategy",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 3,
-          "reason": "本地 release/platform 分支都从 main 单提交分叉，差异被限制为极小的产品配置；release 分支还有同 SHA 标签，未发现生产代码复制或长期漂移。由于历史很短且无回合并、修复回灌或多版本演进证据，不能认定为完整、系统化的发布策略。"
+          "name": "release_branch_strategy",
+          "reason": "本地 release/platform 分支都从 main 单提交分叉，差异被限制为极小的产品配置；release 分支还有同 SHA 标签，未发现生产代码复制或长期漂移。由于历史很短且无回合并、修复回灌或多版本演进证据，不能认定为完整、系统化的发布策略。",
+          "score": 2,
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 3,
           "evidence_count": 4,
-          "reason": "两个平台分支共享完全相同的 main 代码，仅通过同结构的两行配置表达芯片差异；当前 HEAD 同时抽取 CarLauncherCommon、CarAppGrid、DockUtil 等公共模块，未观察到按平台复制的实现。主要局限是平台配置消费链在该仓库内不可验证。"
+          "name": "platform_reuse",
+          "reason": "两个平台分支共享完全相同的 main 代码，仅通过同结构的两行配置表达芯片差异；当前 HEAD 同时抽取 CarLauncherCommon、CarAppGrid、DockUtil 等公共模块，未观察到按平台复制的实现。主要局限是平台配置消费链在该仓库内不可验证。",
+          "score": 3,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 32,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 38,
+        "files_opened": 56,
+        "notes": "HEAD 与预期 SHA 一致。静态检查覆盖 30 个生产源文件、7 个测试文件、Soong 模块与清单、隐藏 API/反射/Binder 边界，以及 release/2026.1、platform/8155、platform/8295、develop 和 presubmit/launcher-contracts 的本地引用与有界差异。未运行构建、脚本或网络操作；一次受限 PowerShell 汇总命令部分报错，随后用 rg/git 的有界检查补足了清单。未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 19
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T10:59:20.907Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "be0ba1df6a22d6db71add7e1bab11166ac9fa632",
+      "result_path": "calibration/results/g3/blind-bcc8acfa07b8.json",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T10:54:03.396Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 2.0,
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 317.511
     }
-  ]
+  ],
+  "comparison_family": "app-launcher-medium",
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "八个模块明确分开 Launcher、Dock、AppGrid、公共库与 system-shell。",
+      "status": "expected_high"
+    },
+    {
+      "name": "solid",
+      "reason": "Task/card/systembar/userswitcher/window/notification 使用专门 controller/mediator。",
+      "status": "expected_high"
+    },
+    {
+      "name": "system_api_dependency",
+      "reason": "系统 Task/Window/CommandQueue 依赖集中在 QuickStep/SystemUI 边界。",
+      "status": "expected_high"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "reason": "平台 UI 仍有少量反射与全局状态，但边界和测试可见。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "reason": "主要使用系统 Task/InCall/Binder SDK 而非自定义 AIDL。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "需要 AAOS/AOSP Launcher/SystemUI 产品树。",
+      "status": "failed"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "71 个测试源与精确 TEST_MAPPING。",
+      "status": "expected_high"
+    },
+    {
+      "name": "code_duplication",
+      "reason": "0.80 阈值无近重复文件。",
+      "status": "expected_high"
+    },
+    {
+      "name": "release_branch_strategy",
+      "reason": "所有侧分支基于当前 main。",
+      "status": "expected_high"
+    },
+    {
+      "name": "platform_reuse",
+      "reason": "平台分支复用率 0.999026。",
+      "status": "expected_high"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "positive",
+      "observation": "Launcher/Dock/AppGrid 七模块之外，系统栏、用户切换、窗口和通知形成独立 android_library 与测试目标。",
+      "path": "systemui-shell/Android.bp",
+      "symbol_or_line": "LauncherSystemUiShell"
+    },
+    {
+      "branch": "main",
+      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
+      "confidence": "high",
+      "dimension": "system_api_dependency",
+      "expected_impact": "positive",
+      "observation": "CommandQueue、用户切换和系统窗口职责由 system-shell 专门控制器/mediator 处理，而非回灌 Launcher Activity。",
+      "path": "systemui-shell/src/com/android/systemui/car/systembar/CarSystemBar.java",
+      "symbol_or_line": "CarSystemBar"
+    },
+    {
+      "branch": "main",
+      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "positive",
+      "observation": "六个保留测试目标映射到 presubmit；71 个测试源覆盖 Launcher/Dock/AppGrid 与新增 system-shell 边界。",
+      "path": "TEST_MAPPING",
+      "symbol_or_line": "presubmit"
+    },
+    {
+      "branch": "main",
+      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
+      "confidence": "high",
+      "dimension": "solid",
+      "expected_impact": "positive",
+      "observation": "用户切换展示通过 mediator/controller 分离，与 Launcher task/card 数据流保持单向边界。",
+      "path": "systemui-shell/src/com/android/systemui/car/userswitcher/UserSwitchTransitionViewMediator.java",
+      "symbol_or_line": "UserSwitchTransitionViewMediator"
+    },
+    {
+      "branch": "main",
+      "commit": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
+      "confidence": "high",
+      "dimension": "release_branch_strategy",
+      "expected_impact": "positive",
+      "observation": "develop/release/8155/8295/presubmit 都以修复后 main 为 merge base，相同 blob 比例 0.999026。",
+      "path": "app/Android.bp",
+      "symbol_or_line": "shared Soong baseline"
+    }
+  ],
+  "quality_tier": "high",
+  "repo_id": "APP-02",
+  "review_status": "reviewed",
+  "schema_version": "1.0.0"
 }

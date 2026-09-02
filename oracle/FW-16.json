@@ -1,229 +1,230 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "FW-16",
-  "quality_tier": "low",
-  "comparison_family": "fw-car-api-compat-large",
-  "review_status": "reviewed",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "611df2d26b42e2b79d9063d6226378a81e090982",
-      "path": "compat/src/com/cockpitbench/platformcompat/PlatformCompatService.java",
-      "symbol_or_line": "PlatformCompatService",
-      "observation": "单例服务以一个 Bundle router/rawService 横跨五域，直接持有 registry/cache/callback/rules。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "hidden_api_reflection",
-      "branch": "main",
-      "commit": "611df2d26b42e2b79d9063d6226378a81e090982",
-      "path": "compat/src/com/cockpitbench/platformcompat/HiddenApiRegistry.java",
-      "symbol_or_line": "HiddenApiRegistry",
-      "observation": "反射 ServiceManager 和任意方法、setAccessible、Throwable，并全局缓存裸 Object/IBinder。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "aidl_sdk_call",
-      "branch": "main",
-      "commit": "611df2d26b42e2b79d9063d6226378a81e090982",
-      "path": "compat/aidl/com/cockpitbench/platformcompat/IPlatformCompat.aidl",
-      "symbol_or_line": "IPlatformCompat.invoke/rawService",
-      "observation": "粗粒度 Bundle invoke/rawService 缺少细粒度类型、权限、错误版本和 death 语义。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "code_duplication",
-      "branch": "main",
-      "commit": "611df2d26b42e2b79d9063d6226378a81e090982",
-      "path": "compat/legacy/car-lib/src/android/car/Car.java",
-      "symbol_or_line": "shared and legacy car-lib",
-      "observation": "完整 car-lib 复制产生 166 对近重复、文件比 0.215026。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "611df2d26b42e2b79d9063d6226378a81e090982",
-      "path": "service/src/com/android/car/CarServiceImpl.java",
-      "symbol_or_line": "PlatformCompatRuntime wiring",
-      "observation": "compat runtime 已在 CarService create/destroy 接线，但 609 个测试源没有专门引用 compat 包。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "611df2d26b42e2b79d9063d6226378a81e090982",
-      "path": "compat/legacy/Android.bp",
-      "symbol_or_line": "soong_namespace",
-      "observation": "legacy car-lib 已隔离到独立 Soong namespace，消除与根 car-lib 的同名活动模块冲突；两套完整实现仍然并存，复制与演进债保持可见。",
-      "expected_impact": "neutral",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_low",
-      "reason": "兼容职责聚合到全局 service/router/registry。"
-    },
-    {
-      "name": "solid",
-      "status": "expected_low",
-      "reason": "静态状态、Bundle 接口、裸 Binder 和五域 switch 削弱 SRP/ISP/DIP。"
-    },
-    {
-      "name": "system_api_dependency",
-      "status": "expected_low",
-      "reason": "隐藏服务和平台名硬编码在全局 rules/registry。"
-    },
-    {
-      "name": "hidden_api_reflection",
-      "status": "expected_low",
-      "reason": "17 处反射且新增路径 setAccessible/Throwable。"
-    },
-    {
-      "name": "aidl_sdk_call",
-      "status": "expected_low",
-      "reason": "粗粒度 AIDL 缺少权限、类型、death 和背压。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "完整闭包需 AAOS；新增 compat 22 class 编译通过。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_low",
-      "reason": "大量上游测试不覆盖新增兼容层。"
-    },
-    {
-      "name": "code_duplication",
-      "status": "expected_low",
-      "reason": "166 对近重复。"
-    },
-    {
-      "name": "release_branch_strategy",
-      "status": "expected_low",
-      "reason": "侧分支缺少两次 main 演进。"
-    },
-    {
-      "name": "platform_reuse",
-      "status": "expected_low",
-      "reason": "平台差异通过整栈复制、反射 rules 和分支配置混用。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g3",
       "blind_id": "blind-72caa63dd88d",
-      "repository_head": "e5ef0b5ba39ed54205d427ace5f4bba24458f151",
-      "result_path": "calibration/results/g3/blind-72caa63dd88d.json",
-      "validation_report": "reports/validation/g3-blind-results.json",
-      "human_review_report": "reports/validation/g3-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-29T11:40:16.568740Z",
-      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T11:10:56.998Z",
-      "finished_at": "2026-08-29T11:17:43.829Z",
-      "wall_clock_seconds": 406.831,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 986,
-        "directories_visited": 136,
-        "tool_calls": 21,
-        "notes": "HEAD 与预期 SHA 一致。文件数包含为最大文件统计读取的 690 个源码文件，以及对 car-lib/src 与 compat/legacy/car-lib/src 做精确目录比较时遍历的文件，按路径去重；语义审查重点覆盖 22 个代表性生产源码文件和 7 个有实质断言的测试文件。检查了 5 个本地分支相对 main 的 merge-base、左右提交数、diff stat/name-status，并读取各分支唯一配置文件。未运行构建、脚本、包管理器或网络操作；未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 21 (evaluator self-report: 21); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 1.111111,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 36,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "原有汽车服务栈具备清晰的客户端、服务、HAL 和系统接口层次，但新增兼容层以字符串域、Bundle 和反射构成弱类型总线，同时保留整套平行 car API 源码树；这些跨模块问题使边界演进和一致性维护存在持续风险。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "原有汽车服务栈具备清晰的客户端、服务、HAL 和系统接口层次，但新增兼容层以字符串域、Bundle 和反射构成弱类型总线，同时保留整套平行 car API 源码树；这些跨模块问题使边界演进和一致性维护存在持续风险。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "solid",
-          "status": "scored",
+          "reason": "VehicleStub、AudioControlWrapper 和 SystemInterface 展现出可替换接口与依赖隔离，但兼容层普遍依赖静态全局状态、具体类内联构造和任意反射调用，SRP、DIP 与接口隔离在新增边界上系统性偏弱。",
           "score": 1,
-          "evidence_count": 4,
-          "reason": "VehicleStub、AudioControlWrapper 和 SystemInterface 展现出可替换接口与依赖隔离，但兼容层普遍依赖静态全局状态、具体类内联构造和任意反射调用，SRP、DIP 与接口隔离在新增边界上系统性偏弱。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "基础服务对 ServiceManager、VHAL 和 AudioControl 有类型化包装、版本替换和死亡处理；兼容层却再次以多处硬编码服务名、反射和原始 Binder 绕过这些边界，且没有调用权限校验。",
           "score": 1,
-          "evidence_count": 4,
-          "reason": "基础服务对 ServiceManager、VHAL 和 AudioControl 有类型化包装、版本替换和死亡处理；兼容层却再次以多处硬编码服务名、反射和原始 Binder 绕过这些边界，且没有调用权限校验。"
+          "status": "scored"
         },
         {
-          "name": "hidden_api_reflection",
-          "status": "scored",
-          "score": 1,
           "evidence_count": 2,
-          "reason": "反射被集中在单个 registry，且提供 override/clear 测试接缝；但没有成员 allowlist、类型化适配或明确错误模型，按方法名和参数数量选重载并吞掉 Throwable，错误可能静默变成 null。"
+          "name": "hidden_api_reflection",
+          "reason": "反射被集中在单个 registry，且提供 override/clear 测试接缝；但没有成员 allowlist、类型化适配或明确错误模型，按方法名和参数数量选重载并吞掉 Throwable，错误可能静默变成 null。",
+          "score": 1,
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "原有 VHAL/AudioControl 边界具备类型化契约、超时、服务错误和死亡处理；新增 IPlatformCompat 则允许任意字符串操作、Bundle 和原始 IBinder，服务端无权限检查，回调注册无 death 清理且 RemoteException 被忽略。",
           "score": 1,
-          "evidence_count": 4,
-          "reason": "原有 VHAL/AudioControl 边界具备类型化契约、超时、服务错误和死亡处理；新增 IPlatformCompat 则允许任意字符串操作、Bundle 和原始 IBinder，服务端无权限检查，回调注册无 death 清理且 RemoteException 被忽略。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "compilation_independence",
-          "status": "failed",
+          "reason": "仓库仅提供依赖 AOSP/AAOS Soong 环境的 Android.bp/Android.mk 边界；顶层兼容模块声明 platform_apis 并引用平台生成的 AIDL 与完整 car API，car-lib 还依赖 framework、module SDK 和源码树外 include 路径。受控审查禁止运行构建，且工作区不包含所需平台输入，因此无法验证独立编译。",
           "score": null,
-          "evidence_count": 3,
-          "reason": "仓库仅提供依赖 AOSP/AAOS Soong 环境的 Android.bp/Android.mk 边界；顶层兼容模块声明 platform_apis 并引用平台生成的 AIDL 与完整 car API，car-lib 还依赖 framework、module SDK 和源码树外 include 路径。受控审查禁止运行构建，且工作区不包含所需平台输入，因此无法验证独立编译。"
+          "status": "failed"
         },
         {
-          "name": "integration_testing",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 5,
-          "reason": "既有测试对 AIDL/HIDL 替换、Binder death、HAL 状态机、错误码和真实属性回调具有较深行为覆盖；但新增 compat 源码和 AIDL 没有对应测试目标或 TEST_MAPPING 条目，关键跨进程权限、反射失败、callback death 和轮询停止行为未被覆盖。"
-        },
-        {
-          "name": "code_duplication",
-          "status": "scored",
-          "score": 0,
-          "evidence_count": 3,
-          "reason": "存在一套完整、逐文件相同的手写 car API 生产源码副本：只读目录比较确认 car-lib/src 与 compat/legacy/car-lib/src 各 334 个文件且无差异。该规模的平行树会使任何修复都面临双点修改和未来漂移风险。"
-        },
-        {
-          "name": "release_branch_strategy",
-          "status": "scored",
+          "name": "integration_testing",
+          "reason": "既有测试对 AIDL/HIDL 替换、Binder death、HAL 状态机、错误码和真实属性回调具有较深行为覆盖；但新增 compat 源码和 AIDL 没有对应测试目标或 TEST_MAPPING 条目，关键跨进程权限、反射失败、callback death 和轮询停止行为未被覆盖。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "所有平台/发布分支从同一基点仅增加一个两行属性文件，实际差异局限且易审阅；但每个分支均比 main 少两个后续兼容修复提交，历史中没有合并或回灌证据，因此长期同步策略仍不明确。"
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 1,
+          "evidence_count": 3,
+          "name": "code_duplication",
+          "reason": "存在一套完整、逐文件相同的手写 car API 生产源码副本：只读目录比较确认 car-lib/src 与 compat/legacy/car-lib/src 各 334 个文件且无差异。该规模的平行树会使任何修复都面临双点修改和未来漂移风险。",
+          "score": 0,
+          "status": "scored"
+        },
+        {
           "evidence_count": 4,
-          "reason": "平台分支采用配置级差异，运行时也尝试集中平台服务映射，这是可复用方向；但规则仍硬编码三平台政策，fallback/journal 未接入主调用路径，且 legacy 平台复用通过复制整套 334 文件 API 树实现，显著削弱共核复用。"
+          "name": "release_branch_strategy",
+          "reason": "所有平台/发布分支从同一基点仅增加一个两行属性文件，实际差异局限且易审阅；但每个分支均比 main 少两个后续兼容修复提交，历史中没有合并或回灌证据，因此长期同步策略仍不明确。",
+          "score": 2,
+          "status": "scored"
+        },
+        {
+          "evidence_count": 4,
+          "name": "platform_reuse",
+          "reason": "平台分支采用配置级差异，运行时也尝试集中平台服务映射，这是可复用方向；但规则仍硬编码三平台政策，fallback/journal 未接入主调用路径，且 legacy 平台复用通过复制整套 334 文件 API 树实现，显著削弱共核复用。",
+          "score": 1,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 36,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 136,
+        "files_opened": 986,
+        "notes": "HEAD 与预期 SHA 一致。文件数包含为最大文件统计读取的 690 个源码文件，以及对 car-lib/src 与 compat/legacy/car-lib/src 做精确目录比较时遍历的文件，按路径去重；语义审查重点覆盖 22 个代表性生产源码文件和 7 个有实质断言的测试文件。检查了 5 个本地分支相对 main 的 merge-base、左右提交数、diff stat/name-status，并读取各分支唯一配置文件。未运行构建、脚本、包管理器或网络操作；未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 21 (evaluator self-report: 21); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 21
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T11:17:43.829Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "e5ef0b5ba39ed54205d427ace5f4bba24458f151",
+      "result_path": "calibration/results/g3/blind-72caa63dd88d.json",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T11:10:56.998Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 1.111111,
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 406.831
     }
-  ]
+  ],
+  "comparison_family": "fw-car-api-compat-large",
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "兼容职责聚合到全局 service/router/registry。",
+      "status": "expected_low"
+    },
+    {
+      "name": "solid",
+      "reason": "静态状态、Bundle 接口、裸 Binder 和五域 switch 削弱 SRP/ISP/DIP。",
+      "status": "expected_low"
+    },
+    {
+      "name": "system_api_dependency",
+      "reason": "隐藏服务和平台名硬编码在全局 rules/registry。",
+      "status": "expected_low"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "reason": "17 处反射且新增路径 setAccessible/Throwable。",
+      "status": "expected_low"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "reason": "粗粒度 AIDL 缺少权限、类型、death 和背压。",
+      "status": "expected_low"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "完整闭包需 AAOS；新增 compat 22 class 编译通过。",
+      "status": "failed"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "大量上游测试不覆盖新增兼容层。",
+      "status": "expected_low"
+    },
+    {
+      "name": "code_duplication",
+      "reason": "166 对近重复。",
+      "status": "expected_low"
+    },
+    {
+      "name": "release_branch_strategy",
+      "reason": "侧分支缺少两次 main 演进。",
+      "status": "expected_low"
+    },
+    {
+      "name": "platform_reuse",
+      "reason": "平台差异通过整栈复制、反射 rules 和分支配置混用。",
+      "status": "expected_low"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "611df2d26b42e2b79d9063d6226378a81e090982",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "negative",
+      "observation": "单例服务以一个 Bundle router/rawService 横跨五域，直接持有 registry/cache/callback/rules。",
+      "path": "compat/src/com/cockpitbench/platformcompat/PlatformCompatService.java",
+      "symbol_or_line": "PlatformCompatService"
+    },
+    {
+      "branch": "main",
+      "commit": "611df2d26b42e2b79d9063d6226378a81e090982",
+      "confidence": "high",
+      "dimension": "hidden_api_reflection",
+      "expected_impact": "negative",
+      "observation": "反射 ServiceManager 和任意方法、setAccessible、Throwable，并全局缓存裸 Object/IBinder。",
+      "path": "compat/src/com/cockpitbench/platformcompat/HiddenApiRegistry.java",
+      "symbol_or_line": "HiddenApiRegistry"
+    },
+    {
+      "branch": "main",
+      "commit": "611df2d26b42e2b79d9063d6226378a81e090982",
+      "confidence": "high",
+      "dimension": "aidl_sdk_call",
+      "expected_impact": "negative",
+      "observation": "粗粒度 Bundle invoke/rawService 缺少细粒度类型、权限、错误版本和 death 语义。",
+      "path": "compat/aidl/com/cockpitbench/platformcompat/IPlatformCompat.aidl",
+      "symbol_or_line": "IPlatformCompat.invoke/rawService"
+    },
+    {
+      "branch": "main",
+      "commit": "611df2d26b42e2b79d9063d6226378a81e090982",
+      "confidence": "high",
+      "dimension": "code_duplication",
+      "expected_impact": "negative",
+      "observation": "完整 car-lib 复制产生 166 对近重复、文件比 0.215026。",
+      "path": "compat/legacy/car-lib/src/android/car/Car.java",
+      "symbol_or_line": "shared and legacy car-lib"
+    },
+    {
+      "branch": "main",
+      "commit": "611df2d26b42e2b79d9063d6226378a81e090982",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "negative",
+      "observation": "compat runtime 已在 CarService create/destroy 接线，但 609 个测试源没有专门引用 compat 包。",
+      "path": "service/src/com/android/car/CarServiceImpl.java",
+      "symbol_or_line": "PlatformCompatRuntime wiring"
+    },
+    {
+      "branch": "main",
+      "commit": "611df2d26b42e2b79d9063d6226378a81e090982",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "neutral",
+      "observation": "legacy car-lib 已隔离到独立 Soong namespace，消除与根 car-lib 的同名活动模块冲突；两套完整实现仍然并存，复制与演进债保持可见。",
+      "path": "compat/legacy/Android.bp",
+      "symbol_or_line": "soong_namespace"
+    }
+  ],
+  "quality_tier": "low",
+  "repo_id": "FW-16",
+  "review_status": "reviewed",
+  "schema_version": "1.0.0"
 }

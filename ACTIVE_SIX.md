@@ -5,21 +5,21 @@
 当前阶段的 benchmark 集合已经固定为下列 6 个仓库。不要再询问用户“选哪 6 个”，也不要
 把另外 34 个库存仓加入评分、平均分、完成率或盲评任务。
 
-| ID | 仓库 | 类型 | 质量档 | 恢复后输入目录 | 叶子数 / 满分 |
-|---|---|---|---|---|---:|
-| APP-01 | aurora-settings | APP | 高 | `repos/app/aurora-settings` | 8 / 40 |
-| APP-11 | motion-control | APP | 中 | `repos/app/motion-control` | 8 / 40 |
-| APP-15 | atlas-settings | APP | 低 | `repos/app/atlas-settings` | 8 / 40 |
-| FW-03 | vehicle-hal-adapter | FW | 高 | `repos/framework/vehicle-hal-adapter` | 17 / 72 |
-| FW-08 | soa-gateway | FW | 中 | `repos/framework/soa-gateway` | 17 / 72 |
-| FW-19 | can-middleware | FW | 低 | `repos/framework/can-middleware` | 17 / 72 |
+| ID | 仓库 | 类型 | 质量档 | 恢复后输入目录 | 叶子数 / 满分 | 标准分 |
+|---|---|---|---|---|---:|---:|
+| APP-01 | aurora-settings | APP | 高 | `repos/app/aurora-settings` | 8 / 40 | **33/40** |
+| APP-11 | motion-control | APP | 中 | `repos/app/motion-control` | 8 / 40 | **26/40** |
+| APP-15 | atlas-settings | APP | 低 | `repos/app/atlas-settings` | 8 / 40 | **15/40** |
+| FW-03 | vehicle-hal-adapter | FW | 高 | `repos/framework/vehicle-hal-adapter` | 17 / 72 | **63/72** |
+| FW-08 | soa-gateway | FW | 中 | `repos/framework/soa-gateway` | 17 / 72 | **52/72** |
+| FW-19 | can-middleware | FW | 低 | `repos/framework/can-middleware` | 17 / 72 | **34/72** |
 
 ## 版本状态
 
-- `transport-v0.2.0` 是目前最新的已验证公开运输快照，包含可恢复的 40 个独立 Git 子仓。
-- 这个 tag 早于 active-six 最终重评分，因此不能把其中的旧 calibration 当成下面合同的分数。
-- active-six 最终版仍在制作；当前公开仓尚无最终 `SCORECARD.md` / `SCORECARD.csv`。
-- 最终评分缺失时必须写“待真实 A/B，不是 0 分”，不能猜分、补 0 或复用旧分。
+- `transport-v0.3.0` 是当前 scored active-six checkpoint；`transport-v0.2.0` 保持不动，仅作旧运输快照。
+- `STANDARD_SCORES.json` 是机器可读标准分；`SCORECARD.md` / `SCORECARD.csv` 是人类审阅表。
+- 标准分严格绑定表中 current HEAD 和 `SCORE_RULES.md`。旧 calibration、旧 rubric 和额外维度均不得复用。
+- 34 个 pending 仓没有当前标准分；不得给它们补 0、猜分或纳入完成率。
 
 ## APP 评分合同：8 叶 / 40 分
 
@@ -82,13 +82,17 @@ Set-Location .\cockpit-benchmark
 `.cockpit-transport/transport-index.json` 交给盲评 Agent；这些内容会泄露 benchmark 真值或
 协调信息。
 
-## 最终人类评分表
+评估完成后，再用仓 ID 到 `STANDARD_SCORES.json` 读取对应的 8 或 17 个叶子进行逐叶对比。
+不要只比总分：benchmark 的主要用途是发现 Agent 在哪一个评分口径上偏高、偏低或缺证据。
 
-最终 checkpoint 会在仓库根目录提供：
+## 标准分与人类评分表
 
+本 checkpoint 在仓库根目录提供：
+
+- `STANDARD_SCORES.json`：6 仓机器可读标准分、HEAD、逐叶理由和证据。
 - `SCORECARD.md`：6 仓摘要、APP 3×8 矩阵、FW 3×17 矩阵，以及 75 条逐仓逐叶明细。
 - `SCORECARD.csv`：同样的 75 条明细，便于 Excel 打开、筛选和评审。
 
-每条明细将包含分数/满分、评分状态、具体理由、代码 `path:line` 或 symbol 证据、current
-HEAD、A/B 一致性与必要复核状态。在这两个文件真正发布前，公开仓只可用于恢复和结构审阅，
-不能声称 active-six production canonical 已完成。
+每条明细包含分数/满分、具体理由、代码 `path:line` 证据和 current HEAD。标准分不是把
+高/中/低标签反填成数值，而是由仓库真实事实独立评审、争议复核后得出；目标矩阵与结果不同时，
+以实际 rubric 结果为准。

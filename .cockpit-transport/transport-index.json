@@ -1,13 +1,13 @@
 {
   "schema_version": "2.0.0",
   "document_type": "cockpit_benchmark_private_transport",
-  "generated_at": "2026-08-30T14:38:58.308953Z",
+  "generated_at": "2026-09-02T14:57:32.790294Z",
   "packaging": "one path-safe complete .git metadata archive per independent child repository",
   "manifest": "manifest.json",
-  "manifest_sha256": "9e3ffbaac5811b47497ac7fa489f3444b8d9c002be66455419c1980548000fb7",
+  "manifest_sha256": "79979245c03b553e84f068b66d09c0697a9a210b32e6e1aee63be27ec5413c4e",
   "repository_count": 40,
   "shallow_repository_count": 14,
-  "total_archive_bytes": 805591040,
+  "total_archive_bytes": 807700480,
   "repositories": [
     {
       "id": "APP-01",
@@ -15,8 +15,8 @@
       "kind": "APP",
       "relative_path": "repos/app/aurora-settings",
       "default_branch": "main",
-      "head": "7d347803ae70eb01fdeafaff3094404909377c59",
-      "git_tracked_files": 1710,
+      "head": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+      "git_tracked_files": 1715,
       "branches": [
         "develop",
         "main",
@@ -27,18 +27,77 @@
       "tags": [
         "local-sop-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "be0b09bf5dcc537209918d018359a8b6d851bc23"
+      ],
       "archive": ".cockpit-transport/repositories/APP-01-aurora-settings.git.tar",
-      "archive_bytes": 3788800,
-      "archive_sha256": "88fac6ad062146bc0b3c823e171acaa927dfd7409cafcb8d3c5a6bbb1fbbf41f",
+      "archive_bytes": 4075520,
+      "archive_sha256": "21328c4f37f839af2cec4becf63d16f3a6cf77cd00095a882e752d82d90424af",
       "refs": {
         "refs/heads/develop": "e0d173ae0eb292129ee05b3bdc853b9c019acd06",
-        "refs/heads/main": "7d347803ae70eb01fdeafaff3094404909377c59",
+        "refs/heads/main": "150289b5e0d67acf395aa5418e43347207e9c1b4",
         "refs/heads/platform/8155": "769d29b8ea64cf98d8a330969e3581b9a19e8b98",
         "refs/heads/platform/8295": "33e548d7b2fd3486deaa0531462a99b76285adae",
         "refs/heads/release/2026.1": "c4801bf2d3c44a5903fa85a37ef92f0101279434",
         "refs/tags/local-sop-2026.1": "c4801bf2d3c44a5903fa85a37ef92f0101279434"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/local-sop-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "e0d173ae0eb292129ee05b3bdc853b9c019acd06",
+          "object_type": "commit",
+          "peeled_oid": "e0d173ae0eb292129ee05b3bdc853b9c019acd06",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+          "object_type": "commit",
+          "peeled_oid": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "769d29b8ea64cf98d8a330969e3581b9a19e8b98",
+          "object_type": "commit",
+          "peeled_oid": "769d29b8ea64cf98d8a330969e3581b9a19e8b98",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "33e548d7b2fd3486deaa0531462a99b76285adae",
+          "object_type": "commit",
+          "peeled_oid": "33e548d7b2fd3486deaa0531462a99b76285adae",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "c4801bf2d3c44a5903fa85a37ef92f0101279434",
+          "object_type": "commit",
+          "peeled_oid": "c4801bf2d3c44a5903fa85a37ef92f0101279434",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2026.1": {
+          "oid": "c4801bf2d3c44a5903fa85a37ef92f0101279434",
+          "object_type": "commit",
+          "peeled_oid": "c4801bf2d3c44a5903fa85a37ef92f0101279434",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 1948,
+      "object_inventory_sha256": "78b5eda441deed97d5db605e52747379a67022f275149416375698a7eaa8dad6",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "4a894220bf3314eb0c6cc5ff67085f9400826a1a1e38607e15b4ea930cbe0d4b",
+      "config_sha256": "867d303c40fb069977572d36c7482295c58ef2876eda71b406a72830dd3a0cd6",
+      "index_entry_count": 1715,
+      "index_inventory_sha256": "f8591717b6ab765d53ea197cc9db780f1cade7a9093e83ac86a24468c5318606",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-02",
@@ -59,10 +118,15 @@
       "tags": [
         "local-sop-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "a945124b0d8bdf24c38cd3141062f6862acad57d"
+      ],
       "archive": ".cockpit-transport/repositories/APP-02-horizon-launcher.git.tar",
       "archive_bytes": 1095680,
-      "archive_sha256": "ebffd96ad9c637924acc8aaa59d25f01837f081c15e366571c2cb751c9692a39",
+      "archive_sha256": "f80cdeef4b15253f461c89d55a24d0603bac85ca73330971cb4ecc811c212e40",
       "refs": {
         "refs/heads/develop": "f514ce2e97d90de9a60d40ae02bcfbfcb174f0bb",
         "refs/heads/main": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
@@ -71,7 +135,68 @@
         "refs/heads/presubmit/launcher-contracts": "9507ddd5d13a13cf58bd2cee81fb3f2d32ea0d56",
         "refs/heads/release/2026.1": "af0cf348d8f926e1649c79c0a22759564611b790",
         "refs/tags/local-sop-2026.1": "af0cf348d8f926e1649c79c0a22759564611b790"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/presubmit/launcher-contracts": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/local-sop-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "f514ce2e97d90de9a60d40ae02bcfbfcb174f0bb",
+          "object_type": "commit",
+          "peeled_oid": "f514ce2e97d90de9a60d40ae02bcfbfcb174f0bb",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
+          "object_type": "commit",
+          "peeled_oid": "65141eaabbb8c4110e0f20616b9a27ddb9ec7629",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "29ce9d750e0b7158b0f2d61313420641a385a199",
+          "object_type": "commit",
+          "peeled_oid": "29ce9d750e0b7158b0f2d61313420641a385a199",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "30709ae25c06616fdfe9aa3efbd5420b0d3b8ac2",
+          "object_type": "commit",
+          "peeled_oid": "30709ae25c06616fdfe9aa3efbd5420b0d3b8ac2",
+          "peeled_type": "commit"
+        },
+        "refs/heads/presubmit/launcher-contracts": {
+          "oid": "9507ddd5d13a13cf58bd2cee81fb3f2d32ea0d56",
+          "object_type": "commit",
+          "peeled_oid": "9507ddd5d13a13cf58bd2cee81fb3f2d32ea0d56",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "af0cf348d8f926e1649c79c0a22759564611b790",
+          "object_type": "commit",
+          "peeled_oid": "af0cf348d8f926e1649c79c0a22759564611b790",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2026.1": {
+          "oid": "af0cf348d8f926e1649c79c0a22759564611b790",
+          "object_type": "commit",
+          "peeled_oid": "af0cf348d8f926e1649c79c0a22759564611b790",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 1571,
+      "object_inventory_sha256": "e5dff743e90a65889577008d5a8c56172409ab9ea1312006cc2338602d4edf94",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "b300bf735785ced508d2794f2d409f87c5a43a250a956bf68106173fc81c16f1",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 1024,
+      "index_inventory_sha256": "b4c581dd62fdd2ae53c11299e13cd4e923843ad0a34844b17e6208b136752042",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-03",
@@ -79,7 +204,7 @@
       "kind": "APP",
       "relative_path": "repos/app/climatix-hvac",
       "default_branch": "main",
-      "head": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+      "head": "6e424d98b49f8093b3303b0c9060813c7e37e7e5",
       "git_tracked_files": 236,
       "branches": [
         "develop",
@@ -91,18 +216,75 @@
       "tags": [
         "v1.0.0"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/APP-03-climatix-hvac.git.tar",
-      "archive_bytes": 604160,
-      "archive_sha256": "c52747309983c83bc68e88042ecc740125fb745b5cb30b55b03e1dd53d20b7e1",
+      "archive_bytes": 645120,
+      "archive_sha256": "c109bedc6bc120bdba81f04de86a75de087fbb8f454d83f9caae5934589db265",
       "refs": {
         "refs/heads/develop": "7fc67a915ef594c8ba573fae90053e286b790713",
-        "refs/heads/main": "ac879cfbd59347cbc7a607f9cd7799f5b30aebda",
+        "refs/heads/main": "6e424d98b49f8093b3303b0c9060813c7e37e7e5",
         "refs/heads/platform/8155": "b313db00f552d9dac3ba3e20a5fc0df0e873d646",
         "refs/heads/platform/8295": "f6df3cc885c4ba3c6e229800781a78c873665db2",
         "refs/heads/release/1.0": "85770d2ca3b6038c90a3a3b989b1bbb8c6acadc2",
         "refs/tags/v1.0.0": "396c63091d227f1331d10b8f6bf9b2ebed9f5691"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/1.0": "commit",
+        "refs/tags/v1.0.0": "tag"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "7fc67a915ef594c8ba573fae90053e286b790713",
+          "object_type": "commit",
+          "peeled_oid": "7fc67a915ef594c8ba573fae90053e286b790713",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "6e424d98b49f8093b3303b0c9060813c7e37e7e5",
+          "object_type": "commit",
+          "peeled_oid": "6e424d98b49f8093b3303b0c9060813c7e37e7e5",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "b313db00f552d9dac3ba3e20a5fc0df0e873d646",
+          "object_type": "commit",
+          "peeled_oid": "b313db00f552d9dac3ba3e20a5fc0df0e873d646",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "f6df3cc885c4ba3c6e229800781a78c873665db2",
+          "object_type": "commit",
+          "peeled_oid": "f6df3cc885c4ba3c6e229800781a78c873665db2",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/1.0": {
+          "oid": "85770d2ca3b6038c90a3a3b989b1bbb8c6acadc2",
+          "object_type": "commit",
+          "peeled_oid": "85770d2ca3b6038c90a3a3b989b1bbb8c6acadc2",
+          "peeled_type": "commit"
+        },
+        "refs/tags/v1.0.0": {
+          "oid": "396c63091d227f1331d10b8f6bf9b2ebed9f5691",
+          "object_type": "tag",
+          "peeled_oid": "37956a5a947e545b8beba372a55116baf54273e9",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 1652,
+      "object_inventory_sha256": "84f3a32e9b957682e2f26b7594294de3ebc471aba4bbeb5200e8b29164ae3bff",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "0492f9c3aa96167f06ff4476850477ebf4f9858b9e917e63ae081661a2206d00",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 236,
+      "index_inventory_sha256": "b59715ea6b691df9264f9117ae475d21758d90bea03230bd1bf8539da6b9ac8b",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-04",
@@ -122,10 +304,15 @@
       "tags": [
         "local-sop-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "8666e534a0b568d6647a7f5c518975213519628a"
+      ],
       "archive": ".cockpit-transport/repositories/APP-04-wave-media.git.tar",
       "archive_bytes": 450560,
-      "archive_sha256": "1168452a48a052126e3b2d61803089b0f2cea8b37018d4f5336a2698591a1114",
+      "archive_sha256": "d3514d86050d3b15ebc9fbf004500ff17f6a02d60026f3d39abeba55ab3cef0a",
       "refs": {
         "refs/heads/develop": "29a531ee8c451008a3c0884f2679c0cc8ff5db21",
         "refs/heads/main": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
@@ -133,7 +320,61 @@
         "refs/heads/platform/8295": "adff71bf95990dbd559593123528ea2f6ddb1e42",
         "refs/heads/release/2026.1": "7a79eaebb2bcadb003ba92f4103ee4fd12547bb7",
         "refs/tags/local-sop-2026.1": "7a79eaebb2bcadb003ba92f4103ee4fd12547bb7"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/local-sop-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "29a531ee8c451008a3c0884f2679c0cc8ff5db21",
+          "object_type": "commit",
+          "peeled_oid": "29a531ee8c451008a3c0884f2679c0cc8ff5db21",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
+          "object_type": "commit",
+          "peeled_oid": "fb12fe8e07d48404739ca20e99a9cb0a1addb2e7",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "cd33c2628dbf553a0c9a6f965b49349fda34d04f",
+          "object_type": "commit",
+          "peeled_oid": "cd33c2628dbf553a0c9a6f965b49349fda34d04f",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "adff71bf95990dbd559593123528ea2f6ddb1e42",
+          "object_type": "commit",
+          "peeled_oid": "adff71bf95990dbd559593123528ea2f6ddb1e42",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "7a79eaebb2bcadb003ba92f4103ee4fd12547bb7",
+          "object_type": "commit",
+          "peeled_oid": "7a79eaebb2bcadb003ba92f4103ee4fd12547bb7",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2026.1": {
+          "oid": "7a79eaebb2bcadb003ba92f4103ee4fd12547bb7",
+          "object_type": "commit",
+          "peeled_oid": "7a79eaebb2bcadb003ba92f4103ee4fd12547bb7",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 489,
+      "object_inventory_sha256": "60f2fe70f5e676b5eb921c05a52adadf897fce215a010330b6ff9c25268f537d",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "6ab6f6d2ac50edd398d38b7f7e6e72266b8949b0a766054dad7ad8fd0143c97d",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 280,
+      "index_inventory_sha256": "7ed43cd011623fda234dd04511d7c5a258cbd9beafafeef128674e2a7af485c1",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-05",
@@ -153,10 +394,15 @@
       "tags": [
         "link-phone-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "cd6a5eb69f2116f6ec13fa932ab7ddba1ca94530"
+      ],
       "archive": ".cockpit-transport/repositories/APP-05-link-phone.git.tar",
       "archive_bytes": 1515520,
-      "archive_sha256": "b5c5cd61491911cca48d3ed851a5cf1563ceb8e0372f4a30f00ef71a72ac6f45",
+      "archive_sha256": "0b53df1140923e98e882c87ba42d54d310cd86e0340319082c8adfffd48ccf3e",
       "refs": {
         "refs/heads/develop": "0ff85d102892a3025cb71f54dfc3da1c70bdcda9",
         "refs/heads/main": "e4537531ded2613e49b369bd241fe431c3155ed4",
@@ -164,7 +410,61 @@
         "refs/heads/platform/8295": "6a477754b241ed5ed53500e19a5f9f51a0e65232",
         "refs/heads/release/2026.1": "aa26484a02a3ea771732fe277cb863f9d92c0693",
         "refs/tags/link-phone-2026.1": "aa26484a02a3ea771732fe277cb863f9d92c0693"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/link-phone-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "0ff85d102892a3025cb71f54dfc3da1c70bdcda9",
+          "object_type": "commit",
+          "peeled_oid": "0ff85d102892a3025cb71f54dfc3da1c70bdcda9",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "e4537531ded2613e49b369bd241fe431c3155ed4",
+          "object_type": "commit",
+          "peeled_oid": "e4537531ded2613e49b369bd241fe431c3155ed4",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "8487443119156878ef499689e117061e99a8fb70",
+          "object_type": "commit",
+          "peeled_oid": "8487443119156878ef499689e117061e99a8fb70",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "6a477754b241ed5ed53500e19a5f9f51a0e65232",
+          "object_type": "commit",
+          "peeled_oid": "6a477754b241ed5ed53500e19a5f9f51a0e65232",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "aa26484a02a3ea771732fe277cb863f9d92c0693",
+          "object_type": "commit",
+          "peeled_oid": "aa26484a02a3ea771732fe277cb863f9d92c0693",
+          "peeled_type": "commit"
+        },
+        "refs/tags/link-phone-2026.1": {
+          "oid": "aa26484a02a3ea771732fe277cb863f9d92c0693",
+          "object_type": "commit",
+          "peeled_oid": "aa26484a02a3ea771732fe277cb863f9d92c0693",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 781,
+      "object_inventory_sha256": "99344b29d9e5d32bf5d16534c457cfe0fe465c6ef1a669901c4d270832bd3202",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "6e323130a0b609adbec88ee9a5972acf6da6bb772e3fe01fc713d1c110f9747a",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 494,
+      "index_inventory_sha256": "db4f900cf196019e92b0d156b652fa6bdca0eb135f5a3062648dee047544782c",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-06",
@@ -172,7 +472,7 @@
       "kind": "APP",
       "relative_path": "repos/app/navpilot",
       "default_branch": "main",
-      "head": "0793e20235ec761a1b42b7454e8771794d660a04",
+      "head": "13f93ebdea1b78b7ac791fa93da86c1ccad4ad1c",
       "git_tracked_files": 2273,
       "branches": [
         "develop",
@@ -185,19 +485,85 @@
         "navpilot-2026.1",
         "v1.9.0-alpha01"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "9be0b199986770cd5cde7765765c0eaef0758d15"
+      ],
       "archive": ".cockpit-transport/repositories/APP-06-navpilot.git.tar",
-      "archive_bytes": 4792320,
-      "archive_sha256": "f33bb768dc279f79723d26bec9088b773c720876ab82c26303d85f71f93e1bcd",
+      "archive_bytes": 4833280,
+      "archive_sha256": "02c6ac133babe5be07a23f6048afcdb0deec1da0508908f0642805062b24c372",
       "refs": {
         "refs/heads/develop": "a8c13ab050e48467c34c872296910513fc9015e5",
-        "refs/heads/main": "0793e20235ec761a1b42b7454e8771794d660a04",
+        "refs/heads/main": "13f93ebdea1b78b7ac791fa93da86c1ccad4ad1c",
         "refs/heads/platform/8155": "50c0796712504aa97ccc453f68883d6026ad9940",
         "refs/heads/platform/8295": "69ad89bea35a795ac35d3cc0d98dcd41955da9f8",
         "refs/heads/release/2026.1": "333e0c574b34a82625b20a1e6c51a122018f2333",
         "refs/tags/navpilot-2026.1": "333e0c574b34a82625b20a1e6c51a122018f2333",
         "refs/tags/v1.9.0-alpha01": "9be0b199986770cd5cde7765765c0eaef0758d15"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/navpilot-2026.1": "commit",
+        "refs/tags/v1.9.0-alpha01": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "a8c13ab050e48467c34c872296910513fc9015e5",
+          "object_type": "commit",
+          "peeled_oid": "a8c13ab050e48467c34c872296910513fc9015e5",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "13f93ebdea1b78b7ac791fa93da86c1ccad4ad1c",
+          "object_type": "commit",
+          "peeled_oid": "13f93ebdea1b78b7ac791fa93da86c1ccad4ad1c",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "50c0796712504aa97ccc453f68883d6026ad9940",
+          "object_type": "commit",
+          "peeled_oid": "50c0796712504aa97ccc453f68883d6026ad9940",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "69ad89bea35a795ac35d3cc0d98dcd41955da9f8",
+          "object_type": "commit",
+          "peeled_oid": "69ad89bea35a795ac35d3cc0d98dcd41955da9f8",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "333e0c574b34a82625b20a1e6c51a122018f2333",
+          "object_type": "commit",
+          "peeled_oid": "333e0c574b34a82625b20a1e6c51a122018f2333",
+          "peeled_type": "commit"
+        },
+        "refs/tags/navpilot-2026.1": {
+          "oid": "333e0c574b34a82625b20a1e6c51a122018f2333",
+          "object_type": "commit",
+          "peeled_oid": "333e0c574b34a82625b20a1e6c51a122018f2333",
+          "peeled_type": "commit"
+        },
+        "refs/tags/v1.9.0-alpha01": {
+          "oid": "9be0b199986770cd5cde7765765c0eaef0758d15",
+          "object_type": "commit",
+          "peeled_oid": "9be0b199986770cd5cde7765765c0eaef0758d15",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 3193,
+      "object_inventory_sha256": "8b345365cca69cdc5602d002ba4df3c7e1a26c5421c4dadda904e08d9336e165",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "c0d51ffd6c7eae17be88035794cbae6bde23a86acd7f0e76a7259f927cc19ad9",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 2273,
+      "index_inventory_sha256": "9d526fefda814bc4aea0de6ec58d646f6e174089b1e66602e2025bda2ffd78bf",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-07",
@@ -217,10 +583,13 @@
       "tags": [
         "id-hub-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/APP-07-id-hub.git.tar",
       "archive_bytes": 327680,
-      "archive_sha256": "7aa2c7d43e7b5b3d43feb96f10ea2349fac32c6458c54daa9d29a5f7da544d95",
+      "archive_sha256": "bcb680ddeed5cff99c7a57746976c207eb7202b94f82a39fad822fad25a07b6c",
       "refs": {
         "refs/heads/develop": "cf25b978c4e84cfb2fa9a8683a80d9dacbf540a4",
         "refs/heads/main": "2c664340f515e34f31a1c05b0be9c804eae698bb",
@@ -228,7 +597,61 @@
         "refs/heads/platform/8295": "7fc754ed67a19906cf2e13f7e0317c01e837e1b2",
         "refs/heads/release/2026.1": "348c4f4b54f2a09e5edf0196dfc78cadba673633",
         "refs/tags/id-hub-2026.1": "348c4f4b54f2a09e5edf0196dfc78cadba673633"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/id-hub-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "cf25b978c4e84cfb2fa9a8683a80d9dacbf540a4",
+          "object_type": "commit",
+          "peeled_oid": "cf25b978c4e84cfb2fa9a8683a80d9dacbf540a4",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "2c664340f515e34f31a1c05b0be9c804eae698bb",
+          "object_type": "commit",
+          "peeled_oid": "2c664340f515e34f31a1c05b0be9c804eae698bb",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "0d8e42d7594508421b0133801fb7cee0fc7577fe",
+          "object_type": "commit",
+          "peeled_oid": "0d8e42d7594508421b0133801fb7cee0fc7577fe",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "7fc754ed67a19906cf2e13f7e0317c01e837e1b2",
+          "object_type": "commit",
+          "peeled_oid": "7fc754ed67a19906cf2e13f7e0317c01e837e1b2",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "348c4f4b54f2a09e5edf0196dfc78cadba673633",
+          "object_type": "commit",
+          "peeled_oid": "348c4f4b54f2a09e5edf0196dfc78cadba673633",
+          "peeled_type": "commit"
+        },
+        "refs/tags/id-hub-2026.1": {
+          "oid": "348c4f4b54f2a09e5edf0196dfc78cadba673633",
+          "object_type": "commit",
+          "peeled_oid": "348c4f4b54f2a09e5edf0196dfc78cadba673633",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 502,
+      "object_inventory_sha256": "ff78be6a9b3687f6e77bd5f224180bc7401f8b624a0814e957d0f9434134035b",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "6ab6f6d2ac50edd398d38b7f7e6e72266b8949b0a766054dad7ad8fd0143c97d",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 226,
+      "index_inventory_sha256": "574d3a20b7fc680a2f70f3dda62e9dff28432c637023ff2160e22403b99afd09",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-08",
@@ -365,10 +788,15 @@
         "LA.QSSI.13.0.r1-19300-qssi.0",
         "echo-voice-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "4255f48485a9431827b681929b7bb8f4d4a247a5"
+      ],
       "archive": ".cockpit-transport/repositories/APP-08-echo-voice.git.tar",
       "archive_bytes": 3061760,
-      "archive_sha256": "33f5c9a85f8bf9c8881a09c65a2639f81fe3dd83d0b214a567fc842115305f86",
+      "archive_sha256": "c82b914862e69e8e7e61e71bc2dcf10a1f9ee08fcf09c3e5de7072e29d7d65f7",
       "refs": {
         "refs/heads/develop": "ee1cf043a5766a252ddf08c240c63761e9999600",
         "refs/heads/main": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
@@ -493,7 +921,880 @@
         "refs/tags/LA.QSSI.13.0.r1-19200-qssi.0": "a3c897ed13d6e03b7c1070aed3a9699f25a2a4c1",
         "refs/tags/LA.QSSI.13.0.r1-19300-qssi.0": "a3f8568f0c5f925f38e5aee87d4eb82e8a007c65",
         "refs/tags/echo-voice-2026.1": "6fbfa8b525eb0b19fc666845c12b3ec368ee57d0"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/LA.QSSI.13.0.c1-00400-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c1-00600-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c1-01600-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c1-03200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c26-00300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c26-00400-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c26-00900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c26-01300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c26-01800-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c26-02000-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c26-02900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c26-03300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c26-03500-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c26-04500-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c27-00400-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c27-00700-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c27-01400-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c27-02700-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c27-03900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-00300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-00800-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-01300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-01500-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-01800-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-01900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-02200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-02300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-02600-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-02800-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-02900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-03000-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c28-03900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c29-00200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c29-00300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c30-00200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c30-00300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c31-00400-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c31-00500-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c32-00800-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.c33-00200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-10700-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-10900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-10900.01-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-11000-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-11000.01-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-11100-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-11300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-11300.01-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-11500-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-11500.01-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-11500.02-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-11600-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-11700-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-11900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-11900.01-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-12000-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-12100-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-12200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-12300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-12300.01-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-12400-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-12500-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-12600-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-12700-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-12800-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-12900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-13100-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-13200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-13300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-13400-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-13500-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-13600-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-13700-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-13800-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-13900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-14100-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-14200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-14300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-14400-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-14500-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-14600-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-14700-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-14800-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-14900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-14900.01-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-15000-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-15100-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-15200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-15300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-15400-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-15500-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-15700-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-15800-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-15900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-16100-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-16200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-16300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-16400-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-16500-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-16600-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-16700-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-16800-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-16900-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-17000-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-17100-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-17200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-17300-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-17400-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-17500-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-18000-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-18100-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-18200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-18600-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-19000-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-19100-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-19200-qssi.0": "tag",
+        "refs/tags/LA.QSSI.13.0.r1-19300-qssi.0": "tag",
+        "refs/tags/echo-voice-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "ee1cf043a5766a252ddf08c240c63761e9999600",
+          "object_type": "commit",
+          "peeled_oid": "ee1cf043a5766a252ddf08c240c63761e9999600",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+          "object_type": "commit",
+          "peeled_oid": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "aa6fb21603cccee8db23c91d3807fea1b544cd19",
+          "object_type": "commit",
+          "peeled_oid": "aa6fb21603cccee8db23c91d3807fea1b544cd19",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "52adaa26816cb0eb10d25af56a2c9e701607f071",
+          "object_type": "commit",
+          "peeled_oid": "52adaa26816cb0eb10d25af56a2c9e701607f071",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "6fbfa8b525eb0b19fc666845c12b3ec368ee57d0",
+          "object_type": "commit",
+          "peeled_oid": "6fbfa8b525eb0b19fc666845c12b3ec368ee57d0",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c1-00400-qssi.0": {
+          "oid": "4659d82aa91fb816ef143ff8a0b0e30d007bc3db",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c1-00600-qssi.0": {
+          "oid": "7d004ea3379af70701f2a100d1857712abbd389b",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c1-01600-qssi.0": {
+          "oid": "e1f1b690afe5a6b54f997ae8abc3fa3e7ff7ce20",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c1-03200-qssi.0": {
+          "oid": "c677f67bb1f645b1a1efb2034aa5aa2665ae9f26",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c26-00300-qssi.0": {
+          "oid": "7761ab8a05426cc06bdc8161be2c842ff354b274",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c26-00400-qssi.0": {
+          "oid": "beb2da89217d34d24b9e8aa2c3cc17462c195902",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c26-00900-qssi.0": {
+          "oid": "c12666433e9a60a51ee9525a3e2ef164d4bb09f2",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c26-01300-qssi.0": {
+          "oid": "c88560a423d41c3bf413288f1b2acdad72481956",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c26-01800-qssi.0": {
+          "oid": "b4a55392ae3c9350ea7f22de1f2d299cb7307442",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c26-02000-qssi.0": {
+          "oid": "0d60cc58b0cd8b5d3902ce138ebe2ae531c9c57a",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c26-02900-qssi.0": {
+          "oid": "a68ca973bd7077405ff0d2a4eb5539a062506ccb",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c26-03300-qssi.0": {
+          "oid": "81750755f5f20b1c25cbb5c71657b16c399a3a34",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c26-03500-qssi.0": {
+          "oid": "363ed996653d32c74e36a8a70bc844bd9cbfd29d",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c26-04500-qssi.0": {
+          "oid": "5a3d5913c91ece4ab6c129d24d7b01ed89b34cf7",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c27-00400-qssi.0": {
+          "oid": "181e117aee72698232d7ab3c0c8a13a46991be19",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c27-00700-qssi.0": {
+          "oid": "4a3f362833ca975ff31aa468be62d85aa6011710",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c27-01400-qssi.0": {
+          "oid": "124ecfe9d24f7211e629497865160a33ba106cf6",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c27-02700-qssi.0": {
+          "oid": "e1f80931e6944abe226d1d90ab9c3ca679d61f09",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c27-03900-qssi.0": {
+          "oid": "b8f453144d3504b692d6937836c1f15d80e03d04",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-00300-qssi.0": {
+          "oid": "48bd92a9a18b627bb2772fba694d3544806fc117",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-00800-qssi.0": {
+          "oid": "f42b2de23ba00e324dab31cda2ffe5a75fdb5bd2",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-01300-qssi.0": {
+          "oid": "2076958f086564d5ab0c380fe8af05bcbb6ed623",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-01500-qssi.0": {
+          "oid": "5b766cf7335815db8bc95591dea29b92d35e2667",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-01800-qssi.0": {
+          "oid": "0a51c42db351e4b021a4264e7c2c6acc27cb0295",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-01900-qssi.0": {
+          "oid": "69a54d084ab647ce0d2c90ad13a9a9713657511a",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-02200-qssi.0": {
+          "oid": "4b5e4f602e601eaaadaed938c6f07e9af02e9cc4",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-02300-qssi.0": {
+          "oid": "199ab1a805d8625f1d09d392cb942aef8b134097",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-02600-qssi.0": {
+          "oid": "bfef86edff80a97d54a6a03e1f1fe4baf0c305f4",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-02800-qssi.0": {
+          "oid": "24a7920e65edeaa368ec9ad82fc26f64af82cf83",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-02900-qssi.0": {
+          "oid": "df4f5fe5f0c5aeec674049e6b8ee8ba0fff51b75",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-03000-qssi.0": {
+          "oid": "0dfe9e0967aec74d622332a6739d0ef73124c1a1",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c28-03900-qssi.0": {
+          "oid": "b587e7f3179be87cf7749baf5bab41a75fe39eae",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c29-00200-qssi.0": {
+          "oid": "947aafee6143db6e72bb2e1f39b95b5f6491cb99",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c29-00300-qssi.0": {
+          "oid": "ba932a3a2647371e871faece91cd5dc5519e117d",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c30-00200-qssi.0": {
+          "oid": "c2b37ed2895efc0a9af3aa33e593c8b44a148f81",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c30-00300-qssi.0": {
+          "oid": "76a1218c3f402a90b4451b4a5fa5cc7778968c8d",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c31-00400-qssi.0": {
+          "oid": "45baf0fb62ed077199cad995002ba0e2ca13e81f",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c31-00500-qssi.0": {
+          "oid": "2ceb7a3f51b44c5592b869ed3391c76d5746566c",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c32-00800-qssi.0": {
+          "oid": "acd283e0e8de98fce58e85e70a8428dbd89f2f84",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.c33-00200-qssi.0": {
+          "oid": "0b54231a41c2bdc9ac20af72196567e522c936de",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-10700-qssi.0": {
+          "oid": "a45ed71601e630fb9c61cec0b1b7de4a8d935907",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-10900-qssi.0": {
+          "oid": "38447bed416d8c657dc8e8661384acfacda18f78",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-10900.01-qssi.0": {
+          "oid": "044029f057fd8dbc474ba08e57d15e11e230e41a",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-11000-qssi.0": {
+          "oid": "1c5d5d95b3b66cc9ba28802581780584d669aed0",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-11000.01-qssi.0": {
+          "oid": "8320ee33666b753fe71711b0cc365dc8bbfa64c5",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-11100-qssi.0": {
+          "oid": "51cb7a81ea4540d53f65899986e8e9af4def3193",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-11300-qssi.0": {
+          "oid": "3cb8e323f6570317c6d1f9fdfcfaaf0461a85649",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-11300.01-qssi.0": {
+          "oid": "5521ba74cd85cfbb8e1e98c490390d3692620f05",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-11500-qssi.0": {
+          "oid": "9dc9db9cec633c54e9e835a85958c045490897fb",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-11500.01-qssi.0": {
+          "oid": "316351049ed5dce4a3b65a08a6166229294c35dc",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-11500.02-qssi.0": {
+          "oid": "8c001ec50e78a9f7e3593a4680ecf4fba3f38293",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-11600-qssi.0": {
+          "oid": "053141b2a27c1099a44c2ac24c826c97549ccd40",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-11700-qssi.0": {
+          "oid": "75ef925a5389c5b15e99684b88a626a8afeed252",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-11900-qssi.0": {
+          "oid": "05696d3b2722c99975c2bc0f781ea250cc03216f",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-11900.01-qssi.0": {
+          "oid": "c45bea753a7f520c527a3f68e216efff583535d0",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-12000-qssi.0": {
+          "oid": "2f0aa7ddc1b6ac2cfd9f54cda641f03b430cdb6b",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-12100-qssi.0": {
+          "oid": "64cc9c24eea7fdc7272401b8a3211c3ef8575438",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-12200-qssi.0": {
+          "oid": "68c11db2db0a8a24dc5f866709a4cd02bab34ddb",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-12300-qssi.0": {
+          "oid": "398ee304c7c72546a9ae32c47a8340a587cf160d",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-12300.01-qssi.0": {
+          "oid": "f4e79cc7c8b9f896df70b69e8abef164ff7c1818",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-12400-qssi.0": {
+          "oid": "a04dc917e7cb7d189b65c5e12e942520e7a39733",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-12500-qssi.0": {
+          "oid": "70163c78a264e2f9eeba8043ceaedbd69a9bcd86",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-12600-qssi.0": {
+          "oid": "6e4f10a18912a0946840cdb323d877d67cb06d93",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-12700-qssi.0": {
+          "oid": "6217f8762e88d673ccb1e66ec5016b564296c93d",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-12800-qssi.0": {
+          "oid": "5d4cf6aa572e901687086c46cb26b8b2e4e42e0c",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-12900-qssi.0": {
+          "oid": "8ca793ca877af516e78b2413faed236777fdc473",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-13100-qssi.0": {
+          "oid": "a1897806be033e9de6908aa1abf2d4b6fa90e810",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-13200-qssi.0": {
+          "oid": "f0740d663bb4a2becbd7bff32b44ea6b00d9b760",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-13300-qssi.0": {
+          "oid": "58553bedebb1e83dfc8713bbc78727d93b913ed1",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-13400-qssi.0": {
+          "oid": "4a4d817cef7b5f72c6386d51c77ec84e640d1da9",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-13500-qssi.0": {
+          "oid": "f2eb1f180090f4b400c1366111efa58921072dc0",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-13600-qssi.0": {
+          "oid": "da261d56d008ff0fdc43e8030132aacbc5765647",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-13700-qssi.0": {
+          "oid": "99b5072b99d8fba234401f22eacd303be3492b57",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-13800-qssi.0": {
+          "oid": "faa7f0b519fc1f5148d666843e2091c77d323662",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-13900-qssi.0": {
+          "oid": "9f55ac6825278ae4838644fa42521e856e2a242c",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-14100-qssi.0": {
+          "oid": "801c2e23b9db1edbf64eade673d37a18b176a5d9",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-14200-qssi.0": {
+          "oid": "93b0a36607a3d28ac3d6afc80e996412f425108f",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-14300-qssi.0": {
+          "oid": "81abcd0f564191ac99b9e8870a4d98ccfd3723fa",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-14400-qssi.0": {
+          "oid": "6142ba347d4a64ac502a587e9973e2da04058725",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-14500-qssi.0": {
+          "oid": "dd78809ce3f1db3f1c4bfe31b82afd847ddfeb6a",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-14600-qssi.0": {
+          "oid": "c44ee53230db5447f412e67d5807693fe941d06d",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-14700-qssi.0": {
+          "oid": "ebd75cc6b84711cc706408ab026936f43e98ec3f",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-14800-qssi.0": {
+          "oid": "92408962e1150eaf89e78c5c3524e14a8647c5e6",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-14900-qssi.0": {
+          "oid": "233c18db56d1d9ec5557622d67a43df86e31bbc1",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-14900.01-qssi.0": {
+          "oid": "dd7fe388fbfbdd842dd3841086f900b1dc79d2a7",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-15000-qssi.0": {
+          "oid": "b71ee7535298679b836736159611248c5ae42687",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-15100-qssi.0": {
+          "oid": "097a81e98a6ad015e4cb935b90667811145b0f57",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-15200-qssi.0": {
+          "oid": "9bce151c4c1fa36a24d3b61aac07b69377520320",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-15300-qssi.0": {
+          "oid": "d4a1bf712e4abb74bce73ea2bcc0e41740266a7f",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-15400-qssi.0": {
+          "oid": "a6cfefa42aea05014860916143f3949180d1f66c",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-15500-qssi.0": {
+          "oid": "14928183136a5b828d93795981cb1c7797ee8938",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-15700-qssi.0": {
+          "oid": "b3197c85b1786d594c381a822c505cce31bf4b35",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-15800-qssi.0": {
+          "oid": "0a5b4df0a8ef50fc180719ac9a23f58e4a9764c1",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-15900-qssi.0": {
+          "oid": "bf011f2e67b20decc12f4c6452064d5702274e0f",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-16100-qssi.0": {
+          "oid": "9babd7ad05b4daf78f9778c8387bea58c6a78f35",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-16200-qssi.0": {
+          "oid": "341f96ec6f2b5b79c19fd91405e4bc449ddb4ecd",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-16300-qssi.0": {
+          "oid": "1a9d1686cbfc59ab96abe9416e44ad459ddc2eea",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-16400-qssi.0": {
+          "oid": "701f60b4e302695167843547d201e454c7467252",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-16500-qssi.0": {
+          "oid": "1b14c1333cd7ea6a73688322ece029a3855cf1aa",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-16600-qssi.0": {
+          "oid": "aface6b4e06be5b96eb290f3e9695efffa7bb2d6",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-16700-qssi.0": {
+          "oid": "055599fe966105cc9b3a7cb829320cd45292ad36",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-16800-qssi.0": {
+          "oid": "3eebac8436236c686bc2365b219d7efaccf469be",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-16900-qssi.0": {
+          "oid": "038630293d166fa191d13de210b8ad6a229f225d",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-17000-qssi.0": {
+          "oid": "aed82ab4c6070eaa03bb0db52dad99b2b0a022a3",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-17100-qssi.0": {
+          "oid": "44b28ae1a91623f001c131a8549cfde0ae1bc76d",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-17200-qssi.0": {
+          "oid": "6df74924cf8e4ddb366a7fe1d49753dc6c9ce108",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-17300-qssi.0": {
+          "oid": "204315bb1a37941dafc0381a752b7833e9e50e87",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-17400-qssi.0": {
+          "oid": "8266df26fa169a4d344de73d295e713d184b24e1",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-17500-qssi.0": {
+          "oid": "1144b86570a532419d857e04117ae4bb7d60c18a",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-18000-qssi.0": {
+          "oid": "b29305116a8e98b98102784571195d2a7009903d",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-18100-qssi.0": {
+          "oid": "be4881dd896d564b3a7d6852e551d7ad34c88bae",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-18200-qssi.0": {
+          "oid": "57c2cf394ab70e42560abfff128e683b610756fc",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-18600-qssi.0": {
+          "oid": "b13d02f217e648212da44314d89ce8970f910060",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-19000-qssi.0": {
+          "oid": "c28657c6e7aae07bcb6d72cbf76156719e3f3898",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-19100-qssi.0": {
+          "oid": "29447e74e20742bca66d38e7393decf70ef5f8a3",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-19200-qssi.0": {
+          "oid": "a3c897ed13d6e03b7c1070aed3a9699f25a2a4c1",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/LA.QSSI.13.0.r1-19300-qssi.0": {
+          "oid": "a3f8568f0c5f925f38e5aee87d4eb82e8a007c65",
+          "object_type": "tag",
+          "peeled_oid": "4255f48485a9431827b681929b7bb8f4d4a247a5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/echo-voice-2026.1": {
+          "oid": "6fbfa8b525eb0b19fc666845c12b3ec368ee57d0",
+          "object_type": "commit",
+          "peeled_oid": "6fbfa8b525eb0b19fc666845c12b3ec368ee57d0",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 953,
+      "object_inventory_sha256": "f7a9341d6033fe48aecb71f0dd072115b2519ba2b6baa95734a9441e588f8968",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "fed3391c3d16969fc6e2ffc82ee7e06dbb80e22d9c06ed229391e170d962a4e0",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 532,
+      "index_inventory_sha256": "f8d310e14451ab8114978d75e36cf00264ecaf9f318a5f2c31b31df9929eabd4",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-09",
@@ -513,10 +1814,15 @@
       "tags": [
         "prism-cluster-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "a1d642588f08856c19b7f36aea0b7dfb3c3aaae0"
+      ],
       "archive": ".cockpit-transport/repositories/APP-09-prism-cluster.git.tar",
       "archive_bytes": 1208320,
-      "archive_sha256": "c2e4ddde5c42d35e5a06f4827327e3f5bc3bb9fd91cc3e05b5e96e3f5f277439",
+      "archive_sha256": "8d010cd1b451f52ef9676649e1376aad16a0590908896885954cbb116d81f345",
       "refs": {
         "refs/heads/develop": "b062dfdbc8f73a5a35e627d24d77c19b5db74038",
         "refs/heads/main": "2021dc74f9e199e037efc010725845ac6d52ac8b",
@@ -524,7 +1830,61 @@
         "refs/heads/platform/8295": "0fb2cae8b921c470525da6be0133915e1d856e44",
         "refs/heads/release/2026.1": "9494ba5c59cadf1ba7865d3a572a8fcbebca2607",
         "refs/tags/prism-cluster-2026.1": "9494ba5c59cadf1ba7865d3a572a8fcbebca2607"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/prism-cluster-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "b062dfdbc8f73a5a35e627d24d77c19b5db74038",
+          "object_type": "commit",
+          "peeled_oid": "b062dfdbc8f73a5a35e627d24d77c19b5db74038",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+          "object_type": "commit",
+          "peeled_oid": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "74c9baaf818c931da5120b57fddf4b033634c3dd",
+          "object_type": "commit",
+          "peeled_oid": "74c9baaf818c931da5120b57fddf4b033634c3dd",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "0fb2cae8b921c470525da6be0133915e1d856e44",
+          "object_type": "commit",
+          "peeled_oid": "0fb2cae8b921c470525da6be0133915e1d856e44",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "9494ba5c59cadf1ba7865d3a572a8fcbebca2607",
+          "object_type": "commit",
+          "peeled_oid": "9494ba5c59cadf1ba7865d3a572a8fcbebca2607",
+          "peeled_type": "commit"
+        },
+        "refs/tags/prism-cluster-2026.1": {
+          "oid": "9494ba5c59cadf1ba7865d3a572a8fcbebca2607",
+          "object_type": "commit",
+          "peeled_oid": "9494ba5c59cadf1ba7865d3a572a8fcbebca2607",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 953,
+      "object_inventory_sha256": "2733ec40187eaac37d274c7acdc3f2f26b76c9849078ff44fa0656958d247dc1",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "4e581868613129244e29fca302dff0ea5cbb2580179609aa96e676c7be84eb09",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 788,
+      "index_inventory_sha256": "cf5c374ce29deaa467d02f5f7c82905fc777ae6d7991c7f4ff70d00facd59919",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-10",
@@ -544,10 +1904,15 @@
       "tags": [
         "vehicle-insight-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "102ff3378b2e893d27cd36b6e8d91af338ce7ba0"
+      ],
       "archive": ".cockpit-transport/repositories/APP-10-vehicle-insight.git.tar",
       "archive_bytes": 4730880,
-      "archive_sha256": "d9e689f37e33a8bab0f5938dc7a0440b9014da7ca3cfe4b176a650b6ae4b66b0",
+      "archive_sha256": "9ef6082c3eb2ec467ef030033a404685adef7ac9f09d9b719df5869049a58fa1",
       "refs": {
         "refs/heads/develop": "89ffbd68482c413fc1c288550b03c6e03121b4ab",
         "refs/heads/main": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
@@ -555,7 +1920,61 @@
         "refs/heads/platform/8295": "5c84378222ae9f65b3f01297aceeb42900de89e1",
         "refs/heads/release/2026.1": "4e1cb1491caa0ca6349b4e186d98b92fe89ab663",
         "refs/tags/vehicle-insight-2026.1": "4e1cb1491caa0ca6349b4e186d98b92fe89ab663"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/vehicle-insight-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "89ffbd68482c413fc1c288550b03c6e03121b4ab",
+          "object_type": "commit",
+          "peeled_oid": "89ffbd68482c413fc1c288550b03c6e03121b4ab",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+          "object_type": "commit",
+          "peeled_oid": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "b003b9dced04101ce732799dbbdec957ce5e35ba",
+          "object_type": "commit",
+          "peeled_oid": "b003b9dced04101ce732799dbbdec957ce5e35ba",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "5c84378222ae9f65b3f01297aceeb42900de89e1",
+          "object_type": "commit",
+          "peeled_oid": "5c84378222ae9f65b3f01297aceeb42900de89e1",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "4e1cb1491caa0ca6349b4e186d98b92fe89ab663",
+          "object_type": "commit",
+          "peeled_oid": "4e1cb1491caa0ca6349b4e186d98b92fe89ab663",
+          "peeled_type": "commit"
+        },
+        "refs/tags/vehicle-insight-2026.1": {
+          "oid": "4e1cb1491caa0ca6349b4e186d98b92fe89ab663",
+          "object_type": "commit",
+          "peeled_oid": "4e1cb1491caa0ca6349b4e186d98b92fe89ab663",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 748,
+      "object_inventory_sha256": "2095a0382826518cf9d33ad32c5325ad46d2f1d911e53d99c2f7a3ae1674f2ed",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "48f0849a3244599fc98ffaf4e9c876a6d6a17625cd254f36797dd506a719254a",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 488,
+      "index_inventory_sha256": "3ebf1acb93442b740ba28528ad6a2a9d4760c2816b9ead92da350f03056ed9f3",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-11",
@@ -570,25 +1989,107 @@
         "main",
         "platform/8155",
         "platform/8295",
-        "release/2026.1"
+        "release/2026.1",
+        "sop/2026.1-model-a1",
+        "sop/2026.1-model-b2"
       ],
       "tags": [
         "app-foundation-1.0.0",
         "motion-control-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/APP-11-motion-control.git.tar",
-      "archive_bytes": 645120,
-      "archive_sha256": "8176236aa7edaec4fb0c8ef559f8df06f8c5bc875295d92467bb746bb9f15e64",
+      "archive_bytes": 727040,
+      "archive_sha256": "ebe93ad2622b12f99cd48fe9002e5cd1aa6697ca71eb06f18f70c4f0ad0834da",
       "refs": {
         "refs/heads/develop": "1980fb386da0e5cde632575bc6eef356e9d295c5",
         "refs/heads/main": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
         "refs/heads/platform/8155": "f037ffc21b67fd241515e5597e073931ad155ae8",
         "refs/heads/platform/8295": "7dfbf90dc7380c72c87be739c5f8d0b472d539e6",
         "refs/heads/release/2026.1": "3fda6ae66dccf476d54bb234bd410354623ebc1e",
+        "refs/heads/sop/2026.1-model-a1": "418aba900972455796705d22ecce5447ab2dbdc2",
+        "refs/heads/sop/2026.1-model-b2": "dc7ac0a5e97e80dd4432e88cce44e035c85f9c53",
         "refs/tags/app-foundation-1.0.0": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
         "refs/tags/motion-control-2026.1": "3fda6ae66dccf476d54bb234bd410354623ebc1e"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/heads/sop/2026.1-model-a1": "commit",
+        "refs/heads/sop/2026.1-model-b2": "commit",
+        "refs/tags/app-foundation-1.0.0": "commit",
+        "refs/tags/motion-control-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "1980fb386da0e5cde632575bc6eef356e9d295c5",
+          "object_type": "commit",
+          "peeled_oid": "1980fb386da0e5cde632575bc6eef356e9d295c5",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+          "object_type": "commit",
+          "peeled_oid": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "f037ffc21b67fd241515e5597e073931ad155ae8",
+          "object_type": "commit",
+          "peeled_oid": "f037ffc21b67fd241515e5597e073931ad155ae8",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "7dfbf90dc7380c72c87be739c5f8d0b472d539e6",
+          "object_type": "commit",
+          "peeled_oid": "7dfbf90dc7380c72c87be739c5f8d0b472d539e6",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "3fda6ae66dccf476d54bb234bd410354623ebc1e",
+          "object_type": "commit",
+          "peeled_oid": "3fda6ae66dccf476d54bb234bd410354623ebc1e",
+          "peeled_type": "commit"
+        },
+        "refs/heads/sop/2026.1-model-a1": {
+          "oid": "418aba900972455796705d22ecce5447ab2dbdc2",
+          "object_type": "commit",
+          "peeled_oid": "418aba900972455796705d22ecce5447ab2dbdc2",
+          "peeled_type": "commit"
+        },
+        "refs/heads/sop/2026.1-model-b2": {
+          "oid": "dc7ac0a5e97e80dd4432e88cce44e035c85f9c53",
+          "object_type": "commit",
+          "peeled_oid": "dc7ac0a5e97e80dd4432e88cce44e035c85f9c53",
+          "peeled_type": "commit"
+        },
+        "refs/tags/app-foundation-1.0.0": {
+          "oid": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
+          "object_type": "commit",
+          "peeled_oid": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/motion-control-2026.1": {
+          "oid": "3fda6ae66dccf476d54bb234bd410354623ebc1e",
+          "object_type": "commit",
+          "peeled_oid": "3fda6ae66dccf476d54bb234bd410354623ebc1e",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 661,
+      "object_inventory_sha256": "e220f50d6145948bad9ba347d0c7fd004c55e6592a6fb2550aec7da7fcd435a1",
+      "reflog_file_count": 8,
+      "reflog_inventory_sha256": "512eba83a2f9b39bf9335bdc48dc4e8efcb8cd66bb3cbb85a5e79e7aa5e17acc",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 416,
+      "index_inventory_sha256": "23b51b3c2833643aece99323aeab22e987c56a61e886156a98e2ecb63f52122d",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-12",
@@ -608,10 +2109,15 @@
       "tags": [
         "orbit-ota-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "e29e7a80af14e006d86390eb03caae5637ac126a"
+      ],
       "archive": ".cockpit-transport/repositories/APP-12-orbit-ota.git.tar",
       "archive_bytes": 2887680,
-      "archive_sha256": "7576549fee73ccc8d3eeaefa43c2b302f5d21f21a033fbad07e399637602d5d2",
+      "archive_sha256": "41a2128bbac5705b4a5bcdfa8b529f7261fa2546786d7754ba9bc72f80d7f9ca",
       "refs": {
         "refs/heads/develop": "3a7e142fe052592e333d7472457c0afc65b6a14f",
         "refs/heads/main": "aaf421d40393d7e629154da70104daca38a0b24f",
@@ -619,7 +2125,61 @@
         "refs/heads/platform/8295": "7520859a2a68047e29f7cb2c291c9ff1f9d15c46",
         "refs/heads/release/2026.1": "09d92c3a36e1253ae77750f559a4d0a49568c55d",
         "refs/tags/orbit-ota-2026.1": "09d92c3a36e1253ae77750f559a4d0a49568c55d"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/orbit-ota-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "3a7e142fe052592e333d7472457c0afc65b6a14f",
+          "object_type": "commit",
+          "peeled_oid": "3a7e142fe052592e333d7472457c0afc65b6a14f",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "aaf421d40393d7e629154da70104daca38a0b24f",
+          "object_type": "commit",
+          "peeled_oid": "aaf421d40393d7e629154da70104daca38a0b24f",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "e7b94fce32174e74ff60b63da971f0cf2dc4c2bf",
+          "object_type": "commit",
+          "peeled_oid": "e7b94fce32174e74ff60b63da971f0cf2dc4c2bf",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "7520859a2a68047e29f7cb2c291c9ff1f9d15c46",
+          "object_type": "commit",
+          "peeled_oid": "7520859a2a68047e29f7cb2c291c9ff1f9d15c46",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "09d92c3a36e1253ae77750f559a4d0a49568c55d",
+          "object_type": "commit",
+          "peeled_oid": "09d92c3a36e1253ae77750f559a4d0a49568c55d",
+          "peeled_type": "commit"
+        },
+        "refs/tags/orbit-ota-2026.1": {
+          "oid": "09d92c3a36e1253ae77750f559a4d0a49568c55d",
+          "object_type": "commit",
+          "peeled_oid": "09d92c3a36e1253ae77750f559a4d0a49568c55d",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 1306,
+      "object_inventory_sha256": "8aa60cbc7885656f211a1ddb3144077445e437c33b88bf2e0d19c3c8609e78da",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "a207d1ac8bfb26aca39ca681ac5474fce538f6de42eca99ed2f3a8c8cba641e2",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 1115,
+      "index_inventory_sha256": "bd2ef0cd89a45da2ea30264d34aed8fe9959bce3f273e6a28aed31a3adb41945",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-13",
@@ -640,10 +2200,13 @@
         "app-foundation-1.0.0",
         "market-hub-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/APP-13-market-hub.git.tar",
       "archive_bytes": 1751040,
-      "archive_sha256": "129b8da21ec139794505e081f99c88938cf2214d31c4bf0589907e58b3198f5b",
+      "archive_sha256": "5cea1555b5474b6375889d664b54cec4bf9aaef1754d0a910c80e53ce5a699e9",
       "refs": {
         "refs/heads/develop": "3e9736d750046ab2d2ec7d807355ff3e27b2c16f",
         "refs/heads/main": "3f421d00c591dc47b7de81f77292aa512eb34992",
@@ -652,7 +2215,68 @@
         "refs/heads/release/2026.1": "7a3bcd1ea1125c2aa8feb863c119e8867b599796",
         "refs/tags/app-foundation-1.0.0": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
         "refs/tags/market-hub-2026.1": "7a3bcd1ea1125c2aa8feb863c119e8867b599796"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/app-foundation-1.0.0": "commit",
+        "refs/tags/market-hub-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "3e9736d750046ab2d2ec7d807355ff3e27b2c16f",
+          "object_type": "commit",
+          "peeled_oid": "3e9736d750046ab2d2ec7d807355ff3e27b2c16f",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "3f421d00c591dc47b7de81f77292aa512eb34992",
+          "object_type": "commit",
+          "peeled_oid": "3f421d00c591dc47b7de81f77292aa512eb34992",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "f8623eec7728151f121030a58f1643a6e34ad383",
+          "object_type": "commit",
+          "peeled_oid": "f8623eec7728151f121030a58f1643a6e34ad383",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "fad482ad315db0a65c9b6169898ea8a310210623",
+          "object_type": "commit",
+          "peeled_oid": "fad482ad315db0a65c9b6169898ea8a310210623",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "7a3bcd1ea1125c2aa8feb863c119e8867b599796",
+          "object_type": "commit",
+          "peeled_oid": "7a3bcd1ea1125c2aa8feb863c119e8867b599796",
+          "peeled_type": "commit"
+        },
+        "refs/tags/app-foundation-1.0.0": {
+          "oid": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
+          "object_type": "commit",
+          "peeled_oid": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/market-hub-2026.1": {
+          "oid": "7a3bcd1ea1125c2aa8feb863c119e8867b599796",
+          "object_type": "commit",
+          "peeled_oid": "7a3bcd1ea1125c2aa8feb863c119e8867b599796",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 479,
+      "object_inventory_sha256": "25e70cbdc1cc81fd710c27ddea4f7eb74d63a1864a6ad1b0a514c7cb9311ca6c",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "18abe3b30d7020d10f6f4d388a9b4265597a996a625be6d7d39b1872e4a2f3ff",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 270,
+      "index_inventory_sha256": "496ca42a25ff388eb227d3f632562c6d93b8173d4aee2477c8ae33eef3e537ad",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-14",
@@ -660,7 +2284,7 @@
       "kind": "APP",
       "relative_path": "repos/app/cockpit-shell",
       "default_branch": "main",
-      "head": "bf4a421f8084c139e4ea097d4256e9394008dd8e",
+      "head": "c69ab5f5db7e7d15dbbfd1af3754ebd1b4086e11",
       "git_tracked_files": 2071,
       "branches": [
         "develop",
@@ -672,18 +2296,77 @@
       "tags": [
         "cockpit-shell-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "435ba702f1198e1c249a8b5550c37f27bba73b03"
+      ],
       "archive": ".cockpit-transport/repositories/APP-14-cockpit-shell.git.tar",
-      "archive_bytes": 2631680,
-      "archive_sha256": "e5cc5d03b28b8db76a42a4f08285a7d933cdefd4fc5baf8272f4d4125154c55c",
+      "archive_bytes": 2682880,
+      "archive_sha256": "9430e7f463b3dbcf4d4e4ec787a92352fd76c83a0dd2bd2bb987c95656887925",
       "refs": {
         "refs/heads/develop": "f04fca095550796a4812b3133225717ee5aa6f98",
-        "refs/heads/main": "bf4a421f8084c139e4ea097d4256e9394008dd8e",
+        "refs/heads/main": "c69ab5f5db7e7d15dbbfd1af3754ebd1b4086e11",
         "refs/heads/platform/8155": "e78cfb993351ca86eac2777d4ff0c5b50b4abe5f",
         "refs/heads/platform/8295": "d4afa6cac8e9b2d4125ec0fb8d4aa2ee69ba7f78",
         "refs/heads/release/2026.1": "2883836c2dd71c7fd5238f78e244bd5c1a871fe7",
         "refs/tags/cockpit-shell-2026.1": "2883836c2dd71c7fd5238f78e244bd5c1a871fe7"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/cockpit-shell-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "f04fca095550796a4812b3133225717ee5aa6f98",
+          "object_type": "commit",
+          "peeled_oid": "f04fca095550796a4812b3133225717ee5aa6f98",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "c69ab5f5db7e7d15dbbfd1af3754ebd1b4086e11",
+          "object_type": "commit",
+          "peeled_oid": "c69ab5f5db7e7d15dbbfd1af3754ebd1b4086e11",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "e78cfb993351ca86eac2777d4ff0c5b50b4abe5f",
+          "object_type": "commit",
+          "peeled_oid": "e78cfb993351ca86eac2777d4ff0c5b50b4abe5f",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "d4afa6cac8e9b2d4125ec0fb8d4aa2ee69ba7f78",
+          "object_type": "commit",
+          "peeled_oid": "d4afa6cac8e9b2d4125ec0fb8d4aa2ee69ba7f78",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "2883836c2dd71c7fd5238f78e244bd5c1a871fe7",
+          "object_type": "commit",
+          "peeled_oid": "2883836c2dd71c7fd5238f78e244bd5c1a871fe7",
+          "peeled_type": "commit"
+        },
+        "refs/tags/cockpit-shell-2026.1": {
+          "oid": "2883836c2dd71c7fd5238f78e244bd5c1a871fe7",
+          "object_type": "commit",
+          "peeled_oid": "2883836c2dd71c7fd5238f78e244bd5c1a871fe7",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 2957,
+      "object_inventory_sha256": "5a608484db5775244c00fa92bccb0b6c3cfa5c75a7a98bc9ade486dedc7e9194",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "8842e55811a7723b721838945768f8c3d32a05d4588948103baa6ac6afb33c1b",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 2071,
+      "index_inventory_sha256": "e631cf9ee1707fabe433d6cc94102bab8d758ce51f8f63c916041c74ce3282fe",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-15",
@@ -691,7 +2374,7 @@
       "kind": "APP",
       "relative_path": "repos/app/atlas-settings",
       "default_branch": "main",
-      "head": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
+      "head": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
       "git_tracked_files": 1509,
       "branches": [
         "develop",
@@ -699,7 +2382,9 @@
         "platform/8155",
         "platform/8295",
         "platform/xinqing",
-        "release/sop-2024"
+        "release/sop-2024",
+        "sop/2024-model-a1",
+        "sop/2024-model-b2"
       ],
       "tags": [
         "android-10.0.0_r12",
@@ -710,17 +2395,24 @@
         "android-10.0.0_r9",
         "local-sop-2024.4"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "fda2fa4162e5653e44fa040b1f570ab654a81ac9"
+      ],
       "archive": ".cockpit-transport/repositories/APP-15-atlas-settings.git.tar",
-      "archive_bytes": 4495360,
-      "archive_sha256": "658cb4597a581f27dc5b1286c428a19534faff572191be61ac86c856d1d0714b",
+      "archive_bytes": 4618240,
+      "archive_sha256": "dd2b016fe24a697ad98e9e30346ef1c5cce571c8a3ced5dd0f0e8b41a79375c5",
       "refs": {
         "refs/heads/develop": "b551fe7c60932ff235c0ae5ad19d6195907707bf",
-        "refs/heads/main": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
+        "refs/heads/main": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
         "refs/heads/platform/8155": "2b04c1935fa517c248636fccb7c685b9cc8e3c29",
         "refs/heads/platform/8295": "035d15b75c11aded807b4f15eb74710b67d88dd3",
         "refs/heads/platform/xinqing": "0bdb623bf0d177a16b383dd796b07245d449c4c8",
         "refs/heads/release/sop-2024": "081a37a09d224e38197faf864f4a98878b8233cb",
+        "refs/heads/sop/2024-model-a1": "29e98aef420094c5cec5b5c084fdc5f00f615190",
+        "refs/heads/sop/2024-model-b2": "676c405af0f6647f07800964a697e3e3015efda0",
         "refs/tags/android-10.0.0_r12": "2171e21cc32367fb5a56963cc62c9dfc0edeb3c1",
         "refs/tags/android-10.0.0_r13": "bb2bc1ccb5eaf417fd2e6cb56c4b69782198cc5a",
         "refs/tags/android-10.0.0_r14": "82a6dafc9d05d185ccb17294bc1bcffbbb550e9a",
@@ -728,7 +2420,124 @@
         "refs/tags/android-10.0.0_r8": "75d41e96231adfc019662116f169b21d0187a33a",
         "refs/tags/android-10.0.0_r9": "145d842a03fac649e41118b31fad0f34539d8111",
         "refs/tags/local-sop-2024.4": "081a37a09d224e38197faf864f4a98878b8233cb"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/platform/xinqing": "commit",
+        "refs/heads/release/sop-2024": "commit",
+        "refs/heads/sop/2024-model-a1": "commit",
+        "refs/heads/sop/2024-model-b2": "commit",
+        "refs/tags/android-10.0.0_r12": "tag",
+        "refs/tags/android-10.0.0_r13": "tag",
+        "refs/tags/android-10.0.0_r14": "tag",
+        "refs/tags/android-10.0.0_r7": "tag",
+        "refs/tags/android-10.0.0_r8": "tag",
+        "refs/tags/android-10.0.0_r9": "tag",
+        "refs/tags/local-sop-2024.4": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "b551fe7c60932ff235c0ae5ad19d6195907707bf",
+          "object_type": "commit",
+          "peeled_oid": "b551fe7c60932ff235c0ae5ad19d6195907707bf",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+          "object_type": "commit",
+          "peeled_oid": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "2b04c1935fa517c248636fccb7c685b9cc8e3c29",
+          "object_type": "commit",
+          "peeled_oid": "2b04c1935fa517c248636fccb7c685b9cc8e3c29",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "035d15b75c11aded807b4f15eb74710b67d88dd3",
+          "object_type": "commit",
+          "peeled_oid": "035d15b75c11aded807b4f15eb74710b67d88dd3",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/xinqing": {
+          "oid": "0bdb623bf0d177a16b383dd796b07245d449c4c8",
+          "object_type": "commit",
+          "peeled_oid": "0bdb623bf0d177a16b383dd796b07245d449c4c8",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/sop-2024": {
+          "oid": "081a37a09d224e38197faf864f4a98878b8233cb",
+          "object_type": "commit",
+          "peeled_oid": "081a37a09d224e38197faf864f4a98878b8233cb",
+          "peeled_type": "commit"
+        },
+        "refs/heads/sop/2024-model-a1": {
+          "oid": "29e98aef420094c5cec5b5c084fdc5f00f615190",
+          "object_type": "commit",
+          "peeled_oid": "29e98aef420094c5cec5b5c084fdc5f00f615190",
+          "peeled_type": "commit"
+        },
+        "refs/heads/sop/2024-model-b2": {
+          "oid": "676c405af0f6647f07800964a697e3e3015efda0",
+          "object_type": "commit",
+          "peeled_oid": "676c405af0f6647f07800964a697e3e3015efda0",
+          "peeled_type": "commit"
+        },
+        "refs/tags/android-10.0.0_r12": {
+          "oid": "2171e21cc32367fb5a56963cc62c9dfc0edeb3c1",
+          "object_type": "tag",
+          "peeled_oid": "fda2fa4162e5653e44fa040b1f570ab654a81ac9",
+          "peeled_type": "commit"
+        },
+        "refs/tags/android-10.0.0_r13": {
+          "oid": "bb2bc1ccb5eaf417fd2e6cb56c4b69782198cc5a",
+          "object_type": "tag",
+          "peeled_oid": "fda2fa4162e5653e44fa040b1f570ab654a81ac9",
+          "peeled_type": "commit"
+        },
+        "refs/tags/android-10.0.0_r14": {
+          "oid": "82a6dafc9d05d185ccb17294bc1bcffbbb550e9a",
+          "object_type": "tag",
+          "peeled_oid": "fda2fa4162e5653e44fa040b1f570ab654a81ac9",
+          "peeled_type": "commit"
+        },
+        "refs/tags/android-10.0.0_r7": {
+          "oid": "f6a7616175a523a22422e7195063731f22f529b4",
+          "object_type": "tag",
+          "peeled_oid": "fda2fa4162e5653e44fa040b1f570ab654a81ac9",
+          "peeled_type": "commit"
+        },
+        "refs/tags/android-10.0.0_r8": {
+          "oid": "75d41e96231adfc019662116f169b21d0187a33a",
+          "object_type": "tag",
+          "peeled_oid": "fda2fa4162e5653e44fa040b1f570ab654a81ac9",
+          "peeled_type": "commit"
+        },
+        "refs/tags/android-10.0.0_r9": {
+          "oid": "145d842a03fac649e41118b31fad0f34539d8111",
+          "object_type": "tag",
+          "peeled_oid": "fda2fa4162e5653e44fa040b1f570ab654a81ac9",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2024.4": {
+          "oid": "081a37a09d224e38197faf864f4a98878b8233cb",
+          "object_type": "commit",
+          "peeled_oid": "081a37a09d224e38197faf864f4a98878b8233cb",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 1796,
+      "object_inventory_sha256": "be8b08d52176b92aa49c60d958531600f97bbe2bf30b020b591c8a9ccfbf9091",
+      "reflog_file_count": 9,
+      "reflog_inventory_sha256": "a018ddbb89681ec701c2e7028e766b05784355563ec7a99b79f0ddc8d82e9ebc",
+      "config_sha256": "867d303c40fb069977572d36c7482295c58ef2876eda71b406a72830dd3a0cd6",
+      "index_entry_count": 1509,
+      "index_inventory_sha256": "76481f4e5f843c03bfeb07e1825aead6d67dbaf077036c36621671fd2d470fb7",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-16",
@@ -749,10 +2558,15 @@
       "tags": [
         "local-sop-2025.4"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "c1dfbf55516eca3fa7613a453c3d0a434e5fe835"
+      ],
       "archive": ".cockpit-transport/repositories/APP-16-nova-launcher.git.tar",
       "archive_bytes": 1024000,
-      "archive_sha256": "28ebad126d8cdc552e91b13b52476d33c05ce2e14cd5cc3e7575456ca91546a5",
+      "archive_sha256": "64f987ee16f6733cd309c1223732a960a4b6418789ae8bf4c469cf9727e27d99",
       "refs": {
         "refs/heads/develop": "5eae59466aa7302b1fb76b2a48ebef4e221930e0",
         "refs/heads/main": "997b2a7589a81c30c93992b3f7871f2afc99ac77",
@@ -761,7 +2575,68 @@
         "refs/heads/platform/xinqing": "6c1af62ba51904f824be85a7b7409e3c5dafe657",
         "refs/heads/release/sop-2025": "9819e8a6017d953300b0a04c32915146823241ee",
         "refs/tags/local-sop-2025.4": "9819e8a6017d953300b0a04c32915146823241ee"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/platform/xinqing": "commit",
+        "refs/heads/release/sop-2025": "commit",
+        "refs/tags/local-sop-2025.4": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "5eae59466aa7302b1fb76b2a48ebef4e221930e0",
+          "object_type": "commit",
+          "peeled_oid": "5eae59466aa7302b1fb76b2a48ebef4e221930e0",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "997b2a7589a81c30c93992b3f7871f2afc99ac77",
+          "object_type": "commit",
+          "peeled_oid": "997b2a7589a81c30c93992b3f7871f2afc99ac77",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "12018f5c86295792c08f2dc1c6ddf1ff53d1c87a",
+          "object_type": "commit",
+          "peeled_oid": "12018f5c86295792c08f2dc1c6ddf1ff53d1c87a",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "8d942866a7277643388928721bd043a5a33d83e7",
+          "object_type": "commit",
+          "peeled_oid": "8d942866a7277643388928721bd043a5a33d83e7",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/xinqing": {
+          "oid": "6c1af62ba51904f824be85a7b7409e3c5dafe657",
+          "object_type": "commit",
+          "peeled_oid": "6c1af62ba51904f824be85a7b7409e3c5dafe657",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/sop-2025": {
+          "oid": "9819e8a6017d953300b0a04c32915146823241ee",
+          "object_type": "commit",
+          "peeled_oid": "9819e8a6017d953300b0a04c32915146823241ee",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2025.4": {
+          "oid": "9819e8a6017d953300b0a04c32915146823241ee",
+          "object_type": "commit",
+          "peeled_oid": "9819e8a6017d953300b0a04c32915146823241ee",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 1554,
+      "object_inventory_sha256": "905ed1b7d2ffba36981e795e18eb24486ed9f279b5f1e5d6c8daa8fe47a8fd2c",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "d28b3a1e82a0ccc8cc70f0e17cee90de5ab434ca7ec822a057df88a47858d096",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 1123,
+      "index_inventory_sha256": "ce7dae80276e33769079152a69b1e3a4e617506c34884439180fdc62e53e0772",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-17",
@@ -781,10 +2656,13 @@
       "tags": [
         "v0.9.0"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/APP-17-thermo-control.git.tar",
       "archive_bytes": 1331200,
-      "archive_sha256": "652f07521554496c9ae72dc2625d0e40ceb6814d603c64184ef5fe3add0959b4",
+      "archive_sha256": "80c3e22a56641e51d294c0563b99372595a4176fd2745d7017bad2843f16b063",
       "refs": {
         "refs/heads/develop": "487b0d1181923b2628d21258d78db89a6eb611dc",
         "refs/heads/main": "85fca70e962f51ebffbc52ab75084e58d3789efb",
@@ -792,7 +2670,61 @@
         "refs/heads/platform/8295": "dc027394cbc970a47f04e7ed3121f8aa5fe18053",
         "refs/heads/release/0.9": "d476f5dbf0ec829a9cc2b0d88dd04b7117eda847",
         "refs/tags/v0.9.0": "f582b4c550acb1349565e8afe50d728fe80e473b"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/0.9": "commit",
+        "refs/tags/v0.9.0": "tag"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "487b0d1181923b2628d21258d78db89a6eb611dc",
+          "object_type": "commit",
+          "peeled_oid": "487b0d1181923b2628d21258d78db89a6eb611dc",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+          "object_type": "commit",
+          "peeled_oid": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "483e416e1a9edf2f1d60f4ed065186fbaec6d47f",
+          "object_type": "commit",
+          "peeled_oid": "483e416e1a9edf2f1d60f4ed065186fbaec6d47f",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "dc027394cbc970a47f04e7ed3121f8aa5fe18053",
+          "object_type": "commit",
+          "peeled_oid": "dc027394cbc970a47f04e7ed3121f8aa5fe18053",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/0.9": {
+          "oid": "d476f5dbf0ec829a9cc2b0d88dd04b7117eda847",
+          "object_type": "commit",
+          "peeled_oid": "d476f5dbf0ec829a9cc2b0d88dd04b7117eda847",
+          "peeled_type": "commit"
+        },
+        "refs/tags/v0.9.0": {
+          "oid": "f582b4c550acb1349565e8afe50d728fe80e473b",
+          "object_type": "tag",
+          "peeled_oid": "88a778e7ef882b0b54a060608c31c4f46b2a1661",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 349,
+      "object_inventory_sha256": "bc3abebd57f60d2736911deadfe68caebf7258558c34c9e32ef6ef70a65a99f0",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "6c3bd424faaa76452a9225e27efa43aed98de5979dff495d6ac24407097a695d",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 171,
+      "index_inventory_sha256": "342d1fe5ef3e683feb5e1fe225693138b2ba093f56278a07e44440ca255a4617",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-18",
@@ -813,10 +2745,15 @@
       "tags": [
         "local-sop-2024.3"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "e154cff25a803a24a673c24b862ee23ce9973b5a"
+      ],
       "archive": ".cockpit-transport/repositories/APP-18-stream-media.git.tar",
       "archive_bytes": 440320,
-      "archive_sha256": "d9c492b1a77145654de54e362934dd497390baa028f2b49da761c3f4a93e2364",
+      "archive_sha256": "066580e9e938d7a1c13da94d19a3f5cd1531c0968eb48722fdcc0a8f3911dd3d",
       "refs": {
         "refs/heads/develop": "e890eaa1bd728059219dbe533b8e689a16fd7946",
         "refs/heads/main": "a88e94b024b5a13653d20034e3db753640371c0e",
@@ -825,7 +2762,68 @@
         "refs/heads/platform/xinqing": "8809a628265aef4453450372324fd2e2b7cf0e17",
         "refs/heads/release/sop-2024": "dbf996e8614b3506b8bfef856f6cc56ca943404b",
         "refs/tags/local-sop-2024.3": "dbf996e8614b3506b8bfef856f6cc56ca943404b"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/platform/xinqing": "commit",
+        "refs/heads/release/sop-2024": "commit",
+        "refs/tags/local-sop-2024.3": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "e890eaa1bd728059219dbe533b8e689a16fd7946",
+          "object_type": "commit",
+          "peeled_oid": "e890eaa1bd728059219dbe533b8e689a16fd7946",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "a88e94b024b5a13653d20034e3db753640371c0e",
+          "object_type": "commit",
+          "peeled_oid": "a88e94b024b5a13653d20034e3db753640371c0e",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "99b06adcd7e81d2361279a1149cbf643d2e95651",
+          "object_type": "commit",
+          "peeled_oid": "99b06adcd7e81d2361279a1149cbf643d2e95651",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "4a41343c848f09811cbc154152023a7b0c19d8bd",
+          "object_type": "commit",
+          "peeled_oid": "4a41343c848f09811cbc154152023a7b0c19d8bd",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/xinqing": {
+          "oid": "8809a628265aef4453450372324fd2e2b7cf0e17",
+          "object_type": "commit",
+          "peeled_oid": "8809a628265aef4453450372324fd2e2b7cf0e17",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/sop-2024": {
+          "oid": "dbf996e8614b3506b8bfef856f6cc56ca943404b",
+          "object_type": "commit",
+          "peeled_oid": "dbf996e8614b3506b8bfef856f6cc56ca943404b",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2024.3": {
+          "oid": "dbf996e8614b3506b8bfef856f6cc56ca943404b",
+          "object_type": "commit",
+          "peeled_oid": "dbf996e8614b3506b8bfef856f6cc56ca943404b",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 484,
+      "object_inventory_sha256": "502aa7991c21d49a4490599d5edf58f20d48dff092b71eacfedaebbd43a22278",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "552d1ae81d91effe06dfba9b401de68536ed4202400328f162b64def96325ce3",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 284,
+      "index_inventory_sha256": "5f42da14d8eade036779a1c00062063167d2566664a666a4476ab5f90df69e3a",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-19",
@@ -846,10 +2844,13 @@
         "app-foundation-1.0.0",
         "companion-voice-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/APP-19-companion-voice.git.tar",
       "archive_bytes": 512000,
-      "archive_sha256": "b9ae6085ab20b1271381ea39bc74032f87a0a10b36972a03fd8d42fdda21081e",
+      "archive_sha256": "35c3733bad5421b7f174481a2f738c69bae0ee3a5b373ebf0a9c9743c3897c0b",
       "refs": {
         "refs/heads/develop": "eff13aa6a3546b4b9d01287cbb13bcf7fcfe20b5",
         "refs/heads/main": "890487cb6e20114d92aadd509c7c5d6797039dbf",
@@ -858,7 +2859,68 @@
         "refs/heads/release/2026.1": "7ccce2f49b11f347ddb528a8c1077da6e0511535",
         "refs/tags/app-foundation-1.0.0": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
         "refs/tags/companion-voice-2026.1": "7ccce2f49b11f347ddb528a8c1077da6e0511535"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/app-foundation-1.0.0": "commit",
+        "refs/tags/companion-voice-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "eff13aa6a3546b4b9d01287cbb13bcf7fcfe20b5",
+          "object_type": "commit",
+          "peeled_oid": "eff13aa6a3546b4b9d01287cbb13bcf7fcfe20b5",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+          "object_type": "commit",
+          "peeled_oid": "890487cb6e20114d92aadd509c7c5d6797039dbf",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "273a02a7338e42d4dadf3d06c0011c552e37a470",
+          "object_type": "commit",
+          "peeled_oid": "273a02a7338e42d4dadf3d06c0011c552e37a470",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "fddc2e53f0c90a3b5e257d58aa1beca9b8fe66c4",
+          "object_type": "commit",
+          "peeled_oid": "fddc2e53f0c90a3b5e257d58aa1beca9b8fe66c4",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "7ccce2f49b11f347ddb528a8c1077da6e0511535",
+          "object_type": "commit",
+          "peeled_oid": "7ccce2f49b11f347ddb528a8c1077da6e0511535",
+          "peeled_type": "commit"
+        },
+        "refs/tags/app-foundation-1.0.0": {
+          "oid": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
+          "object_type": "commit",
+          "peeled_oid": "ebb25c8bbac0feabfdbe994df9ed3fa7610430f5",
+          "peeled_type": "commit"
+        },
+        "refs/tags/companion-voice-2026.1": {
+          "oid": "7ccce2f49b11f347ddb528a8c1077da6e0511535",
+          "object_type": "commit",
+          "peeled_oid": "7ccce2f49b11f347ddb528a8c1077da6e0511535",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 712,
+      "object_inventory_sha256": "575d692afb6772b7f0ece3f2874f268f164d2881594c338b9feb1ed2af729447",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "6ab6f6d2ac50edd398d38b7f7e6e72266b8949b0a766054dad7ad8fd0143c97d",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 427,
+      "index_inventory_sha256": "981dbea75345751aa2235efc75ca46bbc9a59bda6fb9541948c87e512d88f118",
+      "payload_gitlink_count": 0
     },
     {
       "id": "APP-20",
@@ -879,10 +2941,13 @@
       "tags": [
         "drive-center-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/APP-20-drive-center.git.tar",
       "archive_bytes": 58583040,
-      "archive_sha256": "f991c0e57007522449c01709224aba31ef9cb1a6f353c5d1d7cc8be2e1768baf",
+      "archive_sha256": "1442966c033ec1d88fae808d9fd3fa24bcbad0eaa43298bec18df3177e9841f4",
       "refs": {
         "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
         "refs/heads/develop": "d3d65f89bd9c865e36068fda239c8af76d94827b",
@@ -891,7 +2956,68 @@
         "refs/heads/platform/8295": "2ff09a7586c59d17506dbf10935c54f213758fc1",
         "refs/heads/release/2026.1": "0392b9e29ad81c28d9c1a65681ec2541006da554",
         "refs/tags/drive-center-2026.1": "0392b9e29ad81c28d9c1a65681ec2541006da554"
-      }
+      },
+      "ref_types": {
+        "refs/heads/aosp-new/aosp-new/master": "commit",
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/drive-center-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/aosp-new/aosp-new/master": {
+          "oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "object_type": "commit",
+          "peeled_oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "peeled_type": "commit"
+        },
+        "refs/heads/develop": {
+          "oid": "d3d65f89bd9c865e36068fda239c8af76d94827b",
+          "object_type": "commit",
+          "peeled_oid": "d3d65f89bd9c865e36068fda239c8af76d94827b",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "4259f591ee7b80f541a55ee2a2c0bbc39cf06941",
+          "object_type": "commit",
+          "peeled_oid": "4259f591ee7b80f541a55ee2a2c0bbc39cf06941",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "170947ca03a20adb89c6a3c0a139d33c5924ce41",
+          "object_type": "commit",
+          "peeled_oid": "170947ca03a20adb89c6a3c0a139d33c5924ce41",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "2ff09a7586c59d17506dbf10935c54f213758fc1",
+          "object_type": "commit",
+          "peeled_oid": "2ff09a7586c59d17506dbf10935c54f213758fc1",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "0392b9e29ad81c28d9c1a65681ec2541006da554",
+          "object_type": "commit",
+          "peeled_oid": "0392b9e29ad81c28d9c1a65681ec2541006da554",
+          "peeled_type": "commit"
+        },
+        "refs/tags/drive-center-2026.1": {
+          "oid": "0392b9e29ad81c28d9c1a65681ec2541006da554",
+          "object_type": "commit",
+          "peeled_oid": "0392b9e29ad81c28d9c1a65681ec2541006da554",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 9877,
+      "object_inventory_sha256": "af40f34e6ec8de0be812661afb0e4052cf845192c49273f65b555f3d13604057",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "24d23199b218784b473b035792dade1e141cfb432176f8155ca6316e372605d9",
+      "config_sha256": "caa381d919a257155de629405abffc04b36ac5aaa2bd548653dd401b43060921",
+      "index_entry_count": 1560,
+      "index_inventory_sha256": "e2906650767f2131cab694bab6362ab9e18d9268d3a8d62fc7aecdbe613f2258",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-01",
@@ -911,10 +3037,13 @@
       "tags": [
         "local-sop-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-01-car-api-core.git.tar",
       "archive_bytes": 57569280,
-      "archive_sha256": "1cc7227570d69be7c8de7b4b05bbbb7c5c4459db629ed24a5f362a65b9a2ca3d",
+      "archive_sha256": "c6791246d824b512436833badc7e20fa7dbdcaed7a55fe970a89c59c5a3cbf43",
       "refs": {
         "refs/heads/develop": "e99b504bec425d6f1adb8f6d594cdb03a381d1c6",
         "refs/heads/main": "985cc498d8c52c2e5ba558e079ea2d670806e43a",
@@ -922,7 +3051,61 @@
         "refs/heads/platform/8295": "e06b7f2b354b8eb0bf6b5e383cd383395272a4a3",
         "refs/heads/release/2026.1": "8135028142b98adb9c3559c06c7b863ba7ec8126",
         "refs/tags/local-sop-2026.1": "8135028142b98adb9c3559c06c7b863ba7ec8126"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/local-sop-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "e99b504bec425d6f1adb8f6d594cdb03a381d1c6",
+          "object_type": "commit",
+          "peeled_oid": "e99b504bec425d6f1adb8f6d594cdb03a381d1c6",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "985cc498d8c52c2e5ba558e079ea2d670806e43a",
+          "object_type": "commit",
+          "peeled_oid": "985cc498d8c52c2e5ba558e079ea2d670806e43a",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "00862035b7e1384a9e3e5d5c83be9529e3e91845",
+          "object_type": "commit",
+          "peeled_oid": "00862035b7e1384a9e3e5d5c83be9529e3e91845",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "e06b7f2b354b8eb0bf6b5e383cd383395272a4a3",
+          "object_type": "commit",
+          "peeled_oid": "e06b7f2b354b8eb0bf6b5e383cd383395272a4a3",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "8135028142b98adb9c3559c06c7b863ba7ec8126",
+          "object_type": "commit",
+          "peeled_oid": "8135028142b98adb9c3559c06c7b863ba7ec8126",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2026.1": {
+          "oid": "8135028142b98adb9c3559c06c7b863ba7ec8126",
+          "object_type": "commit",
+          "peeled_oid": "8135028142b98adb9c3559c06c7b863ba7ec8126",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 7924,
+      "object_inventory_sha256": "2b47e00526de7f96fd6ee42762a3629ccf753b70a5f5de6fe9e2e047363bbfc8",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "6ab6f6d2ac50edd398d38b7f7e6e72266b8949b0a766054dad7ad8fd0143c97d",
+      "config_sha256": "17aa85bced1f251e199475b4ca4adf81002656d7143bed3dedd8a3fff7d2ed09",
+      "index_entry_count": 2303,
+      "index_inventory_sha256": "55798e8be2413f85057dc48f482d7794f53925f0361d3142f45c3a7e12449b68",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-02",
@@ -942,10 +3125,13 @@
       "tags": [
         "v2.0.0"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-02-vehicle-property-service.git.tar",
       "archive_bytes": 808960,
-      "archive_sha256": "8b259892bceaf2b58c998f7cde4616bf1218a6e4264def20710e0001a1225b96",
+      "archive_sha256": "2b7748eed1bec3e385ccfaa3a4cc4705f7700713df5f8dacf3411af0fe94adfd",
       "refs": {
         "refs/heads/develop": "d64b3c7cf7118d30eb24d37c35816545af4c76b4",
         "refs/heads/main": "08201c6278d25198577f2428c92dd2483032bf20",
@@ -953,7 +3139,61 @@
         "refs/heads/platform/8295": "1c687eb3c8523279f6f62465b1fdf366dc108994",
         "refs/heads/release/2.0": "e76509ba3527e842a6a3b2f201b68e2078cd016b",
         "refs/tags/v2.0.0": "dd728954b7f0646d3fde72830a4840566c667467"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2.0": "commit",
+        "refs/tags/v2.0.0": "tag"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "d64b3c7cf7118d30eb24d37c35816545af4c76b4",
+          "object_type": "commit",
+          "peeled_oid": "d64b3c7cf7118d30eb24d37c35816545af4c76b4",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "08201c6278d25198577f2428c92dd2483032bf20",
+          "object_type": "commit",
+          "peeled_oid": "08201c6278d25198577f2428c92dd2483032bf20",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "fab2b54427e9a46b5f096d464ccafafc899c8c35",
+          "object_type": "commit",
+          "peeled_oid": "fab2b54427e9a46b5f096d464ccafafc899c8c35",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "1c687eb3c8523279f6f62465b1fdf366dc108994",
+          "object_type": "commit",
+          "peeled_oid": "1c687eb3c8523279f6f62465b1fdf366dc108994",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2.0": {
+          "oid": "e76509ba3527e842a6a3b2f201b68e2078cd016b",
+          "object_type": "commit",
+          "peeled_oid": "e76509ba3527e842a6a3b2f201b68e2078cd016b",
+          "peeled_type": "commit"
+        },
+        "refs/tags/v2.0.0": {
+          "oid": "dd728954b7f0646d3fde72830a4840566c667467",
+          "object_type": "tag",
+          "peeled_oid": "a102a3247eae629bbca8ba281d1fb996143871fb",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 504,
+      "object_inventory_sha256": "9e1f6d6862b1d03fd4cf66439871c9a1b564230d8f60b3b25eee3f8bf4b252b4",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "253c79ccfdd50b7ff36a909246e9cdf35965c0f8c0972421d95fddb006398253",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 283,
+      "index_inventory_sha256": "bd56b76faa756168b5e086bb3f76b77aad9e8655181965a3b738e034d7c0b647",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-03",
@@ -961,8 +3201,8 @@
       "kind": "FRAMEWORK",
       "relative_path": "repos/framework/vehicle-hal-adapter",
       "default_branch": "main",
-      "head": "85517b3ecba303d7acc5e49a3f4780d685f75500",
-      "git_tracked_files": 652,
+      "head": "ec746bb6934e75818babfd48bde4e26ba379074c",
+      "git_tracked_files": 715,
       "branches": [
         "aosp-new/aosp-new/master",
         "develop",
@@ -974,19 +3214,83 @@
       "tags": [
         "local-sop-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-03-vehicle-hal-adapter.git.tar",
-      "archive_bytes": 57333760,
-      "archive_sha256": "0d12ac8145d5d0858ad42da5c4ea727773bd4c4f70a4e7066b1e76dfc663ecf6",
+      "archive_bytes": 58112000,
+      "archive_sha256": "173e1880a3782aef8ccbde31f3d07bf2f6e36c7cca3c5f504293995116f93eb8",
       "refs": {
         "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
-        "refs/heads/develop": "3ec304a4adc4acff7f90638f505cedf4823906dc",
-        "refs/heads/main": "85517b3ecba303d7acc5e49a3f4780d685f75500",
-        "refs/heads/platform/8155": "45e3a735a9fba1262f91c8b569dc648f957d2128",
-        "refs/heads/platform/8295": "04fa82d9a7210dad2a63a44f2478cdc27965bb0f",
-        "refs/heads/release/2026.1": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098",
+        "refs/heads/develop": "1237a16267ff51bb2eff5be86e1ed4158e52362c",
+        "refs/heads/main": "ec746bb6934e75818babfd48bde4e26ba379074c",
+        "refs/heads/platform/8155": "270b396861b09795f3bfa27baec414cf635f832c",
+        "refs/heads/platform/8295": "4449839764f794e7994574058147e83d28b61865",
+        "refs/heads/release/2026.1": "886262cab9d266b92bb3413f896661ff7d7d2028",
         "refs/tags/local-sop-2026.1": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098"
-      }
+      },
+      "ref_types": {
+        "refs/heads/aosp-new/aosp-new/master": "commit",
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/local-sop-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/aosp-new/aosp-new/master": {
+          "oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "object_type": "commit",
+          "peeled_oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "peeled_type": "commit"
+        },
+        "refs/heads/develop": {
+          "oid": "1237a16267ff51bb2eff5be86e1ed4158e52362c",
+          "object_type": "commit",
+          "peeled_oid": "1237a16267ff51bb2eff5be86e1ed4158e52362c",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "ec746bb6934e75818babfd48bde4e26ba379074c",
+          "object_type": "commit",
+          "peeled_oid": "ec746bb6934e75818babfd48bde4e26ba379074c",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "270b396861b09795f3bfa27baec414cf635f832c",
+          "object_type": "commit",
+          "peeled_oid": "270b396861b09795f3bfa27baec414cf635f832c",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "4449839764f794e7994574058147e83d28b61865",
+          "object_type": "commit",
+          "peeled_oid": "4449839764f794e7994574058147e83d28b61865",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "886262cab9d266b92bb3413f896661ff7d7d2028",
+          "object_type": "commit",
+          "peeled_oid": "886262cab9d266b92bb3413f896661ff7d7d2028",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2026.1": {
+          "oid": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098",
+          "object_type": "commit",
+          "peeled_oid": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 8131,
+      "object_inventory_sha256": "5dd81befd371c53fe6b97d265b4d388c910c6022d62d6109df23214a96710113",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "5efc10dae9e354c15325de0009eb162860ae9f6b12b963abe7c68226952fb0ca",
+      "config_sha256": "17aa85bced1f251e199475b4ca4adf81002656d7143bed3dedd8a3fff7d2ed09",
+      "index_entry_count": 715,
+      "index_inventory_sha256": "d0f286af4f51d52e03c3311a0cf06fa6720eccd03b7b4391bcbc893ecd114acf",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-04",
@@ -1006,10 +3310,13 @@
       "tags": [
         "local-sop-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-04-cockpit-audio-service.git.tar",
       "archive_bytes": 57282560,
-      "archive_sha256": "f578080171694d25d95e39466d6c1f02674c38f6ba94ccf3da52d001f209e348",
+      "archive_sha256": "4157e9b86c37602800e4da54828c566c8d9ebafaf0f74f39036daa161cdfa427",
       "refs": {
         "refs/heads/develop": "356ac7ee1005f373921731183fdf6f910e6d42b4",
         "refs/heads/main": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
@@ -1017,7 +3324,61 @@
         "refs/heads/platform/8295": "8de47ac36548c055c393d03587d5e75039861ec4",
         "refs/heads/release/2026.1": "d463ea588d438395dd55dfadc193c285809df688",
         "refs/tags/local-sop-2026.1": "d463ea588d438395dd55dfadc193c285809df688"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/local-sop-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "356ac7ee1005f373921731183fdf6f910e6d42b4",
+          "object_type": "commit",
+          "peeled_oid": "356ac7ee1005f373921731183fdf6f910e6d42b4",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
+          "object_type": "commit",
+          "peeled_oid": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "872c2c736467b05740a7cac588b2ae777de1c126",
+          "object_type": "commit",
+          "peeled_oid": "872c2c736467b05740a7cac588b2ae777de1c126",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "8de47ac36548c055c393d03587d5e75039861ec4",
+          "object_type": "commit",
+          "peeled_oid": "8de47ac36548c055c393d03587d5e75039861ec4",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "d463ea588d438395dd55dfadc193c285809df688",
+          "object_type": "commit",
+          "peeled_oid": "d463ea588d438395dd55dfadc193c285809df688",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2026.1": {
+          "oid": "d463ea588d438395dd55dfadc193c285809df688",
+          "object_type": "commit",
+          "peeled_oid": "d463ea588d438395dd55dfadc193c285809df688",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 7993,
+      "object_inventory_sha256": "8d960723b15e814fd6cbb1a4937ba85e16714d36ee52acb5774c0f22de932c38",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "6ab6f6d2ac50edd398d38b7f7e6e72266b8949b0a766054dad7ad8fd0143c97d",
+      "config_sha256": "17aa85bced1f251e199475b4ca4adf81002656d7143bed3dedd8a3fff7d2ed09",
+      "index_entry_count": 275,
+      "index_inventory_sha256": "8691ac3938a91d610d9fe5b85211d7c6ad0849e79ffe2243a142a798bac47160",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-05",
@@ -1038,10 +3399,13 @@
       "tags": [
         "car-power-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-05-car-power-service.git.tar",
       "archive_bytes": 57548800,
-      "archive_sha256": "bfcd6d3102325c4f9acc2a87cba96afe2b0476621d2ecd685d2bf71b32bb583f",
+      "archive_sha256": "976d74ff625c85be0ccffb8238b59f831e97b92c6ce4a45e1832220e7c9f90d5",
       "refs": {
         "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
         "refs/heads/develop": "9adb9e1713ed4547fca25395a50fe84695a7f30f",
@@ -1050,7 +3414,68 @@
         "refs/heads/platform/8295": "d880fdbebb78d9cde78fb88910f02ee594a9f661",
         "refs/heads/release/2026.1": "55768fd6c4603ec0932536fbc87e13c409d2216a",
         "refs/tags/car-power-2026.1": "55768fd6c4603ec0932536fbc87e13c409d2216a"
-      }
+      },
+      "ref_types": {
+        "refs/heads/aosp-new/aosp-new/master": "commit",
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/car-power-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/aosp-new/aosp-new/master": {
+          "oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "object_type": "commit",
+          "peeled_oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "peeled_type": "commit"
+        },
+        "refs/heads/develop": {
+          "oid": "9adb9e1713ed4547fca25395a50fe84695a7f30f",
+          "object_type": "commit",
+          "peeled_oid": "9adb9e1713ed4547fca25395a50fe84695a7f30f",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "2bf5074a6a50dd19635b67ea5d9f9d556e389682",
+          "object_type": "commit",
+          "peeled_oid": "2bf5074a6a50dd19635b67ea5d9f9d556e389682",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "88a6ab3d2f5e2700eae0c64e2aa0aa2d01f4b56c",
+          "object_type": "commit",
+          "peeled_oid": "88a6ab3d2f5e2700eae0c64e2aa0aa2d01f4b56c",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "d880fdbebb78d9cde78fb88910f02ee594a9f661",
+          "object_type": "commit",
+          "peeled_oid": "d880fdbebb78d9cde78fb88910f02ee594a9f661",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "55768fd6c4603ec0932536fbc87e13c409d2216a",
+          "object_type": "commit",
+          "peeled_oid": "55768fd6c4603ec0932536fbc87e13c409d2216a",
+          "peeled_type": "commit"
+        },
+        "refs/tags/car-power-2026.1": {
+          "oid": "55768fd6c4603ec0932536fbc87e13c409d2216a",
+          "object_type": "commit",
+          "peeled_oid": "55768fd6c4603ec0932536fbc87e13c409d2216a",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 7929,
+      "object_inventory_sha256": "513e7308e552f5db6b651d41d8e1aecd7577a50b689a21eb6a2dc0de65601e53",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "24d23199b218784b473b035792dade1e141cfb432176f8155ca6316e372605d9",
+      "config_sha256": "caa381d919a257155de629405abffc04b36ac5aaa2bd548653dd401b43060921",
+      "index_entry_count": 2182,
+      "index_inventory_sha256": "cd93c98f6543b4e726be1ec2ac24fedf52a0628b1da764e07cc39cf21400e463",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-06",
@@ -1071,10 +3496,13 @@
       "tags": [
         "occupant-zone-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-06-occupant-zone-service.git.tar",
       "archive_bytes": 57344000,
-      "archive_sha256": "00501b33333b2dd271de768b85143dbb3c3e169bcb840eb8a92283ccda12dab0",
+      "archive_sha256": "e38ce303a3035be7623f5308112b3c8a1ae1987e08d8a35ff01d249367d6b711",
       "refs": {
         "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
         "refs/heads/develop": "73ccd1647186b250dbb32f255833423640fcdaf4",
@@ -1083,7 +3511,68 @@
         "refs/heads/platform/8295": "28218ddbeba65045d5945b3608f8f79f0fdb56cc",
         "refs/heads/release/2026.1": "6120e69bb6b881c14fa806ce8fadfe0acb906833",
         "refs/tags/occupant-zone-2026.1": "6120e69bb6b881c14fa806ce8fadfe0acb906833"
-      }
+      },
+      "ref_types": {
+        "refs/heads/aosp-new/aosp-new/master": "commit",
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/occupant-zone-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/aosp-new/aosp-new/master": {
+          "oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "object_type": "commit",
+          "peeled_oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "peeled_type": "commit"
+        },
+        "refs/heads/develop": {
+          "oid": "73ccd1647186b250dbb32f255833423640fcdaf4",
+          "object_type": "commit",
+          "peeled_oid": "73ccd1647186b250dbb32f255833423640fcdaf4",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "ce733dcb460cdccecb5e5c65eb4d78b7629f9b61",
+          "object_type": "commit",
+          "peeled_oid": "ce733dcb460cdccecb5e5c65eb4d78b7629f9b61",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "c6846725ac0d302c2c1e54156a3b6372ccb44b18",
+          "object_type": "commit",
+          "peeled_oid": "c6846725ac0d302c2c1e54156a3b6372ccb44b18",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "28218ddbeba65045d5945b3608f8f79f0fdb56cc",
+          "object_type": "commit",
+          "peeled_oid": "28218ddbeba65045d5945b3608f8f79f0fdb56cc",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "6120e69bb6b881c14fa806ce8fadfe0acb906833",
+          "object_type": "commit",
+          "peeled_oid": "6120e69bb6b881c14fa806ce8fadfe0acb906833",
+          "peeled_type": "commit"
+        },
+        "refs/tags/occupant-zone-2026.1": {
+          "oid": "6120e69bb6b881c14fa806ce8fadfe0acb906833",
+          "object_type": "commit",
+          "peeled_oid": "6120e69bb6b881c14fa806ce8fadfe0acb906833",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 7933,
+      "object_inventory_sha256": "ac63a15099e57ff8ed236200dfb5cff0a27ca1493af8e09c8e2ae2106fc9156c",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "24d23199b218784b473b035792dade1e141cfb432176f8155ca6316e372605d9",
+      "config_sha256": "caa381d919a257155de629405abffc04b36ac5aaa2bd548653dd401b43060921",
+      "index_entry_count": 787,
+      "index_inventory_sha256": "44b4de5095df7d3d11344d133d9ad72055e9147c284c752cdda82515b04e1798",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-07",
@@ -1104,10 +3593,13 @@
       "tags": [
         "vehicle-diagnostics-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-07-vehicle-diagnostics.git.tar",
-      "archive_bytes": 57600000,
-      "archive_sha256": "0e3feae3f32baa8340c6221ece24e82df9a7c1c8fa29c7ead54a992b7e3330cc",
+      "archive_bytes": 57589760,
+      "archive_sha256": "5a35a4f806841d58c795038e79662e408401b2d77ffadf011a23ec8f7bdbfdc1",
       "refs": {
         "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
         "refs/heads/develop": "20db2e9e2398ad2f34d281cdcb26a78a1dfd4fac",
@@ -1116,7 +3608,68 @@
         "refs/heads/platform/8295": "87130476985f8886d380d9198c80c1edb826f1c8",
         "refs/heads/release/2026.1": "7898b482b3dbad5ace4c354cdd8a4e039059e681",
         "refs/tags/vehicle-diagnostics-2026.1": "7898b482b3dbad5ace4c354cdd8a4e039059e681"
-      }
+      },
+      "ref_types": {
+        "refs/heads/aosp-new/aosp-new/master": "commit",
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/vehicle-diagnostics-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/aosp-new/aosp-new/master": {
+          "oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "object_type": "commit",
+          "peeled_oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "peeled_type": "commit"
+        },
+        "refs/heads/develop": {
+          "oid": "20db2e9e2398ad2f34d281cdcb26a78a1dfd4fac",
+          "object_type": "commit",
+          "peeled_oid": "20db2e9e2398ad2f34d281cdcb26a78a1dfd4fac",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "8bb2a496bbe8ab7be5ee348973a921b016702251",
+          "object_type": "commit",
+          "peeled_oid": "8bb2a496bbe8ab7be5ee348973a921b016702251",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "85f0ccfb542ae84b40d3314c9de2d6d9fab195b0",
+          "object_type": "commit",
+          "peeled_oid": "85f0ccfb542ae84b40d3314c9de2d6d9fab195b0",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "87130476985f8886d380d9198c80c1edb826f1c8",
+          "object_type": "commit",
+          "peeled_oid": "87130476985f8886d380d9198c80c1edb826f1c8",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "7898b482b3dbad5ace4c354cdd8a4e039059e681",
+          "object_type": "commit",
+          "peeled_oid": "7898b482b3dbad5ace4c354cdd8a4e039059e681",
+          "peeled_type": "commit"
+        },
+        "refs/tags/vehicle-diagnostics-2026.1": {
+          "oid": "7898b482b3dbad5ace4c354cdd8a4e039059e681",
+          "object_type": "commit",
+          "peeled_oid": "7898b482b3dbad5ace4c354cdd8a4e039059e681",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 7942,
+      "object_inventory_sha256": "8195637d38b86080d0a1802fbdf3cf2a17b954127cdc5ccb1ac2758b206d6bc1",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "24d23199b218784b473b035792dade1e141cfb432176f8155ca6316e372605d9",
+      "config_sha256": "caa381d919a257155de629405abffc04b36ac5aaa2bd548653dd401b43060921",
+      "index_entry_count": 2553,
+      "index_inventory_sha256": "619de6162dbad0ea51c5a7011dda0c93918d1980fd3c88eef1eeee4ecf37d390",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-08",
@@ -1124,8 +3677,8 @@
       "kind": "FRAMEWORK",
       "relative_path": "repos/framework/soa-gateway",
       "default_branch": "main",
-      "head": "58d1f6eda9c6b053ff62351a69b258489154acdf",
-      "git_tracked_files": 729,
+      "head": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9",
+      "git_tracked_files": 807,
       "branches": [
         "aosp-new/aosp-new/master",
         "develop",
@@ -1137,19 +3690,83 @@
       "tags": [
         "soa-gateway-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-08-soa-gateway.git.tar",
-      "archive_bytes": 57323520,
-      "archive_sha256": "d9460cf77eec1964b2c391234c561ddbb2896fcc02c020698583afddae2927ac",
+      "archive_bytes": 57948160,
+      "archive_sha256": "e2f73c052e3dc0ebe773267b03566121628b8555a478334efc98f733422b7fe7",
       "refs": {
         "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
-        "refs/heads/develop": "8c12e40c1a67b3387cde26ff1810205bcfc0cc98",
-        "refs/heads/main": "58d1f6eda9c6b053ff62351a69b258489154acdf",
-        "refs/heads/platform/8155": "9f1058453589715d6ae60a21f8d0601f4d258793",
-        "refs/heads/platform/8295": "dfb6fde79a368da471256c6fd83457e0ee4ee09f",
-        "refs/heads/release/2026.1": "1e7dabf4b9630a7da0dc1ba490eb3dee42b077a6",
+        "refs/heads/develop": "22beae5fd4f47e1e0bc58373d8a1ed9e833df99e",
+        "refs/heads/main": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9",
+        "refs/heads/platform/8155": "c79cded97d4f7e7605232d739c92180c5df8c062",
+        "refs/heads/platform/8295": "df09b062ef966586b520edc6268d0fcb59c18ffe",
+        "refs/heads/release/2026.1": "d39721daa46ab21dae568b6325e9bb5b17d3c162",
         "refs/tags/soa-gateway-2026.1": "1e7dabf4b9630a7da0dc1ba490eb3dee42b077a6"
-      }
+      },
+      "ref_types": {
+        "refs/heads/aosp-new/aosp-new/master": "commit",
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/soa-gateway-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/aosp-new/aosp-new/master": {
+          "oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "object_type": "commit",
+          "peeled_oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "peeled_type": "commit"
+        },
+        "refs/heads/develop": {
+          "oid": "22beae5fd4f47e1e0bc58373d8a1ed9e833df99e",
+          "object_type": "commit",
+          "peeled_oid": "22beae5fd4f47e1e0bc58373d8a1ed9e833df99e",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9",
+          "object_type": "commit",
+          "peeled_oid": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "c79cded97d4f7e7605232d739c92180c5df8c062",
+          "object_type": "commit",
+          "peeled_oid": "c79cded97d4f7e7605232d739c92180c5df8c062",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "df09b062ef966586b520edc6268d0fcb59c18ffe",
+          "object_type": "commit",
+          "peeled_oid": "df09b062ef966586b520edc6268d0fcb59c18ffe",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "d39721daa46ab21dae568b6325e9bb5b17d3c162",
+          "object_type": "commit",
+          "peeled_oid": "d39721daa46ab21dae568b6325e9bb5b17d3c162",
+          "peeled_type": "commit"
+        },
+        "refs/tags/soa-gateway-2026.1": {
+          "oid": "1e7dabf4b9630a7da0dc1ba490eb3dee42b077a6",
+          "object_type": "commit",
+          "peeled_oid": "1e7dabf4b9630a7da0dc1ba490eb3dee42b077a6",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 8114,
+      "object_inventory_sha256": "9c435308e9cfdd5f970b284fccf805bbb24e37dc43c55001d5b76527227a5984",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "06a77f26d9f29dda8d77be8822004b3a2d3190b0e8e9348fa28f54738c15c8f0",
+      "config_sha256": "caa381d919a257155de629405abffc04b36ac5aaa2bd548653dd401b43060921",
+      "index_entry_count": 807,
+      "index_inventory_sha256": "e0563590fbccbf1da4e0bf04a265fd89d3feba753ebcd1df0620377bd699c377",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-09",
@@ -1170,10 +3787,13 @@
         "local-sop-2026.1",
         "vendor-signal-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-09-vendor-signal-service.git.tar",
       "archive_bytes": 57333760,
-      "archive_sha256": "58951f379021ff4b1a962ec3aab29a343f963eb171f59b171946aebc69efaf88",
+      "archive_sha256": "cf3ae9b2bd9834cc2630eb4b0e6e96aa0a0c9110ff1c2013eca7a226dcad1c74",
       "refs": {
         "refs/heads/develop": "995d58712011f99f4090b5786d16bb3b11c4be83",
         "refs/heads/main": "d5cd34d3c5a1cef3f79794d5a435d047c10073be",
@@ -1182,7 +3802,68 @@
         "refs/heads/release/2026.1": "8cf05bfe07672ae4c681c31fff094f87a6139b97",
         "refs/tags/local-sop-2026.1": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098",
         "refs/tags/vendor-signal-2026.1": "8cf05bfe07672ae4c681c31fff094f87a6139b97"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/local-sop-2026.1": "commit",
+        "refs/tags/vendor-signal-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "995d58712011f99f4090b5786d16bb3b11c4be83",
+          "object_type": "commit",
+          "peeled_oid": "995d58712011f99f4090b5786d16bb3b11c4be83",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "d5cd34d3c5a1cef3f79794d5a435d047c10073be",
+          "object_type": "commit",
+          "peeled_oid": "d5cd34d3c5a1cef3f79794d5a435d047c10073be",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "81227ff036b1e5a0987d945bace5ac0ee11cc276",
+          "object_type": "commit",
+          "peeled_oid": "81227ff036b1e5a0987d945bace5ac0ee11cc276",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "a9fb39a35ea1e865d1e6be75ace8c0a3565ad623",
+          "object_type": "commit",
+          "peeled_oid": "a9fb39a35ea1e865d1e6be75ace8c0a3565ad623",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "8cf05bfe07672ae4c681c31fff094f87a6139b97",
+          "object_type": "commit",
+          "peeled_oid": "8cf05bfe07672ae4c681c31fff094f87a6139b97",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2026.1": {
+          "oid": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098",
+          "object_type": "commit",
+          "peeled_oid": "74afbe2ea8f5e165a4285b5af7cfbe2db6e17098",
+          "peeled_type": "commit"
+        },
+        "refs/tags/vendor-signal-2026.1": {
+          "oid": "8cf05bfe07672ae4c681c31fff094f87a6139b97",
+          "object_type": "commit",
+          "peeled_oid": "8cf05bfe07672ae4c681c31fff094f87a6139b97",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 7952,
+      "object_inventory_sha256": "2529c379037ddde0e4b08e7a996a56f35dce3011eafd03edc232d1e734cf600d",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "6ab6f6d2ac50edd398d38b7f7e6e72266b8949b0a766054dad7ad8fd0143c97d",
+      "config_sha256": "caa381d919a257155de629405abffc04b36ac5aaa2bd548653dd401b43060921",
+      "index_entry_count": 659,
+      "index_inventory_sha256": "5f9603b685f34fd9244b41a61023fd4fcad75bbd9f38b2a4e628f45cfff4040c",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-10",
@@ -1203,10 +3884,13 @@
         "manager-kit-2026.1",
         "v2.0.0"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-10-cockpit-manager-kit.git.tar",
       "archive_bytes": 808960,
-      "archive_sha256": "f7848902eeb0f4df9bd95205591bd1d23fcafca296cb8dd63163c2200a8bbf5d",
+      "archive_sha256": "52e0d572074036a8ae068e85d93176044d4059110c52943ce600b8abde42fd9e",
       "refs": {
         "refs/heads/develop": "1b510f14db4108bdbd9175f188f20f143503db40",
         "refs/heads/main": "0a844e957b1269cd0e1faa61c40e1e0b9f778434",
@@ -1215,7 +3899,68 @@
         "refs/heads/release/2026.1": "af6e27f2c9ef73cf3d2d9b079b790d7e57430665",
         "refs/tags/manager-kit-2026.1": "af6e27f2c9ef73cf3d2d9b079b790d7e57430665",
         "refs/tags/v2.0.0": "dd728954b7f0646d3fde72830a4840566c667467"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/manager-kit-2026.1": "commit",
+        "refs/tags/v2.0.0": "tag"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "1b510f14db4108bdbd9175f188f20f143503db40",
+          "object_type": "commit",
+          "peeled_oid": "1b510f14db4108bdbd9175f188f20f143503db40",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "0a844e957b1269cd0e1faa61c40e1e0b9f778434",
+          "object_type": "commit",
+          "peeled_oid": "0a844e957b1269cd0e1faa61c40e1e0b9f778434",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "fcd9448a5bad02d50e88d037cb8ac72fd187fc48",
+          "object_type": "commit",
+          "peeled_oid": "fcd9448a5bad02d50e88d037cb8ac72fd187fc48",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "75655639921aff733604be10ce44ad8b9fe9bb1e",
+          "object_type": "commit",
+          "peeled_oid": "75655639921aff733604be10ce44ad8b9fe9bb1e",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "af6e27f2c9ef73cf3d2d9b079b790d7e57430665",
+          "object_type": "commit",
+          "peeled_oid": "af6e27f2c9ef73cf3d2d9b079b790d7e57430665",
+          "peeled_type": "commit"
+        },
+        "refs/tags/manager-kit-2026.1": {
+          "oid": "af6e27f2c9ef73cf3d2d9b079b790d7e57430665",
+          "object_type": "commit",
+          "peeled_oid": "af6e27f2c9ef73cf3d2d9b079b790d7e57430665",
+          "peeled_type": "commit"
+        },
+        "refs/tags/v2.0.0": {
+          "oid": "dd728954b7f0646d3fde72830a4840566c667467",
+          "object_type": "tag",
+          "peeled_oid": "a102a3247eae629bbca8ba281d1fb996143871fb",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 446,
+      "object_inventory_sha256": "405236eb2749783b3d8cdca03ba52ed8920eacd3761fed946cf6913c2bc1db05",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "6ab6f6d2ac50edd398d38b7f7e6e72266b8949b0a766054dad7ad8fd0143c97d",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 294,
+      "index_inventory_sha256": "dfa69af73c2a2ed25f8e91899c46f4bb118f0e7f1f93e18a6307972dd72f88e8",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-11",
@@ -1236,10 +3981,13 @@
         "framework-foundation-1.0.0",
         "hvac-binder-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-11-hvac-binder-service.git.tar",
       "archive_bytes": 1003520,
-      "archive_sha256": "656eb8c8df7affe60a79ae6f8181544ea371113afa6255a267f783c3a0765eaf",
+      "archive_sha256": "ce7d097a020272cc5ed4feed1f803a39adffdbb669778fff92da8f43a9eb14b0",
       "refs": {
         "refs/heads/develop": "dc9e4d256750912cb8d4120f0295a267cc901a81",
         "refs/heads/main": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
@@ -1248,7 +3996,68 @@
         "refs/heads/release/2026.1": "b7559b78d2afb592ee28d069e1881642e8c3560f",
         "refs/tags/framework-foundation-1.0.0": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
         "refs/tags/hvac-binder-2026.1": "b7559b78d2afb592ee28d069e1881642e8c3560f"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/framework-foundation-1.0.0": "commit",
+        "refs/tags/hvac-binder-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "dc9e4d256750912cb8d4120f0295a267cc901a81",
+          "object_type": "commit",
+          "peeled_oid": "dc9e4d256750912cb8d4120f0295a267cc901a81",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+          "object_type": "commit",
+          "peeled_oid": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "2b6ded4ff1db2667e3c6d6d5fd8b81042acd83aa",
+          "object_type": "commit",
+          "peeled_oid": "2b6ded4ff1db2667e3c6d6d5fd8b81042acd83aa",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "445ecd8a8839dc0bc0c7100af888601ea734d92f",
+          "object_type": "commit",
+          "peeled_oid": "445ecd8a8839dc0bc0c7100af888601ea734d92f",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "b7559b78d2afb592ee28d069e1881642e8c3560f",
+          "object_type": "commit",
+          "peeled_oid": "b7559b78d2afb592ee28d069e1881642e8c3560f",
+          "peeled_type": "commit"
+        },
+        "refs/tags/framework-foundation-1.0.0": {
+          "oid": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+          "object_type": "commit",
+          "peeled_oid": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+          "peeled_type": "commit"
+        },
+        "refs/tags/hvac-binder-2026.1": {
+          "oid": "b7559b78d2afb592ee28d069e1881642e8c3560f",
+          "object_type": "commit",
+          "peeled_oid": "b7559b78d2afb592ee28d069e1881642e8c3560f",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 954,
+      "object_inventory_sha256": "160ce511e057bc010bdbd9ee2553e337e75094700d177a47223d1aec6d45a2ae",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "6ab6f6d2ac50edd398d38b7f7e6e72266b8949b0a766054dad7ad8fd0143c97d",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 682,
+      "index_inventory_sha256": "87b9db97e9f03c495b12421425010f235425c6352abe9b83331c67c1ca19089f",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-12",
@@ -1269,10 +4078,13 @@
         "framework-foundation-1.0.0",
         "media-routing-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-12-media-routing-service.git.tar",
       "archive_bytes": 993280,
-      "archive_sha256": "2f6260e6eeaf5d5249aaa89a686cda5c6d15600becf568e55b15e55c9739d1cc",
+      "archive_sha256": "4eeb8510c432b4cf7e954e95d5cbad14fbbc8e52a6859c69b759e4419a7b6c36",
       "refs": {
         "refs/heads/develop": "c7428966d817503641eb17e8cf0cef50fbaa38b9",
         "refs/heads/main": "3a474c0b4e1d30474362fb3e01cc480da00be29a",
@@ -1281,7 +4093,68 @@
         "refs/heads/release/2026.1": "7f80683a56ddba2f0115be7bb496a6dba99980a6",
         "refs/tags/framework-foundation-1.0.0": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
         "refs/tags/media-routing-2026.1": "7f80683a56ddba2f0115be7bb496a6dba99980a6"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/framework-foundation-1.0.0": "commit",
+        "refs/tags/media-routing-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "c7428966d817503641eb17e8cf0cef50fbaa38b9",
+          "object_type": "commit",
+          "peeled_oid": "c7428966d817503641eb17e8cf0cef50fbaa38b9",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "3a474c0b4e1d30474362fb3e01cc480da00be29a",
+          "object_type": "commit",
+          "peeled_oid": "3a474c0b4e1d30474362fb3e01cc480da00be29a",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "3d23764afd43979531e1e8df605312bd180dc392",
+          "object_type": "commit",
+          "peeled_oid": "3d23764afd43979531e1e8df605312bd180dc392",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "d09c275127c826ed8369aaa59e270de5f5b29a01",
+          "object_type": "commit",
+          "peeled_oid": "d09c275127c826ed8369aaa59e270de5f5b29a01",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "7f80683a56ddba2f0115be7bb496a6dba99980a6",
+          "object_type": "commit",
+          "peeled_oid": "7f80683a56ddba2f0115be7bb496a6dba99980a6",
+          "peeled_type": "commit"
+        },
+        "refs/tags/framework-foundation-1.0.0": {
+          "oid": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+          "object_type": "commit",
+          "peeled_oid": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+          "peeled_type": "commit"
+        },
+        "refs/tags/media-routing-2026.1": {
+          "oid": "7f80683a56ddba2f0115be7bb496a6dba99980a6",
+          "object_type": "commit",
+          "peeled_oid": "7f80683a56ddba2f0115be7bb496a6dba99980a6",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 967,
+      "object_inventory_sha256": "e06fbc06c37ffb9673c3e5ab02cacb81ae8179dc63b07d26be4c577522ff97cf",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "6ab6f6d2ac50edd398d38b7f7e6e72266b8949b0a766054dad7ad8fd0143c97d",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 700,
+      "index_inventory_sha256": "c3b524320da5077333fef7497d0969388b95485bd8c8c9b6bc876e5b29314b12",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-13",
@@ -1302,10 +4175,13 @@
         "framework-foundation-1.0.0",
         "projection-service-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-13-projection-service.git.tar",
       "archive_bytes": 1024000,
-      "archive_sha256": "a662e17dce4789c657ffb7194e3a0d13bad56bd76fc0b67e49423a442b9f91e5",
+      "archive_sha256": "a8a647659f7ae20a1c2624af449735a9dd76e717e958b709584d34255041aca9",
       "refs": {
         "refs/heads/develop": "9670285485cff394081159d2e564aafd22a6cd6c",
         "refs/heads/main": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
@@ -1314,7 +4190,68 @@
         "refs/heads/release/2026.1": "0f085f393754ee3d8948c1b5f54629452a451dca",
         "refs/tags/framework-foundation-1.0.0": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
         "refs/tags/projection-service-2026.1": "0f085f393754ee3d8948c1b5f54629452a451dca"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/framework-foundation-1.0.0": "commit",
+        "refs/tags/projection-service-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "9670285485cff394081159d2e564aafd22a6cd6c",
+          "object_type": "commit",
+          "peeled_oid": "9670285485cff394081159d2e564aafd22a6cd6c",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
+          "object_type": "commit",
+          "peeled_oid": "5c25a7c4b6605077e6396de67509b7273a1bb9ad",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "df7740c8c00b6dec4738b8d50bf8b6c8061c4117",
+          "object_type": "commit",
+          "peeled_oid": "df7740c8c00b6dec4738b8d50bf8b6c8061c4117",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "4c811012e18371e6471bad319782af358800d400",
+          "object_type": "commit",
+          "peeled_oid": "4c811012e18371e6471bad319782af358800d400",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "0f085f393754ee3d8948c1b5f54629452a451dca",
+          "object_type": "commit",
+          "peeled_oid": "0f085f393754ee3d8948c1b5f54629452a451dca",
+          "peeled_type": "commit"
+        },
+        "refs/tags/framework-foundation-1.0.0": {
+          "oid": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+          "object_type": "commit",
+          "peeled_oid": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+          "peeled_type": "commit"
+        },
+        "refs/tags/projection-service-2026.1": {
+          "oid": "0f085f393754ee3d8948c1b5f54629452a451dca",
+          "object_type": "commit",
+          "peeled_oid": "0f085f393754ee3d8948c1b5f54629452a451dca",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 1004,
+      "object_inventory_sha256": "a9e3ce5f4925ca8f350ada5aac77ca418d48423858be7048ecb8dfb8e95d6cdb",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "6ab6f6d2ac50edd398d38b7f7e6e72266b8949b0a766054dad7ad8fd0143c97d",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 740,
+      "index_inventory_sha256": "5a2e28f534c1772566db7e4f6424250635406c565e1802503a5f36086338e347",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-14",
@@ -1335,10 +4272,13 @@
       "tags": [
         "update-manager-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-14-update-manager-service.git.tar",
-      "archive_bytes": 57630720,
-      "archive_sha256": "c80509e6cdb266d976a3989d0641c6317ead3e27ffa9457016a8be6e3c0ff2a6",
+      "archive_bytes": 57620480,
+      "archive_sha256": "b64a6cbb097aa4ad623db098dd8a1a7ded45f421dcf265f7794d5255f21413a9",
       "refs": {
         "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
         "refs/heads/develop": "507115a4592f0bf5410319bf2736355869ad4ccd",
@@ -1347,7 +4287,68 @@
         "refs/heads/platform/8295": "f4b18929661fa3a498975db35c88ebd50200a36a",
         "refs/heads/release/2026.1": "0143874da344319474944761dfd576983a83d7c8",
         "refs/tags/update-manager-2026.1": "0143874da344319474944761dfd576983a83d7c8"
-      }
+      },
+      "ref_types": {
+        "refs/heads/aosp-new/aosp-new/master": "commit",
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/update-manager-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/aosp-new/aosp-new/master": {
+          "oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "object_type": "commit",
+          "peeled_oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "peeled_type": "commit"
+        },
+        "refs/heads/develop": {
+          "oid": "507115a4592f0bf5410319bf2736355869ad4ccd",
+          "object_type": "commit",
+          "peeled_oid": "507115a4592f0bf5410319bf2736355869ad4ccd",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "a6518960f6185ed55dd06342f5224d23a12b611e",
+          "object_type": "commit",
+          "peeled_oid": "a6518960f6185ed55dd06342f5224d23a12b611e",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "a7bea930370a84ef6ed661b0f1994af4f65e7a20",
+          "object_type": "commit",
+          "peeled_oid": "a7bea930370a84ef6ed661b0f1994af4f65e7a20",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "f4b18929661fa3a498975db35c88ebd50200a36a",
+          "object_type": "commit",
+          "peeled_oid": "f4b18929661fa3a498975db35c88ebd50200a36a",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "0143874da344319474944761dfd576983a83d7c8",
+          "object_type": "commit",
+          "peeled_oid": "0143874da344319474944761dfd576983a83d7c8",
+          "peeled_type": "commit"
+        },
+        "refs/tags/update-manager-2026.1": {
+          "oid": "0143874da344319474944761dfd576983a83d7c8",
+          "object_type": "commit",
+          "peeled_oid": "0143874da344319474944761dfd576983a83d7c8",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 8136,
+      "object_inventory_sha256": "a0dd5ff792f839f9a50d31bb44f57e3f239a5231a38b2967471f0a3fecfa3551",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "24d23199b218784b473b035792dade1e141cfb432176f8155ca6316e372605d9",
+      "config_sha256": "caa381d919a257155de629405abffc04b36ac5aaa2bd548653dd401b43060921",
+      "index_entry_count": 2251,
+      "index_inventory_sha256": "98284a2426586b96bdbc74d600056a29a3b3ea57731d895944134aa2201beb57",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-15",
@@ -1367,10 +4368,13 @@
       "tags": [
         "v0.8.0"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-15-car-runtime-service.git.tar",
       "archive_bytes": 1986560,
-      "archive_sha256": "9c199f9d77a1c5e9a11e7cb4a60e28cb68996783156419749a5d5fcf907689bf",
+      "archive_sha256": "f1e44b101e3accb6f17b298d3231fb7874a02f97069640aa96185ba39f860383",
       "refs": {
         "refs/heads/develop": "7dab9a6cf9a25cd399f4bf906a6a0a9b2a3d9bde",
         "refs/heads/main": "8ec949ad990392a014d95b04236b71181039b952",
@@ -1378,7 +4382,61 @@
         "refs/heads/platform/8295": "8ef2b0f2a5fb25a37662d773bd4947a59e25f909",
         "refs/heads/release/0.8": "bac3ee088718b7453032dfbb6b5bfc3286ea221e",
         "refs/tags/v0.8.0": "1dc821a73df8734808b9073cb6217113daed5fdf"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/0.8": "commit",
+        "refs/tags/v0.8.0": "tag"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "7dab9a6cf9a25cd399f4bf906a6a0a9b2a3d9bde",
+          "object_type": "commit",
+          "peeled_oid": "7dab9a6cf9a25cd399f4bf906a6a0a9b2a3d9bde",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "8ec949ad990392a014d95b04236b71181039b952",
+          "object_type": "commit",
+          "peeled_oid": "8ec949ad990392a014d95b04236b71181039b952",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "d2c21ebaf7409378645444b9976d8fa53b20d7d6",
+          "object_type": "commit",
+          "peeled_oid": "d2c21ebaf7409378645444b9976d8fa53b20d7d6",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "8ef2b0f2a5fb25a37662d773bd4947a59e25f909",
+          "object_type": "commit",
+          "peeled_oid": "8ef2b0f2a5fb25a37662d773bd4947a59e25f909",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/0.8": {
+          "oid": "bac3ee088718b7453032dfbb6b5bfc3286ea221e",
+          "object_type": "commit",
+          "peeled_oid": "bac3ee088718b7453032dfbb6b5bfc3286ea221e",
+          "peeled_type": "commit"
+        },
+        "refs/tags/v0.8.0": {
+          "oid": "1dc821a73df8734808b9073cb6217113daed5fdf",
+          "object_type": "tag",
+          "peeled_oid": "d7159a2ab16bf4d9640afd49c8ce022b97bb9b2b",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 494,
+      "object_inventory_sha256": "6a1e246fd97cbda73230c60543e164030317ce2db46fdccc469b98129702425f",
+      "reflog_file_count": 6,
+      "reflog_inventory_sha256": "c27e7e7df01782e06ecdb675e31d03e3164d5d20bc3e84082ce847d6fb20463b",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 349,
+      "index_inventory_sha256": "ad25db2c17353e6f9660411898fc4e7d71e1bcb281b3cd00f4306318565efddb",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-16",
@@ -1399,10 +4457,13 @@
       "tags": [
         "local-sop-2025.4"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-16-platform-compat-service.git.tar",
       "archive_bytes": 57640960,
-      "archive_sha256": "a0d8f3189de75d45e1a38eefc8b97be2eb002c73d28059a7468af6a82610fce9",
+      "archive_sha256": "a965e3a874222ef67056226c586e1d31d36855dc81ba36da0f5780767539562c",
       "refs": {
         "refs/heads/develop": "997aec1802b976e2d628247a38c100c39bbe6046",
         "refs/heads/main": "611df2d26b42e2b79d9063d6226378a81e090982",
@@ -1411,7 +4472,68 @@
         "refs/heads/platform/xinqing": "a79b428ffc3e3bd90003ef628ff4c1323b2f8243",
         "refs/heads/release/sop-2025": "2234a82e84b34d2d36c5a4bc220313238e5daf13",
         "refs/tags/local-sop-2025.4": "2234a82e84b34d2d36c5a4bc220313238e5daf13"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/platform/xinqing": "commit",
+        "refs/heads/release/sop-2025": "commit",
+        "refs/tags/local-sop-2025.4": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "997aec1802b976e2d628247a38c100c39bbe6046",
+          "object_type": "commit",
+          "peeled_oid": "997aec1802b976e2d628247a38c100c39bbe6046",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "611df2d26b42e2b79d9063d6226378a81e090982",
+          "object_type": "commit",
+          "peeled_oid": "611df2d26b42e2b79d9063d6226378a81e090982",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "93ccc6f808390533175a71aca35192f1a1f704bb",
+          "object_type": "commit",
+          "peeled_oid": "93ccc6f808390533175a71aca35192f1a1f704bb",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "068b6972dc4b5f3ded6b55d1800746b914243f3b",
+          "object_type": "commit",
+          "peeled_oid": "068b6972dc4b5f3ded6b55d1800746b914243f3b",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/xinqing": {
+          "oid": "a79b428ffc3e3bd90003ef628ff4c1323b2f8243",
+          "object_type": "commit",
+          "peeled_oid": "a79b428ffc3e3bd90003ef628ff4c1323b2f8243",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/sop-2025": {
+          "oid": "2234a82e84b34d2d36c5a4bc220313238e5daf13",
+          "object_type": "commit",
+          "peeled_oid": "2234a82e84b34d2d36c5a4bc220313238e5daf13",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2025.4": {
+          "oid": "2234a82e84b34d2d36c5a4bc220313238e5daf13",
+          "object_type": "commit",
+          "peeled_oid": "2234a82e84b34d2d36c5a4bc220313238e5daf13",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 7979,
+      "object_inventory_sha256": "120b669ced4054f9685407bf44da1d2671e6002bd0bb50a05520fe0ad8923b47",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "d28b3a1e82a0ccc8cc70f0e17cee90de5ab434ca7ec822a057df88a47858d096",
+      "config_sha256": "17aa85bced1f251e199475b4ca4adf81002656d7143bed3dedd8a3fff7d2ed09",
+      "index_entry_count": 2676,
+      "index_inventory_sha256": "33c469bbcdb4b471af182ce7c25ced0949aaa1a04397fd58a1cf8673e304e815",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-17",
@@ -1432,10 +4554,13 @@
       "tags": [
         "local-sop-2025.4"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-17-binder-hub-service.git.tar",
-      "archive_bytes": 57303040,
-      "archive_sha256": "80e8030c6802a55c1dfd96f0389f582ab00489c73c7f175e792f48320ae83d67",
+      "archive_bytes": 57292800,
+      "archive_sha256": "12d37a443354704fbbd45326e8f3da3685591e5b1e233b524e510ffcc702f2c9",
       "refs": {
         "refs/heads/develop": "5c2cc6dc792bd9644d20b70f99bc798eaa4f815a",
         "refs/heads/main": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
@@ -1444,7 +4569,68 @@
         "refs/heads/platform/xinqing": "b25998afb97bf35b9f7ec919e7ff6c7b24563bfe",
         "refs/heads/release/sop-2025": "ab196893249deebdb6d0bf252dfd5a0f3be726ba",
         "refs/tags/local-sop-2025.4": "ab196893249deebdb6d0bf252dfd5a0f3be726ba"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/platform/xinqing": "commit",
+        "refs/heads/release/sop-2025": "commit",
+        "refs/tags/local-sop-2025.4": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "5c2cc6dc792bd9644d20b70f99bc798eaa4f815a",
+          "object_type": "commit",
+          "peeled_oid": "5c2cc6dc792bd9644d20b70f99bc798eaa4f815a",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
+          "object_type": "commit",
+          "peeled_oid": "eb904d21a2fe3e41d05d63b1205ea9123a8b87d1",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "37fd2fb80b5dd397ee130ac324ff1c58a4be3fc9",
+          "object_type": "commit",
+          "peeled_oid": "37fd2fb80b5dd397ee130ac324ff1c58a4be3fc9",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "4d7f2a39ab74763e56722541a547c6f62d659863",
+          "object_type": "commit",
+          "peeled_oid": "4d7f2a39ab74763e56722541a547c6f62d659863",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/xinqing": {
+          "oid": "b25998afb97bf35b9f7ec919e7ff6c7b24563bfe",
+          "object_type": "commit",
+          "peeled_oid": "b25998afb97bf35b9f7ec919e7ff6c7b24563bfe",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/sop-2025": {
+          "oid": "ab196893249deebdb6d0bf252dfd5a0f3be726ba",
+          "object_type": "commit",
+          "peeled_oid": "ab196893249deebdb6d0bf252dfd5a0f3be726ba",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2025.4": {
+          "oid": "ab196893249deebdb6d0bf252dfd5a0f3be726ba",
+          "object_type": "commit",
+          "peeled_oid": "ab196893249deebdb6d0bf252dfd5a0f3be726ba",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 8029,
+      "object_inventory_sha256": "b8d63fcf9656ccb528dd566f845b0d55b7c7a1e1cb37ae12c59c341de14b094a",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "d28b3a1e82a0ccc8cc70f0e17cee90de5ab434ca7ec822a057df88a47858d096",
+      "config_sha256": "17aa85bced1f251e199475b4ca4adf81002656d7143bed3dedd8a3fff7d2ed09",
+      "index_entry_count": 275,
+      "index_inventory_sha256": "9522cb57933fad6e7b0b30a94f35973cfb18f8b220150c25700987a9ea659687",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-18",
@@ -1466,10 +4652,15 @@
       "tags": [
         "local-sop-2019.4"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": true,
+      "shallow_boundary_oids": [
+        "f02b56678700a4035d0ad8882f7d20371bb96ee2"
+      ],
       "archive": ".cockpit-transport/repositories/FW-18-vehicle-platform-service.git.tar",
       "archive_bytes": 12554240,
-      "archive_sha256": "05b875b982455de61e93f3c43bf5ecc22443e07c4af0c41d1d4b40a29b8b2e9f",
+      "archive_sha256": "e087222e23ec4cbb7e2265f589550a951a7d16350fba6852e7384ff2623d521d",
       "refs": {
         "refs/heads/aosp/pie-release": "f02b56678700a4035d0ad8882f7d20371bb96ee2",
         "refs/heads/develop": "ca512ec4d29b7f7e84ba3ea637bc072b5514c8d2",
@@ -1479,7 +4670,75 @@
         "refs/heads/platform/xinqing": "e4e968216af43e9b612b2bed5b150887a2b93c0c",
         "refs/heads/release/sop-2019": "0f866904ae21d162731a3939b7f5efb1b0d6017b",
         "refs/tags/local-sop-2019.4": "0f866904ae21d162731a3939b7f5efb1b0d6017b"
-      }
+      },
+      "ref_types": {
+        "refs/heads/aosp/pie-release": "commit",
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/platform/xinqing": "commit",
+        "refs/heads/release/sop-2019": "commit",
+        "refs/tags/local-sop-2019.4": "commit"
+      },
+      "ref_details": {
+        "refs/heads/aosp/pie-release": {
+          "oid": "f02b56678700a4035d0ad8882f7d20371bb96ee2",
+          "object_type": "commit",
+          "peeled_oid": "f02b56678700a4035d0ad8882f7d20371bb96ee2",
+          "peeled_type": "commit"
+        },
+        "refs/heads/develop": {
+          "oid": "ca512ec4d29b7f7e84ba3ea637bc072b5514c8d2",
+          "object_type": "commit",
+          "peeled_oid": "ca512ec4d29b7f7e84ba3ea637bc072b5514c8d2",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "74db57addbc12585ca258f0e054efa07492078a4",
+          "object_type": "commit",
+          "peeled_oid": "74db57addbc12585ca258f0e054efa07492078a4",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "1cd1c6a43839fb526de6df597312286c6a95d9bf",
+          "object_type": "commit",
+          "peeled_oid": "1cd1c6a43839fb526de6df597312286c6a95d9bf",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "bce6dc6fca9eda196edaaff305bf6ffc4ccf0e72",
+          "object_type": "commit",
+          "peeled_oid": "bce6dc6fca9eda196edaaff305bf6ffc4ccf0e72",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/xinqing": {
+          "oid": "e4e968216af43e9b612b2bed5b150887a2b93c0c",
+          "object_type": "commit",
+          "peeled_oid": "e4e968216af43e9b612b2bed5b150887a2b93c0c",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/sop-2019": {
+          "oid": "0f866904ae21d162731a3939b7f5efb1b0d6017b",
+          "object_type": "commit",
+          "peeled_oid": "0f866904ae21d162731a3939b7f5efb1b0d6017b",
+          "peeled_type": "commit"
+        },
+        "refs/tags/local-sop-2019.4": {
+          "oid": "0f866904ae21d162731a3939b7f5efb1b0d6017b",
+          "object_type": "commit",
+          "peeled_oid": "0f866904ae21d162731a3939b7f5efb1b0d6017b",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 1795,
+      "object_inventory_sha256": "f02533b87f468cba4c6384a638fc6ade4d5534d00305fc71b703b6af115a29ae",
+      "reflog_file_count": 8,
+      "reflog_inventory_sha256": "cd7d3b114d0385ae949d967e2433fc1a55649f970919f11792847ea16836830c",
+      "config_sha256": "867d303c40fb069977572d36c7482295c58ef2876eda71b406a72830dd3a0cd6",
+      "index_entry_count": 943,
+      "index_inventory_sha256": "bc5c4d678d4e446a5dcba5033a0c8ea187d8c7e078dcb572eff8d4704d9462d4",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-19",
@@ -1487,32 +4746,123 @@
       "kind": "FRAMEWORK",
       "relative_path": "repos/framework/can-middleware",
       "default_branch": "main",
-      "head": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
-      "git_tracked_files": 773,
+      "head": "79994c9b00513768f4774e472d03e288490aa982",
+      "git_tracked_files": 834,
       "branches": [
         "develop",
         "main",
         "platform/8155",
         "platform/8295",
-        "release/2026.1"
+        "release/2026.1",
+        "sop/2026.1-8155-a1",
+        "sop/2026.1-8155-a2",
+        "sop/2026.1-8295-b1"
       ],
       "tags": [
         "can-middleware-2026.1",
         "framework-foundation-1.0.0"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-19-can-middleware.git.tar",
-      "archive_bytes": 1064960,
-      "archive_sha256": "419e0cfde5c9ddbe02c78da248157c5c8ce84b323b090db0e185d534133c3bd4",
+      "archive_bytes": 1177600,
+      "archive_sha256": "91d8882c71fd92083878a94589595600ce3e3f7f18175056d989f73a350b9ff7",
       "refs": {
-        "refs/heads/develop": "8aeb7a1fab0ef6f19c1e4447e8703fc7898688ac",
-        "refs/heads/main": "f201a8a4fd2ce4fdaf1b5d3a16d2347552332756",
-        "refs/heads/platform/8155": "f67435d0a2abf52ad9bacdaa895c0e92794fcd2d",
-        "refs/heads/platform/8295": "188aa2a99763d4b91023fc0aeecccbb6b2e01c49",
-        "refs/heads/release/2026.1": "9f5eb5e246b9c5b019c1be2f84d8c26336d079fe",
+        "refs/heads/develop": "17972646e60426bacb4c200368a78a95cd4c89ac",
+        "refs/heads/main": "79994c9b00513768f4774e472d03e288490aa982",
+        "refs/heads/platform/8155": "389b29d350d3a79d4b26dfbbcc219408e0a90caa",
+        "refs/heads/platform/8295": "1c35da29ffb6a490d2f401c5aa8f82b980aeff28",
+        "refs/heads/release/2026.1": "4a5821c3ed64da587887d81085cc3767beb2a24f",
+        "refs/heads/sop/2026.1-8155-a1": "4d5c45ff64cbfb1b509e7092ef730448c65ea2a0",
+        "refs/heads/sop/2026.1-8155-a2": "abb1d7f0359453b6a051545164c913daf0d3c8ef",
+        "refs/heads/sop/2026.1-8295-b1": "4b983370eb6b21339de4d4bed407438c249beb79",
         "refs/tags/can-middleware-2026.1": "9f5eb5e246b9c5b019c1be2f84d8c26336d079fe",
         "refs/tags/framework-foundation-1.0.0": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50"
-      }
+      },
+      "ref_types": {
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/heads/sop/2026.1-8155-a1": "commit",
+        "refs/heads/sop/2026.1-8155-a2": "commit",
+        "refs/heads/sop/2026.1-8295-b1": "commit",
+        "refs/tags/can-middleware-2026.1": "commit",
+        "refs/tags/framework-foundation-1.0.0": "commit"
+      },
+      "ref_details": {
+        "refs/heads/develop": {
+          "oid": "17972646e60426bacb4c200368a78a95cd4c89ac",
+          "object_type": "commit",
+          "peeled_oid": "17972646e60426bacb4c200368a78a95cd4c89ac",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "79994c9b00513768f4774e472d03e288490aa982",
+          "object_type": "commit",
+          "peeled_oid": "79994c9b00513768f4774e472d03e288490aa982",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "389b29d350d3a79d4b26dfbbcc219408e0a90caa",
+          "object_type": "commit",
+          "peeled_oid": "389b29d350d3a79d4b26dfbbcc219408e0a90caa",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "1c35da29ffb6a490d2f401c5aa8f82b980aeff28",
+          "object_type": "commit",
+          "peeled_oid": "1c35da29ffb6a490d2f401c5aa8f82b980aeff28",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "4a5821c3ed64da587887d81085cc3767beb2a24f",
+          "object_type": "commit",
+          "peeled_oid": "4a5821c3ed64da587887d81085cc3767beb2a24f",
+          "peeled_type": "commit"
+        },
+        "refs/heads/sop/2026.1-8155-a1": {
+          "oid": "4d5c45ff64cbfb1b509e7092ef730448c65ea2a0",
+          "object_type": "commit",
+          "peeled_oid": "4d5c45ff64cbfb1b509e7092ef730448c65ea2a0",
+          "peeled_type": "commit"
+        },
+        "refs/heads/sop/2026.1-8155-a2": {
+          "oid": "abb1d7f0359453b6a051545164c913daf0d3c8ef",
+          "object_type": "commit",
+          "peeled_oid": "abb1d7f0359453b6a051545164c913daf0d3c8ef",
+          "peeled_type": "commit"
+        },
+        "refs/heads/sop/2026.1-8295-b1": {
+          "oid": "4b983370eb6b21339de4d4bed407438c249beb79",
+          "object_type": "commit",
+          "peeled_oid": "4b983370eb6b21339de4d4bed407438c249beb79",
+          "peeled_type": "commit"
+        },
+        "refs/tags/can-middleware-2026.1": {
+          "oid": "9f5eb5e246b9c5b019c1be2f84d8c26336d079fe",
+          "object_type": "commit",
+          "peeled_oid": "9f5eb5e246b9c5b019c1be2f84d8c26336d079fe",
+          "peeled_type": "commit"
+        },
+        "refs/tags/framework-foundation-1.0.0": {
+          "oid": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+          "object_type": "commit",
+          "peeled_oid": "a4833ffae68fcf82f1d7770a5edf3fe7d23f4c50",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 1433,
+      "object_inventory_sha256": "30e863738dcebba4686c41c056a0723a5c491b40bca8202a534b146041f010b1",
+      "reflog_file_count": 9,
+      "reflog_inventory_sha256": "10b1987a7f8f954d2793d06701095269e2e0a48415d9a5809336e1bf8e63955b",
+      "config_sha256": "7b7e3cd9c1ef9bad05555f2f5601999f573679ac3f8471a5cebcf80f239e282d",
+      "index_entry_count": 834,
+      "index_inventory_sha256": "4ccb541db2a9f62b87c45026350f8cdee23fa80d066f1d7a5c00ce22df62fd0c",
+      "payload_gitlink_count": 0
     },
     {
       "id": "FW-20",
@@ -1533,10 +4883,13 @@
       "tags": [
         "system-facade-2026.1"
       ],
+      "symbolic_head": "refs/heads/main",
+      "object_format": "sha1",
       "shallow": false,
+      "shallow_boundary_oids": [],
       "archive": ".cockpit-transport/repositories/FW-20-system-service-facade.git.tar",
       "archive_bytes": 57559040,
-      "archive_sha256": "df88bc3fdebce55a0e6b7a5818b520b90e2a1dd884421b7d384fd06b25505dbe",
+      "archive_sha256": "b175cc7ad5b0f188f477005e7523c84169859e7c5621ad48a6eab72d156a01de",
       "refs": {
         "refs/heads/aosp-new/aosp-new/master": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
         "refs/heads/develop": "6b258ff2c6448d1cf4b7ed7725412a9625c20f3d",
@@ -1545,7 +4898,68 @@
         "refs/heads/platform/8295": "cf67fa1f565c7c9838f5b874200ebafe715efe6a",
         "refs/heads/release/2026.1": "564c76d3147a6032ad8a504f96d7c4c9ec369ba6",
         "refs/tags/system-facade-2026.1": "564c76d3147a6032ad8a504f96d7c4c9ec369ba6"
-      }
+      },
+      "ref_types": {
+        "refs/heads/aosp-new/aosp-new/master": "commit",
+        "refs/heads/develop": "commit",
+        "refs/heads/main": "commit",
+        "refs/heads/platform/8155": "commit",
+        "refs/heads/platform/8295": "commit",
+        "refs/heads/release/2026.1": "commit",
+        "refs/tags/system-facade-2026.1": "commit"
+      },
+      "ref_details": {
+        "refs/heads/aosp-new/aosp-new/master": {
+          "oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "object_type": "commit",
+          "peeled_oid": "7ddf964df9f5bec1d3ec35ad569b54a936e8a0c6",
+          "peeled_type": "commit"
+        },
+        "refs/heads/develop": {
+          "oid": "6b258ff2c6448d1cf4b7ed7725412a9625c20f3d",
+          "object_type": "commit",
+          "peeled_oid": "6b258ff2c6448d1cf4b7ed7725412a9625c20f3d",
+          "peeled_type": "commit"
+        },
+        "refs/heads/main": {
+          "oid": "069d0685270ac591ede24b37507016505f1f7645",
+          "object_type": "commit",
+          "peeled_oid": "069d0685270ac591ede24b37507016505f1f7645",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8155": {
+          "oid": "0e41b4a0059705574f75efaa6c13e750ec7075e0",
+          "object_type": "commit",
+          "peeled_oid": "0e41b4a0059705574f75efaa6c13e750ec7075e0",
+          "peeled_type": "commit"
+        },
+        "refs/heads/platform/8295": {
+          "oid": "cf67fa1f565c7c9838f5b874200ebafe715efe6a",
+          "object_type": "commit",
+          "peeled_oid": "cf67fa1f565c7c9838f5b874200ebafe715efe6a",
+          "peeled_type": "commit"
+        },
+        "refs/heads/release/2026.1": {
+          "oid": "564c76d3147a6032ad8a504f96d7c4c9ec369ba6",
+          "object_type": "commit",
+          "peeled_oid": "564c76d3147a6032ad8a504f96d7c4c9ec369ba6",
+          "peeled_type": "commit"
+        },
+        "refs/tags/system-facade-2026.1": {
+          "oid": "564c76d3147a6032ad8a504f96d7c4c9ec369ba6",
+          "object_type": "commit",
+          "peeled_oid": "564c76d3147a6032ad8a504f96d7c4c9ec369ba6",
+          "peeled_type": "commit"
+        }
+      },
+      "object_count": 7979,
+      "object_inventory_sha256": "2efb35502bc2a7384afe849b27c70587dff741e6fbbf95547e54a6d558c190b7",
+      "reflog_file_count": 7,
+      "reflog_inventory_sha256": "24d23199b218784b473b035792dade1e141cfb432176f8155ca6316e372605d9",
+      "config_sha256": "caa381d919a257155de629405abffc04b36ac5aaa2bd548653dd401b43060921",
+      "index_entry_count": 2166,
+      "index_inventory_sha256": "52804703ee6a3d2c18884a335625ecf187558ed663c9f1e08f8e8151e145324b",
+      "payload_gitlink_count": 0
     }
   ]
 }

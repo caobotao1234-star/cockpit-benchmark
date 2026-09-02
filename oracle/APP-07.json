@@ -1,204 +1,205 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "APP-07",
-  "quality_tier": "high",
-  "comparison_family": null,
-  "review_status": "blind_validated",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "2c664340f515e34f31a1c05b0be9c804eae698bb",
-      "path": "identity-core/src/main/java/com/cockpitbench/idhub/core/IdentityRuntime.java",
-      "symbol_or_line": "IdentityRuntime composition root",
-      "observation": "account/consent/device/role/session/audit/lifecycle/workflow/trust 由单一 runtime 组合并向分域 service 暴露小接口。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "solid",
-      "branch": "main",
-      "commit": "2c664340f515e34f31a1c05b0be9c804eae698bb",
-      "path": "identity-core/src/main/java/com/cockpitbench/idhub/core/IdentityWorkflowEngine.java",
-      "symbol_or_line": "workflow definition and injected actions",
-      "observation": "工作流、策略、仓储和平台权限维持明确接口；应用 service 不重新实现治理规则。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "aidl_sdk_call",
-      "branch": "main",
-      "commit": "2c664340f515e34f31a1c05b0be9c804eae698bb",
-      "path": "app/src/main/java/com/cockpitbench/idhub/ConsentService.java",
-      "symbol_or_line": "IConsentService.Stub and IdentityPermissionGate",
-      "observation": "账户、授权、设备、会话、角色和身份服务均实现 typed Stub、signature 权限与共享 runtime；20 个 AIDL 可生成。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "2c664340f515e34f31a1c05b0be9c804eae698bb",
-      "path": "app/src/androidTest/java/com/cockpitbench/idhub/IdentityServicesIntegrationTest.java",
-      "symbol_or_line": "ServiceScenario typed Binder tests",
-      "observation": "instrumentation source真实启动 Account/Consent service 并通过 Stub.asInterface；另有 46/46 JVM 行为/集成测试通过。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "code_duplication",
-      "branch": "main",
-      "commit": "2c664340f515e34f31a1c05b0be9c804eae698bb",
-      "path": "identity-tests/src/test/java/com/cockpitbench/idhub/tests/IdentityWorkflowEngineTest.java",
-      "symbol_or_line": "distinct behavior suites",
-      "observation": "确定性探针保持 0 对近重复和 0 placeholder；测试按域验证不同状态机。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_high",
-      "reason": "模块和运行时依赖方向明确。"
-    },
-    {
-      "name": "solid",
-      "status": "expected_high",
-      "reason": "策略、状态机、图和外部 verifier 以小接口隔离。"
-    },
-    {
-      "name": "aidl_sdk_call",
-      "status": "expected_high",
-      "reason": "typed AIDL、权限和 callback 生命周期均可复核。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_high",
-      "reason": "46 个行为测试含跨边界集成路径。"
-    },
-    {
-      "name": "code_duplication",
-      "status": "expected_high",
-      "reason": "确定性近重复探针为 0。"
-    },
-    {
-      "name": "hidden_api_reflection",
-      "status": "not_applicable",
-      "reason": "此仓不依赖隐藏 API/反射。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "expected_medium",
-      "reason": "标准 Android SDK 多模块边界可信且本地 AIDL/Java 已编译，但缺少 wrapper/依赖锁定和完整 instrumentation 执行。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g5",
       "blind_id": "blind-9a8df941e552",
-      "repository_head": "2c664340f515e34f31a1c05b0be9c804eae698bb",
-      "result_path": "calibration/results/g5/blind-9a8df941e552.json",
-      "validation_report": "reports/validation/g5-blind-results-final.json",
-      "human_review_report": "reports/validation/g5-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-30T00:07:50.399341Z",
-      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T23:22:22.817Z",
-      "finished_at": "2026-08-29T23:26:15.385Z",
-      "wall_clock_seconds": 232.568,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 99,
-        "directories_visited": 18,
-        "tool_calls": 16,
-        "notes": "HEAD 与预期 SHA 一致。静态清点了 226 个仓库文件、6 个 Gradle 模块、53 个生产 Java 文件、14 个测试 Java 文件及 20 个 AIDL 文件；完整或有界读取了 37 个代表性生产文件和 10 个测试文件，并检查了 main、develop、release/2026.1、platform/8155、platform/8295 的历史及三组分支比较。两次初始 PowerShell 统计因受限语言模式或转义失败，已计入工具调用预算并由后续只读命令纠正。按要求未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 16 (evaluator self-report: 16); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 1.888889,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 26,
       "dimension_evidence_coverage": 0.9,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "API、核心领域、平台适配、存储、应用和测试模块的依赖方向清楚，且 IdentityRuntime 提供统一组合根；但应用实际仍装配内存仓库，独立 storage 模块没有接入运行时，多个 Binder 服务也直接暴露运行时内部仓库和注册表，使持久化与治理边界未完全落地。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "API、核心领域、平台适配、存储、应用和测试模块的依赖方向清楚，且 IdentityRuntime 提供统一组合根；但应用实际仍装配内存仓库，独立 storage 模块没有接入运行时，多个 Binder 服务也直接暴露运行时内部仓库和注册表，使持久化与治理边界未完全落地。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "核心代码存在真实的 DIP/OCP 设计，例如仓库接口和可替换认证验证器，并将多种领域状态机分成独立类；但大量 250 至 394 行的领域类同时容纳策略、状态、事件和存储，IdentityRuntime 也直接构造并公开多个具体可变组件，SRP 和封装质量不均衡。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "核心代码存在真实的 DIP/OCP 设计，例如仓库接口和可替换认证验证器，并将多种领域状态机分成独立类；但大量 250 至 394 行的领域类同时容纳策略、状态、事件和存储，IdentityRuntime 也直接构造并公开多个具体可变组件，SRP 和封装质量不均衡。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "Android Binder 身份、用户范围、回调和权限访问主要收敛在 identity-platform，导出服务统一受 signature 权限保护；不过这些适配器是具体 final 类型且缺少接口，UserScopeResolver 与 CallingIdentity 没有生产调用方，服务接收 userId 时只做粗粒度跨用户权限检查，异常处理也较弱。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "Android Binder 身份、用户范围、回调和权限访问主要收敛在 identity-platform，导出服务统一受 signature 权限保护；不过这些适配器是具体 final 类型且缺少接口，UserScopeResolver 与 CallingIdentity 没有生产调用方，服务接收 userId 时只做粗粒度跨用户权限检查，异常处理也较弱。"
+          "status": "scored"
         },
         {
-          "name": "hidden_api_reflection",
-          "status": "not_applicable",
-          "score": null,
           "evidence_count": 0,
-          "reason": "对全部生产 Java 文件的定向检索未发现 java.lang.reflect、Class.forName、getDeclaredMethod、setAccessible、SystemProperties、ServiceManager、dalvik 或其他隐藏 API/反射调用；观察到的 Android API 均为直接类型引用。"
+          "name": "hidden_api_reflection",
+          "reason": "对全部生产 Java 文件的定向检索未发现 java.lang.reflect、Class.forName、getDeclaredMethod、setAccessible、SystemProperties、ServiceManager、dalvik 或其他隐藏 API/反射调用；观察到的 Android API 均为直接类型引用。",
+          "score": null,
+          "status": "not_applicable"
         },
         {
+          "evidence_count": 3,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "跨进程边界采用分领域的类型化 AIDL、Parcelable 和 signature 权限，IdentityListener 还使用 RemoteCallbackList；但接口没有版本或稳定性声明，失败主要依赖 null、异常和原始字符串/整数，调用全为同步且没有线程约束。除 IdentityListener 外，多组 listener 合约没有注册路径，ISyncService 也无实现；客户端死亡、重连和取消生命周期没有实现或测试。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "跨进程边界采用分领域的类型化 AIDL、Parcelable 和 signature 权限，IdentityListener 还使用 RemoteCallbackList；但接口没有版本或稳定性声明，失败主要依赖 null、异常和原始字符串/整数，调用全为同步且没有线程约束。除 IdentityListener 外，多组 listener 合约没有注册路径，ISyncService 也无实现；客户端死亡、重连和取消生命周期没有实现或测试。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "compilation_independence",
-          "status": "scored",
+          "reason": "仓库给出了完整的标准 Android Gradle 多模块边界，统一使用公开的 compileSdk 35，并且静态依赖中未发现 AOSP/AAOS/BSP 私有平台库或隐藏 API，因此可建立可信的独立 SDK 构建边界。局限是仓库没有 Gradle wrapper 或依赖锁定文件，插件与测试依赖需从外部仓库解析；受审查规则限制未实际编译。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "仓库给出了完整的标准 Android Gradle 多模块边界，统一使用公开的 compileSdk 35，并且静态依赖中未发现 AOSP/AAOS/BSP 私有平台库或隐藏 API，因此可建立可信的独立 SDK 构建边界。局限是仓库没有 Gradle wrapper 或依赖锁定文件，插件与测试依赖需从外部仓库解析；受审查规则限制未实际编译。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "integration_testing",
-          "status": "scored",
+          "reason": "核心单元测试对认证锁定、过期、权限决策、车辆移动限制和隐私失败有较强行为断言，两份 integrationtests 也组合了多个领域组件；但它们仍是进程内核心测试。真正的 Android 服务测试只有两个直接 onBind 的成功路径，没有跨进程绑定、signature 权限拒绝、监听器死亡、服务重建、并发或 RemoteException 覆盖。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "核心单元测试对认证锁定、过期、权限决策、车辆移动限制和隐私失败有较强行为断言，两份 integrationtests 也组合了多个领域组件；但它们仍是进程内核心测试。真正的 Android 服务测试只有两个直接 onBind 的成功路径，没有跨进程绑定、signature 权限拒绝、监听器死亡、服务重建、并发或 RemoteException 覆盖。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "code_duplication",
-          "status": "scored",
+          "reason": "没有发现平台型号的生产逻辑复制，复杂领域引擎也各有明确职责；但六个手写 Parcelable 重复相同校验、Parcel 构造、序列化和 CREATOR 模板，六个 Service 重复相同创建、权限字段和 onBind 生命周期，多数 AIDL 文件还复制无关 imports。重复主要局限于边界样板代码，规模尚未侵入核心算法。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "没有发现平台型号的生产逻辑复制，复杂领域引擎也各有明确职责；但六个手写 Parcelable 重复相同校验、Parcel 构造、序列化和 CREATOR 模板，六个 Service 重复相同创建、权限字段和 onBind 生命周期，多数 AIDL 文件还复制无关 imports。重复主要局限于边界样板代码，规模尚未侵入核心算法。"
+          "status": "scored"
         },
         {
-          "name": "release_branch_strategy",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 2,
-          "reason": "release 与 platform 分支都从当前 main 精确分叉，比较结果显示每个分支只有一个提交和一个两行配置文件，业务代码没有分叉，发布标签与 release/2026.1 指向同一提交。这种差异很受控，但本地历史只有单次分叉，无法观察回合并、补丁回灌或多版本维护行为。"
+          "name": "release_branch_strategy",
+          "reason": "release 与 platform 分支都从当前 main 精确分叉，比较结果显示每个分支只有一个提交和一个两行配置文件，业务代码没有分叉，发布标签与 release/2026.1 指向同一提交。这种差异很受控，但本地历史只有单次分叉，无法观察回合并、补丁回灌或多版本维护行为。",
+          "score": 2,
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 3,
           "evidence_count": 3,
-          "reason": "两条平台分支复用完全相同的主线模块和生产代码，差异仅集中在同一路径的两项平台配置；核心领域代码不依赖 Android Car 或供应商 SDK，Android 特定代码也集中在 app、identity-api Parcelable 和 identity-platform。当前证据显示平台变更隔离清晰，未出现型号实现复制。"
+          "name": "platform_reuse",
+          "reason": "两条平台分支复用完全相同的主线模块和生产代码，差异仅集中在同一路径的两项平台配置；核心领域代码不依赖 Android Car 或供应商 SDK，Android 特定代码也集中在 app、identity-api Parcelable 和 identity-platform。当前证据显示平台变更隔离清晰，未出现型号实现复制。",
+          "score": 3,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 26,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 18,
+        "files_opened": 99,
+        "notes": "HEAD 与预期 SHA 一致。静态清点了 226 个仓库文件、6 个 Gradle 模块、53 个生产 Java 文件、14 个测试 Java 文件及 20 个 AIDL 文件；完整或有界读取了 37 个代表性生产文件和 10 个测试文件，并检查了 main、develop、release/2026.1、platform/8155、platform/8295 的历史及三组分支比较。两次初始 PowerShell 统计因受限语言模式或转义失败，已计入工具调用预算并由后续只读命令纠正。按要求未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 16 (evaluator self-report: 16); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 16
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T23:26:15.385Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "2c664340f515e34f31a1c05b0be9c804eae698bb",
+      "result_path": "calibration/results/g5/blind-9a8df941e552.json",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T23:22:22.817Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 1.888889,
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 232.568
     }
-  ]
+  ],
+  "comparison_family": null,
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "模块和运行时依赖方向明确。",
+      "status": "expected_high"
+    },
+    {
+      "name": "solid",
+      "reason": "策略、状态机、图和外部 verifier 以小接口隔离。",
+      "status": "expected_high"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "reason": "typed AIDL、权限和 callback 生命周期均可复核。",
+      "status": "expected_high"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "46 个行为测试含跨边界集成路径。",
+      "status": "expected_high"
+    },
+    {
+      "name": "code_duplication",
+      "reason": "确定性近重复探针为 0。",
+      "status": "expected_high"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "reason": "此仓不依赖隐藏 API/反射。",
+      "status": "not_applicable"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "标准 Android SDK 多模块边界可信且本地 AIDL/Java 已编译，但缺少 wrapper/依赖锁定和完整 instrumentation 执行。",
+      "status": "expected_medium"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "2c664340f515e34f31a1c05b0be9c804eae698bb",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "positive",
+      "observation": "account/consent/device/role/session/audit/lifecycle/workflow/trust 由单一 runtime 组合并向分域 service 暴露小接口。",
+      "path": "identity-core/src/main/java/com/cockpitbench/idhub/core/IdentityRuntime.java",
+      "symbol_or_line": "IdentityRuntime composition root"
+    },
+    {
+      "branch": "main",
+      "commit": "2c664340f515e34f31a1c05b0be9c804eae698bb",
+      "confidence": "high",
+      "dimension": "solid",
+      "expected_impact": "positive",
+      "observation": "工作流、策略、仓储和平台权限维持明确接口；应用 service 不重新实现治理规则。",
+      "path": "identity-core/src/main/java/com/cockpitbench/idhub/core/IdentityWorkflowEngine.java",
+      "symbol_or_line": "workflow definition and injected actions"
+    },
+    {
+      "branch": "main",
+      "commit": "2c664340f515e34f31a1c05b0be9c804eae698bb",
+      "confidence": "high",
+      "dimension": "aidl_sdk_call",
+      "expected_impact": "positive",
+      "observation": "账户、授权、设备、会话、角色和身份服务均实现 typed Stub、signature 权限与共享 runtime；20 个 AIDL 可生成。",
+      "path": "app/src/main/java/com/cockpitbench/idhub/ConsentService.java",
+      "symbol_or_line": "IConsentService.Stub and IdentityPermissionGate"
+    },
+    {
+      "branch": "main",
+      "commit": "2c664340f515e34f31a1c05b0be9c804eae698bb",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "positive",
+      "observation": "instrumentation source真实启动 Account/Consent service 并通过 Stub.asInterface；另有 46/46 JVM 行为/集成测试通过。",
+      "path": "app/src/androidTest/java/com/cockpitbench/idhub/IdentityServicesIntegrationTest.java",
+      "symbol_or_line": "ServiceScenario typed Binder tests"
+    },
+    {
+      "branch": "main",
+      "commit": "2c664340f515e34f31a1c05b0be9c804eae698bb",
+      "confidence": "high",
+      "dimension": "code_duplication",
+      "expected_impact": "positive",
+      "observation": "确定性探针保持 0 对近重复和 0 placeholder；测试按域验证不同状态机。",
+      "path": "identity-tests/src/test/java/com/cockpitbench/idhub/tests/IdentityWorkflowEngineTest.java",
+      "symbol_or_line": "distinct behavior suites"
+    }
+  ],
+  "quality_tier": "high",
+  "repo_id": "APP-07",
+  "review_status": "blind_validated",
+  "schema_version": "1.0.0"
 }

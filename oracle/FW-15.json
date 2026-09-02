@@ -1,335 +1,336 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "FW-15",
-  "quality_tier": "low",
-  "comparison_family": "vehicle-property-controlled-pair",
-  "review_status": "blind_validated",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "8ec949ad990392a014d95b04236b71181039b952",
-      "path": "runtime/src/com/cockpitbench/carruntime/CarRuntimeService.java",
-      "symbol_or_line": "CarRuntimeService",
-      "observation": "单一服务聚合十八个领域，并同时承担权限、反射服务发现、审计、广播和全局实例职责。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "solid",
-      "branch": "main",
-      "commit": "8ec949ad990392a014d95b04236b71181039b952",
-      "path": "runtime/src/com/cockpitbench/carruntime/ICarRuntime.aidl",
-      "symbol_or_line": "ICarRuntime",
-      "observation": "一个 AIDL 接口公开十八组 read/write/reset 共五十四个方法，客户端被迫依赖无关领域。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "hidden_api_reflection",
-      "branch": "main",
-      "commit": "8ec949ad990392a014d95b04236b71181039b952",
-      "path": "runtime/src/com/cockpitbench/carruntime/CarRuntimeService.java",
-      "symbol_or_line": "CarRuntimeService.connectVendorServices",
-      "observation": "生产路径反射 ServiceManager、强制 setAccessible 并吞并 Throwable 后继续运行。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "code_duplication",
-      "branch": "main",
-      "commit": "8ec949ad990392a014d95b04236b71181039b952",
-      "path": "platform/src/com/cockpitbench/carruntime/platform/Sa8155VehicleBridge.java",
-      "symbol_or_line": "Sa8155VehicleBridge",
-      "observation": "三套芯片桥接各自维护七十二条映射，结构相同却没有共享表或转换策略。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "platform_reuse",
-      "branch": "main",
-      "commit": "8ec949ad990392a014d95b04236b71181039b952",
-      "path": "platform/src/com/cockpitbench/carruntime/product/AtlasBaseRuntimeProfile.java",
-      "symbol_or_line": "AtlasBaseRuntimeProfile",
-      "observation": "六十四个车型类复制四十八条属性覆盖与同一组能力开关，车型复用依赖复制修改。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "8ec949ad990392a014d95b04236b71181039b952",
-      "path": "tests/integration/com/cockpitbench/carruntime/CarRuntimeServiceLaunchTest.java",
-      "symbol_or_line": "CarRuntimeServiceLaunchTest.runtimeClassExists",
-      "observation": "设备测试只用 Class.forName 判断类存在，没有启动服务或验证任何 Binder 行为。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_low",
-      "reason": "形式上有五个 Soong 模块，但领域职责集中在统一运行时。"
-    },
-    {
-      "name": "solid",
-      "status": "expected_low",
-      "reason": "超宽 AIDL、全局实例和复制领域模板违反 SRP、ISP 与 DIP。"
-    },
-    {
-      "name": "system_api_dependency",
-      "status": "expected_low",
-      "reason": "权限与服务发现直接依赖隐藏系统类和系统属性字符串。"
-    },
-    {
-      "name": "hidden_api_reflection",
-      "status": "expected_low",
-      "reason": "生产代码反射 ServiceManager 并捕获所有异常。"
-    },
-    {
-      "name": "aidl_sdk_call",
-      "status": "expected_low",
-      "reason": "有真实 AIDL，但接口粒度与依赖方向不合理。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "依赖 AAOS 隐藏类且未提供产品外构建适配。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_low",
-      "reason": "只有类存在性和恒真占位测试。"
-    },
-    {
-      "name": "code_duplication",
-      "status": "expected_low",
-      "reason": "领域模板、平台映射和车型配置大面积复制。"
-    },
-    {
-      "name": "release_branch_strategy",
-      "status": "expected_low",
-      "reason": "平台分支在仅完成前九个领域时即分叉且未吸收后续共享改动。"
-    },
-    {
-      "name": "platform_reuse",
-      "status": "expected_low",
-      "reason": "平台分支相同 blob 比例约 0.44，release 约 0.67。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g2",
       "blind_id": "blind-5ce21b8b7a91",
-      "repository_head": "8ec949ad990392a014d95b04236b71181039b952",
-      "result_path": "calibration/results/g2/blind-5ce21b8b7a91.json",
-      "validation_report": "reports/validation/g2-blind-results-final.json",
-      "human_review_report": "reports/validation/g2-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-29T07:34:32.723926Z",
-      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T07:26:13.711Z",
-      "finished_at": "2026-08-29T07:29:54.363Z",
-      "wall_clock_seconds": 220.652,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 33,
-        "directories_visited": 14,
-        "tool_calls": 13,
-        "notes": "HEAD 与预期 SHA 一致。静态检查覆盖 26 个代表性生产源文件及仓库中全部 2 个测试文件；清点出 5 个 Soong 模块、285 个 Java 文件、37 个 AIDL、109 个 runtime Java、57 个 API Java、117 个 platform Java、18 个领域目录、64 个产品 Profile 和 50 个 Coordinator。最大已核验源文件包括 Car.java（2317 行）、VehiclePropertyIds.java（2300 行）及 538 行的 Coordinator 家族。比较了 main 与 release/0.8、platform/8155、platform/8295，并读取各分支独有配置。未运行构建或仓库脚本，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 13 (evaluator self-report: 13); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 0.666667,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 24,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 2,
           "name": "architecture",
-          "status": "scored",
+          "reason": "Soong 层面存在 API→runtime→platform 的依赖方向，领域代码也按包拆分；但核心服务直接构造并统管 18 个领域门面，同时承担 Binder、权限、服务发现和审计职责，模块边界未转化为可替换的运行时边界。",
           "score": 1,
-          "evidence_count": 2,
-          "reason": "Soong 层面存在 API→runtime→platform 的依赖方向，领域代码也按包拆分；但核心服务直接构造并统管 18 个领域门面，同时承担 Binder、权限、服务发现和审计职责，模块边界未转化为可替换的运行时边界。"
+          "status": "scored"
         },
         {
+          "evidence_count": 2,
           "name": "solid",
-          "status": "scored",
+          "reason": "Facade/Handler/Cache/Mapper/Policy 的局部职责划分清楚，但依赖全部在类内具体化，静态全局状态普遍存在，缺少接口或注入点；新增领域或平台主要通过复制类和扩展中心服务完成。",
           "score": 1,
-          "evidence_count": 2,
-          "reason": "Facade/Handler/Cache/Mapper/Policy 的局部职责划分清楚，但依赖全部在类内具体化，静态全局状态普遍存在，缺少接口或注入点；新增领域或平台主要通过复制类和扩展中心服务完成。"
+          "status": "scored"
         },
         {
+          "evidence_count": 2,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "平台判断被放进名称明确的 Policy/Bridge 类，形成了有限隔离；但 SystemProperties 在每个领域和大量产品类中重复直连，中心服务还以字符串和反射查找 vendor Binder，权限配置使用可误匹配的字符串包含判断，缺少类型化适配器与故障生命周期处理。",
           "score": 1,
-          "evidence_count": 2,
-          "reason": "平台判断被放进名称明确的 Policy/Bridge 类，形成了有限隔离；但 SystemProperties 在每个领域和大量产品类中重复直连，中心服务还以字符串和反射查找 vendor Binder，权限配置使用可误匹配的字符串包含判断，缺少类型化适配器与故障生命周期处理。"
+          "status": "scored"
         },
         {
+          "evidence_count": 2,
           "name": "hidden_api_reflection",
-          "status": "scored",
+          "reason": "API 层的反射构造路径具有限定异常处理和 null 回退，但运行时关键服务对隐藏 ServiceManager 使用 setAccessible，并以 catch(Throwable) 降级到审计字符串；没有显式允许列表、类型化 Binder 接口、可注入反射封装或死亡恢复语义。",
           "score": 1,
-          "evidence_count": 2,
-          "reason": "API 层的反射构造路径具有限定异常处理和 null 回退，但运行时关键服务对隐藏 ServiceManager 使用 setAccessible，并以 catch(Throwable) 降级到审计字符串；没有显式允许列表、类型化 Binder 接口、可注入反射封装或死亡恢复语义。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "存在明确的 Binder 合约和部分 API 客户端对 RemoteException、回调注册的处理；但自定义 ICarRuntime 是 18 组同步 read/write/reset 的宽接口，值统一退化为 String，没有状态码、结构化错误、异步回调、取消、死亡通知或版本语义，而且 reset 路径未执行调用者校验。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "存在明确的 Binder 合约和部分 API 客户端对 RemoteException、回调注册的处理；但自定义 ICarRuntime 是 18 组同步 read/write/reset 的宽接口，值统一退化为 String，没有状态码、结构化错误、异步回调、取消、死亡通知或版本语义，而且 reset 路径未执行调用者校验。"
+          "status": "scored"
         },
         {
+          "evidence_count": 2,
           "name": "compilation_independence",
-          "status": "failed",
+          "reason": "仓库仅提供 Android.bp/Soong 入口，所有主要模块声明 platform_apis，并明确依赖 AAOS 平台 API；当前独立工作区没有所需 AOSP/AAOS 构建树和平台输入。受评审约束也不得运行构建，因此无法建立可信的独立编译边界。",
           "score": null,
-          "evidence_count": 2,
-          "reason": "仓库仅提供 Android.bp/Soong 入口，所有主要模块声明 platform_apis，并明确依赖 AAOS 平台 API；当前独立工作区没有所需 AOSP/AAOS 构建树和平台输入。受评审约束也不得运行构建，因此无法建立可信的独立编译边界。"
+          "status": "failed"
         },
         {
+          "evidence_count": 2,
           "name": "integration_testing",
-          "status": "scored",
+          "reason": "仓库只有两个测试：单元测试恒真，所谓集成测试只反射确认类存在。没有 Binder 调用、领域行为、权限拒绝、进程死亡、平台映射、并发、回调或失败恢复断言，无法为核心跨模块与跨进程行为提供可信保障。",
           "score": 0,
-          "evidence_count": 2,
-          "reason": "仓库只有两个测试：单元测试恒真，所谓集成测试只反射确认类存在。没有 Binder 调用、领域行为、权限拒绝、进程死亡、平台映射、并发、回调或失败恢复断言，无法为核心跨模块与跨进程行为提供可信保障。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "code_duplication",
-          "status": "scored",
+          "reason": "重复是生产代码的主导组织方式：18 个领域各复制六类实现，64 个产品 Profile 和 50 个 538 行 Coordinator 以手写类展开。抽样 diff 显示领域 Handler 仅替换领域名，Coordinator 则大规模重复表格、能力和 routeNNN 方法，变更需跨大量文件同步。",
           "score": 0,
-          "evidence_count": 3,
-          "reason": "重复是生产代码的主导组织方式：18 个领域各复制六类实现，64 个产品 Profile 和 50 个 538 行 Coordinator 以手写类展开。抽样 diff 显示领域 Handler 仅替换领域名，Coordinator 则大规模重复表格、能力和 routeNNN 方法，变更需跨大量文件同步。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "release_branch_strategy",
-          "status": "scored",
+          "reason": "各分支的独有提交都只增加一行冻结或平台配置，体现了有限的配置隔离；但 release/0.8 相对 main 为落后 5、领先 1，两个平台分支均落后 10、领先 1，历史中未观察到后续合并或复用。结果是分支比较表现为大量生产文件缺失，而非可持续的窄补丁流。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "各分支的独有提交都只增加一行冻结或平台配置，体现了有限的配置隔离；但 release/0.8 相对 main 为落后 5、领先 1，两个平台分支均落后 10、领先 1，历史中未观察到后续合并或复用。结果是分支比较表现为大量生产文件缺失，而非可持续的窄补丁流。"
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 0,
           "evidence_count": 3,
-          "reason": "构建层存在共享 API/runtime 模块，但平台与车型差异没有通过数据驱动配置或公共基类集中：三个 VehicleBridge 复制映射算法，数十个车型/配置组合各自拥有 Profile 和超大 Coordinator，平台政策还在每个领域重复判断。新增或修正映射会横跨大量近副本。"
+          "name": "platform_reuse",
+          "reason": "构建层存在共享 API/runtime 模块，但平台与车型差异没有通过数据驱动配置或公共基类集中：三个 VehicleBridge 复制映射算法，数十个车型/配置组合各自拥有 Profile 和超大 Coordinator，平台政策还在每个领域重复判断。新增或修正映射会横跨大量近副本。",
+          "score": 0,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 24,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 14,
+        "files_opened": 33,
+        "notes": "HEAD 与预期 SHA 一致。静态检查覆盖 26 个代表性生产源文件及仓库中全部 2 个测试文件；清点出 5 个 Soong 模块、285 个 Java 文件、37 个 AIDL、109 个 runtime Java、57 个 API Java、117 个 platform Java、18 个领域目录、64 个产品 Profile 和 50 个 Coordinator。最大已核验源文件包括 Car.java（2317 行）、VehiclePropertyIds.java（2300 行）及 538 行的 Coordinator 家族。比较了 main 与 release/0.8、platform/8155、platform/8295，并读取各分支独有配置。未运行构建或仓库脚本，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 13 (evaluator self-report: 13); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 13
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T07:29:54.363Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g2-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "8ec949ad990392a014d95b04236b71181039b952",
+      "result_path": "calibration/results/g2/blind-5ce21b8b7a91.json",
+      "reviewed_at": "2026-08-29T07:34:32.723926Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T07:26:13.711Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 0.666667,
+      "validation_report": "reports/validation/g2-blind-results-final.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 220.652
     },
     {
       "batch": "g3",
       "blind_id": "blind-00727545d250",
-      "repository_head": "8ec949ad990392a014d95b04236b71181039b952",
-      "result_path": "calibration/results/g3/blind-00727545d250.json",
-      "validation_report": "reports/validation/g3-blind-results.json",
-      "human_review_report": "reports/validation/g3-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-29T11:40:16.568740Z",
-      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T10:59:28.692Z",
-      "finished_at": "2026-08-29T11:05:20.942Z",
-      "wall_clock_seconds": 352.25,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 49,
-        "directories_visited": 16,
-        "tool_calls": 25,
-        "notes": "HEAD 与预期 SHA 一致。静态清单覆盖 349 个文件、5 个 Soong 模块、37 个 AIDL、18 个运行时领域、64 个产品 Profile、50 个 Coordinator 和 3 个平台 Bridge。定向检查了 33 个生产源码/契约文件及仓库中全部 2 个测试文件；全库 rg 搜索不计入 files_opened。比较了 release/0.8、platform/8155、platform/8295 与 main 的分叉、提交及补丁。未运行构建、脚本或包管理器；未修改文件；未使用 skill。 Runner normalized tool_calls from Codex JSONL to 25 (evaluator self-report: 25); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 0.888889,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 33,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "Soong 声明了 API→service→platform 的清晰依赖方向，运行时也按领域拆分；但统一 Binder 服务直接构造并持有全部 18 个领域对象，同时负责权限、反射式服务发现、审计和路由，形成显著的组合根/业务/基础设施混合。大量产品协调器进一步扩大了变更面。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "Soong 声明了 API→service→platform 的清晰依赖方向，运行时也按领域拆分；但统一 Binder 服务直接构造并持有全部 18 个领域对象，同时负责权限、反射式服务发现、审计和路由，形成显著的组合根/业务/基础设施混合。大量产品协调器进一步扩大了变更面。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "Cache、Queue、Mapper、Policy、Handler、Facade 的职责名义上分开，提供一定 SRP；但 Handler 和 service 直接 new 具体实现，Facade、Cache、Queue 又使用静态共享状态，没有接口、构造注入或替换点。相同结构被复制到每个领域，扩展通常要求新增或修改成套具体类。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "Cache、Queue、Mapper、Policy、Handler、Facade 的职责名义上分开，提供一定 SRP；但 Handler 和 service 直接 new 具体实现，Facade、Cache、Queue 又使用静态共享状态，没有接口、构造注入或替换点。相同结构被复制到每个领域，扩展通常要求新增或修改成套具体类。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "Android 平台依赖部分放在 Policy、Bridge 和 API manager 中，且导入的 manager 对 RemoteException、权限和回调执行器有较成熟处理；但本地运行时在 18 个 Policy、64 个 Profile、50 个 Coordinator 中直接读取 SystemProperties，服务还硬编码 vendor service 名并反射 ServiceManager。这些依赖没有统一类型化适配器或可替换配置源。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "Android 平台依赖部分放在 Policy、Bridge 和 API manager 中，且导入的 manager 对 RemoteException、权限和回调执行器有较成熟处理；但本地运行时在 18 个 Policy、64 个 Profile、50 个 Coordinator 中直接读取 SystemProperties，服务还硬编码 vendor service 名并反射 ServiceManager。这些依赖没有统一类型化适配器或可替换配置源。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "hidden_api_reflection",
-          "status": "scored",
+          "reason": "运行时反射集中在一个连接方法中，并记录失败；但它提升可访问性、捕获 Throwable、硬编码隐藏类和服务名，只保存裸 IBinder，没有类型化回退、允许列表、死亡处理或针对失败语义的测试。API 层还根据跨进程返回的类名反射构造 manager。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "运行时反射集中在一个连接方法中，并记录失败；但它提升可访问性、捕获 Throwable、硬编码隐藏类和服务名，只保存裸 IBinder，没有类型化回退、允许列表、死亡处理或针对失败语义的测试。API 层还根据跨进程返回的类名反射构造 manager。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "仓库包含成熟的 AAOS API 契约，例如带事务编号、oneway 回调和类型化对象的 property/power 接口；但实际新增的 ICarRuntime 是一个 54 方法的单体、字符串值契约，没有回调、版本、结构化错误或异步语义。服务端权限检查使用字符串 contains，reset 方法不调用权限检查，也未观察到 binder death 或客户端生命周期管理。",
           "score": 1,
-          "evidence_count": 4,
-          "reason": "仓库包含成熟的 AAOS API 契约，例如带事务编号、oneway 回调和类型化对象的 property/power 接口；但实际新增的 ICarRuntime 是一个 54 方法的单体、字符串值契约，没有回调、版本、结构化错误或异步语义。服务端权限检查使用字符串 contains，reset 方法不调用权限检查，也未观察到 binder death 或客户端生命周期管理。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "compilation_independence",
-          "status": "failed",
+          "reason": "仓库只有依赖 AAOS/AOSP platform_apis 的 Soong 边界，未提供独立 SDK、Gradle/Maven 边界或所需平台源码。ICar.aidl 还导入仓库中不存在的 com.android.car.internal.ICarServiceHelper；在禁止运行构建且缺少平台输入的环境中，无法验证独立编译。",
           "score": null,
-          "evidence_count": 3,
-          "reason": "仓库只有依赖 AAOS/AOSP platform_apis 的 Soong 边界，未提供独立 SDK、Gradle/Maven 边界或所需平台源码。ICar.aidl 还导入仓库中不存在的 com.android.car.internal.ICarServiceHelper；在禁止运行构建且缺少平台输入的环境中，无法验证独立编译。"
+          "status": "failed"
         },
         {
+          "evidence_count": 3,
           "name": "integration_testing",
-          "status": "scored",
+          "reason": "仓库仅有两个测试，且一个恒真、一个只检查类可加载。没有 Binder 调用、权限、进程边界、平台映射、回调、并发、服务死亡、反射失败、配置选择或领域行为断言，无法为核心生命周期风险提供可信缓解。",
           "score": 0,
-          "evidence_count": 3,
-          "reason": "仓库仅有两个测试，且一个恒真、一个只检查类可加载。没有 Binder 调用、权限、进程边界、平台映射、回调、并发、服务死亡、反射失败、配置选择或领域行为断言，无法为核心生命周期风险提供可信缓解。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "code_duplication",
-          "status": "scored",
+          "reason": "生产代码存在系统性的大规模近复制：18 个领域各有六类相同骨架，64 个 91 行 Profile，以及 50 个约 538 行 Coordinator。抽样比较显示领域 Handler 仅少量标识变化，而协调器重复 90 个 route 方法和同构静态表。未声明生成器或生成源码边界，因此这些重复会直接放大维护与修复成本。",
           "score": 0,
-          "evidence_count": 4,
-          "reason": "生产代码存在系统性的大规模近复制：18 个领域各有六类相同骨架，64 个 91 行 Profile，以及 50 个约 538 行 Coordinator。抽样比较显示领域 Handler 仅少量标识变化，而协调器重复 90 个 route 方法和同构静态表。未声明生成器或生成源码边界，因此这些重复会直接放大维护与修复成本。"
+          "status": "scored"
         },
         {
-          "name": "release_branch_strategy",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 3,
-          "reason": "实际分支比较显示 release/0.8、platform/8155 和 platform/8295 各自只领先共同祖先一个提交，分支专属变更分别限制为单行发布或平台配置，范围清楚；main 则持续演进。不过这些分支同时落后 main 5 至 10 个提交，历史中未观察到回合并、移植修复或共享配置复用证据。"
+          "name": "release_branch_strategy",
+          "reason": "实际分支比较显示 release/0.8、platform/8155 和 platform/8295 各自只领先共同祖先一个提交，分支专属变更分别限制为单行发布或平台配置，范围清楚；main 则持续演进。不过这些分支同时落后 main 5 至 10 个提交，历史中未观察到回合并、移植修复或共享配置复用证据。",
+          "score": 2,
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 1,
           "evidence_count": 4,
-          "reason": "存在统一 API/service 模块、公共领域命名和一个三平台产品清单，说明有共享核心；但平台策略在每个领域重复读取并判断相同属性，三套 Bridge 重复映射算法，产品差异又展开为 64 个 Profile 与 50 个大型 Coordinator。配置文件未在源码中找到加载点，平台变化仍需跨大量代码副本修改。"
+          "name": "platform_reuse",
+          "reason": "存在统一 API/service 模块、公共领域命名和一个三平台产品清单，说明有共享核心；但平台策略在每个领域重复读取并判断相同属性，三套 Bridge 重复映射算法，产品差异又展开为 64 个 Profile 与 50 个大型 Coordinator。配置文件未在源码中找到加载点，平台变化仍需跨大量代码副本修改。",
+          "score": 1,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 33,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 16,
+        "files_opened": 49,
+        "notes": "HEAD 与预期 SHA 一致。静态清单覆盖 349 个文件、5 个 Soong 模块、37 个 AIDL、18 个运行时领域、64 个产品 Profile、50 个 Coordinator 和 3 个平台 Bridge。定向检查了 33 个生产源码/契约文件及仓库中全部 2 个测试文件；全库 rg 搜索不计入 files_opened。比较了 release/0.8、platform/8155、platform/8295 与 main 的分叉、提交及补丁。未运行构建、脚本或包管理器；未修改文件；未使用 skill。 Runner normalized tool_calls from Codex JSONL to 25 (evaluator self-report: 25); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 25
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T11:05:20.942Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "8ec949ad990392a014d95b04236b71181039b952",
+      "result_path": "calibration/results/g3/blind-00727545d250.json",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T10:59:28.692Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 0.888889,
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 352.25
     }
-  ]
+  ],
+  "comparison_family": "vehicle-property-controlled-pair",
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "形式上有五个 Soong 模块，但领域职责集中在统一运行时。",
+      "status": "expected_low"
+    },
+    {
+      "name": "solid",
+      "reason": "超宽 AIDL、全局实例和复制领域模板违反 SRP、ISP 与 DIP。",
+      "status": "expected_low"
+    },
+    {
+      "name": "system_api_dependency",
+      "reason": "权限与服务发现直接依赖隐藏系统类和系统属性字符串。",
+      "status": "expected_low"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "reason": "生产代码反射 ServiceManager 并捕获所有异常。",
+      "status": "expected_low"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "reason": "有真实 AIDL，但接口粒度与依赖方向不合理。",
+      "status": "expected_low"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "依赖 AAOS 隐藏类且未提供产品外构建适配。",
+      "status": "failed"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "只有类存在性和恒真占位测试。",
+      "status": "expected_low"
+    },
+    {
+      "name": "code_duplication",
+      "reason": "领域模板、平台映射和车型配置大面积复制。",
+      "status": "expected_low"
+    },
+    {
+      "name": "release_branch_strategy",
+      "reason": "平台分支在仅完成前九个领域时即分叉且未吸收后续共享改动。",
+      "status": "expected_low"
+    },
+    {
+      "name": "platform_reuse",
+      "reason": "平台分支相同 blob 比例约 0.44，release 约 0.67。",
+      "status": "expected_low"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "8ec949ad990392a014d95b04236b71181039b952",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "negative",
+      "observation": "单一服务聚合十八个领域，并同时承担权限、反射服务发现、审计、广播和全局实例职责。",
+      "path": "runtime/src/com/cockpitbench/carruntime/CarRuntimeService.java",
+      "symbol_or_line": "CarRuntimeService"
+    },
+    {
+      "branch": "main",
+      "commit": "8ec949ad990392a014d95b04236b71181039b952",
+      "confidence": "high",
+      "dimension": "solid",
+      "expected_impact": "negative",
+      "observation": "一个 AIDL 接口公开十八组 read/write/reset 共五十四个方法，客户端被迫依赖无关领域。",
+      "path": "runtime/src/com/cockpitbench/carruntime/ICarRuntime.aidl",
+      "symbol_or_line": "ICarRuntime"
+    },
+    {
+      "branch": "main",
+      "commit": "8ec949ad990392a014d95b04236b71181039b952",
+      "confidence": "high",
+      "dimension": "hidden_api_reflection",
+      "expected_impact": "negative",
+      "observation": "生产路径反射 ServiceManager、强制 setAccessible 并吞并 Throwable 后继续运行。",
+      "path": "runtime/src/com/cockpitbench/carruntime/CarRuntimeService.java",
+      "symbol_or_line": "CarRuntimeService.connectVendorServices"
+    },
+    {
+      "branch": "main",
+      "commit": "8ec949ad990392a014d95b04236b71181039b952",
+      "confidence": "high",
+      "dimension": "code_duplication",
+      "expected_impact": "negative",
+      "observation": "三套芯片桥接各自维护七十二条映射，结构相同却没有共享表或转换策略。",
+      "path": "platform/src/com/cockpitbench/carruntime/platform/Sa8155VehicleBridge.java",
+      "symbol_or_line": "Sa8155VehicleBridge"
+    },
+    {
+      "branch": "main",
+      "commit": "8ec949ad990392a014d95b04236b71181039b952",
+      "confidence": "high",
+      "dimension": "platform_reuse",
+      "expected_impact": "negative",
+      "observation": "六十四个车型类复制四十八条属性覆盖与同一组能力开关，车型复用依赖复制修改。",
+      "path": "platform/src/com/cockpitbench/carruntime/product/AtlasBaseRuntimeProfile.java",
+      "symbol_or_line": "AtlasBaseRuntimeProfile"
+    },
+    {
+      "branch": "main",
+      "commit": "8ec949ad990392a014d95b04236b71181039b952",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "negative",
+      "observation": "设备测试只用 Class.forName 判断类存在，没有启动服务或验证任何 Binder 行为。",
+      "path": "tests/integration/com/cockpitbench/carruntime/CarRuntimeServiceLaunchTest.java",
+      "symbol_or_line": "CarRuntimeServiceLaunchTest.runtimeClassExists"
+    }
+  ],
+  "quality_tier": "low",
+  "repo_id": "FW-15",
+  "review_status": "blind_validated",
+  "schema_version": "1.0.0"
 }

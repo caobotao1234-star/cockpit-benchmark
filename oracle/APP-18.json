@@ -1,219 +1,220 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "APP-18",
-  "quality_tier": "low",
-  "comparison_family": "app-media-small",
-  "review_status": "blind_validated",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "a88e94b024b5a13653d20034e3db753640371c0e",
-      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/GlobalVehicleMediaHub.java",
-      "symbol_or_line": "GlobalVehicleMediaHub",
-      "observation": "单例同时承担隐藏服务、焦点、callback、属性、车型、队列迁移、retry、告警、metrics、heartbeat 与四域路由。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "hidden_api_reflection",
-      "branch": "main",
-      "commit": "a88e94b024b5a13653d20034e3db753640371c0e",
-      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/MediaReflectionGateway.java",
-      "symbol_or_line": "MediaReflectionGateway",
-      "observation": "反射 ServiceManager 与任意目标方法，调用 setAccessible、缓存裸 Object/IBinder 并宽泛捕获 Throwable。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "solid",
-      "branch": "main",
-      "commit": "a88e94b024b5a13653d20034e3db753640371c0e",
-      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/MediaCallbackBus.java",
-      "symbol_or_line": "MediaCallbackBus",
-      "observation": "静态 callback Map/List 无死亡或生命周期绑定，发布时吞掉 Throwable。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "code_duplication",
-      "branch": "main",
-      "commit": "a88e94b024b5a13653d20034e3db753640371c0e",
-      "path": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
-      "symbol_or_line": "shared, platform-8155 and platform-8295 runtimes",
-      "observation": "三套 runtime 产生 48 对确定性近重复；平台变化通过复制模块和硬编码表并存。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "a88e94b024b5a13653d20034e3db753640371c0e",
-      "path": "src/com/android/car/media/localmediaplayer/LocalMediaBrowserService.java",
-      "symbol_or_line": "PlaybackCoordinator and GlobalVehicleMediaHub wiring",
-      "observation": "浏览 Service 接入协调器及全局 hub，但新 hub/平台 runtime 无测试；仓内仅 1 个平台继承测试源。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_low",
-      "reason": "模块真实但新职责聚合到协调器和全局 hub。"
-    },
-    {
-      "name": "solid",
-      "status": "expected_low",
-      "reason": "静态集合、单例、跨域 switch、硬编码表和无解绑 callback 削弱 SRP/DIP/OCP。"
-    },
-    {
-      "name": "system_api_dependency",
-      "status": "expected_low",
-      "reason": "隐藏服务、系统属性、焦点和车型路由混入全局 runtime。"
-    },
-    {
-      "name": "hidden_api_reflection",
-      "status": "expected_low",
-      "reason": "19 个反射点包含 setAccessible/Throwable/裸对象。"
-    },
-    {
-      "name": "aidl_sdk_call",
-      "status": "expected_low",
-      "reason": "平台 AIDL 存在，但 hub 绕过类型化 Manager 直接发现服务。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "完整 APP 需要 AAOS；新增 runtime/hub Java 静态编译通过。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_low",
-      "reason": "新增路径无测试。"
-    },
-    {
-      "name": "code_duplication",
-      "status": "expected_low",
-      "reason": "三套 runtime 形成 48 对近重复。"
-    },
-    {
-      "name": "release_branch_strategy",
-      "status": "expected_low",
-      "reason": "侧分支缺少 main 后续两次演进。"
-    },
-    {
-      "name": "platform_reuse",
-      "status": "expected_low",
-      "reason": "平台通过源码复制、配置和硬编码表三种方式混合扩展。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g3",
       "blind_id": "blind-23cabcca60c3",
-      "repository_head": "a88e94b024b5a13653d20034e3db753640371c0e",
-      "result_path": "calibration/results/g3/blind-23cabcca60c3.json",
-      "validation_report": "reports/validation/g3-blind-results.json",
-      "human_review_report": "reports/validation/g3-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-29T11:40:16.568740Z",
-      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T10:58:45.928Z",
-      "finished_at": "2026-08-29T11:03:18.223Z",
-      "wall_clock_seconds": 272.295,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 59,
-        "directories_visited": 14,
-        "tool_calls": 18,
-        "notes": "HEAD 与预期 SHA 一致。检查了构建入口、4 个声明模块、源码/测试分布、全部 5 个 AIDL 文件、Binder/系统/隐藏 API/反射位置、最大源码文件及重复家族；抽查超过 20 个生产文件，并检查了仓库仅有的 1 个测试文件。比较了 release/sop-2024、platform/8155、platform/8295、platform/xinqing 与 main 的有界差异及分叉历史。文件数仅统计有界内容或差异被实际检查的唯一文件，不把全仓清单扫描计作逐文件打开。未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 18 (evaluator self-report: 18); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 1.111111,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 31,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "仓库具备应用、兼容 UI 和平台服务模块的表面分层，但平台变体模块未接入应用依赖，新增运行时又与原有 Player 播放栈并行。核心协调器和全局 Hub 直接组合大量具体实现与全局状态，导致职责和依赖方向跨层耦合。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "仓库具备应用、兼容 UI 和平台服务模块的表面分层，但平台变体模块未接入应用依赖，新增运行时又与原有 Player 播放栈并行。核心协调器和全局 Hub 直接组合大量具体实现与全局状态，导致职责和依赖方向跨层耦合。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "存在窄接口和若干职责较小的辅助类，但关键生产路径普遍自行构造具体依赖，静态可变集合和全局单例较多；PlaybackCoordinator 与 GlobalVehicleMediaHub 同时承担生命周期、策略、存储、系统访问、恢复和通知编排，SRP 与 DIP 弱。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "存在窄接口和若干职责较小的辅助类，但关键生产路径普遍自行构造具体依赖，静态可变集合和全局单例较多；PlaybackCoordinator 与 GlobalVehicleMediaHub 同时承担生命周期、策略、存储、系统访问、恢复和通知编排，SRP 与 DIP 弱。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "media-platform 的类型化 Car API 服务具备权限校验、线程和生命周期处理，但应用运行时同时散布 AudioManager 直连、硬编码服务名/包名以及 ServiceManager/SystemProperties 反射。系统依赖隔离方式不一致，若干路径以 null 或吞异常作为失败语义。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "media-platform 的类型化 Car API 服务具备权限校验、线程和生命周期处理，但应用运行时同时散布 AudioManager 直连、硬编码服务名/包名以及 ServiceManager/SystemProperties 反射。系统依赖隔离方式不一致，若干路径以 null 或吞异常作为失败语义。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "hidden_api_reflection",
-          "status": "scored",
+          "reason": "反射被部分集中到可 override/clear 的网关，具有有限测试替换点；但网关允许任意服务名和任意同参数数量的方法调用，没有 allowlist 或类型化结果，广泛捕获 Throwable 并返回 null。另有两个独立反射实现，削弱了集中治理。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "反射被部分集中到可 override/clear 的网关，具有有限测试替换点；但网关允许任意服务名和任意同参数数量的方法调用，没有 allowlist 或类型化结果，广泛捕获 Throwable 并返回 null。另有两个独立反射实现，削弱了集中治理。"
+          "status": "scored"
         },
         {
-          "name": "aidl_sdk_call",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 4,
-          "reason": "AIDL 媒体契约粒度清晰，回调采用 oneway；SDK manager 标注权限并统一处理 RemoteException，服务端再次校验权限并用 RemoteCallbackList 管理回调死亡。局限是 ICarAudio 边界较宽、隐藏回调退化为裸 IBinder，契约没有结构化错误语义，且未看到 Binder 死亡/跨进程失败测试。"
-        },
-        {
-          "name": "compilation_independence",
-          "status": "failed",
-          "score": null,
-          "evidence_count": 3,
-          "reason": "无法建立可信的独立编译边界：仓库没有 Gradle wrapper 或 Android Gradle Plugin 版本声明，compat-car-media 和 media-platform 引用了仓库外的 AAOS Car UI、Car internal、power/user service 与 builtin API。受控评审禁止运行构建，且所需 AOSP/AAOS 平台输入未随仓库提供，因此不能验证独立编译。"
-        },
-        {
-          "name": "integration_testing",
-          "status": "scored",
-          "score": 1,
-          "evidence_count": 3,
-          "reason": "唯一测试文件对媒体源独立/联动模式、监听注册注销和播放状态驱动切源有有意义的行为断言，但全部基于同进程 mock。没有应用运行时、反射失败、权限拒绝、Binder 死亡、音频焦点、用户/电源生命周期或平台变体的跨边界测试。"
-        },
-        {
-          "name": "code_duplication",
-          "status": "scored",
-          "score": 0,
-          "evidence_count": 3,
-          "reason": "重复是系统性的：根运行时、platform-8155 和 platform-8295 各自保留同名实现，其中两个平台目录的 12 文件家族完全相同；平台策略表本身也在每份副本中同时包含所有平台配置。新增 hub 又重复维护路由、区域和回退映射，修改需要跨多处同步，缺少生成标记或共享源码配置。"
-        },
-        {
-          "name": "release_branch_strategy",
-          "status": "scored",
+          "name": "aidl_sdk_call",
+          "reason": "AIDL 媒体契约粒度清晰，回调采用 oneway；SDK manager 标注权限并统一处理 RemoteException，服务端再次校验权限并用 RemoteCallbackList 管理回调死亡。局限是 ICarAudio 边界较宽、隐藏回调退化为裸 IBinder，契约没有结构化错误语义，且未看到 Binder 死亡/跨进程失败测试。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "实际比较显示 release 与三个 platform 分支都从同一共享提交分出，分支自身差异被限制为一个两行属性文件，未形成代码级长期 fork；这是清晰的配置冻结方式。但每个分支仅有一个独立提交，均未合入 main 后续两个修复，也没有足够历史证明回合并或修复复用机制。"
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 1,
           "evidence_count": 3,
-          "reason": "主线提供集中式 VehicleMediaPolicy、VehicleProfileTable 和 MediaRouteOverrides，分支差异也采用小型属性文件；但两个声明的平台模块复制整套 12 文件运行时，且每个副本仍携带全部平台策略。配置还在多个表中重复，平台变化没有被隔离到单一适配层。"
+          "name": "compilation_independence",
+          "reason": "无法建立可信的独立编译边界：仓库没有 Gradle wrapper 或 Android Gradle Plugin 版本声明，compat-car-media 和 media-platform 引用了仓库外的 AAOS Car UI、Car internal、power/user service 与 builtin API。受控评审禁止运行构建，且所需 AOSP/AAOS 平台输入未随仓库提供，因此不能验证独立编译。",
+          "score": null,
+          "status": "failed"
+        },
+        {
+          "evidence_count": 3,
+          "name": "integration_testing",
+          "reason": "唯一测试文件对媒体源独立/联动模式、监听注册注销和播放状态驱动切源有有意义的行为断言，但全部基于同进程 mock。没有应用运行时、反射失败、权限拒绝、Binder 死亡、音频焦点、用户/电源生命周期或平台变体的跨边界测试。",
+          "score": 1,
+          "status": "scored"
+        },
+        {
+          "evidence_count": 3,
+          "name": "code_duplication",
+          "reason": "重复是系统性的：根运行时、platform-8155 和 platform-8295 各自保留同名实现，其中两个平台目录的 12 文件家族完全相同；平台策略表本身也在每份副本中同时包含所有平台配置。新增 hub 又重复维护路由、区域和回退映射，修改需要跨多处同步，缺少生成标记或共享源码配置。",
+          "score": 0,
+          "status": "scored"
+        },
+        {
+          "evidence_count": 3,
+          "name": "release_branch_strategy",
+          "reason": "实际比较显示 release 与三个 platform 分支都从同一共享提交分出，分支自身差异被限制为一个两行属性文件，未形成代码级长期 fork；这是清晰的配置冻结方式。但每个分支仅有一个独立提交，均未合入 main 后续两个修复，也没有足够历史证明回合并或修复复用机制。",
+          "score": 2,
+          "status": "scored"
+        },
+        {
+          "evidence_count": 3,
+          "name": "platform_reuse",
+          "reason": "主线提供集中式 VehicleMediaPolicy、VehicleProfileTable 和 MediaRouteOverrides，分支差异也采用小型属性文件；但两个声明的平台模块复制整套 12 文件运行时，且每个副本仍携带全部平台策略。配置还在多个表中重复，平台变化没有被隔离到单一适配层。",
+          "score": 1,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 31,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 14,
+        "files_opened": 59,
+        "notes": "HEAD 与预期 SHA 一致。检查了构建入口、4 个声明模块、源码/测试分布、全部 5 个 AIDL 文件、Binder/系统/隐藏 API/反射位置、最大源码文件及重复家族；抽查超过 20 个生产文件，并检查了仓库仅有的 1 个测试文件。比较了 release/sop-2024、platform/8155、platform/8295、platform/xinqing 与 main 的有界差异及分叉历史。文件数仅统计有界内容或差异被实际检查的唯一文件，不把全仓清单扫描计作逐文件打开。未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 18 (evaluator self-report: 18); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 18
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T11:03:18.223Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "a88e94b024b5a13653d20034e3db753640371c0e",
+      "result_path": "calibration/results/g3/blind-23cabcca60c3.json",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T10:58:45.928Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 1.111111,
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 272.295
     }
-  ]
+  ],
+  "comparison_family": "app-media-small",
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "模块真实但新职责聚合到协调器和全局 hub。",
+      "status": "expected_low"
+    },
+    {
+      "name": "solid",
+      "reason": "静态集合、单例、跨域 switch、硬编码表和无解绑 callback 削弱 SRP/DIP/OCP。",
+      "status": "expected_low"
+    },
+    {
+      "name": "system_api_dependency",
+      "reason": "隐藏服务、系统属性、焦点和车型路由混入全局 runtime。",
+      "status": "expected_low"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "reason": "19 个反射点包含 setAccessible/Throwable/裸对象。",
+      "status": "expected_low"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "reason": "平台 AIDL 存在，但 hub 绕过类型化 Manager 直接发现服务。",
+      "status": "expected_low"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "完整 APP 需要 AAOS；新增 runtime/hub Java 静态编译通过。",
+      "status": "failed"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "新增路径无测试。",
+      "status": "expected_low"
+    },
+    {
+      "name": "code_duplication",
+      "reason": "三套 runtime 形成 48 对近重复。",
+      "status": "expected_low"
+    },
+    {
+      "name": "release_branch_strategy",
+      "reason": "侧分支缺少 main 后续两次演进。",
+      "status": "expected_low"
+    },
+    {
+      "name": "platform_reuse",
+      "reason": "平台通过源码复制、配置和硬编码表三种方式混合扩展。",
+      "status": "expected_low"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "a88e94b024b5a13653d20034e3db753640371c0e",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "negative",
+      "observation": "单例同时承担隐藏服务、焦点、callback、属性、车型、队列迁移、retry、告警、metrics、heartbeat 与四域路由。",
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/GlobalVehicleMediaHub.java",
+      "symbol_or_line": "GlobalVehicleMediaHub"
+    },
+    {
+      "branch": "main",
+      "commit": "a88e94b024b5a13653d20034e3db753640371c0e",
+      "confidence": "high",
+      "dimension": "hidden_api_reflection",
+      "expected_impact": "negative",
+      "observation": "反射 ServiceManager 与任意目标方法，调用 setAccessible、缓存裸 Object/IBinder 并宽泛捕获 Throwable。",
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/MediaReflectionGateway.java",
+      "symbol_or_line": "MediaReflectionGateway"
+    },
+    {
+      "branch": "main",
+      "commit": "a88e94b024b5a13653d20034e3db753640371c0e",
+      "confidence": "high",
+      "dimension": "solid",
+      "expected_impact": "negative",
+      "observation": "静态 callback Map/List 无死亡或生命周期绑定，发布时吞掉 Throwable。",
+      "path": "src/com/android/car/media/localmediaplayer/runtime/hub/MediaCallbackBus.java",
+      "symbol_or_line": "MediaCallbackBus"
+    },
+    {
+      "branch": "main",
+      "commit": "a88e94b024b5a13653d20034e3db753640371c0e",
+      "confidence": "high",
+      "dimension": "code_duplication",
+      "expected_impact": "negative",
+      "observation": "三套 runtime 产生 48 对确定性近重复；平台变化通过复制模块和硬编码表并存。",
+      "path": "platform-8155/src/com/android/car/media/localmediaplayer/runtime/StreamMediaRuntime.java",
+      "symbol_or_line": "shared, platform-8155 and platform-8295 runtimes"
+    },
+    {
+      "branch": "main",
+      "commit": "a88e94b024b5a13653d20034e3db753640371c0e",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "negative",
+      "observation": "浏览 Service 接入协调器及全局 hub，但新 hub/平台 runtime 无测试；仓内仅 1 个平台继承测试源。",
+      "path": "src/com/android/car/media/localmediaplayer/LocalMediaBrowserService.java",
+      "symbol_or_line": "PlaybackCoordinator and GlobalVehicleMediaHub wiring"
+    }
+  ],
+  "quality_tier": "low",
+  "repo_id": "APP-18",
+  "review_status": "blind_validated",
+  "schema_version": "1.0.0"
 }

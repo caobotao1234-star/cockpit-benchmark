@@ -1,174 +1,175 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "APP-09",
-  "quality_tier": "medium",
-  "comparison_family": null,
-  "review_status": "blind_validated",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "2021dc74f9e199e037efc010725845ac6d52ac8b",
-      "path": "cluster-runtime/src/com/cockpitbench/cluster/ClusterRuntimeCoordinator.java",
-      "symbol_or_line": "ClusterRuntimeCoordinator.accept",
-      "observation": "车辆信号经 frame budget 和 reducer 后发布，runtime 由 MainClusterActivity 创建、调用并关闭。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "solid",
-      "branch": "main",
-      "commit": "2021dc74f9e199e037efc010725845ac6d52ac8b",
-      "path": "DirectRenderingCluster/src/android/car/cluster/MainClusterActivity.java",
-      "symbol_or_line": "MainClusterActivity",
-      "observation": "单个 Activity 同时管理渲染、导航重试、用户广播、输入、电话、ServiceConnection 和车辆信号，职责仍偏重。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "hidden_api_reflection",
-      "branch": "main",
-      "commit": "2021dc74f9e199e037efc010725845ac6d52ac8b",
-      "path": "DirectRenderingCluster/src/android/car/cluster/MainClusterActivity.java",
-      "symbol_or_line": "Facet.getOrCreateFragment",
-      "observation": "Facet 通过 getConstructors()[0].newInstance 反射创建 Fragment，失败统一转 RuntimeException。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "2021dc74f9e199e037efc010725845ac6d52ac8b",
-      "path": "system-shell/tests/src/com/android/systemui/car/systembar/CarSystemBarTest.java",
-      "symbol_or_line": "CarSystemBarTest",
-      "observation": "系统栏存在真实行为测试，但新增 signal/frame runtime 仅有 reducer 自测且未覆盖设备渲染链。",
-      "expected_impact": "neutral",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_medium",
-      "reason": "数据流得到分层，但主 Activity 与 shell 平台适配仍复杂。"
-    },
-    {
-      "name": "hidden_api_reflection",
-      "status": "expected_medium",
-      "reason": "平台 API 使用合理，反射和平台条件仍分散存在。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "完整应用需要 AAOS/SystemUI 产品树。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g3",
       "blind_id": "blind-6e087540b475",
-      "repository_head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
-      "result_path": "calibration/results/g3/blind-6e087540b475.json",
-      "validation_report": "reports/validation/g3-blind-results.json",
-      "human_review_report": "reports/validation/g3-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-29T11:40:16.568740Z",
-      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T11:14:55.851Z",
-      "finished_at": "2026-08-29T11:19:50.665Z",
-      "wall_clock_seconds": 294.814,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 50,
-        "directories_visited": 29,
-        "tool_calls": 17,
-        "notes": "已核验 HEAD。静态检查覆盖 26 个生产源码、8 个测试文件、全部主要 Android.bp/Android.mk 入口、应用清单、反射与 Binder/系统 API 站点、重复家族及全部本地分支；对 develop、release/2026.1、platform/8155、platform/8295 分别进行了有界比较。未运行构建、仓库脚本或网络操作，未修改文件，未使用 skill。探索预算充足。 Runner normalized tool_calls from Codex JSONL to 17 (evaluator self-report: 17); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 1.333333,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 36,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "模块按 SystemUI、直接渲染集群、OS-double、Cluster Home 和公共运行时划分，SystemUI 通过 Dagger 组合，公共运行时也保持小型数据流边界；但公共运行时只接入 DirectRenderingCluster，其他集群实现仍保留较大的活动/服务类和独立实现，依赖方向与复用不完全一致。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "模块按 SystemUI、直接渲染集群、OS-double、Cluster Home 和公共运行时划分，SystemUI 通过 Dagger 组合，公共运行时也保持小型数据流边界；但公共运行时只接入 DirectRenderingCluster，其他集群实现仍保留较大的活动/服务类和独立实现，依赖方向与复用不完全一致。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "依赖注入、策略型基类、监听接口和可测试构造器提供了较好的 DIP/OCP/ISP 证据；但多个应用入口直接构造 Car 服务、管理生命周期和 UI，且大型控制器聚合多项职责，SRP 与替换性仍不均衡。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "依赖注入、策略型基类、监听接口和可测试构造器提供了较好的 DIP/OCP/ISP 证据；但多个应用入口直接构造 Car 服务、管理生命周期和 UI，且大型控制器聚合多项职责，SRP 与替换性仍不均衡。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "清单对特权权限有明确声明，SystemUI 内也有共享 CarServiceProvider 和部分异常处理；然而多个模块仍直接依赖 platform_apis、IActivityTaskManager、CarPropertyManager 和 Car.createCar，隔离不统一。部分断连或权限失败只记录日志，CarServiceProvider 的检查后注册还存在可能错过连接回调的窗口。",
           "score": 1,
-          "evidence_count": 4,
-          "reason": "清单对特权权限有明确声明，SystemUI 内也有共享 CarServiceProvider 和部分异常处理；然而多个模块仍直接依赖 platform_apis、IActivityTaskManager、CarPropertyManager 和 Car.createCar，隔离不统一。部分断连或权限失败只记录日志，CarServiceProvider 的检查后注册还存在可能错过连接回调的窗口。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "hidden_api_reflection",
-          "status": "scored",
+          "reason": "反射主要局限在配置解析和状态图标实例化处，并优先尝试类型化 Provider 映射；但没有显式 allowlist 或类型化失败结果。无效类名可能退化为 null 后继续使用，反射构造失败则直接抛 RuntimeException，且相关失败路径缺少测试。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "反射主要局限在配置解析和状态图标实例化处，并优先尝试类型化 Provider 映射；但没有显式 allowlist 或类型化失败结果。无效类名可能退化为 null 后继续使用，反射构造失败则直接抛 RuntimeException，且相关失败路径缺少测试。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "仓库没有自有 AIDL 文件，但存在真实跨进程 Android Car/InstrumentCluster SDK 边界。渲染服务受绑定权限保护并使用类型化回调；不足之处是客户端集合没有死亡处理或显式线程约束，部分 SDK 错误回调为空，Cluster Home 还重复注册同一状态监听者，生命周期恢复与清理不系统。",
           "score": 1,
-          "evidence_count": 4,
-          "reason": "仓库没有自有 AIDL 文件，但存在真实跨进程 Android Car/InstrumentCluster SDK 边界。渲染服务受绑定权限保护并使用类型化回调；不足之处是客户端集合没有死亡处理或显式线程约束，部分 SDK 错误回调为空，Cluster Home 还重复注册同一状态监听者，生命周期恢复与清理不系统。"
+          "status": "scored"
         },
         {
-          "name": "compilation_independence",
-          "status": "failed",
-          "score": null,
           "evidence_count": 3,
-          "reason": "仓库只有 Soong/Make 模块定义，生产目标明确使用 platform_apis、平台证书、SystemUI/AAOS 内部库和 android.car；当前仓库不包含所需 AOSP/AAOS 产品树，因此无法建立或验证可信的独立编译边界。按评审规则不据此猜测分数。"
+          "name": "compilation_independence",
+          "reason": "仓库只有 Soong/Make 模块定义，生产目标明确使用 platform_apis、平台证书、SystemUI/AAOS 内部库和 android.car；当前仓库不包含所需 AOSP/AAOS 产品树，因此无法建立或验证可信的独立编译边界。按评审规则不据此猜测分数。",
+          "score": null,
+          "status": "failed"
         },
         {
+          "evidence_count": 4,
           "name": "integration_testing",
-          "status": "scored",
+          "reason": "SystemUI 测试对窗口状态、配置校验、HVAC 分发和销毁清理有较丰富的行为断言，并声明 device-tests 目标；但绝大多数边界均以 mock 驱动。集群应用没有服务绑定、断连、权限失败、跨进程或平台分支集成测试，公共运行时也只有一个很小的 main 式自测。",
           "score": 1,
-          "evidence_count": 4,
-          "reason": "SystemUI 测试对窗口状态、配置校验、HVAC 分发和销毁清理有较丰富的行为断言，并声明 device-tests 目标；但绝大多数边界均以 mock 驱动。集群应用没有服务绑定、断连、权限失败、跨进程或平台分支集成测试，公共运行时也只有一个很小的 main 式自测。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "code_duplication",
-          "status": "scored",
+          "reason": "DirectRenderingCluster 与 ClusterOsDouble 之间存在多个手写近拷贝家族，包括 ViewModel、导航状态、图像解析、车道/提示视图和传感器类。两份 ViewModel 的服务连接方式略有分叉，使错误处理与区域匹配逻辑容易独立漂移；未见这些文件属于生成代码。",
           "score": 1,
-          "evidence_count": 4,
-          "reason": "DirectRenderingCluster 与 ClusterOsDouble 之间存在多个手写近拷贝家族，包括 ViewModel、导航状态、图像解析、车道/提示视图和传感器类。两份 ViewModel 的服务连接方式略有分叉，使错误处理与区域匹配逻辑容易独立漂移；未见这些文件属于生成代码。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "release_branch_strategy",
-          "status": "scored",
+          "reason": "所有产品分支都从当前 main 的同一提交分叉且各仅领先一个提交；实际差异严格限制为一个两行 properties 文件，release 分支与发布标签指向同一提交。这体现了有界差异，但仓库内未发现这些 properties 被构建或代码消费，也没有可观察的回合并/修复回灌历史，因此尚不能视为完整、系统化的发布策略。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "所有产品分支都从当前 main 的同一提交分叉且各仅领先一个提交；实际差异严格限制为一个两行 properties 文件，release 分支与发布标签指向同一提交。这体现了有界差异，但仓库内未发现这些 properties 被构建或代码消费，也没有可观察的回合并/修复回灌历史，因此尚不能视为完整、系统化的发布策略。"
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 1,
           "evidence_count": 4,
-          "reason": "平台分支差异本身很小，公共运行时也提供集中信号归约和平台映射；但映射硬编码在 Java 中且没有接入分支 properties。公共运行时仅被 DirectRenderingCluster 依赖，ClusterOsDouble 继续维护成组的近拷贝 UI、导航和传感器实现，因此平台变化仍会触及多份策略代码。"
+          "name": "platform_reuse",
+          "reason": "平台分支差异本身很小，公共运行时也提供集中信号归约和平台映射；但映射硬编码在 Java 中且没有接入分支 properties。公共运行时仅被 DirectRenderingCluster 依赖，ClusterOsDouble 继续维护成组的近拷贝 UI、导航和传感器实现，因此平台变化仍会触及多份策略代码。",
+          "score": 1,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 36,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 29,
+        "files_opened": 50,
+        "notes": "已核验 HEAD。静态检查覆盖 26 个生产源码、8 个测试文件、全部主要 Android.bp/Android.mk 入口、应用清单、反射与 Binder/系统 API 站点、重复家族及全部本地分支；对 develop、release/2026.1、platform/8155、platform/8295 分别进行了有界比较。未运行构建、仓库脚本或网络操作，未修改文件，未使用 skill。探索预算充足。 Runner normalized tool_calls from Codex JSONL to 17 (evaluator self-report: 17); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 17
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T11:19:50.665Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "result_path": "calibration/results/g3/blind-6e087540b475.json",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T11:14:55.851Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 1.333333,
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 294.814
     }
-  ]
+  ],
+  "comparison_family": null,
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "数据流得到分层，但主 Activity 与 shell 平台适配仍复杂。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "reason": "平台 API 使用合理，反射和平台条件仍分散存在。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "完整应用需要 AAOS/SystemUI 产品树。",
+      "status": "failed"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "positive",
+      "observation": "车辆信号经 frame budget 和 reducer 后发布，runtime 由 MainClusterActivity 创建、调用并关闭。",
+      "path": "cluster-runtime/src/com/cockpitbench/cluster/ClusterRuntimeCoordinator.java",
+      "symbol_or_line": "ClusterRuntimeCoordinator.accept"
+    },
+    {
+      "branch": "main",
+      "commit": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "confidence": "high",
+      "dimension": "solid",
+      "expected_impact": "negative",
+      "observation": "单个 Activity 同时管理渲染、导航重试、用户广播、输入、电话、ServiceConnection 和车辆信号，职责仍偏重。",
+      "path": "DirectRenderingCluster/src/android/car/cluster/MainClusterActivity.java",
+      "symbol_or_line": "MainClusterActivity"
+    },
+    {
+      "branch": "main",
+      "commit": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "confidence": "high",
+      "dimension": "hidden_api_reflection",
+      "expected_impact": "negative",
+      "observation": "Facet 通过 getConstructors()[0].newInstance 反射创建 Fragment，失败统一转 RuntimeException。",
+      "path": "DirectRenderingCluster/src/android/car/cluster/MainClusterActivity.java",
+      "symbol_or_line": "Facet.getOrCreateFragment"
+    },
+    {
+      "branch": "main",
+      "commit": "2021dc74f9e199e037efc010725845ac6d52ac8b",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "neutral",
+      "observation": "系统栏存在真实行为测试，但新增 signal/frame runtime 仅有 reducer 自测且未覆盖设备渲染链。",
+      "path": "system-shell/tests/src/com/android/systemui/car/systembar/CarSystemBarTest.java",
+      "symbol_or_line": "CarSystemBarTest"
+    }
+  ],
+  "quality_tier": "medium",
+  "repo_id": "APP-09",
+  "review_status": "blind_validated",
+  "schema_version": "1.0.0"
 }

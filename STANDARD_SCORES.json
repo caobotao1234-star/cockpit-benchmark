@@ -1,0 +1,2869 @@
+{
+  "schema_version": "1.0.0",
+  "document_type": "active_six_benchmark_standard_scores",
+  "adjudicator": "D",
+  "generated_at": "2026-09-02T09:24:44Z",
+  "contract": {
+    "path": "SCORE_RULES.md",
+    "sha256": "190613d83db6baab49bb66069d1de78fe7ba673f1969ff4e4a5b4c87ecbf7d74",
+    "app_leaf_count_per_repo": 8,
+    "app_max_per_repo": 40,
+    "fw_leaf_count_per_repo": 17,
+    "fw_max_per_repo": 72,
+    "no_data_policy": "failed; no score imputation",
+    "platform_upgrade_order": "10->8->3->0; lock at first satisfied tier"
+  },
+  "source_boundary": {
+    "used": [
+      "score-rules.md",
+      "six repository current HEAD code/build configuration/local Git refs",
+      "final-score-review-*-20260902.json",
+      "current raw build/test/coverage validation reports referenced by the reviews"
+    ],
+    "forbidden_inputs_read": false,
+    "forbidden": [
+      "manifest.json",
+      "oracle/**",
+      "active-six-rubric-alignment-target*",
+      "STATE.md",
+      "DECISIONS.md",
+      "prospective target matrices",
+      "quality_tier labels"
+    ],
+    "repository_modifications": false,
+    "push_performed": false
+  },
+  "summary": {
+    "repository_count": 6,
+    "pending_repository_count": 34,
+    "leaf_count": 75,
+    "score": 223,
+    "max_score": 336,
+    "repository_totals": [
+      {
+        "id": "APP-01",
+        "score": 33,
+        "max_score": 40
+      },
+      {
+        "id": "APP-11",
+        "score": 26,
+        "max_score": 40
+      },
+      {
+        "id": "APP-15",
+        "score": 15,
+        "max_score": 40
+      },
+      {
+        "id": "FW-03",
+        "score": 63,
+        "max_score": 72
+      },
+      {
+        "id": "FW-08",
+        "score": 52,
+        "max_score": 72
+      },
+      {
+        "id": "FW-19",
+        "score": 34,
+        "max_score": 72
+      }
+    ]
+  },
+  "repositories": [
+    {
+      "id": "APP-01",
+      "name": "aurora-settings",
+      "kind": "APP",
+      "path": "repos/app/aurora-settings",
+      "head": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+      "tree": "eae092fab4a9130d57c00c717539d8b4528c2c1e",
+      "branch": "main",
+      "worktree_clean": true,
+      "total": {
+        "score": 33,
+        "max": 40
+      },
+      "leaves": [
+        {
+          "name": "architecture.componentization",
+          "max_score": 5,
+          "status": "scored",
+          "score": 5,
+          "rubric_band": "高级组件化",
+          "reason": "高级档命中 module_count≥2、standard_named_module_count≥2、is_component_friendly=true 三项，满足任意两项后锁定 5 分；UI+domain 基础分层为 false 不影响已满足档位。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "settings.gradle",
+              "line_start": 4,
+              "line_end": 4,
+              "symbol": "current-head code/config evidence",
+              "observation": "include app、settings-common、settings-connectivity、settings-security 四个非测试模块。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "app/build.gradle",
+              "line_start": 49,
+              "line_end": 53,
+              "symbol": "current-head code/config evidence",
+              "observation": "app 通过 Gradle project 依赖三个库模块，没有 main source root 跨模块侵入。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "architecture.decoupling",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "优秀解耦",
+          "reason": "优秀档命中 module_count≥2、standard_named_module_count≥2、is_component_friendly=true，满足任意两项。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "settings-common/src/main/java/com/android/car/settings/common/platform/PlatformPropertyAdapter.java",
+              "line_start": 19,
+              "line_end": 26,
+              "symbol": "current-head code/config evidence",
+              "observation": "公共平台属性能力下沉到 settings-common 的接口边界。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "settings.gradle",
+              "line_start": 4,
+              "line_end": 4,
+              "symbol": "current-head code/config evidence",
+              "observation": "业务与公共能力由四个独立 Gradle 模块承载。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "architecture.modularization",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "高度模块化",
+          "reason": "依赖图 app 单向指向三个无反向 project 依赖的库，has_circular_dependency=false；高级档又命中 module_count≥2、standard_named_module_count≥2、is_component_friendly=true。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "app/build.gradle",
+              "line_start": 49,
+              "line_end": 53,
+              "symbol": "current-head code/config evidence",
+              "observation": "唯一 project 依赖边从 app 指向 settings-common/connectivity/security。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "settings-common/build.gradle",
+              "line_start": 1,
+              "line_end": 5,
+              "symbol": "current-head code/config evidence",
+              "observation": "settings-common 是独立 Android library 且未声明反向 project 依赖。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.ci_independence",
+          "max_score": 3,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "依赖安卓系统层 CI",
+          "reason": "无 GitHub/GitLab/Jenkins/Azure/APP_BUILD 独立流水线；TEST_MAPPING 与 PREUPLOAD.cfg 明确依赖 Android repo 的 presubmit/prebuilts/packages 路径，属于依赖安卓系统层 CI。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "TEST_MAPPING",
+              "line_start": 1,
+              "line_end": 7,
+              "symbol": "current-head code/config evidence",
+              "observation": "仅声明 CarSettingsUnitTests 的 Android presubmit mapping。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "PREUPLOAD.cfg",
+              "line_start": 1,
+              "line_end": 4,
+              "symbol": "current-head code/config evidence",
+              "observation": "hook 依赖 repo 根下 prebuilts 与 packages/apps/Car 工具。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.compilation_independence",
+          "max_score": 3,
+          "status": "scored",
+          "score": 0,
+          "rubric_band": "源码依赖",
+          "reason": "app 通过 implementation project(...) 直接编译同仓 settings-common/settings-connectivity/settings-security 源码模块；仓内没有以预构建 SDK/AAR 形态消费这些依赖。按合同“直接依赖源代码”归 0 分，compileSdkVersion 35 只说明 Android 编译目标，不能把同仓源码依赖升级为 SDK/AAR。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "settings.gradle",
+              "line_start": 4,
+              "line_end": 4,
+              "symbol": "Gradle module includes",
+              "observation": "同仓声明 app、settings-common、settings-connectivity、settings-security 四个源码模块。"
+            },
+            {
+              "source": "code",
+              "path": "app/build.gradle",
+              "line_start": 49,
+              "line_end": 53,
+              "symbol": "dependencies",
+              "observation": "app 以 implementation project(...) 直接依赖三个同仓源码 project；未见预构建 AAR/SDK。"
+            }
+          ],
+          "adjudication": "A/B reviewer 均给 2，但把 compileSdkVersion 与 Gradle project 模块误归为 SDK/AAR。任务特别检查项要求区分同仓源码 project 依赖与稳定预构建 SDK；current HEAD 明确属于前者，裁决为 0。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.api_version_management",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "版本可控且有兼容性检查",
+          "reason": "version.properties 提供 1.1.0 语义化版本；构建校验格式并以 api/current.txt 检查向后兼容，RELEASE_NOTES 明确 major 破坏性变更规则，满足版本可控+前后兼容。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "version.properties",
+              "line_start": 1,
+              "line_end": 2,
+              "symbol": "current-head code/config evidence",
+              "observation": "apiVersion=1.1.0，versionCode=2。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "app/build.gradle",
+              "line_start": 9,
+              "line_end": 47,
+              "symbol": "current-head code/config evidence",
+              "observation": "构建强制 semver/正整数，并执行 verifyApiCompatibility。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "RELEASE_NOTES.md",
+              "line_start": 9,
+              "line_end": 16,
+              "symbol": "current-head code/config evidence",
+              "observation": "记录 backward/forward compatibility 与 major 迁移规则。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_reuse.platform_upgrade",
+          "max_score": 10,
+          "status": "scored",
+          "score": 10,
+          "rubric_band": "极速适配",
+          "reason": "严格从 10 分档开始：total_bound_status=1 与 has_interface_abstraction=true 两项命中，达到任意两项即锁定 10；虽然存在 hidden/reflection API 且有复杂通知适配，也不得越过已锁定档位再用 0 分条件倒打。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "settings-common/src/main/java/com/android/car/settings/common/platform/PlatformPropertyAdapter.java",
+              "line_start": 19,
+              "line_end": 26,
+              "symbol": "current-head code/config evidence",
+              "observation": "平台属性逻辑由接口抽象。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "settings-common/src/main/java/com/android/car/settings/common/platform/AndroidPlatformPropertyAdapter.java",
+              "line_start": 19,
+              "line_end": 45,
+              "symbol": "current-head code/config evidence",
+              "observation": "SystemProperties hidden API 被集中在 Android 实现内，仍使 has_non_compatible_api=true。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head_targeted_scan",
+              "path": "app/src/main/java/com/android/car/settings/applications/appinfo/HibernationSwitchPreferenceController.java",
+              "line_start": 92,
+              "line_end": 92,
+              "symbol": "current-head code/config evidence",
+              "observation": "VERSION_CODES 业务命中；同仓无 ABI/loadLibrary/CMake 架构绑定命中。",
+              "commit": "150289b5e0d67acf395aa5418e43347207e9c1b4",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_reuse.release_branch_strategy",
+          "max_score": 10,
+          "status": "scored",
+          "score": 8,
+          "rubric_band": "同平台同一分支",
+          "reason": "存在统一 main 和 release/2026.1，但仍按 8155/8295 拆成真实 platform 分支；没有同版本车型级 SOP 分支，最贴合“同平台同一分支”8 分，而非跨平台完全合一的 10 分。",
+          "evidence": [
+            {
+              "source": "git_ref",
+              "path": "product/platform.properties",
+              "line_start": 1,
+              "line_end": 2,
+              "symbol": "git ref evidence",
+              "observation": "sa8155/legacy 平台配置，tree 与 8295 分支不同。",
+              "commit": "769d29b8ea64cf98d8a330969e3581b9a19e8b98",
+              "ref": "refs/heads/platform/8155"
+            },
+            {
+              "source": "git_ref",
+              "path": "product/platform.properties",
+              "line_start": 1,
+              "line_end": 2,
+              "symbol": "git ref evidence",
+              "observation": "sa8295/modern 平台配置。",
+              "commit": "33e548d7b2fd3486deaa0531462a99b76285adae",
+              "ref": "refs/heads/platform/8295"
+            },
+            {
+              "source": "git_ref",
+              "path": "product/release.properties",
+              "line_start": 1,
+              "line_end": 2,
+              "symbol": "git ref evidence",
+              "observation": "明确 sop-2026.1 release channel。",
+              "commit": "c4801bf2d3c44a5903fa85a37ef92f0101279434",
+              "ref": "refs/heads/release/2026.1"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        }
+      ],
+      "remote_count": 0,
+      "quality_tier": "high",
+      "benchmark_role_match": "supported_by_current_head_evidence"
+    },
+    {
+      "id": "APP-11",
+      "name": "motion-control",
+      "kind": "APP",
+      "path": "repos/app/motion-control",
+      "head": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+      "tree": "7d47a20ea200c647133dc62b8e45128f660c94b2",
+      "branch": "main",
+      "worktree_clean": true,
+      "total": {
+        "score": 26,
+        "max": 40
+      },
+      "leaves": [
+        {
+          "name": "architecture.componentization",
+          "max_score": 5,
+          "status": "scored",
+          "score": 5,
+          "rubric_band": "高级组件化",
+          "reason": "排除 foundation-testkit 与 motion-tests 后 module_count=9；standard_named_module_count=3 且 is_component_friendly=true，已满足高级档任意两项。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "settings.gradle",
+              "line_start": 1,
+              "line_end": 4,
+              "symbol": "current-head code/config evidence",
+              "observation": "列出 foundation 与 motion 的 11 个 included modules；两个测试专用模块从评分 module_count 排除。",
+              "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "foundation-core/build.gradle",
+              "line_start": 1,
+              "line_end": 5,
+              "symbol": "current-head code/config evidence",
+              "observation": "foundation-core 为独立 Android library 并单向依赖 foundation-api。",
+              "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "architecture.decoupling",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "优秀解耦",
+          "reason": "优秀档命中 module_count≥2、standard_named_module_count≥2、is_component_friendly=true；虽然没有 UI/domain 目录标记，仍满足任意两项。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "motion-core/build.gradle",
+              "line_start": 1,
+              "line_end": 5,
+              "symbol": "current-head code/config evidence",
+              "observation": "motion-core 只依赖 motion-api 与 foundation-core。",
+              "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "motion-platform/build.gradle",
+              "line_start": 1,
+              "line_end": 5,
+              "symbol": "current-head code/config evidence",
+              "observation": "平台模块通过 Gradle project 边界消费 API/core，无 sibling source root。",
+              "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "architecture.modularization",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "高度模块化",
+          "reason": "完整 project 依赖图是从 app/platform/observability/storage 指向 api/core 的有向无环图，未触发循环依赖一票否决；高级档满足 module_count、standard_named_module_count、component_friendly。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "motion-app/build.gradle",
+              "line_start": 1,
+              "line_end": 5,
+              "symbol": "current-head code/config evidence",
+              "observation": "app 单向依赖 motion-api、foundation-core、motion-core。",
+              "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "foundation-observability/build.gradle",
+              "line_start": 1,
+              "line_end": 5,
+              "symbol": "current-head code/config evidence",
+              "observation": "observability 单向依赖 foundation-api/core，无反向边。",
+              "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.ci_independence",
+          "max_score": 3,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "依赖安卓系统层 CI",
+          "reason": "无独立标准 CI 配置；TEST_MAPPING 仅声明 Android presubmit/postsubmit 测试名，属于依赖安卓系统层流水线。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "TEST_MAPPING",
+              "line_start": 1,
+              "line_end": 1,
+              "symbol": "current-head code/config evidence",
+              "observation": "仅有 MotionCoreTests presubmit 与 MotionFixtureIntegrationTests postsubmit 映射。",
+              "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.compilation_independence",
+          "max_score": 3,
+          "status": "scored",
+          "score": 0,
+          "rubric_band": "源码依赖",
+          "reason": "九个生产模块均作为同仓 Gradle project 源码构建，并通过 implementation project(...) 形成依赖图；未见业务依赖以预构建 SDK/AAR 输入。按 0 分“源码依赖”定档；AGP 8.7.3 和 compileSdkVersion 35 是构建工具/平台版本，不是稳定业务 SDK。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "settings.gradle",
+              "line_start": 2,
+              "line_end": 4,
+              "symbol": "Gradle module includes",
+              "observation": "声明 foundation 与 motion 的 11 个同仓源码模块。"
+            },
+            {
+              "source": "code",
+              "path": "motion-app/build.gradle",
+              "line_start": 5,
+              "line_end": 5,
+              "symbol": "dependencies",
+              "observation": "motion-app 直接以 implementation project(...) 消费 motion-api、foundation-core、motion-core 源码模块。"
+            }
+          ],
+          "adjudication": "A/B reviewer 均给 2，但 current HEAD 的依赖形态是同仓源码 project，不是 SDK/AAR。按合同依赖类型优先裁决为 0。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.api_version_management",
+          "max_score": 3,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "手动版本不可控",
+          "reason": "应用内手写 versionCode 1/versionName 1.0，CHANGELOG 标题为 1.0.0，但没有单一版本源、自动化、兼容性检查或向后兼容合同，属于手动版本不可控。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "motion-app/build.gradle",
+              "line_start": 2,
+              "line_end": 4,
+              "symbol": "current-head code/config evidence",
+              "observation": "versionCode 1 与 versionName 1.0 直接写在模块构建文件。",
+              "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "CHANGELOG.md",
+              "line_start": 1,
+              "line_end": 3,
+              "symbol": "current-head code/config evidence",
+              "observation": "仅有手写 1.0.0 初始版本记录。",
+              "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_reuse.platform_upgrade",
+          "max_score": 10,
+          "status": "scored",
+          "score": 10,
+          "rubric_band": "极速适配",
+          "reason": "10 分档中 total_bound_status=0、has_interface_abstraction=true、has_complex_permission_adaptation=false 三项命中，立即锁定 10；反射 SystemProperties 使 non-compatible API=true，但锁档规则禁止继续向低档倒打。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "motion-platform/src/main/java/com/cockpitbench/motion/platform/PlatformMotionAdapter.java",
+              "line_start": 16,
+              "line_end": 16,
+              "symbol": "current-head code/config evidence",
+              "observation": "反射 android.os.SystemProperties，故 has_non_compatible_api=true；同一文件无 SDK_INT/ABI/native binding。",
+              "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "motion-core/src/main/java/com/cockpitbench/motion/core/ActuatorSignalRouter.java",
+              "line_start": 16,
+              "line_end": 16,
+              "symbol": "current-head code/config evidence",
+              "observation": "Adapter 接口把平台信号读写与业务路由隔离。",
+              "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "motion-app/src/main/AndroidManifest.xml",
+              "line_start": 1,
+              "line_end": 1,
+              "symbol": "current-head code/config evidence",
+              "observation": "仅清单声明 CONTROL_CAR_SEATS，定向扫描无运行时权限适配命中。",
+              "commit": "0ecc89a31ed4f6cecad8c6690f56862a07e78d57",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_reuse.release_branch_strategy",
+          "max_score": 10,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "单车型单 SOP",
+          "reason": "同一 2026.1 版本存在 model-a1 与 model-b2 两条车型后缀 SOP 分支；二者 tree 不同，属性被 build.gradle 生成 BuildConfig 并由 PlatformMotionAdapter 消费，属于真实“单车型单 SOP”而不是空分支。",
+          "evidence": [
+            {
+              "source": "git_ref",
+              "path": "product/platform.properties",
+              "line_start": 1,
+              "line_end": 4,
+              "symbol": "git ref evidence",
+              "observation": "sa8155、model-a1、property offset 256。",
+              "commit": "418aba900972455796705d22ecce5447ab2dbdc2",
+              "ref": "refs/heads/sop/2026.1-model-a1"
+            },
+            {
+              "source": "git_ref",
+              "path": "product/platform.properties",
+              "line_start": 1,
+              "line_end": 4,
+              "symbol": "git ref evidence",
+              "observation": "sa8295、model-b2、property offset 512。",
+              "commit": "dc7ac0a5e97e80dd4432e88cce44e035c85f9c53",
+              "ref": "refs/heads/sop/2026.1-model-b2"
+            },
+            {
+              "source": "git_ref",
+              "path": "motion-platform/build.gradle",
+              "line_start": 1,
+              "line_end": 23,
+              "symbol": "git ref evidence",
+              "observation": "SOP 属性被校验并生成 platform/model/offset BuildConfig 字段；A1/B2 共用该接线，车型值不同。",
+              "commit": "418aba900972455796705d22ecce5447ab2dbdc2",
+              "ref": "refs/heads/sop/2026.1-model-a1"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        }
+      ],
+      "remote_count": 0,
+      "quality_tier": "medium",
+      "benchmark_role_match": "supported_by_current_head_evidence"
+    },
+    {
+      "id": "APP-15",
+      "name": "atlas-settings",
+      "kind": "APP",
+      "path": "repos/app/atlas-settings",
+      "head": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+      "tree": "d1303c4e1edec37fb32dcdac82fc3d7028fc7e9d",
+      "branch": "main",
+      "worktree_clean": true,
+      "total": {
+        "score": 15,
+        "max": 40
+      },
+      "leaves": [
+        {
+          "name": "architecture.componentization",
+          "max_score": 5,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "中等组件化",
+          "reason": "高级档仅命中 module_count≥2 一项：standard_named_module_count=1、无 base layered、没有两个分层业务模块，且跨 included-module main source root 侵入使 component_friendly=false。中档命中 module_count≥2、standard_named_module_count≥1、业务分包结构三项，锁定 3。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "settings.gradle",
+              "line_start": 4,
+              "line_end": 4,
+              "symbol": "current-head code/config evidence",
+              "observation": "app、modern-settings、modern-tests、platform-bridge 均为 included module；modern-tests 按规则从 module_count 排除。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "app/build.gradle",
+              "line_start": 5,
+              "line_end": 12,
+              "symbol": "current-head code/config evidence",
+              "observation": "app main sourceSets 直接进入 sibling platform-bridge 源目录，但 dependencies 只声明 modern-settings。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "architecture.decoupling",
+          "max_score": 3,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "良好解耦",
+          "reason": "优秀档因 component_friendly=false、standard_named_module_count<2 且无 base layered，只命中 module_count 一项；良好档命中 module_count≥2、standard_named_module_count≥1、业务分包结构，锁定 2。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "app/build.gradle",
+              "line_start": 6,
+              "line_end": 12,
+              "symbol": "current-head code/config evidence",
+              "observation": "platform-bridge 源码被 app 直接编译而不是通过 project dependency 边界消费。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "platform-bridge/build.gradle",
+              "line_start": 1,
+              "line_end": 5,
+              "symbol": "current-head code/config evidence",
+              "observation": "被侵入的 platform-bridge 同时又是独立 Android library module。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "architecture.modularization",
+          "max_score": 3,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "中等模块化",
+          "reason": "声明的 project 依赖图无环，未触发 0 分否决；但高级档只命中 module_count≥2。中档命中 module_count≥2、standard_named_module_count≥1、业务分包结构，锁定 2。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "app/build.gradle",
+              "line_start": 10,
+              "line_end": 12,
+              "symbol": "current-head code/config evidence",
+              "observation": "声明依赖仅 app -> modern-settings，无反向 project 边。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "modern-tests/build.gradle",
+              "line_start": 5,
+              "line_end": 7,
+              "symbol": "current-head code/config evidence",
+              "observation": "测试模块单向依赖 modern-settings；测试模块按 architecture 口径排除。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.ci_independence",
+          "max_score": 3,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "依赖安卓系统层 CI",
+          "reason": "无独立标准 CI 配置；PREUPLOAD.cfg 的 checkstyle/ktlint 明确依赖 Android repo 根下 prebuilts 工具，属于依赖安卓系统层 CI。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "PREUPLOAD.cfg",
+              "line_start": 1,
+              "line_end": 6,
+              "symbol": "current-head code/config evidence",
+              "observation": "仅配置 Android repo preupload hooks，无 standalone workflow。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.compilation_independence",
+          "max_score": 3,
+          "status": "scored",
+          "score": 0,
+          "rubric_band": "源码依赖",
+          "reason": "settings.gradle 已把 platform-bridge 声明为独立 included module，但 app 的 main java.srcDirs 直接指向该 sibling module 源码且未声明 project(':platform-bridge')；这是明确的直接源码依赖，按 0 分档。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "settings.gradle",
+              "line_start": 4,
+              "line_end": 4,
+              "symbol": "current-head code/config evidence",
+              "observation": "platform-bridge 是独立 included module。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "app/build.gradle",
+              "line_start": 6,
+              "line_end": 12,
+              "symbol": "current-head code/config evidence",
+              "observation": "app main 直接读取 ../platform-bridge/src/main/java，依赖块中没有 platform-bridge project dependency。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.api_version_management",
+          "max_score": 3,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "手动版本不可控",
+          "reason": "manifest 中仅手写 versionCode=1/versionName=1.0，仓内无 version.properties/VERSION/CHANGELOG/RELEASE_NOTES、semver 自动校验或兼容性检查，属于手动版本不可控。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "app/src/main/AndroidManifest.xml",
+              "line_start": 19,
+              "line_end": 24,
+              "symbol": "current-head code/config evidence",
+              "observation": "versionCode 与 versionName 为固定字面量。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_reuse.platform_upgrade",
+          "max_score": 10,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "常规适配",
+          "reason": "10 分档只命中 total≤1；8 分档只命中 total≤3，均不足两项。3 分档命中“无架构专属依赖”与 total≤4，按任意一项立即锁定 3；因此不再评估包含 non-compatible API 的 0 分档。",
+          "evidence": [
+            {
+              "source": "current_head",
+              "path": "platform-bridge/src/main/java/com/android/car/settings/platform/LegacySettingsRuntime.java",
+              "line_start": 18,
+              "line_end": 25,
+              "symbol": "current-head code/config evidence",
+              "observation": "反射 ServiceManager、getDeclaredMethods 和 invoke，故 has_non_compatible_api=true。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "platform-bridge/src/main/java/com/android/car/settings/platform/SettingsPageCoordinator.java",
+              "line_start": 19,
+              "line_end": 23,
+              "symbol": "current-head code/config evidence",
+              "observation": "平台路由由具体类和 Build.HARDWARE 条件完成，没有接口/抽象/策略边界。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head_targeted_scan",
+              "path": "modern-settings/src/main/java/com/android/car/settings/applications/appinfo/HibernationSwitchPreferenceController.java",
+              "line_start": 92,
+              "line_end": 92,
+              "symbol": "current-head code/config evidence",
+              "observation": "唯一 executable VERSION_CODES 命中；定向扫描无 ABI/loadLibrary/CMake 架构专属依赖命中。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            },
+            {
+              "source": "current_head",
+              "path": "app/src/main/java/com/android/car/settings/bluetooth/BluetoothPairingService.java",
+              "line_start": 104,
+              "line_end": 108,
+              "symbol": "current-head code/config evidence",
+              "observation": "运行时创建 NotificationChannel，属于复杂通知适配。",
+              "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_reuse.release_branch_strategy",
+          "max_score": 10,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "单车型单 SOP",
+          "reason": "同一 2024 版本有 model-a1 与 model-b2 两条车型后缀 SOP 分支；A1/B2 manifest 元数据不同，SettingsModelProfile 读取并由 PageCoordinator 消费，属于真实单车型单 SOP。旧 platform/release 分支的未消费 property 不改变该车型级 SOP 事实。",
+          "evidence": [
+            {
+              "source": "git_ref",
+              "path": "app/src/main/AndroidManifest.xml",
+              "line_start": 76,
+              "line_end": 81,
+              "symbol": "git ref evidence",
+              "observation": "MODEL_PROFILE=model-a1，PLATFORM_PROFILE=8155。",
+              "commit": "29e98aef420094c5cec5b5c084fdc5f00f615190",
+              "ref": "refs/heads/sop/2024-model-a1"
+            },
+            {
+              "source": "git_ref",
+              "path": "app/src/main/AndroidManifest.xml",
+              "line_start": 76,
+              "line_end": 81,
+              "symbol": "git ref evidence",
+              "observation": "MODEL_PROFILE=model-b2，PLATFORM_PROFILE=8295；与 A1 tip 的直接 tree 差异即这两个值。",
+              "commit": "676c405af0f6647f07800964a697e3e3015efda0",
+              "ref": "refs/heads/sop/2024-model-b2"
+            },
+            {
+              "source": "git_ref",
+              "path": "platform-bridge/src/main/java/com/android/car/settings/platform/SettingsModelProfile.java",
+              "line_start": 27,
+              "line_end": 53,
+              "symbol": "git ref evidence",
+              "observation": "运行时读取 model/platform manifest metadata。",
+              "commit": "29e98aef420094c5cec5b5c084fdc5f00f615190",
+              "ref": "refs/heads/sop/2024-model-a1"
+            },
+            {
+              "source": "git_ref",
+              "path": "platform-bridge/src/main/java/com/android/car/settings/platform/SettingsPageCoordinator.java",
+              "line_start": 19,
+              "line_end": 22,
+              "symbol": "SettingsPageCoordinator",
+              "observation": "the A1 SOP implementation loads SettingsModelProfile and consumes its model/platform values in live routing/history",
+              "commit": "29e98aef420094c5cec5b5c084fdc5f00f615190",
+              "ref": "refs/heads/sop/2024-model-a1"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        }
+      ],
+      "remote_count": 0,
+      "same_tree_head_replacement": {
+        "previous_head": "c4c999a3a26be7598f46355bbf7f73a49fbd2b1a",
+        "current_head": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+        "tree": "d1303c4e1edec37fb32dcdac82fc3d7028fc7e9d"
+      },
+      "quality_tier": "low",
+      "benchmark_role_match": "supported_by_current_head_evidence"
+    },
+    {
+      "id": "FW-03",
+      "name": "vehicle-hal-adapter",
+      "kind": "FRAMEWORK",
+      "path": "repos/framework/vehicle-hal-adapter",
+      "head": "ec746bb6934e75818babfd48bde4e26ba379074c",
+      "tree": "bef2b4815e710ef6c0aa6543b092c723b81ffa8e",
+      "branch": "main",
+      "worktree_clean": true,
+      "total": {
+        "score": 63,
+        "max": 72
+      },
+      "leaves": [
+        {
+          "name": "architecture.componentization",
+          "max_score": 5,
+          "status": "scored",
+          "score": 5,
+          "rubric_band": "高级组件化",
+          "reason": "The immutable fact set meets more than two top-tier predicates: HAL plus application layers coexist, six production add_subdirectory modules exist, four names match the embedded naming allowlist, the dependency graph is component-friendly, and callback/pure-virtual interface abstractions are present.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/CMakeLists.txt",
+              "line_start": 57,
+              "line_end": 62,
+              "symbol": "current-head code/config evidence",
+              "observation": "Six production ownership subdirectories: common, contract, platform, hal, middleware, application."
+            },
+            {
+              "source": "code",
+              "path": "native/platform/include/fw03/platform/vehicle_transport.h",
+              "line_start": 16,
+              "line_end": 33,
+              "symbol": "current-head code/config evidence",
+              "observation": "Callback structure and pure-virtual transport boundary isolate the platform implementation."
+            },
+            {
+              "source": "code",
+              "path": "native/docs/architecture.md",
+              "line_start": null,
+              "line_end": null,
+              "symbol": "Production ownership section",
+              "observation": "Documents one-way responsibilities for the same six concrete CMake targets; the score is grounded in their build definitions, not the prose alone."
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "architecture.decoupling",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "优秀解耦",
+          "reason": "Top tier is met by the HAL/application base layering, component-friendly acyclic link graph, interface/callback abstraction, and absence of cross-module global-state access. File-local thread state and the process stop flag do not cross module boundaries.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/contract/CMakeLists.txt",
+              "line_start": null,
+              "line_end": null,
+              "symbol": "target_link_libraries declarations",
+              "observation": "Dependencies form common -> contract -> platform -> hal -> middleware -> application, with no reverse link."
+            },
+            {
+              "source": "code",
+              "path": "native/hal/include/fw03/hal/vehicle_hal_adapter.h",
+              "line_start": 31,
+              "line_end": 141,
+              "symbol": "current-head code/config evidence",
+              "observation": "HAL behavior is injected through VehicleTransport, Clock, and TaskExecutor abstractions."
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "architecture.modularization",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "高度模块化",
+          "reason": "No circular link or include dependency was found. Six separate production CMake targets and four standard-named layer modules satisfy the top tier, and each target can be selected independently while CMake builds declared prerequisites transitively.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/CMakeLists.txt",
+              "line_start": 57,
+              "line_end": 66,
+              "symbol": "current-head code/config evidence",
+              "observation": "Production modules are independent add_subdirectory targets; tests are a separately gated subdirectory."
+            },
+            {
+              "source": "code",
+              "path": "native/common/CMakeLists.txt",
+              "line_start": null,
+              "line_end": null,
+              "symbol": "all target declarations",
+              "observation": "Each layer declares its own library or executable and an acyclic explicit dependency set."
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.ci_independence",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "完整标准化 CI/CD 流水线",
+          "reason": "The repository has a complete independent standardized native pipeline: Debug/Release matrix build and JUnit tests, sanitizer validation, coverage plus descriptor-contract validation, and uploaded reports. All three jobs now acquire protoc 25.3 and bind its resolved executable into a CMake configure that rejects every version except exact libprotoc 25.3, so the workflow is no longer dependent on an ambient or Android-system protoc.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": ".github/workflows/native-ci.yml",
+              "line_start": 16,
+              "line_end": 114,
+              "symbol": "current-head code/config evidence",
+              "observation": "Three independent jobs run configure/build/ctest; matrix, sanitizer, coverage, contract generation, JUnit and artifact upload are present."
+            },
+            {
+              "source": "code",
+              "path": ".github/workflows/native-ci.yml",
+              "line_start": 28,
+              "line_end": 87,
+              "symbol": "current-head code/config evidence",
+              "observation": "Each job installs version 25.3 and passes the exact resolved executable to FW03_PROTOC_EXECUTABLE."
+            },
+            {
+              "source": "code",
+              "path": "native/contract/CMakeLists.txt",
+              "line_start": 1,
+              "line_end": 16,
+              "symbol": "current-head code/config evidence",
+              "observation": "Configure fails unless the executable reports exactly libprotoc 25.3."
+            }
+          ],
+          "adjudication": "reviewers 存在分歧或与 current-head 合同判定不一致；本轮按 score-rules 档位顺序和 current HEAD 事实独立裁决为该分值。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.compilation_independence",
+          "max_score": 3,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "版本管理的第三方库",
+          "reason": "生产目标没有外部源码 add_subdirectory 或 BSP include 依赖；测试依赖通过 find_package(GTest 1.14.0 EXACT)，缺包时 FetchContent 固定 v1.14.0 URL 与 SHA-256。合同明确把 FetchContent/版本管理第三方库归 2 分。仓库自身的 project/API 版本与兼容说明不等同于一个被消费的稳定外部 SDK，且 qnx/android_ndk SDK adapter 未实现，因此不能升 3。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/tests/CMakeLists.txt",
+              "line_start": 1,
+              "line_end": 13,
+              "symbol": "GoogleTest dependency resolution",
+              "observation": "GTest 1.14.0 EXACT；fallback 为带固定版本 URL 与 URL_HASH 的 FetchContent。"
+            },
+            {
+              "source": "code",
+              "path": "native/cmake/PlatformSelection.cmake",
+              "line_start": 1,
+              "line_end": 10,
+              "symbol": "fw03_validate_platform",
+              "observation": "qnx/android_ndk 目标需要另行提供合法 SDK 和实现，本 current HEAD 未提供稳定目标 SDK adapter。"
+            }
+          ],
+          "adjudication": "current-head reviewer C 给 3，父提交 A/B 均给 2。native tree 与父提交完全相同；按 score-rules 的依赖类型示例，FetchContent 精确命中 2 分而非 3 分，裁决 2。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.api_version_management",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "版本可控且有兼容性检查",
+          "reason": "Complete major/minor/patch macros and minimum compatible major are enforced in executable compatibility negotiation. CMake project version, VERSION and CHANGELOG agree at 1.0.1, and the IPC documentation states minor/major evolution and rollback rules.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/contract/include/fw03/api/vehicle_hal_api_version.h",
+              "line_start": 8,
+              "line_end": 29,
+              "symbol": "current-head code/config evidence",
+              "observation": "Semantic version macros and minimum-compatible-major are part of the public API."
+            },
+            {
+              "source": "code",
+              "path": "native/contract/src/vehicle_contract.cpp",
+              "line_start": 18,
+              "line_end": 33,
+              "symbol": "current-head code/config evidence",
+              "observation": "NegotiateApiVersion rejects incompatible majors and computes compatible minor/patch values."
+            },
+            {
+              "source": "code",
+              "path": "native/docs/ipc-contract.md",
+              "line_start": 82,
+              "line_end": 90,
+              "symbol": "current-head code/config evidence",
+              "observation": "Compatibility, evolution and rollback rules are explicit."
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_coupling.system_api",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "无业务直调、完全经抽象层",
+          "reason": "All direct socket, credential, filesystem and threading platform calls are confined to native/platform implementations. HAL, middleware and service code use VehicleTransport/VehicleClientIpcServer and neutral contract types, so business logic contains no platform API call.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/platform/src/host_posix_vehicle_transport.cpp",
+              "line_start": null,
+              "line_end": null,
+              "symbol": "production platform implementations",
+              "observation": "Direct POSIX/Linux calls are localized in the adapter module."
+            },
+            {
+              "source": "code",
+              "path": "native/platform/include/fw03/platform/vehicle_transport.h",
+              "line_start": 16,
+              "line_end": 30,
+              "symbol": "current-head code/config evidence",
+              "observation": "Business-facing platform boundaries are pure virtual interfaces and factories."
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_coupling.internal_non_standard_api",
+          "max_score": 3,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "3-10 处集中在适配层",
+          "reason": "An independent filtered count found four non-POSIX/Linux-extension production call sites: two SO_PEERCRED getsockopt sites and two flock sites. Four exceeds the <=3 tier and falls in the 3-10 adapter tier; all are confined to the host adapter, business code has zero direct use, and the SO_PEERCRED sites document a portable versioned-identity migration/fail-closed path.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/platform/src/host_posix_vehicle_transport.cpp",
+              "line_start": 149,
+              "line_end": 182,
+              "symbol": "current-head code/config evidence",
+              "observation": "One SO_PEERCRED site, explicitly localized with a migration note and non-Linux fail-closed behavior."
+            },
+            {
+              "source": "code",
+              "path": "native/platform/src/host_posix_client_ipc_server.cpp",
+              "line_start": 711,
+              "line_end": 1048,
+              "symbol": "current-head code/config evidence",
+              "observation": "Two flock calls and one SO_PEERCRED call, all inside the host adapter."
+            }
+          ],
+          "adjudication": "reviewers 存在分歧或与 current-head 合同判定不一致；本轮按 score-rules 档位顺序和 current HEAD 事实独立裁决为该分值。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_coupling.ipc_interface_standardization",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "全部 IPC 标准化",
+          "reason": "The two socket endpoints use one normative protobuf IDL and versioned envelope mapped to the runtime codec. The contract has per-interface version fields, stable errors, parameters, examples and compatibility/rollback documentation, while descriptor SHA and repeat generation guard schema drift.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/contract/vehicle_hal_contract.proto",
+              "line_start": 3,
+              "line_end": 152,
+              "symbol": "current-head code/config evidence",
+              "observation": "Versioned fw03.vehicle.v1 package defines messages, enums and both VehicleHalContract and VehicleWireContract services."
+            },
+            {
+              "source": "code",
+              "path": "native/docs/ipc-contract.md",
+              "line_start": 3,
+              "line_end": 102,
+              "symbol": "current-head code/config evidence",
+              "observation": "Scope, mapping, parameters, stable errors, example and compatibility/rollback are documented."
+            },
+            {
+              "source": "code",
+              "path": "native/tests/VerifyDescriptor.cmake",
+              "line_start": 1,
+              "line_end": 52,
+              "symbol": "current-head code/config evidence",
+              "observation": "Descriptor baseline SHA, repeated generation and required service/method markers are enforced."
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_reuse.platform_upgrade",
+          "max_score": 10,
+          "status": "scored",
+          "score": 10,
+          "rubric_band": "极速适配",
+          "reason": "Strict 10->8->3->0 evaluation locks at 10. The immutable filtered fact set satisfies all four 10-point predicates: no private/deprecated non-compatible API or single-architecture closed library, total RTOS+BSP+HW bound status is 0, platform behavior is abstracted, and no complex adaptation is embedded in core logic.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/platform/include/fw03/platform/vehicle_transport.h",
+              "line_start": 16,
+              "line_end": 48,
+              "symbol": "current-head code/config evidence",
+              "observation": "Platform transport and callbacks are abstracted behind a target-neutral interface."
+            },
+            {
+              "source": "code",
+              "path": "native/CMakeLists.txt",
+              "line_start": 20,
+              "line_end": 42,
+              "symbol": "current-head code/config evidence",
+              "observation": "generic, sa8155 and sa8295 runtime profiles are configuration-only."
+            },
+            {
+              "source": "code",
+              "path": "native/cmake/PlatformSelection.cmake",
+              "line_start": 1,
+              "line_end": 11,
+              "symbol": "current-head code/config evidence",
+              "observation": "Unsupported target SDK adapters fail closed instead of leaking fake or hard-wired implementations into core code."
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_reuse.release_branch_strategy",
+          "max_score": 10,
+          "status": "scored",
+          "score": 8,
+          "rubric_band": "同平台同一分支",
+          "reason": "A unified main and un-suffixed release/2026.1 exist, but the actual delivery strategy still has separate platform/8155 and platform/8295 branches with different platform.properties (HIDL versus AIDL). This is one shared branch per platform, not one cross-platform release branch, so 8 rather than 10.",
+          "evidence": [
+            {
+              "source": "git_ref",
+              "path": "product/platform.properties",
+              "line_start": 1,
+              "line_end": 2,
+              "symbol": "platform/8155 branch configuration",
+              "observation": "platform/8155 carries vehicle_hal.platform=sa8155 and vehicle_hal.transport=hidl.",
+              "ref": "refs/heads/platform/8155"
+            },
+            {
+              "source": "git_ref",
+              "path": "product/platform.properties",
+              "line_start": 1,
+              "line_end": 2,
+              "symbol": "platform/8295 branch configuration",
+              "observation": "platform/8295 carries vehicle_hal.platform=sa8295 and vehicle_hal.transport=aidl.",
+              "ref": "refs/heads/platform/8295"
+            },
+            {
+              "source": "git_ref",
+              "path": "product/release.properties",
+              "line_start": 1,
+              "line_end": 2,
+              "symbol": "release/2026.1 branch configuration",
+              "observation": "A unified un-suffixed release/2026.1 ref exists alongside the two real per-platform refs.",
+              "ref": "refs/heads/release/2026.1"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "quality.integration_test",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "完整集成测试",
+          "reason": "The current native tree has complete integration evidence: GoogleTest 1.14.0 plus GoogleMock, six compiled test executables and one descriptor schema test, 84/84 passing in both normal and coverage runs, production line coverage 82.5674% (>80%), and current CI runs tests and emits JUnit, coverage and contract artifacts. Branch coverage is lower but the rubric's unqualified >80% threshold is applied to the explicitly enforced line metric.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/tests/CMakeLists.txt",
+              "line_start": 3,
+              "line_end": 107,
+              "symbol": "current-head code/config evidence",
+              "observation": "Exact GoogleTest/GoogleMock configuration, six test executables, descriptor add_test and gtest discovery."
+            },
+            {
+              "source": "code",
+              "path": ".github/workflows/native-ci.yml",
+              "line_start": 17,
+              "line_end": 114,
+              "symbol": "current-head code/config evidence",
+              "observation": "All three current jobs run ctest; JUnit, coverage HTML/XML and descriptor artifacts are generated/uploaded."
+            }
+          ],
+          "adjudication": "reviewers 存在分歧或与 current-head 合同判定不一致；本轮按 score-rules 档位顺序和 current HEAD 事实独立裁决为该分值。",
+          "confidence": "high"
+        },
+        {
+          "name": "solid_principle.single_responsibility",
+          "max_score": 4,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "基本遵循、有改进空间",
+          "reason": "The six-module ownership split is strong, but two central classes still have several independent reasons to change. VehicleHalAdapter combines request correlation, subscription control, reconnect replay, callback epoch control and shutdown; HostPosixClientIpcServer combines endpoint lease/security, listener lifecycle, per-user quotas, worker ownership and session protocol orchestration. This is basic compliance with material refactoring room, not automotive-excellent SRP.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/hal/src/vehicle_hal_adapter.cpp",
+              "line_start": 156,
+              "line_end": 1089,
+              "symbol": "current-head code/config evidence",
+              "observation": "One class implements request, subscription, reconnect, callback and shutdown state machines."
+            },
+            {
+              "source": "code",
+              "path": "native/platform/src/host_posix_client_ipc_server.cpp",
+              "line_start": 467,
+              "line_end": 1192,
+              "symbol": "current-head code/config evidence",
+              "observation": "One server class owns lease/security, endpoint recovery, accept loop, quotas, workers and client sessions."
+            }
+          ],
+          "adjudication": "reviewers 存在分歧或与 current-head 合同判定不一致；本轮按 score-rules 档位顺序和 current HEAD 事实独立裁决为该分值。",
+          "confidence": "medium_high"
+        },
+        {
+          "name": "solid_principle.open_closed",
+          "max_score": 4,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "良好遵循",
+          "reason": "Transport, client-session, access-policy, clock and executor abstractions provide real extension points, and profile selection is configuration-driven. It is not a 4 because adding a new compiled target still requires edits to PlatformSelection/CMake, and new wire message variants require changes to the central codec/dispatch switches.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/platform/include/fw03/platform/vehicle_transport.h",
+              "line_start": null,
+              "line_end": null,
+              "symbol": "pure-virtual interfaces and factories",
+              "observation": "New implementations can be supplied without changing HAL or service call sites."
+            },
+            {
+              "source": "code",
+              "path": "native/application/include/fw03/application/vehicle_client_session.h",
+              "line_start": 16,
+              "line_end": 35,
+              "symbol": "current-head code/config evidence",
+              "observation": "Authorization is extensible through ClientAccessPolicy."
+            },
+            {
+              "source": "code",
+              "path": "native/cmake/PlatformSelection.cmake",
+              "line_start": 1,
+              "line_end": 10,
+              "symbol": "current-head code/config evidence",
+              "observation": "The supported target list and host-only compile selection remain closed-coded edit points."
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "medium_high"
+        },
+        {
+          "name": "solid_principle.liskov_substitution",
+          "max_score": 4,
+          "status": "scored",
+          "score": 4,
+          "rubric_band": "优秀遵循",
+          "reason": "The small polymorphic contracts have virtual destructors and consistent noexcept/result semantics; final production implementations are returned as base pointers, and GoogleMock substitutes the same VehicleTransport contract across the passing integration suite. No derived implementation weakens a base precondition or changes failure semantics in the inspected code.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/platform/include/fw03/platform/vehicle_transport.h",
+              "line_start": 22,
+              "line_end": 48,
+              "symbol": "current-head code/config evidence",
+              "observation": "Virtual destructor and complete abstract transport contract; production factory returns shared_ptr<VehicleTransport>."
+            },
+            {
+              "source": "code",
+              "path": "native/tests/support/mock_vehicle_transport.h",
+              "line_start": 15,
+              "line_end": 105,
+              "symbol": "current-head code/config evidence",
+              "observation": "MockVehicleTransport implements every base operation with matching override/noexcept qualifiers."
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "medium_high"
+        },
+        {
+          "name": "solid_principle.interface_segregation",
+          "max_score": 4,
+          "status": "scored",
+          "score": 4,
+          "rubric_band": "优秀遵循",
+          "reason": "Every production-facing abstract interface has one cohesive role. VehicleTransport, ClientRequestSession, ClientAccessPolicy and Clock callers use the complete role contract. VehicleClientIpcServer's unused status query remains part of the same lifecycle role. TaskExecutor is the only potentially broad surface, but all entries express callback ordering/coalescing policy, default delegation prevents minimal implementations from being forced into dummy overrides, and concrete-only management/metric methods are kept out of the base. No production caller is coupled to unrelated methods, so this reaches excellent-practice 4 rather than merely good-practice 3.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/common/include/fw03/common/clock.h",
+              "line_start": null,
+              "line_end": null,
+              "symbol": "abstract class declarations",
+              "observation": "Interfaces are small and role-focused."
+            },
+            {
+              "source": "code",
+              "path": "native/common/include/fw03/common/task_executor.h",
+              "line_start": 14,
+              "line_end": 43,
+              "symbol": "current-head code/config evidence",
+              "observation": "TaskExecutor carries generic post plus multiple coalescing, generation and connection-control operations."
+            }
+          ],
+          "adjudication": "C 对争议叶回到 current HEAD 逐接口/依赖链复核；修订结果与 A/B 一致，采用。",
+          "confidence": "high"
+        },
+        {
+          "name": "solid_principle.dependency_inversion",
+          "max_score": 4,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "良好遵循",
+          "reason": "The volatile, reliability-sensitive mechanisms are inverted: HAL policy receives transport, clock and execution abstractions; the client listener receives an abstract session factory/session; authorization is a policy abstraction; host concretes are hidden by factories. Concrete construction is concentrated in the composition root rather than scattered through policy code. Three adjacent domain layers still use injected concrete façade references, so the design is good and automotive-maintainable but not uniformly abstract. This supports 3 rather than 2 or 4.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/hal/include/fw03/hal/vehicle_hal_adapter.h",
+              "line_start": 31,
+              "line_end": 141,
+              "symbol": "current-head code/config evidence",
+              "observation": "HAL constructor and members depend on transport, clock and executor abstractions."
+            },
+            {
+              "source": "code",
+              "path": "native/middleware/include/fw03/middleware/vehicle_property_gateway.h",
+              "line_start": 37,
+              "line_end": 112,
+              "symbol": "current-head code/config evidence",
+              "observation": "Gateway depends directly on concrete VehicleHalAdapter."
+            },
+            {
+              "source": "code",
+              "path": "native/application/include/fw03/application/vehicle_service.h",
+              "line_start": 31,
+              "line_end": 85,
+              "symbol": "VehicleService lines 31 and 91; VehicleClientSession lines 44-48 and 85",
+              "observation": "Service and session depend directly on concrete lower-layer classes."
+            }
+          ],
+          "adjudication": "C 对争议叶回到 current HEAD 逐接口/依赖链复核；修订结果与 A/B 一致，采用。",
+          "confidence": "high"
+        }
+      ],
+      "remote_count": 0,
+      "quality_tier": "high",
+      "benchmark_role_match": "supported_by_current_head_evidence"
+    },
+    {
+      "id": "FW-08",
+      "name": "soa-gateway",
+      "kind": "FRAMEWORK",
+      "path": "repos/framework/soa-gateway",
+      "head": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9",
+      "tree": "690be1735940b758fa33d03a5717663bfd4a0016",
+      "branch": "main",
+      "worktree_clean": true,
+      "total": {
+        "score": 52,
+        "max": 72
+      },
+      "leaves": [
+        {
+          "name": "architecture.componentization",
+          "max_score": 5,
+          "status": "scored",
+          "score": 5,
+          "rubric_band": "高级组件化",
+          "reason": "从 5 分档向下判定：module_count=5 满足 module_count>=3；IpcTransport/回调边界使 has_interface_abstraction=true；此外 is_component_friendly=true。高档任意两条已满足，锁定 5 分。HAL+application 基础双层为 false、规范命名模块仅 common/application 两个，不用于虚增条件。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/CMakeLists.txt",
+              "line_start": 67,
+              "line_end": 71,
+              "symbol": "production add_subdirectory list",
+              "observation": "五个非测试生产子模块 common/contract/transport/broker/application 被显式加入。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/transport/include/fw08/transport/ipc_transport.h",
+              "line_start": 25,
+              "line_end": 38,
+              "symbol": "IpcTransport",
+              "observation": "纯虚传输边界及帧/断连回调把平台传输行为抽象为接口。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "architecture.decoupling",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "优秀解耦",
+          "reason": "3 分档任意两条满足：is_component_friendly=true；has_interface_abstraction=true；未发现跨模块直接访问外部全局状态。模块依赖按 application→broker→transport→contract/common 单向声明，因此锁定 3 分。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/broker/include/fw08/broker/soa_broker.h",
+              "line_start": 23,
+              "line_end": 25,
+              "symbol": "SoaBroker::SoaBroker",
+              "observation": "Broker 通过 IpcTransport 抽象和 payload store 构造注入，而非在业务方法中调用平台函数。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/broker/include/fw08/broker/soa_broker.h",
+              "line_start": 56,
+              "line_end": 65,
+              "symbol": "SoaBroker private collaborators",
+              "observation": "provider registry、dependency graph、router 分别封装为私有协作者，没有暴露跨模块全局变量。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "architecture.modularization",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "高度模块化",
+          "reason": "先执行一票否决：生产 include/link 图无循环，has_circular_dependency=false。3 分档中 module_count>=3、is_component_friendly=true、每个生产模块有独立 CMake library/executable target，至少两条满足，锁定 3 分。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/common/CMakeLists.txt",
+              "line_start": 1,
+              "line_end": 6,
+              "symbol": "fw08_common target",
+              "observation": "common 是独立静态库 target。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/transport/CMakeLists.txt",
+              "line_start": 1,
+              "line_end": 12,
+              "symbol": "fw08_soa_transport target",
+              "observation": "transport 独立成 target，仅向下链接 contract/common/Threads。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/application/CMakeLists.txt",
+              "line_start": 1,
+              "line_end": 14,
+              "symbol": "fw08_soa_service and soa_gateway_daemon targets",
+              "observation": "application library 与 daemon 均为显式 target，依赖方向没有回链到底层模块。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.ci_independence",
+          "max_score": 3,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "独立但非标准流水线",
+          "reason": "APP_BUILD 是独立 host CMake/Ninja/CTest 入口，不依赖 Android 系统层 CI，因此高于 1 分；仓内没有 GitHub Actions、GitLab CI、Jenkins 或 Azure pipeline，也没有发布/部署阶段，不能认定完整标准化 CI/CD，定 2 分。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "APP_BUILD",
+              "line_start": 9,
+              "line_end": 16,
+              "symbol": "standalone native build/test pipeline",
+              "observation": "脚本配置 host_posix、构建并执行 ctest。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/CMakePresets.json",
+              "line_start": 16,
+              "line_end": 59,
+              "symbol": "host and coverage presets",
+              "observation": "debug/release/coverage 构建和测试预设存在，但不是托管 CI/CD 编排文件。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.compilation_independence",
+          "max_score": 3,
+          "status": "scored",
+          "score": 0,
+          "rubric_band": "外部源码依赖",
+          "reason": "严格按嵌入式编译独立性口径，tests/CMakeLists.txt 在找不到 GTest package 时把调用方提供的外部 GoogleTest 源码目录通过 add_subdirectory 编入构建；APP_BUILD 又强制要求该源码目录。该事实直接命中 0 分“外部源码目录编译/源码依赖”，即使它检查 1.14.0 版本也不能改写依赖形态。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/tests/CMakeLists.txt",
+              "line_start": 1,
+              "line_end": 29,
+              "symbol": "GoogleTest dependency resolution",
+              "observation": "fallback 对 FW08_GTEST_SOURCE_DIR 做版本检查后以 add_subdirectory 编译外部源码。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "APP_BUILD",
+              "line_start": 4,
+              "line_end": 14,
+              "symbol": "FW08_GTEST_SOURCE_DIR requirement",
+              "observation": "标准构建入口要求调用方提供 GoogleTest 1.14.0 源码目录并开启 BUILD_TESTING。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.api_version_management",
+          "max_score": 3,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "语义化版本",
+          "reason": "API 头文件具有完整 MAJOR/MINOR/PATCH 语义化版本宏，CMake project/VERSION/CHANGELOG 也一致，满足 2 分。3 分要求代码中的版本兼容性检查；DecodeHeader 只解析版本，OpenSession 只保存 peer version，没有 major/minor 条件判断，kVersionMismatch 未被生产逻辑使用，故不得给 3 分。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/contract/include/fw08/api/soa_api_version.h",
+              "line_start": 5,
+              "line_end": 13,
+              "symbol": "FW08_SOA_API_VERSION_* and ApiVersion",
+              "observation": "定义 1.5.0 的完整语义化版本宏与结构体默认值。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/contract/src/wire_codec.cpp",
+              "line_start": 76,
+              "line_end": 94,
+              "symbol": "DecodeHeader",
+              "observation": "解析 peer major/minor/patch 后只校验 magic 和 operation，没有兼容性分支。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/application/src/soa_gateway_service.cpp",
+              "line_start": 146,
+              "line_end": 163,
+              "symbol": "SoaGatewayService::OpenSession",
+              "observation": "会话直接保存传入版本，没有 major/minor 兼容性拒绝或降级判断。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_coupling.system_api",
+          "max_score": 3,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "无业务直调、完全经抽象层",
+          "reason": "按 FW 口径扫描生产 C/C++，QNX MsgSend/MsgReceive、RTOS task/semaphore、BSP/HAL 私有初始化直接调用为 0。host-POSIX 调用全部位于 native/transport，application/broker/contract 业务代码没有平台函数调用，且 fabric 经 IpcTransport 抽象，因此满足“平台依赖封装在独立模块、业务逻辑无直接调用”的 3 分档。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/transport/include/fw08/transport/ipc_transport.h",
+              "line_start": 25,
+              "line_end": 38,
+              "symbol": "IpcTransport",
+              "observation": "业务可见的是抽象传输契约，而不是 QNX/RTOS/BSP API。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/transport/src/unix_socket_transport.cpp",
+              "line_start": 184,
+              "line_end": 223,
+              "symbol": "UnixSocketTransport::Impl::StartLocked",
+              "observation": "socket/connect/SO_PEERCRED 平台操作集中在 transport 的 host adapter 实现中。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_coupling.internal_non_standard_api",
+          "max_score": 3,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "3-10 处集中在适配层",
+          "reason": "阈值按具体非 POSIX/Linux 专属调用点计数为 5：accept4 1、pthread_setname_np 2、getsockopt(SO_PEERCRED) 2；无 internal/private 头、deprecated 调用或下划线内部函数。5 处均集中在 transport 适配层，业务模块不直调，并有 accept fallback/IpcTransport 迁移边界，严格落入 3-10 处集中适配层的 1 分档。另记录 14 个更宽的可移植性敏感源码 token 和 1 个 _GNU_SOURCE 构建点，但不把 flag token 重复计成 API 调用点。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/transport/src/unix_gateway_server.cpp",
+              "line_start": 293,
+              "line_end": 304,
+              "symbol": "UnixGatewayServer::Impl::AcceptLoop",
+              "observation": "包含 pthread_setname_np 与 accept4；非 Linux 分支回退到 accept。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/transport/src/unix_gateway_server.cpp",
+              "line_start": 319,
+              "line_end": 321,
+              "symbol": "SO_PEERCRED lookup",
+              "observation": "第一个 getsockopt(SO_PEERCRED) server-side 调用点。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/transport/src/unix_socket_transport.cpp",
+              "line_start": 220,
+              "line_end": 225,
+              "symbol": "SO_PEERCRED lookup",
+              "observation": "第二个 getsockopt(SO_PEERCRED) client-side 调用点。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/transport/src/unix_socket_transport.cpp",
+              "line_start": 261,
+              "line_end": 263,
+              "symbol": "UnixSocketTransport::Impl::ReceiveLoop",
+              "observation": "第二个 pthread_setname_np 调用点。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_coupling.ipc_interface_standardization",
+          "max_score": 3,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "主要接口有 IDL（>=70%）",
+          "reason": "C++ wire enum 有 13 个操作，proto IDL 只定义 1-11，缺少 ReloadRoutingPolicy=12 与 QueryTransportHealth=13；IDL 操作覆盖 11/13=84.6%，仍高于 70%。IDL 有 ApiVersion、字段号和稳定错误码，文档说明描述/参数/错误/示例/兼容策略，但文档同样只列到 11，故满足 2 分“主要接口有 IDL、部分缺定义/版本文档”，不能给全部标准化的 3 分。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/contract/include/fw08/api/wire_codec.h",
+              "line_start": 15,
+              "line_end": 29,
+              "symbol": "fw08::api::Operation",
+              "observation": "生产线协议枚举共 13 个操作，末两项为 reload policy 与 transport health。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/contract/soa_gateway.proto",
+              "line_start": 4,
+              "line_end": 18,
+              "symbol": "ApiVersion and WireOperation",
+              "observation": "IDL 含版本并只列出操作 1-11，未列 12/13。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/docs/ipc-contract.md",
+              "line_start": 10,
+              "line_end": 16,
+              "symbol": "wire operation documentation",
+              "observation": "文档列出并解释 1-11、请求关联与错误处理，但缺新增 12/13。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_reuse.platform_upgrade",
+          "max_score": 10,
+          "status": "scored",
+          "score": 10,
+          "rubric_band": "极速适配",
+          "reason": "严格采用唯一事实集按 10→8→3→0 判定。has_non_compatible_api=true，has_arch_specific_deps=false；RTOS/BSP/HW status 均为 0，total=0；IpcTransport 使 has_interface_abstraction=true；只有 host_posix 被实现，迁移目标需新 adapter，因此 has_complex_adaptation=true。10 分档四条中②total<=1与③接口抽象两条满足，达到“任意 2 条”后立即锁定 10 分；不得再用后续 0 分档的 non-compatible 条件回头覆盖。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/cmake/PlatformSelection.cmake",
+              "line_start": 1,
+              "line_end": 8,
+              "symbol": "fw08_validate_platform",
+              "observation": "声明 host_posix/android_ndk/qnx，但当前只允许已检入的 host_posix，其他目标需独立 SDK/adapter。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/transport/include/fw08/transport/ipc_transport.h",
+              "line_start": 25,
+              "line_end": 38,
+              "symbol": "IpcTransport",
+              "observation": "平台传输有可替换接口抽象，满足 10 分档接口条件。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/transport/src/unix_gateway_server.cpp",
+              "line_start": 293,
+              "line_end": 321,
+              "symbol": "Linux-specific gateway adapter calls",
+              "observation": "non-compatible API 为 true 的代码事实；它不改变高到低锁档顺序。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_reuse.release_branch_strategy",
+          "max_score": 10,
+          "status": "scored",
+          "score": 8,
+          "rubric_band": "同平台同一分支",
+          "reason": "真实 refs 同时存在统一 main、develop、release/2026.1，也保留 platform/8155 与 platform/8295 两条平台分支。没有车型级 SOP 后缀分支，因此高于 3；但仍按平台拆分持久 refs，不符合“跨平台只用单一无后缀分支”的 10 分条件，按同平台共用一分支定 8 分。当前各 native tree 已包含 8155/8295 profile，不据此忽略真实分支拆分。",
+          "evidence": [
+            {
+              "source": "git",
+              "path": "refs/heads/platform/8155",
+              "line_start": 1,
+              "line_end": 1,
+              "symbol": "platform/8155",
+              "observation": "真实平台分支指向 c79cded97d4f7e7605232d739c92180c5df8c062。",
+              "commit": "c79cded97d4f7e7605232d739c92180c5df8c062"
+            },
+            {
+              "source": "git",
+              "path": "refs/heads/platform/8295",
+              "line_start": 1,
+              "line_end": 1,
+              "symbol": "platform/8295",
+              "observation": "真实平台分支指向 df09b062ef966586b520edc6268d0fcb59c18ffe。",
+              "commit": "df09b062ef966586b520edc6268d0fcb59c18ffe"
+            },
+            {
+              "source": "git",
+              "path": "refs/heads/release/2026.1",
+              "line_start": 1,
+              "line_end": 1,
+              "symbol": "release/2026.1",
+              "observation": "统一 release 分支存在并指向 d39721daa46ab21dae568b6325e9bb5b17d3c162。",
+              "commit": "d39721daa46ab21dae568b6325e9bb5b17d3c162"
+            },
+            {
+              "source": "code",
+              "path": "native/CMakeLists.txt",
+              "line_start": 24,
+              "line_end": 25,
+              "symbol": "FW08_PLATFORM_PROFILE",
+              "observation": "同一源码树通过 default/8155/8295 profile 选择配置，但 Git refs 仍按平台保留。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "high"
+        },
+        {
+          "name": "quality.integration_test",
+          "max_score": 3,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "主要交互覆盖 >=50%",
+          "reason": "GTest 1.14/GMock 配置完整，9 个测试 executable 经 gtest_discover_tests 加入 CTest，并有 schema conformance test。两份允许读取的 JUnit 均为 45/45 通过；覆盖结果为 1840/2127 行=86.5%，主要 broker/transport/application 交互超过 50%，且 MockIpcTransport 隔离外部传输，满足 2 分。仓内 APP_BUILD 只执行 ctest，没有 Jenkins/GitHub/GitLab test job，也没有 JUnit/gcovr 报告输出命令；外部原始报告本身不等于仓内自动报告流水线，因此不能给 3 分。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/tests/CMakeLists.txt",
+              "line_start": 48,
+              "line_end": 90,
+              "symbol": "integration test targets and CTest registration",
+              "observation": "九个 GTest executables 和 schema descriptor conformance test 被注册。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/tests/support/mock_ipc_transport.h",
+              "line_start": 3,
+              "line_end": 24,
+              "symbol": "MockIpcTransport",
+              "observation": "GoogleMock 完整实现 IpcTransport，用于隔离传输依赖。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "medium"
+        },
+        {
+          "name": "solid_principle.single_responsibility",
+          "max_score": 4,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "基本遵循、有改进空间",
+          "reason": "底层 registry、dependency graph、router、transport、codec 已分离，但 SoaGatewayService 同时承担生命周期/重连、会话、provider/subscription、路由策略和 transport health；GatewayRequestDispatcher 又集中 peer identity、session ownership、decode、全部 operation 分发及回调交付。两处核心类都有多个独立变化原因，属于基本遵循且有实质拆分空间，定 2 分。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/application/include/fw08/application/soa_gateway_service.h",
+              "line_start": 22,
+              "line_end": 113,
+              "symbol": "SoaGatewayService",
+              "observation": "同一类暴露并持有 lifecycle、session、provider/subscription、policy、health 与 reconnect 状态。"
+            },
+            {
+              "source": "code",
+              "path": "native/application/src/gateway_request_dispatcher.cpp",
+              "line_start": 32,
+              "line_end": 230,
+              "symbol": "GatewayRequestDispatcher::State",
+              "observation": "同一 dispatcher 绑定 peer/session、解析请求、分发全部 operation 并交付回调。"
+            }
+          ],
+          "adjudication": "A=3、B=2。回到 current HEAD 检查两个核心类的完整责任面后，问题不只是轻微 facade 过宽，而是两个中心类都混合多条可靠性敏感变化轴；采用 2 分。",
+          "confidence": "medium_high"
+        },
+        {
+          "name": "solid_principle.open_closed",
+          "max_score": 4,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "基本遵循、有改进空间",
+          "reason": "IpcTransport 为新增 transport adapter 提供扩展点，体现基本 OCP；但每增加 wire operation 都必须修改 Operation enum、GatewayRequestDispatcher 的集中 switch、codec/IDL/docs，routing profile 也通过 if 分支扩展。整体基本遵循但仍依赖多点修改，定 2 分。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/transport/include/fw08/transport/ipc_transport.h",
+              "line_start": 25,
+              "line_end": 38,
+              "symbol": "IpcTransport",
+              "observation": "新 transport 可以通过实现抽象扩展而不改 broker。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/application/src/gateway_request_dispatcher.cpp",
+              "line_start": 88,
+              "line_end": 189,
+              "symbol": "GatewayRequestDispatcher::State::Handle switch",
+              "observation": "所有请求 operation 在一个 switch 中分发，新增 operation 需修改核心分支。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "medium_high"
+        },
+        {
+          "name": "solid_principle.liskov_substitution",
+          "max_score": 4,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "良好遵循",
+          "reason": "现有继承链规范：IpcTransport 有虚析构与完整纯虚契约，UnixSocketTransport 对全部方法使用 override，MockIpcTransport 也可替换用于测试，未观察到削弱前置条件或空实现。未给 4 分，因为抽象仍含 EndpointPath/PeerUserId 等 host 语义，且当前只有一个生产实现，跨 QNX/RTOS 替换契约尚未由生产 adapter 验证。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/transport/include/fw08/transport/ipc_transport.h",
+              "line_start": 25,
+              "line_end": 38,
+              "symbol": "IpcTransport",
+              "observation": "虚析构和所有操作均为纯虚，但接口包含 host-oriented EndpointPath/PeerUserId。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/transport/include/fw08/transport/unix_socket_transport.h",
+              "line_start": 11,
+              "line_end": 28,
+              "symbol": "UnixSocketTransport",
+              "observation": "final 派生类完整 override 基类操作。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/tests/support/mock_ipc_transport.h",
+              "line_start": 8,
+              "line_end": 24,
+              "symbol": "MockIpcTransport",
+              "observation": "测试替身也覆盖全部契约，证明当前消费者可依赖基类。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "medium_high"
+        },
+        {
+          "name": "solid_principle.interface_segregation",
+          "max_score": 4,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "基本遵循、有改进空间",
+          "reason": "ProviderRegistry/PacketRouter 等小接口职责聚焦，但 IpcTransport 把 lifecycle、send/reconnect、callbacks、endpoint identity、health counters/reset 共 11 项放在一个接口；SoaBroker 只需其中一部分却依赖完整接口。项目基本遵循 ISP、仍有明确瘦身空间，定 2 分。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/transport/include/fw08/transport/ipc_transport.h",
+              "line_start": 28,
+              "line_end": 38,
+              "symbol": "IpcTransport method set",
+              "observation": "单一接口混合传输、生命周期、监控、endpoint/identity 共 11 个方法。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/broker/include/fw08/broker/soa_broker.h",
+              "line_start": 23,
+              "line_end": 31,
+              "symbol": "SoaBroker transport dependency",
+              "observation": "Broker 的公开行为只使用启动/停止/重连/handler/epoch 等子集，却接收完整 IpcTransport。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "medium_high"
+        },
+        {
+          "name": "solid_principle.dependency_inversion",
+          "max_score": 4,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "基本遵循、有改进空间",
+          "reason": "SoaBroker 依赖 IpcTransport 抽象并接受构造注入，体现 DIP；但 GatewayRuntime 在构造函数中直接创建 UnixSocketTransport、UnixGatewayServer、SharedMemoryPayloadStore 等具体对象，SoaGatewayService 还直接持有 UnixSocketTransport，平台组合与业务 facade 未完全依赖抽象，故定 2 分。",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/broker/include/fw08/broker/soa_broker.h",
+              "line_start": 23,
+              "line_end": 25,
+              "symbol": "SoaBroker::SoaBroker",
+              "observation": "核心 broker 通过 IpcTransport 抽象注入。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            },
+            {
+              "source": "code",
+              "path": "native/application/src/gateway_runtime.cpp",
+              "line_start": 16,
+              "line_end": 28,
+              "symbol": "GatewayRuntime::GatewayRuntime",
+              "observation": "高层运行时直接 new 多个 Unix/具体实现并组装对象图。",
+              "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9"
+            }
+          ],
+          "adjudication": "独立 reviewers 分值一致；本轮按 score-rules 重新核对 current HEAD 事实后采纳。",
+          "confidence": "medium_high"
+        }
+      ],
+      "remote_count": 0,
+      "quality_tier": "medium",
+      "benchmark_role_match": "supported_by_current_head_evidence"
+    },
+    {
+      "id": "FW-19",
+      "name": "can-middleware",
+      "kind": "FRAMEWORK",
+      "path": "repos/framework/can-middleware",
+      "head": "79994c9b00513768f4774e472d03e288490aa982",
+      "tree": "6b48ea328d25b2eee10e6e4058ec0a1c64cedcf1",
+      "branch": "main",
+      "worktree_clean": true,
+      "total": {
+        "score": 34,
+        "max": 72
+      },
+      "leaves": [
+        {
+          "name": "architecture.componentization",
+          "max_score": 5,
+          "status": "scored",
+          "score": 5,
+          "rubric_band": "高级组件化",
+          "reason": "three of five high-tier conditions match; any two lock 5",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/CMakeLists.txt",
+              "line_start": 35,
+              "line_end": 40,
+              "symbol": "current-head code/config evidence",
+              "observation": "six production CMake subdirectories",
+              "ref": "HEAD"
+            },
+            {
+              "source": "code",
+              "path": "native/driver/include/fw19/driver/can_bus_driver.h",
+              "line_start": 15,
+              "line_end": 27,
+              "symbol": "current-head code/config evidence",
+              "observation": "function-pointer interface abstraction",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "仅有一份 reviewer 分值；本轮独立回到 current HEAD 代码、Git refs 与允许的 raw 验证材料复核后裁决。",
+          "confidence": "high"
+        },
+        {
+          "name": "architecture.decoupling",
+          "max_score": 3,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "良好解耦",
+          "reason": "only one excellent-tier condition matches; three good-tier conditions match, so 2",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/middleware/include/fw19/middleware/runtime_state.h",
+              "line_start": 9,
+              "line_end": 23,
+              "symbol": "current-head code/config evidence",
+              "observation": "lower module includes application header and exports a mutable global",
+              "ref": "HEAD"
+            },
+            {
+              "source": "code",
+              "path": "native/application/src/can_gateway_service.c",
+              "line_start": 44,
+              "line_end": 289,
+              "symbol": "current-head code/config evidence",
+              "observation": "application directly reads and mutates the middleware-owned global",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "仅有一份 reviewer 分值；本轮独立回到 current HEAD 代码、Git refs 与允许的 raw 验证材料复核后裁决。",
+          "confidence": "high"
+        },
+        {
+          "name": "architecture.modularization",
+          "max_score": 3,
+          "status": "scored",
+          "score": 0,
+          "rubric_band": "循环依赖一票否决/无结构",
+          "reason": "the real include cycle triggers the mandatory 0-point veto before normal tier checks",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/application/include/fw19/application/can_gateway_service.h",
+              "line_start": 14,
+              "line_end": 14,
+              "symbol": "current-head code/config evidence",
+              "observation": "includes runtime_state.h",
+              "ref": "HEAD"
+            },
+            {
+              "source": "code",
+              "path": "native/middleware/include/fw19/middleware/runtime_state.h",
+              "line_start": 9,
+              "line_end": 9,
+              "symbol": "current-head code/config evidence",
+              "observation": "includes can_gateway_service.h",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "仅有一份 reviewer 分值；本轮独立回到 current HEAD 代码、Git refs 与允许的 raw 验证材料复核后裁决。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.ci_independence",
+          "max_score": 3,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "独立但非标准流水线",
+          "reason": "independent CI exists, but build plus smoke-test only is not a complete standardized CI/CD pipeline",
+          "evidence": [
+            {
+              "source": "code",
+              "path": ".github/workflows/native-ci.yml",
+              "line_start": 17,
+              "line_end": 28,
+              "symbol": "current-head code/config evidence",
+              "observation": "one Ubuntu job configures, builds and runs ctest; no delivery or report publication",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "仅有一份 reviewer 分值；本轮独立回到 current HEAD 代码、Git refs 与允许的 raw 验证材料复核后裁决。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.compilation_independence",
+          "max_score": 3,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "BSP 头文件/静态库依赖",
+          "reason": "production targets include and link the repository BSP directly, which matches the 1-point BSP dependency tier; pinned GTest is test-only",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/driver/CMakeLists.txt",
+              "line_start": 6,
+              "line_end": 22,
+              "symbol": "current-head code/config evidence",
+              "observation": "driver directly adds ../bsp/include and links fw19_can_bsp",
+              "ref": "HEAD"
+            },
+            {
+              "source": "code",
+              "path": "native/tests/CMakeLists.txt",
+              "line_start": 3,
+              "line_end": 13,
+              "symbol": "current-head code/config evidence",
+              "observation": "test-only GTest 1.14.0 is pinned by URL and SHA-256",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "仅有一份 reviewer 分值；本轮独立回到 current HEAD 代码、Git refs 与允许的 raw 验证材料复核后裁决。",
+          "confidence": "high"
+        },
+        {
+          "name": "compilation.api_version_management",
+          "max_score": 3,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "手动版本、无自动化",
+          "reason": "1分。API 仅以单个手工整数宏管理；major/minor/patch 是结构体字段并由 14U 算术拆分，不是齐全的语义化版本宏。CMake project() 没有 VERSION，也没有 configure_file、git describe 或 version.cmake 自动化。代码虽做运行时版本检查，但只接受 1.4.0 并拒绝 1.5.0/2.0.0，文档还明确版本变化要求客户端与服务协调部署；这是精确相等门禁，不是前后兼容。因此不能升至2分或3分。独立的 IPC wire 单值版本不补足 API 的 MAJOR/MINOR/PATCH 语义化管理。",
+          "evidence": [
+            {
+              "path": "native/contract/include/fw19/api/can_api_version.h",
+              "line_start": 11,
+              "line_end": 28,
+              "observation": "唯一 API 版本宏为14U；结构体三字段由该整数拆分。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/contract/src/can_gateway_contract.c",
+              "line_start": 5,
+              "line_end": 8,
+              "observation": "兼容检查为 major*10+minor 的精确相等且 patch 必须为0。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/tests/can_service_callback_test.c",
+              "line_start": 70,
+              "line_end": 76,
+              "observation": "测试只接受1.4.0，拒绝1.1.9、1.5.0和2.0.0。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/CMakeLists.txt",
+              "line_start": 1,
+              "line_end": 4,
+              "observation": "project(fw19_can_middleware LANGUAGES C CXX) 未声明 VERSION。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/docs/ipc-contract.md",
+              "line_start": 14,
+              "line_end": 14,
+              "observation": "文档称手工版本被精确比较，变化需要客户端与服务协调部署。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/contract/include/fw19/api/can_ipc_wire.h",
+              "line_start": 14,
+              "line_end": 14,
+              "observation": "另有 IPC wire 单值版本1U，但不是 API 语义化三宏。",
+              "symbol": "evidence"
+            }
+          ],
+          "adjudication": "独立 E 未读取既有评分并回到 current HEAD 定点复核；与 B 修订结论一致，采用。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_coupling.system_api",
+          "max_score": 3,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "适配层不完全、业务仍少量直调",
+          "reason": "seven RTOS-style osMutex calls remain in runtime/application business code; 5-15 calls with incomplete adapter isolation maps to 1",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/middleware/src/can_runtime.c",
+              "line_start": 82,
+              "line_end": 283,
+              "symbol": "current-head code/config evidence",
+              "observation": "five osMutex wrapper call sites",
+              "ref": "HEAD"
+            },
+            {
+              "source": "code",
+              "path": "native/application/src/can_gateway_service.c",
+              "line_start": 104,
+              "line_end": 115,
+              "symbol": "current-head code/config evidence",
+              "observation": "two osMutex wrapper call sites",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "仅有一份 reviewer 分值；本轮独立回到 current HEAD 代码、Git refs 与允许的 raw 验证材料复核后裁决。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_coupling.internal_non_standard_api",
+          "max_score": 3,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "3-10 处集中在适配层",
+          "reason": "the eight call sites are concentrated in the driver adapter behind an interface, matching the 3-10 concentrated-adapter tier; the absent migration note prevents any stronger interpretation",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/driver/src/socketcan_driver.c",
+              "line_start": 18,
+              "line_end": 374,
+              "symbol": "current-head code/config evidence",
+              "observation": "includes soc_8155_can_private.h and invokes eight private functions",
+              "ref": "HEAD"
+            },
+            {
+              "source": "code",
+              "path": "native/driver/include/fw19/driver/can_bus_driver.h",
+              "line_start": 15,
+              "line_end": 27,
+              "symbol": "current-head code/config evidence",
+              "observation": "private implementation is behind a driver function table",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "仅有一份 reviewer 分值；本轮独立回到 current HEAD 代码、Git refs 与允许的 raw 验证材料复核后裁决。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_coupling.ipc_interface_standardization",
+          "max_score": 3,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "部分接口定义（30%-70%）",
+          "reason": "3 of 6 gateway operations have protobuf IDL; 50% falls in the 30%-70% partial-definition tier and the remaining fixed C wire lacks generated compatibility checks",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/contract/include/fw19/api/can_gateway_contract.h",
+              "line_start": 13,
+              "line_end": 20,
+              "symbol": "current-head code/config evidence",
+              "observation": "six gateway operations",
+              "ref": "HEAD"
+            },
+            {
+              "source": "code",
+              "path": "native/contract/can_gateway.proto",
+              "line_start": 6,
+              "line_end": 11,
+              "symbol": "current-head code/config evidence",
+              "observation": "IDL defines ReadSignal, WriteSignal and SendFrame only",
+              "ref": "HEAD"
+            },
+            {
+              "source": "code",
+              "path": "native/docs/ipc-contract.md",
+              "line_start": 3,
+              "line_end": 14,
+              "symbol": "current-head code/config evidence",
+              "observation": "documents missing protobuf coverage and manual coordinated versioning",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "仅有一份 reviewer 分值；本轮独立回到 current HEAD 代码、Git refs 与允许的 raw 验证材料复核后裁决。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_reuse.platform_upgrade",
+          "max_score": 10,
+          "status": "scored",
+          "score": 8,
+          "rubric_band": "快速适配",
+          "reason": "8分。application/middleware 中7处 CMSIS osMutex 直调跨两个业务模块，属于多模块直调，rtos_bound_status=2，且不在统一适配层内，不能被 driver ops 豁免到1。driver 内8处 soc_8155_can_private_* 直调使 has_non_compatible_api=true；这些调用集中在 driver，外部经7方法函数指针表解耦，所以 has_interface_abstraction=true，但该抽象不能把非兼容API布尔事实改为false。源码没有单架构闭源库，has_arch_specific_deps=false。当前 CMake 明确只有 host_posix/SocketCAN，其他目标需另供适配器，加上核心中直接 RTOS 调用与 8155 driver hooks，迁移不是仅改时钟/引脚配置，故 light=false、complex=true。10分档只命中接口抽象1条；8分档命中 total<=3 与接口抽象2条，按强制顺序锁定8分。",
+          "evidence": [
+            {
+              "path": "native/application/src/can_gateway_service.c",
+              "line_start": 104,
+              "line_end": 115,
+              "observation": "application 两处 osMutexAcquire/Release 直调。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/middleware/src/can_runtime.c",
+              "line_start": 77,
+              "line_end": 85,
+              "observation": "middleware 两处 osMutexAcquire/Release 直调。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/middleware/src/can_runtime.c",
+              "line_start": 272,
+              "line_end": 283,
+              "observation": "middleware 另有三处 osMutexAcquire/Release 直调；两模块合计7处。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/driver/src/socketcan_driver.c",
+              "line_start": 89,
+              "line_end": 110,
+              "observation": "8155 private mark_online/shutdown 调用。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/driver/src/socketcan_driver.c",
+              "line_start": 141,
+              "line_end": 228,
+              "observation": "8155 private before/record tx/rx 与 recovery 五处调用。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/driver/src/socketcan_driver.c",
+              "line_start": 362,
+              "line_end": 380,
+              "observation": "8155 平台字符串选择、private prepare 第八处调用，并选择 ops 表。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/driver/include/fw19/driver/can_bus_driver.h",
+              "line_start": 15,
+              "line_end": 28,
+              "observation": "7方法 driver ops 函数指针表及 context 抽象。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/cmake/PlatformSelection.cmake",
+              "line_start": 1,
+              "line_end": 13,
+              "observation": "源码快照仅提供 host_posix；android_ndk/qnx 需要另供许可适配器。",
+              "symbol": "evidence"
+            }
+          ],
+          "adjudication": "独立 E 按枚举字面将跨 application/middleware 的 RTOS 直调定为 status=2（多模块直调），不是 status=3（核心链路深度绑定）；即使把 8155 private driver 另计并受接口 cap，total 仍≤3。8 分档命中 total≤3 与接口抽象两项后锁定。该 current-head 事实裁决优先于 B 的3分。",
+          "confidence": "high"
+        },
+        {
+          "name": "platform_reuse.release_branch_strategy",
+          "max_score": 10,
+          "status": "scored",
+          "score": 3,
+          "rubric_band": "单车型单 SOP",
+          "reason": "the three real SOP refs carry vehicle/variant suffixes and distinct vehicle-specific config deltas, so the finest single-vehicle SOP tier controls despite a unified main",
+          "evidence": [
+            {
+              "source": "git_ref",
+              "path": "refs/heads/sop/2026.1-8155-a1",
+              "line_start": 1,
+              "line_end": 1,
+              "symbol": "local branch ref",
+              "observation": "8155 A1-specific frame calibration",
+              "ref": "refs/heads/sop/2026.1-8155-a1"
+            },
+            {
+              "source": "git_ref",
+              "path": "refs/heads/sop/2026.1-8155-a2",
+              "line_start": 1,
+              "line_end": 1,
+              "symbol": "local branch ref",
+              "observation": "8155 A2-specific bitrate",
+              "ref": "refs/heads/sop/2026.1-8155-a2"
+            },
+            {
+              "source": "git_ref",
+              "path": "refs/heads/sop/2026.1-8295-b1",
+              "line_start": 1,
+              "line_end": 1,
+              "symbol": "local branch ref",
+              "observation": "8295 B1-specific diagnostic frame",
+              "ref": "refs/heads/sop/2026.1-8295-b1"
+            }
+          ],
+          "adjudication": "仅有一份 reviewer 分值；本轮独立回到 current HEAD 代码、Git refs 与允许的 raw 验证材料复核后裁决。",
+          "confidence": "high"
+        },
+        {
+          "name": "quality.integration_test",
+          "max_score": 3,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "主要模块交互覆盖≥50%",
+          "reason": "2分。不能把48.0637%的行覆盖直接当作“主要模块交互覆盖”。按显式边界清单，10条主要运行时/模块边界中6条被直接测试，交互覆盖60%；CTest/add_test 配置完整，GMock 确实以 MOCK_METHOD/EXPECT_CALL 使用，另有 fake driver，24个逻辑用例全部通过，满足2分档。未测 dispatcher、IPC server、wire codec 与 daemon composition 四条关键边界，且它们对应4个零执行 TU；总体行48.0637%、分支37.6664%，显著低于3分档 >80%，CI 也只运行 ctest、未配置自动测试报告上传，所以不能给3分。",
+          "evidence": [
+            {
+              "path": "native/tests/CMakeLists.txt",
+              "line_start": 1,
+              "line_end": 86,
+              "observation": "GTest/GMock固定版本、五个测试目标、add_test/gtest_discover_tests。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/tests/can_socketcan_contract_test.cpp",
+              "line_start": 29,
+              "line_end": 70,
+              "observation": "真实使用GMock MOCK_METHOD与EXPECT_CALL，不只是链接依赖。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/tests/can_socketcan_contract_test.cpp",
+              "line_start": 143,
+              "line_end": 168,
+              "observation": "8155 driver open/state/transmit 的系统调用契约测试。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/tests/can_driver_middleware_test.c",
+              "line_start": 56,
+              "line_end": 171,
+              "observation": "driver-runtime、catalog/codec、queue、callback和recover交互。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/tests/can_service_callback_test.c",
+              "line_start": 70,
+              "line_end": 198,
+              "observation": "service-contract-runtime-driver 跨层交互。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/tests/can_shutdown_test.c",
+              "line_start": 39,
+              "line_end": 93,
+              "observation": "runtime线程、callback和queue shutdown交互。",
+              "symbol": "evidence"
+            },
+            {
+              "path": ".github/workflows/native-ci.yml",
+              "line_start": 16,
+              "line_end": 28,
+              "observation": "CI构建并运行ctest，但没有测试报告/覆盖报告上传步骤。",
+              "symbol": "evidence"
+            }
+          ],
+          "adjudication": "独立 E 未读取既有评分并回到 current HEAD 定点复核；与 B 修订结论一致，采用。",
+          "confidence": "high"
+        },
+        {
+          "name": "solid_principle.single_responsibility",
+          "max_score": 4,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "多处违反",
+          "reason": "1分。不是单个偶发大函数，而是三个核心文件各自混合多组变化原因：can_runtime.c（约600行，精确608物理行）同时管理 driver 生命周期、线程轮询、队列、cache、codec、callback registry、订阅和统计；can_ipc_server.c（403非空行）同时负责 fd 标志/轮询、全量读写、wire 编解码、连接事件队列、accept thread 与 endpoint 生命周期；can_gateway_service.c（318非空行）同时负责服务状态、session并发、订阅所有权、版本门禁与请求路由。存在多处SRP违反，故不是2分的“少量改进空间”；但仍有 contract/driver/middleware/application 的文件级分层和多个局部小函数，尚不到0分的完全失控。",
+          "evidence": [
+            {
+              "path": "native/middleware/src/can_runtime.c",
+              "line_start": 34,
+              "line_end": 55,
+              "observation": "单一全局状态聚合线程、driver、catalog、queue、cache、callbacks与stats。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/middleware/src/can_runtime.c",
+              "line_start": 140,
+              "line_end": 231,
+              "observation": "同文件处理callback dispatch、frame处理和polling thread。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/middleware/src/can_runtime.c",
+              "line_start": 233,
+              "line_end": 608,
+              "observation": "同文件继续承担生命周期、队列、信号读写、订阅、bus state、recover与stats。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/driver/src/can_ipc_server.c",
+              "line_start": 39,
+              "line_end": 195,
+              "observation": "同文件处理fd配置、poll、read/write、wire消息发送及pending events。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/driver/src/can_ipc_server.c",
+              "line_start": 196,
+              "line_end": 427,
+              "observation": "同文件继续处理连接请求、accept thread、socket清理和server生命周期。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/application/src/can_gateway_service.c",
+              "line_start": 28,
+              "line_end": 100,
+              "observation": "session并发与subscription ownership。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/application/src/can_gateway_service.c",
+              "line_start": 102,
+              "line_end": 336,
+              "observation": "同文件继续承担service/session生命周期、订阅、版本门禁和请求路由。",
+              "symbol": "evidence"
+            }
+          ],
+          "adjudication": "独立 E 未读取既有评分并回到 current HEAD 定点复核；与 B 修订结论一致，采用。",
+          "confidence": "high"
+        },
+        {
+          "name": "solid_principle.open_closed",
+          "max_score": 4,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "基本遵循、有改进空间",
+          "reason": "The driver operation table is a real extension point, but selecting a new platform or vehicle requires editing hard-coded string branches in the factory and the CMake selector; application dispatch is also switch-based.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/driver/src/can_driver_factory.c",
+              "line_start": 15,
+              "line_end": 20,
+              "symbol": "current-head code/config evidence",
+              "observation": "new platform/vehicle support requires modifying the factory condition",
+              "ref": "HEAD"
+            },
+            {
+              "source": "code",
+              "path": "native/driver/include/fw19/driver/can_bus_driver.h",
+              "line_start": 15,
+              "line_end": 27,
+              "symbol": "current-head code/config evidence",
+              "observation": "function table provides a mitigating extension point",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "仅有一份 reviewer 分值；本轮独立回到 current HEAD 代码、Git refs 与允许的 raw 验证材料复核后裁决。",
+          "confidence": "medium_high"
+        },
+        {
+          "name": "solid_principle.liskov_substitution",
+          "max_score": 4,
+          "status": "scored",
+          "score": 2,
+          "rubric_band": "基本遵循、有改进空间",
+          "reason": "Both vehicle implementations use the same driver operation table and callers guard missing functions, but the 8295 table sets recover to NULL while the public driver interface includes recovery. A client expecting full driver capability cannot substitute it without a capability check.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/driver/src/socketcan_driver.c",
+              "line_start": 333,
+              "line_end": 340,
+              "symbol": "current-head code/config evidence",
+              "observation": "SOCKETCAN_8295_OPS places NULL in the recover slot",
+              "ref": "HEAD"
+            },
+            {
+              "source": "code",
+              "path": "native/middleware/src/can_runtime.c",
+              "line_start": 588,
+              "line_end": 594,
+              "symbol": "current-head code/config evidence",
+              "observation": "runtime must branch on a missing recover implementation",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "仅有一份 reviewer 分值；本轮独立回到 current HEAD 代码、Git refs 与允许的 raw 验证材料复核后裁决。",
+          "confidence": "medium_high"
+        },
+        {
+          "name": "solid_principle.interface_segregation",
+          "max_score": 4,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "多处违反",
+          "reason": "1分。can_runtime.h 把15个公开操作和多种角色放在一个头文件，service 客户端只需要业务/订阅/状态子集，daemon main 只需要初始化/启动/销毁子集，却都依赖同一宽接口及其 driver/catalog/runtime_state 传递依赖；poll_once/enqueue/process_next 等测试/调度面也与面向service的读写订阅面混在一起，形成多处不必要依赖。driver ops 的7方法虽宽，但围绕单个 CAN driver port，middleware 使用 open/close/transmit/receive/get_state/recover，factory 使用 destroy，单独看仍较聚焦；它不足以抵消 runtime 公共面的多角色违反。故高于0分但不满足2分的“仅少量改进空间”。",
+          "evidence": [
+            {
+              "path": "native/middleware/include/fw19/middleware/can_runtime.h",
+              "line_start": 7,
+              "line_end": 52,
+              "observation": "头文件直接引入driver/catalog/state并暴露15个跨六类角色操作。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/application/src/can_gateway_service.c",
+              "line_start": 242,
+              "line_end": 327,
+              "observation": "service只消费subscribe/unsubscribe/read/write/send/stats/bus-state子集。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/application/src/main.c",
+              "line_start": 101,
+              "line_end": 147,
+              "observation": "daemon main主要消费initialize/start/deinitialize生命周期子集。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/driver/include/fw19/driver/can_bus_driver.h",
+              "line_start": 15,
+              "line_end": 23,
+              "observation": "driver ops为7方法的单一CAN port。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/middleware/src/can_runtime.c",
+              "line_start": 275,
+              "line_end": 594,
+              "observation": "runtime实际消费driver open/close/transmit/receive/get_state/recover。",
+              "symbol": "evidence"
+            },
+            {
+              "path": "native/driver/src/can_driver_factory.c",
+              "line_start": 28,
+              "line_end": 32,
+              "observation": "factory消费driver close/destroy，说明driver ops各操作均有明确消费者。",
+              "symbol": "evidence"
+            }
+          ],
+          "adjudication": "独立 E 未读取既有评分并回到 current HEAD 定点复核；与 B 修订结论一致，采用。",
+          "confidence": "high"
+        },
+        {
+          "name": "solid_principle.dependency_inversion",
+          "max_score": 4,
+          "status": "scored",
+          "score": 1,
+          "rubric_band": "多处违反",
+          "reason": "The driver function table is a useful abstraction, but application and middleware directly include the concrete BSP mutex wrapper, the driver directly includes the 8155 private header, and application mutates middleware-owned global state. Multiple high-level paths therefore depend on lower-level details.",
+          "evidence": [
+            {
+              "source": "code",
+              "path": "native/application/src/can_gateway_service.c",
+              "line_start": 9,
+              "line_end": 44,
+              "symbol": "current-head code/config evidence",
+              "observation": "high-level service directly includes BSP and reads middleware global state",
+              "ref": "HEAD"
+            },
+            {
+              "source": "code",
+              "path": "native/middleware/src/can_runtime.c",
+              "line_start": 10,
+              "line_end": 54,
+              "symbol": "current-head code/config evidence",
+              "observation": "middleware directly includes BSP and defines exported shared state",
+              "ref": "HEAD"
+            }
+          ],
+          "adjudication": "仅有一份 reviewer 分值；本轮独立回到 current HEAD 代码、Git refs 与允许的 raw 验证材料复核后裁决。",
+          "confidence": "medium_high"
+        }
+      ],
+      "remote_count": 0,
+      "quality_tier": "low",
+      "benchmark_role_match": "supported_by_current_head_evidence"
+    }
+  ],
+  "self_check": {
+    "repository_count": 6,
+    "pending_repository_count": 34,
+    "leaf_count": 75,
+    "all_scores_in_closed_contract": true,
+    "all_leaves_have_reason_and_evidence": true,
+    "all_heads_tree_bound_clean_remote_free": true,
+    "score_sum_matches": true,
+    "target_scores_used_as_answers": false
+  },
+  "status": "accepted_current_head_standard_scores",
+  "release": {
+    "tag": "transport-v0.3.0",
+    "scope": "6 active + 34 pending"
+  },
+  "rubric": {
+    "id": "score-rules-v1",
+    "path": "SCORE_RULES.md",
+    "sha256": "190613d83db6baab49bb66069d1de78fe7ba673f1969ff4e4a5b4c87ecbf7d74",
+    "closed_world": true
+  },
+  "quality_definition": {
+    "repository_to_score": "Current repository facts genuinely satisfy the awarded rubric band.",
+    "score_to_repository": "Every standard score is independently derived from current-head evidence.",
+    "code_change_rule": "Modify a sample only when actual evidence does not support its intended benchmark role; then re-extract and re-score.",
+    "target_policy": "Prospective target scores are never copied into standard scores; observed rubric facts win."
+  },
+  "review_provenance": [
+    {
+      "name": "active-six-standard-scores-adjudicator-d-20260902.json",
+      "sha256": "8d72bf42af6746401efdcec3cdec50b497be5e4429fc7bf715ef1107d4211dc1",
+      "availability": "control_workspace_only_not_evaluator_input"
+    },
+    {
+      "name": "final-score-review-fw03-c-dispute-20260902.json",
+      "sha256": "c59995b3a307f59dc672a5a1a8dc8167c2f0d9ad9dc815e4b33199fcbbd5d62c",
+      "availability": "control_workspace_only_not_evaluator_input"
+    },
+    {
+      "name": "final-score-review-fw19-b-20260902.json",
+      "sha256": "30ba88d71ae76763876ed44d223c0b1afe01744a922992c12014d1acc6848671",
+      "availability": "control_workspace_only_not_evaluator_input"
+    },
+    {
+      "name": "fw19-b-disputed-leaf-supplement-20260902.json",
+      "sha256": "6449a9e55a48a7e85f80398ab443b4d8cf69a21baa91aa61cf97d037d883a739",
+      "availability": "control_workspace_only_not_evaluator_input"
+    },
+    {
+      "name": "final-score-review-fw19-e-dispute-20260902.json",
+      "sha256": "225f60108b04391855deac2e14eb533c229c30236bdc48435f1796e902c1c19c",
+      "availability": "control_workspace_only_not_evaluator_input"
+    }
+  ]
+}

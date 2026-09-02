@@ -1,184 +1,185 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "APP-10",
-  "quality_tier": "medium",
-  "comparison_family": null,
-  "review_status": "blind_validated",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
-      "path": "settings.gradle",
-      "symbol_or_line": "automotive, car-ui-lib, vehicle-platform",
-      "observation": "HMI、共享 UI 和 VHAL/property 平台闭包可分模块发现，但 vehicle-platform 同时承载 API/service/tests。",
-      "expected_impact": "neutral",
-      "confidence": "high"
-    },
-    {
-      "dimension": "solid",
-      "branch": "main",
-      "commit": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
-      "path": "automotive/src/main/java/dz/islem/automotive/data/CarManager.kt",
-      "symbol_or_line": "CarManager.init, onChangeEvent, getCarPropertyValue",
-      "observation": "一个 manager 负责注册七类信号、类型转换和多个 subject；空 onErrorEvent 与 raw cast 形成局部中等债务。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "aidl_sdk_call",
-      "branch": "main",
-      "commit": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
-      "path": "vehicle-platform/upstream/service/src/com/android/car/CarPropertyService.java",
-      "symbol_or_line": "CarPropertyService",
-      "observation": "真实 typed property Binder/service/HAL 边界与应用 CarPropertyManager 调用同仓可追溯。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
-      "path": "vehicle-platform/upstream/tests/carservice_test/src/com/android/car/CarPropertyServiceTest.java",
-      "symbol_or_line": "CarPropertyServiceTest",
-      "observation": "真实 property service 测试丰富，但主应用与新 Gradle platform module 的组合路径未单独覆盖。",
-      "expected_impact": "neutral",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_medium",
-      "reason": "模块清楚但平台 module 责任较宽。"
-    },
-    {
-      "name": "solid",
-      "status": "expected_medium",
-      "reason": "可用数据层含集中 manager 与错误处理缺口。"
-    },
-    {
-      "name": "aidl_sdk_call",
-      "status": "expected_high",
-      "reason": "真实 property AIDL/service/HAL 可复核。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_medium",
-      "reason": "平台测试多，组合覆盖不均。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "需要 AAOS。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g5",
       "blind_id": "blind-54da785c4fb2",
-      "repository_head": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
-      "result_path": "calibration/results/g5/blind-54da785c4fb2.json",
-      "validation_report": "reports/validation/g5-blind-results-final.json",
-      "human_review_report": "reports/validation/g5-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-30T00:07:50.399341Z",
-      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T22:46:58.214Z",
-      "finished_at": "2026-08-29T22:52:15.447Z",
-      "wall_clock_seconds": 317.233,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 259,
-        "directories_visited": 52,
-        "tool_calls": 20,
-        "notes": "HEAD 与预期 SHA 一致。静态清点了 3 个 Gradle 模块、163 个生产源文件、83 个测试源文件、14 个 AIDL 合同、Binder/系统 API/反射位置、最大源文件及 AIDL/HIDL 重复族；对超过 20 个生产文件和超过 5 个有意义测试文件进行了有界实质检查，并比较了 main 与 develop、platform/8155、platform/8295、release/2026.1。最大生产文件为 2300 行的 VehiclePropertyIds.java。未运行构建、脚本或网络操作，未修改文件，未使用 skill。259 包含当前树中读取或验证的 246 个 Java/Kotlin/AIDL 路径、10 个构建/清单/说明路径和 3 个分支专属配置路径。 Runner normalized tool_calls from Codex JSONL to 20 (evaluator self-report: 20); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 2.111111,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 35,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "应用、UI 库和车辆平台具备明确模块划分，平台内部也形成 Binder 服务、属性 HAL 和 AIDL/HIDL 适配层；但 vehicle-platform 将较大的 car-lib 与 service 源树聚合为单一模块，应用侧 CarManager 又集中承担连接、订阅、转换和同步读写，边界质量不均衡。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "应用、UI 库和车辆平台具备明确模块划分，平台内部也形成 Binder 服务、属性 HAL 和 AIDL/HIDL 适配层；但 vehicle-platform 将较大的 car-lib 与 service 源树聚合为单一模块，应用侧 CarManager 又集中承担连接、订阅、转换和同步读写，边界质量不均衡。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "平台层以抽象 HAL 配置和值模型支持 AIDL/HIDL 替换，并使用构造注入和委托扩展；但应用层依赖具体 Car/CarPropertyManager，CarManager 职责较多，部分工厂和 UI 代码也依赖具体实现，DIP/SRP 落地不一致。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "平台层以抽象 HAL 配置和值模型支持 AIDL/HIDL 替换，并使用构造注入和委托扩展；但应用层依赖具体 Car/CarPropertyManager，CarManager 职责较多，部分工厂和 UI 代码也依赖具体实现，DIP/SRP 落地不一致。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "车辆平台通过 HalPropConfig/HalPropValue 和 HalClient 对系统/VHAL 类型、重试及错误语义进行了较强隔离；但应用直接创建 Car、使用字符串权限，并忽略属性回调错误，系统依赖和失败处理仍会泄漏到 UI/数据代码。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "车辆平台通过 HalPropConfig/HalPropValue 和 HalClient 对系统/VHAL 类型、重试及错误语义进行了较强隔离；但应用直接创建 Car、使用字符串权限，并忽略属性回调错误，系统依赖和失败处理仍会泄漏到 UI/数据代码。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "hidden_api_reflection",
-          "status": "scored",
+          "reason": "反射出现在多个 UI、系统属性和平台映射位置，缺少统一封装或显式允许列表；部分调用有空值降级，但跨类加载器和 XML 点击反射直接包装为 RuntimeException，失败语义和可测试性不统一。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "反射出现在多个 UI、系统属性和平台映射位置，缺少统一封装或显式允许列表；部分调用有空值降级，但跨类加载器和 XML 点击反射直接包装为 RuntimeException，失败语义和可测试性不统一。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "属性合同粒度清楚，回调为 oneway，服务端具备权限检查、线程切换、锁外回调、Binder death 和类型化错误映射；但客户端注销未见 unlinkToDeath，部分无效属性静默返回，通用 CarPropertyValue 仍把部分类型约束留到运行期。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "属性合同粒度清楚，回调为 oneway，服务端具备权限检查、线程切换、锁外回调、Binder death 和类型化错误映射；但客户端注销未见 unlinkToDeath，部分无效属性静默返回，通用 CarPropertyValue 仍把部分类型约束留到运行期。"
+          "status": "scored"
         },
         {
-          "name": "compilation_independence",
-          "status": "failed",
-          "score": null,
           "evidence_count": 3,
-          "reason": "仓库声明了 Gradle 边界，但无法建立可信的独立编译闭包：Gradle wrapper 配置/二进制不存在，vehicle-platform 无依赖声明却直接编译依赖 AOSP/AAOS 私有类及 VHAL AIDL/HIDL 类型的源码。受控评估禁止下载依赖或运行构建，因此缺失的平台输入无法验证。"
+          "name": "compilation_independence",
+          "reason": "仓库声明了 Gradle 边界，但无法建立可信的独立编译闭包：Gradle wrapper 配置/二进制不存在，vehicle-platform 无依赖声明却直接编译依赖 AOSP/AAOS 私有类及 VHAL AIDL/HIDL 类型的源码。受控评估禁止下载依赖或运行构建，因此缺失的平台输入无法验证。",
+          "score": null,
+          "status": "failed"
         },
         {
+          "evidence_count": 4,
           "name": "integration_testing",
-          "status": "scored",
+          "reason": "车辆平台拥有跨 CarPropertyManager、Binder 服务和 VHAL 的行为测试，覆盖回调、乱序事件、权限及错误状态，UI 库也有设备级交互测试；但实际应用模块只有模板测试，没有覆盖 CarManager、权限拒绝、生命周期或 UI 到车辆属性的集成行为。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "车辆平台拥有跨 CarPropertyManager、Binder 服务和 VHAL 的行为测试，覆盖回调、乱序事件、权限及错误状态，UI 库也有设备级交互测试；但实际应用模块只有模板测试，没有覆盖 CarManager、权限拒绝、生命周期或 UI 到车辆属性的集成行为。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "code_duplication",
-          "status": "scored",
+          "reason": "AIDL/HIDL 适配族保留了大量近似手写访问器和构造分支，但共同转换逻辑已上提到抽象基类，重复被限制在平台表示边缘；AIDL parcelable 声明属于生成边界，不作为手写重复计罚。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "AIDL/HIDL 适配族保留了大量近似手写访问器和构造分支，但共同转换逻辑已上提到抽象基类，重复被限制在平台表示边缘；AIDL parcelable 声明属于生成边界，不作为手写重复计罚。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "release_branch_strategy",
-          "status": "scored",
+          "reason": "实际历史显示四个分支均仅比 main 前进一个提交；有界比较确认发布、开发和两个平台分支只增加各自两行配置，没有复制或分叉生产代码，差异范围清楚且共享同一基线。",
           "score": 3,
-          "evidence_count": 4,
-          "reason": "实际历史显示四个分支均仅比 main 前进一个提交；有界比较确认发布、开发和两个平台分支只增加各自两行配置，没有复制或分叉生产代码，差异范围清楚且共享同一基线。"
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 3,
           "evidence_count": 4,
-          "reason": "AIDL/HIDL 后端共享 HalPropConfig、HalPropValue 和统一转换/服务逻辑，平台分支仅保留小型配置差异；少量镜像适配器样板仍存在，但变化被隔离在边缘。"
+          "name": "platform_reuse",
+          "reason": "AIDL/HIDL 后端共享 HalPropConfig、HalPropValue 和统一转换/服务逻辑，平台分支仅保留小型配置差异；少量镜像适配器样板仍存在，但变化被隔离在边缘。",
+          "score": 3,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 35,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 52,
+        "files_opened": 259,
+        "notes": "HEAD 与预期 SHA 一致。静态清点了 3 个 Gradle 模块、163 个生产源文件、83 个测试源文件、14 个 AIDL 合同、Binder/系统 API/反射位置、最大源文件及 AIDL/HIDL 重复族；对超过 20 个生产文件和超过 5 个有意义测试文件进行了有界实质检查，并比较了 main 与 develop、platform/8155、platform/8295、release/2026.1。最大生产文件为 2300 行的 VehiclePropertyIds.java。未运行构建、脚本或网络操作，未修改文件，未使用 skill。259 包含当前树中读取或验证的 246 个 Java/Kotlin/AIDL 路径、10 个构建/清单/说明路径和 3 个分支专属配置路径。 Runner normalized tool_calls from Codex JSONL to 20 (evaluator self-report: 20); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 20
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T22:52:15.447Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+      "result_path": "calibration/results/g5/blind-54da785c4fb2.json",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T22:46:58.214Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 2.111111,
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 317.233
     }
-  ]
+  ],
+  "comparison_family": null,
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "模块清楚但平台 module 责任较宽。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "solid",
+      "reason": "可用数据层含集中 manager 与错误处理缺口。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "reason": "真实 property AIDL/service/HAL 可复核。",
+      "status": "expected_high"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "平台测试多，组合覆盖不均。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "需要 AAOS。",
+      "status": "failed"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "neutral",
+      "observation": "HMI、共享 UI 和 VHAL/property 平台闭包可分模块发现，但 vehicle-platform 同时承载 API/service/tests。",
+      "path": "settings.gradle",
+      "symbol_or_line": "automotive, car-ui-lib, vehicle-platform"
+    },
+    {
+      "branch": "main",
+      "commit": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+      "confidence": "high",
+      "dimension": "solid",
+      "expected_impact": "negative",
+      "observation": "一个 manager 负责注册七类信号、类型转换和多个 subject；空 onErrorEvent 与 raw cast 形成局部中等债务。",
+      "path": "automotive/src/main/java/dz/islem/automotive/data/CarManager.kt",
+      "symbol_or_line": "CarManager.init, onChangeEvent, getCarPropertyValue"
+    },
+    {
+      "branch": "main",
+      "commit": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+      "confidence": "high",
+      "dimension": "aidl_sdk_call",
+      "expected_impact": "positive",
+      "observation": "真实 typed property Binder/service/HAL 边界与应用 CarPropertyManager 调用同仓可追溯。",
+      "path": "vehicle-platform/upstream/service/src/com/android/car/CarPropertyService.java",
+      "symbol_or_line": "CarPropertyService"
+    },
+    {
+      "branch": "main",
+      "commit": "0ad37f52f83e7bbcbb1a005dc930f320c0d6c54e",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "neutral",
+      "observation": "真实 property service 测试丰富，但主应用与新 Gradle platform module 的组合路径未单独覆盖。",
+      "path": "vehicle-platform/upstream/tests/carservice_test/src/com/android/car/CarPropertyServiceTest.java",
+      "symbol_or_line": "CarPropertyServiceTest"
+    }
+  ],
+  "quality_tier": "medium",
+  "repo_id": "APP-10",
+  "review_status": "blind_validated",
+  "schema_version": "1.0.0"
 }

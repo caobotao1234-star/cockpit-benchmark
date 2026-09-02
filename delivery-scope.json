@@ -1,0 +1,84 @@
+{
+  "active_repositories": [
+    {
+      "id": "APP-01",
+      "kind": "APP",
+      "name": "aurora-settings",
+      "quality_tier": "high"
+    },
+    {
+      "id": "APP-11",
+      "kind": "APP",
+      "name": "motion-control",
+      "quality_tier": "medium"
+    },
+    {
+      "id": "APP-15",
+      "kind": "APP",
+      "name": "atlas-settings",
+      "quality_tier": "low"
+    },
+    {
+      "id": "FW-03",
+      "kind": "FRAMEWORK",
+      "name": "vehicle-hal-adapter",
+      "quality_tier": "high"
+    },
+    {
+      "id": "FW-08",
+      "kind": "FRAMEWORK",
+      "name": "soa-gateway",
+      "quality_tier": "medium"
+    },
+    {
+      "id": "FW-19",
+      "kind": "FRAMEWORK",
+      "name": "can-middleware",
+      "quality_tier": "low"
+    }
+  ],
+  "completion_policy": "Only the six active repositories are included in production scoring, blind calibration, canonical scores, and this stage's completion denominator.",
+  "completion_repository_count": 6,
+  "effective_date": "2026-08-31",
+  "inventory_repository_count": 40,
+  "pending_repository_ids": [
+    "APP-02",
+    "APP-03",
+    "APP-04",
+    "APP-05",
+    "APP-06",
+    "APP-07",
+    "APP-08",
+    "APP-09",
+    "APP-10",
+    "APP-12",
+    "APP-13",
+    "APP-14",
+    "APP-16",
+    "APP-17",
+    "APP-18",
+    "APP-19",
+    "APP-20",
+    "FW-01",
+    "FW-02",
+    "FW-04",
+    "FW-05",
+    "FW-06",
+    "FW-07",
+    "FW-09",
+    "FW-10",
+    "FW-11",
+    "FW-12",
+    "FW-13",
+    "FW-14",
+    "FW-15",
+    "FW-16",
+    "FW-17",
+    "FW-18",
+    "FW-20"
+  ],
+  "retention_policy": "The other thirty-four repositories remain present as independent Git repositories and are not deleted, reset, or rewritten by this scope transition.",
+  "schema_version": "1.0.0",
+  "scope_id": "production-six-20260831",
+  "transport_policy": "All forty repositories remain subject to safety, zero-child-remote, packaging, and anonymous restoration validation."
+}

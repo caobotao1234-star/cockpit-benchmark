@@ -1,174 +1,175 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "APP-08",
-  "quality_tier": "medium",
-  "comparison_family": null,
-  "review_status": "blind_validated",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
-      "path": "src/com/android/car/voicecontrol/InteractionService.java",
-      "symbol_or_line": "InteractionService",
-      "observation": "服务创建并关闭 VoiceRuntimeCoordinator，联系人 Binder 调用与 supported-action 过滤均进入该 runtime，路径不是孤立样例。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "solid",
-      "branch": "main",
-      "commit": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
-      "path": "voice-runtime/src/com/android/car/voicecontrol/runtime/VoiceCommandRouter.java",
-      "symbol_or_line": "VoiceCommandRouter.route",
-      "observation": "路由类型被拆分，但英语关键词、业务域和 fallback 仍集中在单一条件链，新增意图需要修改既有类。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "aidl_sdk_call",
-      "branch": "main",
-      "commit": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
-      "path": "src/com/android/car/voicecontrol/InteractionService.java",
-      "symbol_or_line": "ILocalService.Stub",
-      "observation": "真实 AIDL Binder 使用 RemoteCallbackList 管理监听器并在广播时处理 RemoteException。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
-      "path": "voice-tests/src/com/android/car/voicecontrol/runtime/VoiceRuntimeSelfTest.java",
-      "symbol_or_line": "VoiceRuntimeSelfTest.main",
-      "observation": "可独立执行的路由/策略/ledger 自测已通过，但没有覆盖 ServiceConnection、Binder death 或完整语音会话。",
-      "expected_impact": "neutral",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_medium",
-      "reason": "主要边界清楚且 runtime 已连接，但规则扩展点和跨进程生命周期仍不完整。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_medium",
-      "reason": "上游测试丰富，新增语音协调层覆盖不均。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "完整应用需要 AAOS 平台构建环境。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g3",
       "blind_id": "blind-a082461d66e4",
-      "repository_head": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
-      "result_path": "calibration/results/g3/blind-a082461d66e4.json",
-      "validation_report": "reports/validation/g3-blind-results.json",
-      "human_review_report": "reports/validation/g3-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-29T11:40:16.568740Z",
-      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T10:47:23.061Z",
-      "finished_at": "2026-08-29T10:53:25.752Z",
-      "wall_clock_seconds": 362.691,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 57,
-        "directories_visited": 26,
-        "tool_calls": 21,
-        "notes": "HEAD 与协调方提供的 SHA 一致。完成构建入口、模块、生产/测试分布、AIDL、Binder、系统/隐藏 API、反射、最大源文件、重复家族及本地分支清点；重点审阅 37 个生产代码/契约文件、8 个测试文件和 12 个构建/清单/说明文件。另以只读搜索及行数统计覆盖全部 213 个生产 Java/AIDL 文件。比较了 main 与 release/2026.1、platform/8155、platform/8295、develop，并比较两个平台分支。未运行构建、脚本或网络操作，未修改文件，未使用 skill。一次受限 PowerShell 统计命令的对象构造失败，但后续用兼容命令补齐了所需清点。 Runner normalized tool_calls from Codex JSONL to 21 (evaluator self-report: 21); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 2.0,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 30,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "仓库有明确的应用、纯 Java 运行时、电话、电话框架/测试和音频平台模块，音频 HAL 也通过统一边界组合；但部分边界只是打包层，InteractionService 同时承担 Binder、偏好、权限、通知、联系人和运行时协调，职责仍偏集中，且 audio-platform 把 service、car-lib、builtin-lib 合并为单一 Gradle 库。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "仓库有明确的应用、纯 Java 运行时、电话、电话框架/测试和音频平台模块，音频 HAL 也通过统一边界组合；但部分边界只是打包层，InteractionService 同时承担 Binder、偏好、权限、通知、联系人和运行时协调，职责仍偏集中，且 audio-platform 把 service、car-lib、builtin-lib 合并为单一 Gradle 库。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "HAL 接口、工厂和可注入的电话组件提供了真实的 DIP/OCP 与替换点，且平台投影处理器可注入 manager provider；但核心入口和 UiCallManager 仍混合连接生命周期、电话控制、音频路由、短信/Assist 与 UI 错误处理，SRP 和接口粒度不够均匀。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "HAL 接口、工厂和可注入的电话组件提供了真实的 DIP/OCP 与替换点，且平台投影处理器可注入 manager provider；但核心入口和 UiCallManager 仍混合连接生命周期、电话控制、音频路由、短信/Assist 与 UI 错误处理，SRP 和接口粒度不够均匀。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "音频平台依赖被强类型 wrapper、版本工厂、权限检查和死亡恢复系统化隔离，电话侧也普遍使用依赖注入及运行时权限检查；但语音 CarActuator 直接创建 Car/CarPropertyManager，对连接失败、安全异常和属性访问异常没有统一适配或恢复语义，平台依赖质量不一致。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "音频平台依赖被强类型 wrapper、版本工厂、权限检查和死亡恢复系统化隔离，电话侧也普遍使用依赖注入及运行时权限检查；但语音 CarActuator 直接创建 Car/CarPropertyManager，对连接失败、安全异常和属性访问异常没有统一适配或恢复语义，平台依赖质量不一致。"
+          "status": "scored"
         },
         {
+          "evidence_count": 2,
           "name": "hidden_api_reflection",
-          "status": "scored",
+          "reason": "未发现 Class.forName、Method.invoke 或成员反射；实际隐藏/内部 API 使用是强类型的，并集中在 audio-platform 的 builtin/HAL 适配代码中。主要缺口是 AssistUtilsHelper 直接依赖 com.android.internal API，监听器注册没有对应注销，且未观察到针对该 helper 的失败/生命周期测试。",
           "score": 2,
-          "evidence_count": 2,
-          "reason": "未发现 Class.forName、Method.invoke 或成员反射；实际隐藏/内部 API 使用是强类型的，并集中在 audio-platform 的 builtin/HAL 适配代码中。主要缺口是 AssistUtilsHelper 直接依赖 com.android.internal API，监听器注册没有对应注销，且未观察到针对该 helper 的失败/生命周期测试。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "音频 Binder/HAL 边界具备强类型契约、服务端权限、RemoteException 语义、版本回退、回调和死亡恢复，并有专门测试。语音本地 AIDL 使用 RemoteCallbackList 和 oneway listener，但同步接口混合设置、权限状态和联系人查询；客户端没有 bind 结果、onBindingDied/onNullBinding 或主动重连处理，服务端联系人查询还会在 Binder 调用中修改共享索引。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "音频 Binder/HAL 边界具备强类型契约、服务端权限、RemoteException 语义、版本回退、回调和死亡恢复，并有专门测试。语音本地 AIDL 使用 RemoteCallbackList 和 oneway listener，但同步接口混合设置、权限状态和联系人查询；客户端没有 bind 结果、onBindingDied/onNullBinding 或主动重连处理，服务端联系人查询还会在 Binder 调用中修改共享索引。"
+          "status": "scored"
         },
         {
-          "name": "compilation_independence",
-          "status": "failed",
-          "score": null,
           "evidence_count": 2,
-          "reason": "无法建立可信的独立编译边界：telephony 构建依赖未在 settings.gradle 声明的 car-ui-lib、car-apps-common、car-uxr-client-lib、car-assist-lib、car-messenger-common、car-telephony-common 等工程，并引用仓库内未定义的 gradle.ext.aaosLatestSDK、aaosTargetSDK 和 lib_car_system_stubs；还使用仓库外平台签名文件路径。受控审查禁止运行构建，所需 AOSP/AAOS 平台输入也不在仓库中，因此按规则不能猜测得分。"
+          "name": "compilation_independence",
+          "reason": "无法建立可信的独立编译边界：telephony 构建依赖未在 settings.gradle 声明的 car-ui-lib、car-apps-common、car-uxr-client-lib、car-assist-lib、car-messenger-common、car-telephony-common 等工程，并引用仓库内未定义的 gradle.ext.aaosLatestSDK、aaosTargetSDK 和 lib_car_system_stubs；还使用仓库外平台签名文件路径。受控审查禁止运行构建，所需 AOSP/AAOS 平台输入也不在仓库中，因此按规则不能猜测得分。",
+          "score": null,
+          "status": "failed"
         },
         {
-          "name": "integration_testing",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 4,
-          "reason": "电话和音频测试具有真实行为深度：覆盖多通话 UI 流、投影/紧急呼叫边界、权限拒绝、HAL 转换及 Binder 死亡恢复。局限是测试可执行性不均：voice-tests 把自检和整棵 upstream-tests 当作 main 源而不是标准 test source，电话 connected 测试被配置为 ignoreFailures，且独立构建依赖不闭合。"
+          "name": "integration_testing",
+          "reason": "电话和音频测试具有真实行为深度：覆盖多通话 UI 流、投影/紧急呼叫边界、权限拒绝、HAL 转换及 Binder 死亡恢复。局限是测试可执行性不均：voice-tests 把自检和整棵 upstream-tests 当作 main 源而不是标准 test source，电话 connected 测试被配置为 ignoreFailures，且独立构建依赖不闭合。",
+          "score": 2,
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "code_duplication",
-          "status": "scored",
+          "reason": "未发现生产文件的完全相同副本，real/fake 同名类主要服务于 flavor 替换。材料性重复集中在不可避免但维护成本较高的 AIDL/HIDL V1/V2 wrapper 死亡与回调样板，以及现代/legacy 音频区域装载器的并行解析流程；统一接口和工厂缓解了消费者侧扩散。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "未发现生产文件的完全相同副本，real/fake 同名类主要服务于 flavor 替换。材料性重复集中在不可避免但维护成本较高的 AIDL/HIDL V1/V2 wrapper 死亡与回调样板，以及现代/legacy 音频区域装载器的并行解析流程；统一接口和工厂缓解了消费者侧扩散。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "release_branch_strategy",
-          "status": "scored",
+          "reason": "所有本地 release/platform/develop 分支都以 main HEAD 为共同基线，各仅领先一个提交；实际差异严格限于两行产品属性，没有复制生产源码，两个平台分支之间也只修改同一属性文件。这是清晰的受限分歧，但历史只有单个未合并提交，尚不足以证明长期修复回灌、合并或多版本维护策略。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "所有本地 release/platform/develop 分支都以 main HEAD 为共同基线，各仅领先一个提交；实际差异严格限于两行产品属性，没有复制生产源码，两个平台分支之间也只修改同一属性文件。这是清晰的受限分歧，但历史只有单个未合并提交，尚不足以证明长期修复回灌、合并或多版本维护策略。"
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 3,
-          "reason": "平台分支复用同一主干，差异集中为同结构的两行配置；音频层也用统一 AudioControlWrapper/Factory 隔离 AIDL、HIDL V2、V1。扣分点是 voice-runtime 另有硬编码的 8155/8295 映射并默认回退 8155，且静态搜索只发现其定义、未发现消费者，也未发现分支属性接入构建或运行时的代码，配置中心化尚未闭环。"
+          "name": "platform_reuse",
+          "reason": "平台分支复用同一主干，差异集中为同结构的两行配置；音频层也用统一 AudioControlWrapper/Factory 隔离 AIDL、HIDL V2、V1。扣分点是 voice-runtime 另有硬编码的 8155/8295 映射并默认回退 8155，且静态搜索只发现其定义、未发现消费者，也未发现分支属性接入构建或运行时的代码，配置中心化尚未闭环。",
+          "score": 2,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 30,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 26,
+        "files_opened": 57,
+        "notes": "HEAD 与协调方提供的 SHA 一致。完成构建入口、模块、生产/测试分布、AIDL、Binder、系统/隐藏 API、反射、最大源文件、重复家族及本地分支清点；重点审阅 37 个生产代码/契约文件、8 个测试文件和 12 个构建/清单/说明文件。另以只读搜索及行数统计覆盖全部 213 个生产 Java/AIDL 文件。比较了 main 与 release/2026.1、platform/8155、platform/8295、develop，并比较两个平台分支。未运行构建、脚本或网络操作，未修改文件，未使用 skill。一次受限 PowerShell 统计命令的对象构造失败，但后续用兼容命令补齐了所需清点。 Runner normalized tool_calls from Codex JSONL to 21 (evaluator self-report: 21); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 21
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T10:53:25.752Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+      "result_path": "calibration/results/g3/blind-a082461d66e4.json",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T10:47:23.061Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 2.0,
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 362.691
     }
-  ]
+  ],
+  "comparison_family": null,
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "主要边界清楚且 runtime 已连接，但规则扩展点和跨进程生命周期仍不完整。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "上游测试丰富，新增语音协调层覆盖不均。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "完整应用需要 AAOS 平台构建环境。",
+      "status": "failed"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "positive",
+      "observation": "服务创建并关闭 VoiceRuntimeCoordinator，联系人 Binder 调用与 supported-action 过滤均进入该 runtime，路径不是孤立样例。",
+      "path": "src/com/android/car/voicecontrol/InteractionService.java",
+      "symbol_or_line": "InteractionService"
+    },
+    {
+      "branch": "main",
+      "commit": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+      "confidence": "high",
+      "dimension": "solid",
+      "expected_impact": "negative",
+      "observation": "路由类型被拆分，但英语关键词、业务域和 fallback 仍集中在单一条件链，新增意图需要修改既有类。",
+      "path": "voice-runtime/src/com/android/car/voicecontrol/runtime/VoiceCommandRouter.java",
+      "symbol_or_line": "VoiceCommandRouter.route"
+    },
+    {
+      "branch": "main",
+      "commit": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+      "confidence": "high",
+      "dimension": "aidl_sdk_call",
+      "expected_impact": "positive",
+      "observation": "真实 AIDL Binder 使用 RemoteCallbackList 管理监听器并在广播时处理 RemoteException。",
+      "path": "src/com/android/car/voicecontrol/InteractionService.java",
+      "symbol_or_line": "ILocalService.Stub"
+    },
+    {
+      "branch": "main",
+      "commit": "5979fd66bc999bdd6119226be98cd9ad44b8138a",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "neutral",
+      "observation": "可独立执行的路由/策略/ledger 自测已通过，但没有覆盖 ServiceConnection、Binder death 或完整语音会话。",
+      "path": "voice-tests/src/com/android/car/voicecontrol/runtime/VoiceRuntimeSelfTest.java",
+      "symbol_or_line": "VoiceRuntimeSelfTest.main"
+    }
+  ],
+  "quality_tier": "medium",
+  "repo_id": "APP-08",
+  "review_status": "blind_validated",
+  "schema_version": "1.0.0"
 }

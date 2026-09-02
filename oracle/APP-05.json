@@ -1,164 +1,165 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "APP-05",
-  "quality_tier": "high",
-  "comparison_family": null,
-  "review_status": "blind_validated",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "e4537531ded2613e49b369bd241fe431c3155ed4",
-      "path": "settings.gradle",
-      "symbol_or_line": "seven Gradle modules",
-      "observation": "app/framework/testing、voice、platform、runtime/tests 边界均可由 Gradle 识别。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "aidl_sdk_call",
-      "branch": "main",
-      "commit": "e4537531ded2613e49b369bd241fe431c3155ed4",
-      "path": "src/com/android/car/dialer/telecom/UiCallManager.java",
-      "symbol_or_line": "mLifecycle and ServiceConnection",
-      "observation": "InCallService 连接/断开和 tearDown 都驱动 typed lifecycle coordinator，Telecom/Bluetooth 调用不是旁路样例。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "e4537531ded2613e49b369bd241fe431c3155ed4",
-      "path": "platform-services/upstream/tests/carservice_unit_test/src/com/android/car/audio/CarAudioFocusUnitTest.java",
-      "symbol_or_line": "CarAudioFocusUnitTest",
-      "observation": "audio focus 与 phone/Bluetooth 平台边界有真实失败/并发/策略测试；本地 coordinator 自测另行通过。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_high",
-      "reason": "电话、平台和 runtime 边界清晰。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_high",
-      "reason": "60 个测试源覆盖真实电话/平台行为。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "需要 AAOS。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g5",
       "blind_id": "blind-64c0fd8fd870",
-      "repository_head": "e4537531ded2613e49b369bd241fe431c3155ed4",
-      "result_path": "calibration/results/g5/blind-64c0fd8fd870.json",
-      "validation_report": "reports/validation/g5-blind-results-final.json",
-      "human_review_report": "reports/validation/g5-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-30T00:07:50.399341Z",
-      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T22:46:56.989Z",
-      "finished_at": "2026-08-29T22:51:13.236Z",
-      "wall_clock_seconds": 256.247,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 277,
-        "directories_visited": 64,
-        "tool_calls": 20,
-        "notes": "首先核验 HEAD 与协调器提供的 SHA 一致。完成了构建入口、模块、生产/测试源码、AIDL、Binder/系统 API/反射、最大文件和重复族清点；读取了全部 261 个 Java/AIDL 文件用于统计，并重点审阅了超过 20 个生产文件及 10 个测试文件。检查了全部本地分支，对 develop、release/2026.1、platform/8155、platform/8295 分别与 main 做了有界比较，并读取了分支专属配置。未运行构建、脚本、包管理器或网络操作。 Runner normalized tool_calls from Codex JSONL to 20 (evaluator self-report: 20); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 1.875,
-      "scored_dimension_count": 8,
-      "failed_dimension_count": 2,
-      "evidence_anchor_count": 29,
       "dimension_evidence_coverage": 0.9,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "源码按 framework、voice-assist、platform-services、link-runtime 等职责划分，应用内部也有 telecom、bluetooth、UI、storage 分区；但实际组合边界不自洽：settings 声明顶层模块，而应用依赖使用不存在的嵌套项目路径，并且 UiCallManager 导入 link-runtime 却没有对应项目依赖。这使模块化意图清楚但组合和依赖方向难以可信落地。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "源码按 framework、voice-assist、platform-services、link-runtime 等职责划分，应用内部也有 telecom、bluetooth、UI、storage 分区；但实际组合边界不自洽：settings 声明顶层模块，而应用依赖使用不存在的嵌套项目路径，并且 UiCallManager 导入 link-runtime 却没有对应项目依赖。这使模块化意图清楚但组合和依赖方向难以可信落地。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "依赖注入、回调接口和可替换 provider 为核心通话/投屏逻辑提供了较好的 DIP、ISP 和测试接缝；另一方面，CommActuator 同时负责服务获取、IPC、联系人解析、呼叫、短信和广播生命周期，大型投屏服务也承担多种平台职责，SRP 实践不均衡。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "依赖注入、回调接口和可替换 provider 为核心通话/投屏逻辑提供了较好的 DIP、ISP 和测试接缝；另一方面，CommActuator 同时负责服务获取、IPC、联系人解析、呼叫、短信和广播生命周期，大型投屏服务也承担多种平台职责，SRP 实践不均衡。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "系统依赖大多采用强类型 Android/AAOS API，部分通过 Hilt 或 provider 注入；权限声明和 Bluetooth 运行时检查可见，投屏 SDK 还有 RequiresPermission 标注与远程异常转换。但 voice-assist 仍直接获取 TelecomManager/SmsManager 并用宽泛 Exception 降级，系统调用策略并未统一收口。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "系统依赖大多采用强类型 Android/AAOS API，部分通过 Hilt 或 provider 注入；权限声明和 Bluetooth 运行时检查可见，投屏 SDK 还有 RequiresPermission 标注与远程异常转换。但 voice-assist 仍直接获取 TelecomManager/SmsManager 并用宽泛 Exception 降级，系统调用策略并未统一收口。"
+          "status": "scored"
         },
         {
-          "name": "hidden_api_reflection",
-          "status": "not_applicable",
-          "score": null,
           "evidence_count": 0,
-          "reason": "对全部 Java 源码检索 Class.forName、getDeclaredMethod/getDeclaredField、Method.invoke、setAccessible 及 java.lang.reflect 等模式均无命中；仓库使用隐藏/系统 SDK 类型，但没有观察到反射型隐藏 API 访问。"
-        },
-        {
-          "name": "aidl_sdk_call",
-          "status": "scored",
-          "score": 2,
-          "evidence_count": 4,
-          "reason": "投屏 Binder 边界具有稳定事务编号、细粒度监听器、oneway 回调、权限检查、线程/Executor 调度、RemoteException 处理和多处死亡监听；voice-assist 也使用 RemoteCallbackList 与统一客户端异常包装。不过 voice-assist 客户端没有显式 linkToDeath/rebind 策略，断连回调中仍尝试调用已断开的远端，错误语义主要折叠为 IllegalStateException。"
-        },
-        {
-          "name": "compilation_independence",
-          "status": "failed",
+          "name": "hidden_api_reflection",
+          "reason": "对全部 Java 源码检索 Class.forName、getDeclaredMethod/getDeclaredField、Method.invoke、setAccessible 及 java.lang.reflect 等模式均无命中；仓库使用隐藏/系统 SDK 类型，但没有观察到反射型隐藏 API 访问。",
           "score": null,
-          "evidence_count": 2,
-          "reason": "仓库没有 Gradle wrapper，根构建依赖未在仓库中定义的 aaosLatestSDK、aaosTargetSDK、lib_car_system_stubs 和多个 car-* 项目；settings 声明的模块路径又与应用依赖路径不一致。所需 AOSP/AAOS 平台输入在当前仓库不可用，因此无法建立或验证可信的独立编译边界。"
+          "status": "not_applicable"
         },
         {
-          "name": "integration_testing",
-          "status": "scored",
-          "score": 2,
-          "evidence_count": 5,
-          "reason": "测试具有真实行为深度：fake HFP/Telecom 驱动完整拨号、保持、交换、合并、通知和隐私设置流程，平台投屏测试也验证监听器和服务状态。主要缺口是 voice-assist 无对应测试、平台服务测试目录未接入其 Gradle sourceSet，且连接测试任务配置为忽略失败，削弱了这些测试作为持续集成门禁的可信度。"
-        },
-        {
-          "name": "code_duplication",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 4,
-          "reason": "未发现完全相同的 Java blob，重名生产类仅有按 flavor 分离的 real/fake AndroidFrameworkImpl 与 InCallServiceProxy，属于有意替换。不过 UiCallManager 与 LocalCallHandler 都独立绑定同一个 InCallServiceImpl、维护 ServiceConnection 并实现相似清理逻辑，形成实际生命周期重复和双连接风险。"
+          "name": "aidl_sdk_call",
+          "reason": "投屏 Binder 边界具有稳定事务编号、细粒度监听器、oneway 回调、权限检查、线程/Executor 调度、RemoteException 处理和多处死亡监听；voice-assist 也使用 RemoteCallbackList 与统一客户端异常包装。不过 voice-assist 客户端没有显式 linkToDeath/rebind 策略，断连回调中仍尝试调用已断开的远端，错误语义主要折叠为 IllegalStateException。",
+          "score": 2,
+          "status": "scored"
         },
         {
-          "name": "release_branch_strategy",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 2,
-          "reason": "release、develop 和两个 platform 分支都只比 main 多一个提交，merge-base 均为当前 main；实际差异严格限制为两行产品属性，没有代码复制或无关修复漂移。这是清晰的薄分支方式，但现有历史只有一次分叉，尚不足以验证长期回合并、补丁传播和多版本维护行为。"
+          "name": "compilation_independence",
+          "reason": "仓库没有 Gradle wrapper，根构建依赖未在仓库中定义的 aaosLatestSDK、aaosTargetSDK、lib_car_system_stubs 和多个 car-* 项目；settings 声明的模块路径又与应用依赖路径不一致。所需 AOSP/AAOS 平台输入在当前仓库不可用，因此无法建立或验证可信的独立编译边界。",
+          "score": null,
+          "status": "failed"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
+          "evidence_count": 5,
+          "name": "integration_testing",
+          "reason": "测试具有真实行为深度：fake HFP/Telecom 驱动完整拨号、保持、交换、合并、通知和隐私设置流程，平台投屏测试也验证监听器和服务状态。主要缺口是 voice-assist 无对应测试、平台服务测试目录未接入其 Gradle sourceSet，且连接测试任务配置为忽略失败，削弱了这些测试作为持续集成门禁的可信度。",
           "score": 2,
+          "status": "scored"
+        },
+        {
+          "evidence_count": 4,
+          "name": "code_duplication",
+          "reason": "未发现完全相同的 Java blob，重名生产类仅有按 flavor 分离的 real/fake AndroidFrameworkImpl 与 InCallServiceProxy，属于有意替换。不过 UiCallManager 与 LocalCallHandler 都独立绑定同一个 InCallServiceImpl、维护 ServiceConnection 并实现相似清理逻辑，形成实际生命周期重复和双连接风险。",
+          "score": 2,
+          "status": "scored"
+        },
+        {
+          "evidence_count": 2,
+          "name": "release_branch_strategy",
+          "reason": "release、develop 和两个 platform 分支都只比 main 多一个提交，merge-base 均为当前 main；实际差异严格限制为两行产品属性，没有代码复制或无关修复漂移。这是清晰的薄分支方式，但现有历史只有一次分叉，尚不足以验证长期回合并、补丁传播和多版本维护行为。",
+          "score": 2,
+          "status": "scored"
+        },
+        {
           "evidence_count": 3,
-          "reason": "两个平台分支共享完整 main 代码，只用同一路径的两项属性表达 SoC 与 HFP 差异，公共通话状态/策略也位于独立 link-runtime 模块；未观察到按平台复制的 Java 实现。限制是这些平台属性在当前仓库中没有可验证的消费方，而 link-runtime 与应用的 Gradle 依赖也未接通，因此复用结构明确但集成证据不完整。"
+          "name": "platform_reuse",
+          "reason": "两个平台分支共享完整 main 代码，只用同一路径的两项属性表达 SoC 与 HFP 差异，公共通话状态/策略也位于独立 link-runtime 模块；未观察到按平台复制的 Java 实现。限制是这些平台属性在当前仓库中没有可验证的消费方，而 link-runtime 与应用的 Gradle 依赖也未接通，因此复用结构明确但集成证据不完整。",
+          "score": 2,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 29,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 64,
+        "files_opened": 277,
+        "notes": "首先核验 HEAD 与协调器提供的 SHA 一致。完成了构建入口、模块、生产/测试源码、AIDL、Binder/系统 API/反射、最大文件和重复族清点；读取了全部 261 个 Java/AIDL 文件用于统计，并重点审阅了超过 20 个生产文件及 10 个测试文件。检查了全部本地分支，对 develop、release/2026.1、platform/8155、platform/8295 分别与 main 做了有界比较，并读取了分支专属配置。未运行构建、脚本、包管理器或网络操作。 Runner normalized tool_calls from Codex JSONL to 20 (evaluator self-report: 20); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 20
+      },
+      "failed_dimension_count": 2,
+      "finished_at": "2026-08-29T22:51:13.236Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "e4537531ded2613e49b369bd241fe431c3155ed4",
+      "result_path": "calibration/results/g5/blind-64c0fd8fd870.json",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 8,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T22:46:56.989Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 1.875,
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 256.247
     }
-  ]
+  ],
+  "comparison_family": null,
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "电话、平台和 runtime 边界清晰。",
+      "status": "expected_high"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "60 个测试源覆盖真实电话/平台行为。",
+      "status": "expected_high"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "需要 AAOS。",
+      "status": "failed"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "e4537531ded2613e49b369bd241fe431c3155ed4",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "positive",
+      "observation": "app/framework/testing、voice、platform、runtime/tests 边界均可由 Gradle 识别。",
+      "path": "settings.gradle",
+      "symbol_or_line": "seven Gradle modules"
+    },
+    {
+      "branch": "main",
+      "commit": "e4537531ded2613e49b369bd241fe431c3155ed4",
+      "confidence": "high",
+      "dimension": "aidl_sdk_call",
+      "expected_impact": "positive",
+      "observation": "InCallService 连接/断开和 tearDown 都驱动 typed lifecycle coordinator，Telecom/Bluetooth 调用不是旁路样例。",
+      "path": "src/com/android/car/dialer/telecom/UiCallManager.java",
+      "symbol_or_line": "mLifecycle and ServiceConnection"
+    },
+    {
+      "branch": "main",
+      "commit": "e4537531ded2613e49b369bd241fe431c3155ed4",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "positive",
+      "observation": "audio focus 与 phone/Bluetooth 平台边界有真实失败/并发/策略测试；本地 coordinator 自测另行通过。",
+      "path": "platform-services/upstream/tests/carservice_unit_test/src/com/android/car/audio/CarAudioFocusUnitTest.java",
+      "symbol_or_line": "CarAudioFocusUnitTest"
+    }
+  ],
+  "quality_tier": "high",
+  "repo_id": "APP-05",
+  "review_status": "blind_validated",
+  "schema_version": "1.0.0"
 }

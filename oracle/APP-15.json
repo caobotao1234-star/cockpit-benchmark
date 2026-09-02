@@ -1,219 +1,289 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "APP-15",
-  "quality_tier": "low",
-  "comparison_family": "app-settings-large",
-  "review_status": "blind_validated",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
-      "path": "platform-bridge/src/com/android/car/settings/platform/SettingsPageCoordinator.java",
-      "symbol_or_line": "SettingsPageCoordinator",
-      "observation": "单一 coordinator 横跨 Activity 生命周期、服务发现、代际路由、cache、callback、历史和页面启动。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "hidden_api_reflection",
-      "branch": "main",
-      "commit": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
-      "path": "platform-bridge/src/com/android/car/settings/platform/LegacySettingsRuntime.java",
-      "symbol_or_line": "LegacySettingsRuntime",
-      "observation": "进程级单例反射 ServiceManager 和任意方法、setAccessible、Throwable，并重复调度不可取消 polling。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "code_duplication",
-      "branch": "main",
-      "commit": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
-      "path": "modern/src/com/android/car/settings/applications/ApplicationsUtils.java",
-      "symbol_or_line": "legacy src versus modern generation",
-      "observation": "两代同包 settings 实现并存，确定性探针识别 89 对近重复、文件比 0.161818。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
-      "path": "src/com/android/car/settings/common/BaseCarSettingsActivity.java",
-      "symbol_or_line": "SettingsPageCoordinator lifecycle wiring",
-      "observation": "bridge 已接入所有 BaseCarSettingsActivity，但 legacy/modern 测试都不引用 platform bridge 或验证跨代一致性。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "release_branch_strategy",
-      "branch": "main",
-      "commit": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
-      "path": "settings.gradle",
-      "symbol_or_line": "main versus product branches",
-      "observation": "五个侧分支缺少 main 后续 journal/fallback 两次演进，相对 main 删除 38 行。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_low",
-      "reason": "模块真实但跨代职责集中到全局 bridge/coordinator。"
-    },
-    {
-      "name": "solid",
-      "status": "expected_low",
-      "reason": "单例、静态 cache/callback、Bundle router 和硬编码 override 削弱 SRP/DIP/OCP。"
-    },
-    {
-      "name": "system_api_dependency",
-      "status": "expected_low",
-      "reason": "隐藏服务、车型和包名直接进入 bridge。"
-    },
-    {
-      "name": "hidden_api_reflection",
-      "status": "expected_low",
-      "reason": "6 处反射包含 setAccessible/Throwable/裸对象。"
-    },
-    {
-      "name": "aidl_sdk_call",
-      "status": "expected_low",
-      "reason": "系统 Binder 通过反射 Object 访问，缺少类型和 death 处理。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "完整构建需要 AAOS；仅 bridge Java 编译通过。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_low",
-      "reason": "398 个分代测试未覆盖 bridge 和跨代一致性。"
-    },
-    {
-      "name": "code_duplication",
-      "status": "expected_low",
-      "reason": "89 对近重复、文件比 0.161818。"
-    },
-    {
-      "name": "release_branch_strategy",
-      "status": "expected_low",
-      "reason": "侧分支缺少后续 main 演进。"
-    },
-    {
-      "name": "platform_reuse",
-      "status": "expected_low",
-      "reason": "平台差异通过双代源码、反射 router 和硬编码表混合处理。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g3",
       "blind_id": "blind-af733aac52fc",
-      "repository_head": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
-      "result_path": "calibration/results/g3/blind-af733aac52fc.json",
-      "validation_report": "reports/validation/g3-blind-results.json",
-      "human_review_report": "reports/validation/g3-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-29T11:40:16.568740Z",
-      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T11:10:29.555Z",
-      "finished_at": "2026-08-29T11:16:59.110Z",
-      "wall_clock_seconds": 389.555,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 1055,
-        "directories_visited": 97,
-        "tool_calls": 19,
-        "notes": "HEAD 与预期 SHA 一致。完成构建入口、4 个 Gradle 模块、806 个生产/现代测试脚本候选、338 个测试类、Binder/反射点、最大源文件、重复家族及全部本地分支盘点；详细检查了超过 20 个生产文件和 8 个有意义测试文件，并对 platform/8155、platform/8295、platform/xinqing、release/sop-2024、develop 做了有界比较。文件数包含批量行数/重复度盘点实际读取的文件以及 5 个分支专属文件版本。未运行构建或仓库脚本，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 1.222222,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 30,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "代码有清晰的功能包和 PreferenceController 模式，也抽出了 platform-bridge；但 app 同时编译 legacy src 并依赖包含大量同包同名类型的 modern-settings，形成重叠所有权和潜在同 FQCN 冲突。平台协调器又直接植入所有设置 Activity 的基类，模块边界和组合方向存在系统性风险。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "代码有清晰的功能包和 PreferenceController 模式，也抽出了 platform-bridge；但 app 同时编译 legacy src 并依赖包含大量同包同名类型的 modern-settings，形成重叠所有权和潜在同 FQCN 冲突。平台协调器又直接植入所有设置 Activity 的基类，模块边界和组合方向存在系统性风险。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "PreferenceController 的泛型边界、final 生命周期入口和子类钩子提供了可信的 OCP/LSP 约束，WifiTetheringHandler 也通过监听器与测试替换点分离状态逻辑。但新平台桥普遍直接构造具体依赖、使用全局静态状态并聚合多项职责，DIP/SRP 执行不均衡。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "PreferenceController 的泛型边界、final 生命周期入口和子类钩子提供了可信的 OCP/LSP 约束，WifiTetheringHandler 也通过监听器与测试替换点分离状态逻辑。但新平台桥普遍直接构造具体依赖、使用全局静态状态并聚合多项职责，DIP/SRP 执行不均衡。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "部分调用采用类型化 Binder proxy、空值检查、RemoteException 处理及测试构造器；但 ServiceManager、android.car、com.android.internal 和系统权限依赖散布于控制器、Fragment、manager 与反射桥中，缺少统一、可替换且权限感知的适配层。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "部分调用采用类型化 Binder proxy、空值检查、RemoteException 处理及测试构造器；但 ServiceManager、android.car、com.android.internal 和系统权限依赖散布于控制器、Fragment、manager 与反射桥中，缺少统一、可替换且权限感知的适配层。"
+          "status": "scored"
         },
         {
-          "name": "hidden_api_reflection",
-          "status": "scored",
-          "score": 1,
           "evidence_count": 2,
-          "reason": "XML 控制器反射限定了构造器签名并将失败包装成明确异常；相对地，LegacySettingsRuntime 反射 ServiceManager，并以方法名和参数数量选择任意方法，广泛捕获 Throwable、吞掉调用失败且返回无类型 Object/null，也没有对应测试或 allowlist。"
+          "name": "hidden_api_reflection",
+          "reason": "XML 控制器反射限定了构造器签名并将失败包装成明确异常；相对地，LegacySettingsRuntime 反射 ServiceManager，并以方法名和参数数量选择任意方法，广泛捕获 Throwable、吞掉调用失败且返回无类型 Object/null，也没有对应测试或 allowlist。",
+          "score": 1,
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "仓库没有自有 .aidl 文件，但存在真实的外部 AIDL/Binder 边界。InitialLockSetupService 具备签名权限、绑定时二次校验、版本、细粒度错误码、输入验证和密码清理，并有较深行为测试；不足是契约源位于外部平台库，Binder 线程模型、死亡处理及跨进程生命周期无法在仓库中验证，其他系统 Binder 客户端也多为直接 ServiceManager 调用。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "仓库没有自有 .aidl 文件，但存在真实的外部 AIDL/Binder 边界。InitialLockSetupService 具备签名权限、绑定时二次校验、版本、细粒度错误码、输入验证和密码清理，并有较深行为测试；不足是契约源位于外部平台库，Binder 线程模型、死亡处理及跨进程生命周期无法在仓库中验证，其他系统 Binder 客户端也多为直接 ServiceManager 调用。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "compilation_independence",
-          "status": "failed",
+          "reason": "仓库声明了 Gradle 模块和 compileSdk 35，但未提供可验证的独立平台输入边界：源码依赖 android.car、com.android.internal、settingslib 及外部 setupwizard AIDL 类型，而模块依赖中没有声明这些 AAOS/AOSP 输入；同时 app 编译 legacy 源并依赖包含同包同名类的 modern-settings。受控审查禁止构建，且所需平台/BSP 输入不在仓库中，因此无法可信验证独立编译。",
           "score": null,
-          "evidence_count": 3,
-          "reason": "仓库声明了 Gradle 模块和 compileSdk 35，但未提供可验证的独立平台输入边界：源码依赖 android.car、com.android.internal、settingslib 及外部 setupwizard AIDL 类型，而模块依赖中没有声明这些 AAOS/AOSP 输入；同时 app 编译 legacy 源并依赖包含同包同名类的 modern-settings。受控审查禁止构建，且所需平台/BSP 输入不在仓库中，因此无法可信验证独立编译。"
+          "status": "failed"
         },
         {
+          "evidence_count": 3,
           "name": "integration_testing",
-          "status": "scored",
+          "reason": "测试数量大且不少断言有实际行为深度，包括权限、失败码、生命周期和异步用户操作；然而全部 338 个测试类都位于 Robolectric/unit 源树，未发现 instrumentation、跨进程或端到端测试。新 platform-bridge 没有测试，Binder 测试也直接调用本地 Stub，因此模块、进程与真实 AAOS 生命周期风险仍未覆盖。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "测试数量大且不少断言有实际行为深度，包括权限、失败码、生命周期和异步用户操作；然而全部 338 个测试类都位于 Robolectric/unit 源树，未发现 instrumentation、跨进程或端到端测试。新 platform-bridge 没有测试，Binder 测试也直接调用本地 Stub，因此模块、进程与真实 AAOS 生命周期风险仍未覆盖。"
+          "status": "scored"
         },
         {
-          "name": "code_duplication",
-          "status": "scored",
-          "score": 0,
           "evidence_count": 4,
-          "reason": "legacy src 与 modern/src 中有 182 个同名生产类；批量比较还发现数十个去除头部/导入后完全相同的手写实现，并存在大量数百行的近拷贝。两代代码同时进入 app 模块图，没有生成代码标记或共享 core，导致修复漂移和重复类所有权成为贯穿仓库的维护风险。"
+          "name": "code_duplication",
+          "reason": "legacy src 与 modern/src 中有 182 个同名生产类；批量比较还发现数十个去除头部/导入后完全相同的手写实现，并存在大量数百行的近拷贝。两代代码同时进入 app 模块图，没有生成代码标记或共享 core，导致修复漂移和重复类所有权成为贯穿仓库的维护风险。",
+          "score": 0,
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "release_branch_strategy",
-          "status": "scored",
+          "reason": "实际分支比较显示 release/platform 分支均从同一基点仅增加一个两行配置文件，差异高度有界，没有复制代码修复；但每个分支只有一个独有提交，未观察到 merge、回灌或长期修复复用记录，且当前主线又比共同基点多两个未进入这些分支的桥文件，因此策略的持续性证据有限。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "实际分支比较显示 release/platform 分支均从同一基点仅增加一个两行配置文件，差异高度有界，没有复制代码修复；但每个分支只有一个独有提交，未观察到 merge、回灌或长期修复复用记录，且当前主线又比共同基点多两个未进入这些分支的桥文件，因此策略的持续性证据有限。"
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 1,
           "evidence_count": 3,
-          "reason": "平台分支自身保持薄配置，VehicleSettingOverrides 也集中了一部分平台到包名的映射；但运行时平台选择依赖硬编码 Build.HARDWARE 字符串和静态路由状态，分支属性未形成可见的类型化配置入口。更严重的是 legacy/modern 两代设置栈大面积复制，公共 core 复用不足。"
+          "name": "platform_reuse",
+          "reason": "平台分支自身保持薄配置，VehicleSettingOverrides 也集中了一部分平台到包名的映射；但运行时平台选择依赖硬编码 Build.HARDWARE 字符串和静态路由状态，分支属性未形成可见的类型化配置入口。更严重的是 legacy/modern 两代设置栈大面积复制，公共 core 复用不足。",
+          "score": 1,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 30,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 97,
+        "files_opened": 1055,
+        "notes": "HEAD 与预期 SHA 一致。完成构建入口、4 个 Gradle 模块、806 个生产/现代测试脚本候选、338 个测试类、Binder/反射点、最大源文件、重复家族及全部本地分支盘点；详细检查了超过 20 个生产文件和 8 个有意义测试文件，并对 platform/8155、platform/8295、platform/xinqing、release/sop-2024、develop 做了有界比较。文件数包含批量行数/重复度盘点实际读取的文件以及 5 个分支专属文件版本。未运行构建或仓库脚本，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 19
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T11:16:59.110Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "33e092be7f1376ae652adbf1c96fc4d7841c45da",
+      "result_path": "calibration/results/g3/blind-af733aac52fc.json",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T11:10:29.555Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 1.222222,
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 389.555
+    },
+    {
+      "record_type": "score_rules_current_head_acceptance",
+      "schema_version": "1.0.0",
+      "acceptance_id": "score-rules-v1-app-15-9cd98719a64e-abe446eb843c",
+      "accepted_at": "2026-09-02T14:22:03.275572Z",
+      "status": "blind_validated",
+      "repository": {
+        "head": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+        "tree": "d1303c4e1edec37fb32dcdac82fc3d7028fc7e9d",
+        "branch": "main",
+        "clean": true,
+        "remote_count": 0
+      },
+      "standard_scores": {
+        "path": "STANDARD_SCORES.json",
+        "sha256": "9cd98719a64e789ff72a8a344e808870b58bd632f6cde4c2b1d08faf67dd4f60",
+        "repository_record_sha256": "830c50831e23240afbbc01d96f27271c7f16e72941ca0ba0f850756d1f42cc11"
+      },
+      "scorecard": {
+        "path": "SCORECARD.md",
+        "sha256": "9f43ce3d9aec75f4b1d98a25ac47652d696dd33fdbf596a0137cfdb76d5b5056"
+      },
+      "rubric": {
+        "id": "score-rules-v1",
+        "path": "SCORE_RULES.md",
+        "sha256": "190613d83db6baab49bb66069d1de78fe7ba673f1969ff4e4a5b4c87ecbf7d74",
+        "closed_world": true
+      },
+      "result_summary": {
+        "score": 15,
+        "max_score": 40,
+        "leaf_count": 8,
+        "evidence_anchor_count": 18
+      },
+      "review_provenance": [
+        {
+          "name": "active-six-standard-scores-adjudicator-d-20260902.json",
+          "sha256": "8d72bf42af6746401efdcec3cdec50b497be5e4429fc7bf715ef1107d4211dc1",
+          "availability": "control_workspace_only_not_evaluator_input"
+        },
+        {
+          "name": "final-score-review-fw03-c-dispute-20260902.json",
+          "sha256": "c59995b3a307f59dc672a5a1a8dc8167c2f0d9ad9dc815e4b33199fcbbd5d62c",
+          "availability": "control_workspace_only_not_evaluator_input"
+        },
+        {
+          "name": "final-score-review-fw19-b-20260902.json",
+          "sha256": "30ba88d71ae76763876ed44d223c0b1afe01744a922992c12014d1acc6848671",
+          "availability": "control_workspace_only_not_evaluator_input"
+        },
+        {
+          "name": "fw19-b-disputed-leaf-supplement-20260902.json",
+          "sha256": "6449a9e55a48a7e85f80398ab443b4d8cf69a21baa91aa61cf97d037d883a739",
+          "availability": "control_workspace_only_not_evaluator_input"
+        },
+        {
+          "name": "final-score-review-fw19-e-dispute-20260902.json",
+          "sha256": "225f60108b04391855deac2e14eb533c229c30236bdc48435f1796e902c1c19c",
+          "availability": "control_workspace_only_not_evaluator_input"
+        }
+      ],
+      "review_provenance_sha256": "b8b15835a988370d12175dc6a47a7cc136cb151b72e4d73046f1becb15fbeed0",
+      "acceptance_checks": {
+        "head_tree_score_binding": "passed",
+        "all_evidence_anchors_resolved": true,
+        "score_artifact_consistency": "passed",
+        "per_leaf_scores_copied_into_oracle": false
+      }
     }
-  ]
+  ],
+  "comparison_family": "app-settings-large",
+  "delivery_status": "active",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "模块真实但跨代职责集中到全局 bridge/coordinator。",
+      "status": "expected_low"
+    },
+    {
+      "name": "solid",
+      "reason": "单例、静态 cache/callback、Bundle router 和硬编码 override 削弱 SRP/DIP/OCP。",
+      "status": "expected_low"
+    },
+    {
+      "name": "system_api_dependency",
+      "reason": "隐藏服务、车型和包名直接进入 bridge。",
+      "status": "expected_low"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "reason": "6 处反射包含 setAccessible/Throwable/裸对象。",
+      "status": "expected_low"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "reason": "系统 Binder 通过反射 Object 访问，缺少类型和 death 处理。",
+      "status": "expected_low"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "完整构建需要 AAOS；仅 bridge Java 编译通过。",
+      "status": "failed"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "398 个分代测试未覆盖 bridge 和跨代一致性。",
+      "status": "expected_low"
+    },
+    {
+      "name": "code_duplication",
+      "reason": "89 对近重复、文件比 0.161818。",
+      "status": "expected_low"
+    },
+    {
+      "name": "release_branch_strategy",
+      "reason": "侧分支缺少后续 main 演进。",
+      "status": "expected_low"
+    },
+    {
+      "name": "platform_reuse",
+      "reason": "平台差异通过双代源码、反射 router 和硬编码表混合处理。",
+      "status": "expected_low"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "negative",
+      "observation": "单一 coordinator 横跨 Activity 生命周期、服务发现、代际路由、cache、callback、历史和页面启动。",
+      "path": "platform-bridge/src/main/java/com/android/car/settings/platform/SettingsPageCoordinator.java",
+      "symbol_or_line": "SettingsPageCoordinator"
+    },
+    {
+      "branch": "main",
+      "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+      "confidence": "high",
+      "dimension": "hidden_api_reflection",
+      "expected_impact": "negative",
+      "observation": "进程级单例反射 ServiceManager 和任意方法、setAccessible、Throwable，并重复调度不可取消 polling。",
+      "path": "platform-bridge/src/main/java/com/android/car/settings/platform/LegacySettingsRuntime.java",
+      "symbol_or_line": "LegacySettingsRuntime"
+    },
+    {
+      "branch": "main",
+      "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+      "confidence": "high",
+      "dimension": "code_duplication",
+      "expected_impact": "negative",
+      "observation": "两代同包 settings 实现并存，确定性探针识别 89 对近重复、文件比 0.161818。",
+      "path": "modern-settings/src/main/java/com/android/car/settings/applications/ApplicationsUtils.java",
+      "symbol_or_line": "legacy src versus modern generation"
+    },
+    {
+      "branch": "main",
+      "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "negative",
+      "observation": "bridge 已接入所有 BaseCarSettingsActivity，但 legacy/modern 测试都不引用 platform bridge 或验证跨代一致性。",
+      "path": "app/src/main/java/com/android/car/settings/common/BaseCarSettingsActivity.java",
+      "symbol_or_line": "SettingsPageCoordinator lifecycle wiring"
+    },
+    {
+      "branch": "main",
+      "commit": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
+      "confidence": "high",
+      "dimension": "release_branch_strategy",
+      "expected_impact": "negative",
+      "observation": "五个侧分支缺少 main 后续 journal/fallback 两次演进，相对 main 删除 38 行。",
+      "path": "settings.gradle",
+      "symbol_or_line": "main versus product branches"
+    }
+  ],
+  "quality_tier": "low",
+  "repo_id": "APP-15",
+  "review_status": "blind_validated",
+  "schema_version": "1.0.0"
 }

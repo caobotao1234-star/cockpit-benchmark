@@ -1,209 +1,210 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "FW-11",
-  "quality_tier": "medium",
-  "comparison_family": null,
-  "review_status": "blind_validated",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
-      "path": "Android.bp",
-      "symbol_or_line": "14 Soong modules",
-      "observation": "共享 Binder/permission/callback/scheduler/persistence/config/adapter/observability 与 HVAC API/service/tests 边界可发现。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "aidl_sdk_call",
-      "branch": "main",
-      "commit": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
-      "path": "hvac-api/src/com/cockpitbench/hvac/IHvacService.aidl",
-      "symbol_or_line": "IHvacService",
-      "observation": "typed multi-zone capability/state/command/callback contract，生成代码与 service 编译通过。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "solid",
-      "branch": "main",
-      "commit": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
-      "path": "hvac-service/src/com/cockpitbench/hvac/service/HvacBinderService.java",
-      "symbol_or_line": "execute and capabilities",
-      "observation": "service 委托 policy/router/store/diagnostics，但 moving context 被固定且 capabilities 未加载，职责边界和演进缺口共存。",
-      "expected_impact": "neutral",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
-      "path": "hvac-tests/src/com/cockpitbench/hvac/tests/PolicyRangeTest.java",
-      "symbol_or_line": "range and driving tests",
-      "observation": "policy/router/state/diagnostics/model 共 13 个行为测试通过；Binder/VHAL/config loader 仍缺设备集成。",
-      "expected_impact": "neutral",
-      "confidence": "high"
-    },
-    {
-      "dimension": "system_api_dependency",
-      "branch": "main",
-      "commit": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
-      "path": "hvac-service/config/safety_00.xml",
-      "symbol_or_line": "driving and thermal interlocks",
-      "observation": "驾驶、热保护、区域与 signal 映射以产品配置表达，但 runtime 未全部连接这些配置。",
-      "expected_impact": "neutral",
-      "confidence": "high"
-    },
-    {
-      "dimension": "compilation_independence",
-      "branch": "main",
-      "commit": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
-      "path": "binder-runtime/src/main/java/com/cockpitbench/frameworkfoundation/binder/BinderDispatchTable.java",
-      "symbol_or_line": "source-safe dispatch key",
-      "observation": "共享 Binder dispatch composite key 不含原始 NUL，并已针对每个产品独立 javac 编译。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_medium",
-      "reason": "完整分层伴随配置装载缺口。"
-    },
-    {
-      "name": "solid",
-      "status": "expected_medium",
-      "reason": "窄 collaborators 与 Binder 编排债共存。"
-    },
-    {
-      "name": "aidl_sdk_call",
-      "status": "expected_high",
-      "reason": "typed AIDL 可编译。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_medium",
-      "reason": "纯 JVM 行为测试存在，设备/VHAL 缺失。"
-    },
-    {
-      "name": "hidden_api_reflection",
-      "status": "not_applicable",
-      "reason": "本仓没有反射调用或反射式平台兼容 fallback。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "完整模块需 Android/BSP。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g5",
       "blind_id": "blind-1db9772e8714",
-      "repository_head": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
-      "result_path": "calibration/results/g5/blind-1db9772e8714.json",
-      "validation_report": "reports/validation/g5-blind-results-final.json",
-      "human_review_report": "reports/validation/g5-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-30T00:07:50.399341Z",
-      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T23:53:50.087Z",
-      "finished_at": "2026-08-29T23:57:42.227Z",
-      "wall_clock_seconds": 232.14,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 96,
-        "directories_visited": 40,
-        "tool_calls": 17,
-        "notes": "HEAD 与预期 SHA 一致。打开并检查了 92 个当前 HEAD 文件及 4 个分支文件版本，包括全部 32 个生产 Java 文件、全部 15 个测试 Java 文件、14 个 AIDL、15 个 Android.bp，以及代表性 XML 配置；盘点到 601 个 XML。检查了全部本地分支，并对 develop、platform/8155、platform/8295、release/2026.1 分别进行了有界比较。未运行构建、脚本或网络操作。 Runner normalized tool_calls from Codex JSONL to 17 (evaluator self-report: 17); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 1.375,
-      "scored_dimension_count": 8,
-      "failed_dimension_count": 2,
-      "evidence_anchor_count": 30,
       "dimension_evidence_coverage": 0.9,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "HVAC API、服务和测试具有可辨认的边界，服务内部也拆分了策略、路由、状态和诊断职责；但顶层声明的十四个模块多数只是单类模块，Soong 依赖除 HVAC service→API 外基本没有表达，foundation 与 HVAC 之间也没有可见的组合根或依赖方向，模块化更多是目录级拆分而非完整架构。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "HVAC API、服务和测试具有可辨认的边界，服务内部也拆分了策略、路由、状态和诊断职责；但顶层声明的十四个模块多数只是单类模块，Soong 依赖除 HVAC service→API 外基本没有表达，foundation 与 HVAC 之间也没有可见的组合根或依赖方向，模块化更多是目录级拆分而非完整架构。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "生产设计中存在真实的依赖倒置和职责拆分：时钟、权限门、车辆信号适配器及工作流动作均可注入；HVAC 服务委托给专用组件。局限是部分核心类聚合大量状态模型和控制流程，且通用 Binder/平台接口依赖字符串和 Bundle，接口约束偏弱。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "生产设计中存在真实的依赖倒置和职责拆分：时钟、权限门、车辆信号适配器及工作流动作均可注入；HVAC 服务委托给专用组件。局限是部分核心类聚合大量状态模型和控制流程，且通用 Binder/平台接口依赖字符串和 Bundle，接口约束偏弱。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "Android/Binder 依赖主要集中在 API、Binder、callback 和 adapter 边界，车辆属性访问通过类型化 Adapter 隔离，权限门也可替换。材料缺口包括所有 Soong 模块普遍启用 platform_apis、平台注册表使用通用 Bundle、仓库没有实际 AAOS/CarProperty 适配器，以及 Binder 执行路径将平台异常转成诊断后吞掉。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "Android/Binder 依赖主要集中在 API、Binder、callback 和 adapter 边界，车辆属性访问通过类型化 Adapter 隔离，权限门也可替换。材料缺口包括所有 Soong 模块普遍启用 platform_apis、平台注册表使用通用 Bundle、仓库没有实际 AAOS/CarProperty 适配器，以及 Binder 执行路径将平台异常转成诊断后吞掉。"
+          "status": "scored"
         },
         {
-          "name": "hidden_api_reflection",
-          "status": "not_applicable",
-          "score": null,
           "evidence_count": 0,
-          "reason": "对全部 47 个 Java 文件及 14 个 AIDL 合同检索了反射、Class.forName、getDeclared*、setAccessible、@hide 和 hidden API 痕迹，未发现隐藏 API 或反射使用。"
-        },
-        {
-          "name": "aidl_sdk_call",
-          "status": "scored",
-          "score": 1,
-          "evidence_count": 3,
-          "reason": "HVAC 合同使用 Parcelable、类型化命令/状态/能力及 oneway 回调，并由 RemoteCallbackList 管理回调生命周期；但同步 execute 没有结果或错误类型，服务捕获所有适配器异常后仍让调用正常返回。另一套 framework 合同退化为字符串组件/操作加 Bundle，缺少细粒度类型、版本/稳定性声明、明确线程模型和客户端死亡/重连语义。"
-        },
-        {
-          "name": "compilation_independence",
-          "status": "failed",
+          "name": "hidden_api_reflection",
+          "reason": "对全部 47 个 Java 文件及 14 个 AIDL 合同检索了反射、Class.forName、getDeclared*、setAccessible、@hide 和 hidden API 痕迹，未发现隐藏 API 或反射使用。",
           "score": null,
+          "status": "not_applicable"
+        },
+        {
           "evidence_count": 3,
-          "reason": "仓库只提供 Android Soong 入口，模块均声明 platform_apis；README 明确构建需要平台 Binder 和 car API。受控环境中没有对应 AOSP/AAOS 平台输入，且按要求不能运行构建，因此无法建立可信的独立编译边界。"
-        },
-        {
-          "name": "integration_testing",
-          "status": "scored",
-          "score": 0,
-          "evidence_count": 4,
-          "reason": "核心算法有若干有意义的单元测试，但没有可信的跨 Binder 进程、真实权限、RemoteException/死亡、平台适配器或恢复流程测试。framework-testkit 的构建入口收集 src/main/java，而实际测试位于 src/test/java；HVAC 测试也声明为 java_library。名为权限边界和回调生命周期的测试只断言常量字符串和场景集合，未触达生产代码。"
-        },
-        {
-          "name": "code_duplication",
-          "status": "scored",
+          "name": "aidl_sdk_call",
+          "reason": "HVAC 合同使用 Parcelable、类型化命令/状态/能力及 oneway 回调，并由 RemoteCallbackList 管理回调生命周期；但同步 execute 没有结果或错误类型，服务捕获所有适配器异常后仍让调用正常返回。另一套 framework 合同退化为字符串组件/操作加 Bundle，缺少细粒度类型、版本/稳定性声明、明确线程模型和客户端死亡/重连语义。",
           "score": 1,
-          "evidence_count": 4,
-          "reason": "存在跨模块的系统性近复制：七个运行时目录各含 48 个大型参数化 XML，HVAC 配置另有 225 个 XML，且未发现生成器或“生成文件”标记。四个 Parcelable 类也复制了几乎相同的校验、Parcel 读写和 CREATOR 模板。数据文件的差异部分具有业务含义，但当前维护形式使结构性修改需要大范围同步。"
+          "status": "scored"
         },
         {
-          "name": "release_branch_strategy",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 3,
-          "reason": "所有四个非 main 分支都从当前 main 各自仅前进一个提交；实际比较显示 develop、两个 platform 分支和 release 分支分别只新增两行属性文件，发布差异是有界的，没有复制生产代码。历史很短且没有合并记录，尚不足以证明长期回合并、补丁传播或多版本维护策略。"
+          "name": "compilation_independence",
+          "reason": "仓库只提供 Android Soong 入口，模块均声明 platform_apis；README 明确构建需要平台 Binder 和 car API。受控环境中没有对应 AOSP/AAOS 平台输入，且按要求不能运行构建，因此无法建立可信的独立编译边界。",
+          "score": null,
+          "status": "failed"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 4,
-          "reason": "平台复用方向清楚：主干共享完整 HVAC API/服务，信号读写通过 Adapter 与映射层隔离，8155 与 8295 分支只保留平台选择属性而没有复制 Java 实现。材料限制是仓库未包含实际平台 Adapter 实现或配置装载/映射选择链路，因此无法确认这种共用核心在真实 BSP 集成中的完整性。"
+          "name": "integration_testing",
+          "reason": "核心算法有若干有意义的单元测试，但没有可信的跨 Binder 进程、真实权限、RemoteException/死亡、平台适配器或恢复流程测试。framework-testkit 的构建入口收集 src/main/java，而实际测试位于 src/test/java；HVAC 测试也声明为 java_library。名为权限边界和回调生命周期的测试只断言常量字符串和场景集合，未触达生产代码。",
+          "score": 0,
+          "status": "scored"
+        },
+        {
+          "evidence_count": 4,
+          "name": "code_duplication",
+          "reason": "存在跨模块的系统性近复制：七个运行时目录各含 48 个大型参数化 XML，HVAC 配置另有 225 个 XML，且未发现生成器或“生成文件”标记。四个 Parcelable 类也复制了几乎相同的校验、Parcel 读写和 CREATOR 模板。数据文件的差异部分具有业务含义，但当前维护形式使结构性修改需要大范围同步。",
+          "score": 1,
+          "status": "scored"
+        },
+        {
+          "evidence_count": 3,
+          "name": "release_branch_strategy",
+          "reason": "所有四个非 main 分支都从当前 main 各自仅前进一个提交；实际比较显示 develop、两个 platform 分支和 release 分支分别只新增两行属性文件，发布差异是有界的，没有复制生产代码。历史很短且没有合并记录，尚不足以证明长期回合并、补丁传播或多版本维护策略。",
+          "score": 2,
+          "status": "scored"
+        },
+        {
+          "evidence_count": 4,
+          "name": "platform_reuse",
+          "reason": "平台复用方向清楚：主干共享完整 HVAC API/服务，信号读写通过 Adapter 与映射层隔离，8155 与 8295 分支只保留平台选择属性而没有复制 Java 实现。材料限制是仓库未包含实际平台 Adapter 实现或配置装载/映射选择链路，因此无法确认这种共用核心在真实 BSP 集成中的完整性。",
+          "score": 2,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 30,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 40,
+        "files_opened": 96,
+        "notes": "HEAD 与预期 SHA 一致。打开并检查了 92 个当前 HEAD 文件及 4 个分支文件版本，包括全部 32 个生产 Java 文件、全部 15 个测试 Java 文件、14 个 AIDL、15 个 Android.bp，以及代表性 XML 配置；盘点到 601 个 XML。检查了全部本地分支，并对 develop、platform/8155、platform/8295、release/2026.1 分别进行了有界比较。未运行构建、脚本或网络操作。 Runner normalized tool_calls from Codex JSONL to 17 (evaluator self-report: 17); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 17
+      },
+      "failed_dimension_count": 2,
+      "finished_at": "2026-08-29T23:57:42.227Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+      "result_path": "calibration/results/g5/blind-1db9772e8714.json",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 8,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T23:53:50.087Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 1.375,
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 232.14
     }
-  ]
+  ],
+  "comparison_family": null,
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "完整分层伴随配置装载缺口。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "solid",
+      "reason": "窄 collaborators 与 Binder 编排债共存。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "reason": "typed AIDL 可编译。",
+      "status": "expected_high"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "纯 JVM 行为测试存在，设备/VHAL 缺失。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "reason": "本仓没有反射调用或反射式平台兼容 fallback。",
+      "status": "not_applicable"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "完整模块需 Android/BSP。",
+      "status": "failed"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "positive",
+      "observation": "共享 Binder/permission/callback/scheduler/persistence/config/adapter/observability 与 HVAC API/service/tests 边界可发现。",
+      "path": "Android.bp",
+      "symbol_or_line": "14 Soong modules"
+    },
+    {
+      "branch": "main",
+      "commit": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+      "confidence": "high",
+      "dimension": "aidl_sdk_call",
+      "expected_impact": "positive",
+      "observation": "typed multi-zone capability/state/command/callback contract，生成代码与 service 编译通过。",
+      "path": "hvac-api/src/com/cockpitbench/hvac/IHvacService.aidl",
+      "symbol_or_line": "IHvacService"
+    },
+    {
+      "branch": "main",
+      "commit": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+      "confidence": "high",
+      "dimension": "solid",
+      "expected_impact": "neutral",
+      "observation": "service 委托 policy/router/store/diagnostics，但 moving context 被固定且 capabilities 未加载，职责边界和演进缺口共存。",
+      "path": "hvac-service/src/com/cockpitbench/hvac/service/HvacBinderService.java",
+      "symbol_or_line": "execute and capabilities"
+    },
+    {
+      "branch": "main",
+      "commit": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "neutral",
+      "observation": "policy/router/state/diagnostics/model 共 13 个行为测试通过；Binder/VHAL/config loader 仍缺设备集成。",
+      "path": "hvac-tests/src/com/cockpitbench/hvac/tests/PolicyRangeTest.java",
+      "symbol_or_line": "range and driving tests"
+    },
+    {
+      "branch": "main",
+      "commit": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+      "confidence": "high",
+      "dimension": "system_api_dependency",
+      "expected_impact": "neutral",
+      "observation": "驾驶、热保护、区域与 signal 映射以产品配置表达，但 runtime 未全部连接这些配置。",
+      "path": "hvac-service/config/safety_00.xml",
+      "symbol_or_line": "driving and thermal interlocks"
+    },
+    {
+      "branch": "main",
+      "commit": "340a98a1fb783a561d4a240e9c0b420949c94c2d",
+      "confidence": "high",
+      "dimension": "compilation_independence",
+      "expected_impact": "positive",
+      "observation": "共享 Binder dispatch composite key 不含原始 NUL，并已针对每个产品独立 javac 编译。",
+      "path": "binder-runtime/src/main/java/com/cockpitbench/frameworkfoundation/binder/BinderDispatchTable.java",
+      "symbol_or_line": "source-safe dispatch key"
+    }
+  ],
+  "quality_tier": "medium",
+  "repo_id": "FW-11",
+  "review_status": "blind_validated",
+  "schema_version": "1.0.0"
 }

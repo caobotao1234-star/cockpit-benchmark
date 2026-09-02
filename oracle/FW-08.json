@@ -1,194 +1,264 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "FW-08",
-  "quality_tier": "medium",
-  "comparison_family": null,
-  "review_status": "reviewed",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "58d1f6eda9c6b053ff62351a69b258489154acdf",
-      "path": "settings.gradle",
-      "symbol_or_line": "soa-api, soa-service, soa-vms-tests",
-      "observation": "API/service/test 边界可发现且显式形成 api→service→focused tests 构建关系，但 soa-service 仍包含完整平台 service 依赖闭包。",
-      "expected_impact": "neutral",
-      "confidence": "high"
-    },
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "58d1f6eda9c6b053ff62351a69b258489154acdf",
-      "path": "soa-vms-tests/build.gradle",
-      "symbol_or_line": "dependencies",
-      "observation": "VMS tests 显式依赖 soa-api 与 soa-service，三模块的测试边界可由构建图验证而非仅由目录名推断。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "aidl_sdk_call",
-      "branch": "main",
-      "commit": "58d1f6eda9c6b053ff62351a69b258489154acdf",
-      "path": "car-lib/src/android/car/vms/IVmsBrokerService.aidl",
-      "symbol_or_line": "IVmsBrokerService",
-      "observation": "VMS broker、client callback 与 typed layer/offering/subscription parcelables 是真实 Binder contract。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "solid",
-      "branch": "main",
-      "commit": "58d1f6eda9c6b053ff62351a69b258489154acdf",
-      "path": "service/src/com/android/car/vms/VmsBrokerService.java",
-      "symbol_or_line": "VmsBrokerService",
-      "observation": "VMS broker 有专用 service 与 provider/layer collaborators；同时依赖完整 CarService 组合环境。",
-      "expected_impact": "neutral",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "58d1f6eda9c6b053ff62351a69b258489154acdf",
-      "path": "tests/carservice_unit_test/src/com/android/car/vms/VmsBrokerServiceTest.java",
-      "symbol_or_line": "VmsBrokerServiceTest",
-      "observation": "核心 VMS broker 行为有测试，但 dependency closure 的其余系统服务测试被有意省略。",
-      "expected_impact": "neutral",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_medium",
-      "reason": "清晰三模块外壳包住宽 service 闭包。"
-    },
-    {
-      "name": "solid",
-      "status": "expected_medium",
-      "reason": "VMS 局部边界与平台组合复杂度共存。"
-    },
-    {
-      "name": "aidl_sdk_call",
-      "status": "expected_high",
-      "reason": "真实 typed VMS Binder surface。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_medium",
-      "reason": "focused VMS 测试存在但覆盖不均。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "需要 AOSP。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g5",
       "blind_id": "blind-6a96cb943408",
-      "repository_head": "d793dd6d3164dff8ce75e3cab2e73cb96fe2063a",
-      "result_path": "calibration/results/g5/blind-6a96cb943408.json",
-      "validation_report": "reports/validation/g5-blind-results-final.json",
-      "human_review_report": "reports/validation/g5-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-30T00:07:50.399341Z",
-      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T23:28:40.873Z",
-      "finished_at": "2026-08-29T23:33:30.743Z",
-      "wall_clock_seconds": 289.87,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 459,
-        "directories_visited": 74,
-        "tool_calls": 20,
-        "notes": "HEAD 与预期 SHA 一致。459 按唯一 (ref,path) 计数：为最大文件清单读取了全部 431 个 Java 文件的行数，并详细检查了 24 个以上代表性生产文件、全部 4 个实际测试类、相关 AIDL、构建入口、清单及 4 个分支文件。完成了 main 与 develop、release/2026.1、platform/8155、platform/8295 的有界比较，以及两个平台分支间的比较。仅作静态只读审查；未运行构建、包管理器、仓库脚本或网络操作，未修改文件，未使用 skill。20/28 次 shell 调用预算足够覆盖要求。 Runner normalized tool_calls from Codex JSONL to 20 (evaluator self-report: 20); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 2.222222,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 33,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "API、Broker、客户端状态和平台适配层具备清晰的职责划分，但 Gradle 模块只是把整个 car-lib 和 service 源树分别纳入单一模块；ICarImpl 同时构造、排序并暴露大量服务，形成明显的中央组合点和较宽的变化面。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "API、Broker、客户端状态和平台适配层具备清晰的职责划分，但 Gradle 模块只是把整个 car-lib 和 service 源树分别纳入单一模块；ICarImpl 同时构造、排序并暴露大量服务，形成明显的中央组合点和较宽的变化面。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "生产设计中存在真实的 DIP/OCP 和 SRP 实践：VHAL 后端经抽象替换，系统接口经构建器注入，VMS 状态算法被拆分；但 ICarImpl 的大规模手工组合以及部分具体平台访问仍限制扩展隔离。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "生产设计中存在真实的 DIP/OCP 和 SRP 实践：VHAL 后端经抽象替换，系统接口经构建器注入，VMS 状态算法被拆分；但 ICarImpl 的大规模手工组合以及部分具体平台访问仍限制扩展隔离。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "关键平台边界通常使用类型化适配器、权限检查和失败处理，AIDL/HIDL VHAL 也可替换；不过 SystemProperties、Settings 和部分系统服务访问仍分散在多个业务服务中，隔离程度不完全一致。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "关键平台边界通常使用类型化适配器、权限检查和失败处理，AIDL/HIDL VHAL 也可替换；不过 SystemProperties、Settings 和部分系统服务访问仍分散在多个业务服务中，隔离程度不完全一致。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "hidden_api_reflection",
-          "status": "scored",
+          "reason": "未发现 Class.forName、setAccessible 或反射调用；隐藏平台能力主要通过编译期类型和 builtin helper 使用，因而错误更早暴露且可测试。不过隐藏 SystemProperties 的包装并不统一，且 CarSystemProperties 明示需要手工同步。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "未发现 Class.forName、setAccessible 或反射调用；隐藏平台能力主要通过编译期类型和 builtin helper 使用，因而错误更早暴露且可测试。不过隐藏 SystemProperties 的包装并不统一，且 CarSystemProperties 明示需要手工同步。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "VMS 跨进程契约粒度清楚，区分 publisher/subscriber 权限，使用 token 标识生命周期、oneway 回调和 SharedMemory 大包；服务实现处理 Binder death、回调失败和锁外通知，客户端把回调切换到调用方 Executor。测试还覆盖死亡、未知客户端、订阅变化和共享内存关闭。",
           "score": 3,
-          "evidence_count": 4,
-          "reason": "VMS 跨进程契约粒度清楚，区分 publisher/subscriber 权限，使用 token 标识生命周期、oneway 回调和 SharedMemory 大包；服务实现处理 Binder death、回调失败和锁外通知，客户端把回调切换到调用方 Executor。测试还覆盖死亡、未知客户端、订阅变化和共享内存关闭。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "compilation_independence",
-          "status": "failed",
+          "reason": "仓库声明的 Gradle 边界不足以验证独立编译：模块只有 sourceSets 和 compileSdk 声明，没有 car-lib/service 间依赖及所需平台库、generated resource 或测试依赖；生产代码直接引用 android.car.builtin、VHAL stable AIDL/HIDL 和内部注解。受控审查禁止运行构建，且仓库不含所需 AOSP/AAOS 平台输入，因此不能据此猜测独立编译得分。",
           "score": null,
-          "evidence_count": 3,
-          "reason": "仓库声明的 Gradle 边界不足以验证独立编译：模块只有 sourceSets 和 compileSdk 声明，没有 car-lib/service 间依赖及所需平台库、generated resource 或测试依赖；生产代码直接引用 android.car.builtin、VHAL stable AIDL/HIDL 和内部注解。受控审查禁止运行构建，且仓库不含所需 AOSP/AAOS 平台输入，因此不能据此猜测独立编译得分。"
+          "status": "failed"
         },
         {
-          "name": "integration_testing",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 4,
-          "reason": "现有四个测试类对 VMS API/Broker 边界具有很深的行为覆盖，包括多客户端/多 UID、断连、死亡、非法状态、依赖环、大包和资源关闭；但它们依赖仓库外的 AAOS 测试夹具，Broker 大多通过 mock Binder 模拟跨进程行为，且仓库没有可验证的独立测试构建。"
+          "name": "integration_testing",
+          "reason": "现有四个测试类对 VMS API/Broker 边界具有很深的行为覆盖，包括多客户端/多 UID、断连、死亡、非法状态、依赖环、大包和资源关闭；但它们依赖仓库外的 AAOS 测试夹具，Broker 大多通过 mock Binder 模拟跨进程行为，且仓库没有可验证的独立测试构建。",
+          "score": 2,
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "code_duplication",
-          "status": "scored",
+          "reason": "生产侧通过 VehicleStub 和独立 VMS 状态类避免了主要平台分叉，精确重复 blob 也集中于本地化资源、尺寸资源和 API baseline；但两个超大 VMS 测试套件手写复刻了相近的订阅、offering、依赖和发布场景矩阵，形成明显的维护性重复。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "生产侧通过 VehicleStub 和独立 VMS 状态类避免了主要平台分叉，精确重复 blob 也集中于本地化资源、尺寸资源和 API baseline；但两个超大 VMS 测试套件手写复刻了相近的订阅、offering、依赖和发布场景矩阵，形成明显的维护性重复。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "release_branch_strategy",
-          "status": "scored",
+          "reason": "实际比较表明 release 和两个 platform 分支均只比 main 多一个提交、一个两行配置文件，核心源码没有分叉；release、develop、平台配置也分离。证据体现了受控的小幅分歧，但本地历史只有一个发布点，无法验证长期回合并、修复回灌或多版本维护行为。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "实际比较表明 release 和两个 platform 分支均只比 main 多一个提交、一个两行配置文件，核心源码没有分叉；release、develop、平台配置也分离。证据体现了受控的小幅分歧，但本地历史只有一个发布点，无法验证长期回合并、修复回灌或多版本维护行为。"
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 3,
           "evidence_count": 3,
-          "reason": "两个芯片平台分支共享同一完整源码祖先，实际差异仅为同一两行平台配置；运行时 AIDL/HIDL VHAL 差异又封装在 VehicleStub 后端中。未观察到按车型或平台复制业务策略的源码树。"
+          "name": "platform_reuse",
+          "reason": "两个芯片平台分支共享同一完整源码祖先，实际差异仅为同一两行平台配置；运行时 AIDL/HIDL VHAL 差异又封装在 VehicleStub 后端中。未观察到按车型或平台复制业务策略的源码树。",
+          "score": 3,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.151.0-alpha.7.1;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 33,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 74,
+        "files_opened": 459,
+        "notes": "HEAD 与预期 SHA 一致。459 按唯一 (ref,path) 计数：为最大文件清单读取了全部 431 个 Java 文件的行数，并详细检查了 24 个以上代表性生产文件、全部 4 个实际测试类、相关 AIDL、构建入口、清单及 4 个分支文件。完成了 main 与 develop、release/2026.1、platform/8155、platform/8295 的有界比较，以及两个平台分支间的比较。仅作静态只读审查；未运行构建、包管理器、仓库脚本或网络操作，未修改文件，未使用 skill。20/28 次 shell 调用预算足够覆盖要求。 Runner normalized tool_calls from Codex JSONL to 20 (evaluator self-report: 20); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 20
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T23:33:30.743Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g5-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "d793dd6d3164dff8ce75e3cab2e73cb96fe2063a",
+      "result_path": "calibration/results/g5/blind-6a96cb943408.json",
+      "reviewed_at": "2026-08-30T00:07:50.399341Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T23:28:40.873Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 2.222222,
+      "validation_report": "reports/validation/g5-blind-results-final.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 289.87
+    },
+    {
+      "record_type": "score_rules_current_head_acceptance",
+      "schema_version": "1.0.0",
+      "acceptance_id": "score-rules-v1-fw-08-9cd98719a64e-6021ad22c54e",
+      "accepted_at": "2026-09-02T14:22:03.275572Z",
+      "status": "blind_validated",
+      "repository": {
+        "head": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9",
+        "tree": "690be1735940b758fa33d03a5717663bfd4a0016",
+        "branch": "main",
+        "clean": true,
+        "remote_count": 0
+      },
+      "standard_scores": {
+        "path": "STANDARD_SCORES.json",
+        "sha256": "9cd98719a64e789ff72a8a344e808870b58bd632f6cde4c2b1d08faf67dd4f60",
+        "repository_record_sha256": "620aa7bb8b0bfb0a5049ab70184facd8303b44c1e10b5b0c2a0327fd6b83482c"
+      },
+      "scorecard": {
+        "path": "SCORECARD.md",
+        "sha256": "9f43ce3d9aec75f4b1d98a25ac47652d696dd33fdbf596a0137cfdb76d5b5056"
+      },
+      "rubric": {
+        "id": "score-rules-v1",
+        "path": "SCORE_RULES.md",
+        "sha256": "190613d83db6baab49bb66069d1de78fe7ba673f1969ff4e4a5b4c87ecbf7d74",
+        "closed_world": true
+      },
+      "result_summary": {
+        "score": 52,
+        "max_score": 72,
+        "leaf_count": 17,
+        "evidence_anchor_count": 43
+      },
+      "review_provenance": [
+        {
+          "name": "active-six-standard-scores-adjudicator-d-20260902.json",
+          "sha256": "8d72bf42af6746401efdcec3cdec50b497be5e4429fc7bf715ef1107d4211dc1",
+          "availability": "control_workspace_only_not_evaluator_input"
+        },
+        {
+          "name": "final-score-review-fw03-c-dispute-20260902.json",
+          "sha256": "c59995b3a307f59dc672a5a1a8dc8167c2f0d9ad9dc815e4b33199fcbbd5d62c",
+          "availability": "control_workspace_only_not_evaluator_input"
+        },
+        {
+          "name": "final-score-review-fw19-b-20260902.json",
+          "sha256": "30ba88d71ae76763876ed44d223c0b1afe01744a922992c12014d1acc6848671",
+          "availability": "control_workspace_only_not_evaluator_input"
+        },
+        {
+          "name": "fw19-b-disputed-leaf-supplement-20260902.json",
+          "sha256": "6449a9e55a48a7e85f80398ab443b4d8cf69a21baa91aa61cf97d037d883a739",
+          "availability": "control_workspace_only_not_evaluator_input"
+        },
+        {
+          "name": "final-score-review-fw19-e-dispute-20260902.json",
+          "sha256": "225f60108b04391855deac2e14eb533c229c30236bdc48435f1796e902c1c19c",
+          "availability": "control_workspace_only_not_evaluator_input"
+        }
+      ],
+      "review_provenance_sha256": "b8b15835a988370d12175dc6a47a7cc136cb151b72e4d73046f1becb15fbeed0",
+      "acceptance_checks": {
+        "head_tree_score_binding": "passed",
+        "all_evidence_anchors_resolved": true,
+        "score_artifact_consistency": "passed",
+        "per_leaf_scores_copied_into_oracle": false
+      }
     }
-  ]
+  ],
+  "comparison_family": null,
+  "delivery_status": "active",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "清晰三模块外壳包住宽 service 闭包。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "solid",
+      "reason": "VMS 局部边界与平台组合复杂度共存。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "reason": "真实 typed VMS Binder surface。",
+      "status": "expected_high"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "focused VMS 测试存在但覆盖不均。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "需要 AOSP。",
+      "status": "failed"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "neutral",
+      "observation": "API/service/test 边界可发现且显式形成 api→service→focused tests 构建关系，但 soa-service 仍包含完整平台 service 依赖闭包。",
+      "path": "settings.gradle",
+      "symbol_or_line": "soa-api, soa-service, soa-vms-tests"
+    },
+    {
+      "branch": "main",
+      "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "positive",
+      "observation": "VMS tests 显式依赖 soa-api 与 soa-service，三模块的测试边界可由构建图验证而非仅由目录名推断。",
+      "path": "soa-vms-tests/build.gradle",
+      "symbol_or_line": "dependencies"
+    },
+    {
+      "branch": "main",
+      "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9",
+      "confidence": "high",
+      "dimension": "aidl_sdk_call",
+      "expected_impact": "positive",
+      "observation": "VMS broker、client callback 与 typed layer/offering/subscription parcelables 是真实 Binder contract。",
+      "path": "car-lib/src/android/car/vms/IVmsBrokerService.aidl",
+      "symbol_or_line": "IVmsBrokerService"
+    },
+    {
+      "branch": "main",
+      "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9",
+      "confidence": "high",
+      "dimension": "solid",
+      "expected_impact": "neutral",
+      "observation": "VMS broker 有专用 service 与 provider/layer collaborators；同时依赖完整 CarService 组合环境。",
+      "path": "service/src/com/android/car/vms/VmsBrokerService.java",
+      "symbol_or_line": "VmsBrokerService"
+    },
+    {
+      "branch": "main",
+      "commit": "6021ad22c54e7b7e22f21d6d59f294b8d9e3f8c9",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "neutral",
+      "observation": "核心 VMS broker 行为有测试，但 dependency closure 的其余系统服务测试被有意省略。",
+      "path": "tests/carservice_unit_test/src/com/android/car/vms/VmsBrokerServiceTest.java",
+      "symbol_or_line": "VmsBrokerServiceTest"
+    }
+  ],
+  "quality_tier": "medium",
+  "repo_id": "FW-08",
+  "review_status": "blind_validated",
+  "schema_version": "1.0.0"
 }

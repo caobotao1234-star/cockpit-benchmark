@@ -1,219 +1,220 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "FW-04",
-  "quality_tier": "high",
-  "comparison_family": "fw-audio-binder-small",
-  "review_status": "reviewed",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
-      "path": "Android.bp",
-      "symbol_or_line": "CockpitAudioApi, CockpitOccupantUserApi, CockpitPowerApi, CockpitAudioSystemSupport, CockpitAudioService",
-      "observation": "五个可识别模块显式分隔公共 Binder API、用户/乘员、功耗、系统支持和音频运行时，并把测试作为独立 Soong 目标。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "system_api_dependency",
-      "branch": "main",
-      "commit": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
-      "path": "service/src/com/android/car/audio/CarAudioService.java",
-      "symbol_or_line": "setGroupVolume and enforcePermission",
-      "observation": "音量、音区、patch 与设置 Binder 入口使用 CAR_CONTROL_AUDIO_VOLUME/SETTINGS 权限，并在访问状态前验证。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "aidl_sdk_call",
-      "branch": "main",
-      "commit": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
-      "path": "service/src/com/android/car/BinderInterfaceContainer.java",
-      "symbol_or_line": "BinderInterface.binderDied and addBinder",
-      "observation": "回调注册 linkToDeath，死亡时 unlink 并从容器删除；音频服务 release 还清理 callback 与 HAL death link。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
-      "path": "tests/carservice_unit_test/src/com/android/car/audio/CarAudioServiceUnitTest.java",
-      "symbol_or_line": "CarAudioServiceUnitTest",
-      "observation": "62 个测试源覆盖 Service、焦点、音区配置、callback handler、HAL wrapper、权限/API 与 exercise 场景；TEST_MAPPING 只引用保留目标。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    },
-    {
-      "dimension": "release_branch_strategy",
-      "branch": "main",
-      "commit": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
-      "path": "Android.bp",
-      "symbol_or_line": "shared main build baseline",
-      "observation": "develop/release/8155/8295 均以当前 main 为 merge base，只各增加两行配置，相同 blob 比例 0.996377。",
-      "expected_impact": "positive",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_high",
-      "reason": "API、用户/乘员、功耗、系统支持与音频服务具有五个清晰 Soong 边界。"
-    },
-    {
-      "name": "solid",
-      "status": "expected_high",
-      "reason": "音区、焦点、ducking、volume、HAL wrapper 与 callback container 由专责类型协作。"
-    },
-    {
-      "name": "system_api_dependency",
-      "status": "expected_high",
-      "reason": "系统/隐藏 API 通过 car-lib、car-builtin 和 service 边界使用，敏感入口有权限检查。"
-    },
-    {
-      "name": "hidden_api_reflection",
-      "status": "expected_medium",
-      "reason": "保留 AndroidFuture 的单一反射点和平台 hidden API，但音频核心不以反射发现服务。"
-    },
-    {
-      "name": "aidl_sdk_call",
-      "status": "expected_high",
-      "reason": "ICarAudio/ICarVolumeCallback 类型化，权限、callback death、HAL death 与 release 清理均可复核。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "需要完整 AAOS Soong、HAL、资源和系统库；未声明 standalone。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_high",
-      "reason": "62 个聚焦测试源与精确 TEST_MAPPING 覆盖音频核心/API/权限。"
-    },
-    {
-      "name": "code_duplication",
-      "status": "expected_high",
-      "reason": "0.80 阈值没有近重复文件对。"
-    },
-    {
-      "name": "release_branch_strategy",
-      "status": "expected_high",
-      "reason": "产品分支均基于当前 main 且仅保存窄配置差异。"
-    },
-    {
-      "name": "platform_reuse",
-      "status": "expected_high",
-      "reason": "平台分支共享 0.996377 blob，平台差异由配置而不是复制源码表达。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g3",
       "blind_id": "blind-ee507aff68d9",
-      "repository_head": "be95188ed46871d0f4a7352de12745d24498b3d2",
-      "result_path": "calibration/results/g3/blind-ee507aff68d9.json",
-      "validation_report": "reports/validation/g3-blind-results.json",
-      "human_review_report": "reports/validation/g3-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-29T11:40:16.568740Z",
-      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T11:05:24.256Z",
-      "finished_at": "2026-08-29T11:09:57.177Z",
-      "wall_clock_seconds": 272.922,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 220,
-        "directories_visited": 45,
-        "tool_calls": 19,
-        "notes": "HEAD 与预期 SHA 一致。清点了唯一 Android.bp 入口、5 个生产模块、3 个测试/演练模块、155 个生产 Java/AIDL 文件、62 个测试 Java 文件、30 个 AIDL 合约、最大源文件、反射/系统 API/Binder/HAL 位置及重复家族。实际读取了 HEAD 的 217 个 Java/AIDL 文件、Android.bp，以及 2 个唯一分支配置路径；深入检查超过 26 个生产文件和 6 个测试文件。遍历了 HEAD 的 44 个含跟踪文件目录及分支专有 product 目录。比较了 release/2026.1、platform/8155、platform/8295 和 develop 相对 main 的有界差异。未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 2.111111,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 32,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "API、系统支持和音频服务按 Soong 模块分层，HAL 与系统操作也有明确适配边界；但 CarAudioService 同时承担配置、路由、焦点、音量、用户映射、权限和生命周期编排，1562 行的集中职责使变更面偏大。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "API、系统支持和音频服务按 Soong 模块分层，HAL 与系统操作也有明确适配边界；但 CarAudioService 同时承担配置、路由、焦点、音量、用户映射、权限和生命周期编排，1562 行的集中职责使变更面偏大。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "DIP/ISP 在系统接口和统一 HAL 抽象中有实质体现，工厂允许按版本扩展；但大型服务直接构造多个平台依赖并承担多类策略，SRP 与依赖注入执行不均衡。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "DIP/ISP 在系统接口和统一 HAL 抽象中有实质体现，工厂允许按版本扩展；但大型服务直接构造多个平台依赖并承担多类策略，SRP 与依赖注入执行不均衡。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "隐藏/系统服务和车载 HAL 大多经 builtin helper、SystemInterface 与 AudioControlWrapper 隔离，并包含版本、失败和死亡处理；不过 CarAudioService 仍直接使用 SystemProperties、绝对系统配置路径和多个框架服务，隔离不完全。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "隐藏/系统服务和车载 HAL 大多经 builtin helper、SystemInterface 与 AudioControlWrapper 隔离，并包含版本、失败和死亡处理；不过 CarAudioService 仍直接使用 SystemProperties、绝对系统配置路径和多个框架服务，隔离不完全。"
+          "status": "scored"
         },
         {
+          "evidence_count": 2,
           "name": "hidden_api_reflection",
-          "status": "scored",
+          "reason": "反射点数量少且集中，均返回具体类型或受控 Throwable，并提供明确异常/回退语义；但未观察到专门覆盖反射失败、类加载器差异或允许列表的测试。",
           "score": 2,
-          "evidence_count": 2,
-          "reason": "反射点数量少且集中，均返回具体类型或受控 Throwable，并提供明确异常/回退语义；但未观察到专门覆盖反射失败、类加载器差异或允许列表的测试。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "合约按业务域拆分，回调使用 oneway，客户端统一处理 RemoteException，服务端存在权限检查、调用者校验、线程切换和 Binder/HAL death handling；不足是 ICarAudio 回调因 hidden AIDL 退化为裸 IBinder，部分远程失败仅记录或返回默认值，AIDL HAL 重连对空服务缺少显式保护。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "合约按业务域拆分，回调使用 oneway，客户端统一处理 RemoteException，服务端存在权限检查、调用者校验、线程切换和 Binder/HAL death handling；不足是 ICarAudio 回调因 hidden AIDL 退化为裸 IBinder，部分远程失败仅记录或返回默认值，AIDL HAL 重连对空服务缺少显式保护。"
+          "status": "scored"
         },
         {
-          "name": "compilation_independence",
-          "status": "failed",
-          "score": null,
           "evidence_count": 2,
-          "reason": "仓库提供 Android.bp，但所有主要模块声明 platform_apis: true，源码依赖当前仓库未提供的 Android/AAOS 内部类以及 automotive AIDL/HIDL 接口。受控审查禁止构建，且所需 AOSP/AAOS 平台输入不在仓库中，因此无法验证可信的独立编译边界。"
+          "name": "compilation_independence",
+          "reason": "仓库提供 Android.bp，但所有主要模块声明 platform_apis: true，源码依赖当前仓库未提供的 Android/AAOS 内部类以及 automotive AIDL/HIDL 接口。受控审查禁止构建，且所需 AOSP/AAOS 平台输入不在仓库中，因此无法验证可信的独立编译边界。",
+          "score": null,
+          "status": "failed"
         },
         {
+          "evidence_count": 4,
           "name": "integration_testing",
-          "status": "scored",
+          "reason": "存在设备 API、服务集成、权限隔离和 HAL 适配测试，覆盖真实状态变更、配置失败、回调转换和死亡重连；但跨进程生命周期仍主要由 mock 驱动，部分设备测试仅调用无断言或带未实现的行为 TODO。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "存在设备 API、服务集成、权限隔离和 HAL 适配测试，覆盖真实状态变更、配置失败、回调转换和死亡重连；但跨进程生命周期仍主要由 mock 驱动，部分设备测试仅调用无断言或带未实现的行为 TODO。"
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "code_duplication",
-          "status": "scored",
+          "reason": "主要重复集中在明确标记的上游拷贝、生成式 DataClass 代码和版本适配器中，业务核心复用共同接口与模型；仍存在需手工同步的整类拷贝和三个 HAL wrapper 中相似的服务死亡、日志及 fade/balance 逻辑。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "主要重复集中在明确标记的上游拷贝、生成式 DataClass 代码和版本适配器中，业务核心复用共同接口与模型；仍存在需手工同步的整类拷贝和三个 HAL wrapper 中相似的服务死亡、日志及 fade/balance 逻辑。"
+          "status": "scored"
         },
         {
-          "name": "release_branch_strategy",
-          "status": "scored",
-          "score": 2,
           "evidence_count": 3,
-          "reason": "实际比较显示 release 与两个 platform 分支都只比 main 多一个两行配置文件和一个独立提交，未形成代码漂移；但本地历史是浅/grafted，且没有足够合并记录证明长期回合并或持续复用策略。"
+          "name": "release_branch_strategy",
+          "reason": "实际比较显示 release 与两个 platform 分支都只比 main 多一个两行配置文件和一个独立提交，未形成代码漂移；但本地历史是浅/grafted，且没有足够合并记录证明长期回合并或持续复用策略。",
+          "score": 2,
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 3,
           "evidence_count": 4,
-          "reason": "平台差异通过共同 AudioControlWrapper、能力查询和单一工厂集中，主服务不依赖具体 AIDL/HIDL 实现；两个实查平台分支仅携带两行选择配置，没有复制服务或策略代码。局部代价是三个版本适配器仍各自维护相似生命周期代码。"
+          "name": "platform_reuse",
+          "reason": "平台差异通过共同 AudioControlWrapper、能力查询和单一工厂集中，主服务不依赖具体 AIDL/HIDL 实现；两个实查平台分支仅携带两行选择配置，没有复制服务或策略代码。局部代价是三个版本适配器仍各自维护相似生命周期代码。",
+          "score": 3,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 32,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 45,
+        "files_opened": 220,
+        "notes": "HEAD 与预期 SHA 一致。清点了唯一 Android.bp 入口、5 个生产模块、3 个测试/演练模块、155 个生产 Java/AIDL 文件、62 个测试 Java 文件、30 个 AIDL 合约、最大源文件、反射/系统 API/Binder/HAL 位置及重复家族。实际读取了 HEAD 的 217 个 Java/AIDL 文件、Android.bp，以及 2 个唯一分支配置路径；深入检查超过 26 个生产文件和 6 个测试文件。遍历了 HEAD 的 44 个含跟踪文件目录及分支专有 product 目录。比较了 release/2026.1、platform/8155、platform/8295 和 develop 相对 main 的有界差异。未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 19
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T11:09:57.177Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "be95188ed46871d0f4a7352de12745d24498b3d2",
+      "result_path": "calibration/results/g3/blind-ee507aff68d9.json",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T11:05:24.256Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 2.111111,
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 272.922
     }
-  ]
+  ],
+  "comparison_family": "fw-audio-binder-small",
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "API、用户/乘员、功耗、系统支持与音频服务具有五个清晰 Soong 边界。",
+      "status": "expected_high"
+    },
+    {
+      "name": "solid",
+      "reason": "音区、焦点、ducking、volume、HAL wrapper 与 callback container 由专责类型协作。",
+      "status": "expected_high"
+    },
+    {
+      "name": "system_api_dependency",
+      "reason": "系统/隐藏 API 通过 car-lib、car-builtin 和 service 边界使用，敏感入口有权限检查。",
+      "status": "expected_high"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "reason": "保留 AndroidFuture 的单一反射点和平台 hidden API，但音频核心不以反射发现服务。",
+      "status": "expected_medium"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "reason": "ICarAudio/ICarVolumeCallback 类型化，权限、callback death、HAL death 与 release 清理均可复核。",
+      "status": "expected_high"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "需要完整 AAOS Soong、HAL、资源和系统库；未声明 standalone。",
+      "status": "failed"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "62 个聚焦测试源与精确 TEST_MAPPING 覆盖音频核心/API/权限。",
+      "status": "expected_high"
+    },
+    {
+      "name": "code_duplication",
+      "reason": "0.80 阈值没有近重复文件对。",
+      "status": "expected_high"
+    },
+    {
+      "name": "release_branch_strategy",
+      "reason": "产品分支均基于当前 main 且仅保存窄配置差异。",
+      "status": "expected_high"
+    },
+    {
+      "name": "platform_reuse",
+      "reason": "平台分支共享 0.996377 blob，平台差异由配置而不是复制源码表达。",
+      "status": "expected_high"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "positive",
+      "observation": "五个可识别模块显式分隔公共 Binder API、用户/乘员、功耗、系统支持和音频运行时，并把测试作为独立 Soong 目标。",
+      "path": "Android.bp",
+      "symbol_or_line": "CockpitAudioApi, CockpitOccupantUserApi, CockpitPowerApi, CockpitAudioSystemSupport, CockpitAudioService"
+    },
+    {
+      "branch": "main",
+      "commit": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
+      "confidence": "high",
+      "dimension": "system_api_dependency",
+      "expected_impact": "positive",
+      "observation": "音量、音区、patch 与设置 Binder 入口使用 CAR_CONTROL_AUDIO_VOLUME/SETTINGS 权限，并在访问状态前验证。",
+      "path": "service/src/com/android/car/audio/CarAudioService.java",
+      "symbol_or_line": "setGroupVolume and enforcePermission"
+    },
+    {
+      "branch": "main",
+      "commit": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
+      "confidence": "high",
+      "dimension": "aidl_sdk_call",
+      "expected_impact": "positive",
+      "observation": "回调注册 linkToDeath，死亡时 unlink 并从容器删除；音频服务 release 还清理 callback 与 HAL death link。",
+      "path": "service/src/com/android/car/BinderInterfaceContainer.java",
+      "symbol_or_line": "BinderInterface.binderDied and addBinder"
+    },
+    {
+      "branch": "main",
+      "commit": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "positive",
+      "observation": "62 个测试源覆盖 Service、焦点、音区配置、callback handler、HAL wrapper、权限/API 与 exercise 场景；TEST_MAPPING 只引用保留目标。",
+      "path": "tests/carservice_unit_test/src/com/android/car/audio/CarAudioServiceUnitTest.java",
+      "symbol_or_line": "CarAudioServiceUnitTest"
+    },
+    {
+      "branch": "main",
+      "commit": "b41fc49cabae9faf8bb1cf2239dfec4f6d1a7fc2",
+      "confidence": "high",
+      "dimension": "release_branch_strategy",
+      "expected_impact": "positive",
+      "observation": "develop/release/8155/8295 均以当前 main 为 merge base，只各增加两行配置，相同 blob 比例 0.996377。",
+      "path": "Android.bp",
+      "symbol_or_line": "shared main build baseline"
+    }
+  ],
+  "quality_tier": "high",
+  "repo_id": "FW-04",
+  "review_status": "reviewed",
+  "schema_version": "1.0.0"
 }

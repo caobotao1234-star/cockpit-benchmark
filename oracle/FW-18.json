@@ -1,209 +1,210 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "FW-18",
-  "quality_tier": "low",
-  "comparison_family": "fw-vehicle-hal-medium",
-  "review_status": "blind_validated",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "74db57addbc12585ca258f0e054efa07492078a4",
-      "path": "platform/src/com/cockpitbench/vehicleplatform/PlatformSignalCoordinator.java",
-      "symbol_or_line": "PlatformSignalCoordinator",
-      "observation": "进程级协调器同时承担平台选择、映射、服务重连、回调 token、审计、fallback 与全局 reset。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "hidden_api_reflection",
-      "branch": "main",
-      "commit": "74db57addbc12585ca258f0e054efa07492078a4",
-      "path": "platform/src/com/cockpitbench/vehicleplatform/LegacyPlatformRouter.java",
-      "symbol_or_line": "LegacyPlatformRouter",
-      "observation": "单例反射 ServiceManager/SystemProperties，使用 setAccessible、Object 和 Throwable，且无 death recipient。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "aidl_sdk_call",
-      "branch": "main",
-      "commit": "74db57addbc12585ca258f0e054efa07492078a4",
-      "path": "platform/aidl/com/cockpitbench/vehicleplatform/IVehiclePlatform.aidl",
-      "symbol_or_line": "IVehiclePlatform",
-      "observation": "聚合契约以 String/token 读写和 resetAll 暴露跨进程能力，没有类型化结果、权限或版本语义。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "code_duplication",
-      "branch": "main",
-      "commit": "74db57addbc12585ca258f0e054efa07492078a4",
-      "path": "migration/aidl/service-hal/BidirectionalSparseIntArray.java",
-      "symbol_or_line": "BidirectionalSparseIntArray",
-      "observation": "与 legacy service/src 同名实现完全重复；另有 API、HAL helper、测试及三平台 profile 的近重复。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_low",
-      "reason": "Soong 模块存在，但 legacy/migration/聚合层并存且全局协调器跨越多项职责。"
-    },
-    {
-      "name": "solid",
-      "status": "expected_low",
-      "reason": "单例、Object 句柄、instanceof 平台分派和宽接口削弱 DIP/ISP/SRP。"
-    },
-    {
-      "name": "system_api_dependency",
-      "status": "expected_low",
-      "reason": "隐藏服务发现、平台属性和硬编码映射集中在不可替换全局 runtime。"
-    },
-    {
-      "name": "hidden_api_reflection",
-      "status": "expected_low",
-      "reason": "反射使用 setAccessible/Throwable，没有允许列表、类型化错误或死亡恢复。"
-    },
-    {
-      "name": "aidl_sdk_call",
-      "status": "expected_low",
-      "reason": "自定义 Binder 契约粗粒度且缺少权限、错误、版本和 callback death。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "两代平台源码和生成类型均要求 AAOS/AOSP 产品树。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_low",
-      "reason": "上游测试很多，但新增聚合平台层没有专门行为测试。"
-    },
-    {
-      "name": "code_duplication",
-      "status": "expected_low",
-      "reason": "legacy 与 migration 存在完全重复/近重复，平台 profile 继续复制扩展。"
-    },
-    {
-      "name": "release_branch_strategy",
-      "status": "expected_low",
-      "reason": "平台/发布分支未回合主线后续 journal/fallback 变化。"
-    },
-    {
-      "name": "platform_reuse",
-      "status": "expected_low",
-      "reason": "平台差异通过三套 profile 和 instanceof 选择，双栈逻辑未收敛。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g3",
       "blind_id": "blind-3f168d5d3871",
-      "repository_head": "74db57addbc12585ca258f0e054efa07492078a4",
-      "result_path": "calibration/results/g3/blind-3f168d5d3871.json",
-      "validation_report": "reports/validation/g3-blind-results.json",
-      "human_review_report": "reports/validation/g3-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-29T11:40:16.568740Z",
-      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T11:09:00.396Z",
-      "finished_at": "2026-08-29T11:14:53.375Z",
-      "wall_clock_seconds": 352.979,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 47,
-        "directories_visited": 24,
-        "tool_calls": 25,
-        "notes": "HEAD 与预期 SHA 一致。显式检查了根构建入口、主要生产模块、platform 与 migration/aidl 边界、5 个行为测试及本地分支；另用 rg 盘点了 528 个 Java、121 个 AIDL、2 个 C++ 文件（约 278 个生产 Java、250 个测试类），并检查最大源文件和重复家族。完成了 main 与 platform/8155、platform/8295、platform/xinqing、release/sop-2019、develop 的有界比较。未运行构建或仓库脚本，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 25 (evaluator self-report: 25); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 1.222222,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 35,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "旧 Car 服务具有 HAL、Binder 服务和客户端管理器分层，但新增运行时模块把整个旧核心与迁移树静态聚合，并由全局单例协调器同时承担平台选择、映射、回退、回调登记、审计和重连。新增 VehiclePlatformService 也未在清单或其他组合根中注册，边界和生命周期不完整。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "旧 Car 服务具有 HAL、Binder 服务和客户端管理器分层，但新增运行时模块把整个旧核心与迁移树静态聚合，并由全局单例协调器同时承担平台选择、映射、回退、回调登记、审计和重连。新增 VehiclePlatformService 也未在清单或其他组合根中注册，边界和生命周期不完整。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "旧 HAL 层通过 HalServiceBase、注入的 IVehicle/HalClient 和监听器接口体现了一定 DIP/ISP；但新增平台层用 Object 加 instanceof 分派三种具体 profile，所有依赖都在单例内部硬构造，无法替换或扩展，SRP、OCP 和 DIP 均明显受损。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "旧 HAL 层通过 HalServiceBase、注入的 IVehicle/HalClient 和监听器接口体现了一定 DIP/ISP；但新增平台层用 Object 加 instanceof 分派三种具体 profile，所有依赖都在单例内部硬构造，无法替换或扩展，SRP、OCP 和 DIP 均明显受损。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "旧代码把类型化 VHAL 访问、权限映射、重试和错误转换集中在 HAL/服务层；但新增运行时核心通过反射访问 ServiceManager/SystemProperties、硬编码 vehicle 服务名和 SKU 默认值，并把服务保存为 Object。其读写实际上只操作本地 Map，未建立类型化系统服务适配或死亡恢复，中央平台路径的可替换性和故障语义较弱。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "旧代码把类型化 VHAL 访问、权限映射、重试和错误转换集中在 HAL/服务层；但新增运行时核心通过反射访问 ServiceManager/SystemProperties、硬编码 vehicle 服务名和 SKU 默认值，并把服务保存为 Object。其读写实际上只操作本地 Map，未建立类型化系统服务适配或死亡恢复，中央平台路径的可替换性和故障语义较弱。"
+          "status": "scored"
         },
         {
-          "name": "hidden_api_reflection",
-          "status": "scored",
-          "score": 1,
           "evidence_count": 2,
-          "reason": "反射集中在一个类并提供日志或默认值，具备最基本的 containment；但没有允许列表、签名适配层、受控异常类型或可注入反射后端，使用 setAccessible 和 catch(Throwable)，服务查找失败被压缩为 null，且没有针对该路径的测试。"
+          "name": "hidden_api_reflection",
+          "reason": "反射集中在一个类并提供日志或默认值，具备最基本的 containment；但没有允许列表、签名适配层、受控异常类型或可注入反射后端，使用 setAccessible 和 catch(Throwable)，服务查找失败被压缩为 null，且没有针对该路径的测试。",
+          "score": 1,
+          "status": "scored"
         },
         {
+          "evidence_count": 4,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "仓库旧 CarProperty 和迁移 VehicleStub 路径包含类型化 parcelable、回调、RemoteException、权限检查和 Binder death 测试；但新增公开边界用 String 携带所有信号值，以字符串 token/packageName 代替真正 Binder 回调，并暴露 reconnect/resetAll。其 Stub 没有调用方权限、死亡处理、线程策略或生命周期校验，拉低了当前运行时边界质量。",
           "score": 1,
-          "evidence_count": 4,
-          "reason": "仓库旧 CarProperty 和迁移 VehicleStub 路径包含类型化 parcelable、回调、RemoteException、权限检查和 Binder death 测试；但新增公开边界用 String 携带所有信号值，以字符串 token/packageName 代替真正 Binder 回调，并暴露 reconnect/resetAll。其 Stub 没有调用方权限、死亡处理、线程策略或生命周期校验，拉低了当前运行时边界质量。"
+          "status": "scored"
         },
         {
-          "name": "compilation_independence",
-          "status": "failed",
-          "score": null,
           "evidence_count": 3,
-          "reason": "仓库只提供 AOSP Soong/Make 边界且显式要求 platform_apis、Android HIDL/VHAL、framework、libbinder 及固定 packages/services/Car include 路径；当前受控工作区不含所需 AOSP/AAOS 平台输入，且禁止运行构建，因此无法验证可信的独立编译边界。"
+          "name": "compilation_independence",
+          "reason": "仓库只提供 AOSP Soong/Make 边界且显式要求 platform_apis、Android HIDL/VHAL、framework、libbinder 及固定 packages/services/Car include 路径；当前受控工作区不含所需 AOSP/AAOS 平台输入，且禁止运行构建，因此无法验证可信的独立编译边界。",
+          "score": null,
+          "status": "failed"
         },
         {
+          "evidence_count": 4,
           "name": "integration_testing",
-          "status": "scored",
+          "reason": "测试具有真实行为深度：Mocked VHAL 驱动服务生命周期、VMS 发布订阅跨层传播、HVAC 端到端事件验证，以及 AIDL/HIDL death/异常覆盖。主要缺口是新增 vehicleplatform 包完全没有对应测试，因而中央平台选择、反射失败、权限、回退、分支 profile 和并发回调均未经验证。",
           "score": 2,
-          "evidence_count": 4,
-          "reason": "测试具有真实行为深度：Mocked VHAL 驱动服务生命周期、VMS 发布订阅跨层传播、HVAC 端到端事件验证，以及 AIDL/HIDL death/异常覆盖。主要缺口是新增 vehicleplatform 包完全没有对应测试，因而中央平台选择、反射失败、权限、回退、分支 profile 和并发回调均未经验证。"
+          "status": "scored"
         },
         {
-          "name": "code_duplication",
-          "status": "scored",
-          "score": 1,
           "evidence_count": 5,
-          "reason": "三种平台 profile 是近乎逐行复制，仅偏移量和少量标志不同；此外 migration/aidl 与旧 car-lib/service 并行保留多套大型管理器、事件和 VehicleHal 实现。迁移副本并非生成物，修改协议或行为时存在多处同步风险。"
-        },
-        {
-          "name": "release_branch_strategy",
-          "status": "scored",
-          "score": 2,
-          "evidence_count": 4,
-          "reason": "各平台/发布分支自身只增加两行产品配置，平台差异保持有界，没有在分支提交中复制整套实现；但所有这些分支都停在共同基点 43a56d3，未吸收 main 后续的 journal 与 disconnected fallback 两项改进。当前差异因此表现为 65 行公共能力缺失，未观察到合并或回移证据。"
-        },
-        {
-          "name": "platform_reuse",
-          "status": "scored",
+          "name": "code_duplication",
+          "reason": "三种平台 profile 是近乎逐行复制，仅偏移量和少量标志不同；此外 migration/aidl 与旧 car-lib/service 并行保留多套大型管理器、事件和 VehicleHal 实现。迁移副本并非生成物，修改协议或行为时存在多处同步风险。",
           "score": 1,
+          "status": "scored"
+        },
+        {
           "evidence_count": 4,
-          "reason": "分支差异大体限制在产品配置，且 main 提供共同 Router、Coordinator、Journal 和 fallback；但平台策略仍散落在三个复制类中，Coordinator 用硬编码字符串和 instanceof 选择具体类，分支配置文件并未被当前代码读取。平台映射、能力和选择策略没有形成数据驱动或接口化的公共核心。"
+          "name": "release_branch_strategy",
+          "reason": "各平台/发布分支自身只增加两行产品配置，平台差异保持有界，没有在分支提交中复制整套实现；但所有这些分支都停在共同基点 43a56d3，未吸收 main 后续的 journal 与 disconnected fallback 两项改进。当前差异因此表现为 65 行公共能力缺失，未观察到合并或回移证据。",
+          "score": 2,
+          "status": "scored"
+        },
+        {
+          "evidence_count": 4,
+          "name": "platform_reuse",
+          "reason": "分支差异大体限制在产品配置，且 main 提供共同 Router、Coordinator、Journal 和 fallback；但平台策略仍散落在三个复制类中，Coordinator 用硬编码字符串和 instanceof 选择具体类，分支配置文件并未被当前代码读取。平台映射、能力和选择策略没有形成数据驱动或接口化的公共核心。",
+          "score": 1,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 35,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 24,
+        "files_opened": 47,
+        "notes": "HEAD 与预期 SHA 一致。显式检查了根构建入口、主要生产模块、platform 与 migration/aidl 边界、5 个行为测试及本地分支；另用 rg 盘点了 528 个 Java、121 个 AIDL、2 个 C++ 文件（约 278 个生产 Java、250 个测试类），并检查最大源文件和重复家族。完成了 main 与 platform/8155、platform/8295、platform/xinqing、release/sop-2019、develop 的有界比较。未运行构建或仓库脚本，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 25 (evaluator self-report: 25); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 25
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T11:14:53.375Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "74db57addbc12585ca258f0e054efa07492078a4",
+      "result_path": "calibration/results/g3/blind-3f168d5d3871.json",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T11:09:00.396Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 1.222222,
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 352.979
     }
-  ]
+  ],
+  "comparison_family": "fw-vehicle-hal-medium",
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "Soong 模块存在，但 legacy/migration/聚合层并存且全局协调器跨越多项职责。",
+      "status": "expected_low"
+    },
+    {
+      "name": "solid",
+      "reason": "单例、Object 句柄、instanceof 平台分派和宽接口削弱 DIP/ISP/SRP。",
+      "status": "expected_low"
+    },
+    {
+      "name": "system_api_dependency",
+      "reason": "隐藏服务发现、平台属性和硬编码映射集中在不可替换全局 runtime。",
+      "status": "expected_low"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "reason": "反射使用 setAccessible/Throwable，没有允许列表、类型化错误或死亡恢复。",
+      "status": "expected_low"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "reason": "自定义 Binder 契约粗粒度且缺少权限、错误、版本和 callback death。",
+      "status": "expected_low"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "两代平台源码和生成类型均要求 AAOS/AOSP 产品树。",
+      "status": "failed"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "上游测试很多，但新增聚合平台层没有专门行为测试。",
+      "status": "expected_low"
+    },
+    {
+      "name": "code_duplication",
+      "reason": "legacy 与 migration 存在完全重复/近重复，平台 profile 继续复制扩展。",
+      "status": "expected_low"
+    },
+    {
+      "name": "release_branch_strategy",
+      "reason": "平台/发布分支未回合主线后续 journal/fallback 变化。",
+      "status": "expected_low"
+    },
+    {
+      "name": "platform_reuse",
+      "reason": "平台差异通过三套 profile 和 instanceof 选择，双栈逻辑未收敛。",
+      "status": "expected_low"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "74db57addbc12585ca258f0e054efa07492078a4",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "negative",
+      "observation": "进程级协调器同时承担平台选择、映射、服务重连、回调 token、审计、fallback 与全局 reset。",
+      "path": "platform/src/com/cockpitbench/vehicleplatform/PlatformSignalCoordinator.java",
+      "symbol_or_line": "PlatformSignalCoordinator"
+    },
+    {
+      "branch": "main",
+      "commit": "74db57addbc12585ca258f0e054efa07492078a4",
+      "confidence": "high",
+      "dimension": "hidden_api_reflection",
+      "expected_impact": "negative",
+      "observation": "单例反射 ServiceManager/SystemProperties，使用 setAccessible、Object 和 Throwable，且无 death recipient。",
+      "path": "platform/src/com/cockpitbench/vehicleplatform/LegacyPlatformRouter.java",
+      "symbol_or_line": "LegacyPlatformRouter"
+    },
+    {
+      "branch": "main",
+      "commit": "74db57addbc12585ca258f0e054efa07492078a4",
+      "confidence": "high",
+      "dimension": "aidl_sdk_call",
+      "expected_impact": "negative",
+      "observation": "聚合契约以 String/token 读写和 resetAll 暴露跨进程能力，没有类型化结果、权限或版本语义。",
+      "path": "platform/aidl/com/cockpitbench/vehicleplatform/IVehiclePlatform.aidl",
+      "symbol_or_line": "IVehiclePlatform"
+    },
+    {
+      "branch": "main",
+      "commit": "74db57addbc12585ca258f0e054efa07492078a4",
+      "confidence": "high",
+      "dimension": "code_duplication",
+      "expected_impact": "negative",
+      "observation": "与 legacy service/src 同名实现完全重复；另有 API、HAL helper、测试及三平台 profile 的近重复。",
+      "path": "migration/aidl/service-hal/BidirectionalSparseIntArray.java",
+      "symbol_or_line": "BidirectionalSparseIntArray"
+    }
+  ],
+  "quality_tier": "low",
+  "repo_id": "FW-18",
+  "review_status": "blind_validated",
+  "schema_version": "1.0.0"
 }

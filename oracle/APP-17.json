@@ -1,310 +1,311 @@
 {
-  "schema_version": "1.0.0",
-  "repo_id": "APP-17",
-  "quality_tier": "low",
-  "comparison_family": "hvac-controlled-pair",
-  "review_status": "blind_validated",
-  "evidence": [
-    {
-      "dimension": "architecture",
-      "branch": "main",
-      "commit": "85fca70e962f51ebffbc52ab75084e58d3789efb",
-      "path": "app/src/main/java/com/cockpitbench/thermo/ClimateCenterActivity.kt",
-      "symbol_or_line": "ClimateCenterActivity",
-      "observation": "209 行 Activity 同时直接处理界面事件、座椅、除霜、温度、诊断和车辆服务状态。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "solid",
-      "branch": "main",
-      "commit": "85fca70e962f51ebffbc52ab75084e58d3789efb",
-      "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/VendorClimateManager.kt",
-      "symbol_or_line": "VendorClimateManager",
-      "observation": "Manager 以全局单例选择平台实现并直接读取隐藏系统属性，无法通过接口替换依赖。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "code_duplication",
-      "branch": "main",
-      "commit": "85fca70e962f51ebffbc52ab75084e58d3789efb",
-      "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/Sa8155ClimateBridge.kt",
-      "symbol_or_line": "Sa8155ClimateBridge",
-      "observation": "8155 与 8295 桥接类各 71 行且仅两行差异，平台扩展依靠复制整类。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    },
-    {
-      "dimension": "integration_testing",
-      "branch": "main",
-      "commit": "85fca70e962f51ebffbc52ab75084e58d3789efb",
-      "path": "app/src/androidTest/java/com/cockpitbench/thermo/ClimateLaunchTest.kt",
-      "symbol_or_line": "ClimateLaunchTest.activityClassIsPresent",
-      "observation": "唯一设备测试仅反射加载 Activity 类，没有启动页面或验证 Binder、信号和控制结果。",
-      "expected_impact": "negative",
-      "confidence": "high"
-    }
-  ],
-  "dimension_expectations": [
-    {
-      "name": "architecture",
-      "status": "expected_low",
-      "reason": "两模块形式存在，但业务职责大量集中在 Activity 和全局 Manager。"
-    },
-    {
-      "name": "solid",
-      "status": "expected_low",
-      "reason": "直接依赖具体平台类与单例，接口隔离和依赖反转不足。"
-    },
-    {
-      "name": "hidden_api_reflection",
-      "status": "expected_low",
-      "reason": "生产代码直接反射 android.car 类并访问隐藏 SystemProperties。"
-    },
-    {
-      "name": "aidl_sdk_call",
-      "status": "expected_low",
-      "reason": "有 AIDL 文件但调用边界仍混入 UI 与单例管理器。"
-    },
-    {
-      "name": "compilation_independence",
-      "status": "failed",
-      "reason": "直接引用隐藏系统类且未提供可独立替代的 SDK stub。"
-    },
-    {
-      "name": "integration_testing",
-      "status": "expected_low",
-      "reason": "仅有类存在性测试，无法证明跨进程契约正确。"
-    },
-    {
-      "name": "code_duplication",
-      "status": "expected_low",
-      "reason": "多平台桥接和车型 profile 通过大段复制扩展。"
-    },
-    {
-      "name": "release_branch_strategy",
-      "status": "expected_low",
-      "reason": "平台与发布分支长期脱离后续 main 共享改动。"
-    },
-    {
-      "name": "platform_reuse",
-      "status": "expected_low",
-      "reason": "分支对象比较显示相同 blob 比例约为 0.31。"
-    }
-  ],
   "calibration_runs": [
     {
       "batch": "g2",
       "blind_id": "blind-d90d8f90078a",
-      "repository_head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
-      "result_path": "calibration/results/g2/blind-d90d8f90078a.json",
-      "validation_report": "reports/validation/g2-blind-results-final.json",
-      "human_review_report": "reports/validation/g2-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-29T07:34:32.723926Z",
-      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T07:26:12.936Z",
-      "finished_at": "2026-08-29T07:30:59.121Z",
-      "wall_clock_seconds": 286.185,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 165,
-        "directories_visited": 18,
-        "tool_calls": 16,
-        "notes": "HEAD 与预期 SHA 一致。清点了 2 个 Gradle 模块、152 个生产源文件、唯一的测试文件、1 个 AIDL、Binder/系统 API/反射位置、最大文件及重复家族；重点检查了 23 个以上生产文件并读取全部测试。比较了 main 与 platform/8155、platform/8295、release/0.9，并检查 develop 和标签历史。未运行构建、脚本、包管理器或网络操作；未修改文件；未使用 skill 或附加代理。 Runner normalized tool_calls from Codex JSONL to 16 (evaluator self-report: 16); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 0.444444,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 27,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "存在 app→vehicle 的模块方向以及按 feature、scene、profile 等包划分，但边界主要是目录性的。应用层大量直接取得全局 VendorClimateManager；主 Activity 同时承担 UI、状态持久化、硬件写入、轮询、服务绑定和分析记录，且轮询生命周期处理不完整，导致职责和组合高度耦合。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "存在 app→vehicle 的模块方向以及按 feature、scene、profile 等包划分，但边界主要是目录性的。应用层大量直接取得全局 VendorClimateManager；主 Activity 同时承担 UI、状态持久化、硬件写入、轮询、服务绑定和分析记录，且轮询生命周期处理不完整，导致职责和组合高度耦合。"
+          "status": "scored"
         },
         {
+          "evidence_count": 2,
           "name": "solid",
-          "status": "scored",
+          "reason": "代码可读且按用例拆成许多小类，但生产设计普遍依赖具体 Android Context 和全局单例，没有可替换端口；平台多态通过 Any 与反射模拟。控制器重复承担 UI 提示、状态、定时和硬件协议，DIP、OCP 与 SRP 均存在持续性弱点。",
           "score": 1,
-          "evidence_count": 2,
-          "reason": "代码可读且按用例拆成许多小类，但生产设计普遍依赖具体 Android Context 和全局单例，没有可替换端口；平台多态通过 Any 与反射模拟。控制器重复承担 UI 提示、状态、定时和硬件协议，DIP、OCP 与 SRP 均存在持续性弱点。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "虽然汽车访问集中了一部分到 vehicle 模块，但系统依赖仍大范围散落：SystemProperties 出现在平台桥、30 个 legacy 协调器、30 个 model override 和大量 profile 中，业务类还直接使用硬编码属性 ID。权限仅在 manifest 声明，未找到运行时/调用方校验；底层错误多数被吞掉或折叠成 -1，难以区分权限、断连和协议失败。",
           "score": 0,
-          "evidence_count": 3,
-          "reason": "虽然汽车访问集中了一部分到 vehicle 模块，但系统依赖仍大范围散落：SystemProperties 出现在平台桥、30 个 legacy 协调器、30 个 model override 和大量 profile 中，业务类还直接使用硬编码属性 ID。权限仅在 manifest 声明，未找到运行时/调用方校验；底层错误多数被吞掉或折叠成 -1，难以区分权限、断连和协议失败。"
+          "status": "scored"
         },
         {
+          "evidence_count": 2,
           "name": "hidden_api_reflection",
-          "status": "scored",
+          "reason": "反射基本被限制在 vehicle 模块，这提供了最低限度的隔离；但三个平台桥完整复制反射路径，管理器自身又按字符串反射桥方法。实现使用 Any、setAccessible 和宽泛 Throwable，没有允许列表、缓存的方法句柄、类型化失败或可注入测试后端。",
           "score": 1,
-          "evidence_count": 2,
-          "reason": "反射基本被限制在 vehicle 模块，这提供了最低限度的隔离；但三个平台桥完整复制反射路径，管理器自身又按字符串反射桥方法。实现使用 Any、setAccessible 和宽泛 Throwable，没有允许列表、缓存的方法句柄、类型化失败或可注入测试后端。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "仓库存在真实 Binder/AIDL 边界，但契约主要暴露原始 propertyId/areaId 和通用预设字符串，没有契约级错误、回调、版本或权限语义。更严重的是 AIDL 未被 Stub/asInterface 使用；导出的 Service 返回一个无协议的裸 Binder，也没有死亡监听、调用方权限或跨进程线程策略。",
           "score": 0,
-          "evidence_count": 3,
-          "reason": "仓库存在真实 Binder/AIDL 边界，但契约主要暴露原始 propertyId/areaId 和通用预设字符串，没有契约级错误、回调、版本或权限语义。更严重的是 AIDL 未被 Stub/asInterface 使用；导出的 Service 返回一个无协议的裸 Binder，也没有死亡监听、调用方权限或跨进程线程策略。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "compilation_independence",
-          "status": "failed",
+          "reason": "无法建立可信的独立编译边界：仓库没有 Gradle wrapper，也没有声明 AAOS/AOSP/vendor stub 输入；生产代码直接引用标准 Android SDK 不公开的 android.os.SystemProperties。所需平台输入在当前受控环境不可用，且本次规则禁止执行构建，因此不能验证可独立编译性。",
           "score": null,
-          "evidence_count": 3,
-          "reason": "无法建立可信的独立编译边界：仓库没有 Gradle wrapper，也没有声明 AAOS/AOSP/vendor stub 输入；生产代码直接引用标准 Android SDK 不公开的 android.os.SystemProperties。所需平台输入在当前受控环境不可用，且本次规则禁止执行构建，因此不能验证可独立编译性。"
+          "status": "failed"
         },
         {
-          "name": "integration_testing",
-          "status": "scored",
-          "score": 0,
           "evidence_count": 2,
-          "reason": "152 个生产源文件对应唯一一个 androidTest，且该测试只通过 Class.forName 验证 Activity 类存在，没有启动组件、断言行为、替身平台、Binder 往返、权限/断连/生命周期或多平台映射覆盖。vehicle 虽声明 JUnit，实际没有单元测试。"
+          "name": "integration_testing",
+          "reason": "152 个生产源文件对应唯一一个 androidTest，且该测试只通过 Class.forName 验证 Activity 类存在，没有启动组件、断言行为、替身平台、Binder 往返、权限/断连/生命周期或多平台映射覆盖。vehicle 虽声明 JUnit，实际没有单元测试。",
+          "score": 0,
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "code_duplication",
-          "status": "scored",
+          "reason": "重复是跨家族且手写的：26 个控制器共享同一控制流，三个平台桥各 71 行且任意一对仅有两行增删，另有 22 个 scene、22 个 profile、30 个 legacy 和 30 个 model 文件遵循大段模板。没有生成文件标记；差异埋在类名、属性 ID、偏移和少量默认值中，使修复和协议变更需要广泛同步。",
           "score": 0,
-          "evidence_count": 3,
-          "reason": "重复是跨家族且手写的：26 个控制器共享同一控制流，三个平台桥各 71 行且任意一对仅有两行增删，另有 22 个 scene、22 个 profile、30 个 legacy 和 30 个 model 文件遵循大段模板。没有生成文件标记；差异埋在类名、属性 ID、偏移和少量默认值中，使修复和协议变更需要广泛同步。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "release_branch_strategy",
-          "status": "scored",
+          "reason": "分支差异确实受到约束：两个平台分支各只增加一个两行默认配置，release 分支只增加一个发布通道文件。但四个非 main 分支都从较早共同基点形成 1 个独有提交，而 main 已前进 6 个提交；历史中未观察到合并、回移或共享配置整合，因而长期同步策略证据薄弱。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "分支差异确实受到约束：两个平台分支各只增加一个两行默认配置，release 分支只增加一个发布通道文件。但四个非 main 分支都从较早共同基点形成 1 个独有提交，而 main 已前进 6 个提交；历史中未观察到合并、回移或共享配置整合，因而长期同步策略证据薄弱。"
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 0,
           "evidence_count": 3,
-          "reason": "运行时选择集中在 VendorClimateManager，且分支配置差异很小，这是有限的复用基础；但主干仍保存三个近乎逐行复制的平台桥，没有共同接口或可配置映射。产品 profile、legacy 与 model 政策也以大量平行类复制，平台和车型差异没有被可靠收敛为数据或共享核心。"
+          "name": "platform_reuse",
+          "reason": "运行时选择集中在 VendorClimateManager，且分支配置差异很小，这是有限的复用基础；但主干仍保存三个近乎逐行复制的平台桥，没有共同接口或可配置映射。产品 profile、legacy 与 model 政策也以大量平行类复制，平台和车型差异没有被可靠收敛为数据或共享核心。",
+          "score": 0,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 27,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 18,
+        "files_opened": 165,
+        "notes": "HEAD 与预期 SHA 一致。清点了 2 个 Gradle 模块、152 个生产源文件、唯一的测试文件、1 个 AIDL、Binder/系统 API/反射位置、最大文件及重复家族；重点检查了 23 个以上生产文件并读取全部测试。比较了 main 与 platform/8155、platform/8295、release/0.9，并检查 develop 和标签历史。未运行构建、脚本、包管理器或网络操作；未修改文件；未使用 skill 或附加代理。 Runner normalized tool_calls from Codex JSONL to 16 (evaluator self-report: 16); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 16
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T07:30:59.121Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g2-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+      "result_path": "calibration/results/g2/blind-d90d8f90078a.json",
+      "reviewed_at": "2026-08-29T07:34:32.723926Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T07:26:12.936Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 0.444444,
+      "validation_report": "reports/validation/g2-blind-results-final.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 286.185
     },
     {
       "batch": "g3",
       "blind_id": "blind-d4d90a7ebecf",
-      "repository_head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
-      "result_path": "calibration/results/g3/blind-d4d90a7ebecf.json",
-      "validation_report": "reports/validation/g3-blind-results.json",
-      "human_review_report": "reports/validation/g3-blind-human-review.md",
-      "status": "blind_validated",
-      "reviewed_at": "2026-08-29T11:40:16.568740Z",
-      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
-      "model": "gpt-5.6-sol",
-      "started_at": "2026-08-29T10:59:36.348Z",
-      "finished_at": "2026-08-29T11:04:10.437Z",
-      "wall_clock_seconds": 274.089,
-      "rounds_used": 1,
-      "max_rounds": 1,
-      "wall_clock_budget_seconds": 900,
-      "truncated": false,
-      "truncation_reason": null,
-      "exploration": {
-        "files_opened": 35,
-        "directories_visited": 17,
-        "tool_calls": 19,
-        "notes": "HEAD 与预期值一致。盘点了 2 个 Gradle 模块、151 个生产 Kotlin 文件（app 145、vehicle 6）、1 个 AIDL、唯一的 1 个测试文件、系统/隐藏 API 与反射位置、最大源码和主要重复家族；完整或有界检查了 23 个代表性生产文件及全部测试，并比较了 main 与 platform/8155、platform/8295、release/0.9、develop。未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high."
-      },
-      "unweighted_mean": 0.777778,
-      "scored_dimension_count": 9,
-      "failed_dimension_count": 1,
-      "evidence_anchor_count": 30,
       "dimension_evidence_coverage": 1.0,
-      "scored_evidence_coverage": 1.0,
-      "evidence_validation": "passed",
-      "human_review": "passed",
       "dimensions": [
         {
+          "evidence_count": 3,
           "name": "architecture",
-          "status": "scored",
+          "reason": "存在 app→vehicle 的明确模块方向，但 UI、状态持久化、轮询、服务绑定、业务规则和硬件写入仍集中于 Activity；全局单例管理器及大量直接属性调用削弱边界和可组合性。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "存在 app→vehicle 的明确模块方向，但 UI、状态持久化、轮询、服务绑定、业务规则和硬件写入仍集中于 Activity；全局单例管理器及大量直接属性调用削弱边界和可组合性。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "solid",
-          "status": "scored",
+          "reason": "生产设计主要依赖具体单例、反射分派和复制类，缺少可替换接口与注入点；多个类职责交叠。小型控制器具有局部内聚性，但没有形成系统性的 SRP、OCP 或 DIP 约束。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "生产设计主要依赖具体单例、反射分派和复制类，缺少可替换接口与注入点；多个类职责交叠。小型控制器具有局部内聚性，但没有形成系统性的 SRP、OCP 或 DIP 约束。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "system_api_dependency",
-          "status": "scored",
+          "reason": "vehicle 模块提供了部分集中入口，Manifest 也声明了车载空调权限；但隐藏 SystemProperties、反射式 Car API、裸整数属性及平台判断仍散布于 vehicle、model、profile 和 legacy 家族。错误普遍被折叠为 -1 或静默忽略，权限失败没有类型化语义。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "vehicle 模块提供了部分集中入口，Manifest 也声明了车载空调权限；但隐藏 SystemProperties、反射式 Car API、裸整数属性及平台判断仍散布于 vehicle、model、profile 和 legacy 家族。错误普遍被折叠为 -1 或静默忽略，权限失败没有类型化语义。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "hidden_api_reflection",
-          "status": "scored",
+          "reason": "反射主要集中在管理器和三个平台桥中，这是有限的隔离；但没有方法 allowlist、类型化适配接口、能力协商或可注入回退。广泛捕获 Throwable、静默写失败和 -1 哨兵使兼容性及权限错误不可区分，也没有相关测试。",
           "score": 1,
-          "evidence_count": 3,
-          "reason": "反射主要集中在管理器和三个平台桥中，这是有限的隔离；但没有方法 allowlist、类型化适配接口、能力协商或可注入回退。广泛捕获 Throwable、静默写失败和 -1 哨兵使兼容性及权限错误不可区分，也没有相关测试。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "aidl_sdk_call",
-          "status": "scored",
+          "reason": "AIDL 定义存在真实跨进程意图，但生产服务没有实现其 Stub，而是从导出服务返回一个普通 Binder。契约使用裸属性 ID、区域和值，缺少结构化错误、回调、线程语义、权限检查和死亡处理；静态搜索未发现 Stub、transact、linkToDeath 或回调注册。",
           "score": 0,
-          "evidence_count": 3,
-          "reason": "AIDL 定义存在真实跨进程意图，但生产服务没有实现其 Stub，而是从导出服务返回一个普通 Binder。契约使用裸属性 ID、区域和值，缺少结构化错误、回调、线程语义、权限检查和死亡处理；静态搜索未发现 Stub、transact、linkToDeath 或回调注册。"
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "compilation_independence",
-          "status": "failed",
+          "reason": "仓库明确需要 AAOS 平台 API 或兼容 vendor stubs，但这些输入不在仓库中；Gradle 声明也没有提供 Car API/stub 依赖，且不存在 Gradle wrapper。受控审查禁止运行构建，因此无法建立可信的独立编译边界。",
           "score": null,
-          "evidence_count": 3,
-          "reason": "仓库明确需要 AAOS 平台 API 或兼容 vendor stubs，但这些输入不在仓库中；Gradle 声明也没有提供 Car API/stub 依赖，且不存在 Gradle wrapper。受控审查禁止运行构建，因此无法建立可信的独立编译边界。"
+          "status": "failed"
         },
         {
-          "name": "integration_testing",
-          "status": "scored",
-          "score": 0,
           "evidence_count": 2,
-          "reason": "仓库仅有一个 instrumentation 测试，断言只是通过 Class.forName 检查 Activity 类存在；没有单元测试，也没有覆盖模块交互、服务绑定、AIDL、平台桥、权限、失败恢复、重连或生命周期行为。"
-        },
-        {
-          "name": "code_duplication",
-          "status": "scored",
+          "name": "integration_testing",
+          "reason": "仓库仅有一个 instrumentation 测试，断言只是通过 Class.forName 检查 Activity 类存在；没有单元测试，也没有覆盖模块交互、服务绑定、AIDL、平台桥、权限、失败恢复、重连或生命周期行为。",
           "score": 0,
+          "status": "scored"
+        },
+        {
           "evidence_count": 4,
-          "reason": "重复是生产代码的主导形态：26 个 feature、22 个 scene、12 个 diagnostics、30 个 legacy、30 个 model、22 个 profile 和 3 个平台桥均出现模板式手写近拷贝。代表性差异通常只有类名、属性常量、缓存键或少量参数，变更需要跨大量文件同步。"
+          "name": "code_duplication",
+          "reason": "重复是生产代码的主导形态：26 个 feature、22 个 scene、12 个 diagnostics、30 个 legacy、30 个 model、22 个 profile 和 3 个平台桥均出现模板式手写近拷贝。代表性差异通常只有类名、属性常量、缓存键或少量参数，变更需要跨大量文件同步。",
+          "score": 0,
+          "status": "scored"
         },
         {
+          "evidence_count": 3,
           "name": "release_branch_strategy",
-          "status": "scored",
+          "reason": "实际比较显示 release 与两个 platform 分支都从 v0.9.0 基点各自增加一个两行配置文件，差异范围清晰、没有复制生产实现；但三个分支均落后 main 六个提交，历史中没有合并提交或回灌证据，因此长期复用和修复传播仍不明确。",
           "score": 2,
-          "evidence_count": 3,
-          "reason": "实际比较显示 release 与两个 platform 分支都从 v0.9.0 基点各自增加一个两行配置文件，差异范围清晰、没有复制生产实现；但三个分支均落后 main 六个提交，历史中没有合并提交或回灌证据，因此长期复用和修复传播仍不明确。"
+          "status": "scored"
         },
         {
-          "name": "platform_reuse",
-          "status": "scored",
-          "score": 1,
           "evidence_count": 3,
-          "reason": "平台选择集中在 VendorClimateManager，调用方共享同一表面 API；但该表面不是类型化接口，三个桥几乎整文件复制，平台属性偏移和 SystemProperties 策略又出现在 profile/model/legacy 家族。复用存在但不足以隔离平台变化。"
+          "name": "platform_reuse",
+          "reason": "平台选择集中在 VendorClimateManager，调用方共享同一表面 API；但该表面不是类型化接口，三个桥几乎整文件复制，平台属性偏移和 SystemProperties 策略又出现在 profile/model/legacy 家族。复用存在但不足以隔离平台变化。",
+          "score": 1,
+          "status": "scored"
         }
-      ]
+      ],
+      "evaluator": "codex-cli/0.150.0-alpha.12.2;g2-code-health-v2;sha256=78f40d3089fb",
+      "evidence_anchor_count": 30,
+      "evidence_validation": "passed",
+      "exploration": {
+        "directories_visited": 17,
+        "files_opened": 35,
+        "notes": "HEAD 与预期值一致。盘点了 2 个 Gradle 模块、151 个生产 Kotlin 文件（app 145、vehicle 6）、1 个 AIDL、唯一的 1 个测试文件、系统/隐藏 API 与反射位置、最大源码和主要重复家族；完整或有界检查了 23 个代表性生产文件及全部测试，并比较了 main 与 platform/8155、platform/8295、release/0.9、develop。未运行构建、脚本或网络操作，未修改文件，未使用 skill。 Runner normalized tool_calls from Codex JSONL to 19 (evaluator self-report: 19); prompt=g2-code-health-v2; reasoning_effort=high.",
+        "tool_calls": 19
+      },
+      "failed_dimension_count": 1,
+      "finished_at": "2026-08-29T11:04:10.437Z",
+      "human_review": "passed",
+      "human_review_report": "reports/validation/g3-blind-human-review.md",
+      "max_rounds": 1,
+      "model": "gpt-5.6-sol",
+      "repository_head": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+      "result_path": "calibration/results/g3/blind-d4d90a7ebecf.json",
+      "reviewed_at": "2026-08-29T11:40:16.568740Z",
+      "rounds_used": 1,
+      "scored_dimension_count": 9,
+      "scored_evidence_coverage": 1.0,
+      "started_at": "2026-08-29T10:59:36.348Z",
+      "status": "blind_validated",
+      "truncated": false,
+      "truncation_reason": null,
+      "unweighted_mean": 0.777778,
+      "validation_report": "reports/validation/g3-blind-results.json",
+      "wall_clock_budget_seconds": 900,
+      "wall_clock_seconds": 274.089
     }
-  ]
+  ],
+  "comparison_family": "hvac-controlled-pair",
+  "delivery_status": "pending",
+  "dimension_expectations": [
+    {
+      "name": "architecture",
+      "reason": "两模块形式存在，但业务职责大量集中在 Activity 和全局 Manager。",
+      "status": "expected_low"
+    },
+    {
+      "name": "solid",
+      "reason": "直接依赖具体平台类与单例，接口隔离和依赖反转不足。",
+      "status": "expected_low"
+    },
+    {
+      "name": "hidden_api_reflection",
+      "reason": "生产代码直接反射 android.car 类并访问隐藏 SystemProperties。",
+      "status": "expected_low"
+    },
+    {
+      "name": "aidl_sdk_call",
+      "reason": "有 AIDL 文件但调用边界仍混入 UI 与单例管理器。",
+      "status": "expected_low"
+    },
+    {
+      "name": "compilation_independence",
+      "reason": "直接引用隐藏系统类且未提供可独立替代的 SDK stub。",
+      "status": "failed"
+    },
+    {
+      "name": "integration_testing",
+      "reason": "仅有类存在性测试，无法证明跨进程契约正确。",
+      "status": "expected_low"
+    },
+    {
+      "name": "code_duplication",
+      "reason": "多平台桥接和车型 profile 通过大段复制扩展。",
+      "status": "expected_low"
+    },
+    {
+      "name": "release_branch_strategy",
+      "reason": "平台与发布分支长期脱离后续 main 共享改动。",
+      "status": "expected_low"
+    },
+    {
+      "name": "platform_reuse",
+      "reason": "分支对象比较显示相同 blob 比例约为 0.31。",
+      "status": "expected_low"
+    }
+  ],
+  "evidence": [
+    {
+      "branch": "main",
+      "commit": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+      "confidence": "high",
+      "dimension": "architecture",
+      "expected_impact": "negative",
+      "observation": "209 行 Activity 同时直接处理界面事件、座椅、除霜、温度、诊断和车辆服务状态。",
+      "path": "app/src/main/java/com/cockpitbench/thermo/ClimateCenterActivity.kt",
+      "symbol_or_line": "ClimateCenterActivity"
+    },
+    {
+      "branch": "main",
+      "commit": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+      "confidence": "high",
+      "dimension": "solid",
+      "expected_impact": "negative",
+      "observation": "Manager 以全局单例选择平台实现并直接读取隐藏系统属性，无法通过接口替换依赖。",
+      "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/VendorClimateManager.kt",
+      "symbol_or_line": "VendorClimateManager"
+    },
+    {
+      "branch": "main",
+      "commit": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+      "confidence": "high",
+      "dimension": "code_duplication",
+      "expected_impact": "negative",
+      "observation": "8155 与 8295 桥接类各 71 行且仅两行差异，平台扩展依靠复制整类。",
+      "path": "vehicle/src/main/java/com/cockpitbench/thermo/vehicle/platform/Sa8155ClimateBridge.kt",
+      "symbol_or_line": "Sa8155ClimateBridge"
+    },
+    {
+      "branch": "main",
+      "commit": "85fca70e962f51ebffbc52ab75084e58d3789efb",
+      "confidence": "high",
+      "dimension": "integration_testing",
+      "expected_impact": "negative",
+      "observation": "唯一设备测试仅反射加载 Activity 类，没有启动页面或验证 Binder、信号和控制结果。",
+      "path": "app/src/androidTest/java/com/cockpitbench/thermo/ClimateLaunchTest.kt",
+      "symbol_or_line": "ClimateLaunchTest.activityClassIsPresent"
+    }
+  ],
+  "quality_tier": "low",
+  "repo_id": "APP-17",
+  "review_status": "blind_validated",
+  "schema_version": "1.0.0"
 }
