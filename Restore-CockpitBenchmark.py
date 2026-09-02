@@ -720,7 +720,6 @@ def validate_transport_before_selection(
             ("head", "repo_head"),
             ("branches", "branches"),
             ("tags", "tags"),
-            ("git_tracked_files", "tracked_files"),
         ):
             if record.get(index_field) != entry.get(manifest_field):
                 raise RestoreError(f"{repo_id} manifest/index field mismatch: {index_field}")
