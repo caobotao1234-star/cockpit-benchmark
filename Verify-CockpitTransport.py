@@ -1063,7 +1063,8 @@ def verify(
         )
     expected_sums = "".join(expected_sums_lines).encode("utf-8")
     actual_sums = sums_path.read_bytes() if sums_path.is_file() else b""
-    if actual_sums != expected_sums:
+    normalized_sums = actual_sums.replace(b"\r\n", b"\n")
+    if b"\r" in normalized_sums or normalized_sums != expected_sums:
         add_issue(issues, "sha256sums_mismatch", "SHA256SUMS differs from ordered index records")
 
     manifest: dict[str, Any] | None = None

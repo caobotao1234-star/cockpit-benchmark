@@ -4,3 +4,4 @@
 *.md text eol=lf
 *.log text eol=lf
 *.ps1 text eol=crlf
+.cockpit-transport/SHA256SUMS text eol=lf

@@ -16,7 +16,7 @@
 
 ## 版本状态
 
-- `transport-v0.3.0` 是当前 scored active-six checkpoint；`transport-v0.2.0` 保持不动，仅作旧运输快照。
+- `transport-v0.3.1` 是当前 scored active-six checkpoint；它保留 `transport-v0.3.0` 的评分与 40 仓 payload，仅修复 Git-for-Windows 恢复兼容性。旧 tag 均保持不动。
 - `STANDARD_SCORES.json` 是机器可读标准分；`SCORECARD.md` / `SCORECARD.csv` 是人类审阅表。
 - 标准分严格绑定表中 current HEAD 和 `SCORE_RULES.md`。旧 calibration、旧 rubric 和额外维度均不得复用。
 - 34 个 pending 仓没有当前标准分；不得给它们补 0、猜分或纳入完成率。

@@ -14,7 +14,8 @@
 | FW-08 | soa-gateway | FW | 中 | `repos/framework/soa-gateway` | **52/72** |
 | FW-19 | can-middleware | FW | 低 | `repos/framework/can-middleware` | **34/72** |
 
-Status: `transport-v0.3.0` is the scored active-six checkpoint. The complete machine-readable
+Status: `transport-v0.3.1` is the current scored active-six checkpoint; it preserves the exact
+`transport-v0.3.0` benchmark payload and adds Git-for-Windows restore compatibility. The complete machine-readable
 truth is [STANDARD_SCORES.json](STANDARD_SCORES.json); the human matrices and all 75 evidence rows
 are in [SCORECARD.md](SCORECARD.md) and [SCORECARD.csv](SCORECARD.csv). The exact APP/FW contract is
 [SCORE_RULES.md](SCORE_RULES.md). Do not reuse historical calibration or add dimensions outside it.
