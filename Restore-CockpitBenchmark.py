@@ -498,10 +498,12 @@ def harden_extracted_git_dir(git_dir: Path, *, object_format: str) -> None:
     safe_config = (
         "[core]\n"
         f"\trepositoryFormatVersion = {version}\n"
-        "\tfileMode = true\n"
+        "\tfileMode = false\n"
         "\tbare = false\n"
         "\tlogAllRefUpdates = true\n"
         "\tlongPaths = true\n"
+        "\tsymlinks = false\n"
+        "\tautoCrlf = false\n"
         f"{extension}"
     )
     temporary = git_dir / f"config.safe-{uuid.uuid4().hex}.tmp"
