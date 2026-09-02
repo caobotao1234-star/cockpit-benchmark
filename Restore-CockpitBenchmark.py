@@ -451,7 +451,6 @@ def validate_extracted_git_dir(git_dir: Path) -> None:
     reject_reparse_ancestors(git_dir)
     forbidden_paths = (
         git_dir / "commondir",
-        git_dir / "config.worktree",
         git_dir / "worktrees",
         git_dir / "modules",
         git_dir / "objects" / "info" / "alternates",
@@ -481,6 +480,13 @@ def validate_extracted_git_dir(git_dir: Path) -> None:
 
 def harden_extracted_git_dir(git_dir: Path, *, object_format: str) -> None:
     validate_extracted_git_dir(git_dir)
+    worktree_config = git_dir / "config.worktree"
+    if worktree_config.exists():
+        if not worktree_config.is_file() or worktree_config.stat().st_size != 0:
+            raise RestoreError(
+                f"non-empty per-worktree Git config is forbidden: {worktree_config}"
+            )
+        worktree_config.unlink()
     hooks = git_dir / "hooks"
     if hooks.exists():
         shutil.rmtree(hooks)
