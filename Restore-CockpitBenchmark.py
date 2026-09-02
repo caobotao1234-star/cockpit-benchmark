@@ -642,12 +642,19 @@ def _parse_sha256sums(path: Path) -> dict[str, str]:
 
 
 def _load_verifier(root: Path):
-    verifier_path = Path(__file__).resolve().with_name("verify_private_transport_v3.py")
-    if not verifier_path.is_file():
-        # The distributed restore is placed at the wrapper root.
-        verifier_path = root / "verify_private_transport_v3.py"
-    if not verifier_path.is_file():
-        raise RestoreError(f"strict archive-index verifier is missing: {verifier_path}")
+    script_dir = Path(__file__).resolve().parent
+    candidates = (
+        script_dir / "verify_private_transport_v3.py",
+        script_dir / "Verify-CockpitTransport.py",
+        root / "verify_private_transport_v3.py",
+        root / "Verify-CockpitTransport.py",
+    )
+    verifier_path = next((path for path in candidates if path.is_file()), None)
+    if verifier_path is None:
+        raise RestoreError(
+            "strict archive-index verifier is missing; checked: "
+            + ", ".join(str(path) for path in candidates)
+        )
     spec = importlib.util.spec_from_file_location("cockpit_transport_strict_verifier", verifier_path)
     if spec is None or spec.loader is None:
         raise RestoreError(f"cannot load strict archive-index verifier: {verifier_path}")
