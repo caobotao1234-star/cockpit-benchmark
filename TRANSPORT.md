@@ -22,9 +22,9 @@ repositories, so the transport preserves their complete `.git` metadata director
 - `repos/` is intentionally ignored by the outer wrapper. On the authoring computer it contains
   the live independent repositories; after a fresh wrapper clone it is reconstructed from archives.
 
-The current 40 metadata archives total 807,700,480 bytes. The largest archive is 58,583,040 bytes,
+The current 40 metadata archives total 807,383,040 bytes. The largest archive is 58,583,040 bytes,
 below GitHub's 100 MB per-file hard limit. Git LFS is therefore not enabled and no paid LFS quota
-is used. This index was generated at `2026-09-02T14:57:32.790294Z` and binds manifest SHA-256
+is used. This index was generated at `2026-09-02T15:10:47.659338Z` and binds manifest SHA-256
 `79979245c03b553e84f068b66d09c0697a9a210b32e6e1aee63be27ec5413c4e`. The rejected bundle experiment is documented at
 `reports/validation/private-transport-bundle-rejection.json`.
 

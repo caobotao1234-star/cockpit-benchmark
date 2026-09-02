@@ -1,4 +1,4 @@
-21328c4f37f839af2cec4becf63d16f3a6cf77cd00095a882e752d82d90424af  .cockpit-transport/repositories/APP-01-aurora-settings.git.tar
+a74913eead56d1a3b91dbfd63ad8fa714e969e6cf92be511e928e3ae9e9b3821  .cockpit-transport/repositories/APP-01-aurora-settings.git.tar
 f80cdeef4b15253f461c89d55a24d0603bac85ca73330971cb4ecc811c212e40  .cockpit-transport/repositories/APP-02-horizon-launcher.git.tar
 c109bedc6bc120bdba81f04de86a75de087fbb8f454d83f9caae5934589db265  .cockpit-transport/repositories/APP-03-climatix-hvac.git.tar
 d3514d86050d3b15ebc9fbf004500ff17f6a02d60026f3d39abeba55ab3cef0a  .cockpit-transport/repositories/APP-04-wave-media.git.tar
@@ -12,7 +12,7 @@ ebe93ad2622b12f99cd48fe9002e5cd1aa6697ca71eb06f18f70c4f0ad0834da  .cockpit-trans
 41a2128bbac5705b4a5bcdfa8b529f7261fa2546786d7754ba9bc72f80d7f9ca  .cockpit-transport/repositories/APP-12-orbit-ota.git.tar
 5cea1555b5474b6375889d664b54cec4bf9aaef1754d0a910c80e53ce5a699e9  .cockpit-transport/repositories/APP-13-market-hub.git.tar
 9430e7f463b3dbcf4d4e4ec787a92352fd76c83a0dd2bd2bb987c95656887925  .cockpit-transport/repositories/APP-14-cockpit-shell.git.tar
-dd2b016fe24a697ad98e9e30346ef1c5cce571c8a3ced5dd0f0e8b41a79375c5  .cockpit-transport/repositories/APP-15-atlas-settings.git.tar
+4c1afa9c805c3fe4937677d8dd7ffdc32e20ada705e009c8f068c299cee5cd5e  .cockpit-transport/repositories/APP-15-atlas-settings.git.tar
 64f987ee16f6733cd309c1223732a960a4b6418789ae8bf4c469cf9727e27d99  .cockpit-transport/repositories/APP-16-nova-launcher.git.tar
 80c3e22a56641e51d294c0563b99372595a4176fd2745d7017bad2843f16b063  .cockpit-transport/repositories/APP-17-thermo-control.git.tar
 066580e9e938d7a1c13da94d19a3f5cd1531c0968eb48722fdcc0a8f3911dd3d  .cockpit-transport/repositories/APP-18-stream-media.git.tar
@@ -35,6 +35,6 @@ b64a6cbb097aa4ad623db098dd8a1a7ded45f421dcf265f7794d5255f21413a9  .cockpit-trans
 f1e44b101e3accb6f17b298d3231fb7874a02f97069640aa96185ba39f860383  .cockpit-transport/repositories/FW-15-car-runtime-service.git.tar
 a965e3a874222ef67056226c586e1d31d36855dc81ba36da0f5780767539562c  .cockpit-transport/repositories/FW-16-platform-compat-service.git.tar
 12d37a443354704fbbd45326e8f3da3685591e5b1e233b524e510ffcc702f2c9  .cockpit-transport/repositories/FW-17-binder-hub-service.git.tar
-e087222e23ec4cbb7e2265f589550a951a7d16350fba6852e7384ff2623d521d  .cockpit-transport/repositories/FW-18-vehicle-platform-service.git.tar
+bee0ad20ad66ce1dedf63941ea3ded2fc371689558e4078cc1332fe844451970  .cockpit-transport/repositories/FW-18-vehicle-platform-service.git.tar
 91d8882c71fd92083878a94589595600ce3e3f7f18175056d989f73a350b9ff7  .cockpit-transport/repositories/FW-19-can-middleware.git.tar
 b175cc7ad5b0f188f477005e7523c84169859e7c5621ad48a6eab72d156a01de  .cockpit-transport/repositories/FW-20-system-service-facade.git.tar

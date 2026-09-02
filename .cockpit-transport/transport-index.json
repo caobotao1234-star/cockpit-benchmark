@@ -1,13 +1,13 @@
 {
   "schema_version": "2.0.0",
   "document_type": "cockpit_benchmark_private_transport",
-  "generated_at": "2026-09-02T14:57:32.790294Z",
+  "generated_at": "2026-09-02T15:10:47.659338Z",
   "packaging": "one path-safe complete .git metadata archive per independent child repository",
   "manifest": "manifest.json",
   "manifest_sha256": "79979245c03b553e84f068b66d09c0697a9a210b32e6e1aee63be27ec5413c4e",
   "repository_count": 40,
   "shallow_repository_count": 14,
-  "total_archive_bytes": 807700480,
+  "total_archive_bytes": 807383040,
   "repositories": [
     {
       "id": "APP-01",
@@ -34,8 +34,8 @@
         "be0b09bf5dcc537209918d018359a8b6d851bc23"
       ],
       "archive": ".cockpit-transport/repositories/APP-01-aurora-settings.git.tar",
-      "archive_bytes": 4075520,
-      "archive_sha256": "21328c4f37f839af2cec4becf63d16f3a6cf77cd00095a882e752d82d90424af",
+      "archive_bytes": 3942400,
+      "archive_sha256": "a74913eead56d1a3b91dbfd63ad8fa714e969e6cf92be511e928e3ae9e9b3821",
       "refs": {
         "refs/heads/develop": "e0d173ae0eb292129ee05b3bdc853b9c019acd06",
         "refs/heads/main": "150289b5e0d67acf395aa5418e43347207e9c1b4",
@@ -2402,8 +2402,8 @@
         "fda2fa4162e5653e44fa040b1f570ab654a81ac9"
       ],
       "archive": ".cockpit-transport/repositories/APP-15-atlas-settings.git.tar",
-      "archive_bytes": 4618240,
-      "archive_sha256": "dd2b016fe24a697ad98e9e30346ef1c5cce571c8a3ced5dd0f0e8b41a79375c5",
+      "archive_bytes": 4526080,
+      "archive_sha256": "4c1afa9c805c3fe4937677d8dd7ffdc32e20ada705e009c8f068c299cee5cd5e",
       "refs": {
         "refs/heads/develop": "b551fe7c60932ff235c0ae5ad19d6195907707bf",
         "refs/heads/main": "abe446eb843ce0b4ceb068b151ff4081b16ce832",
@@ -4659,8 +4659,8 @@
         "f02b56678700a4035d0ad8882f7d20371bb96ee2"
       ],
       "archive": ".cockpit-transport/repositories/FW-18-vehicle-platform-service.git.tar",
-      "archive_bytes": 12554240,
-      "archive_sha256": "e087222e23ec4cbb7e2265f589550a951a7d16350fba6852e7384ff2623d521d",
+      "archive_bytes": 12462080,
+      "archive_sha256": "bee0ad20ad66ce1dedf63941ea3ded2fc371689558e4078cc1332fe844451970",
       "refs": {
         "refs/heads/aosp/pie-release": "f02b56678700a4035d0ad8882f7d20371bb96ee2",
         "refs/heads/develop": "ca512ec4d29b7f7e84ba3ea637bc072b5514c8d2",
